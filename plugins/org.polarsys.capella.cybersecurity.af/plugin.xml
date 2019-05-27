@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension
+	     point="org.eclipse.ui.views">
+	  <view
+	        name="Cybersecurity"
+	        icon="icons/view.gif"
+	        category="org.polarsys.kitalpha.view.category"
+	        class="org.polarsys.kitalpha.ad.viewpoint.ui.views.ViewpointView"
+	        id="org.polarsys.capella.cybersecurity.view"
+	        resourceId="org.polarsys.capella.cybersecurity"/>
+	</extension>
+	<extension
+	     point="org.polarsys.kitalpha.resourcereuse.resources">
+	  <resource
+	        domain="AF"
+	        id="org.polarsys.capella.cybersecurity"
+	        tags="vp"
+	        name="Cybersecurity"
+	        path="/org.polarsys.capella.cybersecurity.af/model/Cybersecurity.vp#_JbPscHb-Eemf77wXwnQxng"/>
+	</extension>
+	<extension 
+	     point="org.eclipse.ui.propertiesView">
+	 	<excludeSources
+	    	id="org.polarsys.capella.cybersecurity.view">
+	 	</excludeSources>
+	</extension>
+</plugin>
+

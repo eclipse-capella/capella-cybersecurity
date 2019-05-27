@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ASCII"?>
+<vp:Viewpoint xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:vp="http://www.polarsys.org/kitalpha/ad/viewpoint/1.0.0" name="Cybersecurity" id="org.polarsys.capella.cybersecurity" vpid="_JbPscHb-Eemf77wXwnQxng" version="0.9.0.qualifier">
+  <metamodel>
+    <models href="../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#/"/>
+  </metamodel>
+  <representation/>
+</vp:Viewpoint>

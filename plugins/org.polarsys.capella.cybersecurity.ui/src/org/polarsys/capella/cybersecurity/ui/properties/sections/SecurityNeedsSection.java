@@ -1,0 +1,209 @@
+/*******************************************************************************
+ * Copyright (c) 2019 THALES GLOBAL SERVICES.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *   
+ * Contributors:
+ *    Thales - initial API and implementation
+ *******************************************************************************/
+
+// Generated on 20.05.2019 at 12:52:47 CEST by Viewpoint DSL Generator V 0.1
+
+package org.polarsys.capella.cybersecurity.ui.properties.sections;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.eclipse.emf.common.notify.Adapter;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Group;
+import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
+import org.polarsys.capella.core.ui.properties.fields.AbstractSemanticField;
+import org.polarsys.capella.core.ui.properties.fields.IntegerValueGroup;
+import org.polarsys.capella.core.ui.properties.sections.AbstractSection;
+import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
+import org.polarsys.capella.cybersecurity.model.SecurityNeeds;
+import org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage;
+import org.polarsys.capella.cybersecurity.ui.CommonHelpers;
+import org.polarsys.capella.cybersecurity.ui.CybersecurityUIActivator;
+import org.polarsys.capella.cybersecurity.ui.ElementExtensionStorage;
+import org.polarsys.capella.cybersecurity.ui.ElementExtensionStorageImpl;
+import org.polarsys.kitalpha.emde.model.ExtensibleElement;
+
+public class SecurityNeedsSection extends AbstractSection {
+
+  // display properties for this element
+  private SecurityNeeds elementExtension;
+
+  private IntegerValueGroup confidentiality;
+  private IntegerValueGroup integrity;
+  private IntegerValueGroup traceability;
+  private IntegerValueGroup availability;
+  
+  /**
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * 
+   * @param eObject:
+   *          current object
+   * @generated
+   */
+  public boolean select(Object eObject) {
+    EObject eObjectToTest = super.selection(eObject);
+
+    if (eObjectToTest == null) {
+      return false;
+    } else if (eObjectToTest instanceof SecurityNeeds) {
+      return true;
+    } else {
+      EObject children = getSecurityNeedsObject(eObjectToTest);
+      if (children != null) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  /**
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * 
+   * @param part
+   * @param selection
+   * @generated
+   */
+  public void setInput(IWorkbenchPart part, ISelection selection) {
+    EObject newEObject = super.setInputSelection(part, selection);
+
+    if (newEObject != null && !(newEObject instanceof SecurityNeeds)) {
+      newEObject = getSecurityNeedsObject(newEObject);
+    }
+
+    if (newEObject != null) {
+      loadData(newEObject);
+    }
+  }
+
+  /**
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * 
+   * @param parent:
+   *          An EObject. It is considered as the Parent of an EMDE extension (a Viewpoint element)
+   * @return
+   * @generated
+   */
+  private EObject getSecurityNeedsObject(EObject parent) {
+    if (parent == null)
+      return null;
+
+    if (!CommonHelpers.isViewpointActive(parent, CybersecurityUIActivator.VIEWPOINT_ID))
+      return null;
+
+    if (parent.eContents() == null)
+      return null;
+
+    EObject result = null;
+    for (EObject iEObject : parent.eContents()) {
+      if (iEObject instanceof SecurityNeeds) {
+        result = (result == null ? (SecurityNeeds) iEObject : null);
+        // This case is true when there is more then one extension of the same type.
+        if (result == null)
+          break;
+      }
+    }
+    if (result == null) {
+      if (CommonHelpers.canBeExtendedBy(parent, CybersecurityPackage.Literals.SECURITY_NEEDS)) {
+        for (Adapter adapter : parent.eAdapters()) {
+          if (adapter instanceof ElementExtensionStorage
+              && ((ElementExtensionStorage<?>) adapter).getExtension() instanceof SecurityNeeds) {
+            result = ((ElementExtensionStorage<?>) adapter).getExtension();
+          }
+        }
+        if (result == null) {
+          ElementExtensionStorage<TrustBoundaryStorage> adapter = new ElementExtensionStorageImpl<>(
+              (ExtensibleElement) parent, CybersecurityPackage.Literals.SECURITY_NEEDS);
+          result = adapter.getExtension();
+        }
+      }
+    }
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * 
+   * @param parent:
+   * @param aTabbedPropertySheetPage:
+   * @generated
+   */
+  public void createControls(Composite parent, TabbedPropertySheetPage aTabbedPropertySheetPage) {
+    super.createControls(parent, aTabbedPropertySheetPage);
+
+    GridData gd = new GridData(GridData.FILL_HORIZONTAL);
+    gd.horizontalSpan = ((GridLayout) rootParentComposite.getLayout()).numColumns;
+
+    Group group = getWidgetFactory().createGroup(rootParentComposite, ""); //$NON-NLS-1$
+    group.setLayout(new GridLayout(2,false));
+    group.setLayoutData(gd);
+    
+    confidentiality = new IntegerValueGroup(group, Messages.SecurityNeedsSection_1, getWidgetFactory(), true);
+    integrity = new IntegerValueGroup(group, Messages.SecurityNeedsSection_2, getWidgetFactory(), true);
+    traceability = new IntegerValueGroup(group, Messages.SecurityNeedsSection_3, getWidgetFactory(), true);
+    availability = new IntegerValueGroup(group, Messages.SecurityNeedsSection_4, getWidgetFactory(), true);
+    
+    confidentiality.setDisplayedInWizard(isDisplayedInWizard());
+    integrity.setDisplayedInWizard(isDisplayedInWizard());
+    traceability.setDisplayedInWizard(isDisplayedInWizard());
+    availability.setDisplayedInWizard(isDisplayedInWizard());
+    
+  }
+
+  /**
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * 
+   * @param object
+   * @generated
+   */
+  public void loadData(EObject object) {
+    super.loadData(object);
+    confidentiality.loadData(object, CybersecurityPackage.Literals.SECURITY_NEEDS__CONFIDENTIALITY);
+    integrity.loadData(object, CybersecurityPackage.Literals.SECURITY_NEEDS__INTEGRITY);
+    traceability.loadData(object, CybersecurityPackage.Literals.SECURITY_NEEDS__TRACEABILITY);
+    availability.loadData(object, CybersecurityPackage.Literals.SECURITY_NEEDS__AVAILABILITY);
+
+    elementExtension = (SecurityNeeds) object;
+  }
+
+  /**
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * 
+   * @generated
+   */
+  public List<AbstractSemanticField> getSemanticFields() {
+    List<AbstractSemanticField> abstractSemanticFields = new ArrayList<AbstractSemanticField>();
+    abstractSemanticFields.add(confidentiality);
+    abstractSemanticFields.add(integrity);
+    abstractSemanticFields.add(traceability);
+    abstractSemanticFields.add(availability);
+    return abstractSemanticFields;
+  }
+
+  /**
+   * pr
+   * 
+   * @see org.eclipse.ui.views.properties.tabbed.AbstractPropertySection#refresh()
+   */
+  @Override
+  public void refresh() {
+    // must be overwritten since we can also load data from objects without a resource
+    if (elementExtension != null) {
+      loadData(elementExtension);
+    }
+  }
+}

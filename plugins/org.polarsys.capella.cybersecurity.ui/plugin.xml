@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<?eclipse version="3.4"?>
+<!--
+    Copyright (c) 2019 THALES GLOBAL SERVICES.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+      
+    Contributors:
+       Thales - initial API and implementation
+ -->
+
+<plugin>
+<extension
+	point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
+	<propertyTabs 
+		contributorId="org.eclipse.sirius.diagram.ui">
+			
+			<propertyTab
+		    	afterTab="BaseSiriusDiagram"
+		        category="semantic &amp; extension"
+		        id="cyber_ActorAttributes"
+		        label="Cybersecurity">
+		    </propertyTab> 
+			
+	</propertyTabs>
+</extension> 
+<extension
+	point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
+	<propertyTabs 
+		contributorId="org.polarsys.capella.core.data.capellamodeller.properties">
+			
+			<propertyTab
+		    	afterTab="BaseCapella"
+		        category="default"
+		        id="cyber_ActorAttributes"
+		        label="Cybersecurity">
+		    </propertyTab> 
+			
+	</propertyTabs>
+</extension> 
+<extension
+	point="org.eclipse.ui.views.properties.tabbed.propertySections">
+		<propertySections
+			contributorId="org.eclipse.sirius.diagram.ui">
+			<propertySection
+		    	class="org.polarsys.capella.cybersecurity.ui.properties.sections.ActorCybersecuritySection"
+		        filter="org.polarsys.capella.cybersecurity.ui.properties.sections.ActorCybersecuritySection"
+		        id="cybersecurity.ActorSection"
+		        tab="cyber_ActorAttributes">
+		    </propertySection> 
+		    <propertySection
+		    	class="org.polarsys.capella.cybersecurity.ui.properties.sections.ThreatSection"
+		        filter="org.polarsys.capella.cybersecurity.ui.properties.sections.ThreatSection"
+		        id="cybersecurity.ThreatSection"
+		        tab="cyber_ActorAttributes">
+		    </propertySection>
+		     <propertySection
+		    	class="org.polarsys.capella.cybersecurity.ui.properties.sections.FunctionalPrimaryAssetSection"
+		        filter="org.polarsys.capella.cybersecurity.ui.properties.sections.FunctionalPrimaryAssetSection"
+		        id="cybersecurity.FunctionalPrimaryAssetSection"
+		        tab="cyber_ActorAttributes">
+		    </propertySection> 
+		     <propertySection
+		    	class="org.polarsys.capella.cybersecurity.ui.properties.sections.InformationPrimaryAssetSection"
+		        filter="org.polarsys.capella.cybersecurity.ui.properties.sections.InformationPrimaryAssetSection"
+		        id="cybersecurity.InformationPrimaryAssetSection"
+		        tab="cyber_ActorAttributes">
+		    </propertySection>
+		     <propertySection
+		    	class="org.polarsys.capella.cybersecurity.ui.properties.sections.FunctionCybersecuritySection"
+		        filter="org.polarsys.capella.cybersecurity.ui.properties.sections.FunctionCybersecuritySection"
+		        id="cybersecurity.FunctionCybersecuritySection"
+		        tab="cyber_ActorAttributes">
+		    </propertySection>
+       <propertySection
+             class="org.polarsys.capella.cybersecurity.ui.properties.sections.SecurityNeedsSection"
+             filter="org.polarsys.capella.cybersecurity.ui.properties.sections.SecurityNeedsSection"
+             id="cybersecurity.SecurityNeedsSection"
+             tab="cyber_ActorAttributes">
+       </propertySection> 
+		    </propertySections>
+</extension>
+<extension
+	point="org.eclipse.ui.views.properties.tabbed.propertySections">
+		<propertySections
+			contributorId="org.polarsys.capella.core.data.capellamodeller.properties">
+			<propertySection
+		    	class="org.polarsys.capella.cybersecurity.ui.properties.sections.ActorCybersecuritySection"
+		        filter="org.polarsys.capella.cybersecurity.ui.properties.sections.ActorCybersecuritySection"
+		        id="cybersecurity.ActorSection"
+		        tab="cyber_ActorAttributes">
+		    </propertySection> 
+		    <propertySection
+		    	class="org.polarsys.capella.cybersecurity.ui.properties.sections.ThreatSection"
+		        filter="org.polarsys.capella.cybersecurity.ui.properties.sections.ThreatSection"
+		        id="cybersecurity.ThreatSection"
+		        tab="cyber_ActorAttributes">
+		    </propertySection>
+		     <propertySection
+		    	class="org.polarsys.capella.cybersecurity.ui.properties.sections.FunctionalPrimaryAssetSection"
+		        filter="org.polarsys.capella.cybersecurity.ui.properties.sections.FunctionalPrimaryAssetSection"
+		        id="cybersecurity.FunctionalPrimaryAssetSection"
+		        tab="cyber_ActorAttributes">
+		    </propertySection> 
+		     <propertySection
+		    	class="org.polarsys.capella.cybersecurity.ui.properties.sections.InformationPrimaryAssetSection"
+		        filter="org.polarsys.capella.cybersecurity.ui.properties.sections.InformationPrimaryAssetSection"
+		        id="cybersecurity.InformationPrimaryAssetSection"
+		        tab="cyber_ActorAttributes">
+		    </propertySection>
+		     <propertySection
+		    	class="org.polarsys.capella.cybersecurity.ui.properties.sections.FunctionCybersecuritySection"
+		        filter="org.polarsys.capella.cybersecurity.ui.properties.sections.FunctionCybersecuritySection"
+		        id="cybersecurity.FunctionCybersecuritySection"
+		        tab="cyber_ActorAttributes">
+		    </propertySection>
+       <propertySection
+             class="org.polarsys.capella.cybersecurity.ui.properties.sections.SecurityNeedsSection"
+             filter="org.polarsys.capella.cybersecurity.ui.properties.sections.SecurityNeedsSection"
+             id="cybersecurity.SecurityNeedsSection"
+             tab="cyber_ActorAttributes">
+       </propertySection>
+		    </propertySections>
+</extension>
+<extension
+      point="org.eclipse.amalgam.explorer.activity.ui.sectionsProvider">
+   <Section
+         expanded="true"
+         filtering="true"
+         id="org.polarsys.capella.cybersecurity"
+         index="0"
+         name="%cybersecurityActivityExplorerSection"
+         pageId="org.polarsys.capella.core.explorer.activity.ui.page.physical.architecture">
+      <Description>
+         %cybersecurityActivityExplorerSection_description
+      </Description>
+      <Activity
+            class="org.polarsys.capella.cybersecurity.ui.activity.CreateThreatDiagramHyperlink"
+            id="org.polarsys.capella.cybersecurity.ui.createThreatDiagram"
+            index="1"
+            name="%cybersecurityActivity_createThreatDiagram">
+         <Description>
+            %cybersecurityActivity_createThreatDiagram_description
+         </Description>
+      </Activity>
+      <Activity
+            class="org.polarsys.capella.cybersecurity.ui.activity.CreateCyberPABDiagramHyperlink"
+            id="org.polarsys.capella.cybersecurity.ui.createCyberPABDiagram"
+            index="0"
+            name="%cybersecurityActivity_createCyberPABdiagram">
+         <Description>
+            %cybersecurityActivity_createCyberPABdiagram_description
+         </Description>
+      </Activity>
+   </Section>
+</extension>
+</plugin>

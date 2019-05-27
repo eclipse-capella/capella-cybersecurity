@@ -1,0 +1,57 @@
+These followings icons are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+
+<icon file path> - <original eclipse plug-in> - <original file path>
+
+/icons/full/ctool16/CreateCybersecurityPkg_ownedCybersecurityPkgs_CybersecurityPkg.gif - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/ctool16/CreateCybersecurityPkg_ownedCybersecurityPkgs_CybersecurityPkg.gif
+/icons/full/ctool16/CreateCybersecurityPkg_ownedPrimaryAssets_FunctionalPrimaryAsset.gif - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/ctool16/CreateCybersecurityPkg_ownedPrimaryAssets_FunctionalPrimaryAsset.gif
+/icons/full/ctool16/CreateCybersecurityPkg_ownedPrimaryAssets_InformationPrimaryAsset.gif - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/ctool16/CreateCybersecurityPkg_ownedPrimaryAssets_InformationPrimaryAsset.gif
+/icons/full/ctool16/CreateCybersecurityPkg_ownedPrimaryAssets_PrimaryAsset.gif - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/ctool16/CreateCybersecurityPkg_ownedPrimaryAssets_PrimaryAsset.gif
+/icons/full/ctool16/CreateCybersecurityPkg_ownedThreats_Threat.gif - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/ctool16/CreateCybersecurityPkg_ownedThreats_Threat.gif
+/icons/full/ctool16/CreateExtensibleElement_ownedExtensions_CybersecurityPkg.gif - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/ctool16/CreateExtensibleElement_ownedExtensions_CybersecurityPkg.gif
+/icons/full/ctool16/CreateExtensibleElement_ownedExtensions_FunctionStorage.gif - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/ctool16/CreateExtensibleElement_ownedExtensions_FunctionStorage.gif
+/icons/full/ctool16/CreateExtensibleElement_ownedExtensions_PrimaryAssetMember.gif - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/ctool16/CreateExtensibleElement_ownedExtensions_PrimaryAssetMember.gif
+/icons/full/ctool16/CreateExtensibleElement_ownedExtensions_PrimaryAssetStorage.gif - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/ctool16/CreateExtensibleElement_ownedExtensions_PrimaryAssetStorage.gif
+/icons/full/ctool16/CreateExtensibleElement_ownedExtensions_SecurityNeeds.gif - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/ctool16/CreateExtensibleElement_ownedExtensions_SecurityNeeds.gif
+/icons/full/ctool16/CreateExtensibleElement_ownedExtensions_Threat.gif - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/ctool16/CreateExtensibleElement_ownedExtensions_Threat.gif
+/icons/full/ctool16/CreateExtensibleElement_ownedExtensions_ThreatApplication.gif - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/ctool16/CreateExtensibleElement_ownedExtensions_ThreatApplication.gif
+/icons/full/ctool16/CreateExtensibleElement_ownedExtensions_ThreatInvolvement.gif - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/ctool16/CreateExtensibleElement_ownedExtensions_ThreatInvolvement.gif
+/icons/full/ctool16/CreateExtensibleElement_ownedExtensions_ThreatInvolvment.gif - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/ctool16/CreateExtensibleElement_ownedExtensions_ThreatInvolvment.gif
+/icons/full/ctool16/CreateExtensibleElement_ownedExtensions_ThreatPkg.gif - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/ctool16/CreateExtensibleElement_ownedExtensions_ThreatPkg.gif
+/icons/full/ctool16/CreateExtensibleElement_ownedExtensions_TrustBoundaryStorage.gif - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/ctool16/CreateExtensibleElement_ownedExtensions_TrustBoundaryStorage.gif
+/icons/full/ctool16/CreateGenericPkg_capellaElements_FunctionStorage.gif - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/ctool16/CreateGenericPkg_capellaElements_FunctionStorage.gif
+/icons/full/ctool16/CreateGenericPkg_capellaElements_PrimaryAssetStorage.gif - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/ctool16/CreateGenericPkg_capellaElements_PrimaryAssetStorage.gif
+/icons/full/ctool16/CreateGenericPkg_capellaElements_SecurityNeeds.gif - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/ctool16/CreateGenericPkg_capellaElements_SecurityNeeds.gif
+/icons/full/ctool16/CreateGenericPkg_capellaElements_Threat.gif - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/ctool16/CreateGenericPkg_capellaElements_Threat.gif
+/icons/full/ctool16/CreateGenericPkg_capellaElements_ThreatApplication.gif - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/ctool16/CreateGenericPkg_capellaElements_ThreatApplication.gif
+/icons/full/ctool16/CreateGenericPkg_capellaElements_ThreatInvolvment.gif - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/ctool16/CreateGenericPkg_capellaElements_ThreatInvolvment.gif
+/icons/full/ctool16/CreateGenericPkg_capellaElements_ThreatPkg.gif - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/ctool16/CreateGenericPkg_capellaElements_ThreatPkg.gif
+/icons/full/ctool16/CreateGenericPkg_capellaElements_TrustBoundaryStorage.gif - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/ctool16/CreateGenericPkg_capellaElements_TrustBoundaryStorage.gif
+/icons/full/ctool16/CreatePrimaryAsset_ownedMembers_PrimaryAssetMember.gif - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/ctool16/CreatePrimaryAsset_ownedMembers_PrimaryAssetMember.gif
+/icons/full/ctool16/CreatePrimaryAsset_ownedSecurityNeeds_SecurityNeeds.gif - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/ctool16/CreatePrimaryAsset_ownedSecurityNeeds_SecurityNeeds.gif
+/icons/full/ctool16/CreatePrimaryAsset_ownedThreatApplications_ThreatApplication.gif - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/ctool16/CreatePrimaryAsset_ownedThreatApplications_ThreatApplication.gif
+/icons/full/ctool16/CreateThreatPkg_ownedThreatPkgs_ThreatPkg.gif - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/ctool16/CreateThreatPkg_ownedThreatPkgs_ThreatPkg.gif
+/icons/full/ctool16/CreateThreatPkg_ownedThreats_Threat.gif - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/ctool16/CreateThreatPkg_ownedThreats_Threat.gif
+/icons/full/obj16/AssetMembership.gif - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/obj16/AssetMembership.gif
+/icons/full/obj16/CybersecurityPkg.gif - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/obj16/CybersecurityPkg.gif
+/icons/full/obj16/datastorage-16.png - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/obj16/datastorage-16.png
+/icons/full/obj16/FPARealize.gif - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/obj16/FPARealize.gif
+/icons/full/obj16/FunctionalPrimaryAsset.gif - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/obj16/FunctionalPrimaryAsset.gif
+/icons/full/obj16/FunctionStorage.gif - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/obj16/FunctionStorage.gif
+/icons/full/obj16/InformationPrimaryAsset.gif - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/obj16/InformationPrimaryAsset.gif
+/icons/full/obj16/IPARealize.gif - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/obj16/IPARealize.gif
+/icons/full/obj16/notTrusted-16.png - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/obj16/notTrusted-16.png
+/icons/full/obj16/PrimaryAsset.gif - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/obj16/PrimaryAsset.gif
+/icons/full/obj16/PrimaryAsset.png - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/obj16/PrimaryAsset.png
+/icons/full/obj16/PrimaryAssetStorage.gif - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/obj16/PrimaryAssetStorage.gif
+/icons/full/obj16/remanentData-16.png - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/obj16/remanentData-16.png
+/icons/full/obj16/SecurityNeeds.gif - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/obj16/SecurityNeeds.gif
+/icons/full/obj16/Threat.gif - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/obj16/Threat.gif
+/icons/full/obj16/ThreatApplication.gif - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/obj16/ThreatApplication.gif
+/icons/full/obj16/ThreatInvolvement.gif - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/obj16/ThreatInvolvement.gif
+/icons/full/obj16/ThreatInvolvment.gif - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/obj16/ThreatInvolvment.gif
+/icons/full/obj16/ThreatPkg.gif - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/obj16/ThreatPkg.gif
+/icons/full/obj16/threatSource.png - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/obj16/threatSource.png
+/icons/full/obj16/TrustBoundaryStorage.gif - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/obj16/TrustBoundaryStorage.gif
+/icons/full/obj16/trusted-16.png - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/obj16/trusted-16.png

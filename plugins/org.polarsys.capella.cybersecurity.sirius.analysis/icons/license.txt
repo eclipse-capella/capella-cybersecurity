@@ -1,0 +1,15 @@
+These followings icons are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+
+<icon file path> - <original eclipse plug-in> - <original file path>
+
+/icons/actorspy.svg - org.polarsys.capella.cybersecurity.sirius.analysis - org.polarsys.capella.cybersecurity.sirius.analysis/icons/actorspy.svg
+/icons/FunctionalAsset.svg - org.polarsys.capella.cybersecurity.sirius.analysis - org.polarsys.capella.cybersecurity.sirius.analysis/icons/FunctionalAsset.svg
+/icons/InformationAsset.svg - org.polarsys.capella.cybersecurity.sirius.analysis - org.polarsys.capella.cybersecurity.sirius.analysis/icons/InformationAsset.svg
+/icons/Threat_Denial_of_service.svg - org.polarsys.capella.cybersecurity.sirius.analysis - org.polarsys.capella.cybersecurity.sirius.analysis/icons/Threat_Denial_of_service.svg
+/icons/Threat_Eavesdropping.svg - org.polarsys.capella.cybersecurity.sirius.analysis - org.polarsys.capella.cybersecurity.sirius.analysis/icons/Threat_Eavesdropping.svg
+/icons/Threat_Intrusion.svg - org.polarsys.capella.cybersecurity.sirius.analysis - org.polarsys.capella.cybersecurity.sirius.analysis/icons/Threat_Intrusion.svg
+/icons/Threat_Tampering.svg - org.polarsys.capella.cybersecurity.sirius.analysis - org.polarsys.capella.cybersecurity.sirius.analysis/icons/Threat_Tampering.svg
+/icons/Threat_Theft_and_data_alteration.svg - org.polarsys.capella.cybersecurity.sirius.analysis - org.polarsys.capella.cybersecurity.sirius.analysis/icons/Threat_Theft_and_data_alteration.svg
+/icons/Flame.svg - org.polarsys.capella.cybersecurity.sirius.analysis - org.polarsys.capella.cybersecurity.sirius.analysis/icons/Flame.svg

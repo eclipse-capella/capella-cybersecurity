@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+
+
+<!--
+    Copyright (c) 2019 THALES GLOBAL SERVICES.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+      
+    Contributors:
+       Thales - initial API and implementation
+ -->
+
+<plugin>
+
+   
+<!--@generated-->
+  <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Cybersecurity -->
+      <package class="org.polarsys.capella.cybersecurity.model.CybersecurityPackage" genModel="models/Cybersecurity.genmodel" uri="http://www.polarsys.org/capella/cybersecurity/1.0"/>
+   </extension>
+
+   
+<!--@generated-->
+  <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated Cybersecurity -->
+      <parser class="org.polarsys.capella.cybersecurity.model.util.CybersecurityResourceFactoryImpl" type="cybersecurity"/>
+   </extension>
+
+
+<!--@generated-->
+  <extension point="org.polarsys.capella.common.model.helpers.helper">
+    <helperImpl class="org.polarsys.capella.cybersecurity.model.helpers.CybersecurityPackageHelper" nsURI="http://www.polarsys.org/capella/cybersecurity/1.0"/>
+  </extension>
+</plugin>
