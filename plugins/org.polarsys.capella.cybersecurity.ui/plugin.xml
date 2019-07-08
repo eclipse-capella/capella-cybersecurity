@@ -156,4 +156,27 @@
       </Activity>
    </Section>
 </extension>
+<extension
+      point="org.eclipse.ui.newWizards">
+   <wizard
+         category="org.polarsys.capella.wizards"
+         class="org.polarsys.capella.cybersecurity.ui.CybersecurityProjectWizard"
+         finalPerspective="capella.sirius.perspective"
+         id="capella.cybersecurity.wizard"
+         name="%newCyberProjectWizard"
+         project="true">
+      <description>
+         %newCyberProjectWizard_desc
+      </description>
+   </wizard>
+</extension>
+<extension
+      point="org.eclipse.ui.perspectiveExtensions">
+   <perspectiveExtension
+         targetID="capella.sirius.perspective">
+      <newWizardShortcut
+            id="capella.cybersecurity.wizard">
+      </newWizardShortcut>
+   </perspectiveExtension>
+</extension>
 </plugin>
