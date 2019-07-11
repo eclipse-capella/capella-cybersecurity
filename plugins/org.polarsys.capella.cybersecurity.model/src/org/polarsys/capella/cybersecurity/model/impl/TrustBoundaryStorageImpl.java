@@ -83,10 +83,10 @@ public class TrustBoundaryStorageImpl extends ModelElementImpl implements TrustB
    * end-user-doc -->
    * 
    * @see #isTrusted()
-   * @generated
+   * @generated NOT
    * @ordered
    */
-  protected static final boolean TRUSTED_EDEFAULT = true;
+  public static final boolean TRUSTED_EDEFAULT = true;
 
   /**
    * The cached value of the '{@link #isTrusted() <em>Trusted</em>}' attribute. <!-- begin-user-doc --> <!--

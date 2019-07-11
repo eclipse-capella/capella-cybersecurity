@@ -49,6 +49,7 @@ import org.polarsys.capella.cybersecurity.model.Threat;
 import org.polarsys.capella.cybersecurity.model.ThreatApplication;
 import org.polarsys.capella.cybersecurity.model.ThreatInvolvement;
 import org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage;
+import org.polarsys.capella.cybersecurity.model.impl.TrustBoundaryStorageImpl;
 import org.polarsys.kitalpha.emde.model.ElementExtension;
 import org.polarsys.kitalpha.emde.model.ExtensibleElement;
 
@@ -170,8 +171,7 @@ public class CybersecurityServices {
   }
 
   public boolean hasTrustDecoration(Part part) {
-    TrustBoundaryStorage storage = getTrustBoundaryStorage(part);
-    return storage != null && storage.isTrusted();
+     return isTrusted(part);
   }
 
   public boolean hasNoTrustDecoration(Part part) {
@@ -226,7 +226,7 @@ public class CybersecurityServices {
   }
 
   public boolean hasTrustedColor(Part part) {
-    return hasTrustDecoration(part);
+    return isTrusted(part);
   }
 
   public boolean hasTrustedColor(AbstractFunction af) {
@@ -280,20 +280,19 @@ public class CybersecurityServices {
   private boolean isTrusted(AbstractFunction f) {
     for (AbstractFunctionalBlock b : f.getAllocationBlocks()) {
       TrustBoundaryStorage tbs = getTrustBoundaryStorage(b);
-      if (tbs != null && tbs.isTrusted()) {
-        return true;
+      if (tbs != null) {
+        return tbs.isTrusted();
       }
     }
-    return false;
+    return TrustBoundaryStorageImpl.TRUSTED_EDEFAULT;
   }
 
-  private boolean isTrusted(Component c) {
-    TrustBoundaryStorage tbs = getTrustBoundaryStorage(c);
-    if (tbs != null && tbs.isTrusted()) {
-      return true;
+  private boolean isTrusted(ExtensibleElement e) {
+    TrustBoundaryStorage tbs = getTrustBoundaryStorage(e);
+    if (tbs != null) {
+      return tbs.isTrusted();
     }
-    return false;
+    return TrustBoundaryStorageImpl.TRUSTED_EDEFAULT;
   }
-
 
 }
