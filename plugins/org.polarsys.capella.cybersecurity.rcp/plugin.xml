@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="org.polarsys.capella.core.platform.sirius.ui.perspective.id"
+            description="%cybersecurity_ProductDescription"
+            name="Cybersecurity">
+         <property name="appName" value="Cybersecurity"/>
+         <property name="introTitle" value="%productIntroTitle"/>
+         <property name="introBrandingImage" value="product:icons/intro-capella.png"/>
+         <property name="introBrandingImageText" value="%productIntroBrandingText"/>
+         <property name="introDescription-firststeps" value="%introDescription-firststeps"/>
+      </product>
+   </extension>
+
+</plugin>

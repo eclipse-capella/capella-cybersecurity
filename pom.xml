@@ -51,6 +51,7 @@
     <module>features/</module>
     <module>plugins/</module>
     <module>releng/org.polarsys.capella.cybersecurity.site</module>
+    <module>releng/org.polarsys.capella.cybersecurity.product</module>
   </modules>
 
   <build>
@@ -100,7 +101,7 @@
               <ws>win32</ws>
               <arch>x86_64</arch>
             </environment>
-            <environment>
+         <environment>
               <os>linux</os>
               <ws>gtk</ws>
               <arch>x86_64</arch>
@@ -109,7 +110,7 @@
               <os>macosx</os>
               <ws>cocoa</ws>
               <arch>x86_64</arch>
-            </environment>
+           </environment>
           </environments>
         </configuration>
       </plugin>
@@ -194,105 +195,6 @@
             <compilerArgument>-warn:+discouraged,forbidden</compilerArgument>
           </configuration>
         </plugin>
-
-		<!-- plugins only called if a descendant need them -->
-				<plugin>
-					<groupId>org.eclipse.tycho.extras</groupId>
-					<artifactId>tycho-eclipserun-plugin</artifactId>
-					<version>${tycho-extras-version}</version>
-					<configuration>
-						<repositories>
-							<repository>
-								<id>eclipse-releases-${platform-name}</id>
-								<layout>p2</layout>
-								<url>${eclipse-repo.url}</url>
-							</repository>
-						</repositories>
-						<dependencies>
-							<dependency>
-								<artifactId>org.eclipse.equinox.p2.repository.tools</artifactId>
-								<type>eclipse-plugin</type>
-							</dependency>
-							<dependency>
-								<artifactId>org.eclipse.equinox.p2.core.feature</artifactId>
-								<type>eclipse-feature</type>
-							</dependency>
-							<dependency>
-								<artifactId>org.eclipse.equinox.p2.extras.feature</artifactId>
-								<type>eclipse-feature</type>
-							</dependency>
-							<dependency>
-								<artifactId>org.eclipse.equinox.ds</artifactId>
-								<type>eclipse-plugin</type>
-							</dependency>
-						</dependencies>
-					</configuration>
-					<executions>
-						<execution>
-							<id>create-dropins</id>
-							<phase>package</phase>
-							<goals>
-								<goal>eclipse-run</goal>
-							</goals>
-							<configuration>
-								<appArgLine>-application org.eclipse.equinox.p2.repository.repo2runnable -source file:${project.build.directory}/repository -destination ${project.build.directory}/${packagedAddonName}/eclipse</appArgLine>
-							</configuration>
-						</execution>
-					</executions>
-				</plugin>
-
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-antrun-plugin</artifactId>
-					<version>${antrun-version}</version>
-					<executions>
-						<execution>
-							<id>package-dropins</id>
-							<phase>package</phase>
-							<goals>
-								<goal>run</goal>
-							</goals>
-							<configuration>
-								<target>
-									<delete
-										file="${project.build.directory}/${packagedAddonName}/eclipse/artifacts.jar" />
-									<delete
-										file="${project.build.directory}/${packagedAddonName}/eclipse/content.jar" />
-									<delete includeemptydirs="true">
-										<fileset
-											dir="${project.build.directory}/${packagedAddonName}/eclipse/features"
-											includes="**/META-INF/**" />
-									</delete>
-									<zip
-										destfile="${project.build.directory}/${packagedAddonName}-dropins-${unqualifiedVersion}.${buildQualifier}.zip">
-										<fileset dir="${project.build.directory}">
-											<include name="${packagedAddonName}/**" />
-										</fileset>
-									</zip>
-								</target>
-							</configuration>
-						</execution>
-					</executions>
-				</plugin>
-
-				<plugin>
-					<groupId>org.eclipse.tycho</groupId>
-					<artifactId>tycho-p2-repository-plugin</artifactId>
-					<version>${tycho-version}</version>
-					<executions>
-						<execution>
-							<phase>package</phase>
-							<id>archive-repository</id>
-							<goals>
-								<goal>archive-repository</goal>
-							</goals>
-							<configuration>
-								<finalName>${packagedAddonName}-updateSite-${unqualifiedVersion}.${buildQualifier}</finalName>
-							</configuration>
-						</execution>
-					</executions>
-				</plugin>
-
 		      <plugin>
 		        <groupId>org.sonarsource.scanner.maven</groupId>
 		        <artifactId>sonar-maven-plugin</artifactId>

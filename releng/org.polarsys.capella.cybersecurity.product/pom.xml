@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (c) 2016, 2018 THALES GLOBAL SERVICES.
+  All rights reserved. This program and the accompanying materials
+  are made available under the terms of the Eclipse Public License v1.0
+  which accompanies this distribution, and is available at
+  http://www.eclipse.org/legal/epl-v10.html
+
+  Contributors:
+       Thales - initial API and implementation
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+	  <parent>
+	    <groupId>org.polarsys</groupId>
+	    <artifactId>org.polarsys.capella.cybersecurity</artifactId>
+	    <version>0.9.0-SNAPSHOT</version>
+	    <relativePath>../../</relativePath>
+	  </parent>
+	  <properties>
+    	<sonar.skip>true</sonar.skip>
+      </properties>
+
+  <groupId>org.polarsys</groupId>
+  <artifactId>org.polarsys.capella.cybersecurity.product</artifactId>
+  <version>0.9.0-SNAPSHOT</version>
+  <packaging>eclipse-repository</packaging>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-p2-director-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<executions>
+					<execution>
+						<!-- install the product using the p2 director -->
+						<id>materialize-products</id>
+						<goals>
+							<goal>materialize-products</goal>
+						</goals>
+					</execution>
+					<execution>
+						<!-- create zip file with the installed product -->
+						<id>archive-products</id>
+						<goals>
+							<goal>archive-products</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>${antrun-version}</version>
+					<executions>
+						<execution>
+							<id>create-product-dropins-and-fix-nebula</id>
+							<phase>package</phase>
+							<goals>
+								<goal>run</goal>
+							</goals>
+							<configuration>
+								<target>
+									<!-- Create the dropins folder -->
+									<mkdir dir="${project.build.directory}/products/org.polarsys.capella.cybersecurity.product/linux/gtk/x86_64/dropins"/>
+									<mkdir dir="${project.build.directory}/products/org.polarsys.capella.cybersecurity.product/macosx/cocoa/x86_64/Eclipse.app/Contents/Eclipse/dropins"/>
+									<mkdir dir="${project.build.directory}/products/org.polarsys.capella.cybersecurity.product/win32/win32/x86_64/dropins"/>
+									<!-- Modify Nebula Richtext's template to fix IE compatibility bug. To remove if Nebula patches this -->
+									<replace dir="${project.build.directory}/products/org.polarsys.capella.cybersecurity.product/linux/gtk/x86_64/plugins">
+										<include name="org.eclipse.nebula.widgets.richtext_*/org/eclipse/nebula/widgets/richtext/resources/template.html"/>
+								        <replacefilter token="&lt;meta charset=&quot;utf-8&quot;&gt;" value="&lt;meta charset=&quot;utf-8&quot;&gt;${line.separator}&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=EDGE&quot;&gt;"/>
+								    </replace>
+									<replace dir="${project.build.directory}/products/org.polarsys.capella.cybersecurity.product/macosx/cocoa/x86_64/Eclipse.app/Contents/Eclipse/plugins">
+										<include name="org.eclipse.nebula.widgets.richtext_*/org/eclipse/nebula/widgets/richtext/resources/template.html"/>
+								        <replacefilter token="&lt;meta charset=&quot;utf-8&quot;&gt;" value="&lt;meta charset=&quot;utf-8&quot;&gt;${line.separator}&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=EDGE&quot;&gt;"/>
+								    </replace>
+									<replace dir="${project.build.directory}/products/org.polarsys.capella.cybersecurity.product/win32/win32/x86_64/plugins">
+										<include name="org.eclipse.nebula.widgets.richtext_*/org/eclipse/nebula/widgets/richtext/resources/template.html"/>
+								        <replacefilter token="&lt;meta charset=&quot;utf-8&quot;&gt;" value="&lt;meta charset=&quot;utf-8&quot;&gt;${line.separator}&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=EDGE&quot;&gt;"/>
+								    </replace>
+								</target>
+							</configuration>
+						</execution>
+							<execution>
+							<id>package-product</id>
+							<phase>package</phase>
+							<goals>
+								<goal>run</goal>
+							</goals>
+							<configuration>
+								<target>
+									<zip destfile="${project.build.directory}/products/capella-cybersecurity${unqualifiedVersion}.${buildQualifier}-linux-gtk-x86_64.zip">
+										<zipfileset dir="${project.build.directory}/products/org.polarsys.capella.cybersecurity.product/linux/gtk/x86_64" prefix="capella/eclipse"/>
+									</zip>
+									<zip destfile="${project.build.directory}/products/capella-cybersecurity${unqualifiedVersion}.${buildQualifier}-macosx-cocoa-x86_64.zip">
+										<zipfileset dir="${project.build.directory}/products/org.polarsys.capella.cybersecurity.product/macosx/cocoa/x86_64" prefix="capella"/>
+									</zip>
+									<zip destfile="${project.build.directory}/products/capella-cybersecurity${unqualifiedVersion}.${buildQualifier}-win32-win32-x86_64.zip">
+										<zipfileset dir="${project.build.directory}/products/org.polarsys.capella.cybersecurity.product/win32/win32/x86_64" prefix="capella/eclipse"/>
+									</zip>
+								</target>
+							</configuration>
+						</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

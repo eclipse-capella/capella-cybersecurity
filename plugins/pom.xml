@@ -30,5 +30,7 @@
 	  <module>org.polarsys.capella.cybersecurity.ui</module>
 	  <module>org.polarsys.capella.cybersecurity.business.queries</module>
 	  <module>org.polarsys.capella.cybersecurity.sirius.analysis</module>
+	  <module>org.polarsys.capella.cybersecurity.rcp</module>
+	  
 	</modules>
 </project>
