@@ -179,4 +179,13 @@
       </newWizardShortcut>
    </perspectiveExtension>
 </extension>
+<extension
+      point="org.eclipse.ui.navigator.navigatorContent">
+   <commonWizard
+         menuGroupId="all-categorized-capella"
+         type="new"
+         wizardId="capella.cybersecurity.wizard">
+      <enablement></enablement>
+   </commonWizard>
+</extension>
 </plugin>
