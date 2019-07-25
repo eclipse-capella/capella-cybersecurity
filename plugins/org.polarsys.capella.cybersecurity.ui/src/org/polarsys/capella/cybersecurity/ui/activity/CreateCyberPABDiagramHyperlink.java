@@ -10,12 +10,18 @@
  *******************************************************************************/
 package org.polarsys.capella.cybersecurity.ui.activity;
 
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+
 import org.eclipse.emf.ecore.EObject;
 import org.polarsys.capella.common.data.modellingcore.ModelElement;
 import org.polarsys.capella.core.data.capellamodeller.Project;
 import org.polarsys.capella.core.explorer.activity.ui.hyperlinkadapter.AbstractCapellaNewDiagramHyperlinkAdapter;
 import org.polarsys.capella.core.model.helpers.ModelQueryHelper;
 import org.polarsys.capella.core.sirius.analysis.IDiagramNameConstants;
+import org.polarsys.capella.core.sirius.analysis.constants.IFilterNameConstants;
+import org.polarsys.capella.cybersecurity.sirius.analysis.CybersecurityAnalysisConstants;
 
 public class CreateCyberPABDiagramHyperlink extends AbstractCapellaNewDiagramHyperlinkAdapter {
 
@@ -29,15 +35,14 @@ public class CreateCyberPABDiagramHyperlink extends AbstractCapellaNewDiagramHyp
     return ModelQueryHelper.getPhysicalSystem((Project) rootSemanticModel);
   }
 
-// pending https://git.eclipse.org/r/#/c/145284/
-//  @Override
-//  protected Collection<String> getExtraLayerNames() {
-//    return Arrays.asList(CybersecurityAnalysisConstants.LAYER_ASSETS, CybersecurityAnalysisConstants.LAYER_DECORATION, CybersecurityAnalysisConstants.LAYER_TRUST_BOUNDARIES);
-//  }
-//
-//  @Override
-//  protected Collection<String> getExtraFilterNames() {
-//    return Collections.singleton(IFilterNameConstants.FILTER_PAB_COLLAPSE_FUNCTION_PORTS);
-//  }
+  @Override
+  protected Collection<String> getExtraLayerNames() {
+    return Arrays.asList(CybersecurityAnalysisConstants.LAYER_ASSETS, CybersecurityAnalysisConstants.LAYER_DECORATION, CybersecurityAnalysisConstants.LAYER_TRUST_BOUNDARIES);
+  }
+
+  @Override
+  protected Collection<String> getExtraFilterNames() {
+    return Collections.singleton(IFilterNameConstants.FILTER_PAB_COLLAPSE_FUNCTION_PORTS);
+  }
 
 }
