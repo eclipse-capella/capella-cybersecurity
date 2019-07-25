@@ -216,6 +216,17 @@ public class CybersecurityServices {
           }
         }
       }
+
+      if (element instanceof AbstractFunction) {
+        FunctionStorage fs = getFunctionStorage((ExtensibleElement) element);
+        if (fs != null) {
+          for (ExchangeItem ei : fs.getExchangedItems()) {
+            if (hasAssetStyleCustomization(ei)) {
+              return true;
+            }
+          }
+        }
+      }
     }
 
     return false;
