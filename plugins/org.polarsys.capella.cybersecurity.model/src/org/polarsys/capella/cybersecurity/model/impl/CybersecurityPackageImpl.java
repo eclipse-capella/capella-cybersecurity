@@ -321,7 +321,7 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
    * 
    * @generated
    */
-  public EReference getThreatInvolvement_Actor() {
+  public EReference getThreatInvolvement_Component() {
     return (EReference) threatInvolvementEClass.getEStructuralFeatures().get(0);
   }
 
@@ -644,7 +644,7 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
     createEAttribute(threatEClass, THREAT__RATIONALE);
 
     threatInvolvementEClass = createEClass(THREAT_INVOLVEMENT);
-    createEReference(threatInvolvementEClass, THREAT_INVOLVEMENT__ACTOR);
+    createEReference(threatInvolvementEClass, THREAT_INVOLVEMENT__COMPONENT);
     createEReference(threatInvolvementEClass, THREAT_INVOLVEMENT__THREAT);
 
     functionStorageEClass = createEClass(FUNCTION_STORAGE);
@@ -774,7 +774,7 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
 
     initEClass(threatInvolvementEClass, ThreatInvolvement.class, "ThreatInvolvement", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
         IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getThreatInvolvement_Actor(), theCsPackage.getAbstractActor(), null, "actor", null, 0, 1, //$NON-NLS-1$
+    initEReference(getThreatInvolvement_Component(), theCsPackage.getComponent(), null, "component", null, 0, 1, //$NON-NLS-1$
         ThreatInvolvement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
         !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getThreatInvolvement_Threat(), this.getThreat(), null, "threat", null, 0, 1, //$NON-NLS-1$

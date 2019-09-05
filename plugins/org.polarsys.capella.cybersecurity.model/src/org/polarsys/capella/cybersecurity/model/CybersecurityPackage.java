@@ -566,12 +566,12 @@ public interface CybersecurityPackage extends EPackage {
   int THREAT_INVOLVEMENT__OWNED_CONSTRAINTS = ModellingcorePackage.MODEL_ELEMENT__OWNED_CONSTRAINTS;
 
   /**
-   * The feature id for the '<em><b>Actor</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+   * The feature id for the '<em><b>Component</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
    * 
    * @generated
    * @ordered
    */
-  int THREAT_INVOLVEMENT__ACTOR = ModellingcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 0;
+  int THREAT_INVOLVEMENT__COMPONENT = ModellingcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Threat</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1890,15 +1890,15 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * Returns the meta object for the reference
-   * '{@link org.polarsys.capella.cybersecurity.model.ThreatInvolvement#getActor <em>Actor</em>}'. <!-- begin-user-doc
-   * --> <!-- end-user-doc -->
+   * '{@link org.polarsys.capella.cybersecurity.model.ThreatInvolvement#getComponent <em>Component</em>}'. <!--
+   * begin-user-doc --> <!-- end-user-doc -->
    * 
-   * @return the meta object for the reference '<em>Actor</em>'.
-   * @see org.polarsys.capella.cybersecurity.model.ThreatInvolvement#getActor()
+   * @return the meta object for the reference '<em>Component</em>'.
+   * @see org.polarsys.capella.cybersecurity.model.ThreatInvolvement#getComponent()
    * @see #getThreatInvolvement()
    * @generated
    */
-  EReference getThreatInvolvement_Actor();
+  EReference getThreatInvolvement_Component();
 
   /**
    * Returns the meta object for the reference
@@ -2360,12 +2360,12 @@ public interface CybersecurityPackage extends EPackage {
     EClass THREAT_INVOLVEMENT = eINSTANCE.getThreatInvolvement();
 
     /**
-     * The meta object literal for the '<em><b>Actor</b></em>' reference feature. <!-- begin-user-doc --> <!--
+     * The meta object literal for the '<em><b>Component</b></em>' reference feature. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      * 
      * @generated
      */
-    EReference THREAT_INVOLVEMENT__ACTOR = eINSTANCE.getThreatInvolvement_Actor();
+    EReference THREAT_INVOLVEMENT__COMPONENT = eINSTANCE.getThreatInvolvement_Component();
 
     /**
      * The meta object literal for the '<em><b>Threat</b></em>' reference feature. <!-- begin-user-doc --> <!--

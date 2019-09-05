@@ -49,7 +49,7 @@ public class ThreatInvolvementItemProvider extends ModelElementItemProvider impl
    * 
    * @generated
    */
-  protected IItemPropertyDescriptor actorPropertyDescriptor;
+  protected IItemPropertyDescriptor componentPropertyDescriptor;
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * 
@@ -76,17 +76,17 @@ public class ThreatInvolvementItemProvider extends ModelElementItemProvider impl
     super.checkChildCreationExtender(object);
     if (object instanceof EObject) {
       EObject eObject = (EObject) object;
-      // Process CybersecurityPackage.Literals.THREAT_INVOLVEMENT__ACTOR
-      if (actorPropertyDescriptor != null) {
-        Object actorValue = eObject.eGet(CybersecurityPackage.Literals.THREAT_INVOLVEMENT__ACTOR, true);
-        if (actorValue != null && actorValue instanceof EObject
-            && ModelExtensionHelper.getInstance(eObject).isExtensionModelDisabled((EObject) actorValue)) {
-          itemPropertyDescriptors.remove(actorPropertyDescriptor);
-        } else if (actorValue == null && ExtensionModelManager.getAnyType(eObject,
-            CybersecurityPackage.Literals.THREAT_INVOLVEMENT__ACTOR) != null) {
-          itemPropertyDescriptors.remove(actorPropertyDescriptor);
-        } else if (itemPropertyDescriptors.contains(actorPropertyDescriptor) == false) {
-          itemPropertyDescriptors.add(actorPropertyDescriptor);
+      // Process CybersecurityPackage.Literals.THREAT_INVOLVEMENT__COMPONENT
+      if (componentPropertyDescriptor != null) {
+        Object componentValue = eObject.eGet(CybersecurityPackage.Literals.THREAT_INVOLVEMENT__COMPONENT, true);
+        if (componentValue != null && componentValue instanceof EObject
+            && ModelExtensionHelper.getInstance(eObject).isExtensionModelDisabled((EObject) componentValue)) {
+          itemPropertyDescriptors.remove(componentPropertyDescriptor);
+        } else if (componentValue == null && ExtensionModelManager.getAnyType(eObject,
+            CybersecurityPackage.Literals.THREAT_INVOLVEMENT__COMPONENT) != null) {
+          itemPropertyDescriptors.remove(componentPropertyDescriptor);
+        } else if (itemPropertyDescriptors.contains(componentPropertyDescriptor) == false) {
+          itemPropertyDescriptors.add(componentPropertyDescriptor);
         }
       }
       // Process CybersecurityPackage.Literals.THREAT_INVOLVEMENT__THREAT
@@ -115,7 +115,7 @@ public class ThreatInvolvementItemProvider extends ModelElementItemProvider impl
     if (itemPropertyDescriptors == null) {
       super.getPropertyDescriptors(object);
 
-      addActorPropertyDescriptor(object);
+      addComponentPropertyDescriptor(object);
       addThreatPropertyDescriptor(object);
     }
     // begin-extension-code
@@ -125,22 +125,22 @@ public class ThreatInvolvementItemProvider extends ModelElementItemProvider impl
   }
 
   /**
-   * This adds a property descriptor for the Actor feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+   * This adds a property descriptor for the Component feature. <!-- begin-user-doc --> <!-- end-user-doc -->
    * 
    * @generated
    */
-  protected void addActorPropertyDescriptor(Object object) {
+  protected void addComponentPropertyDescriptor(Object object) {
     // begin-extension-code
-    actorPropertyDescriptor = createItemPropertyDescriptor
+    componentPropertyDescriptor = createItemPropertyDescriptor
     // end-extension-code
     (((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-        getString("_UI_ThreatInvolvement_actor_feature"), //$NON-NLS-1$
-        getString("_UI_PropertyDescriptor_description", "_UI_ThreatInvolvement_actor_feature", //$NON-NLS-1$//$NON-NLS-2$
+        getString("_UI_ThreatInvolvement_component_feature"), //$NON-NLS-1$
+        getString("_UI_PropertyDescriptor_description", "_UI_ThreatInvolvement_component_feature", //$NON-NLS-1$//$NON-NLS-2$
             "_UI_ThreatInvolvement_type"), //$NON-NLS-1$
-        CybersecurityPackage.Literals.THREAT_INVOLVEMENT__ACTOR, true, false, true, null, null,
+        CybersecurityPackage.Literals.THREAT_INVOLVEMENT__COMPONENT, true, false, true, null, null,
         // begin-extension-code
         null);
-    itemPropertyDescriptors.add(actorPropertyDescriptor);
+    itemPropertyDescriptors.add(componentPropertyDescriptor);
     // end-extension-code
   }
 

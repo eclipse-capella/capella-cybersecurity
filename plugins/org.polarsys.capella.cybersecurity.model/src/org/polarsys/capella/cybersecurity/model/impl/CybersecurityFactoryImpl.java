@@ -338,8 +338,6 @@ public class CybersecurityFactoryImpl extends EFactoryImpl implements Cybersecur
     return CybersecurityPackage.eINSTANCE;
   }
 
-  // begin-capella-code
-
   /**
    * Creates class and sets its name (This method comes from a customization of the standard EMF generator)
    *
@@ -391,6 +389,8 @@ public class CybersecurityFactoryImpl extends EFactoryImpl implements Cybersecur
     informationPrimaryAsset.setName(name_p);
     return informationPrimaryAsset;
   }
+
+  // begin-capella-code
 
   // end-capella-code
 } // CybersecurityFactoryImpl

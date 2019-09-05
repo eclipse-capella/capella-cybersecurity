@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.polarsys.capella.cybersecurity.sirius.analysis;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 
@@ -19,11 +20,18 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
+import org.eclipse.sirius.diagram.AbstractDNode;
+import org.eclipse.sirius.diagram.DDiagram;
+import org.eclipse.sirius.diagram.DDiagramElement;
+import org.eclipse.sirius.diagram.DEdge;
+import org.eclipse.sirius.diagram.DNode;
+import org.eclipse.sirius.diagram.Square;
+import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.polarsys.capella.common.data.behavior.AbstractEvent;
+import org.polarsys.capella.common.helpers.EObjectExt;
 import org.polarsys.capella.common.helpers.EcoreUtil2;
 import org.polarsys.capella.common.helpers.TransactionHelper;
 import org.polarsys.capella.common.platform.sirius.ted.SemanticEditingDomainFactory.SemanticEditingDomain;
-import org.polarsys.capella.core.data.cs.AbstractActor;
 import org.polarsys.capella.core.data.cs.BlockArchitecture;
 import org.polarsys.capella.core.data.cs.Component;
 import org.polarsys.capella.core.data.cs.CsPackage;
@@ -35,7 +43,9 @@ import org.polarsys.capella.core.data.fa.FunctionalExchange;
 import org.polarsys.capella.core.data.information.ExchangeItem;
 import org.polarsys.capella.core.model.helpers.BlockArchitectureExt;
 import org.polarsys.capella.core.model.helpers.ComponentExchangeExt;
+import org.polarsys.capella.core.sirius.analysis.CapellaServices;
 import org.polarsys.capella.core.sirius.analysis.CsServices;
+import org.polarsys.capella.core.sirius.analysis.DiagramServices;
 import org.polarsys.capella.core.sirius.analysis.FaServices;
 import org.polarsys.capella.cybersecurity.model.CybersecurityFactory;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
@@ -44,6 +54,7 @@ import org.polarsys.capella.cybersecurity.model.FunctionStorage;
 import org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset;
 import org.polarsys.capella.cybersecurity.model.InformationPrimaryAsset;
 import org.polarsys.capella.cybersecurity.model.PrimaryAsset;
+import org.polarsys.capella.cybersecurity.model.PrimaryAssetMember;
 import org.polarsys.capella.cybersecurity.model.SecurityNeeds;
 import org.polarsys.capella.cybersecurity.model.Threat;
 import org.polarsys.capella.cybersecurity.model.ThreatApplication;
@@ -90,6 +101,47 @@ public class CybersecurityServices {
     return null;
   }
 
+  public Collection<EObject> getABPrimaryAssetScope(DSemanticDecorator view) {
+    EObject object = view.getTarget();
+    return EObjectExt.getAll(getDefaultCyberSecurityPackage(object), CybersecurityPackage.Literals.PRIMARY_ASSET);
+  }
+
+  public int getAssetColor1Red(DSemanticDecorator view) {
+    EObject e = view.getTarget();
+    DDiagram diagram = CapellaServices.getService().getDiagramContainer(view);
+    for (PrimaryAsset asset : getRelatedAssets(e)) {
+      DDiagramElement element = DiagramServices.getDiagramServices().getDiagramElement((DDiagram) diagram, asset);
+      if (element != null && element instanceof DNode) {
+        return ((Square) element.getStyle()).getColor().getRed();
+      }
+    }
+    return 0;
+  }
+
+  public int getAssetColor1Blue(DSemanticDecorator view) {
+    EObject e = view.getTarget();
+    DDiagram diagram = CapellaServices.getService().getDiagramContainer(view);
+    for (PrimaryAsset asset : getRelatedAssets(e)) {
+      DDiagramElement element = DiagramServices.getDiagramServices().getDiagramElement((DDiagram) diagram, asset);
+      if (element != null && element instanceof DNode) {
+        return ((Square) element.getStyle()).getColor().getBlue();
+      }
+    }
+    return 0;
+  }
+
+  public int getAssetColor1Green(DSemanticDecorator view) {
+    EObject e = view.getTarget();
+    DDiagram diagram = CapellaServices.getService().getDiagramContainer(view);
+    for (PrimaryAsset asset : getRelatedAssets(e)) {
+      DDiagramElement element = DiagramServices.getDiagramServices().getDiagramElement((DDiagram) diagram, asset);
+      if (element != null && element instanceof DNode) {
+        return ((Square) element.getStyle()).getColor().getGreen();
+      }
+    }
+    return 0;
+  }
+
   public FunctionalPrimaryAsset createFunctionalPrimaryAsset(EObject any) {
     FunctionalPrimaryAsset asset = CybersecurityFactory.eINSTANCE.createFunctionalPrimaryAsset();
     return (FunctionalPrimaryAsset) attachToDefaultCybersecurityPkg(any, asset);
@@ -115,9 +167,9 @@ public class CybersecurityServices {
     return CS_SERVICES.createActor(BlockArchitectureExt.getRootBlockArchitecture(any));
   }
 
-  public ThreatInvolvement createThreatInvolvement(Threat threat, AbstractActor actor) {
+  public ThreatInvolvement createThreatInvolvement(Threat threat, Component actor) {
     ThreatInvolvement iv = CybersecurityFactory.eINSTANCE.createThreatInvolvement();
-    iv.setActor(actor);
+    iv.setComponent(actor);
     iv.setThreat(threat);
     actor.getOwnedExtensions().add(iv);
     return iv;
@@ -131,7 +183,7 @@ public class CybersecurityServices {
     return ap;
   }
 
-  public boolean hasActorSpyIcon(AbstractActor actor) {
+  public boolean hasActorSpyIcon(Component actor) {
     for (ElementExtension ext : actor.getOwnedExtensions()) {
       if (ext instanceof TrustBoundaryStorage) {
         return ((TrustBoundaryStorage) ext).isThreatSource();
@@ -171,7 +223,7 @@ public class CybersecurityServices {
   }
 
   public boolean hasTrustDecoration(Part part) {
-     return isTrusted(part);
+    return isTrusted(part);
   }
 
   public boolean hasNoTrustDecoration(Part part) {
@@ -194,9 +246,39 @@ public class CybersecurityServices {
   private FunctionStorage getFunctionStorage(ExtensibleElement element) {
     return ExtensibleElementExt.getExtension(element, FunctionStorage.class);
   }
-  
+
   private SecurityNeeds getSecurityNeeds(ExtensibleElement element) {
     return ExtensibleElementExt.getExtension(element, SecurityNeeds.class);
+  }
+
+  public Collection<Component> getAllThreatActors(EObject element) {
+    BlockArchitecture architecture = BlockArchitectureExt.getRootBlockArchitecture(element);
+    return BlockArchitectureExt.getAllComponents(architecture);
+  }
+
+  public Collection<PrimaryAsset> getRelatedAssets(EObject element) {
+    Collection<EObject> semantics = new ArrayList<EObject>();
+    semantics.add(element);
+    if (element instanceof FunctionalExchange) {
+      semantics.addAll(((FunctionalExchange) element).getExchangedItems());
+    }
+    if (element instanceof AbstractFunction) {
+      FunctionStorage fs = getFunctionStorage((ExtensibleElement) element);
+      if (fs != null) {
+        semantics.addAll(fs.getExchangedItems());
+      }
+    }
+
+    Collection<PrimaryAsset> assets = new ArrayList<PrimaryAsset>();
+    for (EObject semantic : semantics) {
+      for (EObject member : EObjectExt.getReferencers(semantic,
+          CybersecurityPackage.Literals.PRIMARY_ASSET_MEMBER__MEMBER)) {
+        PrimaryAsset asset = ((PrimaryAssetMember) member).getAsset();
+        assets.add(asset);
+      }
+    }
+
+    return assets;
   }
 
   public boolean hasAssetStyleCustomization(EObject element) {
@@ -208,7 +290,6 @@ public class CybersecurityServices {
       if (refs.size() > 0) {
         return true;
       }
-
       if (element instanceof FunctionalExchange) {
         for (ExchangeItem ei : ((FunctionalExchange) element).getExchangedItems()) {
           if (hasAssetStyleCustomization(ei)) {
@@ -216,7 +297,6 @@ public class CybersecurityServices {
           }
         }
       }
-
       if (element instanceof AbstractFunction) {
         FunctionStorage fs = getFunctionStorage((ExtensibleElement) element);
         if (fs != null) {
@@ -228,12 +308,37 @@ public class CybersecurityServices {
         }
       }
     }
-
     return false;
   }
 
-  public String getAssetDecorationBorderSize(EObject element) {
-    return "5"; //$NON-NLS-1$
+  public String getAssetDecorationBorderSize(DSemanticDecorator view) {
+    if (view instanceof DNode) {
+      EObject e = view.getTarget();
+      DDiagram diagram = CapellaServices.getService().getDiagramContainer(view);
+      for (PrimaryAsset asset : getRelatedAssets(e)) {
+        DDiagramElement element = DiagramServices.getDiagramServices().getDiagramElement(diagram, asset);
+        if (element != null && element instanceof DNode) {
+          return "5";
+        }
+      }
+      return "1"; //$NON-NLS-1$
+    }
+    return null;
+  }
+
+  public String getAssetDecorationSize(DSemanticDecorator view) {
+    if (view instanceof DEdge) {
+      EObject e = view.getTarget();
+      DDiagram diagram = CapellaServices.getService().getDiagramContainer(view);
+      for (PrimaryAsset asset : getRelatedAssets(e)) {
+        DDiagramElement element = DiagramServices.getDiagramServices().getDiagramElement(diagram, asset);
+        if (element != null && element instanceof DNode) {
+          return "5";
+        }
+      }
+      return "1"; //$NON-NLS-1$
+    }
+    return null;
   }
 
   public boolean hasTrustedColor(Part part) {
@@ -263,7 +368,7 @@ public class CybersecurityServices {
     }
     return 0;
   }
-  
+
   public Integer getIntegrity(AbstractEvent e) {
     SecurityNeeds needs = getSecurityNeeds(e);
     if (needs != null) {
@@ -271,7 +376,7 @@ public class CybersecurityServices {
     }
     return 0;
   }
-  
+
   public Integer getAvailability(AbstractEvent e) {
     SecurityNeeds needs = getSecurityNeeds(e);
     if (needs != null) {
@@ -279,7 +384,7 @@ public class CybersecurityServices {
     }
     return 0;
   }
-  
+
   public Integer getTraceability(AbstractEvent e) {
     SecurityNeeds needs = getSecurityNeeds(e);
     if (needs != null) {
@@ -287,7 +392,7 @@ public class CybersecurityServices {
     }
     return 0;
   }
-  
+
   private boolean isTrusted(AbstractFunction f) {
     for (AbstractFunctionalBlock b : f.getAllocationBlocks()) {
       TrustBoundaryStorage tbs = getTrustBoundaryStorage(b);

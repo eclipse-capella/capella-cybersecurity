@@ -16,5 +16,5 @@ public final class CybersecurityAnalysisConstants {
   public final static String LAYER_ASSETS = "Cybersecurity Assets Layer"; //$NON-NLS-1$
   public final static String LAYER_DECORATION = "Cybersecurity Decoration Layer"; //$NON-NLS-1$
 
-  public final static String DIAGRAM_THREAT = "Threat"; //$NON-NLS-1$
+  public final static String DIAGRAM_THREAT = "Threat Diagram"; //$NON-NLS-1$
 }

@@ -51,14 +51,12 @@ public class CybersecurityResourceImpl extends XMIResourceImpl {
    * @generated
    */
   private List<Object> lookupTable = new ArrayList<Object>();
-
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * 
    * @generated
    */
   private XMLParserPool parserPool = new XMLParserPoolImpl();
-
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * 

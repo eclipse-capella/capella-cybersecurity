@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="cybersecurity" version="12.0.0.2017041100">
   <ownedViewpoints name="Cybersecurity" modelFileExtension="melodymodeller">
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Threat" domainClass="cs.Component" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Threat Diagram" domainClass="cs.Component" enablePopupBars="true">
       <metamodel href="../../org.polarsys.capella.core.data.gen/model/CompositeStructure.ecore#/"/>
       <metamodel href="../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#/"/>
       <metamodel href="../../org.polarsys.capella.core.data.gen/model/FunctionalAnalysis.ecore#/"/>
@@ -48,7 +48,7 @@
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="Actor" domainClass="cs.AbstractActor">
+        <nodeMappings name="Actor" preconditionExpression="aql:self.isActor()" semanticCandidatesExpression="aql:self.getAllThreatActors()" domainClass="cs.Component">
           <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.polarsys.capella.core.sirius.analysis/description/images/Actor.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -60,7 +60,7 @@
             </style>
           </conditionnalStyles>
         </nodeMappings>
-        <edgeMappings name="ThreatInvolvement" sourceMapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat']/@defaultLayer/@nodeMappings[name='Threat']" targetMapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat']/@defaultLayer/@nodeMappings[name='Actor']" targetFinderExpression="feature:actor" sourceFinderExpression="feature:threat" domainClass="cybersecurity.ThreatInvolvement" useDomainElement="true">
+        <edgeMappings name="ThreatInvolvement" sourceMapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='Threat']" targetMapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='Actor']" targetFinderExpression="feature:component" sourceFinderExpression="feature:threat" domainClass="cybersecurity.ThreatInvolvement" useDomainElement="true">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="12" showIcon="false" labelExpression="involves">
@@ -68,7 +68,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="ThreatApplication" sourceMapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat']/@defaultLayer/@nodeMappings[name='Threat']" targetMapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat']/@defaultLayer/@nodeMappings[name='FunctionalPrimaryAsset'] //@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat']/@defaultLayer/@nodeMappings[name='InformationPrimaryAsset']" targetFinderExpression="feature:asset" sourceFinderExpression="feature:threat" domainClass="cybersecurity.ThreatApplication" useDomainElement="true">
+        <edgeMappings name="ThreatApplication" sourceMapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='Threat']" targetMapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='FunctionalPrimaryAsset'] //@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='InformationPrimaryAsset']" targetFinderExpression="feature:asset" sourceFinderExpression="feature:threat" domainClass="cybersecurity.ThreatApplication" useDomainElement="true">
           <style lineStyle="dot" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="12" showIcon="false" labelExpression="applicable to">
@@ -77,61 +77,61 @@
           </style>
         </edgeMappings>
         <toolSections name="ThreatToolSection">
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="ToolCreateThreat" nodeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat']/@defaultLayer/@nodeMappings[name='Threat']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="ToolCreateThreat" label="Threat" nodeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='Threat']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.createThreat()">
-                <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat']/@defaultLayer/@nodeMappings[name='Threat']" containerViewExpression="var:diagram"/>
+                <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='Threat']" containerViewExpression="var:diagram"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="ToolCreateFunctionalPrimaryAsset" nodeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat']/@defaultLayer/@nodeMappings[name='FunctionalPrimaryAsset']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="ToolCreateFunctionalPrimaryAsset" label="Functional Primary Asset" nodeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='FunctionalPrimaryAsset']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.createFunctionalPrimaryAsset()">
-                <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat']/@defaultLayer/@nodeMappings[name='FunctionalPrimaryAsset']" containerViewExpression="var:diagram"/>
+                <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='FunctionalPrimaryAsset']" containerViewExpression="var:diagram"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="ToolCreateInformationPrimaryAsset" nodeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat']/@defaultLayer/@nodeMappings[name='InformationPrimaryAsset']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="ToolCreateInformationPrimaryAsset" label="Information Primary Asset" nodeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='InformationPrimaryAsset']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.createInformationPrimaryAsset()">
-                <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat']/@defaultLayer/@nodeMappings[name='InformationPrimaryAsset']" containerViewExpression="var:diagram"/>
+                <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='InformationPrimaryAsset']" containerViewExpression="var:diagram"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="ToolCreateActor" nodeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat']/@defaultLayer/@nodeMappings[name='Actor']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="ToolCreateActor" label="Actor" nodeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='Actor']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.createActor()">
-                <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat']/@defaultLayer/@nodeMappings[name='Actor']" containerViewExpression="var:diagram"/>
+                <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='Actor']" containerViewExpression="var:diagram"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="ToolCreateThreatInvolvement" edgeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat']/@defaultLayer/@edgeMappings[name='ThreatInvolvement']">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="ToolCreateThreatInvolvement" label="Involves" edgeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@edgeMappings[name='ThreatInvolvement']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:source.createThreatInvolvement(target)">
-                <subModelOperations xsi:type="tool:CreateEdgeView" mapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat']/@defaultLayer/@edgeMappings[name='ThreatInvolvement']" containerViewExpression="var:sourceView" sourceExpression="feature:threat" targetExpression="feature:actor"/>
+                <subModelOperations xsi:type="tool:CreateEdgeView" mapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@edgeMappings[name='ThreatInvolvement']" containerViewExpression="var:sourceView" sourceExpression="feature:threat" targetExpression="feature:actor"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="ToolCreateThreatApplication" edgeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat']/@defaultLayer/@edgeMappings[name='ThreatApplication']" iconPath="ToolCreateThreatApplication">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="ToolCreateThreatApplication" label="Application" edgeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@edgeMappings[name='ThreatApplication']" iconPath="ToolCreateThreatApplication">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:source.createThreatApplication(target)">
-                <subModelOperations xsi:type="tool:CreateEdgeView" mapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat']/@defaultLayer/@edgeMappings[name='ThreatApplication']" containerViewExpression="var:sourceView" sourceExpression="feature:threat" targetExpression="feature:asset"/>
+                <subModelOperations xsi:type="tool:CreateEdgeView" mapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@edgeMappings[name='ThreatApplication']" containerViewExpression="var:sourceView" sourceExpression="feature:threat" targetExpression="feature:asset"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -147,28 +147,71 @@
           <decorationDescriptions xsi:type="description:GenericDecorationDescription" name="Function Datastorage Decorator" position="NORTH_EAST" preconditionExpression="aql:element.hasDatastorageDecoration()" imageExpression="aql:self.getDatastorageDecoration()"/>
           <decorationDescriptions xsi:type="description:GenericDecorationDescription" name="Function Remanent Data Decorator" position="NORTH_EAST" preconditionExpression="aql:element.hasRemanentDataDecoration()" imageExpression="aql:self.getRemanentDataDecoration()"/>
           <decorationDescriptions xsi:type="description:GenericDecorationDescription" name="Asset Member Decorator" position="NORTH_WEST" preconditionExpression="aql:element.hasAssetStyleCustomization()" imageExpression="/org.polarsys.capella.cybersecurity.model.edit/icons/full/obj16/PrimaryAsset.png"/>
-          <decorationDescriptions xsi:type="description:GenericDecorationDescription" name="Flame Decorator" position="CENTER" preconditionExpression="aql:element.hasFlameDecoration()" imageExpression="/org.polarsys.capella.cybersecurity.sirius.analysis/icons/Flame.svg"/>
         </decorationDescriptionsSet>
       </layers>
       <layers name="Cybersecurity Assets Layer">
-        <nodeMappings name="PrimaryAsset" domainClass="cybersecurity.PrimaryAsset">
-          <style xsi:type="style:SquareDescription" labelSize="12" labelPosition="node" resizeKind="NSEW" color="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color1']">
+        <nodeMappings name="PrimaryAsset" createElements="false" domainClass="cybersecurity.PrimaryAsset">
+          <style xsi:type="style:SquareDescription" labelSize="10" resizeKind="NSEW" color="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color1']">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <reusedMappings xsi:type="description_1:NodeMapping" href="../../org.polarsys.capella.core.sirius.analysis/description/logical.odesign#//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component']/@subNodeMappings[name='LAB%20Logical%20Function']"/>
+        <toolSections name="Primary Assets">
+          <ownedTools xsi:type="tool_1:ToolDescription" name="primary.assets" label="Primary Assets" iconPath="/org.polarsys.capella.core.sirius.analysis/icons/full/obj16/ShowHide.gif">
+            <element name="element"/>
+            <elementView name="elementView">
+              <subVariables xsi:type="tool_1:AcceleoVariable" name="diagram" computationExpression="aql:elementView.eContainerOrSelf(diagram::DDiagram)"/>
+              <subVariables xsi:type="tool_1:AcceleoVariable" name="scope" computationExpression="aql:elementView.getABPrimaryAssetScope()"/>
+              <subVariables xsi:type="tool_1:AcceleoVariable" name="ownedNodeContainer" computationExpression="aql:self.void2Null(diagram.eAllContents()->filter(diagram::DNode)->select(x | x.actualMapping.name = 'PrimaryAsset'))"/>
+            </elementView>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element">
+                <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="selectSubComponent" id="org.polarsys.capella.core.sirius.analysis.actions.extensions.SelectElementsFromTransferWizard">
+                  <parameters name="context" value="aql:element"/>
+                  <parameters name="scope" value="aql:scope"/>
+                  <parameters name="resultVariable" value="selection"/>
+                  <parameters name="wizardMessage" value="aql:'Select Primary Assets'"/>
+                  <parameters name="initialSelection" value="aql:self.void2Null(self.getIntersection(ownedNodeContainer->select(x | x.visible and x.actualMapping.name = 'PrimaryAsset').target,scope))"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:not (selection = 'WIZARD_CANCELED')">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container">
+                    <subModelOperations xsi:type="tool_1:For" expression="aql:self.void2Null(self.makeDiff(self.getIntersection((self.makeUnion(ownedNodeContainer->select(x | x.visible).target, diagram.target)),scope), selection))">
+                      <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:ownedNodeContainer->select(x | x.target = i)->size() > 0">
+                        <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:ownedNodeContainer->select(x | x.target = i)->first()">
+                          <subModelOperations xsi:type="tool_1:DeleteView"/>
+                        </subModelOperations>
+                      </subModelOperations>
+                    </subModelOperations>
+                    <subModelOperations xsi:type="tool_1:For" expression="aql:self.void2Null(selection)">
+                      <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:ownedNodeContainer->select(x | x.target = i)->size() > 0">
+                        <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:ownedNodeContainer->select(x | x.target = i).show()->first()"/>
+                      </subModelOperations>
+                      <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:ownedNodeContainer->select(x | x.target = i)->size() = 0">
+                        <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:i">
+                          <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentationExtensions[name='Cybersecurity%20Architecture%20Diagram%20Extensions']/@layers[name='Cybersecurity%20Assets%20Layer']/@nodeMappings[name='PrimaryAsset']" containerViewExpression="aql:diagram"/>
+                        </subModelOperations>
+                      </subModelOperations>
+                    </subModelOperations>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:containerView.getDiagramContainer().forceRefresh()"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
         <customization>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.hasAssetStyleCustomization()">
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="borderColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color2']"/>
-            <featureCustomizations xsi:type="description:EAttributeCustomization" applyOnAll="true" attributeName="borderSizeComputationExpression" value="aql:self.getAssetDecorationBorderSize()"/>
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="strokeColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color2']"/>
-            <featureCustomizations xsi:type="description:EAttributeCustomization" applyOnAll="true" attributeName="sizeComputationExpression" value="aql:self.getAssetDecorationBorderSize()"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="borderColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='asset_color1']"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" applyOnAll="true" attributeName="borderSizeComputationExpression" value="aql:view.getAssetDecorationBorderSize()"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="strokeColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='asset_color1']"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" applyOnAll="true" attributeName="sizeComputationExpression" value="aql:view.getAssetDecorationSize()"/>
           </vsmElementCustomizations>
         </customization>
       </layers>
       <layers name="Cybersecurity Trust Boundaries Layer">
-        <reusedMappings xsi:type="description_1:NodeMapping" href="../../org.polarsys.capella.core.sirius.analysis/description/logical.odesign#//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component']/@subNodeMappings[name='LAB%20Logical%20Function']"/>
+        <decorationDescriptionsSet>
+          <decorationDescriptions xsi:type="description:GenericDecorationDescription" name="Flame Decorator" position="CENTER" preconditionExpression="aql:element.hasFlameDecoration()" imageExpression="/org.polarsys.capella.cybersecurity.sirius.analysis/icons/Flame.svg"/>
+        </decorationDescriptionsSet>
         <customization>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.hasTrustedColor()">
             <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="backgroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_trusted']"/>
@@ -241,7 +284,7 @@
   <userColorsPalettes name="Cybersecurity Color Palette">
     <entries xsi:type="description:UserFixedColor" red="135" green="206" blue="250" name="cyber_color1"/>
     <entries xsi:type="description:UserFixedColor" green="190" blue="235" name="cyber_color2"/>
-    <entries xsi:type="description:ComputedColor" name="asset_color1" red="service:getAssetColor1Red()" green="service:getAssetColor1Green()" blue="service:getAssetColor1Blue()"/>
+    <entries xsi:type="description:ComputedColor" name="asset_color1" red="service:view.getAssetColor1Red()" green="service:view.getAssetColor1Green()" blue="service:view.getAssetColor1Blue()"/>
     <entries xsi:type="description:UserFixedColor" red="255" green="255" blue="255" name="cyber_color_trusted"/>
     <entries xsi:type="description:UserFixedColor" red="180" green="0" blue="0" name="cyber_color_not_trusted"/>
     <entries xsi:type="description:UserFixedColor" red="200" green="200" blue="200" name="cyber_color_not_trusted_function"/>

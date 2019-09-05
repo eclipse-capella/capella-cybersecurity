@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.polarsys.capella.common.data.modellingcore.impl.ModelElementImpl;
-import org.polarsys.capella.core.data.cs.AbstractActor;
+import org.polarsys.capella.core.data.cs.Component;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.Threat;
 import org.polarsys.capella.cybersecurity.model.ThreatInvolvement;
@@ -37,14 +37,14 @@ import org.polarsys.capella.cybersecurity.model.ThreatInvolvement;
 public class ThreatInvolvementImpl extends ModelElementImpl implements ThreatInvolvement {
 
   /**
-   * The cached value of the '{@link #getActor() <em>Actor</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc
-   * -->
+   * The cached value of the '{@link #getComponent() <em>Component</em>}' reference. <!-- begin-user-doc --> <!--
+   * end-user-doc -->
    * 
-   * @see #getActor()
+   * @see #getComponent()
    * @generated
    * @ordered
    */
-  protected AbstractActor actor;
+  protected Component component;
 
   /**
    * The cached value of the '{@link #getThreat() <em>Threat</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc
@@ -82,19 +82,18 @@ public class ThreatInvolvementImpl extends ModelElementImpl implements ThreatInv
    * 
    * @generated
    */
+  public Component getComponent() {
 
-  public AbstractActor getActor() {
-
-    if (actor != null && actor.eIsProxy()) {
-      InternalEObject oldActor = (InternalEObject) actor;
-      actor = (AbstractActor) eResolveProxy(oldActor);
-      if (actor != oldActor) {
+    if (component != null && component.eIsProxy()) {
+      InternalEObject oldComponent = (InternalEObject) component;
+      component = (Component) eResolveProxy(oldComponent);
+      if (component != oldComponent) {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, CybersecurityPackage.THREAT_INVOLVEMENT__ACTOR,
-              oldActor, actor));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, CybersecurityPackage.THREAT_INVOLVEMENT__COMPONENT,
+              oldComponent, component));
       }
     }
-    return actor;
+    return component;
   }
 
   /**
@@ -102,10 +101,9 @@ public class ThreatInvolvementImpl extends ModelElementImpl implements ThreatInv
    * 
    * @generated
    */
+  public Component basicGetComponent() {
 
-  public AbstractActor basicGetActor() {
-
-    return actor;
+    return component;
   }
 
   /**
@@ -113,14 +111,13 @@ public class ThreatInvolvementImpl extends ModelElementImpl implements ThreatInv
    * 
    * @generated
    */
+  public void setComponent(Component newComponent) {
 
-  public void setActor(AbstractActor newActor) {
-
-    AbstractActor oldActor = actor;
-    actor = newActor;
+    Component oldComponent = component;
+    component = newComponent;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, CybersecurityPackage.THREAT_INVOLVEMENT__ACTOR, oldActor,
-          actor));
+      eNotify(new ENotificationImpl(this, Notification.SET, CybersecurityPackage.THREAT_INVOLVEMENT__COMPONENT,
+          oldComponent, component));
 
   }
 
@@ -179,10 +176,10 @@ public class ThreatInvolvementImpl extends ModelElementImpl implements ThreatInv
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType) {
     switch (featureID) {
-    case CybersecurityPackage.THREAT_INVOLVEMENT__ACTOR:
+    case CybersecurityPackage.THREAT_INVOLVEMENT__COMPONENT:
       if (resolve)
-        return getActor();
-      return basicGetActor();
+        return getComponent();
+      return basicGetComponent();
     case CybersecurityPackage.THREAT_INVOLVEMENT__THREAT:
       if (resolve)
         return getThreat();
@@ -199,8 +196,8 @@ public class ThreatInvolvementImpl extends ModelElementImpl implements ThreatInv
   @Override
   public void eSet(int featureID, Object newValue) {
     switch (featureID) {
-    case CybersecurityPackage.THREAT_INVOLVEMENT__ACTOR:
-      setActor((AbstractActor) newValue);
+    case CybersecurityPackage.THREAT_INVOLVEMENT__COMPONENT:
+      setComponent((Component) newValue);
       return;
     case CybersecurityPackage.THREAT_INVOLVEMENT__THREAT:
       setThreat((Threat) newValue);
@@ -217,8 +214,8 @@ public class ThreatInvolvementImpl extends ModelElementImpl implements ThreatInv
   @Override
   public void eUnset(int featureID) {
     switch (featureID) {
-    case CybersecurityPackage.THREAT_INVOLVEMENT__ACTOR:
-      setActor((AbstractActor) null);
+    case CybersecurityPackage.THREAT_INVOLVEMENT__COMPONENT:
+      setComponent((Component) null);
       return;
     case CybersecurityPackage.THREAT_INVOLVEMENT__THREAT:
       setThreat((Threat) null);
@@ -235,8 +232,8 @@ public class ThreatInvolvementImpl extends ModelElementImpl implements ThreatInv
   @Override
   public boolean eIsSet(int featureID) {
     switch (featureID) {
-    case CybersecurityPackage.THREAT_INVOLVEMENT__ACTOR:
-      return actor != null;
+    case CybersecurityPackage.THREAT_INVOLVEMENT__COMPONENT:
+      return component != null;
     case CybersecurityPackage.THREAT_INVOLVEMENT__THREAT:
       return threat != null;
     }
