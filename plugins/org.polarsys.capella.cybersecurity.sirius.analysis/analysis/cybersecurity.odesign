@@ -220,9 +220,7 @@
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:not self.hasTrustedColor()">
             <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="backgroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_not_trusted']"/>
             <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="foregroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_not_trusted']"/>
-          </vsmElementCustomizations>
-          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:not self.hasTrustedColor()">
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="color" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_not_trusted_function']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="labelColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_labelColor_not_trusted']"/>
           </vsmElementCustomizations>
         </customization>
       </layers>
@@ -287,7 +285,7 @@
     <entries xsi:type="description:ComputedColor" name="asset_color1" red="service:view.getAssetColor1Red()" green="service:view.getAssetColor1Green()" blue="service:view.getAssetColor1Blue()"/>
     <entries xsi:type="description:UserFixedColor" red="255" green="255" blue="255" name="cyber_color_trusted"/>
     <entries xsi:type="description:UserFixedColor" red="180" green="0" blue="0" name="cyber_color_not_trusted"/>
-    <entries xsi:type="description:UserFixedColor" red="200" green="200" blue="200" name="cyber_color_not_trusted_function"/>
+    <entries xsi:type="description:UserFixedColor" red="255" green="255" blue="255" name="cyber_labelColor_not_trusted"/>
     <entries xsi:type="description:UserFixedColor" red="255" green="211" blue="0" name="cyber_color_securityNeeds_1"/>
     <entries xsi:type="description:UserFixedColor" red="255" green="100" blue="0" name="cyber_color_securityNeeds_2"/>
     <entries xsi:type="description:UserFixedColor" red="255" green="22" blue="0" name="cyber_color_securityNeeds_3"/>

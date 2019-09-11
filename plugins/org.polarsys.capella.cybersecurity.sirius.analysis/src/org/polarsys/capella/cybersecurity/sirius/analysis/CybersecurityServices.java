@@ -20,7 +20,6 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
-import org.eclipse.sirius.diagram.AbstractDNode;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.DEdge;
@@ -343,10 +342,6 @@ public class CybersecurityServices {
 
   public boolean hasTrustedColor(Part part) {
     return isTrusted(part);
-  }
-
-  public boolean hasTrustedColor(AbstractFunction af) {
-    return isTrusted(af);
   }
 
   public boolean hasFlameDecoration(ComponentExchange ce) {
