@@ -25,6 +25,7 @@ public class Messages extends NLS {
   public static String SecurityNeedsSection_2;
   public static String SecurityNeedsSection_3;
   public static String SecurityNeedsSection_4;
+  public static String ThreatSection_0;
   static {
     // initialize resource bundle
     NLS.initializeMessages(BUNDLE_NAME, Messages.class);

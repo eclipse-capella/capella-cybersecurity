@@ -21,8 +21,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
@@ -148,10 +146,7 @@ public class FunctionCybersecuritySection extends AbstractSection {
   public void createControls(Composite parent, TabbedPropertySheetPage aTabbedPropertySheetPage) {
     super.createControls(parent, aTabbedPropertySheetPage);
 
-    GridData gd = new GridData(GridData.FILL_HORIZONTAL);
-    gd.horizontalSpan = ((GridLayout) rootParentComposite.getLayout()).numColumns;
-
-    checkboxes = new SemanticCheckboxGroup(rootParentComposite, getWidgetFactory(),
+    checkboxes = new SemanticCheckboxGroup(getCheckGroup(), getWidgetFactory(),
         CybersecurityPackage.Literals.FUNCTION_STORAGE__DATA_STORAGE,
         CybersecurityPackage.Literals.FUNCTION_STORAGE__REMANENT_DATA);
 

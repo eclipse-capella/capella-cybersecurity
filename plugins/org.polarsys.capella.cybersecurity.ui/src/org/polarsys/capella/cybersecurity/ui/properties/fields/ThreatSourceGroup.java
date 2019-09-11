@@ -16,12 +16,14 @@ package org.polarsys.capella.cybersecurity.ui.properties.fields;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Layout;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetWidgetFactory;
+import org.polarsys.capella.core.data.cs.Component;
 import org.polarsys.capella.core.ui.properties.fields.AbstractSemanticCheckboxGroup;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 
@@ -67,6 +69,13 @@ public class ThreatSourceGroup extends AbstractSemanticCheckboxGroup {
     List<Button> fields = new ArrayList<Button>();
     fields.add(isThreatSourceButton);
     return fields;
+  }
+
+  @Override
+  public void loadData(EObject semanticElement) {
+    super.loadData(semanticElement);
+    boolean isActor = semanticElement.eContainer() instanceof Component && ((Component) (semanticElement.eContainer())).isActor();
+    enableButton(isThreatSourceButton, isActor);
   }
 
 }

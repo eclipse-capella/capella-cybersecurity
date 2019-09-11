@@ -24,6 +24,7 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
+import org.polarsys.capella.core.data.cs.Component;
 import org.polarsys.capella.core.ui.properties.fields.AbstractSemanticField;
 import org.polarsys.capella.core.ui.properties.fields.IntegerValueGroup;
 import org.polarsys.capella.core.ui.properties.fields.TextValueGroup;
@@ -179,6 +180,7 @@ public class ActorCybersecuritySection extends AbstractSection {
         CybersecurityPackage.Literals.TRUST_BOUNDARY_STORAGE__THREAT_SOURCE_PROFILE);
     rationaleGroup.loadData(object, CybersecurityPackage.Literals.TRUST_BOUNDARY_STORAGE__RATIONALE);
     elementExtension = (TrustBoundaryStorage) object;
+    threatSourceProfileGroup.setEnabled(object.eContainer() instanceof Component && ((Component) object.eContainer()).isActor());
   }
 
   /**

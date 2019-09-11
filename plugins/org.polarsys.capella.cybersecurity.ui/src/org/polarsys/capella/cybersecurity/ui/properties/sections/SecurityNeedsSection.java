@@ -19,6 +19,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
@@ -149,19 +150,31 @@ public class SecurityNeedsSection extends AbstractSection {
     gd.horizontalSpan = ((GridLayout) rootParentComposite.getLayout()).numColumns;
 
     Group group = getWidgetFactory().createGroup(rootParentComposite, ""); //$NON-NLS-1$
-    group.setLayout(new GridLayout(2,false));
+    GridLayout layout = new GridLayout(2, true);
+    layout.marginWidth = 0;
+    layout.marginHeight = 0;
+    group.setLayout(layout);
     group.setLayoutData(gd);
     
-    confidentiality = new IntegerValueGroup(group, Messages.SecurityNeedsSection_1, getWidgetFactory(), true);
-    integrity = new IntegerValueGroup(group, Messages.SecurityNeedsSection_2, getWidgetFactory(), true);
-    traceability = new IntegerValueGroup(group, Messages.SecurityNeedsSection_3, getWidgetFactory(), true);
-    availability = new IntegerValueGroup(group, Messages.SecurityNeedsSection_4, getWidgetFactory(), true);
     
-    confidentiality.setDisplayedInWizard(isDisplayedInWizard());
-    integrity.setDisplayedInWizard(isDisplayedInWizard());
-    traceability.setDisplayedInWizard(isDisplayedInWizard());
-    availability.setDisplayedInWizard(isDisplayedInWizard());
-    
+    confidentiality = createIntegerValueGroup(group, Messages.SecurityNeedsSection_1);
+    integrity = createIntegerValueGroup(group, Messages.SecurityNeedsSection_2);
+    traceability = createIntegerValueGroup(group, Messages.SecurityNeedsSection_3);
+    availability = createIntegerValueGroup(group, Messages.SecurityNeedsSection_4);
+  }
+
+  // we want a 2x2 layout
+  // default integer value group always wants to span all columns, so we'll just trick it
+  private IntegerValueGroup createIntegerValueGroup(Group parent, String label) {
+    Composite compo = getWidgetFactory().createComposite(parent);
+    GridLayout gl = new GridLayout();
+    gl.marginHeight = 0;
+    gl.marginWidth = 0;
+    compo.setLayout(gl);
+    compo.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+    IntegerValueGroup result = new IntegerValueGroup(compo, label, getWidgetFactory(), true);
+    result.setDisplayedInWizard(isDisplayedInWizard());
+    return result;
   }
 
   /**
@@ -206,4 +219,7 @@ public class SecurityNeedsSection extends AbstractSection {
       loadData(elementExtension);
     }
   }
+  
+  
+  
 }
