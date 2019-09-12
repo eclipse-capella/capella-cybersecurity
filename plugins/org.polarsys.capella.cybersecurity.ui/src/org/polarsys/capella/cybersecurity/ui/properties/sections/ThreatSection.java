@@ -10,20 +10,23 @@
  *******************************************************************************/
 package org.polarsys.capella.cybersecurity.ui.properties.sections;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
-import org.polarsys.capella.core.data.core.properties.sections.NamedElementSection;
 import org.polarsys.capella.core.ui.properties.fields.AbstractSemanticField;
 import org.polarsys.capella.core.ui.properties.fields.IntegerValueGroup;
 import org.polarsys.capella.core.ui.properties.fields.TextValueGroup;
+import org.polarsys.capella.core.ui.properties.sections.AbstractSection;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.Threat;
 import org.polarsys.capella.cybersecurity.ui.properties.fields.ThreatKindGroup;
 
-public class ThreatSection extends NamedElementSection {
+public class ThreatSection extends AbstractSection {
 
   ThreatKindGroup threatKindGroup;
   TextValueGroup rationaleGroup;
@@ -44,6 +47,12 @@ public class ThreatSection extends NamedElementSection {
   }
 
   @Override
+  public void setInput(IWorkbenchPart part, ISelection selection) {
+    EObject newEObject = super.setInputSelection(part, selection);
+    loadData(newEObject);
+  }
+
+  @Override
   public void loadData(EObject capellaElement) {
     super.loadData(capellaElement);
     threatKindGroup.loadData(capellaElement, CybersecurityPackage.Literals.THREAT__THREAT_KIND);
@@ -53,7 +62,7 @@ public class ThreatSection extends NamedElementSection {
 
   @Override
   public List<AbstractSemanticField> getSemanticFields() {
-    List<AbstractSemanticField> fields = super.getSemanticFields();
+    List<AbstractSemanticField> fields = new ArrayList<>();
     fields.add(threatKindGroup);
     fields.add(rationaleGroup);
     fields.add(levelGroup);

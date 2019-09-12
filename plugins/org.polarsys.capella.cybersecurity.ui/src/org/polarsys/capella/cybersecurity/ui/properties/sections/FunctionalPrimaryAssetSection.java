@@ -10,18 +10,24 @@
  *******************************************************************************/
 package org.polarsys.capella.cybersecurity.ui.properties.sections;
 
+import java.util.Collections;
+import java.util.List;
+
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
+import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
-import org.polarsys.capella.core.data.core.properties.sections.NamedElementSection;
+import org.polarsys.capella.core.ui.properties.fields.AbstractSemanticField;
 import org.polarsys.capella.core.ui.properties.fields.ContainmentTableField;
+import org.polarsys.capella.core.ui.properties.sections.AbstractSection;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset;
 
-public class FunctionalPrimaryAssetSection extends NamedElementSection {
+public class FunctionalPrimaryAssetSection extends AbstractSection {
 
   private ContainmentTableField _containmentTableField;
 
@@ -50,9 +56,20 @@ public class FunctionalPrimaryAssetSection extends NamedElementSection {
   }
 
   @Override
+  public void setInput(IWorkbenchPart part, ISelection selection) {
+    EObject newEObject = super.setInputSelection(part, selection);
+    loadData(newEObject);
+  }
+
+  @Override
   public void loadData(EObject capellaElement) {
     super.loadData(capellaElement);
     _containmentTableField.loadData(capellaElement, CybersecurityPackage.Literals.PRIMARY_ASSET__OWNED_MEMBERS);
+  }
+
+  @Override
+  public List<AbstractSemanticField> getSemanticFields() {
+    return Collections.singletonList(_containmentTableField);
   }
 
 }

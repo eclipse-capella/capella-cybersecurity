@@ -22,8 +22,10 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Group;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
+import org.polarsys.capella.common.mdsofa.common.constant.ICommonConstants;
 import org.polarsys.capella.core.data.cs.Component;
 import org.polarsys.capella.core.ui.properties.fields.AbstractSemanticField;
 import org.polarsys.capella.core.ui.properties.fields.IntegerValueGroup;
@@ -35,8 +37,7 @@ import org.polarsys.capella.cybersecurity.ui.CommonHelpers;
 import org.polarsys.capella.cybersecurity.ui.CybersecurityUIActivator;
 import org.polarsys.capella.cybersecurity.ui.ElementExtensionStorage;
 import org.polarsys.capella.cybersecurity.ui.ElementExtensionStorageImpl;
-import org.polarsys.capella.cybersecurity.ui.properties.fields.ThreatSourceGroup;
-import org.polarsys.capella.cybersecurity.ui.properties.fields.TrustedGroup;
+import org.polarsys.capella.cybersecurity.ui.properties.fields.SemanticCheckboxGroup;
 import org.polarsys.kitalpha.emde.model.ExtensibleElement;
 
 /**
@@ -53,8 +54,8 @@ public class ActorCybersecuritySection extends AbstractSection {
   // display properties for this element
   private TrustBoundaryStorage elementExtension;
 
-  private ThreatSourceGroup threatSourceGroup;
-  private TrustedGroup trustedGroup;
+  private SemanticCheckboxGroup checkBoxes;
+
   private IntegerValueGroup threatSourceProfileGroup;
   private TextValueGroup rationaleGroup;
 
@@ -116,9 +117,6 @@ public class ActorCybersecuritySection extends AbstractSection {
     if (!CommonHelpers.isViewpointActive(parent, CybersecurityUIActivator.VIEWPOINT_ID))
       return null;
 
-    if (parent.eContents() == null)
-      return null;
-
     EObject result = null;
     for (EObject iEObject : parent.eContents()) {
       if (iEObject instanceof TrustBoundaryStorage) {
@@ -156,14 +154,22 @@ public class ActorCybersecuritySection extends AbstractSection {
   public void createControls(Composite parent, TabbedPropertySheetPage aTabbedPropertySheetPage) {
     super.createControls(parent, aTabbedPropertySheetPage);
 
-    GridData gd = new GridData(GridData.FILL_HORIZONTAL);
-    gd.horizontalSpan = ((GridLayout) rootParentComposite.getLayout()).numColumns;
-
-    threatSourceGroup = new ThreatSourceGroup(rootParentComposite, getWidgetFactory());
-    trustedGroup = new TrustedGroup(rootParentComposite, getWidgetFactory());
-
     threatSourceProfileGroup = new IntegerValueGroup(rootParentComposite, Messages.ActorCybersecuritySection_0, getWidgetFactory());
     rationaleGroup = new TextValueGroup(rootParentComposite, Messages.ActorCybersecuritySection_1, getWidgetFactory());
+
+    Group checkGroup = getWidgetFactory().createGroup(rootParentComposite, ICommonConstants.EMPTY_STRING);
+    checkGroup.setLayout(new GridLayout(2, false));
+    checkGroup.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+
+    checkBoxes = new SemanticCheckboxGroup(checkGroup, getWidgetFactory());
+    checkBoxes.addCheckbox(CybersecurityPackage.Literals.TRUST_BOUNDARY_STORAGE__TRUSTED,
+        e -> !((TrustBoundaryStorage) e).isThreatSource());
+    checkBoxes.addCheckbox(CybersecurityPackage.Literals.TRUST_BOUNDARY_STORAGE__THREAT_SOURCE,
+        (e) -> {
+          EObject container = ElementExtensionStorage.findContainer(e);
+          return container instanceof Component && ((Component)container).isActor();
+        });
+
   }
 
   /**
@@ -174,8 +180,7 @@ public class ActorCybersecuritySection extends AbstractSection {
    */
   public void loadData(EObject object) {
     super.loadData(object);
-    threatSourceGroup.loadData(object);
-    trustedGroup.loadData(object);
+    checkBoxes.loadData(object);
     threatSourceProfileGroup.loadData(object,
         CybersecurityPackage.Literals.TRUST_BOUNDARY_STORAGE__THREAT_SOURCE_PROFILE);
     rationaleGroup.loadData(object, CybersecurityPackage.Literals.TRUST_BOUNDARY_STORAGE__RATIONALE);
@@ -190,8 +195,7 @@ public class ActorCybersecuritySection extends AbstractSection {
    */
   public List<AbstractSemanticField> getSemanticFields() {
     List<AbstractSemanticField> abstractSemanticFields = new ArrayList<AbstractSemanticField>();
-    abstractSemanticFields.add(threatSourceGroup);
-    abstractSemanticFields.add(trustedGroup);
+    abstractSemanticFields.add(checkBoxes);
     abstractSemanticFields.add(threatSourceProfileGroup);
     abstractSemanticFields.add(rationaleGroup);
     return abstractSemanticFields;
@@ -207,4 +211,5 @@ public class ActorCybersecuritySection extends AbstractSection {
       loadData(elementExtension);
     }
   }
+
 }
