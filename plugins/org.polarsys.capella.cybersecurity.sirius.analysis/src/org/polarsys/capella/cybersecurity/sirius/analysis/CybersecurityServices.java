@@ -102,7 +102,7 @@ public class CybersecurityServices {
 
   public Collection<EObject> getABPrimaryAssetScope(DSemanticDecorator view) {
     EObject object = view.getTarget();
-    return EObjectExt.getAll(getDefaultCyberSecurityPackage(object), CybersecurityPackage.Literals.PRIMARY_ASSET);
+    return new ArrayList<>(EObjectExt.getAll(getDefaultCyberSecurityPackage(object), CybersecurityPackage.Literals.PRIMARY_ASSET));
   }
 
   public int getAssetColor1Red(DSemanticDecorator view) {
