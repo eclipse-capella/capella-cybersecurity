@@ -16,14 +16,12 @@
 	point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
 	<propertyTabs 
 		contributorId="org.eclipse.sirius.diagram.ui">
-			
 			<propertyTab
-		    	afterTab="BaseSiriusDiagram"
+				afterTab="top"
 		        category="semantic &amp; extension"
 		        id="cyber_ActorAttributes"
 		        label="Cybersecurity">
-		    </propertyTab> 
-			
+		    </propertyTab>
 	</propertyTabs>
 </extension> 
 <extension
@@ -32,10 +30,10 @@
 		contributorId="org.polarsys.capella.core.data.capellamodeller.properties">
 			
 			<propertyTab
-		    	afterTab="BaseCapella"
-		        category="default"
-		        id="cyber_ActorAttributes"
-		        label="Cybersecurity">
+         		afterTab="top"
+        		category="default"
+         		id="cyber_ActorAttributes"
+         		label="Cybersecurity">
 		    </propertyTab> 
 			
 	</propertyTabs>
