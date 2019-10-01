@@ -11,11 +11,16 @@
 
 package org.polarsys.capella.cybersecurity.model.impl;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.util.EcoreEList;
 import org.polarsys.capella.core.data.fa.AbstractFunction;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset;
+import org.polarsys.capella.cybersecurity.model.PrimaryAssetMember;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Functional Primary Asset</b></em>'. <!--
@@ -55,18 +60,18 @@ public class FunctionalPrimaryAssetImpl extends PrimaryAssetImpl implements Func
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * 
-   * @generated
+   * @generated NOT
    */
 
   public EList<AbstractFunction> getFunctions() {
-
-    // TODO: implement this method to return the 'Functions' reference list
-    // Ensure that you remove @generated or mark it @generated NOT
-    // The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and
-    // org.eclipse.emf.ecore.EStructuralFeature.Setting
-    // so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-    throw new UnsupportedOperationException();
-
+    Collection<AbstractFunction> result = new ArrayList<>();
+    for (PrimaryAssetMember pam : getOwnedMembers()) {
+      if (pam.getMember() instanceof AbstractFunction) {
+        result.add((AbstractFunction) pam.getMember());
+      }
+    }
+    Object[] data = result.toArray();
+    return new EcoreEList.UnmodifiableEList<AbstractFunction>(this, CybersecurityPackage.Literals.FUNCTIONAL_PRIMARY_ASSET__FUNCTIONS, data.length, data);
   }
 
   /**
