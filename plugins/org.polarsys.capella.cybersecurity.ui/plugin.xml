@@ -89,6 +89,20 @@
              filter="org.polarsys.capella.cybersecurity.ui.properties.sections.SecurityNeedsSection"
              id="cybersecurity.SecurityNeedsSection"
              tab="cyber_ActorAttributes">
+       </propertySection>
+       <propertySection
+             afterSection="cybersecurity.SecurityNeedsSection"
+             class="org.polarsys.capella.cybersecurity.ui.properties.sections.PrimaryAssetInverseMember$ExchangeItemSection"
+             filter="org.polarsys.capella.cybersecurity.ui.properties.sections.PrimaryAssetInverseMember$ExchangeItemSection"
+             id="exchangeItemPrimaryAssetInverse"
+             tab="cyber_ActorAttributes">
+       </propertySection>
+       <propertySection
+             afterSection="cybersecurity.FunctionCybersecuritySection"
+             class="org.polarsys.capella.cybersecurity.ui.properties.sections.PrimaryAssetInverseMember$AbstractFunctionSection"
+             filter="org.polarsys.capella.cybersecurity.ui.properties.sections.PrimaryAssetInverseMember$AbstractFunctionSection"
+             id="abstractFunctionPrimaryAssetInverse"
+             tab="cyber_ActorAttributes">
        </propertySection> 
 		    </propertySections>
 </extension>
@@ -144,6 +158,20 @@
              id="cybersecurity.SecurityNeedsSection"
              tab="cyber_ActorAttributes">
        </propertySection>
+       <propertySection
+             afterSection="cybersecurity.SecurityNeedsSection"
+             class="org.polarsys.capella.cybersecurity.ui.properties.sections.PrimaryAssetInverseMember$ExchangeItemSection"
+             filter="org.polarsys.capella.cybersecurity.ui.properties.sections.PrimaryAssetInverseMember$ExchangeItemSection"
+             id="exchangeItemPrimaryAssetInverse"
+             tab="cyber_ActorAttributes">
+       </propertySection>
+       <propertySection
+             afterSection="cybersecurity.FunctionCybersecuritySection"
+             class="org.polarsys.capella.cybersecurity.ui.properties.sections.PrimaryAssetInverseMember$AbstractFunctionSection"
+             filter="org.polarsys.capella.cybersecurity.ui.properties.sections.PrimaryAssetInverseMember$AbstractFunctionSection"
+             id="abstractFunctionPrimaryAssetInverse"
+             tab="cyber_ActorAttributes">
+       </propertySection> 
 		    </propertySections>
 </extension>
 <extension

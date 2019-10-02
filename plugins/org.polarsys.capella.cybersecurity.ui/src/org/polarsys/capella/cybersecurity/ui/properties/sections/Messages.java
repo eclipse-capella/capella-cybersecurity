@@ -19,8 +19,10 @@ public class Messages extends NLS {
   public static String FunctionalPrimaryAssetSection_0;
   public static String FunctionalPrimaryAssetSection_1;
   public static String FunctionCybersecuritySection_0;
+  public static String FunctionCybersecuritySection_FunctionPrimaryAssetProperty_Label;
   public static String InformationPrimaryAssetSection_0;
   public static String InformationPrimaryAssetSection_1;
+  public static String PrimaryAssetInverseMember_TransferDialogTitle;
   public static String SecurityNeedsSection_1;
   public static String SecurityNeedsSection_2;
   public static String SecurityNeedsSection_3;
