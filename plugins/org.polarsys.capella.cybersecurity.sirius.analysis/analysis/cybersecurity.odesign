@@ -151,9 +151,10 @@
       </layers>
       <layers name="Cybersecurity Assets Layer">
         <nodeMappings name="PrimaryAsset" createElements="false" domainClass="cybersecurity.PrimaryAsset">
-          <style xsi:type="style:SquareDescription" labelSize="10" resizeKind="NSEW" color="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color1']">
+          <style xsi:type="style:SquareDescription" labelSize="10" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
           </style>
         </nodeMappings>
         <toolSections name="Primary Assets">
@@ -187,7 +188,9 @@
                     </subModelOperations>
                     <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:ownedNodeContainer->select(x | x.target = i)->size() = 0">
                       <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:i">
-                        <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentationExtensions[name='Cybersecurity%20Architecture%20Diagram%20Extensions']/@layers[name='Cybersecurity%20Assets%20Layer']/@nodeMappings[name='PrimaryAsset']" containerViewExpression="aql:diagram"/>
+                        <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentationExtensions[name='Cybersecurity%20Architecture%20Diagram%20Extensions']/@layers[name='Cybersecurity%20Assets%20Layer']/@nodeMappings[name='PrimaryAsset']" containerViewExpression="aql:diagram">
+                          <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:createdView.setNewRandomColor()"/>
+                        </subModelOperations>
                       </subModelOperations>
                     </subModelOperations>
                   </subModelOperations>

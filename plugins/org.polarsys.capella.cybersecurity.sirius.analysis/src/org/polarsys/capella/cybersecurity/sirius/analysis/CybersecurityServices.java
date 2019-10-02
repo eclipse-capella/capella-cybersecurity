@@ -13,6 +13,8 @@ package org.polarsys.capella.cybersecurity.sirius.analysis;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.PrimitiveIterator.OfInt;
+import java.util.Random;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.ecore.EObject;
@@ -26,6 +28,7 @@ import org.eclipse.sirius.diagram.DEdge;
 import org.eclipse.sirius.diagram.DNode;
 import org.eclipse.sirius.diagram.Square;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
+import org.eclipse.sirius.viewpoint.RGBValues;
 import org.polarsys.capella.common.data.behavior.AbstractEvent;
 import org.polarsys.capella.common.helpers.EObjectExt;
 import org.polarsys.capella.common.helpers.EcoreUtil2;
@@ -73,6 +76,8 @@ public class CybersecurityServices {
 
   final FaServices FA_SERVICES = new FaServices();
   final CsServices CS_SERVICES = new CsServices();
+
+  final OfInt colorRands = new Random().ints(0, 255).iterator();
 
   public CybersecurityPkg getDefaultCyberSecurityPackage(EObject any) {
     BlockArchitecture ba = (BlockArchitecture) EcoreUtil2.getFirstContainer(any, CsPackage.Literals.BLOCK_ARCHITECTURE);
@@ -317,7 +322,7 @@ public class CybersecurityServices {
       for (PrimaryAsset asset : getRelatedAssets(e)) {
         DDiagramElement element = DiagramServices.getDiagramServices().getDiagramElement(diagram, asset);
         if (element != null && element instanceof DNode) {
-          return "5";
+          return "5"; //$NON-NLS-1$
         }
       }
       return "1"; //$NON-NLS-1$
@@ -332,7 +337,7 @@ public class CybersecurityServices {
       for (PrimaryAsset asset : getRelatedAssets(e)) {
         DDiagramElement element = DiagramServices.getDiagramServices().getDiagramElement(diagram, asset);
         if (element != null && element instanceof DNode) {
-          return "5";
+          return "5"; //$NON-NLS-1$
         }
       }
       return "1"; //$NON-NLS-1$
@@ -404,6 +409,13 @@ public class CybersecurityServices {
       return tbs.isTrusted();
     }
     return TrustBoundaryStorageImpl.TRUSTED_EDEFAULT;
+  }
+
+  // make a new random color for every new asset node
+  public EObject setNewRandomColor(DNode assetView) {
+    ((Square)assetView.getOwnedStyle()).setColor(RGBValues.create(colorRands.nextInt(), colorRands.nextInt(), colorRands.nextInt()));
+    ((Square)assetView.getOwnedStyle()).getCustomFeatures().add("color"); //$NON-NLS-1$
+    return assetView;
   }
 
 }
