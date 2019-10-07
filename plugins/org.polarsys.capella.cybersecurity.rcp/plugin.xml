@@ -15,5 +15,24 @@
          <property name="introDescription-firststeps" value="%introDescription-firststeps"/>
       </product>
    </extension>
+   <extension
+         point="org.eclipse.ui.activities">
+      <activityPatternBinding
+            activityId="org.polarsys.capella.activities.accelerator"
+            pattern=".*\.initialization\.from\.existing\.diagram">
+      </activityPatternBinding>
+      <activityPatternBinding
+            activityId="org.polarsys.capella.activities.accelerator"
+            pattern=".*\.elements\.from\.scenario">
+      </activityPatternBinding>
+      <activityPatternBinding
+            activityId="org.polarsys.capella.activities.accelerator"
+            pattern=".*\.functions\.from\.mode\.state">
+      </activityPatternBinding>
+      <activityPatternBinding
+            activityId="org.polarsys.capella.activities.accelerator"
+            pattern=".*\.activities\.from\.mode\.state">
+      </activityPatternBinding>
+   </extension>
 
 </plugin>
