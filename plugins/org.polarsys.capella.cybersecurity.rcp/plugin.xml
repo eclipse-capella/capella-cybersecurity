@@ -34,5 +34,12 @@
             pattern=".*\.activities\.from\.mode\.state">
       </activityPatternBinding>
    </extension>
+   <extension
+         point="org.eclipse.ui.activitySupport">
+      <triggerPointAdvisorProductBinding
+            productId="org.polarsys.capella.cybersecurity.rcp.product"
+            triggerPointAdvisorId="org.polarsys.capella.core.platform.sirius.ui.TriggerPointAdvisor">
+      </triggerPointAdvisorProductBinding>
+   </extension>
 
 </plugin>
