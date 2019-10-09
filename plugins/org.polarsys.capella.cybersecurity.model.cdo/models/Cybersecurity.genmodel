@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="" modelDirectory="/org.polarsys.capella.cybersecurity.model.cdo/src"
+    editDirectory="/org.polarsys.capella.cybersecurity.model.edit/src" editorDirectory="/org.polarsys.capella.cybersecurity.model.editor/src"
+    modelPluginID="org.polarsys.capella.cybersecurity.model.cdo" modelName="Cybersecurity"
+    editPluginClass="org.polarsys.capella.cybersecurity.model.provider.CybersecurityEditPlugin"
+    editorPluginClass="org.polarsys.capella.cybersecurity.model.editor.CybersecurityEditorPlugin"
+    nonNLSMarkers="true" rootExtendsInterface="org.eclipse.emf.cdo.CDOObject" rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" featureDelegation="Dynamic"
+    complianceLevel="8.0" copyrightFields="false" editPluginID="org.polarsys.capella.cybersecurity.model.edit"
+    editorPluginID="org.polarsys.capella.cybersecurity.model.editor" optimizedHasChildren="true"
+    runtimeVersion="2.12" language="" usedGenPackages="platform:/plugin/org.polarsys.kitalpha.emde.model.cdo/model/eMDE.genmodel#//emde platform:/plugin/org.polarsys.capella.core.data.gen.cdo/model/CapellaModeller.genmodel#//capellacore platform:/plugin/org.polarsys.capella.core.data.gen.cdo/model/CapellaModeller.genmodel#//oa platform:/plugin/org.polarsys.capella.core.data.gen.cdo/model/CapellaModeller.genmodel#//ctx platform:/plugin/org.polarsys.capella.core.data.gen.cdo/model/CapellaModeller.genmodel#//la platform:/plugin/org.polarsys.capella.core.data.gen.cdo/model/CapellaModeller.genmodel#//pa platform:/plugin/org.polarsys.capella.core.data.gen.cdo/model/CapellaModeller.genmodel#//epbs platform:/plugin/org.polarsys.capella.core.data.gen.cdo/model/CapellaModeller.genmodel#//requirement platform:/plugin/org.polarsys.capella.core.data.gen.cdo/model/CapellaModeller.genmodel#//capellacommon platform:/plugin/org.polarsys.capella.core.data.gen.cdo/model/CapellaModeller.genmodel#//information platform:/plugin/org.polarsys.capella.core.data.gen.cdo/model/CapellaModeller.genmodel#//cs platform:/plugin/org.polarsys.capella.core.data.gen.cdo/model/CapellaModeller.genmodel#//fa platform:/plugin/org.polarsys.capella.core.data.gen.cdo/model/CapellaModeller.genmodel#//interaction platform:/plugin/org.polarsys.capella.common.data.core.gen.cdo/model/ModellingCore.genmodel#//modellingcore platform:/plugin/org.polarsys.capella.common.data.activity.gen.cdo/model/Activity.genmodel#//activity platform:/plugin/org.polarsys.capella.common.data.behavior.gen.cdo/model/Behavior.genmodel#//behavior"
+    importOrganizing="true">
+  <foreignModel>Cybersecurity.ecore</foreignModel>
+  <modelPluginVariables>org.polarsys.capella.core.data.helpers</modelPluginVariables>
+  <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
+  <editPluginVariables>org.polarsys.capella.core.data.menu.contributions</editPluginVariables>
+  <editPluginVariables>org.polarsys.capella.core.menu.dynamic</editPluginVariables>
+  <editPluginVariables>org.polarsys.capella.core.ui.properties</editPluginVariables>
+  <editPluginVariables>org.polarsys.capella.core.data.sharedmodel.properties</editPluginVariables>
+  <editPluginVariables>org.polarsys.capella.core.data.requirement.properties</editPluginVariables>
+  <editPluginVariables>org.polarsys.capella.core.data.common.properties</editPluginVariables>
+  <editPluginVariables>org.polarsys.capella.core.data.core.properties</editPluginVariables>
+  <editPluginVariables>org.polarsys.capella.core.data.cs.properties</editPluginVariables>
+  <editPluginVariables>org.polarsys.capella.core.data.ctx.properties</editPluginVariables>
+  <editPluginVariables>org.polarsys.capella.core.data.epbs.properties</editPluginVariables>
+  <editPluginVariables>org.polarsys.capella.core.data.fa.properties</editPluginVariables>
+  <editPluginVariables>org.polarsys.capella.core.data.information.communication.properties</editPluginVariables>
+  <editPluginVariables>org.polarsys.capella.core.data.information.datatype.properties</editPluginVariables>
+  <editPluginVariables>org.polarsys.capella.core.data.information.datavalue.properties</editPluginVariables>
+  <editPluginVariables>org.polarsys.capella.core.data.information.properties</editPluginVariables>
+  <editPluginVariables>org.polarsys.capella.core.data.interaction.properties</editPluginVariables>
+  <editPluginVariables>org.polarsys.capella.core.data.la.properties</editPluginVariables>
+  <editPluginVariables>org.polarsys.capella.core.data.modeller.properties</editPluginVariables>
+  <editPluginVariables>org.polarsys.capella.core.data.oa.properties</editPluginVariables>
+  <editPluginVariables>org.polarsys.capella.core.data.pa.deployment.properties</editPluginVariables>
+  <editPluginVariables>org.polarsys.capella.core.data.pa.properties</editPluginVariables>
+  <genPackages prefix="Cybersecurity" basePackage="org.polarsys.capella" resource="XMI"
+      disposableProviderFactory="true" interfacePackageSuffix="model" metaDataPackageSuffix="model"
+      classPackageSuffix="model.impl" utilityPackageSuffix="model.util" providerPackageSuffix="model.provider"
+      presentationPackageSuffix="model.presentation" testsPackageSuffix="model.tests"
+      generateExampleClass="false" multipleEditorPages="false" extensibleProviderFactory="true"
+      childCreationExtenders="true" ecorePackage="../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//ThreatKind">
+      <genEnumLiterals ecoreEnumLiteral="../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//ThreatKind/Eavesdropping"/>
+      <genEnumLiterals ecoreEnumLiteral="../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//ThreatKind/Theft_and_data_alteration"/>
+      <genEnumLiterals ecoreEnumLiteral="../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//ThreatKind/Denial_of_service"/>
+      <genEnumLiterals ecoreEnumLiteral="../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//ThreatKind/Intrusion"/>
+      <genEnumLiterals ecoreEnumLiteral="../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//ThreatKind/Tampering"/>
+    </genEnums>
+    <genClasses ecoreClass="../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//CybersecurityPkg">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//CybersecurityPkg/ownedThreats"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//CybersecurityPkg/ownedCybersecurityPkgs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//CybersecurityPkg/ownedPrimaryAssets"/>
+    </genClasses>
+    <genClasses ecoreClass="../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//Threat">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//Threat/addressedBy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//Threat/threatKind"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//Threat/level"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//Threat/rationale"/>
+    </genClasses>
+    <genClasses ecoreClass="../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//ThreatInvolvement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//ThreatInvolvement/component"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//ThreatInvolvement/threat"/>
+    </genClasses>
+    <genClasses ecoreClass="../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//FunctionStorage">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//FunctionStorage/exchangedItems"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//FunctionStorage/dataStorage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//FunctionStorage/remanentData"/>
+    </genClasses>
+    <genClasses ecoreClass="../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//ThreatApplication">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//ThreatApplication/threat"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//ThreatApplication/asset"/>
+    </genClasses>
+    <genClasses ecoreClass="../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//PrimaryAssetStorage"/>
+    <genClasses ecoreClass="../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//SecurityNeeds">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//SecurityNeeds/confidentiality"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//SecurityNeeds/integrity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//SecurityNeeds/availability"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//SecurityNeeds/traceability"/>
+    </genClasses>
+    <genClasses ecoreClass="../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//TrustBoundaryStorage">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//TrustBoundaryStorage/threatSource"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//TrustBoundaryStorage/threatSourceProfile"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//TrustBoundaryStorage/trusted"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//TrustBoundaryStorage/rationale"/>
+    </genClasses>
+    <genClasses ecoreClass="../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//PrimaryAsset">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//PrimaryAsset/ownedSecurityNeeds"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//PrimaryAsset/ownedThreatApplications"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//PrimaryAsset/ownedMembers"/>
+    </genClasses>
+    <genClasses ecoreClass="../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//FunctionalPrimaryAsset">
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//FunctionalPrimaryAsset/functions"/>
+    </genClasses>
+    <genClasses ecoreClass="../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//InformationPrimaryAsset">
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//InformationPrimaryAsset/exchangeItems"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//PrimaryAssetMember">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//PrimaryAssetMember/asset"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//PrimaryAssetMember/member"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

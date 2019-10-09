@@ -26,6 +26,7 @@
 	  <module>org.polarsys.capella.cybersecurity.af</module>
 	  <module>org.polarsys.capella.cybersecurity.fc</module>
 	  <module>org.polarsys.capella.cybersecurity.model</module>
+  	  <module>org.polarsys.capella.cybersecurity.model.cdo</module>
 	  <module>org.polarsys.capella.cybersecurity.model.edit</module>
 	  <module>org.polarsys.capella.cybersecurity.ui</module>
 	  <module>org.polarsys.capella.cybersecurity.business.queries</module>

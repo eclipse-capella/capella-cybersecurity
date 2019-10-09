@@ -19,5 +19,11 @@
    <feature id="org.polarsys.capella.cybersecurity.feature.source" version="0.9.0.qualifier">
       <category name="org.polarsys.capella.cybersecurity"/>
    </feature>
+   <feature id="org.polarsys.capella.cybersecurity.cdo.feature" version="0.9.0.qualifier">
+      <category name="org.polarsys.capella.cybersecurity"/>
+   </feature>
+   <feature id="org.polarsys.capella.cybersecurity.cdo.feature.source" version="0.9.0.qualifier">
+      <category name="org.polarsys.capella.cybersecurity"/>
+   </feature>
    <category-def name="org.polarsys.capella.cybersecurity" label="Capella Cybersecurity"/>
 </site>

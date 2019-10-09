@@ -16,4 +16,9 @@ with source, requirements
 
 location capella-master "https://download.eclipse.org/capella/core/updates/nightly/latest/org.polarsys.capella.rcp.site" {
 	org.polarsys.capella.rcp.feature.feature.group
+	org.polarsys.capella.cdo.mock.feature.feature.group
+}
+
+location "http://download.eclipse.org/modeling/emf/cdo/updates/releases" {
+	org.eclipse.emf.cdo.sdk.feature.group
 }

@@ -68,6 +68,15 @@
               invokedContract="fcore:FactoryComponentContract platform:/plugin/org.polarsys.capella.extension.tools/egf/capellaTools.fcore#_tt5z1B_3EeCuNfuGnuOPDw"/>
         </invocationContractContainer>
       </invocations>
+      <invocations xmi:id="_tj8Y0OjUEemgpK18GB_x_A" name="EMF Pattern CDO - Factory Override invocation"
+          invokedActivity="fcore:FactoryComponent platform:/plugin/org.eclipse.egf.emf.pattern.cdo/egf/EMF_Pattern_CDO.fcore#_jgrokOCEEeGKHKVgqEoOmg">
+        <invocationContractContainer xmi:id="_7tDBgOjUEemgpK18GB_x_A">
+          <invocationContracts xmi:id="_998tIOjUEemgpK18GB_x_A" invokedContract="fcore:FactoryComponentContract platform:/plugin/org.eclipse.egf.emf.pattern.cdo/egf/EMF_Pattern_CDO.fcore#_mehSseCEEeGKHKVgqEoOmg">
+            <type xmi:type="domain:TypeDomain" xmi:id="_xAzEwOjVEemgpK18GB_x_A" domain="#_GdGgUHb-Eemf77wXwnQxng"/>
+          </invocationContracts>
+          <invocationContracts xmi:id="_1g06YOjVEemgpK18GB_x_A" invokedContract="fcore:FactoryComponentContract platform:/plugin/org.eclipse.egf.emf.pattern.cdo/egf/EMF_Pattern_CDO.fcore#_mehSt-CEEeGKHKVgqEoOmg"/>
+        </invocationContractContainer>
+      </invocations>
     </orchestration>
   </fcore:FactoryComponent>
 </xmi:XMI>
