@@ -60,7 +60,7 @@ public class InformationPrimaryAssetImpl extends PrimaryAssetImpl implements Inf
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * 
-   * @generated
+   * @generated NOT
    */
 
   public EList<ExchangeItem> getExchangeItems() {
