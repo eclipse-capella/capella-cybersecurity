@@ -897,7 +897,7 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
         new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/cs/1.4.0#//BlockArchitecture" //$NON-NLS-1$ //$NON-NLS-2$
         });
     addAnnotation(threatInvolvementEClass, source,
-        new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/cs/1.4.0#//AbstractActor" //$NON-NLS-1$ //$NON-NLS-2$
+        new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/cs/1.4.0#//Component" //$NON-NLS-1$ //$NON-NLS-2$
         });
     addAnnotation(functionStorageEClass, source,
         new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/fa/1.4.0#//AbstractFunction" //$NON-NLS-1$ //$NON-NLS-2$
