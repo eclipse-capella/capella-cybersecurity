@@ -79,7 +79,7 @@ public class CybersecurityServices {
 
   final OfInt colorRands = new Random().ints(0, 255).iterator();
 
-  public CybersecurityPkg getDefaultCyberSecurityPackage(EObject any) {
+  public CybersecurityPkg getDefaultCyberSecurityPackage(EObject any, boolean create) {
     BlockArchitecture ba = (BlockArchitecture) EcoreUtil2.getFirstContainer(any, CsPackage.Literals.BLOCK_ARCHITECTURE);
     if (ba != null) {
       for (EObject e : ba.getOwnedExtensions()) {
@@ -87,16 +87,18 @@ public class CybersecurityServices {
           return (CybersecurityPkg) e;
         }
       }
-      CybersecurityPkg pkg = CybersecurityFactory.eINSTANCE.createCybersecurityPkg();
-      pkg.setName(Messages.CybersecurityServices_0);
-      ba.getOwnedExtensions().add(pkg);
-      return pkg;
+      if (create) {
+        CybersecurityPkg pkg = CybersecurityFactory.eINSTANCE.createCybersecurityPkg();
+        pkg.setName(Messages.CybersecurityServices_0);
+        ba.getOwnedExtensions().add(pkg);
+        return pkg;
+      }
     }
     return null;
   }
 
   public Threat createThreat(EObject any) {
-    CybersecurityPkg pkg = getDefaultCyberSecurityPackage(any);
+    CybersecurityPkg pkg = getDefaultCyberSecurityPackage(any, true);
     if (pkg != null) {
       Threat threat = CybersecurityFactory.eINSTANCE.createThreat();
       pkg.getOwnedThreats().add(threat);
@@ -107,7 +109,11 @@ public class CybersecurityServices {
 
   public Collection<EObject> getABPrimaryAssetScope(DSemanticDecorator view) {
     EObject object = view.getTarget();
-    return new ArrayList<>(EObjectExt.getAll(getDefaultCyberSecurityPackage(object), CybersecurityPackage.Literals.PRIMARY_ASSET));
+    CybersecurityPkg cspkg = getDefaultCyberSecurityPackage(object, false);
+    if (cspkg != null) {
+      return new ArrayList<>(EObjectExt.getAll(cspkg, CybersecurityPackage.Literals.PRIMARY_ASSET));
+    }
+    return Collections.emptyList();
   }
 
   public int getAssetColor1Red(DSemanticDecorator view) {
@@ -157,7 +163,7 @@ public class CybersecurityServices {
   }
 
   private EObject attachToDefaultCybersecurityPkg(EObject context, EObject cyberObject) {
-    CybersecurityPkg pkg = getDefaultCyberSecurityPackage(context);
+    CybersecurityPkg pkg = getDefaultCyberSecurityPackage(context, true);
     Command cmd = AddCommand.create(TransactionUtil.getEditingDomain(pkg), pkg, null,
         Collections.singleton(cyberObject));
     if (cmd.canExecute()) {
