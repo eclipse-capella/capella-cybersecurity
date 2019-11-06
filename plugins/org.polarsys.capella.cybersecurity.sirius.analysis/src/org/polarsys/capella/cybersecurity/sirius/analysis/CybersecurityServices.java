@@ -13,8 +13,10 @@ package org.polarsys.capella.cybersecurity.sirius.analysis;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Map;
 import java.util.PrimitiveIterator.OfInt;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.ecore.EObject;
@@ -22,11 +24,13 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
+import org.eclipse.sirius.common.tools.api.interpreter.IInterpreter;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.DEdge;
 import org.eclipse.sirius.diagram.DNode;
 import org.eclipse.sirius.diagram.Square;
+import org.eclipse.sirius.tools.api.interpreter.InterpreterUtil;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.RGBValues;
 import org.polarsys.capella.common.data.behavior.AbstractEvent;
@@ -263,7 +267,7 @@ public class CybersecurityServices {
 
   public Collection<Component> getAllThreatActors(EObject element) {
     BlockArchitecture architecture = BlockArchitectureExt.getRootBlockArchitecture(element);
-    return BlockArchitectureExt.getAllComponents(architecture);
+    return BlockArchitectureExt.getAllComponents(architecture).stream().filter(c -> c.isActor()).collect(Collectors.toList());
   }
 
   public Collection<PrimaryAsset> getRelatedAssets(EObject element) {
@@ -423,5 +427,6 @@ public class CybersecurityServices {
     ((Square)assetView.getOwnedStyle()).getCustomFeatures().add("color"); //$NON-NLS-1$
     return assetView;
   }
+  
 
 }

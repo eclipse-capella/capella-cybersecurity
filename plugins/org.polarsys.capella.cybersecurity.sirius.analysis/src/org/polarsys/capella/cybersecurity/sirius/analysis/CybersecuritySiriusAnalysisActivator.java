@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.polarsys.capella.cybersecurity.sirius.analysis;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -26,7 +27,7 @@ public class CybersecuritySiriusAnalysisActivator extends AbstractUIPlugin {
   // The plug-in ID
   public static final String PLUGIN_ID = "org.polarsys.capella.cybersecurity.sirius.analysis"; //$NON-NLS-1$
   private static final String ODESIGN_PATH = "/analysis/cybersecurity.odesign"; //$NON-NLS-1$
-  private static Set<Viewpoint> REGISTERED_VIEWPOINTS = new HashSet<>();
+  private Set<Viewpoint> REGISTERED_VIEWPOINTS = new HashSet<>();
 
   // The shared instance
   private static CybersecuritySiriusAnalysisActivator plugin;
@@ -47,6 +48,7 @@ public class CybersecuritySiriusAnalysisActivator extends AbstractUIPlugin {
   @Override
   public void stop(BundleContext context) throws Exception {
     REGISTERED_VIEWPOINTS.forEach(ViewpointRegistry.getInstance()::disposeFromPlugin);
+    REGISTERED_VIEWPOINTS.clear();
     plugin = null;
     super.stop(context);
   }
@@ -58,6 +60,10 @@ public class CybersecuritySiriusAnalysisActivator extends AbstractUIPlugin {
    */
   public static CybersecuritySiriusAnalysisActivator getDefault() {
     return plugin;
+  }
+
+  public Set<Viewpoint> getRegisteredViewpoints() {
+    return Collections.unmodifiableSet(REGISTERED_VIEWPOINTS);
   }
 
 }
