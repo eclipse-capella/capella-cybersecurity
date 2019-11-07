@@ -18,7 +18,7 @@
     <maven>3.0</maven>
   </prerequisites>
 
-  <name>Capella Cybersecurity</name>
+  <name>Cybersecurity</name>
   <groupId>org.polarsys</groupId>
   <artifactId>org.polarsys.capella.cybersecurity</artifactId>
   <version>0.9.0-SNAPSHOT</version>
@@ -39,7 +39,7 @@
 	<!-- for packaging -->
 	<platform-name>neon</platform-name>
 	<eclipse-repo.url>http://download.eclipse.org/releases/${platform-name}</eclipse-repo.url>
-	<packagedAddonName>CapellaCybersecurity</packagedAddonName>
+	<packagedAddonName>Cybersecurity</packagedAddonName>
 
 	<!-- for sonar -->
 	<sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
@@ -51,7 +51,6 @@
     <module>features/</module>
     <module>plugins/</module>
     <module>releng/org.polarsys.capella.cybersecurity.site</module>
-    <module>releng/org.polarsys.capella.cybersecurity.product</module>
   </modules>
 
   <build>
