@@ -72,7 +72,7 @@
           <deletionDescription href="../../org.polarsys.capella.core.sirius.analysis/description/common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Contextual%20Component%20Detailed%20Interfaces']/@defaultLayer/@toolSections.0/@ownedTools[name='delete%20capella%20elements']"/>
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="12" showIcon="false" labelExpression="involves">
+            <centerLabelStyleDescription labelSize="12" showIcon="false" labelExpression="« i »">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
@@ -81,7 +81,7 @@
           <deletionDescription href="../../org.polarsys.capella.core.sirius.analysis/description/common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Contextual%20Component%20Detailed%20Interfaces']/@defaultLayer/@toolSections.0/@ownedTools[name='delete%20capella%20elements']"/>
           <style lineStyle="dot" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="12" showIcon="false" labelExpression="applicable to">
+            <centerLabelStyleDescription labelSize="12" showIcon="false" labelExpression="« a »">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
@@ -134,7 +134,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="ToolCreateThreatApplication" label="Application" edgeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@edgeMappings[name='ThreatApplication']" iconPath="ToolCreateThreatApplication">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="ToolCreateThreatApplication" label="Applicable to" edgeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@edgeMappings[name='ThreatApplication']" iconPath="ToolCreateThreatApplication">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -262,9 +262,11 @@
           </vsmElementCustomizations>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.getConfidentiality() = 2">
             <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="color" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_2']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="labelColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_label']"/>
           </vsmElementCustomizations>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.getConfidentiality() = 3">
             <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="color" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_3']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="labelColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_label']"/>
           </vsmElementCustomizations>
         </customization>
       </layers>
@@ -275,9 +277,11 @@
           </vsmElementCustomizations>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.getIntegrity() = 2">
             <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="color" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_2']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="labelColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_label']"/>
           </vsmElementCustomizations>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.getIntegrity() = 3">
             <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="color" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_3']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="labelColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_label']"/>
           </vsmElementCustomizations>
         </customization>
       </layers>
@@ -288,9 +292,11 @@
           </vsmElementCustomizations>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.getAvailability() = 2">
             <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="color" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_2']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="labelColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_label']"/>
           </vsmElementCustomizations>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.getAvailability() = 3">
             <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="color" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_3']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="labelColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_label']"/>
           </vsmElementCustomizations>
         </customization>
       </layers>
@@ -301,9 +307,11 @@
           </vsmElementCustomizations>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.getTraceability() = 2">
             <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="color" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_2']"/>
+          	<featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="labelColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_label']"/>
           </vsmElementCustomizations>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.getTraceability() = 3">
             <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="color" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_3']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="labelColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_label']"/>
           </vsmElementCustomizations>
         </customization>
       </layers>
@@ -320,5 +328,6 @@
     <entries xsi:type="description:UserFixedColor" red="255" green="211" blue="0" name="cyber_color_securityNeeds_1"/>
     <entries xsi:type="description:UserFixedColor" red="255" green="100" blue="0" name="cyber_color_securityNeeds_2"/>
     <entries xsi:type="description:UserFixedColor" red="255" green="22" blue="0" name="cyber_color_securityNeeds_3"/>
+    <entries xsi:type="description:UserFixedColor" red="255" green="255" blue="255" name="cyber_color_securityNeeds_label"/>
   </userColorsPalettes>
 </description:Group>
