@@ -10,13 +10,17 @@
  *******************************************************************************/
 package org.polarsys.capella.cybersecurity.ui;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain.EditingDomainProvider;
 import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.polarsys.kitalpha.emde.model.ElementExtension;
+import org.polarsys.kitalpha.emde.model.EmdePackage;
 import org.polarsys.kitalpha.emde.model.ExtensibleElement;
 
 /**
@@ -26,12 +30,17 @@ public class ElementExtensionStorageImpl<T extends ElementExtension> extends Edi
     implements ElementExtensionStorage<T> {
 
   private final T elementExtension;
+  private final EReference storageRef;
   private ExtensibleElement extendedElement;
 
-  @SuppressWarnings("unchecked")
   public ElementExtensionStorageImpl(ExtensibleElement extendedElement, EClass storageClass) {
+    this(extendedElement, storageClass, EmdePackage.Literals.EXTENSIBLE_ELEMENT__OWNED_EXTENSIONS);
+  }
+
+  public ElementExtensionStorageImpl(ExtensibleElement extendedElement, EClass storageClass, EReference storageRef) {
     super(TransactionUtil.getEditingDomain(extendedElement));
     this.elementExtension = (T) storageClass.getEPackage().getEFactoryInstance().create(storageClass);
+    this.storageRef = storageRef;
     this.extendedElement = extendedElement;
     extendedElement.eAdapters().add(this);
     elementExtension.eAdapters().add(this);
@@ -67,7 +76,11 @@ public class ElementExtensionStorageImpl<T extends ElementExtension> extends Edi
     // when something is set on the extension for the first time, attach it and re-fire the notification
     // so that it gets recorded and can be undone later
     if (msg.getNotifier() == elementExtension && elementExtension.eResource() == null && isAttachmentTrigger(msg)) {
-      extendedElement.getOwnedExtensions().add(elementExtension);
+      if (storageRef.isMany()) {
+        ((Collection<T>) extendedElement.eGet(storageRef)).add(elementExtension);
+      } else {
+        extendedElement.eSet(storageRef, elementExtension);
+      }
       ((InternalEObject) msg.getNotifier()).eNotify(msg);
     }
   }
