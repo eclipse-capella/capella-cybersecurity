@@ -13,24 +13,24 @@ package org.polarsys.capella.cybersecurity.sirius.analysis;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Map;
 import java.util.PrimitiveIterator.OfInt;
 import java.util.Random;
 import java.util.stream.Collectors;
 
+import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.Label;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
-import org.eclipse.sirius.common.tools.api.interpreter.IInterpreter;
+import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.DEdge;
 import org.eclipse.sirius.diagram.DNode;
 import org.eclipse.sirius.diagram.Square;
-import org.eclipse.sirius.tools.api.interpreter.InterpreterUtil;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.RGBValues;
 import org.polarsys.capella.common.data.behavior.AbstractEvent;
@@ -43,12 +43,10 @@ import org.polarsys.capella.core.data.cs.Component;
 import org.polarsys.capella.core.data.cs.CsPackage;
 import org.polarsys.capella.core.data.cs.Part;
 import org.polarsys.capella.core.data.fa.AbstractFunction;
-import org.polarsys.capella.core.data.fa.AbstractFunctionalBlock;
 import org.polarsys.capella.core.data.fa.ComponentExchange;
 import org.polarsys.capella.core.data.fa.FunctionalExchange;
 import org.polarsys.capella.core.data.information.ExchangeItem;
 import org.polarsys.capella.core.model.helpers.BlockArchitectureExt;
-import org.polarsys.capella.core.model.helpers.ComponentExchangeExt;
 import org.polarsys.capella.core.sirius.analysis.CapellaServices;
 import org.polarsys.capella.core.sirius.analysis.CsServices;
 import org.polarsys.capella.core.sirius.analysis.DiagramServices;
@@ -56,6 +54,7 @@ import org.polarsys.capella.core.sirius.analysis.FaServices;
 import org.polarsys.capella.cybersecurity.model.CybersecurityFactory;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPkg;
+import org.polarsys.capella.cybersecurity.model.CybersecurityQueries;
 import org.polarsys.capella.cybersecurity.model.FunctionStorage;
 import org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset;
 import org.polarsys.capella.cybersecurity.model.InformationPrimaryAsset;
@@ -66,7 +65,6 @@ import org.polarsys.capella.cybersecurity.model.Threat;
 import org.polarsys.capella.cybersecurity.model.ThreatApplication;
 import org.polarsys.capella.cybersecurity.model.ThreatInvolvement;
 import org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage;
-import org.polarsys.capella.cybersecurity.model.impl.TrustBoundaryStorageImpl;
 import org.polarsys.kitalpha.emde.model.ElementExtension;
 import org.polarsys.kitalpha.emde.model.ExtensibleElement;
 
@@ -237,24 +235,17 @@ public class CybersecurityServices {
   }
 
   public boolean hasTrustDecoration(Part part) {
-    return isTrusted(part);
+    return CybersecurityQueries.isTrusted(part);
   }
 
   public boolean hasNoTrustDecoration(Part part) {
-    TrustBoundaryStorage storage = getTrustBoundaryStorage(part);
+    TrustBoundaryStorage storage = CybersecurityQueries.getTrustBoundaryStorage(part);
     return storage != null && !storage.isTrusted();
   }
 
   public boolean hasThreatSourceDecoration(Part part) {
-    TrustBoundaryStorage storage = getTrustBoundaryStorage(part);
+    TrustBoundaryStorage storage = CybersecurityQueries.getTrustBoundaryStorage(part);
     return storage != null && storage.isThreatSource();
-  }
-
-  private TrustBoundaryStorage getTrustBoundaryStorage(ExtensibleElement element) {
-    if (element instanceof Part) {
-      element = ((Part) element).getType();
-    }
-    return ExtensibleElementExt.getExtension(element, TrustBoundaryStorage.class);
   }
 
   private FunctionStorage getFunctionStorage(ExtensibleElement element) {
@@ -356,19 +347,15 @@ public class CybersecurityServices {
   }
 
   public boolean hasTrustedColor(Part part) {
-    return isTrusted(part);
+    return CybersecurityQueries.isTrusted(part);
   }
 
   public boolean hasFlameDecoration(ComponentExchange ce) {
-    Component source = ComponentExchangeExt.getSourceComponent(ce);
-    Component target = ComponentExchangeExt.getTargetComponent(ce);
-    return isTrusted(source) ^ isTrusted(target);
+    return CybersecurityQueries.isTrustBoundary(ce);
   }
 
   public boolean hasFlameDecoration(FunctionalExchange e) {
-    AbstractFunction sf = (AbstractFunction) e.getSourceFunctionOutputPort().eContainer();
-    AbstractFunction tf = (AbstractFunction) e.getTargetFunctionInputPort().eContainer();
-    return isTrusted(sf) ^ isTrusted(tf);
+    return CybersecurityQueries.isTrustBoundary(e);
   }
 
   public Integer getConfidentiality(AbstractEvent e) {
@@ -403,30 +390,17 @@ public class CybersecurityServices {
     return 0;
   }
 
-  private boolean isTrusted(AbstractFunction f) {
-    for (AbstractFunctionalBlock b : f.getAllocationBlocks()) {
-      TrustBoundaryStorage tbs = getTrustBoundaryStorage(b);
-      if (tbs != null) {
-        return tbs.isTrusted();
-      }
-    }
-    return TrustBoundaryStorageImpl.TRUSTED_EDEFAULT;
-  }
-
-  private boolean isTrusted(ExtensibleElement e) {
-    TrustBoundaryStorage tbs = getTrustBoundaryStorage(e);
-    if (tbs != null) {
-      return tbs.isTrusted();
-    }
-    return TrustBoundaryStorageImpl.TRUSTED_EDEFAULT;
-  }
-
   // make a new random color for every new asset node
   public EObject setNewRandomColor(DNode assetView) {
     ((Square)assetView.getOwnedStyle()).setColor(RGBValues.create(colorRands.nextInt(), colorRands.nextInt(), colorRands.nextInt()));
     ((Square)assetView.getOwnedStyle()).getCustomFeatures().add("color"); //$NON-NLS-1$
     return assetView;
   }
-  
+
+  public IFigure getThreatLevelDecorator(EObject context) {
+    final Label label = new Label("5");
+    label.setFont(JFaceResources.getDefaultFont());
+    return label;    
+  }
 
 }
