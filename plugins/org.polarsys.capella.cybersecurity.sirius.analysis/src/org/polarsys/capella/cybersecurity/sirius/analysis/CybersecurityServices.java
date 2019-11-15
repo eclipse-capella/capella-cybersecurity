@@ -19,9 +19,13 @@ import java.util.stream.Collectors;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
+import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
@@ -30,6 +34,7 @@ import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.DEdge;
 import org.eclipse.sirius.diagram.DNode;
+import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.diagram.Square;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.RGBValues;
@@ -397,10 +402,57 @@ public class CybersecurityServices {
     return assetView;
   }
 
-  public IFigure getThreatLevelDecorator(EObject context) {
-    final Label label = new Label("5");
-    label.setFont(JFaceResources.getDefaultFont());
-    return label;    
+  public IFigure getThreatLevelDecorator(final EObject context, DSemanticDiagram diagram) {
+    ThreatLevelDecorator decorator = (ThreatLevelDecorator) EcoreUtil.getExistingAdapter(context, ThreatLevelDecorator.class);
+    if (decorator != null) {
+      decorator.updateLabel((Threat)context);
+      return decorator.getLabel();
+    } else {
+      return new ThreatLevelDecorator((Threat) context).getLabel();
+    }
+  }
+
+  public boolean hasThreatLevelDecorator(EObject context) {
+    return context instanceof Threat;
+  }
+
+  // 
+  // FIXME  *this leaks figures, but should work to show off in demo
+  //        *
+  private static class ThreatLevelDecorator extends AdapterImpl {
+    private final Label label;
+    private ThreatLevelDecorator(Threat threat) {
+      this.label = new Label(getLabelText(threat));
+      label.setTextAlignment(Label.RIGHT);
+      label.setFont(JFaceResources.getDefaultFont());
+      Rectangle bounds = label.getTextBounds();
+      label.setBounds(bounds);
+      threat.eAdapters().add(this);
+    }
+
+    private String getLabelText(Threat threat) {
+      return "(" + String.valueOf(threat.getLevel()) + ")"; //$NON-NLS-1$ //$NON-NLS-2$
+    }
+
+    private Label getLabel() {
+      return label;
+    }
+
+    @Override
+    public boolean isAdapterForType(Object type) {
+      return type == ThreatLevelDecorator.class;
+    }
+
+    private void updateLabel(Threat t) {
+      label.setText(getLabelText(t));
+    }
+    
+    @Override
+    public void notifyChanged(Notification msg) {
+      if (msg.getFeature() == CybersecurityPackage.Literals.THREAT__LEVEL) {        
+        updateLabel((Threat) msg.getNotifier());
+      }
+    }
   }
 
 }
