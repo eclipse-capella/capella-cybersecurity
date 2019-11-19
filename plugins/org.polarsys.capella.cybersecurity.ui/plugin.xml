@@ -433,6 +433,38 @@
       </categoryQuery>
    </category>
    <category
+         id="FunctionalExchange__SupportingComponents"
+         isTopLevel="true"
+         name="Supporting Components">
+      <availableForType
+            class="org.polarsys.capella.core.data.fa.FunctionalExchange">
+      </availableForType>
+      <targetBrowserId
+            id="ReferencingElementBrowser">
+      </targetBrowserId>
+      <categoryQuery>
+         <basicQuery
+               class="org.polarsys.capella.cybersecurity.model.CybersecurityQueries$FunctionalExchange__SupportingComponents">
+         </basicQuery>
+      </categoryQuery>
+   </category>
+   <category
+         id="ExchangeItem__SupportingComponents"
+         isTopLevel="true"
+         name="Supporting Components">
+      <availableForType
+            class="org.polarsys.capella.core.data.information.ExchangeItem">
+      </availableForType>
+      <targetBrowserId
+            id="ReferencingElementBrowser">
+      </targetBrowserId>
+      <categoryQuery>
+         <basicQuery
+               class="org.polarsys.capella.cybersecurity.model.CybersecurityQueries$ExchangeItem__SupportingComponents">
+         </basicQuery>
+      </categoryQuery>
+   </category>
+   <category
          id="AbstractFunction__ExchangeItems"
          isTopLevel="true"
          name="Exchange Items">
@@ -637,6 +669,22 @@
       <categoryQuery>
          <basicQuery
                class="org.polarsys.capella.cybersecurity.model.CybersecurityQueries$ComponentExchange__TrustBoundary">
+         </basicQuery>
+      </categoryQuery>
+   </category>
+   <category
+         id="ComponentExchange__ExchangeItems"
+         isTopLevel="true"
+         name="Exchange Items">
+      <availableForType
+            class="org.polarsys.capella.core.data.fa.ComponentExchange">
+      </availableForType>
+      <targetBrowserId
+            id="CurrentElementBrowser">
+      </targetBrowserId>
+      <categoryQuery>
+         <basicQuery
+               class="org.polarsys.capella.cybersecurity.model.CybersecurityQueries$ComponentExchange__ExchangeItems">
          </basicQuery>
       </categoryQuery>
    </category>

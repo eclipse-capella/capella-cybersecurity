@@ -25,6 +25,7 @@ import org.polarsys.capella.core.data.cs.Part;
 import org.polarsys.capella.core.data.fa.AbstractFunction;
 import org.polarsys.capella.core.data.fa.AbstractFunctionalBlock;
 import org.polarsys.capella.core.data.fa.ComponentExchange;
+import org.polarsys.capella.core.data.fa.FaPackage;
 import org.polarsys.capella.core.data.fa.FunctionalExchange;
 import org.polarsys.capella.core.data.information.ExchangeItem;
 import org.polarsys.capella.core.model.helpers.ComponentExchangeExt;
@@ -35,6 +36,15 @@ import org.polarsys.kitalpha.emde.model.ExtensibleElement;
 
 public class CybersecurityQueries {
 
+  public static SecurityNeeds getSecurityNeeds(ExtensibleElement e) {
+    for (ElementExtension ee : e.getOwnedExtensions()) {
+      if (ee instanceof SecurityNeeds) {
+        return (SecurityNeeds) ee;
+      }
+    }
+    return null;
+  }
+  
   public static Stream<PrimaryAsset> getThreatenedPrimaryAssets(Threat threat){
     SemanticEditingDomain domain = (SemanticEditingDomain)SemanticEditingDomain.getEditingDomainFor(threat);
     return domain
@@ -250,6 +260,41 @@ public class CybersecurityQueries {
     return sn == null ? 0 : sn.getTraceability();
   }
 
+  public static Stream<FunctionalExchange> getAllocatingFunctionalExchanges(ExchangeItem ei){
+    SemanticEditingDomain domain = (SemanticEditingDomain)SemanticEditingDomain.getEditingDomainFor(ei);
+    return domain.getCrossReferencer().getInverseReferences(ei, FaPackage.Literals.FUNCTIONAL_EXCHANGE__EXCHANGED_ITEMS, true)
+        .stream()
+        .map(s -> ((FunctionalExchange) s.getEObject()));
+  }
+
+  public static Stream<AbstractFunction> getAllocatingFunctions(ExchangeItem ei){
+    SemanticEditingDomain domain = (SemanticEditingDomain)SemanticEditingDomain.getEditingDomainFor(ei);
+    return domain.getCrossReferencer().getInverseReferences(ei, CybersecurityPackage.Literals.FUNCTION_STORAGE__EXCHANGED_ITEMS, true)
+        .stream()
+        .map(s -> ((AbstractFunction)s.getEObject().eContainer()));
+  }
+
+  public static Stream<AbstractFunctionalBlock> getSupportingComponents(ExchangeItem ei){
+    return Stream.concat(
+        getAllocatingFunctions(ei)
+          .flatMap(af -> af.getAllocationBlocks().stream()),
+        getAllocatingFunctionalExchanges(ei)
+          .flatMap(
+            fe -> 
+              Stream.of(
+                  (AbstractFunction) fe.getSourceFunctionOutputPort().eContainer(),
+                  (AbstractFunction) fe.getTargetFunctionInputPort().eContainer())).flatMap(af -> af.getAllocationBlocks().stream()))
+          .distinct();
+  }
+  
+  public static Stream<AbstractFunctionalBlock> getSupportingComponents(FunctionalExchange fe){
+    return fe.getExchangedItems().stream().flatMap(ei -> getSupportingComponents(ei)).distinct();
+  }
+
+  public static Stream<ExchangeItem> getExchangeItems(ComponentExchange ce){
+    return ce.getAllocatedFunctionalExchanges().stream().flatMap(fe -> fe.getExchangedItems().stream()).distinct();
+  }
+
   //
   // All the primary assets threatened by threat
   //
@@ -348,11 +393,12 @@ public class CybersecurityQueries {
       return getSupportingComponents((FunctionalPrimaryAsset) object).collect(Collectors.toList());
     }
   }
-  
+
   public static class InformationPrimaryAsset__SupportingComponents implements IQuery {
     @Override
     public List<Object> compute(Object object) {
-      return Collections.emptyList();
+      return ((InformationPrimaryAsset)object).getExchangeItems().stream().flatMap(
+          ei->getSupportingComponents(ei)).distinct().collect(Collectors.toList());
     }
   }
 
@@ -390,12 +436,26 @@ public class CybersecurityQueries {
       return getTrustBoundaryBlocks((FunctionalExchange)object).collect(Collectors.toList());
     }
   }
- 
+  
+  public static class FunctionalExchange__SupportingComponents implements IQuery {
+    @Override
+    public List<Object> compute(Object object) {
+      return getSupportingComponents((FunctionalExchange)object).collect(Collectors.toList());
+    }
+  }
+
   public static class ExchangeItem__PrimaryAssets implements IQuery {
     @Override
     public List<Object> compute(Object object) {
       return getInformationPrimaryAssets((ExchangeItem)object).collect(Collectors.toList());
     } 
+  }
+
+  public static class ExchangeItem__SupportingComponents implements IQuery {
+    @Override
+    public List<Object> compute(Object object) {      
+      return getSupportingComponents((ExchangeItem)object).collect(Collectors.toList());
+    }
   }
 
   public static class Component__SupportedFunctionalPrimaryAssets implements IQuery {
@@ -436,21 +496,22 @@ public class CybersecurityQueries {
           ei -> ei.getOwnedExtensions().stream()).filter(SecurityNeeds.class::isInstance).map(SecurityNeeds.class::cast);
       SecurityNeeds max = Stream.concat(fsn, isn).reduce(
          CybersecurityFactory.eINSTANCE.createSecurityNeeds(),
-         (result,a) -> {
-           result.setAvailability(Math.max(result.getAvailability(), a.getAvailability()));
-           result.setConfidentiality(Math.max(result.getConfidentiality(), a.getConfidentiality()));
-           result.setIntegrity(Math.max(result.getIntegrity(), a.getIntegrity()));
-           result.setTraceability((Math.max(result.getTraceability(), a.getTraceability())));
-           return result;
-         });
+         CybersecurityQueries::reduceSecurityNeeds);
       return Arrays.asList(
           "Confidentiality: " + max.getConfidentiality(), //$NON-NLS-1$
           "Integrity: " + max.getIntegrity(), //$NON-NLS-1$
           "Availability: " + max.getAvailability(), //$NON-NLS-1$
           "Traceability: " + max.getTraceability()); //$NON-NLS-1$
     }
+  
+  }
 
-    
+  public static SecurityNeeds reduceSecurityNeeds(SecurityNeeds result, SecurityNeeds a) {
+    result.setAvailability(Math.max(result.getAvailability(), a.getAvailability()));
+    result.setConfidentiality(Math.max(result.getConfidentiality(), a.getConfidentiality()));
+    result.setIntegrity(Math.max(result.getIntegrity(), a.getIntegrity()));
+    result.setTraceability((Math.max(result.getTraceability(), a.getTraceability())));
+    return result;
   }
 
   public static class ComponentExchange__InformationPrimaryAsset implements IQuery {
@@ -461,12 +522,18 @@ public class CybersecurityQueries {
       .flatMap(fe -> getInformationPrimaryAssets(fe)).collect(Collectors.toList());
     }
   }
-
   
   public static class ComponentExchange__TrustBoundary implements IQuery {
     @Override
     public List<Object> compute(Object object) {
       return Collections.singletonList(isTrustBoundary((ComponentExchange)object));
+    }
+  }
+  
+  public static class ComponentExchange__ExchangeItems implements IQuery {
+    @Override
+    public List<Object> compute(Object object) {
+      return getExchangeItems((ComponentExchange)object).collect(Collectors.toList());
     }
   }
 
