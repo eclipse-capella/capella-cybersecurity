@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.emf.validation.constraintProviders">
+      <category
+            id="capella.category/Cybersecurity"
+            name="Cybersecurity">
+      </category>
+      <constraintProvider>
+         <package
+               namespaceUri="http://www.polarsys.org/capella/cybersecurity/1.0">
+         </package>
+         <package
+               namespaceUri="http://www.polarsys.org/capella/core/cs/1.4.0">
+         </package>
+         <package
+               namespaceUri="http://www.polarsys.org/capella/core/fa/1.4.0">
+         </package>
+         <constraints
+               categories="capella.category/Cybersecurity">
+            <constraint
+                  class="org.polarsys.capella.cybersecurity.validation.CybersecurityValidationRules"
+                  id="threatSource__noThreat"
+                  isEnabledByDefault="true"
+                  lang="Java"
+                  mode="Batch"
+                  name="Threat Source without Threat"
+                  severity="ERROR"
+                  statusCode="0">
+               <message>
+                  Threat Source &apos;&apos;{0}&apos;&apos; has no related Threats.
+               </message>
+               <target
+                     class="Component">
+               </target>
+               <description>
+                  Verifies that a Threat Source is involved by at least one Threat.
+               </description>
+            </constraint>
+            <constraint
+                  class="org.polarsys.capella.cybersecurity.validation.CybersecurityValidationRules"
+                  id="threat__noThreatSourceOrActor"
+                  isEnabledByDefault="true"
+                  lang="Java"
+                  mode="Batch"
+                  name="Threat without Threat Source/Actor"
+                  severity="ERROR"
+                  statusCode="0">
+               <message>
+                  Threat &apos;&apos;{0}&apos;&apos; does not involve any Actor/Threat Source.
+               </message>
+               <target
+                     class="Threat">
+               </target>
+               <description>
+                  Verifies that a threat involves at least one Actor/Threat Source.
+               </description>
+            </constraint>
+            <constraint
+                  class="org.polarsys.capella.cybersecurity.validation.CybersecurityValidationRules"
+                  id="threat__noAsset"
+                  isEnabledByDefault="true"
+                  lang="Java"
+                  mode="Batch"
+                  name="Threat without asset"
+                  severity="ERROR"
+                  statusCode="0">
+               <message>
+                  Threat ''{0}'' does not threaten any assets
+               </message>
+               <target
+                     class="Threat">
+               </target>
+               <description>
+                  Verifies that a Threat threatens at least one asset.
+               </description>
+            </constraint>
+            <constraint
+                  class="org.polarsys.capella.cybersecurity.validation.CybersecurityValidationRules"
+                  id="asset__noThreat"
+                  isEnabledByDefault="true"
+                  lang="Java"
+                  mode="Batch"
+                  name="Primary Asset without Threat"
+                  severity="WARNING"
+                  statusCode="0">
+               <message>
+                  Primary Asset ''{0}'' is not threatened by any Threat
+               </message>
+               <target
+                     class="PrimaryAsset">
+               </target>
+               <description>
+                  Verifies that a Primary Asset is threatened by at least one Threat.
+               </description>
+            </constraint>
+            <constraint
+                  class="org.polarsys.capella.cybersecurity.validation.CybersecurityValidationRules"
+                  id="ip_asset__notHandled"
+                  isEnabledByDefault="true"
+                  lang="Java"
+                  mode="Batch"
+                  name="Unhandled Information Primary Asset"
+                  severity="WARNING"
+                  statusCode="0">
+               <message>
+                  Information Primary Asset &apos;&apos;{0}&apos;&apos; includes Exchange Items that are not allocated by any Functional Exchange/Function.
+               </message>
+               <target
+                     class="InformationPrimaryAsset">
+               </target>
+               <description>
+                  Verifies that all Exchange Items of an Information Primary Asset are used at least once by a Function or Functional Exchange.
+               </description>
+            </constraint>
+            <constraint
+                  class="org.polarsys.capella.cybersecurity.validation.CybersecurityValidationRules"
+                  id="fe__securityNeedsConsistency"
+                  isEnabledByDefault="true"
+                  lang="Java"
+                  mode="Batch"
+                  name="Functional Exchange Security Needs Consistency"
+                  severity="WARNING"
+                  statusCode="0">
+               <message>
+                  SecurityNeeds of Functional Exchange &apos;&apos;{0}&apos;&apos; is not consistent with those of its Exchange Items
+               </message>
+               <target
+                     class="FunctionalExchange">
+               </target>
+               <description>
+                  Verifies that the SecurityNeeds of a Functional Exchange are at least as high as each of its allocated Exchange Items.
+               </description>
+            </constraint>
+         </constraints>
+      </constraintProvider>
+   </extension>
+
+
+</plugin>
