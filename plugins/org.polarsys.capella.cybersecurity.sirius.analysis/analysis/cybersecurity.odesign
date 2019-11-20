@@ -6,7 +6,9 @@
       <metamodel href="../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#/"/>
       <metamodel href="../../org.polarsys.capella.core.data.gen/model/FunctionalAnalysis.ecore#/"/>
       <defaultLayer name="Default">
-        <nodeMappings name="Threat" domainClass="cybersecurity.Threat">
+        <nodeMappings name="Threat" createElements="false" domainClass="cybersecurity.Threat">
+          <deletionDescription href="../../org.polarsys.capella.core.sirius.analysis/description/common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Contextual%20Component%20Detailed%20Interfaces']/@defaultLayer/@toolSections.0/@ownedTools[name='delete%20capella%20elements']"/>
+          <labelDirectEdit href="../../org.polarsys.capella.core.sirius.analysis/description/common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.0/@ownedTools[name='name']"/>
           <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.polarsys.capella.cybersecurity.sirius.analysis/icons/Threat_Eavesdropping.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -37,18 +39,24 @@
           </conditionnalStyles>
         </nodeMappings>
         <nodeMappings name="FunctionalPrimaryAsset" createElements="false" domainClass="cybersecurity.FunctionalPrimaryAsset">
+          <deletionDescription href="../../org.polarsys.capella.core.sirius.analysis/description/common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Contextual%20Component%20Detailed%20Interfaces']/@defaultLayer/@toolSections.0/@ownedTools[name='delete%20capella%20elements']"/>
+          <labelDirectEdit href="../../org.polarsys.capella.core.sirius.analysis/description/common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.0/@ownedTools[name='name']"/>
           <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.polarsys.capella.cybersecurity.sirius.analysis/icons/FunctionalAsset.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
         <nodeMappings name="InformationPrimaryAsset" createElements="false" domainClass="cybersecurity.InformationPrimaryAsset">
+          <deletionDescription href="../../org.polarsys.capella.core.sirius.analysis/description/common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Contextual%20Component%20Detailed%20Interfaces']/@defaultLayer/@toolSections.0/@ownedTools[name='delete%20capella%20elements']"/>
+          <labelDirectEdit href="../../org.polarsys.capella.core.sirius.analysis/description/common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.0/@ownedTools[name='name']"/>
           <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.polarsys.capella.cybersecurity.sirius.analysis/icons/InformationAsset.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="Actor" preconditionExpression="aql:self.isActor()" semanticCandidatesExpression="aql:self.getAllThreatActors()" domainClass="cs.Component">
+        <nodeMappings name="Actor" preconditionExpression="aql:self.isActor()" semanticCandidatesExpression="aql:self.getAllThreatActors()" createElements="false" domainClass="cs.Component">
+          <deletionDescription href="../../org.polarsys.capella.core.sirius.analysis/description/common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Contextual%20Component%20Detailed%20Interfaces']/@defaultLayer/@toolSections.0/@ownedTools[name='delete%20capella%20elements']"/>
+          <labelDirectEdit href="../../org.polarsys.capella.core.sirius.analysis/description/common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.0/@ownedTools[name='name']"/>
           <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.polarsys.capella.core.sirius.analysis/description/images/Actor.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -61,17 +69,19 @@
           </conditionnalStyles>
         </nodeMappings>
         <edgeMappings name="ThreatInvolvement" sourceMapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='Threat']" targetMapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='Actor']" targetFinderExpression="feature:component" sourceFinderExpression="feature:threat" domainClass="cybersecurity.ThreatInvolvement" useDomainElement="true">
+          <deletionDescription href="../../org.polarsys.capella.core.sirius.analysis/description/common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Contextual%20Component%20Detailed%20Interfaces']/@defaultLayer/@toolSections.0/@ownedTools[name='delete%20capella%20elements']"/>
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="12" showIcon="false" labelExpression="involves">
+            <centerLabelStyleDescription labelSize="12" showIcon="false" labelExpression="« i »">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
         <edgeMappings name="ThreatApplication" sourceMapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='Threat']" targetMapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='FunctionalPrimaryAsset'] //@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='InformationPrimaryAsset']" targetFinderExpression="feature:asset" sourceFinderExpression="feature:threat" domainClass="cybersecurity.ThreatApplication" useDomainElement="true">
+          <deletionDescription href="../../org.polarsys.capella.core.sirius.analysis/description/common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Contextual%20Component%20Detailed%20Interfaces']/@defaultLayer/@toolSections.0/@ownedTools[name='delete%20capella%20elements']"/>
           <style lineStyle="dot" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="12" showIcon="false" labelExpression="applicable to">
+            <centerLabelStyleDescription labelSize="12" showIcon="false" labelExpression="« a »">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
@@ -124,7 +134,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="ToolCreateThreatApplication" label="Application" edgeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@edgeMappings[name='ThreatApplication']" iconPath="ToolCreateThreatApplication">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="ToolCreateThreatApplication" label="Applicable to" edgeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@edgeMappings[name='ThreatApplication']" iconPath="ToolCreateThreatApplication">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -135,11 +145,31 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="show_hide__.actor" label="%show_hide__.actor" nodeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='Actor']" iconPath="/org.polarsys.capella.core.sirius.analysis/icons/full/obj16/ShowHide.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="show_hide__.threat" label="%show_hide__.threat" nodeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='Threat']" iconPath="/org.polarsys.capella.core.sirius.analysis/icons/full/obj16/ShowHide.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="show_hide__.functionalasset" label="%show_hide__.functionalasset" nodeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='FunctionalPrimaryAsset']" iconPath="/org.polarsys.capella.core.sirius.analysis/icons/full/obj16/ShowHide.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="show_hide__.informationasset" label="%show_hide__.informationasset" nodeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='InformationPrimaryAsset']" iconPath="/org.polarsys.capella.core.sirius.analysis/icons/full/obj16/ShowHide.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation/>
+          </ownedTools>
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentationExtensions xsi:type="description_1:DiagramExtensionDescription" name="Cybersecurity Architecture Diagram Extensions" viewpointURI="viewpoint:/org.polarsys.capella.core.sirius.analysis/.*" representationName=".*">
-      <layers name="Cybersecurity Decoration Layer">
+    <ownedRepresentationExtensions xsi:type="description_1:DiagramExtensionDescription" name="Cybersecurity Architecture Diagram Extensions" viewpointURI="(viewpoint:/org.polarsys.capella.core.sirius.analysis/.*)|(viewpoint:/org.polarsys.capella.cybersecurity.sirius.analysis/.*)" representationName="(Class Diagram Blank)|(Physical Architecture Blank)|(Threat Diagram)">
+      <layers name="Cybersecurity Decoration Layer" activeByDefault="true">
         <decorationDescriptionsSet>
           <decorationDescriptions xsi:type="description:GenericDecorationDescription" name="Component Trust Decorator" position="NORTH_EAST" preconditionExpression="aql:element.hasTrustDecoration()" imageExpression="aql:self.getTrustDecoration()"/>
           <decorationDescriptions xsi:type="description:GenericDecorationDescription" name="Component No Trust Decorator" position="NORTH_EAST" preconditionExpression="aql:element.hasNoTrustDecoration()" imageExpression="aql:self.getNoTrustDecoration()"/>
@@ -147,6 +177,7 @@
           <decorationDescriptions xsi:type="description:GenericDecorationDescription" name="Function Datastorage Decorator" position="NORTH_EAST" preconditionExpression="aql:element.hasDatastorageDecoration()" imageExpression="aql:self.getDatastorageDecoration()"/>
           <decorationDescriptions xsi:type="description:GenericDecorationDescription" name="Function Remanent Data Decorator" position="NORTH_EAST" preconditionExpression="aql:element.hasRemanentDataDecoration()" imageExpression="aql:self.getRemanentDataDecoration()"/>
           <decorationDescriptions xsi:type="description:GenericDecorationDescription" name="Asset Member Decorator" position="NORTH_WEST" preconditionExpression="aql:element.hasAssetStyleCustomization()" imageExpression="/org.polarsys.capella.cybersecurity.model.edit/icons/full/obj16/PrimaryAsset.png"/>
+          <decorationDescriptions xsi:type="description:GenericDecorationDescription" name="Threat Level Decorator" position="NORTH_EAST" preconditionExpression="aql:self.hasThreatLevelDecorator()" imageExpression="aql:self.getThreatLevelDecorator(diagram)" tooltipExpression="Threat Level"/>
         </decorationDescriptionsSet>
       </layers>
       <layers name="Cybersecurity Assets Layer">
@@ -232,9 +263,11 @@
           </vsmElementCustomizations>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.getConfidentiality() = 2">
             <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="color" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_2']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="labelColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_label']"/>
           </vsmElementCustomizations>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.getConfidentiality() = 3">
             <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="color" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_3']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="labelColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_label']"/>
           </vsmElementCustomizations>
         </customization>
       </layers>
@@ -245,9 +278,11 @@
           </vsmElementCustomizations>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.getIntegrity() = 2">
             <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="color" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_2']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="labelColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_label']"/>
           </vsmElementCustomizations>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.getIntegrity() = 3">
             <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="color" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_3']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="labelColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_label']"/>
           </vsmElementCustomizations>
         </customization>
       </layers>
@@ -258,9 +293,11 @@
           </vsmElementCustomizations>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.getAvailability() = 2">
             <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="color" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_2']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="labelColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_label']"/>
           </vsmElementCustomizations>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.getAvailability() = 3">
             <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="color" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_3']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="labelColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_label']"/>
           </vsmElementCustomizations>
         </customization>
       </layers>
@@ -271,9 +308,11 @@
           </vsmElementCustomizations>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.getTraceability() = 2">
             <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="color" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_2']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="labelColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_label']"/>
           </vsmElementCustomizations>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.getTraceability() = 3">
             <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="color" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_3']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="labelColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_label']"/>
           </vsmElementCustomizations>
         </customization>
       </layers>
@@ -290,5 +329,6 @@
     <entries xsi:type="description:UserFixedColor" red="255" green="211" blue="0" name="cyber_color_securityNeeds_1"/>
     <entries xsi:type="description:UserFixedColor" red="255" green="100" blue="0" name="cyber_color_securityNeeds_2"/>
     <entries xsi:type="description:UserFixedColor" red="255" green="22" blue="0" name="cyber_color_securityNeeds_3"/>
+    <entries xsi:type="description:UserFixedColor" red="255" green="255" blue="255" name="cyber_color_securityNeeds_label"/>
   </userColorsPalettes>
 </description:Group>

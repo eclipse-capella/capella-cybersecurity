@@ -32,6 +32,6 @@
 	  <module>org.polarsys.capella.cybersecurity.business.queries</module>
 	  <module>org.polarsys.capella.cybersecurity.sirius.analysis</module>
 	  <module>org.polarsys.capella.cybersecurity.rcp</module>
-	  
+	  <module>org.polarsys.capella.cybersecurity.validation</module>
 	</modules>
 </project>

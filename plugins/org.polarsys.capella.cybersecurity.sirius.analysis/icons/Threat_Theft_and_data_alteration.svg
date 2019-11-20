@@ -5,11 +5,39 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    version="1.1"
    id="svg2"
-   viewBox="0 0 177.16536 75.432551"
-   height="21.288742mm"
-   width="50mm">
+   viewBox="0 0 132.87403 56.574417"
+   height="15.966558mm"
+   width="37.500004mm"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="Threat_Theft_and_data_alteration.svg">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     id="namedview8"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="1.6256"
+     inkscape:cx="66.437009"
+     inkscape:cy="28.287208"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
   <defs
      id="defs4" />
   <metadata
@@ -27,18 +55,19 @@
   <ellipse
      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:35.43307114;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      id="path4136"
-     cx="88.58268"
-     cy="37.716274"
-     rx="88.58268"
-     ry="37.716278" />
+     cx="66.437012"
+     cy="28.287209"
+     rx="66.437012"
+     ry="28.287209" />
   <text
      xml:space="preserve"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.25000191px;line-height:125%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     x="62.517612"
-     y="43.623562"
-     id="text4138"><tspan
+     x="40.371944"
+     y="34.194496"
+     id="text4138"
+     sodipodi:linespacing="125%"><tspan
        id="tspan4140"
-       x="62.517612"
-       y="43.623562"
+       x="40.371944"
+       y="34.194496"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.25000191px;line-height:125%;font-family:sans-serif;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#ffffff">THEFT</tspan></text>
 </svg>

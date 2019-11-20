@@ -154,8 +154,6 @@ public class ActorCybersecuritySection extends AbstractSection {
   public void createControls(Composite parent, TabbedPropertySheetPage aTabbedPropertySheetPage) {
     super.createControls(parent, aTabbedPropertySheetPage);
 
-    threatSourceProfileGroup = new IntegerValueGroup(rootParentComposite, Messages.ActorCybersecuritySection_0, getWidgetFactory());
-    rationaleGroup = new TextValueGroup(rootParentComposite, Messages.ActorCybersecuritySection_1, getWidgetFactory());
 
     Group checkGroup = getWidgetFactory().createGroup(rootParentComposite, ICommonConstants.EMPTY_STRING);
     checkGroup.setLayout(new GridLayout(2, false));
@@ -170,6 +168,8 @@ public class ActorCybersecuritySection extends AbstractSection {
           return container instanceof Component && ((Component)container).isActor();
         });
 
+    threatSourceProfileGroup = new IntegerValueGroup(rootParentComposite, Messages.ActorCybersecuritySection_0, getWidgetFactory());
+    rationaleGroup = new TextValueGroup(rootParentComposite, Messages.ActorCybersecuritySection_1, getWidgetFactory());
   }
 
   /**

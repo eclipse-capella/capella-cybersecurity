@@ -18,6 +18,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
@@ -36,6 +37,7 @@ import org.polarsys.capella.cybersecurity.ui.CommonHelpers;
 import org.polarsys.capella.cybersecurity.ui.CybersecurityUIActivator;
 import org.polarsys.capella.cybersecurity.ui.ElementExtensionStorage;
 import org.polarsys.capella.cybersecurity.ui.ElementExtensionStorageImpl;
+import org.polarsys.kitalpha.emde.model.EmdePackage;
 import org.polarsys.kitalpha.emde.model.ExtensibleElement;
 
 public class SecurityNeedsSection extends AbstractSection {
@@ -91,14 +93,7 @@ public class SecurityNeedsSection extends AbstractSection {
     }
   }
 
-  /**
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
-   * @param parent:
-   *          An EObject. It is considered as the Parent of an EMDE extension (a Viewpoint element)
-   * @return
-   * @generated
-   */
+
   private EObject getSecurityNeedsObject(EObject parent) {
     if (parent == null)
       return null;
@@ -112,14 +107,12 @@ public class SecurityNeedsSection extends AbstractSection {
     EObject result = null;
     for (EObject iEObject : parent.eContents()) {
       if (iEObject instanceof SecurityNeeds) {
-        result = (result == null ? (SecurityNeeds) iEObject : null);
-        // This case is true when there is more then one extension of the same type.
-        if (result == null)
-          break;
+        result =  iEObject;
       }
     }
     if (result == null) {
-      if (CommonHelpers.canBeExtendedBy(parent, CybersecurityPackage.Literals.SECURITY_NEEDS)) {
+      EReference storageRef = getStorageRef(parent);
+      if (storageRef != null) {
         for (Adapter adapter : parent.eAdapters()) {
           if (adapter instanceof ElementExtensionStorage
               && ((ElementExtensionStorage<?>) adapter).getExtension() instanceof SecurityNeeds) {
@@ -136,6 +129,26 @@ public class SecurityNeedsSection extends AbstractSection {
     return result;
   }
 
+  private EReference getStorageRef(EObject parent) {
+
+    // we allow to show security needs on cybersecurity objects with a 
+    // containment ref of the matching type ...
+    if (parent.eClass().getEPackage() == CybersecurityPackage.eINSTANCE) {
+      for (EReference e : parent.eClass().getEAllContainments()) {
+        if (e.getEType() == CybersecurityPackage.Literals.SECURITY_NEEDS) {
+          return e;
+        }
+      }
+    }
+
+    // ... and suitable extensible emde objects 
+    if (CommonHelpers.canBeExtendedBy(parent, CybersecurityPackage.Literals.SECURITY_NEEDS)) {
+      return EmdePackage.Literals.EXTENSIBLE_ELEMENT__OWNED_EXTENSIONS;
+    }
+    
+    return null;
+  }
+  
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * 

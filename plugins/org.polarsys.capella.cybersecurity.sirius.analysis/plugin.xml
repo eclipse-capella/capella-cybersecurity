@@ -20,5 +20,14 @@
             name="org.polarsys.capella.cybersecurity.sirius.analysis">
       </component>
    </extension>
+   <extension
+         point="org.eclipse.gmf.runtime.diagram.ui.editpolicyProviders">
+      <editpolicyProvider
+            class="org.polarsys.capella.cybersecurity.sirius.analysis.internal.CybersecurityEditPolicyProvider">
+         <Priority
+               name="Lowest">
+         </Priority>
+      </editpolicyProvider>
+   </extension>
 
 </plugin>
