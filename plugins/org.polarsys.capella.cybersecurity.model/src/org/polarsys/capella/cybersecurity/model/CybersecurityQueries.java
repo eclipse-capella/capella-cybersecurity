@@ -92,6 +92,15 @@ public class CybersecurityQueries {
     return false;
   }
 
+  public static boolean isTrusted(Component c) {
+    for (ElementExtension e : c.getOwnedExtensions()) {
+      if (e instanceof TrustBoundaryStorage) {
+        return ((TrustBoundaryStorage) e).isTrusted();
+      }
+    }
+    return false;
+  }
+
   public static boolean isTrustBoundary(FunctionalExchange fe) {
     AbstractFunction sf = (AbstractFunction) fe.getSourceFunctionOutputPort().eContainer();
     AbstractFunction tf = (AbstractFunction) fe.getTargetFunctionInputPort().eContainer();
@@ -274,6 +283,10 @@ public class CybersecurityQueries {
         .map(s -> ((AbstractFunction)s.getEObject().eContainer()));
   }
 
+  public static Stream<AbstractFunctionalBlock> getSupportingComponents(InformationPrimaryAsset pa){
+    return pa.getExchangeItems().stream().flatMap(ei->getSupportingComponents(ei)).distinct();
+  }
+
   public static Stream<AbstractFunctionalBlock> getSupportingComponents(ExchangeItem ei){
     return Stream.concat(
         getAllocatingFunctions(ei)
@@ -397,8 +410,7 @@ public class CybersecurityQueries {
   public static class InformationPrimaryAsset__SupportingComponents implements IQuery {
     @Override
     public List<Object> compute(Object object) {
-      return ((InformationPrimaryAsset)object).getExchangeItems().stream().flatMap(
-          ei->getSupportingComponents(ei)).distinct().collect(Collectors.toList());
+      return getSupportingComponents((InformationPrimaryAsset) object).collect(Collectors.toList());
     }
   }
 
