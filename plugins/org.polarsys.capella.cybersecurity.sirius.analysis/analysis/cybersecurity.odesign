@@ -167,8 +167,13 @@
           </ownedTools>
         </toolSections>
       </defaultLayer>
+      <additionalLayers name="ThreatLevelDecorator" label="Threat Level Decorations">
+        <decorationDescriptionsSet>
+          <decorationDescriptions xsi:type="description:GenericDecorationDescription" name="Threat Level Decorator" position="NORTH_EAST" preconditionExpression="aql:self.hasThreatLevelDecorator()" imageExpression="aql:self.getThreatLevelDecorator(diagram)" tooltipExpression="Threat Level"/>
+        </decorationDescriptionsSet>
+      </additionalLayers>
     </ownedRepresentations>
-    <ownedRepresentationExtensions xsi:type="description_1:DiagramExtensionDescription" name="Cybersecurity Architecture Diagram Extensions" viewpointURI="(viewpoint:/org.polarsys.capella.core.sirius.analysis/.*)|(viewpoint:/org.polarsys.capella.cybersecurity.sirius.analysis/.*)" representationName="(Class Diagram Blank)|(Physical Architecture Blank)|(Threat Diagram)">
+    <ownedRepresentationExtensions xsi:type="description_1:DiagramExtensionDescription" name="Cybersecurity Architecture Diagram Extensions" viewpointURI="viewpoint:/org.polarsys.capella.core.sirius.analysis/.*" representationName="(Class Diagram Blank)|(Physical Architecture Blank)">
       <layers name="Cybersecurity Decoration Layer" activeByDefault="true">
         <decorationDescriptionsSet>
           <decorationDescriptions xsi:type="description:GenericDecorationDescription" name="Component Trust Decorator" position="NORTH_EAST" preconditionExpression="aql:element.hasTrustDecoration()" imageExpression="aql:self.getTrustDecoration()"/>
@@ -177,7 +182,6 @@
           <decorationDescriptions xsi:type="description:GenericDecorationDescription" name="Function Datastorage Decorator" position="NORTH_EAST" preconditionExpression="aql:element.hasDatastorageDecoration()" imageExpression="aql:self.getDatastorageDecoration()"/>
           <decorationDescriptions xsi:type="description:GenericDecorationDescription" name="Function Remanent Data Decorator" position="NORTH_EAST" preconditionExpression="aql:element.hasRemanentDataDecoration()" imageExpression="aql:self.getRemanentDataDecoration()"/>
           <decorationDescriptions xsi:type="description:GenericDecorationDescription" name="Asset Member Decorator" position="NORTH_WEST" preconditionExpression="aql:element.hasAssetStyleCustomization()" imageExpression="/org.polarsys.capella.cybersecurity.model.edit/icons/full/obj16/PrimaryAsset.png"/>
-          <decorationDescriptions xsi:type="description:GenericDecorationDescription" name="Threat Level Decorator" position="NORTH_EAST" preconditionExpression="aql:self.hasThreatLevelDecorator()" imageExpression="aql:self.getThreatLevelDecorator(diagram)" tooltipExpression="Threat Level"/>
         </decorationDescriptionsSet>
       </layers>
       <layers name="Cybersecurity Assets Layer">
