@@ -1,0 +1,117 @@
+= Diagrams =
+
+Two main diagram types are provided by the Capella Cybersecurity Viewpoint:
+
+* Threat Diagram
+* Cybersecurity PAB Diagram
+
+== Threat Diagram ==
+
+Threat diagrams are used to model System Threats, threatened Assets and Involved Actors:
+
+[[Image:Images/threat_diagram_1.png]] 
+
+The following tools are available:
+
+{| border="1"
+|-
+| 	Threat 	
+| [[Image:Images/placeholder.gif]] 
+|  Insert a new Threat into the diagram. 	
+|-
+| 	Functional Primary Asset
+| [[Image:Images/PrimaryAsset.png]] 
+|  Insert a new Functional Primary asset into the diagram.
+|-
+| 	Information Primary Asset
+| [[Image:Images/PrimaryAsset.png]] 
+| Insert a new InformationPrimaryAsset into the diagram.
+|-
+| 	Actor 	
+| [[Image:Images/placeholder.gif]] 
+| Insert a new Actor into the diagram. 	
+|-
+| 	Involves 	
+| [[Image:Images/placeholder.gif]] 
+| Creates an involvement relationship from a Threat element to an Actor element. 	
+|-
+| 	Applicable to 	
+| [[Image:Images/placeholder.gif]] 
+|  Creates an involvement relationship from a Threat element to a Functional or Information Primary Asset.
+|-
+| 	Actors 	
+| [[Image:Images/ShowHide.gif]] 
+|  Shows/Hides selected existing Actors on the diagram.
+|-
+| 	Threats 	
+| [[Image:Images/ShowHide.gif]] 
+|  Shows/Hides selected existing Threats on the diagram.
+|-
+| 	Functional Primary Assets 	
+| [[Image:Images/ShowHide.gif]] 
+|  Shows/Hides selected existing Functional Primary Assets on the diagram.
+|-
+| 	Information Primary Assets	
+| [[Image:Images/ShowHide.gif]] 
+|  Shows/Hides selected existing Information Primary Assets on the diagram.
+|}
+
+=== Threat Level Decoration Layer ===
+
+Threat diagrams have an optional layer named "Threat Level Decorations". When this layer is enabled,
+each Threat's level value is displayed in parenthesis next to the Threat element:
+
+[[Image:Images/threat_diagram_2.png]] 
+
+
+== Cybersecurity PAB Diagram ==
+
+Cybersecurity PAB Diagrams are based on Capella Physical Architecture Diagrams. For this reason, most of the tools available in Cybersecurity PAB diagrams are documented [http://127.0.0.1:55637/help/topic/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.html?cp=7_3_38#Physical_Architecture_Blank here]
+
+{| border="1"
+|-
+| Primary Assets
+| [[Image:Images/ShowHide.gif]]
+| Shows/Hides existing Functional or Information Primary Assets on the diagram. When an asset is shown on a diagram, its color is chosen randomly from a set of predefined colors. Node elements related to the asset will then receive an emphasized border that matches the color of the asset element. Related edges will change the color to the color of the asset element.
+|}
+
+=== Sample ===
+[[Image:Images/pab_diagram_1.png]] 
+
+=== Trust Boundaries Layer ===
+
+The Trust Boundaries Layer for Cybersecurity PAB diagrams will change the diagrams appearence: Trusted components and actors
+will change their background color to white, untrusted components and actors will change their color to red. Communication edges
+between Trusted and Untrusted elements, so called Trust Boundaries, will be decorated with a small flame icon:
+
+[[Image:Images/pab_diagram_2.png]] 
+
+=== CIAT Layers ===
+
+Additional layers are provided to focus on Confidentiality, Integrity, Availability and Traceability needs for model elements.
+When one of these layers is active, elements with a higher respective security needs value are emphasized over elements with
+a lower security needs value:
+
+[[Image:Images/pab_diagram_3.png]] 
+
+=== Cybersecurity Decorations Layer ===
+
+The Cybersecurity Decorations Layer adds the following decorations to existing diagram elements:
+
+{| border="0"
+|-
+|[[File:Images/datastorage-16.png]] Data Storage
+|Indicates that the function represents a data storage functionality
+|-
+|[[File:Images/trusted-16.png]] Trusted Actor
+| Ability to be relied on as honest or truthful
+|- 
+|[[Image:Images/notTrusted-16.png]] Untrusted Actor
+| Disability to be relied on as honest or truthful
+|- 
+|[[Image:Images/remanentData-16.png]] Remanent Data
+| Indicates that the function manipulates data in such a way that data (or parts of it) remains even after attempts have been made to remove or erase it.
+|-
+|[[Image:Images/threatSource.png]] ThreatSource
+| Someone or something that could affect the product (ref: 87210649-DDQ-GRP-EN - Cyber Security For Architects Guide)
+|}

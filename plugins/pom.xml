@@ -29,6 +29,7 @@
   	  <module>org.polarsys.capella.cybersecurity.model.cdo</module>
 	  <module>org.polarsys.capella.cybersecurity.model.edit</module>
 	  <module>org.polarsys.capella.cybersecurity.ui</module>
+	  <module>org.polarsys.capella.cybersecurity.doc</module>
 	  <module>org.polarsys.capella.cybersecurity.business.queries</module>
 	  <module>org.polarsys.capella.cybersecurity.sirius.analysis</module>
 	  <module>org.polarsys.capella.cybersecurity.rcp</module>

@@ -1,0 +1,157 @@
+<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<link type="text/css" rel="stylesheet" href="PLUGINS_ROOT/org.polarsys.capella.doc/html/styles.css"/>
+	</head>
+	<body>
+		<h3 id="Cybersecurity_Diagrams">Cybersecurity Diagrams</h3>
+		<h2 id="Threat_Diagram">Threat Diagram</h2>
+		<table border="1">
+			<tr>
+				<td>Threat 	</td>
+				<td>
+					<img border="0" src="Images/placeholder.gif"/> 
+				</td>
+				<td>Insert a new Threat into the diagram. 	</td>
+			</tr>
+			<tr>
+				<td>Functional Primary Asset</td>
+				<td>
+					<img border="0" src="Images/PrimaryAsset.png"/> 
+				</td>
+				<td>Insert a new Functional Primary asset into the diagram.</td>
+			</tr>
+			<tr>
+				<td>Information Primary Asset</td>
+				<td>
+					<img border="0" src="Images/PrimaryAsset.png"/> 
+				</td>
+				<td>Insert a new InformationPrimaryAsset into the diagram.</td>
+			</tr>
+			<tr>
+				<td>Actor 	</td>
+				<td>
+					<img border="0" src="Images/placeholder.gif"/> 
+				</td>
+				<td>Insert a new Actor into the diagram. 	</td>
+			</tr>
+			<tr>
+				<td>Involves 	</td>
+				<td>
+					<img border="0" src="Images/placeholder.gif"/> 
+				</td>
+				<td>Creates an involvement relationship from a Threat element to an Actor element. 	</td>
+			</tr>
+			<tr>
+				<td>Applicable to 	</td>
+				<td>
+					<img border="0" src="Images/placeholder.gif"/> 
+				</td>
+				<td>Creates an involvement relationship from a Threat element to a Functional or Information Primary Asset.</td>
+			</tr>
+			<tr>
+				<td>Actors 	</td>
+				<td>
+					<img border="0" src="Images/ShowHide.gif"/> 
+				</td>
+				<td>Shows/Hides selected existing Actors on the diagram.</td>
+			</tr>
+			<tr>
+				<td>Threats 	</td>
+				<td>
+					<img border="0" src="Images/ShowHide.gif"/> 
+				</td>
+				<td>Shows/Hides selected existing Threats on the diagram.</td>
+			</tr>
+			<tr>
+				<td>Functional Primary Assets 	</td>
+				<td>
+					<img border="0" src="Images/ShowHide.gif"/> 
+				</td>
+				<td>Shows/Hides selected existing Functional Primary Assets on the diagram.</td>
+			</tr>
+			<tr>
+				<td>Information Primary Assets	</td>
+				<td>
+					<img border="0" src="Images/ShowHide.gif"/> 
+				</td>
+				<td>Shows/Hides selected existing Information Primary Assets on the diagram.</td>
+			</tr>
+		</table>
+		<h3 id="Sample">Sample</h3>
+		<p>
+			<img border="0" src="Images/threat_diagram_1.png"/> 
+		</p>
+		<h3 id="Threat_Level_Decoration_Layer">Threat Level Decoration Layer</h3>
+		<p>Threat diagrams have an optional layer named "Threat Level Decorations". When this layer is enabled,
+			each Threat's level value is displayed in parenthesis next to the Threat element:</p>
+		<p>
+			<img border="0" src="Images/threat_diagram_2.png"/> 
+		</p>
+		<h2 id="Cybersecurity_PAB_Diagram">Cybersecurity PAB Diagram</h2>
+		<p>Most of the tools in a Cybersecurity PAB diagram are documented in the Capella documentation for Physical Architecture Blank.
+			Refer to this documentation for tools that are not documented here.</p>
+		<table border="1">
+			<tr>
+				<td>Primary Assets</td>
+				<td>
+					<img border="0" src="Images/ShowHide.gif"/>
+				</td>
+				<td>Shows/Hides existing Functional or Information Primary Assets on the diagram. When an asset is shown on a diagram, its color is chosen randomly from a set of predefined colors. Node elements related to the asset will then receive an emphasized border that matches the color of the asset element. Related edges will change the color to the color of the asset element.</td>
+			</tr>
+		</table>
+		<h3 id="Sample_2">Sample</h3>
+		<p>
+			<img border="0" src="Images/pab_diagram_1.png"/> 
+		</p>
+		<h3 id="Trust_Boundaries_Layer">Trust Boundaries Layer</h3>
+		<p>The Trust Boundaries Layer for Cybersecurity PAB diagrams will change the diagrams appearence: Trusted components and actors
+			will change their background color to white, untrusted components and actors will change their color to red. Communication edges
+			between Trusted and Untrusted elements, so called Trust Boundaries, will be decorated with a small flame icon:</p>
+		<p>
+			<img border="0" src="Images/pab_diagram_2.png"/> 
+		</p>
+		<h3 id="CIAT_Layers">CIAT Layers</h3>
+		<p>Additional layers are provided to focus on Confidentiality, Integrity, Availability and Traceability needs for model elements.
+			When one of these layers is active, elements with a higher respective security needs value are emphasized over elements with
+			a lower security needs value:</p>
+		<p>
+			<img border="0" src="Images/pab_diagram_3.png"/> 
+		</p>
+		<h3 id="Cybersecurity_Decorations_Layer">Cybersecurity Decorations Layer</h3>
+		<p>The Cybersecurity Decorations Layer adds the following decorations to existing diagram elements:</p>
+		<table border="0">
+			<tr>
+				<td>
+					<img border="0" src="Images/datastorage-16.png"/> Data Storage
+				</td>
+				<td>Indicates that the function represents a data storage functionality</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="Images/trusted-16.png"/> Trusted Actor
+				</td>
+				<td>Ability to be relied on as honest or truthful</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="Images/notTrusted-16.png"/> Untrusted Actor
+				</td>
+				<td>Disability to be relied on as honest or truthful</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="Images/remanentData-16.png"/> Remanent Data
+				</td>
+				<td>Indicates that the function manipulates data in such a way that data (or parts of it) remains even after attempts have been made to remove or erase it.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="Images/threatSource.png"/> ThreatSource
+				</td>
+				<td>Someone or something that could affect the product (ref: 87210649-DDQ-GRP-EN - Cyber Security For Architects Guide)</td>
+			</tr>
+		</table>
+	</body>
+</html>

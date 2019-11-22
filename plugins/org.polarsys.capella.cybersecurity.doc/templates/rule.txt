@@ -1,0 +1,14 @@
+<table class="VALIDATION-RULE">
+	<tr>
+		<th>
+			<img title="{0}" alt="{1}" border="0" src="{2}"/>
+		</th>
+		<td>{3}</td>
+	</tr>
+	<tr>
+		<td colspan="2">{4}</td>
+	</tr>
+</table>
+<p>
+<br/>
+</p>

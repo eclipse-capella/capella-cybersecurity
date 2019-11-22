@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Cybersecurity Addon Documentation
+Bundle-SymbolicName: org.polarsys.capella.cybersecurity.doc;singleton:=true
+Bundle-Version: 0.9.0.qualifier
+Automatic-Module-Name: org.polarsys.capella.cybersecurity.doc
+Require-Bundle: org.eclipse.help,
+ org.eclipse.core.runtime,
+ org.eclipse.emf.validation
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.polarsys.capella.cybersecurity.doc
