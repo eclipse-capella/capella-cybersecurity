@@ -29,6 +29,8 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
+import org.eclipse.jface.resource.FontDescriptor;
+import org.eclipse.jface.resource.FontRegistry;
 import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
@@ -38,6 +40,7 @@ import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.diagram.Square;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.RGBValues;
+import org.eclipse.swt.graphics.Font;
 import org.polarsys.capella.common.data.behavior.AbstractEvent;
 import org.polarsys.capella.common.helpers.EObjectExt;
 import org.polarsys.capella.common.helpers.EcoreUtil2;
@@ -402,13 +405,15 @@ public class CybersecurityServices {
     return assetView;
   }
 
+
   public IFigure getThreatLevelDecorator(final EObject context, DSemanticDiagram diagram) {
     ThreatLevelDecorator decorator = (ThreatLevelDecorator) EcoreUtil.getExistingAdapter(context, ThreatLevelDecorator.class);
     if (decorator != null) {
-      decorator.updateLabel((Threat)context);
       return decorator.getLabel();
     } else {
-      return new ThreatLevelDecorator((Threat) context).getLabel();
+      decorator = new ThreatLevelDecorator((Threat) context);
+      context.eAdapters().add(decorator);
+      return decorator.getLabel();
     }
   }
 
@@ -416,18 +421,23 @@ public class CybersecurityServices {
     return context instanceof Threat;
   }
 
-  // 
-  // FIXME  *this leaks figures, but should work to show off in demo
-  //        *
   private static class ThreatLevelDecorator extends AdapterImpl {
+    private final static String FONT = "CybersecurityServices.ThreatLevelDecoratorFont"; //$NON-NLS-1$
     private final Label label;
     private ThreatLevelDecorator(Threat threat) {
-      this.label = new Label(getLabelText(threat));
-      label.setTextAlignment(Label.RIGHT);
-      label.setFont(JFaceResources.getDefaultFont());
+      this.label = new Label(getLabelText(threat)) {
+        @Override
+        public void removeNotify() {
+          removeDecorator();
+        }
+      };
+      label.setFont(getThreatLevelDecoratorFont());
       Rectangle bounds = label.getTextBounds();
       label.setBounds(bounds);
-      threat.eAdapters().add(this);
+    }
+
+    private void removeDecorator() {
+      getTarget().eAdapters().remove(this);
     }
 
     private String getLabelText(Threat threat) {
@@ -446,13 +456,27 @@ public class CybersecurityServices {
     private void updateLabel(Threat t) {
       label.setText(getLabelText(t));
     }
-    
+
     @Override
     public void notifyChanged(Notification msg) {
       if (msg.getFeature() == CybersecurityPackage.Literals.THREAT__LEVEL) {        
         updateLabel((Threat) msg.getNotifier());
       }
     }
+
+    private Font getThreatLevelDecoratorFont() {
+      FontRegistry registry = JFaceResources.getFontRegistry();
+      Font font = registry.get(FONT);
+      if (font == registry.defaultFont()) {
+        FontDescriptor smaller = JFaceResources.getDefaultFontDescriptor().increaseHeight(-2);
+        registry.put(FONT, smaller.getFontData());
+        font = registry.get(FONT);
+      }
+      return font;
+    }
+
   }
 
+  
+  
 }
