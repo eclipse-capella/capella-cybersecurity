@@ -1,0 +1,338 @@
+<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<link type="text/css" rel="stylesheet" href="PLUGINS_ROOT/org.polarsys.capella.doc/html/styles.css"/>
+	</head>
+	<body>
+		<h1 id="Capella_Cybersecurity_Modelling_User_Manual_.28v0.9.29">Capella Cybersecurity Modelling User Manual (v0.9)</h1>
+		<p>Capella Cybersecurity Modelling tooling is composed of two complementing software
+			components:</p>
+		<ul>
+			<li>Capella Cybersecurity Viewpoint</li>
+			<li>Capella DARC Product</li>
+		</ul>
+		<h3 id="Capella_Cybersecurity_Viewpoint">Capella Cybersecurity Viewpoint</h3>
+		<p>The Cybersecurity Viewpoint can be installed into Capella to enable
+			Cybersecurity Modeling in standard Capella models.</p>
+		<p>The intent of this viewpoint is to support effective co-engineering between systems and
+			cybersecurity engineering teams when performing the following tasks:</p>
+		<ul>
+			<li>Identify assets &amp; trust boundaries</li>
+			<li>Identify threats</li>
+			<li>Characterize security needs</li>
+		</ul>
+		<h3 id="Capella_DARC_Product">Capella DARC Product</h3>
+		<p>Capella DARC is a standalone product for Cybersecurity Modelling, based on Capella.
+			Capella DARC includes the Capella Cybersecurity viewpoint.</p>
+		<p>Most of the information in the 
+			<a href="/wiki/../help/nav/7_1?" title="../help/nav/7_1?">Capella User Manual </a> applies to Capella DARC.
+		</p>
+		<h3 id="Cybersecurity_Projects">Cybersecurity Projects</h3>
+		<p>To create a project with the Cybersecurity viewpoint activated automatically, select
+
+			<i>File-&gt;New-&gt;Cybersecurity Project</i> from the application menu.
+		</p>
+		<h2 id="Concepts">Concepts</h2>
+		<p>Cybersecurity Specific Properties of Model Elements can be seen in the 
+			<i>Cybersecurity</i> tab of the Properties
+			View. This section lists the important concepts and their properties.
+		</p>
+		<h3 id="Actor">Actor</h3>
+		<p>An 
+			<i>Actor</i> is involved in 
+			<i>Threats</i> and allocates one or more 
+			<i>Functions</i>.
+		</p>
+		<table border="1">
+			<tr>
+				<td>Threat Source 	</td>
+				<td>Someone or something that could affect the product (ref: 87210649-DDQ-GRP-EN - Cyber Security For Architects Guide) </td>
+				<td>Yes/No</td>
+			</tr>
+			<tr>
+				<td>Threat Source Profile </td>
+				<td>Type of threat source </td>
+				<td>1 to 5</td>
+			</tr>
+			<tr>
+				<td>Trusted</td>
+				<td>Ability to be relied on as honest or truthful. Threat Source = Yes =&gt; Trusted = false</td>
+				<td>Yes/No</td>
+			</tr>
+			<tr>
+				<td>Rationale</td>
+				<td>Rationale on the cybersecurity attributes. The trustworthiness of an Actor is absolute, it does not depend on the Threat that the Actor is involved in, or a given security property. Details on this aspect and others can be exposed in this Rationale field.</td>
+				<td>Text </td>
+			</tr>
+		</table>
+		<h2 id="Threat">Threat</h2>
+		<p>A situation that is unwanted by the stakeholders and that is to be avoided. Threat is an abstract concept that is concretized by the following kinds of attacks:</p>
+		<table border="1">
+			<tr>
+				<td>Eavesdropping</td>
+				<td>Secretly listening to the private conversation of others without their consent</td>
+			</tr>
+			<tr>
+				<td>Theft and data alteration</td>
+				<td>Stealing, leaking data, modifying data, erasing data, attack against traceability or against rogue action detection</td>
+			</tr>
+			<tr>
+				<td>Denial of Service</td>
+				<td>DoS attacks make a machine, a service or a network resource unavailable to its intended users</td>
+			</tr>
+			<tr>
+				<td>Intrusion: </td>
+				<td>Entering an information system without permission</td>
+			</tr>
+			<tr>
+				<td>Tampering</td>
+				<td>Tampering attacks refer to many forms of sabotage (intentional modification of the information system in a way that makes them harmful)</td>
+			</tr>
+		</table>
+		<p>
+			<i>Threats</i> are applied to 
+			<i>Primary Assets</i>.
+			A Threat has the following additional attributes:
+		</p>
+		<table border="1">
+			<tr>
+				<td>Level</td>
+				<td>Priority level given to a Threat at a given stage of design process. It can be motivated by cybersecurity risk analysis; e.g. may be an indication of the likelihood of threat scenarios and the impact of the feared event associated to the threat.</td>
+				<td>1 to 5</td>
+			</tr>
+			<tr>
+				<td>Rationale</td>
+				<td>Rationale on the cybersecurity attributes</td>
+				<td>Text</td>
+			</tr>
+		</table>
+		<h2 id="Primary_Asset">Primary Asset</h2>
+		<p>Information, activity, process or functionality that is valuable for the customer and then needs to be protected (ref: 87210649-DDQ-GRP-EN - Cyber Security For Architects Guide). The Cybersecurity Viewpoint
+			distinguishes between</p>
+		<table border="1">
+			<tr>
+				<td>Functional Primary Asset</td>
+				<td>Activity, process or functionality that is valuable for the customer and then needs to be protected.</td>
+				<td>Functions</td>
+			</tr>
+			<tr>
+				<td>Information Primary Asset</td>
+				<td>Information that is valuable for the customer and then needs to be protected</td>
+				<td>Exchange Items</td>
+			</tr>
+		</table>
+		<p>The attributes of a Primary Asset are its corresponding Security Needs, i.e. the characteristics that can be compromised / affected by a threat (based on ref: 87210649-DDQ-GRP-EN - Cyber Security For Architects Guide) and their sensitivity levels. The following characteristics are considered here:</p>
+		<ul>
+			<li>Confidentiality: property that information is only available to authorized persons.	</li>
+			<li>Integrity: property of accuracy and completeness (wrt authorized entities)	</li>
+			<li>Availability: property of being accessible and useable upon demand by an authorized entity	</li>
+			<li>Traceability</li>
+		</ul>
+		<p>An asset can define a value between 0 and 3 for each of these attributes. Project/Product teams shall define the equivalences between these sensitivity levels and those specific to their standards framework.</p>
+		<p>Primary Assets are threatened by Threats.</p>
+		<h2 id="Function">Function</h2>
+		<p>Action, operation or service performed by the system, or by an actor interacting with the system (ref: Arcadia).
+			Like Primary Assets, Functions can define values for Confidentiality, Integrity, Availability and Traceability</p>
+		<table border="1">
+			<tr>
+				<td>Data Storage</td>
+				<td>Indicates that the function represents a data storage functionality</td>
+				<td>Yes/No</td>
+			</tr>
+			<tr>
+				<td>Remanent Data</td>
+				<td>Indicates that the function manipulates data in such a way that data (or parts of it) remains even after attempts have been made to remove or erase it.</td>
+				<td>Yes/No</td>
+			</tr>
+		</table>
+		<h2 id="Exchange_Item">Exchange Item</h2>
+		<p>A Exchange Item describes a set of Data semantically coherent with regards to their usage in a given context: same communication principles, simultaneity of transportation, same non functional properties, indivisibility (an Exchange Item is monolithic). (ref. Arcadia)
+			An Information Primary Asset references one or more Exchange Items. An Exchange Item can define values for Confidentiality, Integrity, Availability and Traceability</p>
+		<h2 id="Diagrams">Diagrams</h2>
+		<p>The following diagram types are provided by the Capella Cybersecurity Viewpoint:</p>
+		<ul>
+			<li>Threats Diagram</li>
+			<li>System Architecture Diagram</li>
+			<li>Scenario Diagram</li>
+			<li>Information Asset Diagram</li>
+		</ul>
+		<p>To create a Diagram, select the corresponding hyperlink from the 
+			<a href="/wiki/../help/topic/org.polarsys.capella.ui.doc/html/04.%20User%20Interface/4.03.%20Activity%20Browser.html?" title="../help/topic/org.polarsys.capella.ui.doc/html/04.%20User%20Interface/4.03.%20Activity%20Browser.html?">Activity Explorer</a>:
+		</p>
+		<p>
+			<img border="0" src="Images/activityExplorer.png"/>
+		</p>
+		<h2 id="Threat_Diagram">Threat Diagram</h2>
+		<p>Threat diagrams are used to model System Threats, threatened Assets and Involved Actors:</p>
+		<p>
+			<img border="0" src="Images/threat_diagram_1.png"/> 
+		</p>
+		<p>Alternatively, select 
+			<i>New Diagram/Table...-&gt;Threat Diagram</i> on a component's context menu in the Capella Project Explorer.
+		</p>
+		<p>The following tools are available:</p>
+		<table border="1">
+			<tr>
+				<td>Threat 	</td>
+				<td>
+					<img border="0" src="Images/placeholder.gif"/> 
+				</td>
+				<td>Insert a new Threat into the diagram. 	</td>
+			</tr>
+			<tr>
+				<td>Functional Primary Asset</td>
+				<td>
+					<img border="0" src="Images/PrimaryAsset.png"/> 
+				</td>
+				<td>Insert a new Functional Primary asset into the diagram.</td>
+			</tr>
+			<tr>
+				<td>Information Primary Asset</td>
+				<td>
+					<img border="0" src="Images/PrimaryAsset.png"/> 
+				</td>
+				<td>Insert a new InformationPrimaryAsset into the diagram.</td>
+			</tr>
+			<tr>
+				<td>Actor 	</td>
+				<td>
+					<img border="0" src="Images/placeholder.gif"/> 
+				</td>
+				<td>Insert a new Actor into the diagram. 	</td>
+			</tr>
+			<tr>
+				<td>Involves 	</td>
+				<td>
+					<img border="0" src="Images/placeholder.gif"/> 
+				</td>
+				<td>Creates an involvement relationship from a Threat element to an Actor element. 	</td>
+			</tr>
+			<tr>
+				<td>Applicable to 	</td>
+				<td>
+					<img border="0" src="Images/placeholder.gif"/> 
+				</td>
+				<td>Creates an involvement relationship from a Threat element to a Functional or Information Primary Asset.</td>
+			</tr>
+			<tr>
+				<td>Actors 	</td>
+				<td>
+					<img border="0" src="Images/ShowHide.gif"/> 
+				</td>
+				<td>Shows/Hides selected existing Actors on the diagram.</td>
+			</tr>
+			<tr>
+				<td>Threats 	</td>
+				<td>
+					<img border="0" src="Images/ShowHide.gif"/> 
+				</td>
+				<td>Shows/Hides selected existing Threats on the diagram.</td>
+			</tr>
+			<tr>
+				<td>Functional Primary Assets 	</td>
+				<td>
+					<img border="0" src="Images/ShowHide.gif"/> 
+				</td>
+				<td>Shows/Hides selected existing Functional Primary Assets on the diagram.</td>
+			</tr>
+			<tr>
+				<td>Information Primary Assets	</td>
+				<td>
+					<img border="0" src="Images/ShowHide.gif"/> 
+				</td>
+				<td>Shows/Hides selected existing Information Primary Assets on the diagram.</td>
+			</tr>
+		</table>
+		<h3 id="Threat_Level_Decoration_Layer">Threat Level Decoration Layer</h3>
+		<p>Threat diagrams have an optional layer named "Threat Level Decorations". When this layer is enabled,
+			each Threat's level value is displayed in parenthesis next to the Threat element:</p>
+		<p>
+			<img border="0" src="Images/threat_diagram_2.png"/> 
+		</p>
+		<h2 id="System_Architecture_Diagram">System Architecture Diagram</h2>
+		<p>
+			<img border="0" src="Images/pab_diagram_1.png"/> 
+		</p>
+		<p>System Architecture Diagrams are extended Capella Physical Architecture Diagrams.
+			Thus, most of the tools available in Cybersecurity PAB diagrams are documented 
+			<a href="/wiki/../help/topic/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.html?#Physical_Architecture_Blank" title="../help/topic/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.html?#Physical_Architecture_Blank">here.</a>
+		</p>
+		<p>One additional tool is provided by the Viewpoint:</p>
+		<table border="1">
+			<tr>
+				<td>Primary Assets</td>
+				<td>
+					<img border="0" src="Images/ShowHide.gif"/>
+				</td>
+				<td>Shows/Hides existing Functional or Information Primary Assets on the diagram. When a Primary Asset is added to a diagram, its color is chosen randomly from a set of predefined colors. Node elements related to the asset will then receive an emphasized border that matches the color of the asset element. Related edges will change the color to the color of the asset element.</td>
+			</tr>
+		</table>
+		<h2 id="Cybersecurity_PAB_Layer_Extensions">Cybersecurity PAB Layer Extensions</h2>
+		<p>Several Layers are provided for Cybersecurity PAB Diagrams. A layer allows to change the presentation of a diagram in order to focus on specific aspects of the modeled system. Layers are activated in the diagram toolbar:</p>
+		<p>
+			<img border="0" src="Images/layers.png"/>
+		</p>
+		<h3 id="Trust_Boundaries_Layer">Trust Boundaries Layer</h3>
+		<p>The Trust Boundaries Layer for Cybersecurity PAB diagrams will change the diagrams appearence: Trusted components and actors will change their background color to white, untrusted components and actors will change their color to red. Communication edges between Trusted and Untrusted elements, so called Trust Boundaries, will be decorated with a small flame icon:</p>
+		<p>
+			<img border="0" src="Images/pab_diagram_2.png"/> 
+		</p>
+		<h3 id="CIAT_Layers">CIAT Layers</h3>
+		<p>Additional layers are provided to focus on Confidentiality, Integrity, Availability and Traceability needs for model elements.
+			When one of these layers is active, elements with a higher respective security needs value are emphasized over elements with
+			a lower security needs value:</p>
+		<p>
+			<img border="0" src="Images/pab_diagram_3.png"/> 
+		</p>
+		<h3 id="Cybersecurity_Decorations_Layer">Cybersecurity Decorations Layer</h3>
+		<p>The Cybersecurity Decorations Layer adds the following decorations to existing diagram elements. The layer is available on Cybersecurity PAB diagrams and Class Diagrams.</p>
+		<table border="0">
+			<tr>
+				<td>
+					<img border="0" src="Images/datastorage-16.png"/> Data Storage
+				</td>
+				<td>Indicates that the function represents a data storage functionality</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="Images/trusted-16.png"/> Trusted Actor
+				</td>
+				<td>Ability to be relied on as honest or truthful</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="Images/notTrusted-16.png"/> Untrusted Actor
+				</td>
+				<td>Disability to be relied on as honest or truthful</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="Images/remanentData-16.png"/> Remanent Data
+				</td>
+				<td>Indicates that the function manipulates data in such a way that data (or parts of it) remains even after attempts have been made to remove or erase it.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="Images/threatSource.png"/> ThreatSource
+				</td>
+				<td>Someone or something that could affect the product (ref: 87210649-DDQ-GRP-EN - Cyber Security For Architects Guide)</td>
+			</tr>
+		</table>
+		<h2 id="Scenario_Diagram">Scenario Diagram</h2>
+		<p>See Capella 
+			<a href="/wiki/../help/topic/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.html?#Exchange_Scenario" title="../help/topic/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.html?#Exchange_Scenario">Exchange  Scenario Documentation</a>
+		</p>
+		<h2 id="Information_Asset_Diagram">Information Asset Diagram</h2>
+		<p>See Capella 
+			<a href="/wiki/../help/topic/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.html?#Class_Diagram_Blank" title="../help/topic/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.html?#Class_Diagram_Blank">Class Diagram Documentation</a>
+		</p>
+		<h2 id="Model_Validation">Model Validation</h2>
+		<p>Cybersecurity model elements and their attributes and relationships are subject to certain constraints.
+			These constraints can be verified by selecting 
+			<i>Validate-&gt;Validate Model</i> from any model element's context menu. A tabular description of constraints is listed 
+
+			<a href="/wiki/../help/topic/org.polarsys.capella.cybersecurity.doc/html/rules.html?" title="../help/topic/org.polarsys.capella.cybersecurity.doc/html/rules.html?">here. </a> 
+		</p>
+	</body>
+</html>
