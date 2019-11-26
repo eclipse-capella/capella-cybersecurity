@@ -163,30 +163,67 @@
    <Section
          expanded="true"
          filtering="true"
-         id="org.polarsys.capella.cybersecurity"
+         id="org.polarsys.capella.cybersecurity.ui.activity.category_systemarchitecture"
          index="0"
-         name="%cybersecurityActivityExplorerSection"
+         name="%categorySystemArchitecture"
          pageId="org.polarsys.capella.core.explorer.activity.ui.page.physical.architecture">
-      <Description>
-         %cybersecurityActivityExplorerSection_description
-      </Description>
-      <Activity
-            class="org.polarsys.capella.cybersecurity.ui.activity.CreateThreatDiagramHyperlink"
-            id="org.polarsys.capella.cybersecurity.ui.createThreatDiagram"
-            index="1"
-            name="%cybersecurityActivity_createThreatDiagram">
-         <Description>
-            %cybersecurityActivity_createThreatDiagram_description
-         </Description>
-      </Activity>
       <Activity
             class="org.polarsys.capella.cybersecurity.ui.activity.CreateCyberPABDiagramHyperlink"
-            id="org.polarsys.capella.cybersecurity.ui.createCyberPABDiagram"
+            id="org.polarsys.capella.cybersecurity.ui.activity.systemarchitecture1"
             index="0"
-            name="%cybersecurityActivity_createCyberPABdiagram">
-         <Description>
-            %cybersecurityActivity_createCyberPABdiagram_description
-         </Description>
+            name="%createSystemArchitecture">
+      </Activity>
+      <Activity
+            class="org.polarsys.capella.core.explorer.activity.ui.hyperlinkadapter.pa.NewExchangeScenarioAdapter"
+            id="org.polarsys.capella.cybersecurity.ui.activity.scenario1"
+            index="1"
+            name="%createScenario">
+      </Activity>
+      <Activity
+            class="org.polarsys.capella.core.explorer.activity.ui.hyperlinkadapter.pa.NewBlankFunctionalDataflowDiagramAdapter"
+            id="org.polarsys.capella.cybersecurity.ui.activity.dataflow"
+            index="2"
+            name="%createDataflow">
+      </Activity>
+   </Section>
+   <Section
+         expanded="true"
+         filtering="true"
+         id="org.polarsys.capella.cybersecurity.ui.activity.category_systemboundaries"
+         index="1"
+         name="%categorySystemBoundariesAndAssets"
+         pageId="org.polarsys.capella.core.explorer.activity.ui.page.physical.architecture">
+      <Activity
+            class="org.polarsys.capella.cybersecurity.ui.activity.CreateCyberPABDiagramHyperlink"
+            id="org.polarsys.capella.cybersecurity.ui.activity.systemarchitecture2"
+            index="0"
+            name="%createSystemArchitecture">
+      </Activity>
+      <Activity
+            class="org.polarsys.capella.core.explorer.activity.ui.hyperlinkadapter.pa.NewClassDiagramAdapter"
+            id="org.polarsys.capella.cybersecurity.ui.activity.informationasset"
+            index="1"
+            name="%createInformationAsset">
+      </Activity>
+   </Section>
+   <Section
+         expanded="true"
+         filtering="true"
+         id="org.polarsys.capella.cybersecurity.ui.activity.category_threats"
+         index="2"
+         name="%categoryThreatsAndThreatSources"
+         pageId="org.polarsys.capella.core.explorer.activity.ui.page.physical.architecture">
+      <Activity
+            class="org.polarsys.capella.cybersecurity.ui.activity.CreateThreatDiagramHyperlink"
+            id="org.polarsys.capella.cybersecurity.ui.activity.threat"
+            index="1"
+            name="%createThreat">
+      </Activity>
+      <Activity
+            class="org.polarsys.capella.core.explorer.activity.ui.hyperlinkadapter.pa.NewExchangeScenarioAdapter"
+            id="org.polarsys.capella.cybersecurity.ui.activity.scenario2"
+            index="1"
+            name="%createScenario">
       </Activity>
    </Section>
 </extension>
