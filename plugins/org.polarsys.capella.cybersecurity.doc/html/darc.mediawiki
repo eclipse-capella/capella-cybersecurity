@@ -1,0 +1,9 @@
+= Capella DARC Product =
+
+Capella DARC is a standalone product for Cybersecurity Modelling, based on Capella.
+Thus, most of the information in the [[../help/topic/org.polarsys.capella.doc/html/toc.html? | Capella User Manual ]] applies to Capella DARC.
+
+The difference between Capella and Capella DARC are in its user interface preferences: DARC hides many of the menus and actions available in Capella by deactivating several user interface 
+[[../help/topic/org.polarsys.capella.doc/html/Filtering%20of%20Capella%20capabilities/Filtering%20of%20Capella%20capabilities.html? | capabilities]] by default.
+
+Capella DARC includes the [[../help/topic/org.polarsys.capella.cybersecurity.doc/html/usermanual.html? | Capella Cybersecurity Viewpoint ]]

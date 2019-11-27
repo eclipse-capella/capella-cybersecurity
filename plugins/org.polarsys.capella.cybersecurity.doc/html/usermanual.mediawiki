@@ -1,29 +1,10 @@
-= Capella Cybersecurity Modelling User Manual (v0.9) =
-
-Capella Cybersecurity Modelling tooling is composed of two complementing software
-components:
-
-* Capella Cybersecurity Viewpoint
-* Capella DARC Product
-
-=== Capella Cybersecurity Viewpoint ===
-
-The Cybersecurity Viewpoint can be installed into Capella to enable
-Cybersecurity Modeling in standard Capella models.
+= Capella Cybersecurity Viewpoint =
 
 The intent of this viewpoint is to support effective co-engineering between systems and
 cybersecurity engineering teams when performing the following tasks:
 * Identify assets &amp; trust boundaries
 * Identify threats
 * Characterize security needs
-
-
-=== Capella DARC Product ===
-
-Capella DARC is a standalone product for Cybersecurity Modelling, based on Capella.
-Capella DARC includes the Capella Cybersecurity viewpoint.
-
-Most of the information in the [[../help/nav/7_1? | Capella User Manual ]] applies to Capella DARC.
 
 === Cybersecurity Projects ===
 
@@ -32,8 +13,7 @@ To create a project with the Cybersecurity viewpoint activated automatically, se
 
 == Concepts ==
 
-Cybersecurity Specific Properties of Model Elements can be seen in the ''Cybersecurity'' tab of the Properties
-View. This section lists the important concepts and their properties.
+Cybersecurity Specific Properties of Model Elements can be seen in the ''Cybersecurity'' tab of the Properties View. This section lists the most important concepts and their properties.
 
 === Actor ===
 
