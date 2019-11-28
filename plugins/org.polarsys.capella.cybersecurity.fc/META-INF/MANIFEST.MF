@@ -4,3 +4,4 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: org.polarsys.capella.cybersecurity.fc;singleton:=true
 Bundle-Version: 0.9.0.qualifier
 Bundle-Vendor: %providerName
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8

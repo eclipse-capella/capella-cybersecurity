@@ -2,11 +2,14 @@ package org.polarsys.capella.cybersecurity.validation;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.Collection;
 import java.util.Objects;
+import java.util.function.Function;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.validation.IValidationContext;
 import org.polarsys.capella.core.data.cs.Component;
+import org.polarsys.capella.core.data.fa.ComponentExchange;
 import org.polarsys.capella.core.data.fa.FunctionalExchange;
 import org.polarsys.capella.core.data.information.ExchangeItem;
 import org.polarsys.capella.core.validation.rule.AbstractValidationRule;
@@ -16,6 +19,7 @@ import org.polarsys.capella.cybersecurity.model.InformationPrimaryAsset;
 import org.polarsys.capella.cybersecurity.model.PrimaryAsset;
 import org.polarsys.capella.cybersecurity.model.SecurityNeeds;
 import org.polarsys.capella.cybersecurity.model.Threat;
+import org.polarsys.kitalpha.emde.model.ExtensibleElement;
 
 public class CybersecurityValidationRules extends AbstractValidationRule {
 
@@ -86,25 +90,36 @@ public class CybersecurityValidationRules extends AbstractValidationRule {
    * of its allocated ExchangeItems.
    */
   public IStatus fe__securityNeedsConsistency(IValidationContext ctx) {
-    FunctionalExchange fe = (FunctionalExchange) ctx.getTarget();
-    SecurityNeeds sn = CybersecurityQueries.getSecurityNeeds(fe);
-    if (sn == null) {
-      sn = CybersecurityFactory.eINSTANCE.createSecurityNeeds();
+    return securityNeedsConsistency(ctx, e->((FunctionalExchange)e).getExchangedItems());
+  }
+  
+  /**
+   * The SecurityNeeds of a ComponentExchange must be at least as high as those of each
+   * of its allocated Functional Exchanges.
+   */
+  public IStatus ce__securityNeedsConsistency(IValidationContext ctx) {
+    return securityNeedsConsistency(ctx, e->((ComponentExchange)e).getAllocatedFunctionalExchanges());
+  }
+
+  private IStatus securityNeedsConsistency(IValidationContext ctx, Function<ExtensibleElement, Collection<? extends ExtensibleElement>> relation) {
+    SecurityNeeds testSN = CybersecurityQueries.getSecurityNeeds((ExtensibleElement) ctx.getTarget());
+    if (testSN == null) {
+      testSN = CybersecurityFactory.eINSTANCE.createSecurityNeeds();
     }
-    SecurityNeeds eiNeeds = fe.getExchangedItems()
+    SecurityNeeds refSN = relation.apply((ExtensibleElement) ctx.getTarget())
         .stream()
         .map(CybersecurityQueries::getSecurityNeeds)
         .filter(Objects::nonNull)
         .reduce(CybersecurityFactory.eINSTANCE.createSecurityNeeds(), CybersecurityQueries::reduceSecurityNeeds);
-    if (sn.getConfidentiality() < eiNeeds.getConfidentiality()
-        || sn.getTraceability() < eiNeeds.getTraceability()
-        || sn.getAvailability() < eiNeeds.getAvailability()
-        || sn.getIntegrity() < eiNeeds.getIntegrity()) {
-      return ctx.createFailureStatus(fe);
+    if (testSN.getConfidentiality() < refSN.getConfidentiality()
+        || testSN.getTraceability() < refSN.getTraceability()
+        || testSN.getAvailability() < refSN.getAvailability()
+        || testSN.getIntegrity() < refSN.getIntegrity()) {
+      return ctx.createFailureStatus(ctx.getTarget());
     }
     return ctx.createSuccessStatus();
   }
-
+  
   @Override
   public IStatus validate(IValidationContext ctx) {
     String constraint = ctx.getCurrentConstraintId();

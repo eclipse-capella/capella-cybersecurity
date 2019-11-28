@@ -133,9 +133,26 @@
                   Verifies that the SecurityNeeds of a Functional Exchange are at least as high as each of its allocated Exchange Items.
                </description>
             </constraint>
+            <constraint
+                  class="org.polarsys.capella.cybersecurity.validation.CybersecurityValidationRules"
+                  id="ce__securityNeedsConsistency"
+                  isEnabledByDefault="true"
+                  lang="Java"
+                  mode="Batch"
+                  name="Component Exchange Security Needs Consistency"
+                  severity="WARNING"
+                  statusCode="0">
+               <message>
+                  SecurityNeeds of Component Exchange ''{0}'' is not consistent with those of its Functional Exchanges.
+               </message>
+               <target
+                     class="ComponentExchange">
+               </target>
+               <description>
+                  Verifies that the SecurityNeeds of a ComponentExchange are at least as high as each of its allocated Functional Exchanges.
+               </description>
+            </constraint>
          </constraints>
       </constraintProvider>
    </extension>
-
-
 </plugin>
