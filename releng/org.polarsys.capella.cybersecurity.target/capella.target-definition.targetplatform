@@ -19,6 +19,10 @@ location capella-master "https://download.eclipse.org/capella/core/updates/night
 	org.polarsys.capella.cdo.mock.feature.feature.group
 }
 
+location capella-tests-master "https://download.eclipse.org/capella/core/updates/nightly/latest/org.polarsys.capella.test.site" {
+	org.polarsys.capella.test.feature.feature.group
+}
+
 location "http://download.eclipse.org/modeling/emf/cdo/updates/releases" {
 	org.eclipse.emf.cdo.sdk.feature.group
 }

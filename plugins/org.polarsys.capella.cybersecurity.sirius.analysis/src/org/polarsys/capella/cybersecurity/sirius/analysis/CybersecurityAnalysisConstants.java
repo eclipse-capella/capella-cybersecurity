@@ -12,9 +12,24 @@ package org.polarsys.capella.cybersecurity.sirius.analysis;
 
 public final class CybersecurityAnalysisConstants {
 
+  public final static String VIEWPOINT_ID="org.polarsys.capella.cybersecurity"; //$NON-NLS-1$
+  
   public final static String LAYER_TRUST_BOUNDARIES = "Cybersecurity Trust Boundaries Layer"; //$NON-NLS-1$
   public final static String LAYER_ASSETS = "Cybersecurity Assets Layer"; //$NON-NLS-1$
   public final static String LAYER_DECORATION = "Cybersecurity Decoration Layer"; //$NON-NLS-1$
 
   public final static String DIAGRAM_THREAT = "Threat Diagram"; //$NON-NLS-1$
+  public static final String TOOL_CREATE_THREAT = "ToolCreateThreat"; //$NON-NLS-1$
+  public static final String TOOL_CREATE_FUNCTIONAL_PRIMARY_ASSET = "ToolCreateFunctionalPrimaryAsset"; //$NON-NLS-1$
+  public static final String TOOL_CREATE_INFORMATION_PRIMARY_ASSET = "ToolCreateInformationPrimaryAsset"; //$NON-NLS-1$
+  public static final String TOOL_CREATE_ACTOR = "ToolCreateActor"; //$NON-NLS-1$
+  public static final String TOOL_CREATE_THREATINVOLVEMENT = "ToolCreateThreatInvolvement"; //$NON-NLS-1$
+  public static final String TOOL_CREATE_THREATAPPLICATION = "ToolCreateThreatApplication"; //$NON-NLS-1$
+  public static final String TOOL_INSERTREMOVE__ACTOR = "show_hide__.actor"; //$NON-NLS-1$
+  public static final String TOOL_INSERTREMOVE__THREAT = "show_hide__.threat"; //$NON-NLS-1$
+  public static final String TOOL_INSERTREMOVE__FUNCTIONAL_PRIMARY_ASSET = "show_hide__.functionalasset"; //$NON-NLS-1$
+  public static final String TOOL_INSERTREMOVE__INFORMATION_PRIMARY_ASSET = "show_hide__.informationasset"; //$NON-NLS-1$
+
+  public static final String TOOL_PAB_INSERT_PA = "Primary Assets"; //$NON-NLS-1$
+
 }

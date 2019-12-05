@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Test
+Bundle-SymbolicName: org.polarsys.capella.cybersecurity.test
+Bundle-Version: 0.9.0.qualifier
+Automatic-Module-Name: org.polarsys.capella.cybersecurity.test
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.polarsys.capella.test.framework,
+ org.polarsys.capella.cybersecurity.sirius.analysis,
+ org.polarsys.capella.cybersecurity.model,
+ org.polarsys.capella.test.diagram.common.ju,
+ org.polarsys.capella.test.diagram.tools.ju,
+ org.polarsys.kitalpha.ad.services,
+ org.apache.xerces
+Export-Package: org.polarsys.capella.cybersecurity.test,
+ org.polarsys.capella.cybersecurity.test.common,
+ org.polarsys.capella.cybersecurity.test.rules

@@ -14,7 +14,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.sirius.diagram.ui,
  org.eclipse.sirius.ext.base,
  org.polarsys.capella.common.ui.toolkit,
- org.polarsys.capella.core.ui.properties
+ org.polarsys.capella.core.ui.properties,
+ org.eclipse.sirius.common.acceleo.aql
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: org.polarsys.capella.cybersecurity.sirius.analysis
 Bundle-ActivationPolicy: lazy

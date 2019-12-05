@@ -260,10 +260,22 @@ public class CybersecurityServices {
     return ExtensibleElementExt.getExtension(element, FunctionStorage.class);
   }
 
-  private SecurityNeeds getSecurityNeeds(ExtensibleElement element) {
-    return ExtensibleElementExt.getExtension(element, SecurityNeeds.class);
+  private SecurityNeeds getSecurityNeeds(ExtensibleElement element, boolean create) {
+    SecurityNeeds sn = ExtensibleElementExt.getExtension(element, SecurityNeeds.class);
+    if (sn == null && create) {
+      if (!ExtensibleElementExt.canBeExtendedBy(element, CybersecurityPackage.Literals.SECURITY_NEEDS)) {
+        throw new IllegalArgumentException();
+      }
+      sn = CybersecurityFactory.eINSTANCE.createSecurityNeeds();
+      element.getOwnedExtensions().add(sn);
+    }
+    return sn;
   }
 
+  private SecurityNeeds getSecurityNeeds(ExtensibleElement element) {
+    return getSecurityNeeds(element, false);
+  }
+  
   public Collection<Component> getAllThreatActors(EObject element) {
     BlockArchitecture architecture = BlockArchitectureExt.getRootBlockArchitecture(element);
     return BlockArchitectureExt.getAllComponents(architecture).stream().filter(c -> c.isActor()).collect(Collectors.toList());
@@ -419,6 +431,26 @@ public class CybersecurityServices {
 
   public boolean hasThreatLevelDecorator(EObject context) {
     return context instanceof Threat;
+  }
+
+  public void setConfidentiality(ExtensibleElement element, int value) {
+    SecurityNeeds sn = getSecurityNeeds(element, true);
+    sn.setConfidentiality(value);
+  }
+
+  public void setIntegrity(ExtensibleElement element, int value) {
+    SecurityNeeds sn = getSecurityNeeds(element, true);
+    sn.setIntegrity(value);
+  }
+
+  public void setTraceability(ExtensibleElement element, int value) {
+    SecurityNeeds sn = getSecurityNeeds(element, true);
+    sn.setTraceability(value);
+  }
+
+  public void setAvailability(ExtensibleElement element, int value) {
+    SecurityNeeds sn = getSecurityNeeds(element, true);
+    sn.setTraceability(value);
   }
 
   private static class ThreatLevelDecorator extends AdapterImpl {
