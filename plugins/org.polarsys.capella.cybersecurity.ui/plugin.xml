@@ -91,8 +91,8 @@
          tab="cyber_ActorAttributes">
 		    </propertySection>
    <propertySection
-         class="org.polarsys.capella.core.data.core.properties.sections.NamedElementSection"
-         filter="org.polarsys.capella.core.data.core.properties.sections.NamedElementSection"
+         class="org.polarsys.capella.cybersecurity.ui.properties.sections.SecurityAwareNamedElementSection"
+         filter="org.polarsys.capella.cybersecurity.ui.properties.sections.SecurityAwareNamedElementSection"
          id="cybersecurity.NamedElementSection"
          tab="cyber_ActorAttributes">
    </propertySection> 
@@ -151,8 +151,8 @@
            tab="cyber_ActorAttributes">
      </propertySection>
      <propertySection
-           class="org.polarsys.capella.core.data.core.properties.sections.NamedElementSection"
-           filter="org.polarsys.capella.core.data.core.properties.sections.NamedElementSection"
+           class="org.polarsys.capella.cybersecurity.ui.properties.sections.SecurityAwareNamedElementSection"
+           filter="org.polarsys.capella.cybersecurity.ui.properties.sections.SecurityAwareNamedElementSection"
            id="cybersecurity.NamedElementSection"
            tab="cyber_ActorAttributes">
      </propertySection>

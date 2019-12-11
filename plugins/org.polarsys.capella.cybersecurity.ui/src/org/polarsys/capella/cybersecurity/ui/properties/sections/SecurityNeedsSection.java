@@ -131,7 +131,7 @@ public class SecurityNeedsSection extends AbstractSection {
 
   private EReference getStorageRef(EObject parent) {
 
-    // we allow to show security needs on cybersecurity objects with a 
+    // We allow to show security needs on cybersecurity objects with a 
     // containment ref of the matching type ...
     if (parent.eClass().getEPackage() == CybersecurityPackage.eINSTANCE) {
       for (EReference e : parent.eClass().getEAllContainments()) {
