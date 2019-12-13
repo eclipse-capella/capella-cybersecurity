@@ -130,7 +130,7 @@ public class CybersecurityServices {
     EObject e = view.getTarget();
     DDiagram diagram = CapellaServices.getService().getDiagramContainer(view);
     for (PrimaryAsset asset : getRelatedAssets(e)) {
-      DDiagramElement element = DiagramServices.getDiagramServices().getDiagramElement((DDiagram) diagram, asset);
+      DDiagramElement element = DiagramServices.getDiagramServices().getDiagramElement(diagram, asset);
       if (element != null && element instanceof DNode) {
         return ((Square) element.getStyle()).getColor().getRed();
       }
@@ -142,7 +142,7 @@ public class CybersecurityServices {
     EObject e = view.getTarget();
     DDiagram diagram = CapellaServices.getService().getDiagramContainer(view);
     for (PrimaryAsset asset : getRelatedAssets(e)) {
-      DDiagramElement element = DiagramServices.getDiagramServices().getDiagramElement((DDiagram) diagram, asset);
+      DDiagramElement element = DiagramServices.getDiagramServices().getDiagramElement(diagram, asset);
       if (element != null && element instanceof DNode) {
         return ((Square) element.getStyle()).getColor().getBlue();
       }
@@ -154,7 +154,7 @@ public class CybersecurityServices {
     EObject e = view.getTarget();
     DDiagram diagram = CapellaServices.getService().getDiagramContainer(view);
     for (PrimaryAsset asset : getRelatedAssets(e)) {
-      DDiagramElement element = DiagramServices.getDiagramServices().getDiagramElement((DDiagram) diagram, asset);
+      DDiagramElement element = DiagramServices.getDiagramServices().getDiagramElement(diagram, asset);
       if (element != null && element instanceof DNode) {
         return ((Square) element.getStyle()).getColor().getGreen();
       }
@@ -450,7 +450,7 @@ public class CybersecurityServices {
 
   public void setAvailability(ExtensibleElement element, int value) {
     SecurityNeeds sn = getSecurityNeeds(element, true);
-    sn.setTraceability(value);
+    sn.setAvailability(value);
   }
 
   private static class ThreatLevelDecorator extends AdapterImpl {

@@ -8,19 +8,23 @@
  * Contributors:
  *    Thales - initial API and implementation
  *******************************************************************************/
-package org.polarsys.capella.cybersecurity.ui.massactions;
+package org.polarsys.capella.cybersecurity.ui.massactions.columns;
 
 import java.util.Collection;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.nebula.widgets.nattable.data.convert.IDisplayConverter;
+import org.polarsys.capella.cybersecurity.sirius.analysis.CybersecurityServices;
+import org.polarsys.capella.cybersecurity.ui.massactions.converters.ManyRefDisplayConverter;
 import org.polarsys.kitalpha.massactions.core.column.AbstractMAColumn;
 
 public abstract class AbstractCybersecurityColumn extends AbstractMAColumn {
 
+  protected CybersecurityServices cyberService;
+
   @Override
   public void setDataValue(EObject rowObject, Object newValue) {
-   throw new UnsupportedOperationException();
+    throw new UnsupportedOperationException();
   }
 
   @Override
@@ -29,7 +33,6 @@ public abstract class AbstractCybersecurityColumn extends AbstractMAColumn {
 
   @Override
   public Object getDataValue(EObject rowObject) {
-    // TODO Auto-generated method stub
     return null;
   }
 
@@ -38,6 +41,13 @@ public abstract class AbstractCybersecurityColumn extends AbstractMAColumn {
     return new ManyRefDisplayConverter();
   }
 
-  
-  
+  // TODO CyberSecurityService should be a singleton, when this is done this code can be removed
+  public CybersecurityServices getCyberService() {
+    if (cyberService == null) {
+      cyberService = new CybersecurityServices();
+    }
+
+    return cyberService;
+  }
+
 }

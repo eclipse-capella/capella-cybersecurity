@@ -10,10 +10,12 @@
  *******************************************************************************/
 
 package org.polarsys.capella.cybersecurity.model;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -44,43 +46,47 @@ public class CybersecurityQueries {
     }
     return null;
   }
-  
-  public static Stream<PrimaryAsset> getThreatenedPrimaryAssets(Threat threat){
-    SemanticEditingDomain domain = (SemanticEditingDomain)SemanticEditingDomain.getEditingDomainFor(threat);
-    return domain
-        .getCrossReferencer()
-        .getInverseReferences(threat, CybersecurityPackage.Literals.THREAT_APPLICATION__THREAT, true)
-        .stream()
-        .map(s -> ((ThreatApplication)s.getEObject()).getAsset());
+
+  public static Stream<PrimaryAsset> getThreatenedPrimaryAssets(Threat threat) {
+    SemanticEditingDomain domain = (SemanticEditingDomain) SemanticEditingDomain.getEditingDomainFor(threat);
+    return domain.getCrossReferencer()
+        .getInverseReferences(threat, CybersecurityPackage.Literals.THREAT_APPLICATION__THREAT, true).stream()
+        .map(s -> ((ThreatApplication) s.getEObject()).getAsset());
   }
 
-  public static Stream<AbstractFunctionalBlock> getThreatenedComponents(Threat threat){
-    return getThreatenedPrimaryAssets(threat)
-          .flatMap(pa -> pa.getOwnedMembers().stream())
-          .flatMap(pam -> {
-            if (pam.getMember() instanceof AbstractFunction) {
-              return ((AbstractFunction) pam.getMember()).getAllocationBlocks().stream();
-            }
-            // fixme, how to do this for exchange items..?
-            return Stream.<AbstractFunctionalBlock>empty();
-          });
+  public static Stream<AbstractFunctionalBlock> getThreatenedComponents(Threat threat) {
+    return getThreatenedPrimaryAssets(threat).flatMap(pa -> pa.getOwnedMembers().stream()).flatMap(pam -> {
+      if (pam.getMember() instanceof AbstractFunction) {
+        return ((AbstractFunction) pam.getMember()).getAllocationBlocks().stream();
+      }
+      // fixme, how to do this for exchange items..?
+      return Stream.<AbstractFunctionalBlock> empty();
+    });
   }
 
-  public static Stream<Component> getInvolvedComponents(Threat threat){
-      SemanticEditingDomain domain = (SemanticEditingDomain)SemanticEditingDomain.getEditingDomainFor(threat);
-      return domain
-          .getCrossReferencer()
-          .getInverseReferences(threat, CybersecurityPackage.Literals.THREAT_INVOLVEMENT__THREAT, true)
-          .stream()
-          .map(s -> ((ThreatInvolvement)s.getEObject()).getComponent());
+  public static Stream<Component> getInvolvedComponents(Threat threat) {
+    SemanticEditingDomain domain = (SemanticEditingDomain) SemanticEditingDomain.getEditingDomainFor(threat);
+    return domain.getCrossReferencer()
+        .getInverseReferences(threat, CybersecurityPackage.Literals.THREAT_INVOLVEMENT__THREAT, true).stream()
+        .map(s -> ((ThreatInvolvement) s.getEObject()).getComponent());
   }
 
-  public static Stream<Component> getInvolvedThreatSources(Threat threat){
-    return getInvolvedComponents(threat).filter(c->isThreatSource(c));
+  public static Stream<Component> getInvolvedThreatSources(Threat threat) {
+    return getInvolvedComponents(threat).filter(c -> isThreatSource(c));
   }
-  
-  public static Stream<Component> getInvolvedActors(Threat threat){
-    return getInvolvedComponents(threat).filter(c->!isThreatSource(c));
+
+  public static Stream<Component> getInvolvedActors(Threat threat) {
+    return getInvolvedComponents(threat).filter(c -> !isThreatSource(c));
+  }
+
+  public static Stream<Component> getInvolvedActors(PrimaryAsset asset) {
+    return asset.getOwnedThreatApplications().stream().map(ThreatApplication::getThreat).filter(Objects::nonNull)
+        .flatMap(CybersecurityQueries::getInvolvedActors);
+  }
+
+  public static Stream<Component> getInvolvedThreatSources(PrimaryAsset asset) {
+    return asset.getOwnedThreatApplications().stream().map(ThreatApplication::getThreat).filter(Objects::nonNull)
+        .flatMap(CybersecurityQueries::getInvolvedThreatSources);
   }
 
   public static boolean isThreatSource(Component c) {
@@ -113,18 +119,16 @@ public class CybersecurityQueries {
     return isTrusted(source) ^ isTrusted(target);
   }
 
-  public static Stream<Threat> getThreatsOf(PrimaryAsset pe){
-    SemanticEditingDomain domain = (SemanticEditingDomain)SemanticEditingDomain.getEditingDomainFor(pe);
-    return domain
-        .getCrossReferencer()
-        .getInverseReferences(pe, CybersecurityPackage.Literals.THREAT_APPLICATION__ASSET, true)
-        .stream()
-        .map(s -> ((ThreatApplication)s.getEObject()).getThreat())
-        .distinct();
+  public static Stream<Threat> getThreatsOf(PrimaryAsset pe) {
+    SemanticEditingDomain domain = (SemanticEditingDomain) SemanticEditingDomain.getEditingDomainFor(pe);
+    return domain.getCrossReferencer()
+        .getInverseReferences(pe, CybersecurityPackage.Literals.THREAT_APPLICATION__ASSET, true).stream()
+        .map(s -> ((ThreatApplication) s.getEObject()).getThreat()).distinct();
   }
 
   /**
    * An abstract function is trusted if it is allocated on a component that is trusted
+   * 
    * @param f
    * @return
    */
@@ -161,27 +165,25 @@ public class CybersecurityQueries {
   //
   // All threats targeted by a threat involvment link of c
   //
-  public static Stream<Threat> getInvolvingThreats(Component c){
-    SemanticEditingDomain domain = (SemanticEditingDomain)SemanticEditingDomain.getEditingDomainFor(c);
-    return domain
-        .getCrossReferencer()
-        .getInverseReferences(c, CybersecurityPackage.Literals.THREAT_INVOLVEMENT__COMPONENT, true)
-        .stream()
-        .map(s -> ((ThreatInvolvement)s.getEObject()).getThreat());
+  public static Stream<Threat> getInvolvingThreats(Component c) {
+    SemanticEditingDomain domain = (SemanticEditingDomain) SemanticEditingDomain.getEditingDomainFor(c);
+    return domain.getCrossReferencer()
+        .getInverseReferences(c, CybersecurityPackage.Literals.THREAT_INVOLVEMENT__COMPONENT, true).stream()
+        .map(s -> ((ThreatInvolvement) s.getEObject()).getThreat());
   }
 
-  
-  public static Stream<AbstractFunctionalBlock> getSupportingComponents(FunctionalPrimaryAsset fpa){
+  public static Stream<AbstractFunctionalBlock> getSupportingComponents(FunctionalPrimaryAsset fpa) {
     return fpa.getFunctions().stream().flatMap(af -> af.getAllocationBlocks().stream());
   }
 
   /**
-   * Returns the exchange items of the function storage under the given function. 
-   * In cybersecurity, a function has exchange items directly allocated via such an extension object.
+   * Returns the exchange items of the function storage under the given function. In cybersecurity, a function has
+   * exchange items directly allocated via such an extension object.
+   * 
    * @param function
    * @return
    */
-  public static Stream<ExchangeItem> getExchangeItems(AbstractFunction function){
+  public static Stream<ExchangeItem> getExchangeItems(AbstractFunction function) {
     for (ExtensibleElement e : function.getOwnedExtensions()) {
       if (e instanceof FunctionStorage) {
         return ((FunctionStorage) e).getExchangedItems().stream();
@@ -190,33 +192,29 @@ public class CybersecurityQueries {
     return Stream.empty();
   }
 
-  public static Stream<FunctionalPrimaryAsset> getFunctionalPrimaryAssets(AbstractFunction af){
-    SemanticEditingDomain domain = (SemanticEditingDomain)SemanticEditingDomain.getEditingDomainFor(af);
-    return domain
-        .getCrossReferencer()
-        .getInverseReferences(af, CybersecurityPackage.Literals.PRIMARY_ASSET_MEMBER__MEMBER, true)
-        .stream()
-        .map(s -> (FunctionalPrimaryAsset)((PrimaryAssetMember)s.getEObject()).getAsset());
+  public static Stream<FunctionalPrimaryAsset> getFunctionalPrimaryAssets(AbstractFunction af) {
+    SemanticEditingDomain domain = (SemanticEditingDomain) SemanticEditingDomain.getEditingDomainFor(af);
+    return domain.getCrossReferencer()
+        .getInverseReferences(af, CybersecurityPackage.Literals.PRIMARY_ASSET_MEMBER__MEMBER, true).stream()
+        .map(s -> (FunctionalPrimaryAsset) ((PrimaryAssetMember) s.getEObject()).getAsset());
   }
 
-  public static Stream<InformationPrimaryAsset> getInformationPrimaryAssets(ExchangeItem ei){
-    SemanticEditingDomain domain = (SemanticEditingDomain)SemanticEditingDomain.getEditingDomainFor(ei);
-    return domain
-        .getCrossReferencer()
-        .getInverseReferences(ei, CybersecurityPackage.Literals.PRIMARY_ASSET_MEMBER__MEMBER, true)
-        .stream()
-        .map(s -> (InformationPrimaryAsset)((PrimaryAssetMember)s.getEObject()).getAsset());
+  public static Stream<InformationPrimaryAsset> getInformationPrimaryAssets(ExchangeItem ei) {
+    SemanticEditingDomain domain = (SemanticEditingDomain) SemanticEditingDomain.getEditingDomainFor(ei);
+    return domain.getCrossReferencer()
+        .getInverseReferences(ei, CybersecurityPackage.Literals.PRIMARY_ASSET_MEMBER__MEMBER, true).stream()
+        .map(s -> (InformationPrimaryAsset) ((PrimaryAssetMember) s.getEObject()).getAsset());
   }
 
-  public static Stream<InformationPrimaryAsset> getInformationPrimaryAssets(AbstractFunction af){
+  public static Stream<InformationPrimaryAsset> getInformationPrimaryAssets(AbstractFunction af) {
     return getExchangeItems(af).flatMap(ei -> getInformationPrimaryAssets(ei)).distinct();
   }
 
-  public static Stream<InformationPrimaryAsset> getInformationPrimaryAssets(FunctionalExchange fe){
+  public static Stream<InformationPrimaryAsset> getInformationPrimaryAssets(FunctionalExchange fe) {
     return fe.getExchangedItems().stream().flatMap(ei -> getInformationPrimaryAssets(ei));
   }
-  
-  public static Stream<AbstractFunctionalBlock> getTrustBoundaryBlocks(FunctionalExchange fe){
+
+  public static Stream<AbstractFunctionalBlock> getTrustBoundaryBlocks(FunctionalExchange fe) {
     List<AbstractFunctionalBlock> result = new ArrayList<>();
     AbstractFunction sf = (AbstractFunction) fe.getSourceFunctionOutputPort().eContainer();
     AbstractFunction tf = (AbstractFunction) fe.getTargetFunctionInputPort().eContainer();
@@ -229,82 +227,74 @@ public class CybersecurityQueries {
     return result.stream();
   }
 
-  public static Stream<FunctionalPrimaryAsset> getFunctionalPrimaryAssets(Component c){
+  public static Stream<FunctionalPrimaryAsset> getFunctionalPrimaryAssets(Component c) {
     return c.getAllocatedFunctions().stream().flatMap(af -> getFunctionalPrimaryAssets(af)).distinct();
   }
 
-  public static Stream<InformationPrimaryAsset> getInformationPrimaryAssets(Component c){
-    return c.getAllocatedFunctions().stream().flatMap(af -> getExchangeItems(af)).flatMap(ei -> getInformationPrimaryAssets(ei)).distinct();
+  public static Stream<InformationPrimaryAsset> getInformationPrimaryAssets(Component c) {
+    return c.getAllocatedFunctions().stream().flatMap(af -> getExchangeItems(af))
+        .flatMap(ei -> getInformationPrimaryAssets(ei)).distinct();
   }
 
-  public static Stream<Threat> getThreateningThreats(Component c){
-    return Stream.concat(
-        getFunctionalPrimaryAssets(c).flatMap(fpa -> getThreatsOf(fpa)),
-        getInformationPrimaryAssets(c).flatMap(ipa -> getThreatsOf(ipa)))
-        .distinct();
+  public static Stream<Threat> getThreateningThreats(Component c) {
+    return Stream.concat(getFunctionalPrimaryAssets(c).flatMap(fpa -> getThreatsOf(fpa)),
+        getInformationPrimaryAssets(c).flatMap(ipa -> getThreatsOf(ipa))).distinct();
   }
 
   public static int getMaxSecurityNeedsValue(SecurityNeeds sn) {
-    return sn == null ? 0 : 
-    IntStream.of(
-        sn.getConfidentiality(),
-        sn.getIntegrity(),
-        sn.getTraceability(),
-        sn.getAvailability()).max().getAsInt();
+    return sn == null ? 0
+        : IntStream.of(sn.getConfidentiality(), sn.getIntegrity(), sn.getTraceability(), sn.getAvailability()).max()
+            .getAsInt();
   }
-  
+
   public static int getConfidentiality(SecurityNeeds sn) {
     return sn == null ? 0 : sn.getConfidentiality();
   }
-  
+
   public static int getIntegrity(SecurityNeeds sn) {
     return sn == null ? 0 : sn.getIntegrity();
   }
-  
+
   public static int getAvailability(SecurityNeeds sn) {
     return sn == null ? 0 : sn.getAvailability();
   }
-  
+
   public static int getTraceability(SecurityNeeds sn) {
     return sn == null ? 0 : sn.getTraceability();
   }
 
-  public static Stream<FunctionalExchange> getAllocatingFunctionalExchanges(ExchangeItem ei){
-    SemanticEditingDomain domain = (SemanticEditingDomain)SemanticEditingDomain.getEditingDomainFor(ei);
-    return domain.getCrossReferencer().getInverseReferences(ei, FaPackage.Literals.FUNCTIONAL_EXCHANGE__EXCHANGED_ITEMS, true)
-        .stream()
+  public static Stream<FunctionalExchange> getAllocatingFunctionalExchanges(ExchangeItem ei) {
+    SemanticEditingDomain domain = (SemanticEditingDomain) SemanticEditingDomain.getEditingDomainFor(ei);
+    return domain.getCrossReferencer()
+        .getInverseReferences(ei, FaPackage.Literals.FUNCTIONAL_EXCHANGE__EXCHANGED_ITEMS, true).stream()
         .map(s -> ((FunctionalExchange) s.getEObject()));
   }
 
-  public static Stream<AbstractFunction> getAllocatingFunctions(ExchangeItem ei){
-    SemanticEditingDomain domain = (SemanticEditingDomain)SemanticEditingDomain.getEditingDomainFor(ei);
-    return domain.getCrossReferencer().getInverseReferences(ei, CybersecurityPackage.Literals.FUNCTION_STORAGE__EXCHANGED_ITEMS, true)
-        .stream()
-        .map(s -> ((AbstractFunction)s.getEObject().eContainer()));
+  public static Stream<AbstractFunction> getAllocatingFunctions(ExchangeItem ei) {
+    SemanticEditingDomain domain = (SemanticEditingDomain) SemanticEditingDomain.getEditingDomainFor(ei);
+    return domain.getCrossReferencer()
+        .getInverseReferences(ei, CybersecurityPackage.Literals.FUNCTION_STORAGE__EXCHANGED_ITEMS, true).stream()
+        .map(s -> ((AbstractFunction) s.getEObject().eContainer()));
   }
 
-  public static Stream<AbstractFunctionalBlock> getSupportingComponents(InformationPrimaryAsset pa){
-    return pa.getExchangeItems().stream().flatMap(ei->getSupportingComponents(ei)).distinct();
+  public static Stream<AbstractFunctionalBlock> getSupportingComponents(InformationPrimaryAsset pa) {
+    return pa.getExchangeItems().stream().flatMap(ei -> getSupportingComponents(ei)).distinct();
   }
 
-  public static Stream<AbstractFunctionalBlock> getSupportingComponents(ExchangeItem ei){
-    return Stream.concat(
-        getAllocatingFunctions(ei)
-          .flatMap(af -> af.getAllocationBlocks().stream()),
+  public static Stream<AbstractFunctionalBlock> getSupportingComponents(ExchangeItem ei) {
+    return Stream.concat(getAllocatingFunctions(ei).flatMap(af -> af.getAllocationBlocks().stream()),
         getAllocatingFunctionalExchanges(ei)
-          .flatMap(
-            fe -> 
-              Stream.of(
-                  (AbstractFunction) fe.getSourceFunctionOutputPort().eContainer(),
-                  (AbstractFunction) fe.getTargetFunctionInputPort().eContainer())).flatMap(af -> af.getAllocationBlocks().stream()))
-          .distinct();
+            .flatMap(fe -> Stream.of((AbstractFunction) fe.getSourceFunctionOutputPort().eContainer(),
+                (AbstractFunction) fe.getTargetFunctionInputPort().eContainer()))
+            .flatMap(af -> af.getAllocationBlocks().stream()))
+        .distinct();
   }
-  
-  public static Stream<AbstractFunctionalBlock> getSupportingComponents(FunctionalExchange fe){
+
+  public static Stream<AbstractFunctionalBlock> getSupportingComponents(FunctionalExchange fe) {
     return fe.getExchangedItems().stream().flatMap(ei -> getSupportingComponents(ei)).distinct();
   }
 
-  public static Stream<ExchangeItem> getExchangeItems(ComponentExchange ce){
+  public static Stream<ExchangeItem> getExchangeItems(ComponentExchange ce) {
     return ce.getAllocatedFunctionalExchanges().stream().flatMap(fe -> fe.getExchangedItems().stream()).distinct();
   }
 
@@ -345,14 +335,15 @@ public class CybersecurityQueries {
   public static class Component__InvolvingThreats implements IQuery {
     @Override
     public List<Object> compute(Object object) {
-     return getInvolvingThreats((Component)object).collect(Collectors.toList());
+      return getInvolvingThreats((Component) object).collect(Collectors.toList());
     }
   }
 
   public static class ThreatSource__ThreatenedComponents implements IQuery {
     @Override
     public List<Object> compute(Object object) {
-      return getInvolvingThreats((Component)object).flatMap(t -> getThreatenedComponents(t)).distinct().collect(Collectors.toList());
+      return getInvolvingThreats((Component) object).flatMap(t -> getThreatenedComponents(t)).distinct()
+          .collect(Collectors.toList());
     }
   }
 
@@ -360,13 +351,16 @@ public class CybersecurityQueries {
     @Override
     public List<Object> compute(Object object) {
       Component c = (Component) object;
-      Stream<ComponentExchange> tbCEs = ComponentExt.getAllRelatedComponentExchange(c).stream().filter(ce -> isTrustBoundary(ce));
-      Stream<FunctionalExchange> tbFEs = ComponentExt.getRelatedFunctionalExchanges(c).stream().filter(fe -> isTrustBoundary(fe));
+      Stream<ComponentExchange> tbCEs = ComponentExt.getAllRelatedComponentExchange(c).stream()
+          .filter(ce -> isTrustBoundary(ce));
+      Stream<FunctionalExchange> tbFEs = ComponentExt.getRelatedFunctionalExchanges(c).stream()
+          .filter(fe -> isTrustBoundary(fe));
 
       // FIX.. above doesn't return functional exchanges on component itself..
-      Stream<FunctionalExchange> ownTBFEs = 
-          c.getAllocatedFunctions().stream().flatMap(af -> Stream.concat(af.getIncoming().stream(), af.getOutgoing().stream())).distinct()
-          .filter(FunctionalExchange.class::isInstance).map(FunctionalExchange.class::cast).filter(fe -> isTrustBoundary(fe));
+      Stream<FunctionalExchange> ownTBFEs = c.getAllocatedFunctions().stream()
+          .flatMap(af -> Stream.concat(af.getIncoming().stream(), af.getOutgoing().stream())).distinct()
+          .filter(FunctionalExchange.class::isInstance).map(FunctionalExchange.class::cast)
+          .filter(fe -> isTrustBoundary(fe));
       return Stream.concat(tbCEs, Stream.concat(tbFEs, ownTBFEs)).collect(Collectors.toList());
     }
   }
@@ -374,10 +368,10 @@ public class CybersecurityQueries {
   public static class PrimaryAsset__Threats implements IQuery {
     @Override
     public List<Object> compute(Object object) {
-      return getThreatsOf((PrimaryAsset)object).collect(Collectors.toList());
+      return getThreatsOf((PrimaryAsset) object).collect(Collectors.toList());
     }
   }
-  
+
   public static class InformationPrimaryAsset__ExchangeItems implements IQuery {
     @Override
     public List<Object> compute(Object object) {
@@ -395,8 +389,9 @@ public class CybersecurityQueries {
   public static class FunctionalPrimaryAsset__FunctionalExchanges implements IQuery {
     @Override
     public List<Object> compute(Object object) {
-      return ((FunctionalPrimaryAsset)object).getFunctions().stream().flatMap(
-          af -> Stream.concat(af.getIncoming().stream(), af.getOutgoing().stream())).distinct().collect(Collectors.toList());
+      return ((FunctionalPrimaryAsset) object).getFunctions().stream()
+          .flatMap(af -> Stream.concat(af.getIncoming().stream(), af.getOutgoing().stream())).distinct()
+          .collect(Collectors.toList());
     }
   }
 
@@ -427,11 +422,11 @@ public class CybersecurityQueries {
       return getFunctionalPrimaryAssets((AbstractFunction) object).collect(Collectors.toList());
     }
   }
-  
+
   public static class AbstractFunction__InformationPrimaryAssets implements IQuery {
     @Override
     public List<Object> compute(Object object) {
-      return getInformationPrimaryAssets((AbstractFunction)object).collect(Collectors.toList());
+      return getInformationPrimaryAssets((AbstractFunction) object).collect(Collectors.toList());
     }
   }
 
@@ -445,77 +440,77 @@ public class CybersecurityQueries {
   public static class FunctionalExchange__TrustBoundaries implements IQuery {
     @Override
     public List<Object> compute(Object object) {
-      return getTrustBoundaryBlocks((FunctionalExchange)object).collect(Collectors.toList());
+      return getTrustBoundaryBlocks((FunctionalExchange) object).collect(Collectors.toList());
     }
   }
-  
+
   public static class FunctionalExchange__SupportingComponents implements IQuery {
     @Override
     public List<Object> compute(Object object) {
-      return getSupportingComponents((FunctionalExchange)object).collect(Collectors.toList());
+      return getSupportingComponents((FunctionalExchange) object).collect(Collectors.toList());
     }
   }
 
   public static class ExchangeItem__PrimaryAssets implements IQuery {
     @Override
     public List<Object> compute(Object object) {
-      return getInformationPrimaryAssets((ExchangeItem)object).collect(Collectors.toList());
-    } 
+      return getInformationPrimaryAssets((ExchangeItem) object).collect(Collectors.toList());
+    }
   }
 
   public static class ExchangeItem__SupportingComponents implements IQuery {
     @Override
-    public List<Object> compute(Object object) {      
-      return getSupportingComponents((ExchangeItem)object).collect(Collectors.toList());
+    public List<Object> compute(Object object) {
+      return getSupportingComponents((ExchangeItem) object).collect(Collectors.toList());
     }
   }
 
   public static class Component__SupportedFunctionalPrimaryAssets implements IQuery {
     @Override
     public List<Object> compute(Object object) {
-      return getFunctionalPrimaryAssets((Component)object).collect(Collectors.toList());
-    }    
+      return getFunctionalPrimaryAssets((Component) object).collect(Collectors.toList());
+    }
   }
 
   public static class Component__SupportedInformationPrimaryAssets implements IQuery {
-    public List<Object> compute(Object object){
-      return getInformationPrimaryAssets((Component)object).collect(Collectors.toList());
+    @Override
+    public List<Object> compute(Object object) {
+      return getInformationPrimaryAssets((Component) object).collect(Collectors.toList());
     }
   }
 
   public static class Component__ThreateningThreats implements IQuery {
     @Override
     public List<Object> compute(Object object) {
-      return getThreateningThreats((Component)object).collect(Collectors.toList());
+      return getThreateningThreats((Component) object).collect(Collectors.toList());
     }
   }
-  
+
   public static class Component__ThreateningThreatSources implements IQuery {
     @Override
     public List<Object> compute(Object object) {
-      return getThreateningThreats((Component)object).flatMap(t -> getInvolvedThreatSources(t)).collect(Collectors.toList());
+      return getThreateningThreats((Component) object).flatMap(t -> getInvolvedThreatSources(t))
+          .collect(Collectors.toList());
     }
   }
 
   public static class Component__MaxCIAT implements IQuery {
     @Override
     public List<Object> compute(Object object) {
-      Stream<SecurityNeeds> fsn = getFunctionalPrimaryAssets(((Component)object)).flatMap(
-          fpa -> fpa.getFunctions().stream()).flatMap(
-          af -> af.getOwnedExtensions().stream()).filter(SecurityNeeds.class::isInstance).map(SecurityNeeds.class::cast);
-      Stream<SecurityNeeds> isn = getInformationPrimaryAssets(((Component)object)).flatMap(
-          ipa -> ipa.getExchangeItems().stream()).flatMap(
-          ei -> ei.getOwnedExtensions().stream()).filter(SecurityNeeds.class::isInstance).map(SecurityNeeds.class::cast);
-      SecurityNeeds max = Stream.concat(fsn, isn).reduce(
-         CybersecurityFactory.eINSTANCE.createSecurityNeeds(),
-         CybersecurityQueries::reduceSecurityNeeds);
-      return Arrays.asList(
-          "Confidentiality: " + max.getConfidentiality(), //$NON-NLS-1$
+      Stream<SecurityNeeds> fsn = getFunctionalPrimaryAssets(((Component) object))
+          .flatMap(fpa -> fpa.getFunctions().stream()).flatMap(af -> af.getOwnedExtensions().stream())
+          .filter(SecurityNeeds.class::isInstance).map(SecurityNeeds.class::cast);
+      Stream<SecurityNeeds> isn = getInformationPrimaryAssets(((Component) object))
+          .flatMap(ipa -> ipa.getExchangeItems().stream()).flatMap(ei -> ei.getOwnedExtensions().stream())
+          .filter(SecurityNeeds.class::isInstance).map(SecurityNeeds.class::cast);
+      SecurityNeeds max = Stream.concat(fsn, isn).reduce(CybersecurityFactory.eINSTANCE.createSecurityNeeds(),
+          CybersecurityQueries::reduceSecurityNeeds);
+      return Arrays.asList("Confidentiality: " + max.getConfidentiality(), //$NON-NLS-1$
           "Integrity: " + max.getIntegrity(), //$NON-NLS-1$
           "Availability: " + max.getAvailability(), //$NON-NLS-1$
           "Traceability: " + max.getTraceability()); //$NON-NLS-1$
     }
-  
+
   }
 
   public static SecurityNeeds reduceSecurityNeeds(SecurityNeeds result, SecurityNeeds a) {
@@ -529,25 +524,23 @@ public class CybersecurityQueries {
   public static class ComponentExchange__InformationPrimaryAsset implements IQuery {
     @Override
     public List<Object> compute(Object object) {
-      return ((ComponentExchange)object)
-      .getAllocatedFunctionalExchanges().stream()
-      .flatMap(fe -> getInformationPrimaryAssets(fe)).collect(Collectors.toList());
-    }
-  }
-  
-  public static class ComponentExchange__TrustBoundary implements IQuery {
-    @Override
-    public List<Object> compute(Object object) {
-      return Collections.singletonList(isTrustBoundary((ComponentExchange)object));
-    }
-  }
-  
-  public static class ComponentExchange__ExchangeItems implements IQuery {
-    @Override
-    public List<Object> compute(Object object) {
-      return getExchangeItems((ComponentExchange)object).collect(Collectors.toList());
+      return ((ComponentExchange) object).getAllocatedFunctionalExchanges().stream()
+          .flatMap(fe -> getInformationPrimaryAssets(fe)).collect(Collectors.toList());
     }
   }
 
-}  
-  
+  public static class ComponentExchange__TrustBoundary implements IQuery {
+    @Override
+    public List<Object> compute(Object object) {
+      return Collections.singletonList(isTrustBoundary((ComponentExchange) object));
+    }
+  }
+
+  public static class ComponentExchange__ExchangeItems implements IQuery {
+    @Override
+    public List<Object> compute(Object object) {
+      return getExchangeItems((ComponentExchange) object).collect(Collectors.toList());
+    }
+  }
+
+}

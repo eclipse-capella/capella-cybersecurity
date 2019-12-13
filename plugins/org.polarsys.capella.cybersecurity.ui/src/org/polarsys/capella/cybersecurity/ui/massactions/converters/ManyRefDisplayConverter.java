@@ -8,7 +8,7 @@
  * Contributors:
  * Thales - initial API and implementation
  *******************************************************************************/
-package org.polarsys.capella.cybersecurity.ui.massactions;
+package org.polarsys.capella.cybersecurity.ui.massactions.converters;
 
 import java.util.Collection;
 import java.util.stream.Collectors;
@@ -18,6 +18,7 @@ import org.polarsys.capella.common.helpers.EObjectLabelProviderHelper;
 import org.polarsys.kitalpha.massactions.core.data.convert.MADisplayConverter;
 
 // copied from capella, since package isn't exported..
+// TODO Export the package and delete this class
 public class ManyRefDisplayConverter extends MADisplayConverter {
 
   @Override

@@ -8,15 +8,15 @@
  * Contributors:
  *    Thales - initial API and implementation
  *******************************************************************************/
-package org.polarsys.capella.cybersecurity.ui.massactions;
+package org.polarsys.capella.cybersecurity.ui.massactions.filters;
 
-import org.polarsys.capella.cybersecurity.ui.massactions.ThreatColumns.InvolvedActors;
-import org.polarsys.capella.cybersecurity.ui.massactions.ThreatColumns.ThreatSourceProfile;
-import org.polarsys.capella.cybersecurity.ui.massactions.ThreatColumns.Trusted;
+import org.polarsys.capella.cybersecurity.ui.massactions.columns.InvolvedActorsByThreatColumn;
+import org.polarsys.capella.cybersecurity.ui.massactions.columns.ThreatSourceProfileColumn;
+import org.polarsys.capella.cybersecurity.ui.massactions.columns.TrustedColumn;
 import org.polarsys.kitalpha.massactions.core.column.IMAColumn;
 import org.polarsys.kitalpha.massactions.core.extensions.columnfilter.AbstractMAColumnFilter;
 
-public class Threats extends AbstractMAColumnFilter {
+public class ThreatsFilter extends AbstractMAColumnFilter {
 
   @Override
   public boolean shouldHide(IMAColumn column) {
@@ -37,9 +37,9 @@ public class Threats extends AbstractMAColumnFilter {
       return false;
     }
     
-    if (column.getClass() == InvolvedActors.class
-        || column.getClass() == Trusted.class
-        || column.getClass() == ThreatSourceProfile.class) {
+    if (column.getClass() == InvolvedActorsByThreatColumn.class
+        || column.getClass() == TrustedColumn.class
+        || column.getClass() == ThreatSourceProfileColumn.class) {
       return false;
     }
 

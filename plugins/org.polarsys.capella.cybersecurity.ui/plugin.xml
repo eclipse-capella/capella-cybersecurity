@@ -729,27 +729,31 @@
 <extension
       point="org.polarsys.kitalpha.massactions.core.columnfilter">
    <columnFilter
-         class="org.polarsys.capella.cybersecurity.ui.massactions.PrimaryAssetsAndThreats"
+         class="org.polarsys.capella.cybersecurity.ui.massactions.filters.PrimaryAssetsAndThreatsFilter"
          displayName="Primary Assets and Threats">
    </columnFilter>
    <columnFilter
-         class="org.polarsys.capella.cybersecurity.ui.massactions.PrimaryAssetsAndArchitecture"
+         class="org.polarsys.capella.cybersecurity.ui.massactions.filters.PrimaryAssetsAndArchitectureFilter"
          displayName="Primary Assets and Architecture">
    </columnFilter>
    <columnFilter
-         class="org.polarsys.capella.cybersecurity.ui.massactions.Threats"
+         class="org.polarsys.capella.cybersecurity.ui.massactions.filters.ThreatsFilter"
          displayName="Threats">
    </columnFilter>
 </extension>
 <extension
       point="org.polarsys.kitalpha.massactions.core.columnprovider">
    <columnProvider
-         class="org.polarsys.capella.cybersecurity.ui.massactions.PrimaryAssetColumns"
+         class="org.polarsys.capella.cybersecurity.ui.massactions.providers.PrimaryAssetColumnProvider"
          kind="visualization">
    </columnProvider>
    <columnProvider
-         class="org.polarsys.capella.cybersecurity.ui.massactions.ThreatColumns"
+         class="org.polarsys.capella.cybersecurity.ui.massactions.providers.ThreatColumnProvider"
          kind="visualization">
+   </columnProvider>
+   <columnProvider
+         class="org.polarsys.capella.cybersecurity.ui.massactions.providers.SecurityNeedsColumnProvider"
+         kind="editing">
    </columnProvider>
 </extension>
 </plugin>
