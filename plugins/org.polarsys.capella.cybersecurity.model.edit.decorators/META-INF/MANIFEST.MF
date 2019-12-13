@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.polarsys.capella.cybersecurity.model.edit.decorators;singleton:=true
+Bundle-Version: 0.9.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.polarsys.capella.cybersecurity.model.edit.decorators
+Require-Bundle: org.eclipse.core.runtime,
+ org.polarsys.capella.cybersecurity.model,
+ org.polarsys.capella.core.data.gen.edit.decorators,
+ org.polarsys.capella.cybersecurity.model.edit
+Automatic-Module-Name: org.polarsys.capella.cybersecurity.model.edit.decorators

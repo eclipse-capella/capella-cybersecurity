@@ -34,5 +34,7 @@
 	  <module>org.polarsys.capella.cybersecurity.sirius.analysis</module>
 	  <module>org.polarsys.capella.cybersecurity.rcp</module>
 	  <module>org.polarsys.capella.cybersecurity.validation</module>
+	  <module>org.polarsys.capella.cybersecurity.helpers</module>
+	  <module>org.polarsys.capella.cybersecurity.model.edit.decorators</module>
 	</modules>
 </project>
