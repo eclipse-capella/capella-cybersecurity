@@ -8,7 +8,7 @@
  * Contributors:
  *    Thales - initial API and implementation
  *******************************************************************************/
-package org.polarsys.capella.cybersecurity.test.rules;
+package org.polarsys.capella.cybersecurity.test.rules.testcases.cy_dcov;
 
 import org.polarsys.capella.core.data.fa.AbstractFunction;
 import org.polarsys.capella.core.data.information.ExchangeItem;
@@ -22,15 +22,21 @@ import org.polarsys.capella.cybersecurity.sirius.analysis.CybersecurityServices;
 import org.polarsys.capella.cybersecurity.test.common.ComponentTemplate1;
 import org.polarsys.capella.cybersecurity.test.common.DynamicValidationTest;
 
-public class Ip_asset__notHandled extends DynamicValidationTest {
+/**
+ * 
+ * Test on CY_DCOV_05 - Verifies that all Exchange Items of an Information Primary Asset are used at least once by a
+ * Function or Functional Exchange.
+ *
+ */
+public class Rule_CY_DCOV_05 extends DynamicValidationTest {
 
-  private static final String RULE = "org.polarsys.capella.cybersecurity.validation.ip_asset__notHandled"; //$NON-NLS-1$
+  private static final String RULE = "org.polarsys.capella.cybersecurity.validation.CY_DCOV_05"; //$NON-NLS-1$
 
   CybersecurityServices service = new CybersecurityServices();
   InformationPrimaryAsset ipa;
   ExchangeItem ei1;
   AbstractFunction af;
-  
+
   @Override
   protected void initModel(CapellaModelSkeleton skeleton) {
     ComponentTemplate1 t = new ComponentTemplate1(skeleton, this);

@@ -13,5 +13,4 @@ Require-Bundle: org.polarsys.capella.test.framework,
  org.polarsys.kitalpha.ad.services,
  org.apache.xerces
 Export-Package: org.polarsys.capella.cybersecurity.test,
- org.polarsys.capella.cybersecurity.test.common,
- org.polarsys.capella.cybersecurity.test.rules
+ org.polarsys.capella.cybersecurity.test.common
