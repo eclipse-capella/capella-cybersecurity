@@ -17,7 +17,7 @@ import org.eclipse.osgi.util.NLS;
 
 public class CybersecurityHelpContentProducer implements IHelpContentProducer {
 
-  private static final String RULES_HREF = "html/rules.html?"; //$NON-NLS-1$
+  private static final String RULES_HREF = "html/rules.html"; //$NON-NLS-1$
   
   
   

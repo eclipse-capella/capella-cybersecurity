@@ -22,15 +22,15 @@ An ''Actor'' is involved in ''Threats'' and allocates one or more ''Functions''.
 {| border="1"
 |- 
 | Threat Source 	
-| Someone or something that could affect the product (ref: 87210649-DDQ-GRP-EN - Cyber Security For Architects Guide) 
+| Someone or something that could affect the product (ref: 87210649-DDQ-GRP-EN - Cyber Security For Architects Guide).
 | Yes/No
 |-
-| Threat Source Profile 
-| Type of threat source 
+| Threat Source Profile
+| Type of threat source.
 | 1 to 5
 |-
 | Trusted
-| Ability to be relied on as honest or truthful. Threat Source = Yes => Trusted = false
+| Ability to be relied on as honest or truthful. Threat Source = Yes => Trusted = false.
 | Yes/No
 |-
 | Rationale
@@ -45,19 +45,19 @@ A situation that is unwanted by the stakeholders and that is to be avoided. Thre
 {| border="1"
 |-
 | Eavesdropping
-| Secretly listening to the private conversation of others without their consent
+| Secretly listening to the private conversation of others without their consent.
 |-
 | Theft and data alteration
-| Stealing, leaking data, modifying data, erasing data, attack against traceability or against rogue action detection
+| Stealing, leaking data, modifying data, erasing data, attack against traceability or against rogue action detection.
 |-
 | Denial of Service
-| DoS attacks make a machine, a service or a network resource unavailable to its intended users
+| DoS attacks make a machine, a service or a network resource unavailable to its intended users.
 |-
-| Intrusion: 
-| Entering an information system without permission
+| Intrusion 
+| Entering an information system without permission.
 |-
 | Tampering
-| Tampering attacks refer to many forms of sabotage (intentional modification of the information system in a way that makes them harmful)
+| Tampering attacks refer to many forms of sabotage (intentional modification of the information system in a way that makes them harmful).
 |}
 
 ''Threats'' are applied to ''Primary Assets''.
@@ -70,14 +70,14 @@ A Threat has the following additional attributes:
 | 1 to 5
 |-
 | Rationale
-| Rationale on the cybersecurity attributes
+| Rationale on the cybersecurity attributes.
 | Text
 |}
 
 == Primary Asset ==
 
 Information, activity, process or functionality that is valuable for the customer and then needs to be protected (ref: 87210649-DDQ-GRP-EN - Cyber Security For Architects Guide). The Cybersecurity Viewpoint
-distinguishes between
+distinguishes between:
 
 {| border="1"
 |-
@@ -86,16 +86,16 @@ distinguishes between
 | Functions
 |-
 | Information Primary Asset
-| Information that is valuable for the customer and then needs to be protected
+| Information that is valuable for the customer and then needs to be protected.
 | Exchange Items
 |}
 
 The attributes of a Primary Asset are its corresponding Security Needs, i.e. the characteristics that can be compromised / affected by a threat (based on ref: 87210649-DDQ-GRP-EN - Cyber Security For Architects Guide) and their sensitivity levels. The following characteristics are considered here:
 
-* Confidentiality: property that information is only available to authorized persons.	
-* Integrity: property of accuracy and completeness (wrt authorized entities)	
-* Availability: property of being accessible and useable upon demand by an authorized entity	
-* Traceability
+* Confidentiality: property that information is only available to authorized persons.
+* Integrity: property of accuracy and completeness (WRT authorized entities).
+* Availability: property of being accessible and useable upon demand by an authorized entity.
+* Traceability: property of verifying access and use thanks to documented recorded identification.
 
 An asset can define a value between 0 and 3 for each of these attributes. Project/Product teams shall define the equivalences between these sensitivity levels and those specific to their standards framework.
 
@@ -104,12 +104,12 @@ Primary Assets are threatened by Threats.
 == Function ==
 
 Action, operation or service performed by the system, or by an actor interacting with the system (ref: Arcadia).
-Like Primary Assets, Functions can define values for Confidentiality, Integrity, Availability and Traceability
+Like Primary Assets, Functions can define values for Confidentiality, Integrity, Availability and Traceability.
 
 {| border="1"
 |-
 | Data Storage
-| Indicates that the function represents a data storage functionality
+| Indicates that the function represents a data storage functionality.
 | Yes/No
 |-
 | Remanent Data
@@ -120,7 +120,7 @@ Like Primary Assets, Functions can define values for Confidentiality, Integrity,
 == Exchange Item ==
 
 A Exchange Item describes a set of Data semantically coherent with regards to their usage in a given context: same communication principles, simultaneity of transportation, same non functional properties, indivisibility (an Exchange Item is monolithic). (ref. Arcadia)
-An Information Primary Asset references one or more Exchange Items. An Exchange Item can define values for Confidentiality, Integrity, Availability and Traceability
+An Information Primary Asset references one or more Exchange Items. An Exchange Item can define values for Confidentiality, Integrity, Availability and Traceability.
 
 
 == Diagrams ==
@@ -203,7 +203,7 @@ each Threat's level value is displayed in parenthesis next to the Threat element
 [[Image:Images/pab_diagram_1.png]] 
 
 System Architecture Diagrams are extended Capella Physical Architecture Diagrams.
-Thus, most of the tools available in Cybersecurity PAB diagrams are documented [[../help/topic/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.html?#Physical_Architecture_Blank |here.]]
+Thus, most of the tools available in Cybersecurity PAB diagrams are documented [[../help/topic/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.html?#Physical_Architecture_Blank |here]].
 
 One additional tool is provided by the Viewpoint:
 
@@ -242,31 +242,31 @@ The Cybersecurity Decorations Layer adds the following decorations to existing d
 {| border="0"
 |-
 |[[File:Images/datastorage-16.png]] Data Storage
-|Indicates that the function represents a data storage functionality
+|Indicates that the function represents a data storage functionality.
 |-
 |[[File:Images/trusted-16.png]] Trusted Actor
-| Ability to be relied on as honest or truthful
+| Ability to be relied on as honest or truthful.
 |- 
 |[[Image:Images/notTrusted-16.png]] Untrusted Actor
-| Disability to be relied on as honest or truthful
+| Disability to be relied on as honest or truthful.
 |- 
 |[[Image:Images/remanentData-16.png]] Remanent Data
 | Indicates that the function manipulates data in such a way that data (or parts of it) remains even after attempts have been made to remove or erase it.
 |-
 |[[Image:Images/threatSource.png]] ThreatSource
-| Someone or something that could affect the product (ref: 87210649-DDQ-GRP-EN - Cyber Security For Architects Guide)
+| Someone or something that could affect the product (ref: 87210649-DDQ-GRP-EN - Cyber Security For Architects Guide).
 |}
 
 == Scenario Diagram ==
 
-See Capella [[../help/topic/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.html?#Exchange_Scenario | Exchange  Scenario Documentation]]
+See Capella [[../help/topic/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.html?#Exchange_Scenario | Exchange  Scenario Documentation]].
 
 == Information Asset Diagram ==
 
-See Capella [[../help/topic/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.html?#Class_Diagram_Blank | Class Diagram Documentation]]
+See Capella [[../help/topic/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.html?#Class_Diagram_Blank | Class Diagram Documentation]].
 
 == Model Validation ==
 
 Cybersecurity model elements and their attributes and relationships are subject to certain constraints.
 These constraints can be verified by selecting ''Validate->Validate Model'' from any model element's context menu. A tabular description of constraints is listed 
-[[../help/topic/org.polarsys.capella.cybersecurity.doc/html/rules.html? | here. ]] 
+[[../help/topic/org.polarsys.capella.cybersecurity.doc/html/rules.html | here]].
