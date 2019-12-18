@@ -258,6 +258,37 @@
          wizardId="capella.cybersecurity.wizard">
       <enablement></enablement>
    </commonWizard>
+      <commonFilter
+      		activeByDefault="true"
+            description="Hides all Cyber Security technical elements"
+            id="capella.project.explorer.filters.type"
+            name="Cyber Security technical elements">
+         <filterExpression>
+         <or>
+         	<instanceof
+                  value="org.polarsys.capella.cybersecurity.model.FunctionStorage">
+            </instanceof>
+         	<instanceof
+                  value="org.polarsys.capella.cybersecurity.model.PrimaryAssetMember">
+            </instanceof>
+         	<instanceof
+                  value="org.polarsys.capella.cybersecurity.model.PrimaryAssetStorage">
+            </instanceof>
+         	<instanceof
+                  value="org.polarsys.capella.cybersecurity.model.SecurityNeeds">
+            </instanceof>
+         	<instanceof
+                  value="org.polarsys.capella.cybersecurity.model.ThreatApplication">
+            </instanceof>
+         	<instanceof
+                  value="org.polarsys.capella.cybersecurity.model.ThreatInvolvement">
+            </instanceof>
+         	<instanceof
+                  value="org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage">
+            </instanceof>
+         </or>            
+         </filterExpression>
+      </commonFilter>
 </extension>
 <extension
       point="org.polarsys.capella.common.ui.toolkit.browser.contentProviderCategory">
