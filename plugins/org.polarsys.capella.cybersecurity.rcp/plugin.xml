@@ -9,6 +9,22 @@
             description="%cybersecurity_ProductDescription"
             name="Cybersecurity">
          <property name="appName" value="Cybersecurity"/>
+         <property
+               name="aboutImage"
+               value="icons/CapellaAbout.png">
+         </property>
+         <property
+               name="aboutText"
+               value="%productBlurb">
+         </property>
+         <property
+               name="windowImages"
+               value="icons/Capella16x16.png,icons/Capella32x32.png,icons/Capella48x48.png">
+         </property>
+         <property
+               name="preferenceCustomization"
+               value="plugin_customization.ini">
+         </property>
          <property name="introTitle" value="%productIntroTitle"/>
          <property name="introBrandingImage" value="product:icons/intro-capella.png"/>
          <property name="introBrandingImageText" value="%productIntroBrandingText"/>
