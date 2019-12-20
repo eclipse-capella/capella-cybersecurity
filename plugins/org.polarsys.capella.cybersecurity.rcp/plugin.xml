@@ -7,8 +7,8 @@
       <product
             application="org.polarsys.capella.core.platform.sirius.ui.perspective.id"
             description="%cybersecurity_ProductDescription"
-            name="Cybersecurity">
-         <property name="appName" value="Cybersecurity"/>
+            name="Eclipse Capella DARC">
+         <property name="appName" value="Eclipse Capella DARC"/>
          <property
                name="aboutImage"
                value="icons/CapellaAbout.png">
