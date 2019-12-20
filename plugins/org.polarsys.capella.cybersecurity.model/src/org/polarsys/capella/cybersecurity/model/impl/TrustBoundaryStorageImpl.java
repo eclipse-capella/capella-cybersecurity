@@ -25,13 +25,10 @@ import org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.polarsys.capella.cybersecurity.model.impl.TrustBoundaryStorageImpl#isThreatSource <em>Threat
- * Source</em>}</li>
- * <li>{@link org.polarsys.capella.cybersecurity.model.impl.TrustBoundaryStorageImpl#getThreatSourceProfile <em>Threat
- * Source Profile</em>}</li>
- * <li>{@link org.polarsys.capella.cybersecurity.model.impl.TrustBoundaryStorageImpl#isTrusted <em>Trusted</em>}</li>
- * <li>{@link org.polarsys.capella.cybersecurity.model.impl.TrustBoundaryStorageImpl#getRationale
- * <em>Rationale</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.TrustBoundaryStorageImpl#isThreatSource <em>Threat Source</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.TrustBoundaryStorageImpl#getThreatSourceProfile <em>Threat Source Profile</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.TrustBoundaryStorageImpl#isTrusted <em>Trusted</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.TrustBoundaryStorageImpl#getRationale <em>Rationale</em>}</li>
  * </ul>
  *
  * @generated
@@ -39,9 +36,9 @@ import org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage;
 public class TrustBoundaryStorageImpl extends ModelElementImpl implements TrustBoundaryStorage {
 
   /**
-   * The default value of the '{@link #isThreatSource() <em>Threat Source</em>}' attribute. <!-- begin-user-doc --> <!--
+   * The default value of the '{@link #isThreatSource() <em>Threat Source</em>}' attribute.
+   * <!-- begin-user-doc --> <!--
    * end-user-doc -->
-   * 
    * @see #isThreatSource()
    * @generated
    * @ordered
@@ -49,9 +46,9 @@ public class TrustBoundaryStorageImpl extends ModelElementImpl implements TrustB
   protected static final boolean THREAT_SOURCE_EDEFAULT = false;
 
   /**
-   * The cached value of the '{@link #isThreatSource() <em>Threat Source</em>}' attribute. <!-- begin-user-doc --> <!--
+   * The cached value of the '{@link #isThreatSource() <em>Threat Source</em>}' attribute.
+   * <!-- begin-user-doc --> <!--
    * end-user-doc -->
-   * 
    * @see #isThreatSource()
    * @generated
    * @ordered
@@ -89,9 +86,9 @@ public class TrustBoundaryStorageImpl extends ModelElementImpl implements TrustB
   public static final boolean TRUSTED_EDEFAULT = true;
 
   /**
-   * The cached value of the '{@link #isTrusted() <em>Trusted</em>}' attribute. <!-- begin-user-doc --> <!--
+   * The cached value of the '{@link #isTrusted() <em>Trusted</em>}' attribute.
+   * <!-- begin-user-doc --> <!--
    * end-user-doc -->
-   * 
    * @see #isTrusted()
    * @generated
    * @ordered
@@ -99,9 +96,9 @@ public class TrustBoundaryStorageImpl extends ModelElementImpl implements TrustB
   protected boolean trusted = TRUSTED_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getRationale() <em>Rationale</em>}' attribute. <!-- begin-user-doc --> <!--
+   * The default value of the '{@link #getRationale() <em>Rationale</em>}' attribute.
+   * <!-- begin-user-doc --> <!--
    * end-user-doc -->
-   * 
    * @see #getRationale()
    * @generated
    * @ordered
@@ -109,9 +106,9 @@ public class TrustBoundaryStorageImpl extends ModelElementImpl implements TrustB
   protected static final String RATIONALE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getRationale() <em>Rationale</em>}' attribute. <!-- begin-user-doc --> <!--
+   * The cached value of the '{@link #getRationale() <em>Rationale</em>}' attribute.
+   * <!-- begin-user-doc --> <!--
    * end-user-doc -->
-   * 
    * @see #getRationale()
    * @generated
    * @ordered
@@ -120,7 +117,6 @@ public class TrustBoundaryStorageImpl extends ModelElementImpl implements TrustB
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   protected TrustBoundaryStorageImpl() {
@@ -131,7 +127,6 @@ public class TrustBoundaryStorageImpl extends ModelElementImpl implements TrustB
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -141,10 +136,10 @@ public class TrustBoundaryStorageImpl extends ModelElementImpl implements TrustB
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public boolean isThreatSource() {
 
     return threatSource;
@@ -172,10 +167,10 @@ public class TrustBoundaryStorageImpl extends ModelElementImpl implements TrustB
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public int getThreatSourceProfile() {
 
     return threatSourceProfile;
@@ -183,10 +178,10 @@ public class TrustBoundaryStorageImpl extends ModelElementImpl implements TrustB
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public void setThreatSourceProfile(int newThreatSourceProfile) {
 
     int oldThreatSourceProfile = threatSourceProfile;
@@ -200,10 +195,10 @@ public class TrustBoundaryStorageImpl extends ModelElementImpl implements TrustB
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public boolean isTrusted() {
 
     return trusted;
@@ -211,10 +206,10 @@ public class TrustBoundaryStorageImpl extends ModelElementImpl implements TrustB
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public void setTrusted(boolean newTrusted) {
 
     boolean oldTrusted = trusted;
@@ -227,10 +222,10 @@ public class TrustBoundaryStorageImpl extends ModelElementImpl implements TrustB
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public String getRationale() {
 
     return rationale;
@@ -238,10 +233,10 @@ public class TrustBoundaryStorageImpl extends ModelElementImpl implements TrustB
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public void setRationale(String newRationale) {
 
     String oldRationale = rationale;
@@ -254,7 +249,6 @@ public class TrustBoundaryStorageImpl extends ModelElementImpl implements TrustB
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -274,7 +268,6 @@ public class TrustBoundaryStorageImpl extends ModelElementImpl implements TrustB
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -298,7 +291,6 @@ public class TrustBoundaryStorageImpl extends ModelElementImpl implements TrustB
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -322,7 +314,6 @@ public class TrustBoundaryStorageImpl extends ModelElementImpl implements TrustB
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -342,7 +333,6 @@ public class TrustBoundaryStorageImpl extends ModelElementImpl implements TrustB
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -350,7 +340,7 @@ public class TrustBoundaryStorageImpl extends ModelElementImpl implements TrustB
     if (eIsProxy())
       return super.toString();
 
-    StringBuffer result = new StringBuffer(super.toString());
+    StringBuilder result = new StringBuilder(super.toString());
     result.append(" (threatSource: "); //$NON-NLS-1$
     result.append(threatSource);
     result.append(", threatSourceProfile: "); //$NON-NLS-1$

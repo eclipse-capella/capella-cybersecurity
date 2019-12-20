@@ -13,8 +13,11 @@ package org.polarsys.capella.cybersecurity.model.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.polarsys.capella.core.data.capellacore.impl.NamedElementImpl;
 import org.polarsys.capella.core.data.cs.Component;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
@@ -27,10 +30,10 @@ import org.polarsys.capella.cybersecurity.model.ThreatKind;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatImpl#getAddressedBy <em>Addressed By</em>}</li>
- * <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatImpl#getThreatKind <em>Threat Kind</em>}</li>
- * <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatImpl#getLevel <em>Level</em>}</li>
- * <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatImpl#getRationale <em>Rationale</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatImpl#getAddressedBy <em>Addressed By</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatImpl#getThreatKind <em>Threat Kind</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatImpl#getLevel <em>Level</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatImpl#getRationale <em>Rationale</em>}</li>
  * </ul>
  *
  * @generated
@@ -38,9 +41,9 @@ import org.polarsys.capella.cybersecurity.model.ThreatKind;
 public class ThreatImpl extends NamedElementImpl implements Threat {
 
   /**
-   * The default value of the '{@link #getThreatKind() <em>Threat Kind</em>}' attribute. <!-- begin-user-doc --> <!--
+   * The default value of the '{@link #getThreatKind() <em>Threat Kind</em>}' attribute.
+   * <!-- begin-user-doc --> <!--
    * end-user-doc -->
-   * 
    * @see #getThreatKind()
    * @generated
    * @ordered
@@ -58,9 +61,9 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
   protected static final int LEVEL_EDEFAULT = 0;
 
   /**
-   * The default value of the '{@link #getRationale() <em>Rationale</em>}' attribute. <!-- begin-user-doc --> <!--
+   * The default value of the '{@link #getRationale() <em>Rationale</em>}' attribute.
+   * <!-- begin-user-doc --> <!--
    * end-user-doc -->
-   * 
    * @see #getRationale()
    * @generated
    * @ordered
@@ -69,7 +72,6 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   protected ThreatImpl() {
@@ -80,7 +82,6 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -90,11 +91,11 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
   @SuppressWarnings("unchecked")
+  @Override
   public EList<Component> getAddressedBy() {
 
     return (EList<Component>) eDynamicGet(CybersecurityPackage.THREAT__ADDRESSED_BY,
@@ -103,10 +104,10 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public ThreatKind getThreatKind() {
 
     return (ThreatKind) eDynamicGet(CybersecurityPackage.THREAT__THREAT_KIND,
@@ -115,22 +116,23 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public void setThreatKind(ThreatKind newThreatKind) {
 
     eDynamicSet(CybersecurityPackage.THREAT__THREAT_KIND, CybersecurityPackage.Literals.THREAT__THREAT_KIND,
         newThreatKind);
+
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public int getLevel() {
 
     return (Integer) eDynamicGet(CybersecurityPackage.THREAT__LEVEL, CybersecurityPackage.Literals.THREAT__LEVEL, true,
@@ -139,21 +141,22 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public void setLevel(int newLevel) {
 
     eDynamicSet(CybersecurityPackage.THREAT__LEVEL, CybersecurityPackage.Literals.THREAT__LEVEL, newLevel);
+
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public String getRationale() {
 
     return (String) eDynamicGet(CybersecurityPackage.THREAT__RATIONALE, CybersecurityPackage.Literals.THREAT__RATIONALE,
@@ -162,18 +165,18 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public void setRationale(String newRationale) {
 
     eDynamicSet(CybersecurityPackage.THREAT__RATIONALE, CybersecurityPackage.Literals.THREAT__RATIONALE, newRationale);
+
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -193,7 +196,6 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @SuppressWarnings("unchecked")
@@ -219,7 +221,6 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -243,7 +244,6 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override

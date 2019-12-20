@@ -24,13 +24,10 @@ import org.polarsys.capella.cybersecurity.model.SecurityNeeds;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.polarsys.capella.cybersecurity.model.impl.SecurityNeedsImpl#getConfidentiality
- * <em>Confidentiality</em>}</li>
- * <li>{@link org.polarsys.capella.cybersecurity.model.impl.SecurityNeedsImpl#getIntegrity <em>Integrity</em>}</li>
- * <li>{@link org.polarsys.capella.cybersecurity.model.impl.SecurityNeedsImpl#getAvailability
- * <em>Availability</em>}</li>
- * <li>{@link org.polarsys.capella.cybersecurity.model.impl.SecurityNeedsImpl#getTraceability
- * <em>Traceability</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.SecurityNeedsImpl#getConfidentiality <em>Confidentiality</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.SecurityNeedsImpl#getIntegrity <em>Integrity</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.SecurityNeedsImpl#getAvailability <em>Availability</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.SecurityNeedsImpl#getTraceability <em>Traceability</em>}</li>
  * </ul>
  *
  * @generated
@@ -38,9 +35,9 @@ import org.polarsys.capella.cybersecurity.model.SecurityNeeds;
 public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds {
 
   /**
-   * The default value of the '{@link #getConfidentiality() <em>Confidentiality</em>}' attribute. <!-- begin-user-doc
+   * The default value of the '{@link #getConfidentiality() <em>Confidentiality</em>}' attribute.
+   * <!-- begin-user-doc
    * --> <!-- end-user-doc -->
-   * 
    * @see #getConfidentiality()
    * @generated
    * @ordered
@@ -48,9 +45,9 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
   protected static final int CONFIDENTIALITY_EDEFAULT = 0;
 
   /**
-   * The cached value of the '{@link #getConfidentiality() <em>Confidentiality</em>}' attribute. <!-- begin-user-doc -->
+   * The cached value of the '{@link #getConfidentiality() <em>Confidentiality</em>}' attribute.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * 
    * @see #getConfidentiality()
    * @generated
    * @ordered
@@ -58,9 +55,9 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
   protected int confidentiality = CONFIDENTIALITY_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getIntegrity() <em>Integrity</em>}' attribute. <!-- begin-user-doc --> <!--
+   * The default value of the '{@link #getIntegrity() <em>Integrity</em>}' attribute.
+   * <!-- begin-user-doc --> <!--
    * end-user-doc -->
-   * 
    * @see #getIntegrity()
    * @generated
    * @ordered
@@ -68,9 +65,9 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
   protected static final int INTEGRITY_EDEFAULT = 0;
 
   /**
-   * The cached value of the '{@link #getIntegrity() <em>Integrity</em>}' attribute. <!-- begin-user-doc --> <!--
+   * The cached value of the '{@link #getIntegrity() <em>Integrity</em>}' attribute.
+   * <!-- begin-user-doc --> <!--
    * end-user-doc -->
-   * 
    * @see #getIntegrity()
    * @generated
    * @ordered
@@ -78,9 +75,9 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
   protected int integrity = INTEGRITY_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getAvailability() <em>Availability</em>}' attribute. <!-- begin-user-doc --> <!--
+   * The default value of the '{@link #getAvailability() <em>Availability</em>}' attribute.
+   * <!-- begin-user-doc --> <!--
    * end-user-doc -->
-   * 
    * @see #getAvailability()
    * @generated
    * @ordered
@@ -88,9 +85,9 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
   protected static final int AVAILABILITY_EDEFAULT = 0;
 
   /**
-   * The cached value of the '{@link #getAvailability() <em>Availability</em>}' attribute. <!-- begin-user-doc --> <!--
+   * The cached value of the '{@link #getAvailability() <em>Availability</em>}' attribute.
+   * <!-- begin-user-doc --> <!--
    * end-user-doc -->
-   * 
    * @see #getAvailability()
    * @generated
    * @ordered
@@ -98,9 +95,9 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
   protected int availability = AVAILABILITY_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getTraceability() <em>Traceability</em>}' attribute. <!-- begin-user-doc --> <!--
+   * The default value of the '{@link #getTraceability() <em>Traceability</em>}' attribute.
+   * <!-- begin-user-doc --> <!--
    * end-user-doc -->
-   * 
    * @see #getTraceability()
    * @generated
    * @ordered
@@ -108,9 +105,9 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
   protected static final int TRACEABILITY_EDEFAULT = 0;
 
   /**
-   * The cached value of the '{@link #getTraceability() <em>Traceability</em>}' attribute. <!-- begin-user-doc --> <!--
+   * The cached value of the '{@link #getTraceability() <em>Traceability</em>}' attribute.
+   * <!-- begin-user-doc --> <!--
    * end-user-doc -->
-   * 
    * @see #getTraceability()
    * @generated
    * @ordered
@@ -119,7 +116,6 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   protected SecurityNeedsImpl() {
@@ -130,7 +126,6 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -140,10 +135,10 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public int getConfidentiality() {
 
     return confidentiality;
@@ -151,10 +146,10 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public void setConfidentiality(int newConfidentiality) {
 
     int oldConfidentiality = confidentiality;
@@ -167,10 +162,10 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public int getIntegrity() {
 
     return integrity;
@@ -178,10 +173,10 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public void setIntegrity(int newIntegrity) {
 
     int oldIntegrity = integrity;
@@ -194,10 +189,10 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public int getAvailability() {
 
     return availability;
@@ -205,10 +200,10 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public void setAvailability(int newAvailability) {
 
     int oldAvailability = availability;
@@ -221,10 +216,10 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public int getTraceability() {
 
     return traceability;
@@ -232,10 +227,10 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public void setTraceability(int newTraceability) {
 
     int oldTraceability = traceability;
@@ -248,7 +243,6 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -268,7 +262,6 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -292,7 +285,6 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -316,7 +308,6 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -336,7 +327,6 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -344,7 +334,7 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
     if (eIsProxy())
       return super.toString();
 
-    StringBuffer result = new StringBuffer(super.toString());
+    StringBuilder result = new StringBuilder(super.toString());
     result.append(" (confidentiality: "); //$NON-NLS-1$
     result.append(confidentiality);
     result.append(", integrity: "); //$NON-NLS-1$

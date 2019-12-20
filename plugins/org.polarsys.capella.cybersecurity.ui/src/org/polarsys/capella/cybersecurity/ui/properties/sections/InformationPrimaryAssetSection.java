@@ -48,8 +48,7 @@ public class InformationPrimaryAssetSection extends AbstractSection {
     layoutData.horizontalSpan = 2;
     memberGroup.setLayoutData(layoutData);
 
-    _containmentTableField = new ContainmentTableField(memberGroup, getWidgetFactory(),
-        CybersecurityPackage.Literals.PRIMARY_ASSET_MEMBER__ASSET,
+    _containmentTableField = new ContainmentTableField(memberGroup, getWidgetFactory(), null,
         CybersecurityPackage.Literals.PRIMARY_ASSET_MEMBER__MEMBER, CybersecurityPackage.Literals.PRIMARY_ASSET_MEMBER,
         Messages.InformationPrimaryAssetSection_0, Messages.InformationPrimaryAssetSection_1);
     _containmentTableField.setDisplayedInWizard(displayedInWizard);

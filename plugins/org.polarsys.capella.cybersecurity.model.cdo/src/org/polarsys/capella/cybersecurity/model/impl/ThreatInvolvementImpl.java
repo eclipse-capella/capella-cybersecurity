@@ -11,8 +11,12 @@
 
 package org.polarsys.capella.cybersecurity.model.impl;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.polarsys.capella.common.data.modellingcore.impl.ModelElementImpl;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.polarsys.capella.core.data.capellacore.impl.RelationshipImpl;
 import org.polarsys.capella.core.data.cs.Component;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.Threat;
@@ -31,11 +35,10 @@ import org.polarsys.capella.cybersecurity.model.ThreatInvolvement;
  *
  * @generated
  */
-public class ThreatInvolvementImpl extends ModelElementImpl implements ThreatInvolvement {
+public class ThreatInvolvementImpl extends RelationshipImpl implements ThreatInvolvement {
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   protected ThreatInvolvementImpl() {
@@ -46,7 +49,6 @@ public class ThreatInvolvementImpl extends ModelElementImpl implements ThreatInv
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -56,43 +58,36 @@ public class ThreatInvolvementImpl extends ModelElementImpl implements ThreatInv
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
+  @Override
   public Component getComponent() {
 
-    return (Component) eDynamicGet(CybersecurityPackage.THREAT_INVOLVEMENT__COMPONENT,
-        CybersecurityPackage.Literals.THREAT_INVOLVEMENT__COMPONENT, true, true);
+    Component component = basicGetComponent();
+    return component != null && ((EObject) component).eIsProxy()
+        ? (Component) eResolveProxy((InternalEObject) component)
+        : component;
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * 
-   * @generated
+   * @generated NOT
    */
   public Component basicGetComponent() {
-
-    return (Component) eDynamicGet(CybersecurityPackage.THREAT_INVOLVEMENT__COMPONENT,
-        CybersecurityPackage.Literals.THREAT_INVOLVEMENT__COMPONENT, false, true);
+    EObject container = eContainer();
+    if (container instanceof Component) {
+      return (Component) container;
+    }
+    return null;
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
-   * @generated
-   */
-  public void setComponent(Component newComponent) {
-
-    eDynamicSet(CybersecurityPackage.THREAT_INVOLVEMENT__COMPONENT,
-        CybersecurityPackage.Literals.THREAT_INVOLVEMENT__COMPONENT, newComponent);
-  }
-
-  /**
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public Threat getThreat() {
 
     return (Threat) eDynamicGet(CybersecurityPackage.THREAT_INVOLVEMENT__THREAT,
@@ -101,7 +96,6 @@ public class ThreatInvolvementImpl extends ModelElementImpl implements ThreatInv
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
@@ -113,19 +107,19 @@ public class ThreatInvolvementImpl extends ModelElementImpl implements ThreatInv
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public void setThreat(Threat newThreat) {
 
     eDynamicSet(CybersecurityPackage.THREAT_INVOLVEMENT__THREAT,
         CybersecurityPackage.Literals.THREAT_INVOLVEMENT__THREAT, newThreat);
+
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -145,15 +139,11 @@ public class ThreatInvolvementImpl extends ModelElementImpl implements ThreatInv
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
   public void eSet(int featureID, Object newValue) {
     switch (featureID) {
-    case CybersecurityPackage.THREAT_INVOLVEMENT__COMPONENT:
-      setComponent((Component) newValue);
-      return;
     case CybersecurityPackage.THREAT_INVOLVEMENT__THREAT:
       setThreat((Threat) newValue);
       return;
@@ -163,15 +153,11 @@ public class ThreatInvolvementImpl extends ModelElementImpl implements ThreatInv
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
   public void eUnset(int featureID) {
     switch (featureID) {
-    case CybersecurityPackage.THREAT_INVOLVEMENT__COMPONENT:
-      setComponent((Component) null);
-      return;
     case CybersecurityPackage.THREAT_INVOLVEMENT__THREAT:
       setThreat((Threat) null);
       return;
@@ -181,7 +167,6 @@ public class ThreatInvolvementImpl extends ModelElementImpl implements ThreatInv
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override

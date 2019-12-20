@@ -56,24 +56,24 @@ import org.polarsys.kitalpha.emde.model.util.EmdeSwitch;
 public class CybersecurityItemProviderAdapterFactory extends CybersecurityAdapterFactory
     implements ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender {
   /**
-   * This keeps track of the root adapter factory that delegates to this adapter factory. <!-- begin-user-doc --> <!--
+   * This keeps track of the root adapter factory that delegates to this adapter factory.
+   * <!-- begin-user-doc --> <!--
    * end-user-doc -->
-   * 
    * @generated
    */
   protected ComposedAdapterFactory parentAdapterFactory;
 
   /**
-   * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}. <!-- begin-user-doc --> <!--
+   * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}.
+   * <!-- begin-user-doc --> <!--
    * end-user-doc -->
-   * 
    * @generated
    */
   protected IChangeNotifier changeNotifier = new ChangeNotifier();
 
   /**
-   * This helps manage the child creation extenders. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This helps manage the child creation extenders.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   protected ChildCreationExtenderManager childCreationExtenderManager = new ChildCreationExtenderManager(
@@ -88,8 +88,8 @@ public class CybersecurityItemProviderAdapterFactory extends CybersecurityAdapte
   protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
   /**
-   * This constructs an instance. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This constructs an instance.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   public CybersecurityItemProviderAdapterFactory() {
@@ -101,9 +101,8 @@ public class CybersecurityItemProviderAdapterFactory extends CybersecurityAdapte
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.polarsys.capella.cybersecurity.model.CybersecurityPkg}
-   * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This keeps track of the one adapter used for all {@link org.polarsys.capella.cybersecurity.model.CybersecurityPkg} instances.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   protected CybersecurityPkgItemProvider cybersecurityPkgItemProvider;
@@ -126,15 +125,14 @@ public class CybersecurityItemProviderAdapterFactory extends CybersecurityAdapte
   /**
    * This keeps track of the one adapter used for all {@link org.polarsys.capella.cybersecurity.model.Threat} instances.
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   protected ThreatItemProvider threatItemProvider;
 
   /**
-   * This creates an adapter for a {@link org.polarsys.capella.cybersecurity.model.Threat}. <!-- begin-user-doc --> <!--
+   * This creates an adapter for a {@link org.polarsys.capella.cybersecurity.model.Threat}.
+   * <!-- begin-user-doc --> <!--
    * end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -147,9 +145,8 @@ public class CybersecurityItemProviderAdapterFactory extends CybersecurityAdapte
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.polarsys.capella.cybersecurity.model.ThreatInvolvement}
-   * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This keeps track of the one adapter used for all {@link org.polarsys.capella.cybersecurity.model.ThreatInvolvement} instances.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   protected ThreatInvolvementItemProvider threatInvolvementItemProvider;
@@ -170,17 +167,16 @@ public class CybersecurityItemProviderAdapterFactory extends CybersecurityAdapte
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.polarsys.capella.cybersecurity.model.FunctionStorage}
-   * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This keeps track of the one adapter used for all {@link org.polarsys.capella.cybersecurity.model.FunctionStorage} instances.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   protected FunctionStorageItemProvider functionStorageItemProvider;
 
   /**
-   * This creates an adapter for a {@link org.polarsys.capella.cybersecurity.model.FunctionStorage}. <!-- begin-user-doc
+   * This creates an adapter for a {@link org.polarsys.capella.cybersecurity.model.FunctionStorage}.
+   * <!-- begin-user-doc
    * --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -193,9 +189,8 @@ public class CybersecurityItemProviderAdapterFactory extends CybersecurityAdapte
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.polarsys.capella.cybersecurity.model.ThreatApplication}
-   * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This keeps track of the one adapter used for all {@link org.polarsys.capella.cybersecurity.model.ThreatApplication} instances.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   protected ThreatApplicationItemProvider threatApplicationItemProvider;
@@ -216,10 +211,9 @@ public class CybersecurityItemProviderAdapterFactory extends CybersecurityAdapte
   }
 
   /**
-   * This keeps track of the one adapter used for all
-   * {@link org.polarsys.capella.cybersecurity.model.PrimaryAssetStorage} instances. <!-- begin-user-doc --> <!--
+   * This keeps track of the one adapter used for all {@link org.polarsys.capella.cybersecurity.model.PrimaryAssetStorage} instances.
+   * <!-- begin-user-doc --> <!--
    * end-user-doc -->
-   * 
    * @generated
    */
   protected PrimaryAssetStorageItemProvider primaryAssetStorageItemProvider;
@@ -240,17 +234,16 @@ public class CybersecurityItemProviderAdapterFactory extends CybersecurityAdapte
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.polarsys.capella.cybersecurity.model.SecurityNeeds}
-   * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This keeps track of the one adapter used for all {@link org.polarsys.capella.cybersecurity.model.SecurityNeeds} instances.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   protected SecurityNeedsItemProvider securityNeedsItemProvider;
 
   /**
-   * This creates an adapter for a {@link org.polarsys.capella.cybersecurity.model.SecurityNeeds}. <!-- begin-user-doc
+   * This creates an adapter for a {@link org.polarsys.capella.cybersecurity.model.SecurityNeeds}.
+   * <!-- begin-user-doc
    * --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -263,10 +256,9 @@ public class CybersecurityItemProviderAdapterFactory extends CybersecurityAdapte
   }
 
   /**
-   * This keeps track of the one adapter used for all
-   * {@link org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage} instances. <!-- begin-user-doc --> <!--
+   * This keeps track of the one adapter used for all {@link org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage} instances.
+   * <!-- begin-user-doc --> <!--
    * end-user-doc -->
-   * 
    * @generated
    */
   protected TrustBoundaryStorageItemProvider trustBoundaryStorageItemProvider;
@@ -287,10 +279,9 @@ public class CybersecurityItemProviderAdapterFactory extends CybersecurityAdapte
   }
 
   /**
-   * This keeps track of the one adapter used for all
-   * {@link org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset} instances. <!-- begin-user-doc --> <!--
+   * This keeps track of the one adapter used for all {@link org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset} instances.
+   * <!-- begin-user-doc --> <!--
    * end-user-doc -->
-   * 
    * @generated
    */
   protected FunctionalPrimaryAssetItemProvider functionalPrimaryAssetItemProvider;
@@ -311,10 +302,9 @@ public class CybersecurityItemProviderAdapterFactory extends CybersecurityAdapte
   }
 
   /**
-   * This keeps track of the one adapter used for all
-   * {@link org.polarsys.capella.cybersecurity.model.InformationPrimaryAsset} instances. <!-- begin-user-doc --> <!--
+   * This keeps track of the one adapter used for all {@link org.polarsys.capella.cybersecurity.model.InformationPrimaryAsset} instances.
+   * <!-- begin-user-doc --> <!--
    * end-user-doc -->
-   * 
    * @generated
    */
   protected InformationPrimaryAssetItemProvider informationPrimaryAssetItemProvider;
@@ -335,10 +325,9 @@ public class CybersecurityItemProviderAdapterFactory extends CybersecurityAdapte
   }
 
   /**
-   * This keeps track of the one adapter used for all
-   * {@link org.polarsys.capella.cybersecurity.model.PrimaryAssetMember} instances. <!-- begin-user-doc --> <!--
+   * This keeps track of the one adapter used for all {@link org.polarsys.capella.cybersecurity.model.PrimaryAssetMember} instances.
+   * <!-- begin-user-doc --> <!--
    * end-user-doc -->
-   * 
    * @generated
    */
   protected PrimaryAssetMemberItemProvider primaryAssetMemberItemProvider;
@@ -359,26 +348,27 @@ public class CybersecurityItemProviderAdapterFactory extends CybersecurityAdapte
   }
 
   /**
-   * This returns the root adapter factory that contains this factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This returns the root adapter factory that contains this factory.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public ComposeableAdapterFactory getRootAdapterFactory() {
     return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
   }
 
   /**
-   * This sets the composed adapter factory that contains this factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This sets the composed adapter factory that contains this factory.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
     this.parentAdapterFactory = parentAdapterFactory;
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -387,9 +377,9 @@ public class CybersecurityItemProviderAdapterFactory extends CybersecurityAdapte
   }
 
   /**
-   * This implementation substitutes the factory itself as the key for the adapter. <!-- begin-user-doc --> <!--
+   * This implementation substitutes the factory itself as the key for the adapter.
+   * <!-- begin-user-doc --> <!--
    * end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -399,7 +389,6 @@ public class CybersecurityItemProviderAdapterFactory extends CybersecurityAdapte
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -416,7 +405,6 @@ public class CybersecurityItemProviderAdapterFactory extends CybersecurityAdapte
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   public List<IChildCreationExtender> getChildCreationExtenders() {
@@ -425,7 +413,6 @@ public class CybersecurityItemProviderAdapterFactory extends CybersecurityAdapte
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   public Collection<?> getNewChildDescriptors(Object object, EditingDomain editingDomain) {
@@ -434,7 +421,6 @@ public class CybersecurityItemProviderAdapterFactory extends CybersecurityAdapte
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   public ResourceLocator getResourceLocator() {
@@ -442,29 +428,32 @@ public class CybersecurityItemProviderAdapterFactory extends CybersecurityAdapte
   }
 
   /**
-   * This adds a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This adds a listener.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public void addListener(INotifyChangedListener notifyChangedListener) {
     changeNotifier.addListener(notifyChangedListener);
   }
 
   /**
-   * This removes a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This removes a listener.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public void removeListener(INotifyChangedListener notifyChangedListener) {
     changeNotifier.removeListener(notifyChangedListener);
   }
 
   /**
-   * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}. <!-- begin-user-doc --> <!--
+   * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}.
+   * <!-- begin-user-doc --> <!--
    * end-user-doc -->
-   * 
    * @generated
    */
+  @Override
   public void fireNotifyChanged(Notification notification) {
     changeNotifier.fireNotifyChanged(notification);
 
@@ -474,10 +463,11 @@ public class CybersecurityItemProviderAdapterFactory extends CybersecurityAdapte
   }
 
   /**
-   * This disposes all of the item providers created by this factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This disposes all of the item providers created by this factory. 
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public void dispose() {
     if (cybersecurityPkgItemProvider != null)
       cybersecurityPkgItemProvider.dispose();
@@ -504,36 +494,36 @@ public class CybersecurityItemProviderAdapterFactory extends CybersecurityAdapte
   }
 
   /**
-   * A child creation extender for the {@link EmdePackage}. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * A child creation extender for the {@link EmdePackage}.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   public static class EmdeChildCreationExtender implements IChildCreationExtender {
     /**
-     * The switch for creating child descriptors specific to each extended class. <!-- begin-user-doc --> <!--
+     * The switch for creating child descriptors specific to each extended class.
+     * <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
      * @generated
      */
     protected static class CreationSwitch extends EmdeSwitch<Object> {
       /**
-       * The child descriptors being populated. <!-- begin-user-doc --> <!-- end-user-doc -->
-       * 
+       * The child descriptors being populated.
+       * <!-- begin-user-doc --> <!-- end-user-doc -->
        * @generated
        */
       protected List<Object> newChildDescriptors;
 
       /**
-       * The domain in which to create the children. <!-- begin-user-doc --> <!-- end-user-doc -->
-       * 
+       * The domain in which to create the children.
+       * <!-- begin-user-doc --> <!-- end-user-doc -->
        * @generated
        */
       protected EditingDomain editingDomain;
 
       /**
-       * Creates the a switch for populating child descriptors in the given domain. <!-- begin-user-doc --> <!--
+       * Creates the a switch for populating child descriptors in the given domain.
+       * <!-- begin-user-doc --> <!--
        * end-user-doc -->
-       * 
        * @generated
        */
       CreationSwitch(List<Object> newChildDescriptors, EditingDomain editingDomain) {
@@ -543,7 +533,6 @@ public class CybersecurityItemProviderAdapterFactory extends CybersecurityAdapte
 
       /**
        * <!-- begin-user-doc --> <!-- end-user-doc -->
-       * 
        * @generated
        */
       @Override
@@ -637,7 +626,6 @@ public class CybersecurityItemProviderAdapterFactory extends CybersecurityAdapte
 
       /**
        * <!-- begin-user-doc --> <!-- end-user-doc -->
-       * 
        * @generated
        */
       protected CommandParameter createChildParameter(Object feature, Object child) {
@@ -648,7 +636,6 @@ public class CybersecurityItemProviderAdapterFactory extends CybersecurityAdapte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     public Collection<Object> getNewChildDescriptors(Object object, EditingDomain editingDomain) {
@@ -659,7 +646,6 @@ public class CybersecurityItemProviderAdapterFactory extends CybersecurityAdapte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     public ResourceLocator getResourceLocator() {

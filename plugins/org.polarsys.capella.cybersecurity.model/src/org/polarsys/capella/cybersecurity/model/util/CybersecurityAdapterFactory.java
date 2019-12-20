@@ -16,11 +16,14 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.polarsys.capella.common.data.modellingcore.AbstractNamedElement;
+import org.polarsys.capella.common.data.modellingcore.AbstractRelationship;
 import org.polarsys.capella.common.data.modellingcore.ModelElement;
 import org.polarsys.capella.common.data.modellingcore.PublishableElement;
 import org.polarsys.capella.common.data.modellingcore.TraceableElement;
 import org.polarsys.capella.core.data.capellacore.CapellaElement;
 import org.polarsys.capella.core.data.capellacore.NamedElement;
+import org.polarsys.capella.core.data.capellacore.Relationship;
+import org.polarsys.capella.cybersecurity.model.*;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPkg;
 import org.polarsys.capella.cybersecurity.model.FunctionStorage;
@@ -41,21 +44,20 @@ import org.polarsys.kitalpha.emde.model.ExtensibleElement;
 /**
  * <!-- begin-user-doc --> The <b>Adapter Factory</b> for the model. It provides an adapter <code>createXXX</code>
  * method for each class of the model. <!-- end-user-doc -->
- * 
  * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage
  * @generated
  */
 public class CybersecurityAdapterFactory extends AdapterFactoryImpl {
   /**
-   * The cached model package. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * The cached model package.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   protected static CybersecurityPackage modelPackage;
 
   /**
-   * Creates an instance of the adapter factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * Creates an instance of the adapter factory.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   public CybersecurityAdapterFactory() {
@@ -65,10 +67,10 @@ public class CybersecurityAdapterFactory extends AdapterFactoryImpl {
   }
 
   /**
-   * Returns whether this factory is applicable for the type of the object. <!-- begin-user-doc --> This implementation
+   * Returns whether this factory is applicable for the type of the object.
+   * <!-- begin-user-doc --> This implementation
    * returns <code>true</code> if the object is either the model's package or is an instance object of the model. <!--
    * end-user-doc -->
-   * 
    * @return whether this factory is applicable for the type of the object.
    * @generated
    */
@@ -84,8 +86,8 @@ public class CybersecurityAdapterFactory extends AdapterFactoryImpl {
   }
 
   /**
-   * The switch that delegates to the <code>createXXX</code> methods. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * The switch that delegates to the <code>createXXX</code> methods.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   protected CybersecuritySwitch<Adapter> modelSwitch = new CybersecuritySwitch<Adapter>() {
@@ -195,16 +197,25 @@ public class CybersecurityAdapterFactory extends AdapterFactoryImpl {
     }
 
     @Override
+    public Adapter caseAbstractRelationship(AbstractRelationship object) {
+      return createAbstractRelationshipAdapter();
+    }
+
+    @Override
+    public Adapter caseRelationship(Relationship object) {
+      return createRelationshipAdapter();
+    }
+
+    @Override
     public Adapter defaultCase(EObject object) {
       return createEObjectAdapter();
     }
   };
 
   /**
-   * Creates an adapter for the <code>target</code>. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
-   * @param target
-   *          the object to adapt.
+   * Creates an adapter for the <code>target</code>.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * @param target the object to adapt.
    * @return the adapter for the <code>target</code>.
    * @generated
    */
@@ -214,10 +225,9 @@ public class CybersecurityAdapterFactory extends AdapterFactoryImpl {
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.polarsys.capella.cybersecurity.model.CybersecurityPkg
-   * <em>Pkg</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
+   * Creates a new adapter for an object of class '{@link org.polarsys.capella.cybersecurity.model.CybersecurityPkg <em>Pkg</em>}'.
+   * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
    * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-   * 
    * @return the new adapter.
    * @see org.polarsys.capella.cybersecurity.model.CybersecurityPkg
    * @generated
@@ -227,10 +237,9 @@ public class CybersecurityAdapterFactory extends AdapterFactoryImpl {
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.polarsys.capella.cybersecurity.model.Threat
-   * <em>Threat</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
+   * Creates a new adapter for an object of class '{@link org.polarsys.capella.cybersecurity.model.Threat <em>Threat</em>}'.
+   * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
    * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-   * 
    * @return the new adapter.
    * @see org.polarsys.capella.cybersecurity.model.Threat
    * @generated
@@ -240,11 +249,10 @@ public class CybersecurityAdapterFactory extends AdapterFactoryImpl {
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.polarsys.capella.cybersecurity.model.ThreatInvolvement
-   * <em>Threat Involvement</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
+   * Creates a new adapter for an object of class '{@link org.polarsys.capella.cybersecurity.model.ThreatInvolvement <em>Threat Involvement</em>}'.
+   * <!-- begin-user-doc --> This default implementation returns null so that we can
    * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
    * end-user-doc -->
-   * 
    * @return the new adapter.
    * @see org.polarsys.capella.cybersecurity.model.ThreatInvolvement
    * @generated
@@ -254,10 +262,9 @@ public class CybersecurityAdapterFactory extends AdapterFactoryImpl {
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.polarsys.capella.cybersecurity.model.FunctionStorage
-   * <em>Function Storage</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
+   * Creates a new adapter for an object of class '{@link org.polarsys.capella.cybersecurity.model.FunctionStorage <em>Function Storage</em>}'.
+   * <!-- begin-user-doc --> This default implementation returns null so that we can easily
    * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-   * 
    * @return the new adapter.
    * @see org.polarsys.capella.cybersecurity.model.FunctionStorage
    * @generated
@@ -267,11 +274,10 @@ public class CybersecurityAdapterFactory extends AdapterFactoryImpl {
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.polarsys.capella.cybersecurity.model.ThreatApplication
-   * <em>Threat Application</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
+   * Creates a new adapter for an object of class '{@link org.polarsys.capella.cybersecurity.model.ThreatApplication <em>Threat Application</em>}'.
+   * <!-- begin-user-doc --> This default implementation returns null so that we can
    * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
    * end-user-doc -->
-   * 
    * @return the new adapter.
    * @see org.polarsys.capella.cybersecurity.model.ThreatApplication
    * @generated
@@ -281,11 +287,10 @@ public class CybersecurityAdapterFactory extends AdapterFactoryImpl {
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.polarsys.capella.cybersecurity.model.PrimaryAssetStorage
-   * <em>Primary Asset Storage</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
+   * Creates a new adapter for an object of class '{@link org.polarsys.capella.cybersecurity.model.PrimaryAssetStorage <em>Primary Asset Storage</em>}'.
+   * <!-- begin-user-doc --> This default implementation returns null so that we can
    * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
    * end-user-doc -->
-   * 
    * @return the new adapter.
    * @see org.polarsys.capella.cybersecurity.model.PrimaryAssetStorage
    * @generated
@@ -295,10 +300,9 @@ public class CybersecurityAdapterFactory extends AdapterFactoryImpl {
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.polarsys.capella.cybersecurity.model.SecurityNeeds
-   * <em>Security Needs</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
+   * Creates a new adapter for an object of class '{@link org.polarsys.capella.cybersecurity.model.SecurityNeeds <em>Security Needs</em>}'.
+   * <!-- begin-user-doc --> This default implementation returns null so that we can easily
    * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-   * 
    * @return the new adapter.
    * @see org.polarsys.capella.cybersecurity.model.SecurityNeeds
    * @generated
@@ -308,11 +312,10 @@ public class CybersecurityAdapterFactory extends AdapterFactoryImpl {
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage
-   * <em>Trust Boundary Storage</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
+   * Creates a new adapter for an object of class '{@link org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage <em>Trust Boundary Storage</em>}'.
+   * <!-- begin-user-doc --> This default implementation returns null so that we can
    * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
    * end-user-doc -->
-   * 
    * @return the new adapter.
    * @see org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage
    * @generated
@@ -322,10 +325,9 @@ public class CybersecurityAdapterFactory extends AdapterFactoryImpl {
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.polarsys.capella.cybersecurity.model.PrimaryAsset
-   * <em>Primary Asset</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
+   * Creates a new adapter for an object of class '{@link org.polarsys.capella.cybersecurity.model.PrimaryAsset <em>Primary Asset</em>}'.
+   * <!-- begin-user-doc --> This default implementation returns null so that we can easily
    * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-   * 
    * @return the new adapter.
    * @see org.polarsys.capella.cybersecurity.model.PrimaryAsset
    * @generated
@@ -363,11 +365,10 @@ public class CybersecurityAdapterFactory extends AdapterFactoryImpl {
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.polarsys.capella.cybersecurity.model.PrimaryAssetMember
-   * <em>Primary Asset Member</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
+   * Creates a new adapter for an object of class '{@link org.polarsys.capella.cybersecurity.model.PrimaryAssetMember <em>Primary Asset Member</em>}'.
+   * <!-- begin-user-doc --> This default implementation returns null so that we can
    * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
    * end-user-doc -->
-   * 
    * @return the new adapter.
    * @see org.polarsys.capella.cybersecurity.model.PrimaryAssetMember
    * @generated
@@ -380,7 +381,6 @@ public class CybersecurityAdapterFactory extends AdapterFactoryImpl {
    * Creates a new adapter for an object of class '{@link org.polarsys.kitalpha.emde.model.Element <em>Element</em>}'.
    * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
    * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-   * 
    * @return the new adapter.
    * @see org.polarsys.kitalpha.emde.model.Element
    * @generated
@@ -390,11 +390,10 @@ public class CybersecurityAdapterFactory extends AdapterFactoryImpl {
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.polarsys.kitalpha.emde.model.ExtensibleElement
-   * <em>Extensible Element</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
+   * Creates a new adapter for an object of class '{@link org.polarsys.kitalpha.emde.model.ExtensibleElement <em>Extensible Element</em>}'.
+   * <!-- begin-user-doc --> This default implementation returns null so that we can
    * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
    * end-user-doc -->
-   * 
    * @return the new adapter.
    * @see org.polarsys.kitalpha.emde.model.ExtensibleElement
    * @generated
@@ -404,10 +403,9 @@ public class CybersecurityAdapterFactory extends AdapterFactoryImpl {
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.polarsys.capella.common.data.modellingcore.ModelElement
-   * <em>Model Element</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
+   * Creates a new adapter for an object of class '{@link org.polarsys.capella.common.data.modellingcore.ModelElement <em>Model Element</em>}'.
+   * <!-- begin-user-doc --> This default implementation returns null so that we can easily
    * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-   * 
    * @return the new adapter.
    * @see org.polarsys.capella.common.data.modellingcore.ModelElement
    * @generated
@@ -459,10 +457,9 @@ public class CybersecurityAdapterFactory extends AdapterFactoryImpl {
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.polarsys.capella.core.data.capellacore.CapellaElement
-   * <em>Capella Element</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
+   * Creates a new adapter for an object of class '{@link org.polarsys.capella.core.data.capellacore.CapellaElement <em>Capella Element</em>}'.
+   * <!-- begin-user-doc --> This default implementation returns null so that we can easily
    * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-   * 
    * @return the new adapter.
    * @see org.polarsys.capella.core.data.capellacore.CapellaElement
    * @generated
@@ -472,10 +469,9 @@ public class CybersecurityAdapterFactory extends AdapterFactoryImpl {
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.polarsys.capella.core.data.capellacore.NamedElement
-   * <em>Named Element</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
+   * Creates a new adapter for an object of class '{@link org.polarsys.capella.core.data.capellacore.NamedElement <em>Named Element</em>}'.
+   * <!-- begin-user-doc --> This default implementation returns null so that we can easily
    * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-   * 
    * @return the new adapter.
    * @see org.polarsys.capella.core.data.capellacore.NamedElement
    * @generated
@@ -485,10 +481,9 @@ public class CybersecurityAdapterFactory extends AdapterFactoryImpl {
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.polarsys.kitalpha.emde.model.ElementExtension <em>Element
-   * Extension</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
+   * Creates a new adapter for an object of class '{@link org.polarsys.kitalpha.emde.model.ElementExtension <em>Element Extension</em>}'.
+   * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
    * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-   * 
    * @return the new adapter.
    * @see org.polarsys.kitalpha.emde.model.ElementExtension
    * @generated
@@ -498,9 +493,35 @@ public class CybersecurityAdapterFactory extends AdapterFactoryImpl {
   }
 
   /**
-   * Creates a new adapter for the default case. <!-- begin-user-doc --> This default implementation returns null. <!--
-   * end-user-doc -->
+   * Creates a new adapter for an object of class
+   * '{@link org.polarsys.capella.common.data.modellingcore.AbstractRelationship <em>Abstract Relationship</em>}'. <!--
+   * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
+   * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
    * 
+   * @return the new adapter.
+   * @see org.polarsys.capella.common.data.modellingcore.AbstractRelationship
+   * @generated
+   */
+  public Adapter createAbstractRelationshipAdapter() {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.polarsys.capella.core.data.capellacore.Relationship <em>Relationship</em>}'.
+   * <!-- begin-user-doc --> This default implementation returns null so that we can easily
+   * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.polarsys.capella.core.data.capellacore.Relationship
+   * @generated
+   */
+  public Adapter createRelationshipAdapter() {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for the default case.
+   * <!-- begin-user-doc --> This default implementation returns null. <!--
+   * end-user-doc -->
    * @return the new adapter.
    * @generated
    */

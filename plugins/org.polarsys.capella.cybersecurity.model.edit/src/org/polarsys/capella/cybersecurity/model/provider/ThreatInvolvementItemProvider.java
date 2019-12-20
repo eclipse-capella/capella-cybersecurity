@@ -25,6 +25,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.polarsys.capella.core.data.capellacore.provider.RelationshipItemProvider;
 import org.polarsys.capella.common.data.modellingcore.ModellingcorePackage;
 import org.polarsys.capella.common.data.modellingcore.provider.ModelElementItemProvider;
 import org.polarsys.capella.core.data.capellacore.CapellacoreFactory;
@@ -39,27 +40,24 @@ import org.polarsys.kitalpha.emde.model.edit.provider.NewChildDescriptorHelper;
 /**
  * This is the item provider adapter for a {@link org.polarsys.capella.cybersecurity.model.ThreatInvolvement} object.
  * <!-- begin-user-doc --> <!-- end-user-doc -->
- * 
  * @generated
  */
-public class ThreatInvolvementItemProvider extends ModelElementItemProvider implements IEditingDomainItemProvider,
+public class ThreatInvolvementItemProvider extends RelationshipItemProvider implements IEditingDomainItemProvider,
     IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   protected IItemPropertyDescriptor componentPropertyDescriptor;
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   protected IItemPropertyDescriptor threatPropertyDescriptor;
 
   /**
-   * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This constructs an instance from a factory and a notifier.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   public ThreatInvolvementItemProvider(AdapterFactory adapterFactory) {
@@ -68,7 +66,6 @@ public class ThreatInvolvementItemProvider extends ModelElementItemProvider impl
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -106,8 +103,8 @@ public class ThreatInvolvementItemProvider extends ModelElementItemProvider impl
   }
 
   /**
-   * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This returns the property descriptors for the adapted class.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -125,19 +122,19 @@ public class ThreatInvolvementItemProvider extends ModelElementItemProvider impl
   }
 
   /**
-   * This adds a property descriptor for the Component feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This adds a property descriptor for the Component feature.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   protected void addComponentPropertyDescriptor(Object object) {
     // begin-extension-code
     componentPropertyDescriptor = createItemPropertyDescriptor
-    // end-extension-code
+    // end-extension-code		
     (((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
         getString("_UI_ThreatInvolvement_component_feature"), //$NON-NLS-1$
         getString("_UI_PropertyDescriptor_description", "_UI_ThreatInvolvement_component_feature", //$NON-NLS-1$//$NON-NLS-2$
             "_UI_ThreatInvolvement_type"), //$NON-NLS-1$
-        CybersecurityPackage.Literals.THREAT_INVOLVEMENT__COMPONENT, true, false, true, null, null,
+        CybersecurityPackage.Literals.THREAT_INVOLVEMENT__COMPONENT, false, false, false, null, null,
         // begin-extension-code
         null);
     itemPropertyDescriptors.add(componentPropertyDescriptor);
@@ -145,14 +142,14 @@ public class ThreatInvolvementItemProvider extends ModelElementItemProvider impl
   }
 
   /**
-   * This adds a property descriptor for the Threat feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This adds a property descriptor for the Threat feature.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   protected void addThreatPropertyDescriptor(Object object) {
     // begin-extension-code
     threatPropertyDescriptor = createItemPropertyDescriptor
-    // end-extension-code
+    // end-extension-code		
     (((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
         getString("_UI_ThreatInvolvement_threat_feature"), //$NON-NLS-1$
         getString("_UI_PropertyDescriptor_description", "_UI_ThreatInvolvement_threat_feature", //$NON-NLS-1$//$NON-NLS-2$
@@ -166,7 +163,6 @@ public class ThreatInvolvementItemProvider extends ModelElementItemProvider impl
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -175,8 +171,8 @@ public class ThreatInvolvementItemProvider extends ModelElementItemProvider impl
   }
 
   /**
-   * This returns ThreatInvolvement.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This returns ThreatInvolvement.gif.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -185,8 +181,18 @@ public class ThreatInvolvementItemProvider extends ModelElementItemProvider impl
   }
 
   /**
-   * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  protected boolean shouldComposeCreationImage() {
+    return true;
+  }
+
+  /**
+   * This returns the label text for the adapted class.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -199,9 +205,9 @@ public class ThreatInvolvementItemProvider extends ModelElementItemProvider impl
   }
 
   /**
-   * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating a
-   * viewer notification, which it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This handles model notifications by calling {@link #updateChildren} to update any cached
+   * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -211,9 +217,9 @@ public class ThreatInvolvementItemProvider extends ModelElementItemProvider impl
   }
 
   /**
-   * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that can be created under
-   * this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+   * that can be created under this object.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -290,17 +296,6 @@ public class ThreatInvolvementItemProvider extends ModelElementItemProvider impl
       CommandParameter commandParameter = createChildParameter(
           EmdePackage.Literals.EXTENSIBLE_ELEMENT__OWNED_EXTENSIONS,
           CybersecurityFactory.eINSTANCE.createTrustBoundaryStorage());
-      if (NewChildDescriptorHelper.isValidCommand(object, commandParameter)) {
-        newChildDescriptors.add(commandParameter);
-      }
-    }
-    // end-extension-code
-
-    // begin-extension-code
-    {
-      CommandParameter commandParameter = createChildParameter(
-          ModellingcorePackage.Literals.MODEL_ELEMENT__OWNED_CONSTRAINTS,
-          CapellacoreFactory.eINSTANCE.createConstraint());
       if (NewChildDescriptorHelper.isValidCommand(object, commandParameter)) {
         newChildDescriptors.add(commandParameter);
       }

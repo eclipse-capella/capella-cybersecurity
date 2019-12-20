@@ -13,10 +13,13 @@ package org.polarsys.capella.cybersecurity.model.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.polarsys.capella.core.data.capellacore.impl.NamedElementImpl;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
@@ -31,12 +34,8 @@ import org.polarsys.capella.cybersecurity.model.ThreatApplication;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.polarsys.capella.cybersecurity.model.impl.PrimaryAssetImpl#getOwnedSecurityNeeds <em>Owned Security
- * Needs</em>}</li>
- * <li>{@link org.polarsys.capella.cybersecurity.model.impl.PrimaryAssetImpl#getOwnedThreatApplications <em>Owned Threat
- * Applications</em>}</li>
- * <li>{@link org.polarsys.capella.cybersecurity.model.impl.PrimaryAssetImpl#getOwnedMembers <em>Owned
- * Members</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.PrimaryAssetImpl#getOwnedThreatApplications <em>Owned Threat Applications</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.PrimaryAssetImpl#getOwnedMembers <em>Owned Members</em>}</li>
  * </ul>
  *
  * @generated
@@ -45,7 +44,6 @@ public abstract class PrimaryAssetImpl extends NamedElementImpl implements Prima
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   protected PrimaryAssetImpl() {
@@ -56,7 +54,6 @@ public abstract class PrimaryAssetImpl extends NamedElementImpl implements Prima
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -66,49 +63,11 @@ public abstract class PrimaryAssetImpl extends NamedElementImpl implements Prima
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
-   * @generated
-   */
-
-  public SecurityNeeds getOwnedSecurityNeeds() {
-
-    return (SecurityNeeds) eDynamicGet(CybersecurityPackage.PRIMARY_ASSET__OWNED_SECURITY_NEEDS,
-        CybersecurityPackage.Literals.PRIMARY_ASSET__OWNED_SECURITY_NEEDS, true, true);
-  }
-
-  /**
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
-   * @generated
-   */
-
-  public NotificationChain basicSetOwnedSecurityNeeds(SecurityNeeds newOwnedSecurityNeeds, NotificationChain msgs) {
-
-    msgs = eDynamicInverseAdd((InternalEObject) newOwnedSecurityNeeds,
-        CybersecurityPackage.PRIMARY_ASSET__OWNED_SECURITY_NEEDS, msgs);
-
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
-   * @generated
-   */
-
-  public void setOwnedSecurityNeeds(SecurityNeeds newOwnedSecurityNeeds) {
-
-    eDynamicSet(CybersecurityPackage.PRIMARY_ASSET__OWNED_SECURITY_NEEDS,
-        CybersecurityPackage.Literals.PRIMARY_ASSET__OWNED_SECURITY_NEEDS, newOwnedSecurityNeeds);
-  }
-
-  /**
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
   @SuppressWarnings("unchecked")
+  @Override
   public EList<ThreatApplication> getOwnedThreatApplications() {
 
     return (EList<ThreatApplication>) eDynamicGet(CybersecurityPackage.PRIMARY_ASSET__OWNED_THREAT_APPLICATIONS,
@@ -117,11 +76,11 @@ public abstract class PrimaryAssetImpl extends NamedElementImpl implements Prima
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
   @SuppressWarnings("unchecked")
+  @Override
   public EList<PrimaryAssetMember> getOwnedMembers() {
 
     return (EList<PrimaryAssetMember>) eDynamicGet(CybersecurityPackage.PRIMARY_ASSET__OWNED_MEMBERS,
@@ -130,14 +89,11 @@ public abstract class PrimaryAssetImpl extends NamedElementImpl implements Prima
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
     switch (featureID) {
-    case CybersecurityPackage.PRIMARY_ASSET__OWNED_SECURITY_NEEDS:
-      return basicSetOwnedSecurityNeeds(null, msgs);
     case CybersecurityPackage.PRIMARY_ASSET__OWNED_THREAT_APPLICATIONS:
       return ((InternalEList<?>) getOwnedThreatApplications()).basicRemove(otherEnd, msgs);
     case CybersecurityPackage.PRIMARY_ASSET__OWNED_MEMBERS:
@@ -148,14 +104,11 @@ public abstract class PrimaryAssetImpl extends NamedElementImpl implements Prima
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType) {
     switch (featureID) {
-    case CybersecurityPackage.PRIMARY_ASSET__OWNED_SECURITY_NEEDS:
-      return getOwnedSecurityNeeds();
     case CybersecurityPackage.PRIMARY_ASSET__OWNED_THREAT_APPLICATIONS:
       return getOwnedThreatApplications();
     case CybersecurityPackage.PRIMARY_ASSET__OWNED_MEMBERS:
@@ -166,16 +119,12 @@ public abstract class PrimaryAssetImpl extends NamedElementImpl implements Prima
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue) {
     switch (featureID) {
-    case CybersecurityPackage.PRIMARY_ASSET__OWNED_SECURITY_NEEDS:
-      setOwnedSecurityNeeds((SecurityNeeds) newValue);
-      return;
     case CybersecurityPackage.PRIMARY_ASSET__OWNED_THREAT_APPLICATIONS:
       getOwnedThreatApplications().clear();
       getOwnedThreatApplications().addAll((Collection<? extends ThreatApplication>) newValue);
@@ -190,15 +139,11 @@ public abstract class PrimaryAssetImpl extends NamedElementImpl implements Prima
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
   public void eUnset(int featureID) {
     switch (featureID) {
-    case CybersecurityPackage.PRIMARY_ASSET__OWNED_SECURITY_NEEDS:
-      setOwnedSecurityNeeds((SecurityNeeds) null);
-      return;
     case CybersecurityPackage.PRIMARY_ASSET__OWNED_THREAT_APPLICATIONS:
       getOwnedThreatApplications().clear();
       return;
@@ -211,14 +156,11 @@ public abstract class PrimaryAssetImpl extends NamedElementImpl implements Prima
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
   public boolean eIsSet(int featureID) {
     switch (featureID) {
-    case CybersecurityPackage.PRIMARY_ASSET__OWNED_SECURITY_NEEDS:
-      return getOwnedSecurityNeeds() != null;
     case CybersecurityPackage.PRIMARY_ASSET__OWNED_THREAT_APPLICATIONS:
       return !getOwnedThreatApplications().isEmpty();
     case CybersecurityPackage.PRIMARY_ASSET__OWNED_MEMBERS:

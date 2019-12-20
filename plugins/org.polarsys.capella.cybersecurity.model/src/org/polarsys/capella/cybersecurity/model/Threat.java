@@ -22,10 +22,10 @@ import org.polarsys.capella.core.data.cs.Component;
  * The following features are supported:
  * </p>
  * <ul>
- * <li>{@link org.polarsys.capella.cybersecurity.model.Threat#getAddressedBy <em>Addressed By</em>}</li>
- * <li>{@link org.polarsys.capella.cybersecurity.model.Threat#getThreatKind <em>Threat Kind</em>}</li>
- * <li>{@link org.polarsys.capella.cybersecurity.model.Threat#getLevel <em>Level</em>}</li>
- * <li>{@link org.polarsys.capella.cybersecurity.model.Threat#getRationale <em>Rationale</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.Threat#getAddressedBy <em>Addressed By</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.Threat#getThreatKind <em>Threat Kind</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.Threat#getLevel <em>Level</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.Threat#getRationale <em>Rationale</em>}</li>
  * </ul>
  *
  * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getThreat()
@@ -36,16 +36,15 @@ import org.polarsys.capella.core.data.cs.Component;
 public interface Threat extends NamedElement {
 
   /**
-   * Returns the value of the '<em><b>Addressed By</b></em>' reference list. The list contents are of type
-   * {@link org.polarsys.capella.core.data.cs.Component}.
-   * 
+   * Returns the value of the '<em><b>Addressed By</b></em>' reference list.
+   * The list contents are of type {@link org.polarsys.capella.core.data.cs.Component}.
+  
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Addressed By</em>' reference list isn't clear, there really should be more of a
    * description here...
    * </p>
    * <!-- end-user-doc -->
-   * 
    * @return the value of the '<em>Addressed By</em>' reference list.
    * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getThreat_AddressedBy()
    * @model
@@ -55,16 +54,15 @@ public interface Threat extends NamedElement {
   EList<Component> getAddressedBy();
 
   /**
-   * Returns the value of the '<em><b>Threat Kind</b></em>' attribute. The literals are from the enumeration
-   * {@link org.polarsys.capella.cybersecurity.model.ThreatKind}.
-   * 
+   * Returns the value of the '<em><b>Threat Kind</b></em>' attribute.
+   * The literals are from the enumeration {@link org.polarsys.capella.cybersecurity.model.ThreatKind}.
+  
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Threat Kind</em>' attribute isn't clear, there really should be more of a description
    * here...
    * </p>
    * <!-- end-user-doc -->
-   * 
    * @return the value of the '<em>Threat Kind</em>' attribute.
    * @see org.polarsys.capella.cybersecurity.model.ThreatKind
    * @see #setThreatKind(ThreatKind)
@@ -76,13 +74,10 @@ public interface Threat extends NamedElement {
   ThreatKind getThreatKind();
 
   /**
-   * Sets the value of the '{@link org.polarsys.capella.cybersecurity.model.Threat#getThreatKind <em>Threat Kind</em>}'
-   * attribute.
-   * 
+   * Sets the value of the '{@link org.polarsys.capella.cybersecurity.model.Threat#getThreatKind <em>Threat Kind</em>}' attribute.
+  
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
-   * @param value
-   *          the new value of the '<em>Threat Kind</em>' attribute.
+   * @param value the new value of the '<em>Threat Kind</em>' attribute.
    * @see org.polarsys.capella.cybersecurity.model.ThreatKind
    * @see #getThreatKind()
    * @generated
@@ -92,13 +87,12 @@ public interface Threat extends NamedElement {
 
   /**
    * Returns the value of the '<em><b>Level</b></em>' attribute.
-   * 
+  
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Level</em>' attribute isn't clear, there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * 
    * @return the value of the '<em>Level</em>' attribute.
    * @see #setLevel(int)
    * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getThreat_Level()
@@ -110,11 +104,9 @@ public interface Threat extends NamedElement {
 
   /**
    * Sets the value of the '{@link org.polarsys.capella.cybersecurity.model.Threat#getLevel <em>Level</em>}' attribute.
-   * 
+  
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
-   * @param value
-   *          the new value of the '<em>Level</em>' attribute.
+   * @param value the new value of the '<em>Level</em>' attribute.
    * @see #getLevel()
    * @generated
    */
@@ -123,14 +115,13 @@ public interface Threat extends NamedElement {
 
   /**
    * Returns the value of the '<em><b>Rationale</b></em>' attribute.
-   * 
+  
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Rationale</em>' attribute isn't clear, there really should be more of a description
    * here...
    * </p>
    * <!-- end-user-doc -->
-   * 
    * @return the value of the '<em>Rationale</em>' attribute.
    * @see #setRationale(String)
    * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getThreat_Rationale()
@@ -141,13 +132,10 @@ public interface Threat extends NamedElement {
   String getRationale();
 
   /**
-   * Sets the value of the '{@link org.polarsys.capella.cybersecurity.model.Threat#getRationale <em>Rationale</em>}'
-   * attribute.
-   * 
+   * Sets the value of the '{@link org.polarsys.capella.cybersecurity.model.Threat#getRationale <em>Rationale</em>}' attribute.
+  
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
-   * @param value
-   *          the new value of the '<em>Rationale</em>' attribute.
+   * @param value the new value of the '<em>Rationale</em>' attribute.
    * @see #getRationale()
    * @generated
    */

@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.polarsys.capella.cybersecurity.model.helpers;
 
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;

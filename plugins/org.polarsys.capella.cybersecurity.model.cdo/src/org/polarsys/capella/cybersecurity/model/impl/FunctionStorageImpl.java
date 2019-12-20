@@ -13,8 +13,11 @@ package org.polarsys.capella.cybersecurity.model.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.polarsys.capella.common.data.modellingcore.impl.ModelElementImpl;
 import org.polarsys.capella.core.data.information.ExchangeItem;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
@@ -40,9 +43,9 @@ import org.polarsys.capella.cybersecurity.model.FunctionStorage;
 public class FunctionStorageImpl extends ModelElementImpl implements FunctionStorage {
 
   /**
-   * The default value of the '{@link #isDataStorage() <em>Data Storage</em>}' attribute. <!-- begin-user-doc --> <!--
+   * The default value of the '{@link #isDataStorage() <em>Data Storage</em>}' attribute.
+   * <!-- begin-user-doc --> <!--
    * end-user-doc -->
-   * 
    * @see #isDataStorage()
    * @generated
    * @ordered
@@ -50,9 +53,9 @@ public class FunctionStorageImpl extends ModelElementImpl implements FunctionSto
   protected static final boolean DATA_STORAGE_EDEFAULT = false;
 
   /**
-   * The default value of the '{@link #isRemanentData() <em>Remanent Data</em>}' attribute. <!-- begin-user-doc --> <!--
+   * The default value of the '{@link #isRemanentData() <em>Remanent Data</em>}' attribute.
+   * <!-- begin-user-doc --> <!--
    * end-user-doc -->
-   * 
    * @see #isRemanentData()
    * @generated
    * @ordered
@@ -61,7 +64,6 @@ public class FunctionStorageImpl extends ModelElementImpl implements FunctionSto
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   protected FunctionStorageImpl() {
@@ -72,7 +74,6 @@ public class FunctionStorageImpl extends ModelElementImpl implements FunctionSto
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -82,11 +83,11 @@ public class FunctionStorageImpl extends ModelElementImpl implements FunctionSto
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
   @SuppressWarnings("unchecked")
+  @Override
   public EList<ExchangeItem> getExchangedItems() {
 
     return (EList<ExchangeItem>) eDynamicGet(CybersecurityPackage.FUNCTION_STORAGE__EXCHANGED_ITEMS,
@@ -95,10 +96,10 @@ public class FunctionStorageImpl extends ModelElementImpl implements FunctionSto
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public boolean isDataStorage() {
 
     return (Boolean) eDynamicGet(CybersecurityPackage.FUNCTION_STORAGE__DATA_STORAGE,
@@ -107,22 +108,23 @@ public class FunctionStorageImpl extends ModelElementImpl implements FunctionSto
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public void setDataStorage(boolean newDataStorage) {
 
     eDynamicSet(CybersecurityPackage.FUNCTION_STORAGE__DATA_STORAGE,
         CybersecurityPackage.Literals.FUNCTION_STORAGE__DATA_STORAGE, newDataStorage);
+
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public boolean isRemanentData() {
 
     return (Boolean) eDynamicGet(CybersecurityPackage.FUNCTION_STORAGE__REMANENT_DATA,
@@ -131,19 +133,19 @@ public class FunctionStorageImpl extends ModelElementImpl implements FunctionSto
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public void setRemanentData(boolean newRemanentData) {
 
     eDynamicSet(CybersecurityPackage.FUNCTION_STORAGE__REMANENT_DATA,
         CybersecurityPackage.Literals.FUNCTION_STORAGE__REMANENT_DATA, newRemanentData);
+
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -161,7 +163,6 @@ public class FunctionStorageImpl extends ModelElementImpl implements FunctionSto
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @SuppressWarnings("unchecked")
@@ -184,7 +185,6 @@ public class FunctionStorageImpl extends ModelElementImpl implements FunctionSto
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -205,7 +205,6 @@ public class FunctionStorageImpl extends ModelElementImpl implements FunctionSto
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override

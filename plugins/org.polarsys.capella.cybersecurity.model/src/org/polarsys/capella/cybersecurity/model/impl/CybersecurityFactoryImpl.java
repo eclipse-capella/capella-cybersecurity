@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.polarsys.capella.common.lib.IdGenerator;
+import org.polarsys.capella.cybersecurity.model.*;
 import org.polarsys.capella.cybersecurity.model.CybersecurityFactory;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPkg;
@@ -35,13 +36,12 @@ import org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
- * 
  * @generated
  */
 public class CybersecurityFactoryImpl extends EFactoryImpl implements CybersecurityFactory {
   /**
-   * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * Creates the default factory implementation.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   public static CybersecurityFactory init() {
@@ -58,8 +58,8 @@ public class CybersecurityFactoryImpl extends EFactoryImpl implements Cybersecur
   }
 
   /**
-   * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * Creates an instance of the factory.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   public CybersecurityFactoryImpl() {
@@ -68,7 +68,6 @@ public class CybersecurityFactoryImpl extends EFactoryImpl implements Cybersecur
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -103,7 +102,6 @@ public class CybersecurityFactoryImpl extends EFactoryImpl implements Cybersecur
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -118,7 +116,6 @@ public class CybersecurityFactoryImpl extends EFactoryImpl implements Cybersecur
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -133,172 +130,160 @@ public class CybersecurityFactoryImpl extends EFactoryImpl implements Cybersecur
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   public CybersecurityPkg createCybersecurityPkg() {
     CybersecurityPkgImpl cybersecurityPkg = new CybersecurityPkgImpl();
-    // begin-capella-code
+    //begin-capella-code
 
     cybersecurityPkg.setId(IdGenerator.createId());
 
-    // end-capella-code
+    //end-capella-code
     return cybersecurityPkg;
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   public Threat createThreat() {
     ThreatImpl threat = new ThreatImpl();
-    // begin-capella-code
+    //begin-capella-code
 
     threat.setId(IdGenerator.createId());
 
-    // end-capella-code
+    //end-capella-code
     return threat;
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   public ThreatInvolvement createThreatInvolvement() {
     ThreatInvolvementImpl threatInvolvement = new ThreatInvolvementImpl();
-    // begin-capella-code
+    //begin-capella-code
 
     threatInvolvement.setId(IdGenerator.createId());
 
-    // end-capella-code
+    //end-capella-code
     return threatInvolvement;
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   public FunctionStorage createFunctionStorage() {
     FunctionStorageImpl functionStorage = new FunctionStorageImpl();
-    // begin-capella-code
+    //begin-capella-code
 
     functionStorage.setId(IdGenerator.createId());
 
-    // end-capella-code
+    //end-capella-code
     return functionStorage;
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   public ThreatApplication createThreatApplication() {
     ThreatApplicationImpl threatApplication = new ThreatApplicationImpl();
-    // begin-capella-code
+    //begin-capella-code
 
     threatApplication.setId(IdGenerator.createId());
 
-    // end-capella-code
+    //end-capella-code
     return threatApplication;
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   public PrimaryAssetStorage createPrimaryAssetStorage() {
     PrimaryAssetStorageImpl primaryAssetStorage = new PrimaryAssetStorageImpl();
-    // begin-capella-code
+    //begin-capella-code
 
     primaryAssetStorage.setId(IdGenerator.createId());
 
-    // end-capella-code
+    //end-capella-code
     return primaryAssetStorage;
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   public SecurityNeeds createSecurityNeeds() {
     SecurityNeedsImpl securityNeeds = new SecurityNeedsImpl();
-    // begin-capella-code
+    //begin-capella-code
 
     securityNeeds.setId(IdGenerator.createId());
 
-    // end-capella-code
+    //end-capella-code
     return securityNeeds;
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   public TrustBoundaryStorage createTrustBoundaryStorage() {
     TrustBoundaryStorageImpl trustBoundaryStorage = new TrustBoundaryStorageImpl();
-    // begin-capella-code
+    //begin-capella-code
 
     trustBoundaryStorage.setId(IdGenerator.createId());
 
-    // end-capella-code
+    //end-capella-code
     return trustBoundaryStorage;
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   public FunctionalPrimaryAsset createFunctionalPrimaryAsset() {
     FunctionalPrimaryAssetImpl functionalPrimaryAsset = new FunctionalPrimaryAssetImpl();
-    // begin-capella-code
+    //begin-capella-code
 
     functionalPrimaryAsset.setId(IdGenerator.createId());
 
-    // end-capella-code
+    //end-capella-code
     return functionalPrimaryAsset;
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   public InformationPrimaryAsset createInformationPrimaryAsset() {
     InformationPrimaryAssetImpl informationPrimaryAsset = new InformationPrimaryAssetImpl();
-    // begin-capella-code
+    //begin-capella-code
 
     informationPrimaryAsset.setId(IdGenerator.createId());
 
-    // end-capella-code
+    //end-capella-code
     return informationPrimaryAsset;
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   public PrimaryAssetMember createPrimaryAssetMember() {
     PrimaryAssetMemberImpl primaryAssetMember = new PrimaryAssetMemberImpl();
-    // begin-capella-code
+    //begin-capella-code
 
     primaryAssetMember.setId(IdGenerator.createId());
 
-    // end-capella-code
+    //end-capella-code
     return primaryAssetMember;
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   public ThreatKind createThreatKindFromString(EDataType eDataType, String initialValue) {
@@ -311,7 +296,6 @@ public class CybersecurityFactoryImpl extends EFactoryImpl implements Cybersecur
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   public String convertThreatKindToString(EDataType eDataType, Object instanceValue) {
@@ -320,7 +304,6 @@ public class CybersecurityFactoryImpl extends EFactoryImpl implements Cybersecur
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   public CybersecurityPackage getCybersecurityPackage() {
@@ -329,7 +312,6 @@ public class CybersecurityFactoryImpl extends EFactoryImpl implements Cybersecur
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @deprecated
    * @generated
    */

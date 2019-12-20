@@ -39,7 +39,6 @@ public class Ip_asset__notHandled extends DynamicValidationTest {
     skeleton.getPhysicalArchitecture().getOwnedDataPkg().getOwnedExchangeItems().add(ei1);
     PrimaryAssetMember pam = CybersecurityFactory.eINSTANCE.createPrimaryAssetMember();
     pam.setMember(ei1);
-    pam.setAsset(ipa);
     ipa.getOwnedMembers().add(pam);
     af = t.pf1;
   }

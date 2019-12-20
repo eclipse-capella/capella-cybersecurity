@@ -43,9 +43,9 @@ import org.polarsys.capella.cybersecurity.model.FunctionStorage;
 public class FunctionStorageImpl extends ModelElementImpl implements FunctionStorage {
 
   /**
-   * The cached value of the '{@link #getExchangedItems() <em>Exchanged Items</em>}' reference list. <!-- begin-user-doc
+   * The cached value of the '{@link #getExchangedItems() <em>Exchanged Items</em>}' reference list.
+   * <!-- begin-user-doc
    * --> <!-- end-user-doc -->
-   * 
    * @see #getExchangedItems()
    * @generated
    * @ordered
@@ -53,9 +53,9 @@ public class FunctionStorageImpl extends ModelElementImpl implements FunctionSto
   protected EList<ExchangeItem> exchangedItems;
 
   /**
-   * The default value of the '{@link #isDataStorage() <em>Data Storage</em>}' attribute. <!-- begin-user-doc --> <!--
+   * The default value of the '{@link #isDataStorage() <em>Data Storage</em>}' attribute.
+   * <!-- begin-user-doc --> <!--
    * end-user-doc -->
-   * 
    * @see #isDataStorage()
    * @generated
    * @ordered
@@ -63,9 +63,9 @@ public class FunctionStorageImpl extends ModelElementImpl implements FunctionSto
   protected static final boolean DATA_STORAGE_EDEFAULT = false;
 
   /**
-   * The cached value of the '{@link #isDataStorage() <em>Data Storage</em>}' attribute. <!-- begin-user-doc --> <!--
+   * The cached value of the '{@link #isDataStorage() <em>Data Storage</em>}' attribute.
+   * <!-- begin-user-doc --> <!--
    * end-user-doc -->
-   * 
    * @see #isDataStorage()
    * @generated
    * @ordered
@@ -73,9 +73,9 @@ public class FunctionStorageImpl extends ModelElementImpl implements FunctionSto
   protected boolean dataStorage = DATA_STORAGE_EDEFAULT;
 
   /**
-   * The default value of the '{@link #isRemanentData() <em>Remanent Data</em>}' attribute. <!-- begin-user-doc --> <!--
+   * The default value of the '{@link #isRemanentData() <em>Remanent Data</em>}' attribute.
+   * <!-- begin-user-doc --> <!--
    * end-user-doc -->
-   * 
    * @see #isRemanentData()
    * @generated
    * @ordered
@@ -83,9 +83,9 @@ public class FunctionStorageImpl extends ModelElementImpl implements FunctionSto
   protected static final boolean REMANENT_DATA_EDEFAULT = false;
 
   /**
-   * The cached value of the '{@link #isRemanentData() <em>Remanent Data</em>}' attribute. <!-- begin-user-doc --> <!--
+   * The cached value of the '{@link #isRemanentData() <em>Remanent Data</em>}' attribute.
+   * <!-- begin-user-doc --> <!--
    * end-user-doc -->
-   * 
    * @see #isRemanentData()
    * @generated
    * @ordered
@@ -94,7 +94,6 @@ public class FunctionStorageImpl extends ModelElementImpl implements FunctionSto
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   protected FunctionStorageImpl() {
@@ -105,7 +104,6 @@ public class FunctionStorageImpl extends ModelElementImpl implements FunctionSto
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -115,10 +113,10 @@ public class FunctionStorageImpl extends ModelElementImpl implements FunctionSto
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public EList<ExchangeItem> getExchangedItems() {
 
     if (exchangedItems == null) {
@@ -130,10 +128,10 @@ public class FunctionStorageImpl extends ModelElementImpl implements FunctionSto
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public boolean isDataStorage() {
 
     return dataStorage;
@@ -141,10 +139,10 @@ public class FunctionStorageImpl extends ModelElementImpl implements FunctionSto
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public void setDataStorage(boolean newDataStorage) {
 
     boolean oldDataStorage = dataStorage;
@@ -157,10 +155,10 @@ public class FunctionStorageImpl extends ModelElementImpl implements FunctionSto
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public boolean isRemanentData() {
 
     return remanentData;
@@ -168,10 +166,10 @@ public class FunctionStorageImpl extends ModelElementImpl implements FunctionSto
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public void setRemanentData(boolean newRemanentData) {
 
     boolean oldRemanentData = remanentData;
@@ -184,7 +182,6 @@ public class FunctionStorageImpl extends ModelElementImpl implements FunctionSto
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -202,7 +199,6 @@ public class FunctionStorageImpl extends ModelElementImpl implements FunctionSto
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @SuppressWarnings("unchecked")
@@ -225,7 +221,6 @@ public class FunctionStorageImpl extends ModelElementImpl implements FunctionSto
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -246,7 +241,6 @@ public class FunctionStorageImpl extends ModelElementImpl implements FunctionSto
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -264,7 +258,6 @@ public class FunctionStorageImpl extends ModelElementImpl implements FunctionSto
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -272,7 +265,7 @@ public class FunctionStorageImpl extends ModelElementImpl implements FunctionSto
     if (eIsProxy())
       return super.toString();
 
-    StringBuffer result = new StringBuffer(super.toString());
+    StringBuilder result = new StringBuilder(super.toString());
     result.append(" (dataStorage: "); //$NON-NLS-1$
     result.append(dataStorage);
     result.append(", remanentData: "); //$NON-NLS-1$

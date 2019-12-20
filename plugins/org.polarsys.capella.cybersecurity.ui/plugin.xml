@@ -15,27 +15,27 @@
 <extension
 	point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
 	<propertyTabs 
-		contributorId="org.eclipse.sirius.diagram.ui">
-			<propertyTab
-				afterTab="top"
-		        category="semantic &amp; extension"
-		        id="cyber_ActorAttributes"
-		        label="Cybersecurity">
-		    </propertyTab>
-	</propertyTabs>
-</extension> 
-<extension
-	point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
-	<propertyTabs 
 		contributorId="org.polarsys.capella.core.data.capellamodeller.properties">
 			
 			<propertyTab
          		afterTab="top"
         		category="default"
-         		id="cyber_ActorAttributes"
-         		label="Cybersecurity">
+         		id="CybersecurityCapella"
+         		label="%propertiesTab">
 		    </propertyTab> 
 			
+	</propertyTabs>
+</extension>
+<extension
+	point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
+	<propertyTabs 
+		contributorId="org.eclipse.sirius.diagram.ui">
+			<propertyTab
+				afterTab="top"
+		        category="semantic &amp; extension"
+		        id="CybersecuritySiriusDiagram"
+		        label="%propertiesTab">
+		    </propertyTab>
 	</propertyTabs>
 </extension> 
 <extension
@@ -45,57 +45,70 @@
      <propertySection
            class="org.polarsys.capella.cybersecurity.ui.properties.sections.SecurityNeedsSection"
            filter="org.polarsys.capella.cybersecurity.ui.properties.sections.SecurityNeedsSection"
-           id="cybersecurity.SecurityNeedsSection"
-           tab="cyber_ActorAttributes">
+           id="org.polarsys.capella.cybersecurity.ui.properties.sections.SecurityNeedsSection.diagram"
+           tab="CybersecuritySiriusDiagram">
      </propertySection>
      <propertySection
            class="org.polarsys.capella.cybersecurity.ui.properties.sections.PrimaryAssetInverseMember$AbstractFunctionSection"
            filter="org.polarsys.capella.cybersecurity.ui.properties.sections.PrimaryAssetInverseMember$AbstractFunctionSection"
-           id="abstractFunctionPrimaryAssetInverse"
-           tab="cyber_ActorAttributes">
+           id="org.polarsys.capella.cybersecurity.ui.properties.sections.PrimaryAssetInverseMember$AbstractFunctionSection.diagram"
+           tab="CybersecuritySiriusDiagram">
      </propertySection>
      <propertySection
            class="org.polarsys.capella.cybersecurity.ui.properties.sections.PrimaryAssetInverseMember$ExchangeItemSection"
            filter="org.polarsys.capella.cybersecurity.ui.properties.sections.PrimaryAssetInverseMember$ExchangeItemSection"
-           id="exchangeItemPrimaryAssetInverse"
-           tab="cyber_ActorAttributes">
+           id="org.polarsys.capella.cybersecurity.ui.properties.sections.PrimaryAssetInverseMember$ExchangeItemSection.diagram"
+           tab="CybersecuritySiriusDiagram">
      </propertySection>
      <propertySection
            class="org.polarsys.capella.cybersecurity.ui.properties.sections.FunctionCybersecuritySection"
            filter="org.polarsys.capella.cybersecurity.ui.properties.sections.FunctionCybersecuritySection"
-           id="cybersecurity.FunctionCybersecuritySection"
-           tab="cyber_ActorAttributes">
+           id="org.polarsys.capella.cybersecurity.ui.properties.sections.FunctionCybersecuritySection.diagram"
+           tab="CybersecuritySiriusDiagram">
      </propertySection>
      <propertySection
            class="org.polarsys.capella.cybersecurity.ui.properties.sections.InformationPrimaryAssetSection"
            filter="org.polarsys.capella.cybersecurity.ui.properties.sections.InformationPrimaryAssetSection"
-           id="cybersecurity.InformationPrimaryAssetSection"
-           tab="cyber_ActorAttributes">
+           id="org.polarsys.capella.cybersecurity.ui.properties.sections.InformationPrimaryAssetSection.diagram"
+           tab="CybersecuritySiriusDiagram">
      </propertySection>
      <propertySection
            class="org.polarsys.capella.cybersecurity.ui.properties.sections.FunctionalPrimaryAssetSection"
            filter="org.polarsys.capella.cybersecurity.ui.properties.sections.FunctionalPrimaryAssetSection"
-           id="cybersecurity.FunctionalPrimaryAssetSection"
-           tab="cyber_ActorAttributes">
+           id="org.polarsys.capella.cybersecurity.ui.properties.sections.FunctionalPrimaryAssetSection.diagram"
+           tab="CybersecuritySiriusDiagram">
      </propertySection>
      <propertySection
            class="org.polarsys.capella.cybersecurity.ui.properties.sections.ThreatSection"
            filter="org.polarsys.capella.cybersecurity.ui.properties.sections.ThreatSection"
-           id="cybersecurity.ThreatSection"
-           tab="cyber_ActorAttributes">
+           id="org.polarsys.capella.cybersecurity.ui.properties.sections.ThreatSection.diagram"
+           tab="CybersecuritySiriusDiagram">
      </propertySection>
 			<propertySection
          class="org.polarsys.capella.cybersecurity.ui.properties.sections.ActorCybersecuritySection"
          filter="org.polarsys.capella.cybersecurity.ui.properties.sections.ActorCybersecuritySection"
-         id="cybersecurity.ActorSection"
-         tab="cyber_ActorAttributes">
+         id="org.polarsys.capella.cybersecurity.ui.properties.sections.ActorCybersecuritySection.diagram"
+         tab="CybersecuritySiriusDiagram">
 		    </propertySection>
    <propertySection
          class="org.polarsys.capella.cybersecurity.ui.properties.sections.SecurityAwareNamedElementSection"
          filter="org.polarsys.capella.cybersecurity.ui.properties.sections.SecurityAwareNamedElementSection"
-         id="cybersecurity.NamedElementSection"
-         tab="cyber_ActorAttributes">
+         id="org.polarsys.capella.cybersecurity.ui.properties.sections.SecurityAwareNamedElementSection.diagram"
+         tab="CybersecuritySiriusDiagram">
    </propertySection> 
+   <propertySection
+         class="org.polarsys.capella.cybersecurity.ui.properties.sections.RelationshipSection"
+         filter="org.polarsys.capella.cybersecurity.ui.properties.sections.RelationshipSection"
+         id="org.polarsys.capella.cybersecurity.ui.properties.sections.RelationshipSection.diagram"
+         tab="CybersecuritySiriusDiagram">
+   </propertySection> 
+   <propertySection
+         class="org.polarsys.capella.cybersecurity.ui.properties.sections.PrimaryAssetMemberSection"
+         filter="org.polarsys.capella.cybersecurity.ui.properties.sections.PrimaryAssetMemberSection"
+         id="org.polarsys.capella.cybersecurity.ui.properties.sections.PrimaryAssetMemberSection.diagram"
+         tab="CybersecuritySiriusDiagram">
+   </propertySection> 
+  
 		    </propertySections>
 </extension>
 <extension
@@ -105,57 +118,69 @@
      <propertySection
            class="org.polarsys.capella.cybersecurity.ui.properties.sections.SecurityNeedsSection"
            filter="org.polarsys.capella.cybersecurity.ui.properties.sections.SecurityNeedsSection"
-           id="cybersecurity.SecurityNeeds"
-           tab="cyber_ActorAttributes">
+           id="org.polarsys.capella.cybersecurity.ui.properties.sections.SecurityNeedsSection.capella"
+           tab="CybersecurityCapella">
      </propertySection>
      <propertySection
            class="org.polarsys.capella.cybersecurity.ui.properties.sections.PrimaryAssetInverseMember$AbstractFunctionSection"
            filter="org.polarsys.capella.cybersecurity.ui.properties.sections.PrimaryAssetInverseMember$AbstractFunctionSection"
-           id="cybersecurity.primaryAssetInverseFunction"
-           tab="cyber_ActorAttributes">
+           id="org.polarsys.capella.cybersecurity.ui.properties.sections.PrimaryAssetInverseMember$AbstractFunctionSection.capella"
+           tab="CybersecurityCapella">
      </propertySection>
      <propertySection
            class="org.polarsys.capella.cybersecurity.ui.properties.sections.PrimaryAssetInverseMember$ExchangeItemSection"
            filter="org.polarsys.capella.cybersecurity.ui.properties.sections.PrimaryAssetInverseMember$ExchangeItemSection"
-           id="cybersecurity.PrimaryAssetInverseExchangeItem"
-           tab="cyber_ActorAttributes">
+           id="org.polarsys.capella.cybersecurity.ui.properties.sections.PrimaryAssetInverseMember$ExchangeItemSection.capella"
+           tab="CybersecurityCapella">
      </propertySection>
      <propertySection
            class="org.polarsys.capella.cybersecurity.ui.properties.sections.FunctionCybersecuritySection"
            filter="org.polarsys.capella.cybersecurity.ui.properties.sections.FunctionCybersecuritySection"
-           id="cybersecurity.FunctionCybersecuritySection"
-           tab="cyber_ActorAttributes">
+           id="org.polarsys.capella.cybersecurity.ui.properties.sections.FunctionCybersecuritySection.capella"
+           tab="CybersecurityCapella">
      </propertySection>
      <propertySection
            class="org.polarsys.capella.cybersecurity.ui.properties.sections.InformationPrimaryAssetSection"
            filter="org.polarsys.capella.cybersecurity.ui.properties.sections.InformationPrimaryAssetSection"
-           id="cybersecurity.InformationPrimaryAssetSection"
-           tab="cyber_ActorAttributes">
+           id="org.polarsys.capella.cybersecurity.ui.properties.sections.InformationPrimaryAssetSection.capella"
+           tab="CybersecurityCapella">
      </propertySection>
      <propertySection
            class="org.polarsys.capella.cybersecurity.ui.properties.sections.FunctionalPrimaryAssetSection"
            filter="org.polarsys.capella.cybersecurity.ui.properties.sections.FunctionalPrimaryAssetSection"
-           id="cybersecurity.FunctionalPrimaryAssetSection"
-           tab="cyber_ActorAttributes">
+           id="org.polarsys.capella.cybersecurity.ui.properties.sections.FunctionalPrimaryAssetSection.capella"
+           tab="CybersecurityCapella">
      </propertySection>
      <propertySection
            class="org.polarsys.capella.cybersecurity.ui.properties.sections.ThreatSection"
            filter="org.polarsys.capella.cybersecurity.ui.properties.sections.ThreatSection"
-           id="cybersecurity.ThreatSection"
-           tab="cyber_ActorAttributes">
+           id="org.polarsys.capella.cybersecurity.ui.properties.sections.ThreatSection.capella"
+           tab="CybersecurityCapella">
      </propertySection>
      <propertySection
            class="org.polarsys.capella.cybersecurity.ui.properties.sections.ActorCybersecuritySection"
            filter="org.polarsys.capella.cybersecurity.ui.properties.sections.ActorCybersecuritySection"
-           id="cybersecurity.ActorSection"
-           tab="cyber_ActorAttributes">
+           id="org.polarsys.capella.cybersecurity.ui.properties.sections.ActorCybersecuritySection.capella"
+           tab="CybersecurityCapella">
      </propertySection>
      <propertySection
            class="org.polarsys.capella.cybersecurity.ui.properties.sections.SecurityAwareNamedElementSection"
            filter="org.polarsys.capella.cybersecurity.ui.properties.sections.SecurityAwareNamedElementSection"
-           id="cybersecurity.NamedElementSection"
-           tab="cyber_ActorAttributes">
+           id="org.polarsys.capella.cybersecurity.ui.properties.sections.SecurityAwareNamedElementSection.capella"
+           tab="CybersecurityCapella">
      </propertySection>
+     <propertySection
+         class="org.polarsys.capella.cybersecurity.ui.properties.sections.RelationshipSection"
+         filter="org.polarsys.capella.cybersecurity.ui.properties.sections.RelationshipSection"
+         id="org.polarsys.capella.cybersecurity.ui.properties.sections.RelationshipSection.capella"
+         tab="CybersecurityCapella">
+     </propertySection> 
+   <propertySection
+         class="org.polarsys.capella.cybersecurity.ui.properties.sections.PrimaryAssetMemberSection"
+         filter="org.polarsys.capella.cybersecurity.ui.properties.sections.PrimaryAssetMemberSection"
+         id="org.polarsys.capella.cybersecurity.ui.properties.sections.PrimaryAssetMemberSection.capella"
+         tab="CybersecurityCapella">
+   </propertySection> 
 		    </propertySections>
 </extension>
 <extension
@@ -260,9 +285,9 @@
    </commonWizard>
       <commonFilter
       		activeByDefault="true"
-            description="Hides all Cyber Security technical elements"
+            description="Hides all Cybersecurity technical elements"
             id="capella.project.explorer.filters.type"
-            name="Cyber Security technical elements">
+            name="Cybersecurity technical elements">
          <filterExpression>
          <or>
          	<instanceof

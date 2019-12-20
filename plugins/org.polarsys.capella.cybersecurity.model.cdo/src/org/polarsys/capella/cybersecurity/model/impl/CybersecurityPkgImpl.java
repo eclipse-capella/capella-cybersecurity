@@ -17,6 +17,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.polarsys.capella.core.data.capellacore.impl.NamedElementImpl;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
@@ -30,12 +31,9 @@ import org.polarsys.capella.cybersecurity.model.Threat;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.polarsys.capella.cybersecurity.model.impl.CybersecurityPkgImpl#getOwnedThreats <em>Owned
- * Threats</em>}</li>
- * <li>{@link org.polarsys.capella.cybersecurity.model.impl.CybersecurityPkgImpl#getOwnedCybersecurityPkgs <em>Owned
- * Cybersecurity Pkgs</em>}</li>
- * <li>{@link org.polarsys.capella.cybersecurity.model.impl.CybersecurityPkgImpl#getOwnedPrimaryAssets <em>Owned Primary
- * Assets</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.CybersecurityPkgImpl#getOwnedThreats <em>Owned Threats</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.CybersecurityPkgImpl#getOwnedCybersecurityPkgs <em>Owned Cybersecurity Pkgs</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.CybersecurityPkgImpl#getOwnedPrimaryAssets <em>Owned Primary Assets</em>}</li>
  * </ul>
  *
  * @generated
@@ -44,7 +42,6 @@ public class CybersecurityPkgImpl extends NamedElementImpl implements Cybersecur
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   protected CybersecurityPkgImpl() {
@@ -55,7 +52,6 @@ public class CybersecurityPkgImpl extends NamedElementImpl implements Cybersecur
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -65,11 +61,11 @@ public class CybersecurityPkgImpl extends NamedElementImpl implements Cybersecur
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
   @SuppressWarnings("unchecked")
+  @Override
   public EList<Threat> getOwnedThreats() {
 
     return (EList<Threat>) eDynamicGet(CybersecurityPackage.CYBERSECURITY_PKG__OWNED_THREATS,
@@ -78,11 +74,11 @@ public class CybersecurityPkgImpl extends NamedElementImpl implements Cybersecur
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
   @SuppressWarnings("unchecked")
+  @Override
   public EList<CybersecurityPkg> getOwnedCybersecurityPkgs() {
 
     return (EList<CybersecurityPkg>) eDynamicGet(CybersecurityPackage.CYBERSECURITY_PKG__OWNED_CYBERSECURITY_PKGS,
@@ -91,11 +87,11 @@ public class CybersecurityPkgImpl extends NamedElementImpl implements Cybersecur
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
   @SuppressWarnings("unchecked")
+  @Override
   public EList<PrimaryAsset> getOwnedPrimaryAssets() {
 
     return (EList<PrimaryAsset>) eDynamicGet(CybersecurityPackage.CYBERSECURITY_PKG__OWNED_PRIMARY_ASSETS,
@@ -104,7 +100,6 @@ public class CybersecurityPkgImpl extends NamedElementImpl implements Cybersecur
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -122,7 +117,6 @@ public class CybersecurityPkgImpl extends NamedElementImpl implements Cybersecur
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -140,7 +134,6 @@ public class CybersecurityPkgImpl extends NamedElementImpl implements Cybersecur
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @SuppressWarnings("unchecked")
@@ -165,7 +158,6 @@ public class CybersecurityPkgImpl extends NamedElementImpl implements Cybersecur
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -186,7 +178,6 @@ public class CybersecurityPkgImpl extends NamedElementImpl implements Cybersecur
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override

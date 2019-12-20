@@ -21,7 +21,6 @@ import org.polarsys.kitalpha.emde.model.edit.provider.helpers.EMDEHelper;
 public class CommonHelpers {
 
   public static boolean canBeExtendedBy(EObject parent, EClass extensionClass) {
-
     Collection<EClass> extendedElements = EMDEHelper.getExtendedElement(new BasicDiagnostic(), extensionClass);
     for (EClass extendedElement : extendedElements) {
       if (extendedElement.isInstance(parent)) {

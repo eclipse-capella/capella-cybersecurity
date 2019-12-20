@@ -136,7 +136,6 @@ public abstract class PrimaryAssetInverseMember extends AbstractSection {
     protected void doAddOperationInWriteOpenValues(EObject semanticElement, EStructuralFeature semanticFeature,
         EObject fpa) {
       PrimaryAssetMember m = CybersecurityFactory.eINSTANCE.createPrimaryAssetMember();
-      m.setAsset((PrimaryAsset) fpa);
       m.setMember((ModelElement) semanticElement);
       ((PrimaryAsset)fpa).getOwnedMembers().add(m);
     }

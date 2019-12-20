@@ -49,7 +49,7 @@ public class SecurityNeedsSection extends AbstractSection {
   private IntegerValueGroup integrity;
   private IntegerValueGroup traceability;
   private IntegerValueGroup availability;
-  
+
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * 
@@ -93,7 +93,6 @@ public class SecurityNeedsSection extends AbstractSection {
     }
   }
 
-
   private EObject getSecurityNeedsObject(EObject parent) {
     if (parent == null)
       return null;
@@ -105,25 +104,18 @@ public class SecurityNeedsSection extends AbstractSection {
       return null;
 
     EObject result = null;
-    for (EObject iEObject : parent.eContents()) {
-      if (iEObject instanceof SecurityNeeds) {
-        result =  iEObject;
+    EReference storageRef = getStorageRef(parent);
+    if (storageRef != null) {
+      for (Adapter adapter : parent.eAdapters()) {
+        if (adapter instanceof ElementExtensionStorage
+            && ((ElementExtensionStorage<?>) adapter).getExtension() instanceof SecurityNeeds) {
+          result = ((ElementExtensionStorage<?>) adapter).getExtension();
+        }
       }
-    }
-    if (result == null) {
-      EReference storageRef = getStorageRef(parent);
-      if (storageRef != null) {
-        for (Adapter adapter : parent.eAdapters()) {
-          if (adapter instanceof ElementExtensionStorage
-              && ((ElementExtensionStorage<?>) adapter).getExtension() instanceof SecurityNeeds) {
-            result = ((ElementExtensionStorage<?>) adapter).getExtension();
-          }
-        }
-        if (result == null) {
-          ElementExtensionStorage<TrustBoundaryStorage> adapter = new ElementExtensionStorageImpl<>(
-              (ExtensibleElement) parent, CybersecurityPackage.Literals.SECURITY_NEEDS);
-          result = adapter.getExtension();
-        }
+      if (result == null) {
+        ElementExtensionStorage<TrustBoundaryStorage> adapter = new ElementExtensionStorageImpl<>(
+            (ExtensibleElement) parent, CybersecurityPackage.Literals.SECURITY_NEEDS);
+        result = adapter.getExtension();
       }
     }
     return result;
@@ -131,24 +123,14 @@ public class SecurityNeedsSection extends AbstractSection {
 
   private EReference getStorageRef(EObject parent) {
 
-    // We allow to show security needs on cybersecurity objects with a 
-    // containment ref of the matching type ...
-    if (parent.eClass().getEPackage() == CybersecurityPackage.eINSTANCE) {
-      for (EReference e : parent.eClass().getEAllContainments()) {
-        if (e.getEType() == CybersecurityPackage.Literals.SECURITY_NEEDS) {
-          return e;
-        }
-      }
-    }
-
-    // ... and suitable extensible emde objects 
+    // ... and suitable extensible emde objects
     if (CommonHelpers.canBeExtendedBy(parent, CybersecurityPackage.Literals.SECURITY_NEEDS)) {
       return EmdePackage.Literals.EXTENSIBLE_ELEMENT__OWNED_EXTENSIONS;
     }
-    
+
     return null;
   }
-  
+
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * 
@@ -168,8 +150,7 @@ public class SecurityNeedsSection extends AbstractSection {
     layout.marginHeight = 0;
     group.setLayout(layout);
     group.setLayoutData(gd);
-    
-    
+
     confidentiality = createIntegerValueGroup(group, Messages.SecurityNeedsSection_1);
     integrity = createIntegerValueGroup(group, Messages.SecurityNeedsSection_2);
     traceability = createIntegerValueGroup(group, Messages.SecurityNeedsSection_3);
@@ -232,7 +213,5 @@ public class SecurityNeedsSection extends AbstractSection {
       loadData(elementExtension);
     }
   }
-  
-  
-  
+
 }

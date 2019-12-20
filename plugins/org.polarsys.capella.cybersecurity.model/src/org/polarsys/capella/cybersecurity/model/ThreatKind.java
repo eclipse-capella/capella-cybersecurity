@@ -20,154 +20,152 @@ import org.eclipse.emf.common.util.Enumerator;
 /**
  * <!-- begin-user-doc --> A representation of the literals of the enumeration '<em><b>Threat Kind</b></em>', and
  * utility methods for working with them. <!-- end-user-doc -->
- * 
  * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getThreatKind()
  * @model
  * @generated
  */
 public enum ThreatKind implements Enumerator {
   /**
-   * The '<em><b>Eavesdropping</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * The '<em><b>Eavesdropping</b></em>' literal object.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @see #EAVESDROPPING_VALUE
    * @generated
    * @ordered
    */
-  EAVESDROPPING(0, "Eavesdropping", "Eavesdropping"), //$NON-NLS-1$ //$NON-NLS-2$
+  EAVESDROPPING(0, "Eavesdropping", "EAVESDROPPING"), //$NON-NLS-1$ //$NON-NLS-2$
 
   /**
-   * The '<em><b>Theft and data alteration</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * The '<em><b>Theft and data alteration</b></em>' literal object.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @see #THEFT_AND_DATA_ALTERATION_VALUE
    * @generated
    * @ordered
    */
-  THEFT_AND_DATA_ALTERATION(1, "Theft_and_data_alteration", "Theft_and_data_alteration"), //$NON-NLS-1$ //$NON-NLS-2$
+  THEFT_AND_DATA_ALTERATION(1, "Theft_and_data_alteration", "THEFT_AND_DATA_ALTERATION"), //$NON-NLS-1$ //$NON-NLS-2$
 
   /**
-   * The '<em><b>Denial of service</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * The '<em><b>Denial of service</b></em>' literal object.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @see #DENIAL_OF_SERVICE_VALUE
    * @generated
    * @ordered
    */
-  DENIAL_OF_SERVICE(2, "Denial_of_service", "Denial_of_service"), //$NON-NLS-1$ //$NON-NLS-2$
+  DENIAL_OF_SERVICE(2, "Denial_of_service", "DENIAL_OF_SERVICE"), //$NON-NLS-1$ //$NON-NLS-2$
 
   /**
-   * The '<em><b>Intrusion</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * The '<em><b>Intrusion</b></em>' literal object.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @see #INTRUSION_VALUE
    * @generated
    * @ordered
    */
-  INTRUSION(3, "Intrusion", "Intrusion"), //$NON-NLS-1$ //$NON-NLS-2$
+  INTRUSION(3, "Intrusion", "INTRUSION"), //$NON-NLS-1$ //$NON-NLS-2$
 
   /**
-   * The '<em><b>Tampering</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * The '<em><b>Tampering</b></em>' literal object.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @see #TAMPERING_VALUE
    * @generated
    * @ordered
    */
-  TAMPERING(4, "Tampering", "Tampering"); //$NON-NLS-1$ //$NON-NLS-2$
+  TAMPERING(4, "Tampering", "TAMPERING"); //$NON-NLS-1$ //$NON-NLS-2$
 
   /**
-   * The '<em><b>Eavesdropping</b></em>' literal value. <!-- begin-user-doc -->
+   * The '<em><b>Eavesdropping</b></em>' literal value.
+   * <!-- begin-user-doc -->
    * <p>
    * If the meaning of '<em><b>Eavesdropping</b></em>' literal object isn't clear, there really should be more of a
    * description here...
    * </p>
    * <!-- end-user-doc -->
-   * 
    * @see #EAVESDROPPING
-   * @model name="Eavesdropping"
+   * @model name="Eavesdropping" literal="EAVESDROPPING"
    * @generated
    * @ordered
    */
   public static final int EAVESDROPPING_VALUE = 0;
 
   /**
-   * The '<em><b>Theft and data alteration</b></em>' literal value. <!-- begin-user-doc -->
+   * The '<em><b>Theft and data alteration</b></em>' literal value.
+   * <!-- begin-user-doc -->
    * <p>
    * If the meaning of '<em><b>Theft and data alteration</b></em>' literal object isn't clear, there really should be
    * more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * 
    * @see #THEFT_AND_DATA_ALTERATION
-   * @model name="Theft_and_data_alteration"
+   * @model name="Theft_and_data_alteration" literal="THEFT_AND_DATA_ALTERATION"
    * @generated
    * @ordered
    */
   public static final int THEFT_AND_DATA_ALTERATION_VALUE = 1;
 
   /**
-   * The '<em><b>Denial of service</b></em>' literal value. <!-- begin-user-doc -->
+   * The '<em><b>Denial of service</b></em>' literal value.
+   * <!-- begin-user-doc -->
    * <p>
    * If the meaning of '<em><b>Denial of service</b></em>' literal object isn't clear, there really should be more of a
    * description here...
    * </p>
    * <!-- end-user-doc -->
-   * 
    * @see #DENIAL_OF_SERVICE
-   * @model name="Denial_of_service"
+   * @model name="Denial_of_service" literal="DENIAL_OF_SERVICE"
    * @generated
    * @ordered
    */
   public static final int DENIAL_OF_SERVICE_VALUE = 2;
 
   /**
-   * The '<em><b>Intrusion</b></em>' literal value. <!-- begin-user-doc -->
+   * The '<em><b>Intrusion</b></em>' literal value.
+   * <!-- begin-user-doc -->
    * <p>
    * If the meaning of '<em><b>Intrusion</b></em>' literal object isn't clear, there really should be more of a
    * description here...
    * </p>
    * <!-- end-user-doc -->
-   * 
    * @see #INTRUSION
-   * @model name="Intrusion"
+   * @model name="Intrusion" literal="INTRUSION"
    * @generated
    * @ordered
    */
   public static final int INTRUSION_VALUE = 3;
 
   /**
-   * The '<em><b>Tampering</b></em>' literal value. <!-- begin-user-doc -->
+   * The '<em><b>Tampering</b></em>' literal value.
+   * <!-- begin-user-doc -->
    * <p>
    * If the meaning of '<em><b>Tampering</b></em>' literal object isn't clear, there really should be more of a
    * description here...
    * </p>
    * <!-- end-user-doc -->
-   * 
    * @see #TAMPERING
-   * @model name="Tampering"
+   * @model name="Tampering" literal="TAMPERING"
    * @generated
    * @ordered
    */
   public static final int TAMPERING_VALUE = 4;
 
   /**
-   * An array of all the '<em><b>Threat Kind</b></em>' enumerators. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * An array of all the '<em><b>Threat Kind</b></em>' enumerators.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   private static final ThreatKind[] VALUES_ARRAY = new ThreatKind[] { EAVESDROPPING, THEFT_AND_DATA_ALTERATION,
       DENIAL_OF_SERVICE, INTRUSION, TAMPERING, };
 
   /**
-   * A public read-only list of all the '<em><b>Threat Kind</b></em>' enumerators. <!-- begin-user-doc --> <!--
+   * A public read-only list of all the '<em><b>Threat Kind</b></em>' enumerators.
+   * <!-- begin-user-doc --> <!--
    * end-user-doc -->
-   * 
    * @generated
    */
   public static final List<ThreatKind> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
   /**
-   * Returns the '<em><b>Threat Kind</b></em>' literal with the specified literal value. <!-- begin-user-doc --> <!--
+   * Returns the '<em><b>Threat Kind</b></em>' literal with the specified literal value.
+   * <!-- begin-user-doc --> <!--
    * end-user-doc -->
-   * 
-   * @param literal
-   *          the literal.
+   * @param literal the literal.
    * @return the matching enumerator or <code>null</code>.
    * @generated
    */
@@ -182,11 +180,10 @@ public enum ThreatKind implements Enumerator {
   }
 
   /**
-   * Returns the '<em><b>Threat Kind</b></em>' literal with the specified name. <!-- begin-user-doc --> <!--
+   * Returns the '<em><b>Threat Kind</b></em>' literal with the specified name.
+   * <!-- begin-user-doc --> <!--
    * end-user-doc -->
-   * 
-   * @param name
-   *          the name.
+   * @param name the name.
    * @return the matching enumerator or <code>null</code>.
    * @generated
    */
@@ -201,11 +198,10 @@ public enum ThreatKind implements Enumerator {
   }
 
   /**
-   * Returns the '<em><b>Threat Kind</b></em>' literal with the specified integer value. <!-- begin-user-doc --> <!--
+   * Returns the '<em><b>Threat Kind</b></em>' literal with the specified integer value.
+   * <!-- begin-user-doc --> <!--
    * end-user-doc -->
-   * 
-   * @param value
-   *          the integer value.
+   * @param value the integer value.
    * @return the matching enumerator or <code>null</code>.
    * @generated
    */
@@ -227,28 +223,25 @@ public enum ThreatKind implements Enumerator {
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   private final int value;
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   private final String name;
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   private final String literal;
 
   /**
-   * Only this class can construct instances. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * Only this class can construct instances.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   private ThreatKind(int value, String name, String literal) {
@@ -259,35 +252,35 @@ public enum ThreatKind implements Enumerator {
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
+  @Override
   public int getValue() {
     return value;
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
+  @Override
   public String getName() {
     return name;
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
+  @Override
   public String getLiteral() {
     return literal;
   }
 
   /**
-   * Returns the literal value of the enumerator, which is its string representation. <!-- begin-user-doc --> <!--
+   * Returns the literal value of the enumerator, which is its string representation.
+   * <!-- begin-user-doc --> <!--
    * end-user-doc -->
-   * 
    * @generated
    */
   @Override

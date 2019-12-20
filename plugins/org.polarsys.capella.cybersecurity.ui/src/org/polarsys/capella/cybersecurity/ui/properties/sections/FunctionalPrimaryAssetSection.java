@@ -49,7 +49,7 @@ public class FunctionalPrimaryAssetSection extends AbstractSection {
     memberGroup.setLayoutData(layoutData);
 
     _containmentTableField = new ContainmentTableField(memberGroup, getWidgetFactory(),
-        CybersecurityPackage.Literals.PRIMARY_ASSET_MEMBER__ASSET,
+        null,
         CybersecurityPackage.Literals.PRIMARY_ASSET_MEMBER__MEMBER, CybersecurityPackage.Literals.PRIMARY_ASSET_MEMBER,
         Messages.FunctionalPrimaryAssetSection_0, Messages.FunctionalPrimaryAssetSection_1);
     _containmentTableField.setDisplayedInWizard(displayedInWizard);

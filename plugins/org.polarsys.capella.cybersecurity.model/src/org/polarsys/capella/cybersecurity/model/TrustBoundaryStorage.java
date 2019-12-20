@@ -22,18 +22,15 @@ import org.polarsys.kitalpha.emde.model.ElementExtension;
  * The following features are supported:
  * </p>
  * <ul>
- * <li>{@link org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage#isThreatSource <em>Threat Source</em>}</li>
- * <li>{@link org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage#getThreatSourceProfile <em>Threat Source
- * Profile</em>}</li>
- * <li>{@link org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage#isTrusted <em>Trusted</em>}</li>
- * <li>{@link org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage#getRationale <em>Rationale</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage#isThreatSource <em>Threat Source</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage#getThreatSourceProfile <em>Threat Source Profile</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage#isTrusted <em>Trusted</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage#getRationale <em>Rationale</em>}</li>
  * </ul>
  *
  * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getTrustBoundaryStorage()
- * @model annotation="http://www.polarsys.org/kitalpha/emde/1.0.0/constraint ExtendedElement='
- *        http://www.polarsys.org/capella/core/cs/1.4.0#//Component'"
- *        annotation="http://www.polarsys.org/kitalpha/emde/1.0.0/constraintMapping Mapping='
- *        platform:/plugin/org.polarsys.capella.core.data.gen/model/CompositeStructure.ecore#//Component\r\n'"
+ * @model annotation="http://www.polarsys.org/kitalpha/emde/1.0.0/constraint ExtendedElement=' http://www.polarsys.org/capella/core/cs/1.4.0#//Component'"
+ *        annotation="http://www.polarsys.org/kitalpha/emde/1.0.0/constraintMapping Mapping=' platform:/plugin/org.polarsys.capella.core.data.gen/model/CompositeStructure.ecore#//Component\r\n'"
  * @generated
  */
 
@@ -41,14 +38,13 @@ public interface TrustBoundaryStorage extends ModelElement, ElementExtension {
 
   /**
    * Returns the value of the '<em><b>Threat Source</b></em>' attribute.
-   * 
+  
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Threat Source</em>' attribute isn't clear, there really should be more of a description
    * here...
    * </p>
    * <!-- end-user-doc -->
-   * 
    * @return the value of the '<em>Threat Source</em>' attribute.
    * @see #setThreatSource(boolean)
    * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getTrustBoundaryStorage_ThreatSource()
@@ -59,13 +55,10 @@ public interface TrustBoundaryStorage extends ModelElement, ElementExtension {
   boolean isThreatSource();
 
   /**
-   * Sets the value of the '{@link org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage#isThreatSource
-   * <em>Threat Source</em>}' attribute.
-   * 
+   * Sets the value of the '{@link org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage#isThreatSource <em>Threat Source</em>}' attribute.
+  
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
-   * @param value
-   *          the new value of the '<em>Threat Source</em>' attribute.
+   * @param value the new value of the '<em>Threat Source</em>' attribute.
    * @see #isThreatSource()
    * @generated
    */
@@ -74,14 +67,13 @@ public interface TrustBoundaryStorage extends ModelElement, ElementExtension {
 
   /**
    * Returns the value of the '<em><b>Threat Source Profile</b></em>' attribute.
-   * 
+  
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Threat Source Profile</em>' attribute isn't clear, there really should be more of a
    * description here...
    * </p>
    * <!-- end-user-doc -->
-   * 
    * @return the value of the '<em>Threat Source Profile</em>' attribute.
    * @see #setThreatSourceProfile(int)
    * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getTrustBoundaryStorage_ThreatSourceProfile()
@@ -92,13 +84,10 @@ public interface TrustBoundaryStorage extends ModelElement, ElementExtension {
   int getThreatSourceProfile();
 
   /**
-   * Sets the value of the '{@link org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage#getThreatSourceProfile
-   * <em>Threat Source Profile</em>}' attribute.
-   * 
+   * Sets the value of the '{@link org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage#getThreatSourceProfile <em>Threat Source Profile</em>}' attribute.
+  
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
-   * @param value
-   *          the new value of the '<em>Threat Source Profile</em>' attribute.
+   * @param value the new value of the '<em>Threat Source Profile</em>' attribute.
    * @see #getThreatSourceProfile()
    * @generated
    */
@@ -106,15 +95,15 @@ public interface TrustBoundaryStorage extends ModelElement, ElementExtension {
   void setThreatSourceProfile(int value);
 
   /**
-   * Returns the value of the '<em><b>Trusted</b></em>' attribute. The default value is <code>"true"</code>.
-   * 
+   * Returns the value of the '<em><b>Trusted</b></em>' attribute.
+   * The default value is <code>"true"</code>.
+  
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Trusted</em>' attribute isn't clear, there really should be more of a description
    * here...
    * </p>
    * <!-- end-user-doc -->
-   * 
    * @return the value of the '<em>Trusted</em>' attribute.
    * @see #setTrusted(boolean)
    * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getTrustBoundaryStorage_Trusted()
@@ -125,13 +114,10 @@ public interface TrustBoundaryStorage extends ModelElement, ElementExtension {
   boolean isTrusted();
 
   /**
-   * Sets the value of the '{@link org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage#isTrusted
-   * <em>Trusted</em>}' attribute.
-   * 
+   * Sets the value of the '{@link org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage#isTrusted <em>Trusted</em>}' attribute.
+  
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
-   * @param value
-   *          the new value of the '<em>Trusted</em>' attribute.
+   * @param value the new value of the '<em>Trusted</em>' attribute.
    * @see #isTrusted()
    * @generated
    */
@@ -140,14 +126,13 @@ public interface TrustBoundaryStorage extends ModelElement, ElementExtension {
 
   /**
    * Returns the value of the '<em><b>Rationale</b></em>' attribute.
-   * 
+  
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Rationale</em>' attribute isn't clear, there really should be more of a description
    * here...
    * </p>
    * <!-- end-user-doc -->
-   * 
    * @return the value of the '<em>Rationale</em>' attribute.
    * @see #setRationale(String)
    * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getTrustBoundaryStorage_Rationale()
@@ -158,13 +143,10 @@ public interface TrustBoundaryStorage extends ModelElement, ElementExtension {
   String getRationale();
 
   /**
-   * Sets the value of the '{@link org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage#getRationale
-   * <em>Rationale</em>}' attribute.
-   * 
+   * Sets the value of the '{@link org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage#getRationale <em>Rationale</em>}' attribute.
+  
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
-   * @param value
-   *          the new value of the '<em>Rationale</em>' attribute.
+   * @param value the new value of the '<em>Rationale</em>' attribute.
    * @see #getRationale()
    * @generated
    */

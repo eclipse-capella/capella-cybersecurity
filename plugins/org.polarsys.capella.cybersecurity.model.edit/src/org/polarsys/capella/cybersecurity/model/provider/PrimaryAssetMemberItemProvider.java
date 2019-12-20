@@ -25,6 +25,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.polarsys.capella.core.data.capellacore.provider.RelationshipItemProvider;
 import org.polarsys.capella.common.data.modellingcore.ModellingcorePackage;
 import org.polarsys.capella.common.data.modellingcore.provider.ModelElementItemProvider;
 import org.polarsys.capella.core.data.capellacore.CapellacoreFactory;
@@ -43,25 +44,23 @@ import org.polarsys.kitalpha.emde.model.edit.provider.NewChildDescriptorHelper;
  * @superClass ExtensionItemProviderAdapter <!-- end-user-doc -->
  * @generated
  */
-public class PrimaryAssetMemberItemProvider extends ModelElementItemProvider implements IEditingDomainItemProvider,
+public class PrimaryAssetMemberItemProvider extends RelationshipItemProvider implements IEditingDomainItemProvider,
     IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   protected IItemPropertyDescriptor assetPropertyDescriptor;
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   protected IItemPropertyDescriptor memberPropertyDescriptor;
 
   /**
-   * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This constructs an instance from a factory and a notifier.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   public PrimaryAssetMemberItemProvider(AdapterFactory adapterFactory) {
@@ -70,7 +69,6 @@ public class PrimaryAssetMemberItemProvider extends ModelElementItemProvider imp
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -108,8 +106,8 @@ public class PrimaryAssetMemberItemProvider extends ModelElementItemProvider imp
   }
 
   /**
-   * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This returns the property descriptors for the adapted class.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -127,19 +125,19 @@ public class PrimaryAssetMemberItemProvider extends ModelElementItemProvider imp
   }
 
   /**
-   * This adds a property descriptor for the Asset feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This adds a property descriptor for the Asset feature.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   protected void addAssetPropertyDescriptor(Object object) {
     // begin-extension-code
     assetPropertyDescriptor = createItemPropertyDescriptor
-    // end-extension-code
+    // end-extension-code		
     (((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
         getString("_UI_PrimaryAssetMember_asset_feature"), //$NON-NLS-1$
         getString("_UI_PropertyDescriptor_description", "_UI_PrimaryAssetMember_asset_feature", //$NON-NLS-1$//$NON-NLS-2$
             "_UI_PrimaryAssetMember_type"), //$NON-NLS-1$
-        CybersecurityPackage.Literals.PRIMARY_ASSET_MEMBER__ASSET, true, false, true, null, null,
+        CybersecurityPackage.Literals.PRIMARY_ASSET_MEMBER__ASSET, false, false, false, null, null,
         // begin-extension-code
         null);
     itemPropertyDescriptors.add(assetPropertyDescriptor);
@@ -147,14 +145,14 @@ public class PrimaryAssetMemberItemProvider extends ModelElementItemProvider imp
   }
 
   /**
-   * This adds a property descriptor for the Member feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This adds a property descriptor for the Member feature.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   protected void addMemberPropertyDescriptor(Object object) {
     // begin-extension-code
     memberPropertyDescriptor = createItemPropertyDescriptor
-    // end-extension-code
+    // end-extension-code		
     (((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
         getString("_UI_PrimaryAssetMember_member_feature"), //$NON-NLS-1$
         getString("_UI_PropertyDescriptor_description", "_UI_PrimaryAssetMember_member_feature", //$NON-NLS-1$//$NON-NLS-2$
@@ -168,7 +166,6 @@ public class PrimaryAssetMemberItemProvider extends ModelElementItemProvider imp
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -177,8 +174,18 @@ public class PrimaryAssetMemberItemProvider extends ModelElementItemProvider imp
   }
 
   /**
-   * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  protected boolean shouldComposeCreationImage() {
+    return true;
+  }
+
+  /**
+   * This returns the label text for the adapted class.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -191,21 +198,20 @@ public class PrimaryAssetMemberItemProvider extends ModelElementItemProvider imp
   }
 
   /**
-   * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating a
-   * viewer notification, which it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This handles model notifications by calling {@link #updateChildren} to update any cached
+   * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
   public void notifyChanged(Notification notification) {
     updateChildren(notification);
-    super.notifyChanged(notification);
   }
 
   /**
-   * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that can be created under
-   * this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+   * that can be created under this object.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -282,17 +288,6 @@ public class PrimaryAssetMemberItemProvider extends ModelElementItemProvider imp
       CommandParameter commandParameter = createChildParameter(
           EmdePackage.Literals.EXTENSIBLE_ELEMENT__OWNED_EXTENSIONS,
           CybersecurityFactory.eINSTANCE.createTrustBoundaryStorage());
-      if (NewChildDescriptorHelper.isValidCommand(object, commandParameter)) {
-        newChildDescriptors.add(commandParameter);
-      }
-    }
-    // end-extension-code
-
-    // begin-extension-code
-    {
-      CommandParameter commandParameter = createChildParameter(
-          ModellingcorePackage.Literals.MODEL_ELEMENT__OWNED_CONSTRAINTS,
-          CapellacoreFactory.eINSTANCE.createConstraint());
       if (NewChildDescriptorHelper.isValidCommand(object, commandParameter)) {
         newChildDescriptors.add(commandParameter);
       }

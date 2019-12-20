@@ -30,10 +30,10 @@ import org.polarsys.capella.cybersecurity.model.ThreatKind;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatImpl#getAddressedBy <em>Addressed By</em>}</li>
- * <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatImpl#getThreatKind <em>Threat Kind</em>}</li>
- * <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatImpl#getLevel <em>Level</em>}</li>
- * <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatImpl#getRationale <em>Rationale</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatImpl#getAddressedBy <em>Addressed By</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatImpl#getThreatKind <em>Threat Kind</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatImpl#getLevel <em>Level</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatImpl#getRationale <em>Rationale</em>}</li>
  * </ul>
  *
  * @generated
@@ -41,9 +41,9 @@ import org.polarsys.capella.cybersecurity.model.ThreatKind;
 public class ThreatImpl extends NamedElementImpl implements Threat {
 
   /**
-   * The cached value of the '{@link #getAddressedBy() <em>Addressed By</em>}' reference list. <!-- begin-user-doc -->
+   * The cached value of the '{@link #getAddressedBy() <em>Addressed By</em>}' reference list.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * 
    * @see #getAddressedBy()
    * @generated
    * @ordered
@@ -51,9 +51,9 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
   protected EList<Component> addressedBy;
 
   /**
-   * The default value of the '{@link #getThreatKind() <em>Threat Kind</em>}' attribute. <!-- begin-user-doc --> <!--
+   * The default value of the '{@link #getThreatKind() <em>Threat Kind</em>}' attribute.
+   * <!-- begin-user-doc --> <!--
    * end-user-doc -->
-   * 
    * @see #getThreatKind()
    * @generated
    * @ordered
@@ -61,9 +61,9 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
   protected static final ThreatKind THREAT_KIND_EDEFAULT = ThreatKind.EAVESDROPPING;
 
   /**
-   * The cached value of the '{@link #getThreatKind() <em>Threat Kind</em>}' attribute. <!-- begin-user-doc --> <!--
+   * The cached value of the '{@link #getThreatKind() <em>Threat Kind</em>}' attribute.
+   * <!-- begin-user-doc --> <!--
    * end-user-doc -->
-   * 
    * @see #getThreatKind()
    * @generated
    * @ordered
@@ -91,9 +91,9 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
   protected int level = LEVEL_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getRationale() <em>Rationale</em>}' attribute. <!-- begin-user-doc --> <!--
+   * The default value of the '{@link #getRationale() <em>Rationale</em>}' attribute.
+   * <!-- begin-user-doc --> <!--
    * end-user-doc -->
-   * 
    * @see #getRationale()
    * @generated
    * @ordered
@@ -101,9 +101,9 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
   protected static final String RATIONALE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getRationale() <em>Rationale</em>}' attribute. <!-- begin-user-doc --> <!--
+   * The cached value of the '{@link #getRationale() <em>Rationale</em>}' attribute.
+   * <!-- begin-user-doc --> <!--
    * end-user-doc -->
-   * 
    * @see #getRationale()
    * @generated
    * @ordered
@@ -112,7 +112,6 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   protected ThreatImpl() {
@@ -123,7 +122,6 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -133,10 +131,10 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public EList<Component> getAddressedBy() {
 
     if (addressedBy == null) {
@@ -148,10 +146,10 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public ThreatKind getThreatKind() {
 
     return threatKind;
@@ -159,10 +157,10 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public void setThreatKind(ThreatKind newThreatKind) {
 
     ThreatKind oldThreatKind = threatKind;
@@ -175,10 +173,10 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public int getLevel() {
 
     return level;
@@ -186,10 +184,10 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public void setLevel(int newLevel) {
 
     int oldLevel = level;
@@ -201,10 +199,10 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public String getRationale() {
 
     return rationale;
@@ -212,10 +210,10 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public void setRationale(String newRationale) {
 
     String oldRationale = rationale;
@@ -228,7 +226,6 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -248,7 +245,6 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @SuppressWarnings("unchecked")
@@ -274,7 +270,6 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -298,7 +293,6 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -318,7 +312,6 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -326,7 +319,7 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
     if (eIsProxy())
       return super.toString();
 
-    StringBuffer result = new StringBuffer(super.toString());
+    StringBuilder result = new StringBuilder(super.toString());
     result.append(" (threatKind: "); //$NON-NLS-1$
     result.append(threatKind);
     result.append(", level: "); //$NON-NLS-1$

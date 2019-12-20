@@ -22,7 +22,7 @@ import org.polarsys.capella.core.data.fa.AbstractFunction;
  * The following features are supported:
  * </p>
  * <ul>
- * <li>{@link org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset#getFunctions <em>Functions</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset#getFunctions <em>Functions</em>}</li>
  * </ul>
  *
  * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getFunctionalPrimaryAsset()
@@ -33,16 +33,15 @@ import org.polarsys.capella.core.data.fa.AbstractFunction;
 public interface FunctionalPrimaryAsset extends PrimaryAsset {
 
   /**
-   * Returns the value of the '<em><b>Functions</b></em>' reference list. The list contents are of type
-   * {@link org.polarsys.capella.core.data.fa.AbstractFunction}.
-   * 
+   * Returns the value of the '<em><b>Functions</b></em>' reference list.
+   * The list contents are of type {@link org.polarsys.capella.core.data.fa.AbstractFunction}.
+  
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Functions</em>' reference list isn't clear, there really should be more of a description
    * here...
    * </p>
    * <!-- end-user-doc -->
-   * 
    * @return the value of the '<em>Functions</em>' reference list.
    * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getFunctionalPrimaryAsset_Functions()
    * @model transient="true" changeable="false" volatile="true" derived="true"

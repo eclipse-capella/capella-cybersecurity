@@ -15,13 +15,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+import org.polarsys.capella.common.helpers.EObjectExt;
 import org.polarsys.capella.common.helpers.query.IQuery;
-import org.polarsys.capella.common.platform.sirius.ted.SemanticEditingDomainFactory.SemanticEditingDomain;
 import org.polarsys.capella.core.data.cs.Component;
 import org.polarsys.capella.core.data.cs.Part;
 import org.polarsys.capella.core.data.fa.AbstractFunction;
@@ -48,10 +49,8 @@ public class CybersecurityQueries {
   }
 
   public static Stream<PrimaryAsset> getThreatenedPrimaryAssets(Threat threat) {
-    SemanticEditingDomain domain = (SemanticEditingDomain) SemanticEditingDomain.getEditingDomainFor(threat);
-    return domain.getCrossReferencer()
-        .getInverseReferences(threat, CybersecurityPackage.Literals.THREAT_APPLICATION__THREAT, true).stream()
-        .map(s -> ((ThreatApplication) s.getEObject()).getAsset());
+    return EObjectExt.getReferencers(threat, CybersecurityPackage.Literals.THREAT_APPLICATION__THREAT).stream()
+        .map(s -> ((ThreatApplication) s).getAsset());
   }
 
   public static Stream<AbstractFunctionalBlock> getThreatenedComponents(Threat threat) {
@@ -65,10 +64,8 @@ public class CybersecurityQueries {
   }
 
   public static Stream<Component> getInvolvedComponents(Threat threat) {
-    SemanticEditingDomain domain = (SemanticEditingDomain) SemanticEditingDomain.getEditingDomainFor(threat);
-    return domain.getCrossReferencer()
-        .getInverseReferences(threat, CybersecurityPackage.Literals.THREAT_INVOLVEMENT__THREAT, true).stream()
-        .map(s -> ((ThreatInvolvement) s.getEObject()).getComponent());
+    return EObjectExt.getReferencers(threat, CybersecurityPackage.Literals.THREAT_INVOLVEMENT__THREAT).stream()
+        .map(s -> ((ThreatInvolvement) s).getComponent());
   }
 
   public static Stream<Component> getInvolvedThreatSources(Threat threat) {
@@ -120,10 +117,7 @@ public class CybersecurityQueries {
   }
 
   public static Stream<Threat> getThreatsOf(PrimaryAsset pe) {
-    SemanticEditingDomain domain = (SemanticEditingDomain) SemanticEditingDomain.getEditingDomainFor(pe);
-    return domain.getCrossReferencer()
-        .getInverseReferences(pe, CybersecurityPackage.Literals.THREAT_APPLICATION__ASSET, true).stream()
-        .map(s -> ((ThreatApplication) s.getEObject()).getThreat()).distinct();
+    return pe.getOwnedThreatApplications().stream().map(s -> ((ThreatApplication) s).getThreat()).distinct();
   }
 
   /**
@@ -166,10 +160,7 @@ public class CybersecurityQueries {
   // All threats targeted by a threat involvment link of c
   //
   public static Stream<Threat> getInvolvingThreats(Component c) {
-    SemanticEditingDomain domain = (SemanticEditingDomain) SemanticEditingDomain.getEditingDomainFor(c);
-    return domain.getCrossReferencer()
-        .getInverseReferences(c, CybersecurityPackage.Literals.THREAT_INVOLVEMENT__COMPONENT, true).stream()
-        .map(s -> ((ThreatInvolvement) s.getEObject()).getThreat());
+    return c.getOwnedExtensions().stream().filter(ThreatInvolvement.class::isInstance).map(x -> ((ThreatInvolvement)x).getThreat());
   }
 
   public static Stream<AbstractFunctionalBlock> getSupportingComponents(FunctionalPrimaryAsset fpa) {
@@ -193,17 +184,13 @@ public class CybersecurityQueries {
   }
 
   public static Stream<FunctionalPrimaryAsset> getFunctionalPrimaryAssets(AbstractFunction af) {
-    SemanticEditingDomain domain = (SemanticEditingDomain) SemanticEditingDomain.getEditingDomainFor(af);
-    return domain.getCrossReferencer()
-        .getInverseReferences(af, CybersecurityPackage.Literals.PRIMARY_ASSET_MEMBER__MEMBER, true).stream()
-        .map(s -> (FunctionalPrimaryAsset) ((PrimaryAssetMember) s.getEObject()).getAsset());
+    return EObjectExt.getReferencers(af, CybersecurityPackage.Literals.PRIMARY_ASSET_MEMBER__MEMBER).stream()
+        .map(s -> (FunctionalPrimaryAsset) ((PrimaryAssetMember) s).getAsset());
   }
 
   public static Stream<InformationPrimaryAsset> getInformationPrimaryAssets(ExchangeItem ei) {
-    SemanticEditingDomain domain = (SemanticEditingDomain) SemanticEditingDomain.getEditingDomainFor(ei);
-    return domain.getCrossReferencer()
-        .getInverseReferences(ei, CybersecurityPackage.Literals.PRIMARY_ASSET_MEMBER__MEMBER, true).stream()
-        .map(s -> (InformationPrimaryAsset) ((PrimaryAssetMember) s.getEObject()).getAsset());
+    return EObjectExt.getReferencers(ei, CybersecurityPackage.Literals.PRIMARY_ASSET_MEMBER__MEMBER).stream()
+        .map(s -> (InformationPrimaryAsset) ((PrimaryAssetMember) s).getAsset());
   }
 
   public static Stream<InformationPrimaryAsset> getInformationPrimaryAssets(AbstractFunction af) {
@@ -264,17 +251,13 @@ public class CybersecurityQueries {
   }
 
   public static Stream<FunctionalExchange> getAllocatingFunctionalExchanges(ExchangeItem ei) {
-    SemanticEditingDomain domain = (SemanticEditingDomain) SemanticEditingDomain.getEditingDomainFor(ei);
-    return domain.getCrossReferencer()
-        .getInverseReferences(ei, FaPackage.Literals.FUNCTIONAL_EXCHANGE__EXCHANGED_ITEMS, true).stream()
-        .map(s -> ((FunctionalExchange) s.getEObject()));
+    return EObjectExt.getReferencers(ei, FaPackage.Literals.FUNCTIONAL_EXCHANGE__EXCHANGED_ITEMS).stream()
+        .map(s -> ((FunctionalExchange) s));
   }
 
   public static Stream<AbstractFunction> getAllocatingFunctions(ExchangeItem ei) {
-    SemanticEditingDomain domain = (SemanticEditingDomain) SemanticEditingDomain.getEditingDomainFor(ei);
-    return domain.getCrossReferencer()
-        .getInverseReferences(ei, CybersecurityPackage.Literals.FUNCTION_STORAGE__EXCHANGED_ITEMS, true).stream()
-        .map(s -> ((AbstractFunction) s.getEObject().eContainer()));
+    return EObjectExt.getReferencers(ei, CybersecurityPackage.Literals.FUNCTION_STORAGE__EXCHANGED_ITEMS).stream()
+        .map(s -> ((AbstractFunction) s.eContainer()));
   }
 
   public static Stream<AbstractFunctionalBlock> getSupportingComponents(InformationPrimaryAsset pa) {

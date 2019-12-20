@@ -44,8 +44,8 @@ import org.polarsys.kitalpha.emde.model.edit.provider.NewChildDescriptorHelper;
 public class FunctionStorageItemProvider extends ModelElementItemProvider implements IEditingDomainItemProvider,
     IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
   /**
-   * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This constructs an instance from a factory and a notifier.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   public FunctionStorageItemProvider(AdapterFactory adapterFactory) {
@@ -53,8 +53,8 @@ public class FunctionStorageItemProvider extends ModelElementItemProvider implem
   }
 
   /**
-   * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This returns the property descriptors for the adapted class.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -73,8 +73,8 @@ public class FunctionStorageItemProvider extends ModelElementItemProvider implem
   }
 
   /**
-   * This adds a property descriptor for the Exchanged Items feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This adds a property descriptor for the Exchanged Items feature.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   protected void addExchangedItemsPropertyDescriptor(Object object) {
@@ -93,8 +93,8 @@ public class FunctionStorageItemProvider extends ModelElementItemProvider implem
   }
 
   /**
-   * This adds a property descriptor for the Data Storage feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This adds a property descriptor for the Data Storage feature.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   protected void addDataStoragePropertyDescriptor(Object object) {
@@ -114,8 +114,8 @@ public class FunctionStorageItemProvider extends ModelElementItemProvider implem
   }
 
   /**
-   * This adds a property descriptor for the Remanent Data feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This adds a property descriptor for the Remanent Data feature.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   protected void addRemanentDataPropertyDescriptor(Object object) {
@@ -136,7 +136,6 @@ public class FunctionStorageItemProvider extends ModelElementItemProvider implem
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -145,8 +144,8 @@ public class FunctionStorageItemProvider extends ModelElementItemProvider implem
   }
 
   /**
-   * This returns FunctionStorage.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This returns FunctionStorage.gif.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -155,8 +154,18 @@ public class FunctionStorageItemProvider extends ModelElementItemProvider implem
   }
 
   /**
-   * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  protected boolean shouldComposeCreationImage() {
+    return true;
+  }
+
+  /**
+   * This returns the label text for the adapted class.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -169,9 +178,9 @@ public class FunctionStorageItemProvider extends ModelElementItemProvider implem
   }
 
   /**
-   * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating a
-   * viewer notification, which it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This handles model notifications by calling {@link #updateChildren} to update any cached
+   * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -188,9 +197,9 @@ public class FunctionStorageItemProvider extends ModelElementItemProvider implem
   }
 
   /**
-   * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that can be created under
-   * this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+   * that can be created under this object.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override

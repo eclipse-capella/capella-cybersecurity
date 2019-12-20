@@ -189,7 +189,6 @@ public class CybersecurityServices {
 
   public ThreatInvolvement createThreatInvolvement(Threat threat, Component actor) {
     ThreatInvolvement iv = CybersecurityFactory.eINSTANCE.createThreatInvolvement();
-    iv.setComponent(actor);
     iv.setThreat(threat);
     actor.getOwnedExtensions().add(iv);
     return iv;
@@ -198,7 +197,6 @@ public class CybersecurityServices {
   public ThreatApplication createThreatApplication(Threat threat, PrimaryAsset asset) {
     ThreatApplication ap = CybersecurityFactory.eINSTANCE.createThreatApplication();
     ap.setThreat(threat);
-    ap.setAsset(asset);
     asset.getOwnedThreatApplications().add(ap);
     return ap;
   }

@@ -11,8 +11,13 @@
 
 package org.polarsys.capella.cybersecurity.model.impl;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.polarsys.capella.common.data.modellingcore.ModelElement;
+import org.polarsys.capella.core.data.capellacore.impl.RelationshipImpl;
 import org.polarsys.capella.common.data.modellingcore.impl.ModelElementImpl;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.PrimaryAsset;
@@ -25,17 +30,16 @@ import org.polarsys.capella.cybersecurity.model.PrimaryAssetMember;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.polarsys.capella.cybersecurity.model.impl.PrimaryAssetMemberImpl#getAsset <em>Asset</em>}</li>
- * <li>{@link org.polarsys.capella.cybersecurity.model.impl.PrimaryAssetMemberImpl#getMember <em>Member</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.PrimaryAssetMemberImpl#getAsset <em>Asset</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.PrimaryAssetMemberImpl#getMember <em>Member</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class PrimaryAssetMemberImpl extends ModelElementImpl implements PrimaryAssetMember {
+public class PrimaryAssetMemberImpl extends RelationshipImpl implements PrimaryAssetMember {
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   protected PrimaryAssetMemberImpl() {
@@ -46,7 +50,6 @@ public class PrimaryAssetMemberImpl extends ModelElementImpl implements PrimaryA
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -56,46 +59,39 @@ public class PrimaryAssetMemberImpl extends ModelElementImpl implements PrimaryA
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public PrimaryAsset getAsset() {
 
-    return (PrimaryAsset) eDynamicGet(CybersecurityPackage.PRIMARY_ASSET_MEMBER__ASSET,
-        CybersecurityPackage.Literals.PRIMARY_ASSET_MEMBER__ASSET, true, true);
+    PrimaryAsset asset = basicGetAsset();
+    return asset != null && ((EObject) asset).eIsProxy() ? (PrimaryAsset) eResolveProxy((InternalEObject) asset)
+        : asset;
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * 
-   * @generated
+   * @generated NOT
    */
 
   public PrimaryAsset basicGetAsset() {
 
-    return (PrimaryAsset) eDynamicGet(CybersecurityPackage.PRIMARY_ASSET_MEMBER__ASSET,
-        CybersecurityPackage.Literals.PRIMARY_ASSET_MEMBER__ASSET, false, true);
+    EObject container = eContainer();
+    if (container instanceof PrimaryAsset) {
+      return (PrimaryAsset) container;
+    }
+    return null;
+
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
-  public void setAsset(PrimaryAsset newAsset) {
-
-    eDynamicSet(CybersecurityPackage.PRIMARY_ASSET_MEMBER__ASSET,
-        CybersecurityPackage.Literals.PRIMARY_ASSET_MEMBER__ASSET, newAsset);
-  }
-
-  /**
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
-   * @generated
-   */
-
+  @Override
   public ModelElement getMember() {
 
     return (ModelElement) eDynamicGet(CybersecurityPackage.PRIMARY_ASSET_MEMBER__MEMBER,
@@ -104,7 +100,6 @@ public class PrimaryAssetMemberImpl extends ModelElementImpl implements PrimaryA
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
@@ -116,19 +111,19 @@ public class PrimaryAssetMemberImpl extends ModelElementImpl implements PrimaryA
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public void setMember(ModelElement newMember) {
 
     eDynamicSet(CybersecurityPackage.PRIMARY_ASSET_MEMBER__MEMBER,
         CybersecurityPackage.Literals.PRIMARY_ASSET_MEMBER__MEMBER, newMember);
+
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -148,15 +143,11 @@ public class PrimaryAssetMemberImpl extends ModelElementImpl implements PrimaryA
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
   public void eSet(int featureID, Object newValue) {
     switch (featureID) {
-    case CybersecurityPackage.PRIMARY_ASSET_MEMBER__ASSET:
-      setAsset((PrimaryAsset) newValue);
-      return;
     case CybersecurityPackage.PRIMARY_ASSET_MEMBER__MEMBER:
       setMember((ModelElement) newValue);
       return;
@@ -166,15 +157,11 @@ public class PrimaryAssetMemberImpl extends ModelElementImpl implements PrimaryA
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
   public void eUnset(int featureID) {
     switch (featureID) {
-    case CybersecurityPackage.PRIMARY_ASSET_MEMBER__ASSET:
-      setAsset((PrimaryAsset) null);
-      return;
     case CybersecurityPackage.PRIMARY_ASSET_MEMBER__MEMBER:
       setMember((ModelElement) null);
       return;
@@ -184,7 +171,6 @@ public class PrimaryAssetMemberImpl extends ModelElementImpl implements PrimaryA
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override

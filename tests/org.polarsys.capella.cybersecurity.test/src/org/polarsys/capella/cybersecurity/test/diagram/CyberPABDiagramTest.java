@@ -86,8 +86,6 @@ public class CyberPABDiagramTest extends EmptyProject {
         PrimaryAssetMember m2 = CybersecurityFactory.eINSTANCE.createPrimaryAssetMember();
         m2.setMember((ModelElement) diagram.getSemanticObjectMap().get(f2));
 
-        m1.setAsset(fpa);
-        m2.setAsset(fpa);
         fpa.getOwnedMembers().add(m1);
         fpa.getOwnedMembers().add(m2);
       }
@@ -130,8 +128,6 @@ public class CyberPABDiagramTest extends EmptyProject {
       PrimaryAssetMember m2 = CybersecurityFactory.eINSTANCE.createPrimaryAssetMember();
       m1.setMember(ei1);
       m2.setMember(ei2);
-      m1.setAsset(ipa);
-      m2.setAsset(ipa);
       ipa.getOwnedMembers().add(m1);
       ipa.getOwnedMembers().add(m2);
 

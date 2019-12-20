@@ -11,6 +11,7 @@
 
 package org.polarsys.capella.cybersecurity.model;
 
+import org.polarsys.capella.core.data.capellacore.Relationship;
 import org.polarsys.capella.common.data.modellingcore.ModelElement;
 import org.polarsys.kitalpha.emde.model.ElementExtension;
 
@@ -31,17 +32,16 @@ import org.polarsys.kitalpha.emde.model.ElementExtension;
  * @generated
  */
 
-public interface ThreatApplication extends ModelElement, ElementExtension {
+public interface ThreatApplication extends Relationship, ElementExtension {
 
   /**
    * Returns the value of the '<em><b>Threat</b></em>' reference.
-   * 
+  
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Threat</em>' reference isn't clear, there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * 
    * @return the value of the '<em>Threat</em>' reference.
    * @see #setThreat(Threat)
    * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getThreatApplication_Threat()
@@ -52,13 +52,10 @@ public interface ThreatApplication extends ModelElement, ElementExtension {
   Threat getThreat();
 
   /**
-   * Sets the value of the '{@link org.polarsys.capella.cybersecurity.model.ThreatApplication#getThreat
-   * <em>Threat</em>}' reference.
-   * 
+   * Sets the value of the '{@link org.polarsys.capella.cybersecurity.model.ThreatApplication#getThreat <em>Threat</em>}' reference.
+  
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
-   * @param value
-   *          the new value of the '<em>Threat</em>' reference.
+   * @param value the new value of the '<em>Threat</em>' reference.
    * @see #getThreat()
    * @generated
    */
@@ -67,34 +64,18 @@ public interface ThreatApplication extends ModelElement, ElementExtension {
 
   /**
    * Returns the value of the '<em><b>Asset</b></em>' reference.
-   * 
+  
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Asset</em>' reference isn't clear, there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * 
    * @return the value of the '<em>Asset</em>' reference.
-   * @see #setAsset(PrimaryAsset)
    * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getThreatApplication_Asset()
-   * @model
+   * @model transient="true" changeable="false" volatile="true" derived="true"
    * @generated
    */
 
   PrimaryAsset getAsset();
-
-  /**
-   * Sets the value of the '{@link org.polarsys.capella.cybersecurity.model.ThreatApplication#getAsset <em>Asset</em>}'
-   * reference.
-   * 
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
-   * @param value
-   *          the new value of the '<em>Asset</em>' reference.
-   * @see #getAsset()
-   * @generated
-   */
-
-  void setAsset(PrimaryAsset value);
 
 } // ThreatApplication

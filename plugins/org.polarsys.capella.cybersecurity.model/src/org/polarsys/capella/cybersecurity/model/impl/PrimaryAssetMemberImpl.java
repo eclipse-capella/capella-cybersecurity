@@ -13,9 +13,11 @@ package org.polarsys.capella.cybersecurity.model.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.polarsys.capella.common.data.modellingcore.ModelElement;
+import org.polarsys.capella.core.data.capellacore.impl.RelationshipImpl;
 import org.polarsys.capella.common.data.modellingcore.impl.ModelElementImpl;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.PrimaryAsset;
@@ -28,23 +30,13 @@ import org.polarsys.capella.cybersecurity.model.PrimaryAssetMember;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.polarsys.capella.cybersecurity.model.impl.PrimaryAssetMemberImpl#getAsset <em>Asset</em>}</li>
- * <li>{@link org.polarsys.capella.cybersecurity.model.impl.PrimaryAssetMemberImpl#getMember <em>Member</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.PrimaryAssetMemberImpl#getAsset <em>Asset</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.PrimaryAssetMemberImpl#getMember <em>Member</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class PrimaryAssetMemberImpl extends ModelElementImpl implements PrimaryAssetMember {
-
-  /**
-   * The cached value of the '{@link #getAsset() <em>Asset</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc
-   * -->
-   * 
-   * @see #getAsset()
-   * @generated
-   * @ordered
-   */
-  protected PrimaryAsset asset;
+public class PrimaryAssetMemberImpl extends RelationshipImpl implements PrimaryAssetMember {
 
   /**
    * The cached value of the '{@link #getMember() <em>Member</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc
@@ -58,7 +50,6 @@ public class PrimaryAssetMemberImpl extends ModelElementImpl implements PrimaryA
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   protected PrimaryAssetMemberImpl() {
@@ -69,7 +60,6 @@ public class PrimaryAssetMemberImpl extends ModelElementImpl implements PrimaryA
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -79,57 +69,38 @@ public class PrimaryAssetMemberImpl extends ModelElementImpl implements PrimaryA
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public PrimaryAsset getAsset() {
 
-    if (asset != null && asset.eIsProxy()) {
-      InternalEObject oldAsset = (InternalEObject) asset;
-      asset = (PrimaryAsset) eResolveProxy(oldAsset);
-      if (asset != oldAsset) {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, CybersecurityPackage.PRIMARY_ASSET_MEMBER__ASSET,
-              oldAsset, asset));
-      }
-    }
-    return asset;
+    PrimaryAsset asset = basicGetAsset();
+    return asset != null && asset.eIsProxy() ? (PrimaryAsset) eResolveProxy((InternalEObject) asset) : asset;
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * 
-   * @generated
+   * @generated NOT
    */
 
   public PrimaryAsset basicGetAsset() {
 
-    return asset;
-  }
-
-  /**
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
-   * @generated
-   */
-
-  public void setAsset(PrimaryAsset newAsset) {
-
-    PrimaryAsset oldAsset = asset;
-    asset = newAsset;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, CybersecurityPackage.PRIMARY_ASSET_MEMBER__ASSET, oldAsset,
-          asset));
+    EObject container = eContainer();
+    if (container instanceof PrimaryAsset) {
+      return (PrimaryAsset) container;
+    }
+    return null;
 
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public ModelElement getMember() {
 
     if (member != null && member.eIsProxy()) {
@@ -146,7 +117,6 @@ public class PrimaryAssetMemberImpl extends ModelElementImpl implements PrimaryA
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
@@ -157,10 +127,10 @@ public class PrimaryAssetMemberImpl extends ModelElementImpl implements PrimaryA
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public void setMember(ModelElement newMember) {
 
     ModelElement oldMember = member;
@@ -173,7 +143,6 @@ public class PrimaryAssetMemberImpl extends ModelElementImpl implements PrimaryA
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -193,15 +162,11 @@ public class PrimaryAssetMemberImpl extends ModelElementImpl implements PrimaryA
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
   public void eSet(int featureID, Object newValue) {
     switch (featureID) {
-    case CybersecurityPackage.PRIMARY_ASSET_MEMBER__ASSET:
-      setAsset((PrimaryAsset) newValue);
-      return;
     case CybersecurityPackage.PRIMARY_ASSET_MEMBER__MEMBER:
       setMember((ModelElement) newValue);
       return;
@@ -211,15 +176,11 @@ public class PrimaryAssetMemberImpl extends ModelElementImpl implements PrimaryA
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
   public void eUnset(int featureID) {
     switch (featureID) {
-    case CybersecurityPackage.PRIMARY_ASSET_MEMBER__ASSET:
-      setAsset((PrimaryAsset) null);
-      return;
     case CybersecurityPackage.PRIMARY_ASSET_MEMBER__MEMBER:
       setMember((ModelElement) null);
       return;
@@ -229,14 +190,13 @@ public class PrimaryAssetMemberImpl extends ModelElementImpl implements PrimaryA
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
   public boolean eIsSet(int featureID) {
     switch (featureID) {
     case CybersecurityPackage.PRIMARY_ASSET_MEMBER__ASSET:
-      return asset != null;
+      return basicGetAsset() != null;
     case CybersecurityPackage.PRIMARY_ASSET_MEMBER__MEMBER:
       return member != null;
     }

@@ -17,14 +17,13 @@ import org.eclipse.emf.ecore.resource.impl.ResourceFactoryImpl;
 
 /**
  * <!-- begin-user-doc --> The <b>Resource Factory</b> associated with the package. <!-- end-user-doc -->
- * 
  * @see org.polarsys.capella.cybersecurity.model.util.CybersecurityResourceImpl
  * @generated
  */
 public class CybersecurityResourceFactoryImpl extends ResourceFactoryImpl {
   /**
-   * Creates an instance of the resource factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * Creates an instance of the resource factory.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   public CybersecurityResourceFactoryImpl() {
@@ -32,8 +31,8 @@ public class CybersecurityResourceFactoryImpl extends ResourceFactoryImpl {
   }
 
   /**
-   * Creates an instance of the resource. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * Creates an instance of the resource.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="" modelDirectory="/org.polarsys.capella.cybersecurity.model/src"
-    editDirectory="/org.polarsys.capella.cybersecurity.model.edit/src" editorDirectory="/org.polarsys.capella.cybersecurity.model.editor/src"
-    modelPluginID="org.polarsys.capella.cybersecurity.model" modelName="Cybersecurity"
-    editPluginClass="org.polarsys.capella.cybersecurity.model.provider.CybersecurityEditPlugin"
+    creationIcons="false" editDirectory="/org.polarsys.capella.cybersecurity.model.edit/src"
+    editorDirectory="/org.polarsys.capella.cybersecurity.model.editor/src" modelPluginID="org.polarsys.capella.cybersecurity.model"
+    modelName="Cybersecurity" editPluginClass="org.polarsys.capella.cybersecurity.model.provider.CybersecurityEditPlugin"
     editorPluginClass="org.polarsys.capella.cybersecurity.model.editor.CybersecurityEditorPlugin"
     nonNLSMarkers="true" codeFormatting="true" importerID="org.eclipse.emf.importer.ecore"
     complianceLevel="8.0" copyrightFields="false" editPluginID="org.polarsys.capella.cybersecurity.model.edit"
@@ -36,7 +36,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Cybersecurity.ecore#//Threat/rationale"/>
     </genClasses>
     <genClasses ecoreClass="Cybersecurity.ecore#//ThreatInvolvement">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Cybersecurity.ecore#//ThreatInvolvement/actor"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference Cybersecurity.ecore#//ThreatInvolvement/component"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Cybersecurity.ecore#//ThreatInvolvement/threat"/>
     </genClasses>
     <genClasses ecoreClass="Cybersecurity.ecore#//FunctionStorage">
@@ -46,7 +46,7 @@
     </genClasses>
     <genClasses ecoreClass="Cybersecurity.ecore#//ThreatApplication">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Cybersecurity.ecore#//ThreatApplication/threat"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Cybersecurity.ecore#//ThreatApplication/asset"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference Cybersecurity.ecore#//ThreatApplication/asset"/>
     </genClasses>
     <genClasses ecoreClass="Cybersecurity.ecore#//PrimaryAssetStorage"/>
     <genClasses ecoreClass="Cybersecurity.ecore#//SecurityNeeds">
@@ -62,13 +62,17 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Cybersecurity.ecore#//TrustBoundaryStorage/rationale"/>
     </genClasses>
     <genClasses ecoreClass="Cybersecurity.ecore#//PrimaryAsset">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Cybersecurity.ecore#//PrimaryAsset/ownedSecurityNeeds"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Cybersecurity.ecore#//PrimaryAsset/ownedThreatApplications"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Cybersecurity.ecore#//PrimaryAsset/ownedMembers"/>
     </genClasses>
-    <genClasses ecoreClass="Cybersecurity.ecore#//FunctionalPrimaryAsset"/>
-    <genClasses ecoreClass="Cybersecurity.ecore#//InformationPrimaryAsset"/>
+    <genClasses ecoreClass="Cybersecurity.ecore#//FunctionalPrimaryAsset">
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference Cybersecurity.ecore#//FunctionalPrimaryAsset/functions"/>
+    </genClasses>
+    <genClasses ecoreClass="Cybersecurity.ecore#//InformationPrimaryAsset">
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference Cybersecurity.ecore#//InformationPrimaryAsset/exchangeItems"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="Cybersecurity.ecore#//PrimaryAssetMember">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Cybersecurity.ecore#//PrimaryAssetMember/asset"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference Cybersecurity.ecore#//PrimaryAssetMember/asset"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Cybersecurity.ecore#//PrimaryAssetMember/member"/>
     </genClasses>
   </genPackages>

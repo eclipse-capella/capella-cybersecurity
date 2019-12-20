@@ -33,6 +33,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.polarsys.capella.common.data.activity.gen.cdo;visibility:=reexport,
  org.polarsys.capella.common.data.behavior.gen.cdo;visibility:=reexport,
  org.polarsys.capella.core.data.helpers;visibility:=reexport,
- org.eclipse.emf.cdo;visibility:=reexport
+ org.eclipse.emf.cdo;visibility:=reexport,
+ org.polarsys.kitalpha.emde.xmi;visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8

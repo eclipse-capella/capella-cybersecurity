@@ -21,11 +21,8 @@ import org.polarsys.capella.core.data.capellacore.NamedElement;
  * The following features are supported:
  * </p>
  * <ul>
- * <li>{@link org.polarsys.capella.cybersecurity.model.PrimaryAsset#getOwnedSecurityNeeds <em>Owned Security
- * Needs</em>}</li>
- * <li>{@link org.polarsys.capella.cybersecurity.model.PrimaryAsset#getOwnedThreatApplications <em>Owned Threat
- * Applications</em>}</li>
- * <li>{@link org.polarsys.capella.cybersecurity.model.PrimaryAsset#getOwnedMembers <em>Owned Members</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.PrimaryAsset#getOwnedThreatApplications <em>Owned Threat Applications</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.PrimaryAsset#getOwnedMembers <em>Owned Members</em>}</li>
  * </ul>
  *
  * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getPrimaryAsset()
@@ -36,49 +33,15 @@ import org.polarsys.capella.core.data.capellacore.NamedElement;
 public interface PrimaryAsset extends NamedElement {
 
   /**
-   * Returns the value of the '<em><b>Owned Security Needs</b></em>' containment reference.
-   * 
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Owned Security Needs</em>' containment reference isn't clear, there really should be
-   * more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * 
-   * @return the value of the '<em>Owned Security Needs</em>' containment reference.
-   * @see #setOwnedSecurityNeeds(SecurityNeeds)
-   * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getPrimaryAsset_OwnedSecurityNeeds()
-   * @model containment="true"
-   * @generated
-   */
-
-  SecurityNeeds getOwnedSecurityNeeds();
-
-  /**
-   * Sets the value of the '{@link org.polarsys.capella.cybersecurity.model.PrimaryAsset#getOwnedSecurityNeeds <em>Owned
-   * Security Needs</em>}' containment reference.
-   * 
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
-   * @param value
-   *          the new value of the '<em>Owned Security Needs</em>' containment reference.
-   * @see #getOwnedSecurityNeeds()
-   * @generated
-   */
-
-  void setOwnedSecurityNeeds(SecurityNeeds value);
-
-  /**
-   * Returns the value of the '<em><b>Owned Threat Applications</b></em>' containment reference list. The list contents
-   * are of type {@link org.polarsys.capella.cybersecurity.model.ThreatApplication}.
-   * 
+   * Returns the value of the '<em><b>Owned Threat Applications</b></em>' containment reference list.
+   * The list contents are of type {@link org.polarsys.capella.cybersecurity.model.ThreatApplication}.
+  
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Owned Threat Applications</em>' containment reference list isn't clear, there really
    * should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * 
    * @return the value of the '<em>Owned Threat Applications</em>' containment reference list.
    * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getPrimaryAsset_OwnedThreatApplications()
    * @model containment="true"
@@ -88,16 +51,15 @@ public interface PrimaryAsset extends NamedElement {
   EList<ThreatApplication> getOwnedThreatApplications();
 
   /**
-   * Returns the value of the '<em><b>Owned Members</b></em>' containment reference list. The list contents are of type
-   * {@link org.polarsys.capella.cybersecurity.model.PrimaryAssetMember}.
-   * 
+   * Returns the value of the '<em><b>Owned Members</b></em>' containment reference list.
+   * The list contents are of type {@link org.polarsys.capella.cybersecurity.model.PrimaryAssetMember}.
+  
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Owned Members</em>' containment reference list isn't clear, there really should be more
    * of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * 
    * @return the value of the '<em>Owned Members</em>' containment reference list.
    * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getPrimaryAsset_OwnedMembers()
    * @model containment="true"

@@ -11,7 +11,9 @@
 
 package org.polarsys.capella.cybersecurity.model.impl;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.polarsys.capella.common.data.modellingcore.impl.ModelElementImpl;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.SecurityNeeds;
@@ -22,13 +24,10 @@ import org.polarsys.capella.cybersecurity.model.SecurityNeeds;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.polarsys.capella.cybersecurity.model.impl.SecurityNeedsImpl#getConfidentiality
- * <em>Confidentiality</em>}</li>
- * <li>{@link org.polarsys.capella.cybersecurity.model.impl.SecurityNeedsImpl#getIntegrity <em>Integrity</em>}</li>
- * <li>{@link org.polarsys.capella.cybersecurity.model.impl.SecurityNeedsImpl#getAvailability
- * <em>Availability</em>}</li>
- * <li>{@link org.polarsys.capella.cybersecurity.model.impl.SecurityNeedsImpl#getTraceability
- * <em>Traceability</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.SecurityNeedsImpl#getConfidentiality <em>Confidentiality</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.SecurityNeedsImpl#getIntegrity <em>Integrity</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.SecurityNeedsImpl#getAvailability <em>Availability</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.SecurityNeedsImpl#getTraceability <em>Traceability</em>}</li>
  * </ul>
  *
  * @generated
@@ -36,9 +35,9 @@ import org.polarsys.capella.cybersecurity.model.SecurityNeeds;
 public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds {
 
   /**
-   * The default value of the '{@link #getConfidentiality() <em>Confidentiality</em>}' attribute. <!-- begin-user-doc
+   * The default value of the '{@link #getConfidentiality() <em>Confidentiality</em>}' attribute.
+   * <!-- begin-user-doc
    * --> <!-- end-user-doc -->
-   * 
    * @see #getConfidentiality()
    * @generated
    * @ordered
@@ -46,9 +45,9 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
   protected static final int CONFIDENTIALITY_EDEFAULT = 0;
 
   /**
-   * The default value of the '{@link #getIntegrity() <em>Integrity</em>}' attribute. <!-- begin-user-doc --> <!--
+   * The default value of the '{@link #getIntegrity() <em>Integrity</em>}' attribute.
+   * <!-- begin-user-doc --> <!--
    * end-user-doc -->
-   * 
    * @see #getIntegrity()
    * @generated
    * @ordered
@@ -56,9 +55,9 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
   protected static final int INTEGRITY_EDEFAULT = 0;
 
   /**
-   * The default value of the '{@link #getAvailability() <em>Availability</em>}' attribute. <!-- begin-user-doc --> <!--
+   * The default value of the '{@link #getAvailability() <em>Availability</em>}' attribute.
+   * <!-- begin-user-doc --> <!--
    * end-user-doc -->
-   * 
    * @see #getAvailability()
    * @generated
    * @ordered
@@ -66,9 +65,9 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
   protected static final int AVAILABILITY_EDEFAULT = 0;
 
   /**
-   * The default value of the '{@link #getTraceability() <em>Traceability</em>}' attribute. <!-- begin-user-doc --> <!--
+   * The default value of the '{@link #getTraceability() <em>Traceability</em>}' attribute.
+   * <!-- begin-user-doc --> <!--
    * end-user-doc -->
-   * 
    * @see #getTraceability()
    * @generated
    * @ordered
@@ -77,7 +76,6 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   protected SecurityNeedsImpl() {
@@ -88,7 +86,6 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -98,10 +95,10 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public int getConfidentiality() {
 
     return (Integer) eDynamicGet(CybersecurityPackage.SECURITY_NEEDS__CONFIDENTIALITY,
@@ -110,22 +107,23 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public void setConfidentiality(int newConfidentiality) {
 
     eDynamicSet(CybersecurityPackage.SECURITY_NEEDS__CONFIDENTIALITY,
         CybersecurityPackage.Literals.SECURITY_NEEDS__CONFIDENTIALITY, newConfidentiality);
+
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public int getIntegrity() {
 
     return (Integer) eDynamicGet(CybersecurityPackage.SECURITY_NEEDS__INTEGRITY,
@@ -134,22 +132,23 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public void setIntegrity(int newIntegrity) {
 
     eDynamicSet(CybersecurityPackage.SECURITY_NEEDS__INTEGRITY, CybersecurityPackage.Literals.SECURITY_NEEDS__INTEGRITY,
         newIntegrity);
+
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public int getAvailability() {
 
     return (Integer) eDynamicGet(CybersecurityPackage.SECURITY_NEEDS__AVAILABILITY,
@@ -158,22 +157,23 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public void setAvailability(int newAvailability) {
 
     eDynamicSet(CybersecurityPackage.SECURITY_NEEDS__AVAILABILITY,
         CybersecurityPackage.Literals.SECURITY_NEEDS__AVAILABILITY, newAvailability);
+
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public int getTraceability() {
 
     return (Integer) eDynamicGet(CybersecurityPackage.SECURITY_NEEDS__TRACEABILITY,
@@ -182,19 +182,19 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public void setTraceability(int newTraceability) {
 
     eDynamicSet(CybersecurityPackage.SECURITY_NEEDS__TRACEABILITY,
         CybersecurityPackage.Literals.SECURITY_NEEDS__TRACEABILITY, newTraceability);
+
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -214,7 +214,6 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -238,7 +237,6 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -262,7 +260,6 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override

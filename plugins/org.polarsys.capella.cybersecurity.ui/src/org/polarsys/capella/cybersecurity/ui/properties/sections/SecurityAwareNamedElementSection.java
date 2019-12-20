@@ -18,6 +18,7 @@ import org.polarsys.capella.core.data.cs.Component;
 import org.polarsys.capella.core.data.fa.AbstractFunction;
 import org.polarsys.capella.core.data.fa.ComponentExchange;
 import org.polarsys.capella.core.data.fa.FunctionalExchange;
+import org.polarsys.capella.core.data.information.ExchangeItem;
 import org.polarsys.capella.cybersecurity.CyberSecurityViewpointHelper;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 
@@ -28,7 +29,7 @@ public class SecurityAwareNamedElementSection extends NamedElementSection {
     EObject eObjectToTest = super.selection(toTest);
     if (super.select(toTest) && CyberSecurityViewpointHelper.isViewpointActive(eObjectToTest)) {
       if (eObjectToTest instanceof AbstractFunction || eObjectToTest instanceof FunctionalExchange
-          || eObjectToTest instanceof Component || eObjectToTest instanceof ComponentExchange) {
+          || eObjectToTest instanceof Component || eObjectToTest instanceof ComponentExchange || eObjectToTest instanceof ExchangeItem) {
         return true;
       }
       EPackage pkg = eObjectToTest.eClass().getEPackage();

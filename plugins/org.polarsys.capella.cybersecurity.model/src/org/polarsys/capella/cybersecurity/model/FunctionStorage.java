@@ -40,16 +40,15 @@ import org.polarsys.kitalpha.emde.model.ElementExtension;
 public interface FunctionStorage extends ModelElement, ElementExtension {
 
   /**
-   * Returns the value of the '<em><b>Exchanged Items</b></em>' reference list. The list contents are of type
-   * {@link org.polarsys.capella.core.data.information.ExchangeItem}.
-   * 
+   * Returns the value of the '<em><b>Exchanged Items</b></em>' reference list.
+   * The list contents are of type {@link org.polarsys.capella.core.data.information.ExchangeItem}.
+  
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Exchanged Items</em>' reference list isn't clear, there really should be more of a
    * description here...
    * </p>
    * <!-- end-user-doc -->
-   * 
    * @return the value of the '<em>Exchanged Items</em>' reference list.
    * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getFunctionStorage_ExchangedItems()
    * @model
@@ -60,14 +59,13 @@ public interface FunctionStorage extends ModelElement, ElementExtension {
 
   /**
    * Returns the value of the '<em><b>Data Storage</b></em>' attribute.
-   * 
+  
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Data Storage</em>' attribute isn't clear, there really should be more of a description
    * here...
    * </p>
    * <!-- end-user-doc -->
-   * 
    * @return the value of the '<em>Data Storage</em>' attribute.
    * @see #setDataStorage(boolean)
    * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getFunctionStorage_DataStorage()
@@ -78,13 +76,10 @@ public interface FunctionStorage extends ModelElement, ElementExtension {
   boolean isDataStorage();
 
   /**
-   * Sets the value of the '{@link org.polarsys.capella.cybersecurity.model.FunctionStorage#isDataStorage <em>Data
-   * Storage</em>}' attribute.
-   * 
+   * Sets the value of the '{@link org.polarsys.capella.cybersecurity.model.FunctionStorage#isDataStorage <em>Data Storage</em>}' attribute.
+  
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
-   * @param value
-   *          the new value of the '<em>Data Storage</em>' attribute.
+   * @param value the new value of the '<em>Data Storage</em>' attribute.
    * @see #isDataStorage()
    * @generated
    */
@@ -93,14 +88,13 @@ public interface FunctionStorage extends ModelElement, ElementExtension {
 
   /**
    * Returns the value of the '<em><b>Remanent Data</b></em>' attribute.
-   * 
+  
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Remanent Data</em>' attribute isn't clear, there really should be more of a description
    * here...
    * </p>
    * <!-- end-user-doc -->
-   * 
    * @return the value of the '<em>Remanent Data</em>' attribute.
    * @see #setRemanentData(boolean)
    * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getFunctionStorage_RemanentData()
@@ -111,13 +105,10 @@ public interface FunctionStorage extends ModelElement, ElementExtension {
   boolean isRemanentData();
 
   /**
-   * Sets the value of the '{@link org.polarsys.capella.cybersecurity.model.FunctionStorage#isRemanentData <em>Remanent
-   * Data</em>}' attribute.
-   * 
+   * Sets the value of the '{@link org.polarsys.capella.cybersecurity.model.FunctionStorage#isRemanentData <em>Remanent Data</em>}' attribute.
+  
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
-   * @param value
-   *          the new value of the '<em>Remanent Data</em>' attribute.
+   * @param value the new value of the '<em>Remanent Data</em>' attribute.
    * @see #isRemanentData()
    * @generated
    */

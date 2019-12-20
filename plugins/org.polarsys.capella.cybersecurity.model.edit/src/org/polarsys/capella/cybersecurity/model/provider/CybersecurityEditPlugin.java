@@ -22,28 +22,28 @@ import org.polarsys.capella.core.data.capellamodeller.provider.CapellaModellerEd
 import org.polarsys.kitalpha.emde.model.edit.provider.EmdeEditPlugin;
 
 /**
- * This is the central singleton for the Cybersecurity edit plugin. <!-- begin-user-doc --> <!-- end-user-doc -->
- * 
+ * This is the central singleton for the Cybersecurity edit plugin.
+ * <!-- begin-user-doc --> <!-- end-user-doc -->
  * @generated
  */
 public final class CybersecurityEditPlugin extends EMFPlugin {
   /**
-   * Keep track of the singleton. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * Keep track of the singleton.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   public static final CybersecurityEditPlugin INSTANCE = new CybersecurityEditPlugin();
 
   /**
-   * Keep track of the singleton. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * Keep track of the singleton.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   private static Implementation plugin;
 
   /**
-   * Create the instance. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * Create the instance.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   public CybersecurityEditPlugin() {
@@ -52,8 +52,8 @@ public final class CybersecurityEditPlugin extends EMFPlugin {
   }
 
   /**
-   * Returns the singleton instance of the Eclipse plugin. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * Returns the singleton instance of the Eclipse plugin.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @return the singleton instance.
    * @generated
    */
@@ -63,8 +63,8 @@ public final class CybersecurityEditPlugin extends EMFPlugin {
   }
 
   /**
-   * Returns the singleton instance of the Eclipse plugin. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * Returns the singleton instance of the Eclipse plugin.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @return the singleton instance.
    * @generated
    */
@@ -73,14 +73,14 @@ public final class CybersecurityEditPlugin extends EMFPlugin {
   }
 
   /**
-   * The actual implementation of the Eclipse <b>Plugin</b>. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * The actual implementation of the Eclipse <b>Plugin</b>.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   public static class Implementation extends EclipsePlugin {
     /**
-     * Creates an instance. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     * Creates an instance.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
     public Implementation() {
@@ -90,33 +90,6 @@ public final class CybersecurityEditPlugin extends EMFPlugin {
       //
       plugin = this;
     }
-  }
-
-  /**
-   * @generated
-   */
-  @Override
-  public Object getImage(String key) {
-    Object image = super.getImage(key);
-    if (image == null)
-      return delegatedGetImage(key);
-    return image;
-  }
-
-  /**
-   * @generated
-   */
-  @Override
-  protected Object delegatedGetImage(String key) throws MissingResourceException {
-    for (int i = 0; i < delegateResourceLocators.length; ++i) {
-      try {
-        Object image = delegateResourceLocators[i].getImage(key);
-        if (image != null)
-          return image;
-      } catch (MissingResourceException exception) {
-      }
-    }
-    return null;
   }
 
 }

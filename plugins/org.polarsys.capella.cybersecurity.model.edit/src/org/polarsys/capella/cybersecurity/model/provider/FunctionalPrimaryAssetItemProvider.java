@@ -28,16 +28,15 @@ import org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset;
 import org.polarsys.kitalpha.emde.model.EmdePackage;
 
 /**
- * This is the item provider adapter for a {@link org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset}
- * object. <!-- begin-user-doc --> <!-- end-user-doc -->
- * 
+ * This is the item provider adapter for a {@link org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset} object.
+ * <!-- begin-user-doc --> <!-- end-user-doc -->
  * @generated
  */
 public class FunctionalPrimaryAssetItemProvider extends PrimaryAssetItemProvider implements IEditingDomainItemProvider,
     IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
   /**
-   * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This constructs an instance from a factory and a notifier.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   public FunctionalPrimaryAssetItemProvider(AdapterFactory adapterFactory) {
@@ -45,8 +44,8 @@ public class FunctionalPrimaryAssetItemProvider extends PrimaryAssetItemProvider
   }
 
   /**
-   * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This returns the property descriptors for the adapted class.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -63,8 +62,8 @@ public class FunctionalPrimaryAssetItemProvider extends PrimaryAssetItemProvider
   }
 
   /**
-   * This adds a property descriptor for the Functions feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This adds a property descriptor for the Functions feature.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   protected void addFunctionsPropertyDescriptor(Object object) {
@@ -93,8 +92,18 @@ public class FunctionalPrimaryAssetItemProvider extends PrimaryAssetItemProvider
   }
 
   /**
-   * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  protected boolean shouldComposeCreationImage() {
+    return true;
+  }
+
+  /**
+   * This returns the label text for the adapted class.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -107,9 +116,9 @@ public class FunctionalPrimaryAssetItemProvider extends PrimaryAssetItemProvider
   }
 
   /**
-   * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating a
-   * viewer notification, which it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This handles model notifications by calling {@link #updateChildren} to update any cached
+   * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -119,9 +128,9 @@ public class FunctionalPrimaryAssetItemProvider extends PrimaryAssetItemProvider
   }
 
   /**
-   * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that can be created under
-   * this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+   * that can be created under this object.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -130,9 +139,9 @@ public class FunctionalPrimaryAssetItemProvider extends PrimaryAssetItemProvider
   }
 
   /**
-   * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}. <!-- begin-user-doc -->
+   * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -141,8 +150,7 @@ public class FunctionalPrimaryAssetItemProvider extends PrimaryAssetItemProvider
     Object childObject = child;
 
     boolean qualify = childFeature == EmdePackage.Literals.EXTENSIBLE_ELEMENT__OWNED_EXTENSIONS
-        || childFeature == CybersecurityPackage.Literals.PRIMARY_ASSET__OWNED_THREAT_APPLICATIONS
-        || childFeature == CybersecurityPackage.Literals.PRIMARY_ASSET__OWNED_SECURITY_NEEDS;
+        || childFeature == CybersecurityPackage.Literals.PRIMARY_ASSET__OWNED_THREAT_APPLICATIONS;
 
     if (qualify) {
       return getString("_UI_CreateChild_text2", //$NON-NLS-1$

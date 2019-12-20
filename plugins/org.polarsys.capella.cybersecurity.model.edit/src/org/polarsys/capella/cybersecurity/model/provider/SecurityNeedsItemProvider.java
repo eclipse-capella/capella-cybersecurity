@@ -44,8 +44,8 @@ import org.polarsys.kitalpha.emde.model.edit.provider.NewChildDescriptorHelper;
 public class SecurityNeedsItemProvider extends ModelElementItemProvider implements IEditingDomainItemProvider,
     IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
   /**
-   * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This constructs an instance from a factory and a notifier.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   public SecurityNeedsItemProvider(AdapterFactory adapterFactory) {
@@ -53,8 +53,8 @@ public class SecurityNeedsItemProvider extends ModelElementItemProvider implemen
   }
 
   /**
-   * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This returns the property descriptors for the adapted class.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -74,8 +74,8 @@ public class SecurityNeedsItemProvider extends ModelElementItemProvider implemen
   }
 
   /**
-   * This adds a property descriptor for the Confidentiality feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This adds a property descriptor for the Confidentiality feature.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   protected void addConfidentialityPropertyDescriptor(Object object) {
@@ -95,8 +95,8 @@ public class SecurityNeedsItemProvider extends ModelElementItemProvider implemen
   }
 
   /**
-   * This adds a property descriptor for the Integrity feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This adds a property descriptor for the Integrity feature.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   protected void addIntegrityPropertyDescriptor(Object object) {
@@ -116,8 +116,8 @@ public class SecurityNeedsItemProvider extends ModelElementItemProvider implemen
   }
 
   /**
-   * This adds a property descriptor for the Availability feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This adds a property descriptor for the Availability feature.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   protected void addAvailabilityPropertyDescriptor(Object object) {
@@ -137,8 +137,8 @@ public class SecurityNeedsItemProvider extends ModelElementItemProvider implemen
   }
 
   /**
-   * This adds a property descriptor for the Traceability feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This adds a property descriptor for the Traceability feature.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   protected void addTraceabilityPropertyDescriptor(Object object) {
@@ -159,7 +159,6 @@ public class SecurityNeedsItemProvider extends ModelElementItemProvider implemen
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -168,8 +167,8 @@ public class SecurityNeedsItemProvider extends ModelElementItemProvider implemen
   }
 
   /**
-   * This returns SecurityNeeds.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This returns SecurityNeeds.gif.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -178,8 +177,18 @@ public class SecurityNeedsItemProvider extends ModelElementItemProvider implemen
   }
 
   /**
-   * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  protected boolean shouldComposeCreationImage() {
+    return true;
+  }
+
+  /**
+   * This returns the label text for the adapted class.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -192,9 +201,9 @@ public class SecurityNeedsItemProvider extends ModelElementItemProvider implemen
   }
 
   /**
-   * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating a
-   * viewer notification, which it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This handles model notifications by calling {@link #updateChildren} to update any cached
+   * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -213,9 +222,9 @@ public class SecurityNeedsItemProvider extends ModelElementItemProvider implemen
   }
 
   /**
-   * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that can be created under
-   * this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+   * that can be created under this object.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override

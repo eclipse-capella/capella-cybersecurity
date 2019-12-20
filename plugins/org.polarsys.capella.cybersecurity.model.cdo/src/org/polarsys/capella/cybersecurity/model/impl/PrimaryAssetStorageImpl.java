@@ -25,7 +25,6 @@ import org.polarsys.capella.cybersecurity.model.PrimaryAssetStorage;
 public class PrimaryAssetStorageImpl extends ModelElementImpl implements PrimaryAssetStorage {
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   protected PrimaryAssetStorageImpl() {
@@ -36,7 +35,6 @@ public class PrimaryAssetStorageImpl extends ModelElementImpl implements Primary
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override

@@ -11,7 +11,13 @@
 
 package org.polarsys.capella.cybersecurity.model.impl;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.polarsys.capella.core.data.capellacore.impl.RelationshipImpl;
+import org.polarsys.capella.core.data.cs.Component;
 import org.polarsys.capella.common.data.modellingcore.impl.ModelElementImpl;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.PrimaryAsset;
@@ -31,11 +37,10 @@ import org.polarsys.capella.cybersecurity.model.ThreatApplication;
  *
  * @generated
  */
-public class ThreatApplicationImpl extends ModelElementImpl implements ThreatApplication {
+public class ThreatApplicationImpl extends RelationshipImpl implements ThreatApplication {
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   protected ThreatApplicationImpl() {
@@ -46,7 +51,6 @@ public class ThreatApplicationImpl extends ModelElementImpl implements ThreatApp
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -56,10 +60,10 @@ public class ThreatApplicationImpl extends ModelElementImpl implements ThreatApp
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public Threat getThreat() {
 
     return (Threat) eDynamicGet(CybersecurityPackage.THREAT_APPLICATION__THREAT,
@@ -68,7 +72,6 @@ public class ThreatApplicationImpl extends ModelElementImpl implements ThreatApp
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
@@ -80,55 +83,48 @@ public class ThreatApplicationImpl extends ModelElementImpl implements ThreatApp
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public void setThreat(Threat newThreat) {
 
     eDynamicSet(CybersecurityPackage.THREAT_APPLICATION__THREAT,
         CybersecurityPackage.Literals.THREAT_APPLICATION__THREAT, newThreat);
+
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public PrimaryAsset getAsset() {
 
-    return (PrimaryAsset) eDynamicGet(CybersecurityPackage.THREAT_APPLICATION__ASSET,
-        CybersecurityPackage.Literals.THREAT_APPLICATION__ASSET, true, true);
+    PrimaryAsset asset = basicGetAsset();
+    return asset != null && ((EObject) asset).eIsProxy() ? (PrimaryAsset) eResolveProxy((InternalEObject) asset)
+        : asset;
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * 
-   * @generated
+   * @generated NOT
    */
 
   public PrimaryAsset basicGetAsset() {
 
-    return (PrimaryAsset) eDynamicGet(CybersecurityPackage.THREAT_APPLICATION__ASSET,
-        CybersecurityPackage.Literals.THREAT_APPLICATION__ASSET, false, true);
+    EObject container = eContainer();
+    if (container instanceof PrimaryAsset) {
+      return (PrimaryAsset) container;
+    }
+    return null;
+
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
-   * @generated
-   */
-
-  public void setAsset(PrimaryAsset newAsset) {
-
-    eDynamicSet(CybersecurityPackage.THREAT_APPLICATION__ASSET, CybersecurityPackage.Literals.THREAT_APPLICATION__ASSET,
-        newAsset);
-  }
-
-  /**
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -148,7 +144,6 @@ public class ThreatApplicationImpl extends ModelElementImpl implements ThreatApp
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -157,16 +152,12 @@ public class ThreatApplicationImpl extends ModelElementImpl implements ThreatApp
     case CybersecurityPackage.THREAT_APPLICATION__THREAT:
       setThreat((Threat) newValue);
       return;
-    case CybersecurityPackage.THREAT_APPLICATION__ASSET:
-      setAsset((PrimaryAsset) newValue);
-      return;
     }
     super.eSet(featureID, newValue);
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -175,16 +166,12 @@ public class ThreatApplicationImpl extends ModelElementImpl implements ThreatApp
     case CybersecurityPackage.THREAT_APPLICATION__THREAT:
       setThreat((Threat) null);
       return;
-    case CybersecurityPackage.THREAT_APPLICATION__ASSET:
-      setAsset((PrimaryAsset) null);
-      return;
     }
     super.eUnset(featureID);
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override

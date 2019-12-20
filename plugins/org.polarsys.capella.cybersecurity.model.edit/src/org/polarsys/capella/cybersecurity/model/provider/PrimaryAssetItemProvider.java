@@ -41,8 +41,8 @@ import org.polarsys.kitalpha.emde.model.edit.provider.NewChildDescriptorHelper;
 public class PrimaryAssetItemProvider extends NamedElementItemProvider implements IEditingDomainItemProvider,
     IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
   /**
-   * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This constructs an instance from a factory and a notifier.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   public PrimaryAssetItemProvider(AdapterFactory adapterFactory) {
@@ -50,8 +50,8 @@ public class PrimaryAssetItemProvider extends NamedElementItemProvider implement
   }
 
   /**
-   * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This returns the property descriptors for the adapted class.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -69,16 +69,15 @@ public class PrimaryAssetItemProvider extends NamedElementItemProvider implement
   /**
    * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
    * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-   * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}. <!-- begin-user-doc --> <!--
+   * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+   * <!-- begin-user-doc --> <!--
    * end-user-doc -->
-   * 
    * @generated
    */
   @Override
   public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
     if (childrenFeatures == null) {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(CybersecurityPackage.Literals.PRIMARY_ASSET__OWNED_SECURITY_NEEDS);
       childrenFeatures.add(CybersecurityPackage.Literals.PRIMARY_ASSET__OWNED_THREAT_APPLICATIONS);
       childrenFeatures.add(CybersecurityPackage.Literals.PRIMARY_ASSET__OWNED_MEMBERS);
     }
@@ -87,7 +86,6 @@ public class PrimaryAssetItemProvider extends NamedElementItemProvider implement
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -100,7 +98,6 @@ public class PrimaryAssetItemProvider extends NamedElementItemProvider implement
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -119,8 +116,18 @@ public class PrimaryAssetItemProvider extends NamedElementItemProvider implement
   }
 
   /**
-   * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  protected boolean shouldComposeCreationImage() {
+    return true;
+  }
+
+  /**
+   * This returns the label text for the adapted class.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -133,9 +140,9 @@ public class PrimaryAssetItemProvider extends NamedElementItemProvider implement
   }
 
   /**
-   * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating a
-   * viewer notification, which it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This handles model notifications by calling {@link #updateChildren} to update any cached
+   * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -143,7 +150,6 @@ public class PrimaryAssetItemProvider extends NamedElementItemProvider implement
     updateChildren(notification);
 
     switch (notification.getFeatureID(PrimaryAsset.class)) {
-    case CybersecurityPackage.PRIMARY_ASSET__OWNED_SECURITY_NEEDS:
     case CybersecurityPackage.PRIMARY_ASSET__OWNED_THREAT_APPLICATIONS:
     case CybersecurityPackage.PRIMARY_ASSET__OWNED_MEMBERS:
       fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -153,9 +159,9 @@ public class PrimaryAssetItemProvider extends NamedElementItemProvider implement
   }
 
   /**
-   * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that can be created under
-   * this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+   * that can be created under this object.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -241,17 +247,6 @@ public class PrimaryAssetItemProvider extends NamedElementItemProvider implement
     // begin-extension-code
     {
       CommandParameter commandParameter = createChildParameter(
-          CybersecurityPackage.Literals.PRIMARY_ASSET__OWNED_SECURITY_NEEDS,
-          CybersecurityFactory.eINSTANCE.createSecurityNeeds());
-      if (NewChildDescriptorHelper.isValidCommand(object, commandParameter)) {
-        newChildDescriptors.add(commandParameter);
-      }
-    }
-    // end-extension-code
-
-    // begin-extension-code
-    {
-      CommandParameter commandParameter = createChildParameter(
           CybersecurityPackage.Literals.PRIMARY_ASSET__OWNED_THREAT_APPLICATIONS,
           CybersecurityFactory.eINSTANCE.createThreatApplication());
       if (NewChildDescriptorHelper.isValidCommand(object, commandParameter)) {
@@ -274,9 +269,9 @@ public class PrimaryAssetItemProvider extends NamedElementItemProvider implement
   }
 
   /**
-   * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}. <!-- begin-user-doc -->
+   * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -285,8 +280,7 @@ public class PrimaryAssetItemProvider extends NamedElementItemProvider implement
     Object childObject = child;
 
     boolean qualify = childFeature == EmdePackage.Literals.EXTENSIBLE_ELEMENT__OWNED_EXTENSIONS
-        || childFeature == CybersecurityPackage.Literals.PRIMARY_ASSET__OWNED_THREAT_APPLICATIONS
-        || childFeature == CybersecurityPackage.Literals.PRIMARY_ASSET__OWNED_SECURITY_NEEDS;
+        || childFeature == CybersecurityPackage.Literals.PRIMARY_ASSET__OWNED_THREAT_APPLICATIONS;
 
     if (qualify) {
       return getString("_UI_CreateChild_text2", //$NON-NLS-1$

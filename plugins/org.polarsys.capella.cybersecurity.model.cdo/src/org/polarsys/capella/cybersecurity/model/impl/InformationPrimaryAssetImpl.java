@@ -29,8 +29,7 @@ import org.polarsys.capella.cybersecurity.model.PrimaryAssetMember;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.polarsys.capella.cybersecurity.model.impl.InformationPrimaryAssetImpl#getExchangeItems <em>Exchange
- * Items</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.InformationPrimaryAssetImpl#getExchangeItems <em>Exchange Items</em>}</li>
  * </ul>
  *
  * @generated
@@ -38,7 +37,6 @@ import org.polarsys.capella.cybersecurity.model.PrimaryAssetMember;
 public class InformationPrimaryAssetImpl extends PrimaryAssetImpl implements InformationPrimaryAsset {
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   protected InformationPrimaryAssetImpl() {
@@ -49,7 +47,6 @@ public class InformationPrimaryAssetImpl extends PrimaryAssetImpl implements Inf
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -71,12 +68,12 @@ public class InformationPrimaryAssetImpl extends PrimaryAssetImpl implements Inf
       }
     }
     Object[] data = result.toArray();
-    return new EcoreEList.UnmodifiableEList<ExchangeItem>(this, CybersecurityPackage.Literals.INFORMATION_PRIMARY_ASSET__EXCHANGE_ITEMS, data.length, data);
+    return new EcoreEList.UnmodifiableEList<ExchangeItem>(this,
+        CybersecurityPackage.Literals.INFORMATION_PRIMARY_ASSET__EXCHANGE_ITEMS, data.length, data);
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -90,7 +87,6 @@ public class InformationPrimaryAssetImpl extends PrimaryAssetImpl implements Inf
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override

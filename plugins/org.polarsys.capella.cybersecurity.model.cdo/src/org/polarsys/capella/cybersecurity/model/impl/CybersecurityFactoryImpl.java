@@ -17,6 +17,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.polarsys.capella.common.lib.IdGenerator;
+import org.polarsys.capella.cybersecurity.model.*;
 import org.polarsys.capella.cybersecurity.model.CybersecurityFactory;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPkg;
@@ -34,13 +36,12 @@ import org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
- * 
  * @generated
  */
 public class CybersecurityFactoryImpl extends EFactoryImpl implements CybersecurityFactory {
   /**
-   * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * Creates the default factory implementation.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   public static CybersecurityFactory init() {
@@ -57,8 +58,8 @@ public class CybersecurityFactoryImpl extends EFactoryImpl implements Cybersecur
   }
 
   /**
-   * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * Creates an instance of the factory.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   public CybersecurityFactoryImpl() {
@@ -67,34 +68,33 @@ public class CybersecurityFactoryImpl extends EFactoryImpl implements Cybersecur
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
   public EObject create(EClass eClass) {
     switch (eClass.getClassifierID()) {
     case CybersecurityPackage.CYBERSECURITY_PKG:
-      return (EObject) createCybersecurityPkg();
+      return createCybersecurityPkg();
     case CybersecurityPackage.THREAT:
-      return (EObject) createThreat();
+      return createThreat();
     case CybersecurityPackage.THREAT_INVOLVEMENT:
-      return (EObject) createThreatInvolvement();
+      return createThreatInvolvement();
     case CybersecurityPackage.FUNCTION_STORAGE:
-      return (EObject) createFunctionStorage();
+      return createFunctionStorage();
     case CybersecurityPackage.THREAT_APPLICATION:
-      return (EObject) createThreatApplication();
+      return createThreatApplication();
     case CybersecurityPackage.PRIMARY_ASSET_STORAGE:
-      return (EObject) createPrimaryAssetStorage();
+      return createPrimaryAssetStorage();
     case CybersecurityPackage.SECURITY_NEEDS:
-      return (EObject) createSecurityNeeds();
+      return createSecurityNeeds();
     case CybersecurityPackage.TRUST_BOUNDARY_STORAGE:
-      return (EObject) createTrustBoundaryStorage();
+      return createTrustBoundaryStorage();
     case CybersecurityPackage.FUNCTIONAL_PRIMARY_ASSET:
-      return (EObject) createFunctionalPrimaryAsset();
+      return createFunctionalPrimaryAsset();
     case CybersecurityPackage.INFORMATION_PRIMARY_ASSET:
-      return (EObject) createInformationPrimaryAsset();
+      return createInformationPrimaryAsset();
     case CybersecurityPackage.PRIMARY_ASSET_MEMBER:
-      return (EObject) createPrimaryAssetMember();
+      return createPrimaryAssetMember();
     default:
       throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
     }
@@ -102,7 +102,6 @@ public class CybersecurityFactoryImpl extends EFactoryImpl implements Cybersecur
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -117,7 +116,6 @@ public class CybersecurityFactoryImpl extends EFactoryImpl implements Cybersecur
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -132,117 +130,160 @@ public class CybersecurityFactoryImpl extends EFactoryImpl implements Cybersecur
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   public CybersecurityPkg createCybersecurityPkg() {
     CybersecurityPkgImpl cybersecurityPkg = new CybersecurityPkgImpl();
+    //begin-capella-code
+
+    cybersecurityPkg.setId(IdGenerator.createId());
+
+    //end-capella-code
     return cybersecurityPkg;
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   public Threat createThreat() {
     ThreatImpl threat = new ThreatImpl();
+    //begin-capella-code
+
+    threat.setId(IdGenerator.createId());
+
+    //end-capella-code
     return threat;
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   public ThreatInvolvement createThreatInvolvement() {
     ThreatInvolvementImpl threatInvolvement = new ThreatInvolvementImpl();
+    //begin-capella-code
+
+    threatInvolvement.setId(IdGenerator.createId());
+
+    //end-capella-code
     return threatInvolvement;
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   public FunctionStorage createFunctionStorage() {
     FunctionStorageImpl functionStorage = new FunctionStorageImpl();
+    //begin-capella-code
+
+    functionStorage.setId(IdGenerator.createId());
+
+    //end-capella-code
     return functionStorage;
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   public ThreatApplication createThreatApplication() {
     ThreatApplicationImpl threatApplication = new ThreatApplicationImpl();
+    //begin-capella-code
+
+    threatApplication.setId(IdGenerator.createId());
+
+    //end-capella-code
     return threatApplication;
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   public PrimaryAssetStorage createPrimaryAssetStorage() {
     PrimaryAssetStorageImpl primaryAssetStorage = new PrimaryAssetStorageImpl();
+    //begin-capella-code
+
+    primaryAssetStorage.setId(IdGenerator.createId());
+
+    //end-capella-code
     return primaryAssetStorage;
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   public SecurityNeeds createSecurityNeeds() {
     SecurityNeedsImpl securityNeeds = new SecurityNeedsImpl();
+    //begin-capella-code
+
+    securityNeeds.setId(IdGenerator.createId());
+
+    //end-capella-code
     return securityNeeds;
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   public TrustBoundaryStorage createTrustBoundaryStorage() {
     TrustBoundaryStorageImpl trustBoundaryStorage = new TrustBoundaryStorageImpl();
+    //begin-capella-code
+
+    trustBoundaryStorage.setId(IdGenerator.createId());
+
+    //end-capella-code
     return trustBoundaryStorage;
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   public FunctionalPrimaryAsset createFunctionalPrimaryAsset() {
     FunctionalPrimaryAssetImpl functionalPrimaryAsset = new FunctionalPrimaryAssetImpl();
+    //begin-capella-code
+
+    functionalPrimaryAsset.setId(IdGenerator.createId());
+
+    //end-capella-code
     return functionalPrimaryAsset;
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   public InformationPrimaryAsset createInformationPrimaryAsset() {
     InformationPrimaryAssetImpl informationPrimaryAsset = new InformationPrimaryAssetImpl();
+    //begin-capella-code
+
+    informationPrimaryAsset.setId(IdGenerator.createId());
+
+    //end-capella-code
     return informationPrimaryAsset;
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   public PrimaryAssetMember createPrimaryAssetMember() {
     PrimaryAssetMemberImpl primaryAssetMember = new PrimaryAssetMemberImpl();
+    //begin-capella-code
+
+    primaryAssetMember.setId(IdGenerator.createId());
+
+    //end-capella-code
     return primaryAssetMember;
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   public ThreatKind createThreatKindFromString(EDataType eDataType, String initialValue) {
@@ -255,7 +296,6 @@ public class CybersecurityFactoryImpl extends EFactoryImpl implements Cybersecur
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   public String convertThreatKindToString(EDataType eDataType, Object instanceValue) {
@@ -264,7 +304,6 @@ public class CybersecurityFactoryImpl extends EFactoryImpl implements Cybersecur
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   public CybersecurityPackage getCybersecurityPackage() {
@@ -273,13 +312,64 @@ public class CybersecurityFactoryImpl extends EFactoryImpl implements Cybersecur
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @deprecated
    * @generated
    */
   @Deprecated
   public static CybersecurityPackage getPackage() {
     return CybersecurityPackage.eINSTANCE;
+  }
+
+  /**
+   * Creates class and sets its name (This method comes from a customization of the standard EMF generator)
+   *
+   * @param name_p
+   *          : default name of created element
+   * @generated
+   */
+  public CybersecurityPkg createCybersecurityPkg(String name_p) {
+    CybersecurityPkg cybersecurityPkg = createCybersecurityPkg();
+    cybersecurityPkg.setName(name_p);
+    return cybersecurityPkg;
+  }
+
+  /**
+   * Creates class and sets its name (This method comes from a customization of the standard EMF generator)
+   *
+   * @param name_p
+   *          : default name of created element
+   * @generated
+   */
+  public Threat createThreat(String name_p) {
+    Threat threat = createThreat();
+    threat.setName(name_p);
+    return threat;
+  }
+
+  /**
+   * Creates class and sets its name (This method comes from a customization of the standard EMF generator)
+   *
+   * @param name_p
+   *          : default name of created element
+   * @generated
+   */
+  public FunctionalPrimaryAsset createFunctionalPrimaryAsset(String name_p) {
+    FunctionalPrimaryAsset functionalPrimaryAsset = createFunctionalPrimaryAsset();
+    functionalPrimaryAsset.setName(name_p);
+    return functionalPrimaryAsset;
+  }
+
+  /**
+   * Creates class and sets its name (This method comes from a customization of the standard EMF generator)
+   *
+   * @param name_p
+   *          : default name of created element
+   * @generated
+   */
+  public InformationPrimaryAsset createInformationPrimaryAsset(String name_p) {
+    InformationPrimaryAsset informationPrimaryAsset = createInformationPrimaryAsset();
+    informationPrimaryAsset.setName(name_p);
+    return informationPrimaryAsset;
   }
 
   // begin-capella-code

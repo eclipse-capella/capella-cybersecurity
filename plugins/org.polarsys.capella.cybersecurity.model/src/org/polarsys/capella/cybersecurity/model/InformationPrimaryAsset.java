@@ -22,8 +22,7 @@ import org.polarsys.capella.core.data.information.ExchangeItem;
  * The following features are supported:
  * </p>
  * <ul>
- * <li>{@link org.polarsys.capella.cybersecurity.model.InformationPrimaryAsset#getExchangeItems <em>Exchange
- * Items</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.InformationPrimaryAsset#getExchangeItems <em>Exchange Items</em>}</li>
  * </ul>
  *
  * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getInformationPrimaryAsset()
@@ -34,16 +33,15 @@ import org.polarsys.capella.core.data.information.ExchangeItem;
 public interface InformationPrimaryAsset extends PrimaryAsset {
 
   /**
-   * Returns the value of the '<em><b>Exchange Items</b></em>' reference list. The list contents are of type
-   * {@link org.polarsys.capella.core.data.information.ExchangeItem}.
-   * 
+   * Returns the value of the '<em><b>Exchange Items</b></em>' reference list.
+   * The list contents are of type {@link org.polarsys.capella.core.data.information.ExchangeItem}.
+  
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Exchange Items</em>' reference list isn't clear, there really should be more of a
    * description here...
    * </p>
    * <!-- end-user-doc -->
-   * 
    * @return the value of the '<em>Exchange Items</em>' reference list.
    * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getInformationPrimaryAsset_ExchangeItems()
    * @model transient="true" changeable="false" volatile="true" derived="true"

@@ -38,14 +38,13 @@ import org.polarsys.kitalpha.emde.model.edit.provider.NewChildDescriptorHelper;
 /**
  * This is the item provider adapter for a {@link org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage} object.
  * <!-- begin-user-doc --> <!-- end-user-doc -->
- * 
  * @generated
  */
 public class TrustBoundaryStorageItemProvider extends ModelElementItemProvider implements IEditingDomainItemProvider,
     IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
   /**
-   * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This constructs an instance from a factory and a notifier.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   public TrustBoundaryStorageItemProvider(AdapterFactory adapterFactory) {
@@ -53,8 +52,8 @@ public class TrustBoundaryStorageItemProvider extends ModelElementItemProvider i
   }
 
   /**
-   * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This returns the property descriptors for the adapted class.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -74,8 +73,8 @@ public class TrustBoundaryStorageItemProvider extends ModelElementItemProvider i
   }
 
   /**
-   * This adds a property descriptor for the Threat Source feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This adds a property descriptor for the Threat Source feature.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   protected void addThreatSourcePropertyDescriptor(Object object) {
@@ -117,8 +116,8 @@ public class TrustBoundaryStorageItemProvider extends ModelElementItemProvider i
   }
 
   /**
-   * This adds a property descriptor for the Trusted feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This adds a property descriptor for the Trusted feature.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   protected void addTrustedPropertyDescriptor(Object object) {
@@ -138,8 +137,8 @@ public class TrustBoundaryStorageItemProvider extends ModelElementItemProvider i
   }
 
   /**
-   * This adds a property descriptor for the Rationale feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This adds a property descriptor for the Rationale feature.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   protected void addRationalePropertyDescriptor(Object object) {
@@ -160,7 +159,6 @@ public class TrustBoundaryStorageItemProvider extends ModelElementItemProvider i
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -169,8 +167,8 @@ public class TrustBoundaryStorageItemProvider extends ModelElementItemProvider i
   }
 
   /**
-   * This returns TrustBoundaryStorage.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This returns TrustBoundaryStorage.gif.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -179,8 +177,18 @@ public class TrustBoundaryStorageItemProvider extends ModelElementItemProvider i
   }
 
   /**
-   * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  protected boolean shouldComposeCreationImage() {
+    return true;
+  }
+
+  /**
+   * This returns the label text for the adapted class.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -193,9 +201,9 @@ public class TrustBoundaryStorageItemProvider extends ModelElementItemProvider i
   }
 
   /**
-   * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating a
-   * viewer notification, which it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This handles model notifications by calling {@link #updateChildren} to update any cached
+   * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -214,9 +222,9 @@ public class TrustBoundaryStorageItemProvider extends ModelElementItemProvider i
   }
 
   /**
-   * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that can be created under
-   * this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+   * that can be created under this object.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override

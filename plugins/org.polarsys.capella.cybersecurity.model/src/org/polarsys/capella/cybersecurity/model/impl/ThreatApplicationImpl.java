@@ -13,8 +13,11 @@ package org.polarsys.capella.cybersecurity.model.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.polarsys.capella.core.data.capellacore.impl.RelationshipImpl;
+import org.polarsys.capella.core.data.cs.Component;
 import org.polarsys.capella.common.data.modellingcore.impl.ModelElementImpl;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.PrimaryAsset;
@@ -34,7 +37,7 @@ import org.polarsys.capella.cybersecurity.model.ThreatApplication;
  *
  * @generated
  */
-public class ThreatApplicationImpl extends ModelElementImpl implements ThreatApplication {
+public class ThreatApplicationImpl extends RelationshipImpl implements ThreatApplication {
 
   /**
    * The cached value of the '{@link #getThreat() <em>Threat</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc
@@ -47,18 +50,7 @@ public class ThreatApplicationImpl extends ModelElementImpl implements ThreatApp
   protected Threat threat;
 
   /**
-   * The cached value of the '{@link #getAsset() <em>Asset</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc
-   * -->
-   * 
-   * @see #getAsset()
-   * @generated
-   * @ordered
-   */
-  protected PrimaryAsset asset;
-
-  /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   protected ThreatApplicationImpl() {
@@ -69,7 +61,6 @@ public class ThreatApplicationImpl extends ModelElementImpl implements ThreatApp
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -79,10 +70,10 @@ public class ThreatApplicationImpl extends ModelElementImpl implements ThreatApp
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public Threat getThreat() {
 
     if (threat != null && threat.eIsProxy()) {
@@ -99,7 +90,6 @@ public class ThreatApplicationImpl extends ModelElementImpl implements ThreatApp
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
@@ -110,10 +100,10 @@ public class ThreatApplicationImpl extends ModelElementImpl implements ThreatApp
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public void setThreat(Threat newThreat) {
 
     Threat oldThreat = threat;
@@ -126,54 +116,34 @@ public class ThreatApplicationImpl extends ModelElementImpl implements ThreatApp
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public PrimaryAsset getAsset() {
 
-    if (asset != null && asset.eIsProxy()) {
-      InternalEObject oldAsset = (InternalEObject) asset;
-      asset = (PrimaryAsset) eResolveProxy(oldAsset);
-      if (asset != oldAsset) {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, CybersecurityPackage.THREAT_APPLICATION__ASSET,
-              oldAsset, asset));
-      }
-    }
-    return asset;
+    PrimaryAsset asset = basicGetAsset();
+    return asset != null && asset.eIsProxy() ? (PrimaryAsset) eResolveProxy((InternalEObject) asset) : asset;
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * 
-   * @generated
+   * @generated NOT
    */
 
   public PrimaryAsset basicGetAsset() {
 
-    return asset;
-  }
-
-  /**
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
-   * @generated
-   */
-
-  public void setAsset(PrimaryAsset newAsset) {
-
-    PrimaryAsset oldAsset = asset;
-    asset = newAsset;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, CybersecurityPackage.THREAT_APPLICATION__ASSET, oldAsset,
-          asset));
+    EObject container = eContainer();
+    if (container instanceof PrimaryAsset) {
+      return (PrimaryAsset) container;
+    }
+    return null;
 
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -193,7 +163,6 @@ public class ThreatApplicationImpl extends ModelElementImpl implements ThreatApp
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -202,16 +171,12 @@ public class ThreatApplicationImpl extends ModelElementImpl implements ThreatApp
     case CybersecurityPackage.THREAT_APPLICATION__THREAT:
       setThreat((Threat) newValue);
       return;
-    case CybersecurityPackage.THREAT_APPLICATION__ASSET:
-      setAsset((PrimaryAsset) newValue);
-      return;
     }
     super.eSet(featureID, newValue);
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -220,16 +185,12 @@ public class ThreatApplicationImpl extends ModelElementImpl implements ThreatApp
     case CybersecurityPackage.THREAT_APPLICATION__THREAT:
       setThreat((Threat) null);
       return;
-    case CybersecurityPackage.THREAT_APPLICATION__ASSET:
-      setAsset((PrimaryAsset) null);
-      return;
     }
     super.eUnset(featureID);
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -238,7 +199,7 @@ public class ThreatApplicationImpl extends ModelElementImpl implements ThreatApp
     case CybersecurityPackage.THREAT_APPLICATION__THREAT:
       return threat != null;
     case CybersecurityPackage.THREAT_APPLICATION__ASSET:
-      return asset != null;
+      return basicGetAsset() != null;
     }
     return super.eIsSet(featureID);
   }

@@ -31,12 +31,9 @@ import org.polarsys.capella.cybersecurity.model.Threat;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.polarsys.capella.cybersecurity.model.impl.CybersecurityPkgImpl#getOwnedThreats <em>Owned
- * Threats</em>}</li>
- * <li>{@link org.polarsys.capella.cybersecurity.model.impl.CybersecurityPkgImpl#getOwnedCybersecurityPkgs <em>Owned
- * Cybersecurity Pkgs</em>}</li>
- * <li>{@link org.polarsys.capella.cybersecurity.model.impl.CybersecurityPkgImpl#getOwnedPrimaryAssets <em>Owned Primary
- * Assets</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.CybersecurityPkgImpl#getOwnedThreats <em>Owned Threats</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.CybersecurityPkgImpl#getOwnedCybersecurityPkgs <em>Owned Cybersecurity Pkgs</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.CybersecurityPkgImpl#getOwnedPrimaryAssets <em>Owned Primary Assets</em>}</li>
  * </ul>
  *
  * @generated
@@ -54,9 +51,8 @@ public class CybersecurityPkgImpl extends NamedElementImpl implements Cybersecur
   protected EList<Threat> ownedThreats;
 
   /**
-   * The cached value of the '{@link #getOwnedCybersecurityPkgs() <em>Owned Cybersecurity Pkgs</em>}' containment
-   * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * The cached value of the '{@link #getOwnedCybersecurityPkgs() <em>Owned Cybersecurity Pkgs</em>}' containment reference list.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @see #getOwnedCybersecurityPkgs()
    * @generated
    * @ordered
@@ -64,9 +60,8 @@ public class CybersecurityPkgImpl extends NamedElementImpl implements Cybersecur
   protected EList<CybersecurityPkg> ownedCybersecurityPkgs;
 
   /**
-   * The cached value of the '{@link #getOwnedPrimaryAssets() <em>Owned Primary Assets</em>}' containment reference
-   * list. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * The cached value of the '{@link #getOwnedPrimaryAssets() <em>Owned Primary Assets</em>}' containment reference list.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @see #getOwnedPrimaryAssets()
    * @generated
    * @ordered
@@ -75,7 +70,6 @@ public class CybersecurityPkgImpl extends NamedElementImpl implements Cybersecur
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   protected CybersecurityPkgImpl() {
@@ -86,7 +80,6 @@ public class CybersecurityPkgImpl extends NamedElementImpl implements Cybersecur
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -96,10 +89,10 @@ public class CybersecurityPkgImpl extends NamedElementImpl implements Cybersecur
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public EList<Threat> getOwnedThreats() {
 
     if (ownedThreats == null) {
@@ -111,10 +104,10 @@ public class CybersecurityPkgImpl extends NamedElementImpl implements Cybersecur
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public EList<CybersecurityPkg> getOwnedCybersecurityPkgs() {
 
     if (ownedCybersecurityPkgs == null) {
@@ -126,10 +119,10 @@ public class CybersecurityPkgImpl extends NamedElementImpl implements Cybersecur
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
+  @Override
   public EList<PrimaryAsset> getOwnedPrimaryAssets() {
 
     if (ownedPrimaryAssets == null) {
@@ -141,7 +134,6 @@ public class CybersecurityPkgImpl extends NamedElementImpl implements Cybersecur
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -159,7 +151,6 @@ public class CybersecurityPkgImpl extends NamedElementImpl implements Cybersecur
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -177,7 +168,6 @@ public class CybersecurityPkgImpl extends NamedElementImpl implements Cybersecur
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @SuppressWarnings("unchecked")
@@ -202,7 +192,6 @@ public class CybersecurityPkgImpl extends NamedElementImpl implements Cybersecur
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -223,7 +212,6 @@ public class CybersecurityPkgImpl extends NamedElementImpl implements Cybersecur
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override

@@ -29,8 +29,7 @@ import org.polarsys.capella.cybersecurity.model.PrimaryAssetMember;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.polarsys.capella.cybersecurity.model.impl.FunctionalPrimaryAssetImpl#getFunctions
- * <em>Functions</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.FunctionalPrimaryAssetImpl#getFunctions <em>Functions</em>}</li>
  * </ul>
  *
  * @generated
@@ -38,7 +37,6 @@ import org.polarsys.capella.cybersecurity.model.PrimaryAssetMember;
 public class FunctionalPrimaryAssetImpl extends PrimaryAssetImpl implements FunctionalPrimaryAsset {
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   protected FunctionalPrimaryAssetImpl() {
@@ -49,7 +47,6 @@ public class FunctionalPrimaryAssetImpl extends PrimaryAssetImpl implements Func
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -77,7 +74,6 @@ public class FunctionalPrimaryAssetImpl extends PrimaryAssetImpl implements Func
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -91,7 +87,6 @@ public class FunctionalPrimaryAssetImpl extends PrimaryAssetImpl implements Func
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
