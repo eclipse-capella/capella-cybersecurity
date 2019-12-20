@@ -13,6 +13,8 @@ package org.polarsys.capella.cybersecurity.ui.properties.fields;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.emf.common.util.Enumerator;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetWidgetFactory;
@@ -31,11 +33,19 @@ public class ThreatKindGroup extends AbstractSemanticKindGroup {
    * @param widgetFactory
    */
   public ThreatKindGroup(Composite parent, TabbedPropertySheetWidgetFactory widgetFactory) {
-    super(parent, widgetFactory, CybersecurityEditPlugin.INSTANCE.getString("_UI_Threat_threatKind_feature"), 2); //$NON-NLS-1$
+    super(parent, widgetFactory, CybersecurityEditPlugin.INSTANCE.getString("_UI_Threat_threatKind_feature"), 3); //$NON-NLS-1$
     fields = new ArrayList<>();
+
     for (ThreatKind kind : ThreatKind.values()) {
       fields.add(createButton(kind));
     }
+  }
+
+  @Override
+  protected Button createButton(Enumerator enumerated, boolean enabled) {
+    return createButton(_group,
+        CybersecurityEditPlugin.INSTANCE.getString("_UI_ThreatKind_" + enumerated.getLiteral() + "_literal"), enumerated,
+        enabled, SWT.RADIO);
   }
 
   /**
