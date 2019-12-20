@@ -43,8 +43,8 @@ public class ThreatSection extends AbstractSection {
   protected void createContents(Composite rootParentComposite, TabbedPropertySheetPage aTabbedPropertySheetPage) {
     super.createContents(rootParentComposite, aTabbedPropertySheetPage);
     threatKindGroup = new ThreatKindGroup(rootParentComposite, getWidgetFactory());
-    rationaleGroup = new TextAreaValueGroup(rootParentComposite, Messages.ActorCybersecuritySection_1, getWidgetFactory());
     levelGroup = new IntegerValueGroup(rootParentComposite, Messages.ThreatSection_0, getWidgetFactory());
+    rationaleGroup = new TextAreaValueGroup(rootParentComposite, Messages.ActorCybersecuritySection_1, getWidgetFactory());
   }
 
   @Override
@@ -57,16 +57,16 @@ public class ThreatSection extends AbstractSection {
   public void loadData(EObject capellaElement) {
     super.loadData(capellaElement);
     threatKindGroup.loadData(capellaElement, CybersecurityPackage.Literals.THREAT__THREAT_KIND);
-    rationaleGroup.loadData(capellaElement, CybersecurityPackage.Literals.THREAT__RATIONALE);
     levelGroup.loadData(capellaElement, CybersecurityPackage.Literals.THREAT__LEVEL);
+    rationaleGroup.loadData(capellaElement, CybersecurityPackage.Literals.THREAT__RATIONALE);
   }
 
   @Override
   public List<AbstractSemanticField> getSemanticFields() {
     List<AbstractSemanticField> fields = new ArrayList<>();
     fields.add(threatKindGroup);
-    fields.add(rationaleGroup);
     fields.add(levelGroup);
+    fields.add(rationaleGroup);
     return fields;
   }
 
