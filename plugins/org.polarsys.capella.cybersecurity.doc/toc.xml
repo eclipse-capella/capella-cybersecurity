@@ -21,7 +21,11 @@
    <topic href="html/usermanual.html" label="Cybersecurity Viewpoint">
       <topic href="html/usermanual.html#Concepts" label="Concepts"/>
       <topic href="html/usermanual.html#Diagrams" label="Diagrams"/>
-      <topic href="html/rules.html" label="Validation Rules"/>
+      
+      <topic label="Validation Rules">
+	      <topic href="html/Validation Rules/cybersecurity/design/consistency/ValidationRules.html" label="Consistency"/>
+	      <topic href="html/Validation Rules/cybersecurity/design/coverage/ValidationRules.html" label="Coverage"/>
+	   </topic>
    </topic>
  
 </toc>

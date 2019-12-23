@@ -2,17 +2,10 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension
-         point="org.eclipse.help.contentProducer">
-      <contentProducer
-            producer="org.polarsys.capella.cybersecurity.doc.CybersecurityHelpContentProducer">
-      </contentProducer>
-   </extension>
-   <extension
          point="org.eclipse.help.toc">
       <toc
             file="toc.xml"
             primary="true">
       </toc>
    </extension>
-
 </plugin>

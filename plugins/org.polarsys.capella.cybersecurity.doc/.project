@@ -25,4 +25,10 @@
 		<nature>org.eclipse.pde.PluginNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<variableList>
+		<variable>
+			<name>projects</name>
+			<value>org.polarsys.capella.cybersecurity.validation</value>
+		</variable>
+	</variableList>
 </projectDescription>

@@ -1,0 +1,37 @@
+      
+= Cybersecurity > Design > Coverage =
+<br>
+{| class="VALIDATION-RULE"
+!|[[Image:../../../../Images/warning.gif|WARNING]]
+|CY_DCOV_01 - Threat Source without Threat 
+|-
+| colspan="2"|Verifies that a Threat Source is involved by at least one Threat.
+|}
+<br>
+{| class="VALIDATION-RULE"
+!|[[Image:../../../../Images/warning.gif|WARNING]]
+|CY_DCOV_02 - Threat without Threat Source/Actor 
+|-
+| colspan="2"|Verifies that a threat involves at least one Actor/Threat Source.
+|}
+<br>
+{| class="VALIDATION-RULE"
+!|[[Image:../../../../Images/warning.gif|WARNING]]
+|CY_DCOV_03 - Threat without asset 
+|-
+| colspan="2"|Verifies that a Threat threatens at least one asset.
+|}
+<br>
+{| class="VALIDATION-RULE"
+!|[[Image:../../../../Images/warning.gif|WARNING]]
+|CY_DCOV_04 - Primary Asset without Threat 
+|-
+| colspan="2"|Verifies that a Primary Asset is threatened by at least one Threat.
+|}
+<br>
+{| class="VALIDATION-RULE"
+!|[[Image:../../../../Images/warning.gif|WARNING]]
+|CY_DCOV_05 - Unhandled Information Primary Asset 
+|-
+| colspan="2"|Verifies that all Exchange Items of an Information Primary Asset are used at least once by a Function or Functional Exchange.
+|}
