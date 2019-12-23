@@ -32,6 +32,7 @@ import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.jface.resource.FontDescriptor;
 import org.eclipse.jface.resource.FontRegistry;
 import org.eclipse.jface.resource.JFaceResources;
+import org.eclipse.sirius.diagram.AbstractDNode;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.DEdge;
@@ -335,7 +336,7 @@ public class CybersecurityServices {
   }
 
   public String getAssetDecorationBorderSize(DSemanticDecorator view) {
-    if (view instanceof DNode) {
+    if (view instanceof AbstractDNode) {
       EObject e = view.getTarget();
       DDiagram diagram = CapellaServices.getService().getDiagramContainer(view);
       for (PrimaryAsset asset : getRelatedAssets(e)) {
