@@ -102,12 +102,6 @@
          id="org.polarsys.capella.cybersecurity.ui.properties.sections.RelationshipSection.diagram"
          tab="CybersecuritySiriusDiagram">
    </propertySection> 
-   <propertySection
-         class="org.polarsys.capella.cybersecurity.ui.properties.sections.PrimaryAssetMemberSection"
-         filter="org.polarsys.capella.cybersecurity.ui.properties.sections.PrimaryAssetMemberSection"
-         id="org.polarsys.capella.cybersecurity.ui.properties.sections.PrimaryAssetMemberSection.diagram"
-         tab="CybersecuritySiriusDiagram">
-   </propertySection> 
   
 		    </propertySections>
 </extension>
@@ -175,12 +169,6 @@
          id="org.polarsys.capella.cybersecurity.ui.properties.sections.RelationshipSection.capella"
          tab="CybersecurityCapella">
      </propertySection> 
-   <propertySection
-         class="org.polarsys.capella.cybersecurity.ui.properties.sections.PrimaryAssetMemberSection"
-         filter="org.polarsys.capella.cybersecurity.ui.properties.sections.PrimaryAssetMemberSection"
-         id="org.polarsys.capella.cybersecurity.ui.properties.sections.PrimaryAssetMemberSection.capella"
-         tab="CybersecurityCapella">
-   </propertySection> 
 		    </propertySections>
 </extension>
 <extension
