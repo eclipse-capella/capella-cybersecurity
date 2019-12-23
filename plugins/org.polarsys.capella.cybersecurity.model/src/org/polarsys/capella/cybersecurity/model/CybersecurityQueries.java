@@ -101,7 +101,7 @@ public class CybersecurityQueries {
         return ((TrustBoundaryStorage) e).isTrusted();
       }
     }
-    return false;
+    return TrustBoundaryStorageImpl.TRUSTED_EDEFAULT;
   }
 
   public static boolean isTrustBoundary(FunctionalExchange fe) {

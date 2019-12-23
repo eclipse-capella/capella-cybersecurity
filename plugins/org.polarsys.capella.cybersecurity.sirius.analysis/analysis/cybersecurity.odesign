@@ -173,7 +173,7 @@
         </decorationDescriptionsSet>
       </additionalLayers>
     </ownedRepresentations>
-    <ownedRepresentationExtensions xsi:type="description_1:DiagramExtensionDescription" name="Cybersecurity Architecture Diagram Extensions" viewpointURI="viewpoint:/org.polarsys.capella.core.sirius.analysis/.*" representationName="(Class Diagram Blank)|(Physical Architecture Blank)|(Physical Data Flow Blank)">
+    <ownedRepresentationExtensions xsi:type="description_1:DiagramExtensionDescription" name="Cybersecurity Architecture Diagram Extensions" viewpointURI="viewpoint:/org.polarsys.capella.core.sirius.analysis/.*" representationName="(Class Diagram Blank)|(Physical Architecture Blank)|(Physical Data Flow Blank)|(Component Exchanges Scenario)">
       <layers name="Cybersecurity Decoration Layer" activeByDefault="true">
         <decorationDescriptionsSet>
           <decorationDescriptions xsi:type="description:GenericDecorationDescription" name="Component Trust Decorator" position="NORTH_EAST" preconditionExpression="aql:element.hasTrustDecoration()" imageExpression="aql:self.getTrustDecoration()"/>
@@ -250,10 +250,12 @@
         </decorationDescriptionsSet>
         <customization>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.hasTrustedColor()">
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="color" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_trusted']"/>
             <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="backgroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_trusted']"/>
             <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="foregroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_trusted']"/>
           </vsmElementCustomizations>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:not self.hasTrustedColor()">
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="color" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_not_trusted']"/>
             <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="backgroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_not_trusted']"/>
             <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="foregroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_not_trusted']"/>
             <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="labelColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_labelColor_not_trusted']"/>
