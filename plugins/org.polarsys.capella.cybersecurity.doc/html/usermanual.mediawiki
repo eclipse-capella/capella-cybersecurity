@@ -268,5 +268,4 @@ See Capella [[../help/topic/org.polarsys.capella.diagrams.doc/html/Diagrams/diag
 == Model Validation ==
 
 Cybersecurity model elements and their attributes and relationships are subject to certain constraints.
-These constraints can be verified by selecting ''Validate->Validate Model'' from any model element's context menu. A tabular description of constraints is listed 
-[[../help/topic/org.polarsys.capella.cybersecurity.doc/html/rules.html | here]].
+These constraints can be verified by selecting ''Validate->Validate Model'' from any model element's context menu.
