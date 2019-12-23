@@ -8,7 +8,7 @@
  * Contributors:
  *    Thales - initial API and implementation
  *******************************************************************************/
-package org.polarsys.capella.cybersecurity.test.rules;
+package org.polarsys.capella.cybersecurity.test.rules.testcases.cy_dcon;
 
 import org.polarsys.capella.core.data.fa.ComponentExchange;
 import org.polarsys.capella.core.data.fa.FaFactory;
@@ -18,9 +18,15 @@ import org.polarsys.capella.cybersecurity.sirius.analysis.CybersecurityServices;
 import org.polarsys.capella.cybersecurity.test.common.Allocators;
 import org.polarsys.capella.cybersecurity.test.common.DynamicValidationTest;
 
-public class Ce__securityNeedsConsistency extends DynamicValidationTest {
+/**
+ * 
+ * Test on CY_DCON_02 - Verifies that the SecurityNeeds of a ComponentExchange are at least as high as each of its
+ * allocated Functional Exchanges.
+ *
+ */
+public class Rule_CY_DCON_02 extends DynamicValidationTest {
 
-  private static final String RULE = "org.polarsys.capella.cybersecurity.validation.ce__securityNeedsConsistency"; //$NON-NLS-1$
+  private static final String RULE = "org.polarsys.capella.cybersecurity.validation.CY_DCON_02"; //$NON-NLS-1$
 
   CybersecurityServices service = new CybersecurityServices();
   ComponentExchange ce;
@@ -29,12 +35,8 @@ public class Ce__securityNeedsConsistency extends DynamicValidationTest {
 
   private FunctionalExchange createFE() {
     FunctionalExchange res = FaFactory.eINSTANCE.createFunctionalExchange();
-    skeleton.getPhysicalArchitecture()
-      .getContainedPhysicalFunctionPkg()
-      .getOwnedPhysicalFunctions()
-      .get(0)
-      .getOwnedFunctionalExchanges()
-      .add(res);
+    skeleton.getPhysicalArchitecture().getContainedPhysicalFunctionPkg().getOwnedPhysicalFunctions().get(0)
+        .getOwnedFunctionalExchanges().add(res);
     return res;
   }
 

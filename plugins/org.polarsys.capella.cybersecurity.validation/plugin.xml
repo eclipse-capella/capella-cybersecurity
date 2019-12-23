@@ -4,8 +4,20 @@
    <extension
          point="org.eclipse.emf.validation.constraintProviders">
       <category
-            id="capella.category/Cybersecurity"
+            id="capella.category/cybersecurity"
             name="Cybersecurity">
+      </category>
+      <category
+            id="capella.category/cybersecurity/design"
+            name="Design">
+      </category>
+      <category
+            id="capella.category/cybersecurity/design/coverage"
+            name="Coverage">
+      </category>
+      <category
+            id="capella.category/cybersecurity/design/consistency"
+            name="Consistency">
       </category>
       <constraintProvider>
          <package
@@ -18,18 +30,18 @@
                namespaceUri="http://www.polarsys.org/capella/core/fa/1.4.0">
          </package>
          <constraints
-               categories="capella.category/Cybersecurity">
+               categories="capella.category/cybersecurity/design/coverage">
             <constraint
-                  class="org.polarsys.capella.cybersecurity.validation.CybersecurityValidationRules"
-                  id="threatSource__noThreat"
+                  class="org.polarsys.capella.cybersecurity.validation.design.coverage.CY_DCOV_01_ThreatSourceWithoutThreat"
+                  id="CY_DCOV_01"
                   isEnabledByDefault="true"
                   lang="Java"
                   mode="Batch"
-                  name="Threat Source without Threat"
-                  severity="ERROR"
+                  name="CY_DCOV_01 - Threat Source without Threat"
+                  severity="WARNING"
                   statusCode="0">
                <message>
-                  Threat Source &apos;&apos;{0}&apos;&apos; has no related Threats.
+                  {0} {1}has no related Threats.
                </message>
                <target
                      class="Component">
@@ -39,16 +51,16 @@
                </description>
             </constraint>
             <constraint
-                  class="org.polarsys.capella.cybersecurity.validation.CybersecurityValidationRules"
-                  id="threat__noThreatSourceOrActor"
+                  class="org.polarsys.capella.cybersecurity.validation.design.coverage.CY_DCOV_02_NoThreatSourceOrActor"
+                  id="CY_DCOV_02"
                   isEnabledByDefault="true"
                   lang="Java"
                   mode="Batch"
-                  name="Threat without Threat Source/Actor"
-                  severity="ERROR"
+                  name="CY_DCOV_02 - Threat without Threat Source/Actor"
+                  severity="WARNING"
                   statusCode="0">
                <message>
-                  Threat &apos;&apos;{0}&apos;&apos; does not involve any Actor/Threat Source.
+                  {0} {1}does not involve any Actor/Threat Source.
                </message>
                <target
                      class="Threat">
@@ -58,16 +70,16 @@
                </description>
             </constraint>
             <constraint
-                  class="org.polarsys.capella.cybersecurity.validation.CybersecurityValidationRules"
-                  id="threat__noAsset"
+                  class="org.polarsys.capella.cybersecurity.validation.design.coverage.CY_DCOV_03_ThreadWithoutAsset"
+                  id="CY_DCOV_03"
                   isEnabledByDefault="true"
                   lang="Java"
                   mode="Batch"
-                  name="Threat without asset"
-                  severity="ERROR"
+                  name="CY_DCOV_03 - Threat without asset"
+                  severity="WARNING"
                   statusCode="0">
                <message>
-                  Threat ''{0}'' does not threaten any assets
+                  {0} {1}does not threaten any assets.
                </message>
                <target
                      class="Threat">
@@ -77,16 +89,16 @@
                </description>
             </constraint>
             <constraint
-                  class="org.polarsys.capella.cybersecurity.validation.CybersecurityValidationRules"
-                  id="asset__noThreat"
+                  class="org.polarsys.capella.cybersecurity.validation.design.coverage.CY_DCOV_04_PrimaryAssetWithoutThread"
+                  id="CY_DCOV_04"
                   isEnabledByDefault="true"
                   lang="Java"
                   mode="Batch"
-                  name="Primary Asset without Threat"
+                  name="CY_DCOV_04 - Primary Asset without Threat"
                   severity="WARNING"
                   statusCode="0">
                <message>
-                  Primary Asset ''{0}'' is not threatened by any Threat
+                  {0} {1}is not threatened by any Threat.
                </message>
                <target
                      class="PrimaryAsset">
@@ -96,16 +108,16 @@
                </description>
             </constraint>
             <constraint
-                  class="org.polarsys.capella.cybersecurity.validation.CybersecurityValidationRules"
-                  id="ip_asset__notHandled"
+                  class="org.polarsys.capella.cybersecurity.validation.design.coverage.CY_DCOV_05_InformationPrimaryAssetNotHandled"
+                  id="CY_DCOV_05"
                   isEnabledByDefault="true"
                   lang="Java"
                   mode="Batch"
-                  name="Unhandled Information Primary Asset"
+                  name="CY_DCOV_05 - Unhandled Information Primary Asset"
                   severity="WARNING"
                   statusCode="0">
                <message>
-                  Information Primary Asset &apos;&apos;{0}&apos;&apos; includes Exchange Items that are not allocated by any Functional Exchange/Function.
+                  {0} {1}includes Exchange Items that are not allocated by any Functional Exchange/Function.
                </message>
                <target
                      class="InformationPrimaryAsset">
@@ -114,17 +126,20 @@
                   Verifies that all Exchange Items of an Information Primary Asset are used at least once by a Function or Functional Exchange.
                </description>
             </constraint>
+         </constraints>
+         <constraints
+               categories="capella.category/cybersecurity/design/consistency">
             <constraint
-                  class="org.polarsys.capella.cybersecurity.validation.CybersecurityValidationRules"
-                  id="fe__securityNeedsConsistency"
+                  class="org.polarsys.capella.cybersecurity.validation.design.consistency.CY_DCON_01_FunctionalExchangeNeedsConsistency"
+                  id="CY_DCON_01"
                   isEnabledByDefault="true"
                   lang="Java"
                   mode="Batch"
-                  name="Functional Exchange Security Needs Consistency"
+                  name="CY_DCON_01 - Functional Exchange Security Needs Consistency"
                   severity="WARNING"
                   statusCode="0">
                <message>
-                  SecurityNeeds of Functional Exchange &apos;&apos;{0}&apos;&apos; is not consistent with those of its Exchange Items
+                  {0} {1}'s SecurityNeeds is not consistent with those of its Exchange Items.
                </message>
                <target
                      class="FunctionalExchange">
@@ -134,16 +149,16 @@
                </description>
             </constraint>
             <constraint
-                  class="org.polarsys.capella.cybersecurity.validation.CybersecurityValidationRules"
-                  id="ce__securityNeedsConsistency"
+                  class="org.polarsys.capella.cybersecurity.validation.design.consistency.CY_DCON_02_ComponentExchangeSecurityNeedsConsistency"
+                  id="CY_DCON_02"
                   isEnabledByDefault="true"
                   lang="Java"
                   mode="Batch"
-                  name="Component Exchange Security Needs Consistency"
+                  name="CY_DCON_02 - Component Exchange Security Needs Consistency"
                   severity="WARNING"
                   statusCode="0">
                <message>
-                  SecurityNeeds of Component Exchange ''{0}'' is not consistent with those of its Functional Exchanges.
+                  {0} {1}'s SecurityNeeds is not consistent with those of its Functional Exchanges.
                </message>
                <target
                      class="ComponentExchange">

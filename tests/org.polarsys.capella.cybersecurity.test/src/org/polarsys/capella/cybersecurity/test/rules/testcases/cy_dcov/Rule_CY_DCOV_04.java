@@ -8,38 +8,47 @@
  * Contributors:
  *    Thales - initial API and implementation
  *******************************************************************************/
-package org.polarsys.capella.cybersecurity.test.rules;
+package org.polarsys.capella.cybersecurity.test.rules.testcases.cy_dcov;
 
-import org.polarsys.capella.core.data.cs.Component;
 import org.polarsys.capella.core.model.skeleton.CapellaModelSkeleton;
+import org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset;
+import org.polarsys.capella.cybersecurity.model.InformationPrimaryAsset;
 import org.polarsys.capella.cybersecurity.model.Threat;
 import org.polarsys.capella.cybersecurity.sirius.analysis.CybersecurityServices;
 import org.polarsys.capella.cybersecurity.test.common.ComponentTemplate1;
 import org.polarsys.capella.cybersecurity.test.common.DynamicValidationTest;
 
-public class Threat__noThreatSourceOrActor extends DynamicValidationTest {
+/**
+ * 
+ * Test on CY_DCOV_04 - Verifies that a Primary Asset is threatened by at least one Threat.
+ *
+ */
+public class Rule_CY_DCOV_04 extends DynamicValidationTest {
 
-  private static final String RULE = "org.polarsys.capella.cybersecurity.validation.threat__noThreatSourceOrActor"; //$NON-NLS-1$
+  private static final String RULE = "org.polarsys.capella.cybersecurity.validation.CY_DCOV_04"; //$NON-NLS-1$
 
   CybersecurityServices service = new CybersecurityServices();
   Threat threat;
-  Component actor;
+  FunctionalPrimaryAsset fpa;
+  InformationPrimaryAsset ipa;
 
   @Override
   protected void initModel(CapellaModelSkeleton skeleton) {
     ComponentTemplate1 t = new ComponentTemplate1(skeleton, this);
     threat = service.createThreat(t.component);
-    actor = t.component;
-    actor.setActor(true);
+    fpa = service.createFunctionalPrimaryAsset(t.component);
+    ipa = service.createInformationPrimaryAsset(t.component);
   }
 
   @Override
   public void test() throws Exception {
-    ko(threat, RULE);
+    ko(fpa, RULE);
+    ko(ipa, RULE);
     executeCommand(() -> {
-      service.createThreatInvolvement(threat, actor);
+      service.createThreatApplication(threat, fpa);
+      service.createThreatApplication(threat, ipa);
     });
-    ok(threat, RULE);
+    ok(fpa, RULE);
+    ok(ipa, RULE);
   }
-
 }

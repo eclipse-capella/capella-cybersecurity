@@ -8,46 +8,42 @@
  * Contributors:
  *    Thales - initial API and implementation
  *******************************************************************************/
-package org.polarsys.capella.cybersecurity.test.rules;
+package org.polarsys.capella.cybersecurity.test.rules.testcases.cy_dcov;
 
-import org.polarsys.capella.core.data.cs.Component;
 import org.polarsys.capella.core.model.skeleton.CapellaModelSkeleton;
-import org.polarsys.capella.cybersecurity.model.CybersecurityFactory;
+import org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset;
 import org.polarsys.capella.cybersecurity.model.Threat;
-import org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage;
 import org.polarsys.capella.cybersecurity.sirius.analysis.CybersecurityServices;
 import org.polarsys.capella.cybersecurity.test.common.ComponentTemplate1;
 import org.polarsys.capella.cybersecurity.test.common.DynamicValidationTest;
 
-public class ThreatSource__noThreat extends DynamicValidationTest {
+/**
+ * 
+ * Test on CY_DCOV_03 - Verifies that a Threat threatens at least one asset.
+ *
+ */
+public class Rule_CY_DCOV_03 extends DynamicValidationTest {
 
-  private static final String RULE = "org.polarsys.capella.cybersecurity.validation.threatSource__noThreat"; //$NON-NLS-1$
+  private static final String RULE = "org.polarsys.capella.cybersecurity.validation.CY_DCOV_03"; //$NON-NLS-1$
 
   CybersecurityServices service = new CybersecurityServices();
-  Component threatSource;
+  Threat threat;
+  FunctionalPrimaryAsset fpa;
 
   @Override
   protected void initModel(CapellaModelSkeleton skeleton) {
     ComponentTemplate1 t = new ComponentTemplate1(skeleton, this);
-    threatSource = t.component;
+    threat = service.createThreat(t.component);
+    fpa = service.createFunctionalPrimaryAsset(t.component);
   }
 
   @Override
   public void test() throws Exception {
-    assertNotNull(threatSource);
-    ok(threatSource, RULE);
-    TrustBoundaryStorage storage = CybersecurityFactory.eINSTANCE.createTrustBoundaryStorage();
+    ko(threat, RULE);
     executeCommand(() -> {
-      threatSource.getOwnedExtensions().add(storage);
+      service.createThreatApplication(threat, fpa);
     });
-    ok(threatSource, RULE);
-    executeCommand(() -> storage.setThreatSource(true));
-    ko(threatSource, RULE);
-    executeCommand(() -> {
-      Threat threat = service.createThreat(threatSource);
-      service.createThreatInvolvement(threat, threatSource);
-    });
-    ok(threatSource, RULE);
+    ok(threat, RULE);
   }
 
 }
