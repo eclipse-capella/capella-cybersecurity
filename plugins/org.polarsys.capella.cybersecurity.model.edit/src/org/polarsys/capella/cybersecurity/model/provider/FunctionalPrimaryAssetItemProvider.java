@@ -82,13 +82,13 @@ public class FunctionalPrimaryAssetItemProvider extends PrimaryAssetItemProvider
   }
 
   /**
-   * This returns FunctionalPrimaryAsset.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
-   * @generated NOT
+   * This returns FunctionalPrimaryAsset.gif.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * @generated
    */
   @Override
   public Object getImage(Object object) {
-    return super.getImage(object);
+    return overlayImage(object, getResourceLocator().getImage("full/obj16/FunctionalPrimaryAsset")); //$NON-NLS-1$
   }
 
   /**

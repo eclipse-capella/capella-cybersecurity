@@ -174,6 +174,16 @@ public class PrimaryAssetMemberItemProvider extends RelationshipItemProvider imp
   }
 
   /**
+   * This returns PrimaryAssetMember.gif.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object getImage(Object object) {
+    return overlayImage(object, getResourceLocator().getImage("full/obj16/PrimaryAssetMember")); //$NON-NLS-1$
+  }
+
+  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -206,6 +216,7 @@ public class PrimaryAssetMemberItemProvider extends RelationshipItemProvider imp
   @Override
   public void notifyChanged(Notification notification) {
     updateChildren(notification);
+    super.notifyChanged(notification);
   }
 
   /**
