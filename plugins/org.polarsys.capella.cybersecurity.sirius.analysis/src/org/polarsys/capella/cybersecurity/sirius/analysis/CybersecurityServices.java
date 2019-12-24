@@ -42,7 +42,7 @@ import org.eclipse.sirius.diagram.Square;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.RGBValues;
 import org.eclipse.swt.graphics.Font;
-import org.polarsys.capella.common.data.behavior.AbstractEvent;
+import org.polarsys.capella.common.data.modellingcore.ModelElement;
 import org.polarsys.capella.common.helpers.EObjectExt;
 import org.polarsys.capella.common.helpers.EcoreUtil2;
 import org.polarsys.capella.common.helpers.TransactionHelper;
@@ -54,7 +54,12 @@ import org.polarsys.capella.core.data.cs.Part;
 import org.polarsys.capella.core.data.fa.AbstractFunction;
 import org.polarsys.capella.core.data.fa.ComponentExchange;
 import org.polarsys.capella.core.data.fa.FunctionalExchange;
+import org.polarsys.capella.core.data.information.AbstractEventOperation;
+import org.polarsys.capella.core.data.information.AbstractInstance;
 import org.polarsys.capella.core.data.information.ExchangeItem;
+import org.polarsys.capella.core.data.interaction.InstanceRole;
+import org.polarsys.capella.core.data.interaction.SequenceMessage;
+import org.polarsys.capella.core.data.interaction.StateFragment;
 import org.polarsys.capella.core.model.helpers.BlockArchitectureExt;
 import org.polarsys.capella.core.sirius.analysis.CapellaServices;
 import org.polarsys.capella.core.sirius.analysis.CsServices;
@@ -74,6 +79,7 @@ import org.polarsys.capella.cybersecurity.model.Threat;
 import org.polarsys.capella.cybersecurity.model.ThreatApplication;
 import org.polarsys.capella.cybersecurity.model.ThreatInvolvement;
 import org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage;
+import org.polarsys.capella.cybersecurity.model.impl.TrustBoundaryStorageImpl;
 import org.polarsys.kitalpha.emde.model.ElementExtension;
 import org.polarsys.kitalpha.emde.model.ExtensibleElement;
 
@@ -211,48 +217,117 @@ public class CybersecurityServices {
     return false;
   }
 
-  public String getTrustDecoration(Part part) {
+  public String getTrustDecoration(ModelElement element) {
     return TRUSTED_COMPONENT_DECORATION;
   }
 
-  public String getNoTrustDecoration(Part part) {
+  public String getNoTrustDecoration(ModelElement element) {
     return UNTRUSTED_COMPONENT_DECORATION;
   }
 
-  public String getDatastorageDecoration(AbstractFunction af) {
+  public String getDatastorageDecoration(ModelElement element) {
     return DATASTORAGE_DECORATION;
   }
 
-  public String getRemanentDataDecoration(AbstractFunction af) {
+  public String getRemanentDataDecoration(ModelElement element) {
     return REMANENT_DECORATION;
   }
 
-  public String getThreatSourceDecoration(Part part) {
+  public String getThreatSourceDecoration(ModelElement element) {
     return THREATSOURCE_DECORATION;
   }
 
-  public boolean hasDatastorageDecoration(AbstractFunction af) {
-    FunctionStorage storage = getFunctionStorage(af);
-    return storage != null && storage.isDataStorage();
+  protected AbstractFunction getRepresentedFunction(ModelElement element) {
+    AbstractFunction af = null;
+    if (element instanceof AbstractFunction) {
+      af = (AbstractFunction) element;
+    } else if (element instanceof StateFragment) {
+      af = ((StateFragment) element).getRelatedAbstractFunction();
+    }
+    return af;
+  }
+  
+  protected FunctionalExchange getRepresentedFunctionalExchange(ModelElement element) {
+    FunctionalExchange fe = null;
+    if (element instanceof FunctionalExchange) {
+      fe = (FunctionalExchange) element;
+    } else if (element instanceof SequenceMessage) {
+      AbstractEventOperation invokedOperation = ((SequenceMessage) element).getInvokedOperation();
+      if (invokedOperation instanceof FunctionalExchange) {
+        fe = (FunctionalExchange) invokedOperation;
+      }
+    }
+    return fe;
+  }
+  
+  protected ComponentExchange getRepresentedComponentExchange(ModelElement element) {
+    ComponentExchange ce = null;
+    if (element instanceof ComponentExchange) {
+      ce = (ComponentExchange) element;
+    } else if (element instanceof SequenceMessage) {
+      AbstractEventOperation invokedOperation = ((SequenceMessage) element).getInvokedOperation();
+      if (invokedOperation instanceof ComponentExchange) {
+        ce = (ComponentExchange) invokedOperation;
+      }
+    }
+    return ce;
+  }
+  
+  public boolean hasDatastorageDecoration(ModelElement element) {
+    AbstractFunction af = getRepresentedFunction(element);
+    if (af != null) {
+      FunctionStorage storage = getFunctionStorage(af);
+      return storage != null && storage.isDataStorage();
+    }
+    return false;
   }
 
-  public boolean hasRemanentDataDecoration(AbstractFunction af) {
-    FunctionStorage storage = getFunctionStorage(af);
-    return storage != null && storage.isRemanentData();
+  public boolean hasRemanentDataDecoration(ModelElement element) {
+    AbstractFunction af = getRepresentedFunction(element);
+    if (af != null) {
+      FunctionStorage storage = getFunctionStorage(af);
+      return storage != null && storage.isRemanentData();
+    }
+    return false;
   }
 
-  public boolean hasTrustDecoration(Part part) {
-    return CybersecurityQueries.isTrusted(part);
+  protected Part getRepresentedPart(ModelElement element) {
+    Part part = null;
+    if (element instanceof Part) {
+      part = (Part) element;
+    } else if (element instanceof InstanceRole) {
+      AbstractInstance representedInstance = ((InstanceRole) element).getRepresentedInstance();
+      if (representedInstance instanceof Part) {
+        part = (Part) representedInstance;
+      }
+    }
+    return part;
+  }
+  
+  public boolean hasTrustDecoration(ModelElement element) {
+    Part part = getRepresentedPart(element);
+    if (part != null) {
+      return CybersecurityQueries.isTrusted(part);
+    }
+    return false;
   }
 
-  public boolean hasNoTrustDecoration(Part part) {
-    TrustBoundaryStorage storage = CybersecurityQueries.getTrustBoundaryStorage(part);
-    return storage != null && !storage.isTrusted();
+  public boolean hasNoTrustDecoration(ModelElement element) {
+    Part part = getRepresentedPart(element);
+    if (part != null) {
+      TrustBoundaryStorage storage = CybersecurityQueries.getTrustBoundaryStorage(part);
+      return storage != null && !storage.isTrusted();
+    }
+    return false;
   }
 
-  public boolean hasThreatSourceDecoration(Part part) {
-    TrustBoundaryStorage storage = CybersecurityQueries.getTrustBoundaryStorage(part);
-    return storage != null && storage.isThreatSource();
+  public boolean hasThreatSourceDecoration(ModelElement element) {
+    Part part = getRepresentedPart(element);
+    if (part != null) {
+      TrustBoundaryStorage storage = CybersecurityQueries.getTrustBoundaryStorage(part);
+      return storage != null && storage.isThreatSource();
+    }
+    return false;
   }
 
   private FunctionStorage getFunctionStorage(ExtensibleElement element) {
@@ -281,7 +356,13 @@ public class CybersecurityServices {
   }
 
   public Collection<PrimaryAsset> getRelatedAssets(EObject element) {
-    Collection<EObject> semantics = new ArrayList<EObject>();
+    Collection<EObject> semantics = new ArrayList<>();
+    if (element instanceof SequenceMessage) {
+      element = getRepresentedFunctionalExchange((ModelElement) element);
+    } else if (element instanceof StateFragment) {
+      element = getRepresentedFunction((ModelElement) element);
+    }
+    
     semantics.add(element);
     if (element instanceof FunctionalExchange) {
       semantics.addAll(((FunctionalExchange) element).getExchangedItems());
@@ -293,7 +374,7 @@ public class CybersecurityServices {
       }
     }
 
-    Collection<PrimaryAsset> assets = new ArrayList<PrimaryAsset>();
+    Collection<PrimaryAsset> assets = new ArrayList<>();
     for (EObject semantic : semantics) {
       for (EObject member : EObjectExt.getReferencers(semantic,
           CybersecurityPackage.Literals.PRIMARY_ASSET_MEMBER__MEMBER)) {
@@ -308,10 +389,15 @@ public class CybersecurityServices {
   public boolean hasAssetStyleCustomization(EObject element) {
     TransactionalEditingDomain domain = TransactionHelper.getEditingDomain(element);
     if (domain instanceof SemanticEditingDomain) {
-
+      if (element instanceof SequenceMessage) {
+        element = getRepresentedFunctionalExchange((ModelElement) element);
+      } else if (element instanceof StateFragment) {
+        element = getRepresentedFunction((ModelElement) element);
+      }
+      
       Collection<EStructuralFeature.Setting> refs = ((SemanticEditingDomain) domain).getCrossReferencer()
           .getInverseReferences(element, CybersecurityPackage.Literals.PRIMARY_ASSET_MEMBER__MEMBER, true);
-      if (refs.size() > 0) {
+      if (!refs.isEmpty()) {
         return true;
       }
       if (element instanceof FunctionalExchange) {
@@ -341,7 +427,7 @@ public class CybersecurityServices {
       DDiagram diagram = CapellaServices.getService().getDiagramContainer(view);
       for (PrimaryAsset asset : getRelatedAssets(e)) {
         DDiagramElement element = DiagramServices.getDiagramServices().getDiagramElement(diagram, asset);
-        if (element != null && element instanceof DNode) {
+        if (element instanceof DNode) {
           return "5"; //$NON-NLS-1$
         }
       }
@@ -368,47 +454,75 @@ public class CybersecurityServices {
   public boolean hasTrustedColor(Part part) {
     return CybersecurityQueries.isTrusted(part);
   }
-
-  public boolean hasFlameDecoration(ComponentExchange ce) {
-    return CybersecurityQueries.isTrustBoundary(ce);
+  
+  public boolean hasTrustedColor(InstanceRole element) {
+    Part part = getRepresentedPart(element);
+    if (part != null) {
+      return CybersecurityQueries.isTrusted(part);
+    }
+    return TrustBoundaryStorageImpl.TRUSTED_EDEFAULT;
   }
 
-  public boolean hasFlameDecoration(FunctionalExchange e) {
-    return CybersecurityQueries.isTrustBoundary(e);
+  public boolean hasFlameDecoration(ModelElement element) {
+    ComponentExchange representedComponentExchange = getRepresentedComponentExchange(element);
+    if (representedComponentExchange != null) {
+      return CybersecurityQueries.isTrustBoundary(representedComponentExchange);
+    }
+    FunctionalExchange representedFunctionalExchange = getRepresentedFunctionalExchange(element);
+    if (representedFunctionalExchange != null) {
+      return CybersecurityQueries.isTrustBoundary(representedFunctionalExchange);
+    }
+    return false;
   }
 
-  public Integer getConfidentiality(AbstractEvent e) {
-    SecurityNeeds needs = getSecurityNeeds(e);
+  public Integer getConfidentiality(ModelElement modelElement) {
+    AbstractFunction representedFunction = getRepresentedFunction(modelElement);
+    if (representedFunction != null) {
+      modelElement = representedFunction;
+    }
+    SecurityNeeds needs = getSecurityNeeds(modelElement);
     if (needs != null) {
       return needs.getConfidentiality();
     }
     return 0;
   }
 
-  public Integer getIntegrity(AbstractEvent e) {
-    SecurityNeeds needs = getSecurityNeeds(e);
+  public Integer getIntegrity(ModelElement modelElement) {
+    AbstractFunction representedFunction = getRepresentedFunction(modelElement);
+    if (representedFunction != null) {
+      modelElement = representedFunction;
+    }
+    SecurityNeeds needs = getSecurityNeeds(modelElement);
     if (needs != null) {
       return needs.getIntegrity();
     }
     return 0;
   }
 
-  public Integer getAvailability(AbstractEvent e) {
-    SecurityNeeds needs = getSecurityNeeds(e);
+  public Integer getAvailability(ModelElement modelElement) {
+    AbstractFunction representedFunction = getRepresentedFunction(modelElement);
+    if (representedFunction != null) {
+      modelElement = representedFunction;
+    }
+    SecurityNeeds needs = getSecurityNeeds(modelElement);
     if (needs != null) {
       return needs.getAvailability();
     }
     return 0;
   }
 
-  public Integer getTraceability(AbstractEvent e) {
-    SecurityNeeds needs = getSecurityNeeds(e);
+  public Integer getTraceability(ModelElement modelElement) {
+    AbstractFunction representedFunction = getRepresentedFunction(modelElement);
+    if (representedFunction != null) {
+      modelElement = representedFunction;
+    }
+    SecurityNeeds needs = getSecurityNeeds(modelElement);
     if (needs != null) {
       return needs.getTraceability();
     }
     return 0;
   }
-
+  
   // make a new random color for every new asset node
   public EObject setNewRandomColor(DNode assetView) {
     ((Square)assetView.getOwnedStyle()).setColor(RGBValues.create(colorRands.nextInt(), colorRands.nextInt(), colorRands.nextInt()));
