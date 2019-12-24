@@ -96,9 +96,11 @@ public class CybersecurityQueries {
   }
 
   public static boolean isTrusted(Component c) {
-    for (ElementExtension e : c.getOwnedExtensions()) {
-      if (e instanceof TrustBoundaryStorage) {
-        return ((TrustBoundaryStorage) e).isTrusted();
+    if (c != null) {
+      for (ElementExtension e : c.getOwnedExtensions()) {
+        if (e instanceof TrustBoundaryStorage) {
+          return ((TrustBoundaryStorage) e).isTrusted();
+        }
       }
     }
     return TrustBoundaryStorageImpl.TRUSTED_EDEFAULT;
@@ -148,9 +150,11 @@ public class CybersecurityQueries {
     if (element instanceof Part) {
       element = ((Part) element).getType();
     }
-    for (ElementExtension ext : element.getOwnedExtensions()) {
-      if (ext instanceof TrustBoundaryStorage) {
-        return (TrustBoundaryStorage) ext;
+    if (element != null) {
+      for (ElementExtension ext : element.getOwnedExtensions()) {
+        if (ext instanceof TrustBoundaryStorage) {
+          return (TrustBoundaryStorage) ext;
+        }
       }
     }
     return null;
@@ -160,7 +164,8 @@ public class CybersecurityQueries {
   // All threats targeted by a threat involvment link of c
   //
   public static Stream<Threat> getInvolvingThreats(Component c) {
-    return c.getOwnedExtensions().stream().filter(ThreatInvolvement.class::isInstance).map(x -> ((ThreatInvolvement)x).getThreat());
+    return c.getOwnedExtensions().stream().filter(ThreatInvolvement.class::isInstance)
+        .map(x -> ((ThreatInvolvement) x).getThreat());
   }
 
   public static Stream<AbstractFunctionalBlock> getSupportingComponents(FunctionalPrimaryAsset fpa) {

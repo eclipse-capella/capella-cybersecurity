@@ -14,6 +14,8 @@ import org.eclipse.emf.edit.provider.IItemProviderDecorator;
 import org.polarsys.capella.core.data.gen.edit.decorators.CustomDecoratorAdapterFactory;
 import org.polarsys.capella.core.data.gen.edit.decorators.ForwardingItemProviderAdapterDecorator;
 import org.polarsys.capella.cybersecurity.model.FunctionStorage;
+import org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset;
+import org.polarsys.capella.cybersecurity.model.InformationPrimaryAsset;
 import org.polarsys.capella.cybersecurity.model.PrimaryAssetMember;
 import org.polarsys.capella.cybersecurity.model.PrimaryAssetStorage;
 import org.polarsys.capella.cybersecurity.model.SecurityNeeds;
@@ -44,6 +46,10 @@ public class CybersecurityItemProviderDecoratorAdapterFactory extends CustomDeco
       return new ThreatInvolvementItemProviderDecorator(this);
     } else if (target instanceof TrustBoundaryStorage) {
       return new TrustBoundaryStorageItemProviderDecorator(this);
+    } else if (target instanceof FunctionalPrimaryAsset) {
+      return new FunctionalPrimaryAssetProviderDecorator(this);
+    } else if (target instanceof InformationPrimaryAsset) {
+      return new InformationPrimaryAssetProviderDecorator(this);
     }
 
     return new ForwardingItemProviderAdapterDecorator(this);

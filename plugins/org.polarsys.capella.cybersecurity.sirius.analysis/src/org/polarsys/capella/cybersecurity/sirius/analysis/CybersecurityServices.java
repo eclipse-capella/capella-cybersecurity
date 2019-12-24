@@ -22,6 +22,7 @@ import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -44,6 +45,7 @@ import org.eclipse.sirius.viewpoint.RGBValues;
 import org.eclipse.swt.graphics.Font;
 import org.polarsys.capella.common.data.modellingcore.ModelElement;
 import org.polarsys.capella.common.helpers.EObjectExt;
+import org.polarsys.capella.common.helpers.EObjectLabelProviderHelper;
 import org.polarsys.capella.common.helpers.EcoreUtil2;
 import org.polarsys.capella.common.helpers.TransactionHelper;
 import org.polarsys.capella.common.platform.sirius.ted.SemanticEditingDomainFactory.SemanticEditingDomain;
@@ -80,17 +82,18 @@ import org.polarsys.capella.cybersecurity.model.ThreatApplication;
 import org.polarsys.capella.cybersecurity.model.ThreatInvolvement;
 import org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage;
 import org.polarsys.capella.cybersecurity.model.impl.TrustBoundaryStorageImpl;
-import org.polarsys.kitalpha.emde.model.ElementExtension;
 import org.polarsys.kitalpha.emde.model.ExtensibleElement;
 
 public class CybersecurityServices {
 
-  private static final String TRUSTED_COMPONENT_DECORATION = "/org.polarsys.capella.cybersecurity.model.edit/icons/full/obj16/trusted-16.png"; //$NON-NLS-1$
-  private static final String UNTRUSTED_COMPONENT_DECORATION = "/org.polarsys.capella.cybersecurity.model.edit/icons/full/obj16/notTrusted-16.png"; //$NON-NLS-1$
-  private static final String DATASTORAGE_DECORATION = "/org.polarsys.capella.cybersecurity.model.edit/icons/full/obj16/datastorage-16.png"; //$NON-NLS-1$
-  private static final String REMANENT_DECORATION = "/org.polarsys.capella.cybersecurity.model.edit/icons/full/obj16/remanentData-16.png"; //$NON-NLS-1$
-  private static final String THREATSOURCE_DECORATION = "/org.polarsys.capella.cybersecurity.model.edit/icons/full/obj16/threatSource.png"; //$NON-NLS-1$
-
+  private static final String TRUSTED_COMPONENT_DECORATION = "/org.polarsys.capella.cybersecurity.model.edit/icons/full/ovr16/Trusted.png"; //$NON-NLS-1$
+  private static final String UNTRUSTED_COMPONENT_DECORATION = "/org.polarsys.capella.cybersecurity.model.edit/icons/full/ovr16/NotTrusted.png"; //$NON-NLS-1$
+  private static final String DATASTORAGE_DECORATION = "/org.polarsys.capella.cybersecurity.model.edit/icons/full/ovr16/DataStorage.png"; //$NON-NLS-1$
+  private static final String REMANENT_DECORATION = "/org.polarsys.capella.cybersecurity.model.edit/icons/full/ovr16/RemanentData.png"; //$NON-NLS-1$
+  private static final String THREATSOURCE_DECORATION = "/org.polarsys.capella.cybersecurity.model.edit/icons/full/ovr16/ThreatSource.png"; //$NON-NLS-1$
+  private static final String PRIMARY_ASSET_DECORATION = "/org.polarsys.capella.cybersecurity.model.edit/icons/full/ovr16/PrimaryAsset.png"; //$NON-NLS-1$
+  private static final String FLAME_DECORATION = "/org.polarsys.capella.cybersecurity.model.edit/icons/full/ovr16/TrustLimit.png"; //$NON-NLS-1$
+  
   final FaServices FA_SERVICES = new FaServices();
   final CsServices CS_SERVICES = new CsServices();
 
@@ -124,6 +127,19 @@ public class CybersecurityServices {
     return null;
   }
 
+  public String getThreatLabel(EObject asset) {
+    Threat thear = (Threat)asset;
+    String kind = ((Threat)asset).getThreatKind().getName().replaceAll("_", " ").toUpperCase();
+    if (thear.getName() == null || thear.getName().trim().isEmpty()) {
+      return kind;
+    }
+    return EObjectLabelProviderHelper.getText(asset) + "\n(" + kind+")";
+  }
+  
+  public String getPrimaryAssetLabel(EObject asset) {
+    return EObjectLabelProviderHelper.getText(asset);
+  }
+  
   public Collection<EObject> getABPrimaryAssetScope(DSemanticDecorator view) {
     EObject object = view.getTarget();
     CybersecurityPkg cspkg = getDefaultCyberSecurityPackage(object, false);
@@ -208,15 +224,6 @@ public class CybersecurityServices {
     return ap;
   }
 
-  public boolean hasActorSpyIcon(Component actor) {
-    for (ElementExtension ext : actor.getOwnedExtensions()) {
-      if (ext instanceof TrustBoundaryStorage) {
-        return ((TrustBoundaryStorage) ext).isThreatSource();
-      }
-    }
-    return false;
-  }
-
   public String getTrustDecoration(ModelElement element) {
     return TRUSTED_COMPONENT_DECORATION;
   }
@@ -236,6 +243,10 @@ public class CybersecurityServices {
   public String getThreatSourceDecoration(ModelElement element) {
     return THREATSOURCE_DECORATION;
   }
+  
+  public String getPrimaryAssetDecoration(ModelElement element) {
+    return PRIMARY_ASSET_DECORATION;
+  }
 
   protected AbstractFunction getRepresentedFunction(ModelElement element) {
     AbstractFunction af = null;
@@ -247,6 +258,10 @@ public class CybersecurityServices {
     return af;
   }
   
+  public String getFlameDecoration(EObject object) {
+    return FLAME_DECORATION;
+  }
+
   protected FunctionalExchange getRepresentedFunctionalExchange(ModelElement element) {
     FunctionalExchange fe = null;
     if (element instanceof FunctionalExchange) {
@@ -291,40 +306,44 @@ public class CybersecurityServices {
     return false;
   }
 
-  protected Part getRepresentedPart(ModelElement element) {
-    Part part = null;
-    if (element instanceof Part) {
-      part = (Part) element;
+  protected Component getRepresentedComponent(ModelElement element) {
+    Component component = null;
+    if (element instanceof Component) {
+      component = (Component) element;
+      
+    } else if (element instanceof Part) {
+      component = (Component) ((Part) element).getAbstractType();
+      
     } else if (element instanceof InstanceRole) {
       AbstractInstance representedInstance = ((InstanceRole) element).getRepresentedInstance();
       if (representedInstance instanceof Part) {
-        part = (Part) representedInstance;
+        component = (Component) ((Part) representedInstance).getAbstractType();
       }
     }
-    return part;
+    return component;
   }
   
   public boolean hasTrustDecoration(ModelElement element) {
-    Part part = getRepresentedPart(element);
-    if (part != null) {
-      return CybersecurityQueries.isTrusted(part);
+    Component component = getRepresentedComponent(element);
+    if (component != null) {
+      return CybersecurityQueries.isTrusted(component);
     }
     return false;
   }
 
   public boolean hasNoTrustDecoration(ModelElement element) {
-    Part part = getRepresentedPart(element);
-    if (part != null) {
-      TrustBoundaryStorage storage = CybersecurityQueries.getTrustBoundaryStorage(part);
-      return storage != null && !storage.isTrusted();
+    Component component = getRepresentedComponent(element);
+    if (component != null) {
+      TrustBoundaryStorage storage = CybersecurityQueries.getTrustBoundaryStorage(component);
+      return storage != null && !storage.isTrusted() && !storage.isThreatSource();
     }
     return false;
   }
 
   public boolean hasThreatSourceDecoration(ModelElement element) {
-    Part part = getRepresentedPart(element);
-    if (part != null) {
-      TrustBoundaryStorage storage = CybersecurityQueries.getTrustBoundaryStorage(part);
+    Component component = getRepresentedComponent(element);
+    if (component != null) {
+      TrustBoundaryStorage storage = CybersecurityQueries.getTrustBoundaryStorage(component);
       return storage != null && storage.isThreatSource();
     }
     return false;
@@ -456,9 +475,9 @@ public class CybersecurityServices {
   }
   
   public boolean hasTrustedColor(InstanceRole element) {
-    Part part = getRepresentedPart(element);
-    if (part != null) {
-      return CybersecurityQueries.isTrusted(part);
+    Component component = getRepresentedComponent(element);
+    if (component != null) {
+      return CybersecurityQueries.isTrusted(component);
     }
     return TrustBoundaryStorageImpl.TRUSTED_EDEFAULT;
   }
@@ -542,7 +561,7 @@ public class CybersecurityServices {
     }
   }
 
-  public boolean hasThreatLevelDecorator(EObject context) {
+  public boolean hasThreatLevelDecorator(ModelElement context) {
     return context instanceof Threat;
   }
 
@@ -575,6 +594,11 @@ public class CybersecurityServices {
         public void removeNotify() {
           removeDecorator();
         }
+        
+        @Override
+        public void addNotify() {
+          //Nothing
+        }
       };
       label.setFont(getThreatLevelDecoratorFont());
       Rectangle bounds = label.getTextBounds();
@@ -582,7 +606,10 @@ public class CybersecurityServices {
     }
 
     private void removeDecorator() {
-      getTarget().eAdapters().remove(this);
+      Notifier notifier = getTarget();
+      if (notifier != null) {
+        notifier.eAdapters().remove(this);
+      }
     }
 
     private String getLabelText(Threat threat) {

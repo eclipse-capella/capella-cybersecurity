@@ -106,13 +106,13 @@ public class PrimaryAssetItemProvider extends NamedElementItemProvider implement
   }
 
   /**
-   * This returns PrimaryAsset.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
-   * @generated NOT
+   * This returns PrimaryAsset.gif.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * @generated
    */
   @Override
   public Object getImage(Object object) {
-    return overlayImage(object, getResourceLocator().getImage("full/obj16/PrimaryAsset.png")); //$NON-NLS-1$
+    return overlayImage(object, getResourceLocator().getImage("full/obj16/PrimaryAsset")); //$NON-NLS-1$
   }
 
   /**

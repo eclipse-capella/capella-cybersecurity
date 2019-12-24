@@ -82,13 +82,13 @@ public class InformationPrimaryAssetItemProvider extends PrimaryAssetItemProvide
   }
 
   /**
-   * This returns InformationPrimaryAsset.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
-   * @generated NOT
+   * This returns InformationPrimaryAsset.gif.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * @generated
    */
   @Override
   public Object getImage(Object object) {
-    return super.getImage(object);
+    return overlayImage(object, getResourceLocator().getImage("full/obj16/InformationPrimaryAsset")); //$NON-NLS-1$
   }
 
   /**
