@@ -183,18 +183,21 @@
       <Activity
             class="org.polarsys.capella.cybersecurity.ui.activity.CreateCyberPABDiagramHyperlink"
             id="org.polarsys.capella.cybersecurity.ui.activity.systemarchitecture1"
+            image="icons/cyber-physical-architecture-diagram.png"
             index="0"
             name="%createSystemArchitecture">
       </Activity>
       <Activity
             class="org.polarsys.capella.core.explorer.activity.ui.hyperlinkadapter.pa.NewExchangeScenarioAdapter"
             id="org.polarsys.capella.cybersecurity.ui.activity.scenario1"
+            image="icons/cyber-exchange-scenario.png"
             index="1"
             name="%createScenario">
       </Activity>
       <Activity
             class="org.polarsys.capella.core.explorer.activity.ui.hyperlinkadapter.pa.NewBlankFunctionalDataflowDiagramAdapter"
             id="org.polarsys.capella.cybersecurity.ui.activity.dataflow"
+            image="icons/cyber-dataflows-diagram.png"
             index="2"
             name="%createDataflow">
       </Activity>
@@ -209,12 +212,14 @@
       <Activity
             class="org.polarsys.capella.cybersecurity.ui.activity.CreateCyberPABDiagramHyperlink"
             id="org.polarsys.capella.cybersecurity.ui.activity.systemarchitecture2"
+            image="icons/cyber-physical-architecture-diagram.png"
             index="0"
             name="%createSystemArchitecture">
       </Activity>
       <Activity
             class="org.polarsys.capella.core.explorer.activity.ui.hyperlinkadapter.pa.NewClassDiagramAdapter"
             id="org.polarsys.capella.cybersecurity.ui.activity.informationasset"
+            image="icons/cyber-class-diagram.png"
             index="1"
             name="%createInformationAsset">
       </Activity>
@@ -229,12 +234,14 @@
       <Activity
             class="org.polarsys.capella.cybersecurity.ui.activity.CreateThreatDiagramHyperlink"
             id="org.polarsys.capella.cybersecurity.ui.activity.threat"
+            image="icons/cyber-threat-diagram.png"
             index="1"
             name="%createThreat">
       </Activity>
       <Activity
             class="org.polarsys.capella.core.explorer.activity.ui.hyperlinkadapter.pa.NewExchangeScenarioAdapter"
             id="org.polarsys.capella.cybersecurity.ui.activity.scenario2"
+            image="icons/cyber-exchange-scenario.png"
             index="1"
             name="%createScenario">
       </Activity>
@@ -246,6 +253,7 @@
          category="org.polarsys.capella.wizards"
          class="org.polarsys.capella.cybersecurity.ui.CybersecurityProjectWizard"
          finalPerspective="capella.sirius.perspective"
+         icon="icons/capella_16.png"
          id="capella.cybersecurity.wizard"
          name="%newCyberProjectWizard"
          project="true">
