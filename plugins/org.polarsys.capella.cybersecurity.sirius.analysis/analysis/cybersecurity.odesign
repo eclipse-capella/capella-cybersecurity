@@ -232,7 +232,7 @@
           <decorationDescriptions xsi:type="description:GenericDecorationDescription" name="Asset Member Decorator" position="NORTH_WEST" preconditionExpression="aql:element.hasAssetStyleCustomization()" imageExpression="aql:self.getPrimaryAssetDecoration()" tooltipExpression="Member of a Primary Asset"/>
         </decorationDescriptionsSet>
       </layers>
-      <layers name="Cybersecurity Assets Layer">
+      <layers name="Cybersecurity Assets Layer" activeByDefault="true">
         <nodeMappings name="PrimaryAsset" createElements="false" domainClass="cybersecurity.PrimaryAsset">
           <style xsi:type="style:SquareDescription" labelSize="10" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -292,7 +292,7 @@
           </vsmElementCustomizations>
         </customization>
       </layers>
-      <layers name="Cybersecurity Trust Boundaries Layer">
+      <layers name="Cybersecurity Trust Boundaries Layer" activeByDefault="true">
         <decorationDescriptionsSet>
           <decorationDescriptions xsi:type="description:GenericDecorationDescription" name="Flame Decorator" position="CENTER" preconditionExpression="aql:element.hasFlameDecoration()" imageExpression="aql:self.getFlameDecoration()"/>
         </decorationDescriptionsSet>

@@ -10,7 +10,6 @@
  *******************************************************************************/
 package org.polarsys.capella.cybersecurity.ui.activity;
 
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 
@@ -21,7 +20,6 @@ import org.polarsys.capella.core.explorer.activity.ui.hyperlinkadapter.AbstractC
 import org.polarsys.capella.core.model.helpers.ModelQueryHelper;
 import org.polarsys.capella.core.sirius.analysis.IDiagramNameConstants;
 import org.polarsys.capella.core.sirius.analysis.constants.IFilterNameConstants;
-import org.polarsys.capella.cybersecurity.sirius.analysis.CybersecurityAnalysisConstants;
 
 public class CreateCyberPABDiagramHyperlink extends AbstractCapellaNewDiagramHyperlinkAdapter {
 
@@ -33,11 +31,6 @@ public class CreateCyberPABDiagramHyperlink extends AbstractCapellaNewDiagramHyp
   @Override
   protected ModelElement getModelElement(EObject rootSemanticModel) {
     return ModelQueryHelper.getPhysicalSystem((Project) rootSemanticModel);
-  }
-
-  @Override
-  protected Collection<String> getExtraLayerNames() {
-    return Arrays.asList(CybersecurityAnalysisConstants.LAYER_ASSETS, CybersecurityAnalysisConstants.LAYER_DECORATION, CybersecurityAnalysisConstants.LAYER_TRUST_BOUNDARIES);
   }
 
   @Override

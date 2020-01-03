@@ -31,8 +31,10 @@ public class CyberDiagramLayers {
       }
     }
     assertNotNull(layer);
-    Command c = new ChangeLayerActivationCommand(session.getTransactionalEditingDomain(), diagram, layer, new NullProgressMonitor());
-    session.getTransactionalEditingDomain().getCommandStack().execute(c);
+    if (!diagram.getActivatedLayers().contains(layer)) {
+      Command c = new ChangeLayerActivationCommand(session.getTransactionalEditingDomain(), diagram, layer, new NullProgressMonitor());
+      session.getTransactionalEditingDomain().getCommandStack().execute(c);
+    }
     assertTrue(diagram.getActivatedLayers().contains(layer));
   }
 
