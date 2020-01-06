@@ -217,13 +217,13 @@ One additional tool is provided by the Viewpoint:
 
 == Cybersecurity PAB Layer Extensions ==
 
-Several Layers are provided for Cybersecurity PAB Diagrams. A layer allows to change the presentation of a diagram in order to focus on specific aspects of the modeled system. Layers are activated in the diagram toolbar:
+Several Layers are provided for Cybersecurity PAB, PDFB, CDB and ES diagrams. A layer allows to change the presentation of a diagram in order to focus on specific aspects of the modeled system. Layers are activated in the diagram toolbar:
 
 [[Image:Images/layers.png]]
 
 === Trust Boundaries Layer ===
 
-The Trust Boundaries Layer for Cybersecurity PAB diagrams will change the diagrams appearence: Trusted components and actors will change their background color to white, untrusted components and actors will change their color to red. Communication edges between Trusted and Untrusted elements, so called Trust Boundaries, will be decorated with a small flame icon:
+The Trust Boundaries Layer will change the diagrams appearence: Trusted components and actors will change their background color to white, untrusted components and actors will change their color to red. Communication edges between Trusted and Untrusted elements, so called Trust Boundaries, will be decorated with a small flame icon:
 
 [[Image:Images/pab_diagram_2.png]] 
 
@@ -237,7 +237,7 @@ a lower security needs value:
 
 === Cybersecurity Decorations Layer ===
 
-The Cybersecurity Decorations Layer adds the following decorations to existing diagram elements. The layer is available on Cybersecurity PAB diagrams and Class Diagrams.
+The Cybersecurity Decorations Layer adds the following decorations to existing diagram elements.
 
 {| border="0"
 |-

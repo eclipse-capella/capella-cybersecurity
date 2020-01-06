@@ -28,8 +28,10 @@ import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.common.tools.api.interpreter.EvaluationException;
 import org.eclipse.sirius.common.tools.api.interpreter.IInterpreter;
+import org.eclipse.sirius.common.tools.api.util.MessageTranslator;
 import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.description.AbstractNodeMapping;
+import org.eclipse.sirius.diagram.description.DiagramDescription;
 import org.eclipse.sirius.ecore.extender.business.api.accessor.ModelAccessor;
 import org.eclipse.sirius.tools.api.interpreter.InterpreterUtil;
 import org.eclipse.sirius.viewpoint.DRepresentationElement;
@@ -39,11 +41,13 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.polarsys.capella.common.ui.toolkit.dialogs.TransferTreeListDialog;
 import org.polarsys.capella.common.ui.toolkit.viewers.data.DataLabelProvider;
+import org.polarsys.capella.core.data.capellacore.NamedElement;
+import org.polarsys.capella.core.sirius.analysis.CapellaServices;
 import org.polarsys.capella.core.sirius.analysis.actions.extensions.Messages;
 import org.polarsys.capella.core.ui.properties.CapellaUIPropertiesPlugin;
 
 abstract class ShowHideTask extends AbstractCommandTask implements ICreationTask {
-  
+
   private Collection<EObject> selectedObjects = new ArrayList<EObject>();
   private Collection<EObject> deletedObjects = new ArrayList<EObject>();
 
@@ -57,7 +61,7 @@ abstract class ShowHideTask extends AbstractCommandTask implements ICreationTask
 
   @Override
   public boolean canExecute() {
-    return ((DSemanticDecorator)container).getTarget() != null;
+    return ((DSemanticDecorator) container).getTarget() != null;
   }
 
   protected Shell getShell() {
@@ -76,8 +80,8 @@ abstract class ShowHideTask extends AbstractCommandTask implements ICreationTask
       }
     }
 
-    EObject context = ((DSemanticDecorator)container).getTarget();
-    IInterpreter interpreter = InterpreterUtil.getInterpreter(context);          
+    EObject context = ((DSemanticDecorator) container).getTarget();
+    IInterpreter interpreter = InterpreterUtil.getInterpreter(context);
 
     for (AbstractNodeMapping mapping : getMappings(tool)) {
       String expression = mapping.getSemanticCandidatesExpression();
@@ -105,12 +109,16 @@ abstract class ShowHideTask extends AbstractCommandTask implements ICreationTask
     int leftViewerExpandLevel = expandLeftViewer ? AbstractTreeViewer.ALL_LEVELS : 0;
     int rightViewerExpandLevel = expandRightViewer ? AbstractTreeViewer.ALL_LEVELS : 0;
 
-    dialog = new TransferTreeListDialog(getShell(), Messages.SelectElementFromListWizard_Title, "bla",
-        new DataLabelProvider(),
-        new DataLabelProvider(),
-        leftViewerExpandLevel,
-        rightViewerExpandLevel
-        );
+    DSemanticDecorator decorator = (DSemanticDecorator) container;    
+    DiagramDescription diagramDescription = CapellaServices.getService().getDiagramContainer(decorator).getDescription();    
+    String elementTypeToInsert = MessageTranslator.INSTANCE.getMessage(diagramDescription, tool.getLabel());
+    
+    NamedElement semanticTarget = (NamedElement) decorator.getTarget();
+
+    String wizardMessage = "Select " + elementTypeToInsert + " to show in " + semanticTarget.getName();
+
+    dialog = new TransferTreeListDialog(getShell(), Messages.SelectElementFromListWizard_Title, wizardMessage,
+        new DataLabelProvider(), new DataLabelProvider(), leftViewerExpandLevel, rightViewerExpandLevel);
     dialog.setRightInput(new ArrayList<>(shown.keySet()), context);
     dialog.setLeftInput(semanticCandidates, context);
 
@@ -132,7 +140,7 @@ abstract class ShowHideTask extends AbstractCommandTask implements ICreationTask
     }
   }
 
-  /** 
+  /**
    * Subclasses override this
    */
   protected abstract Collection<? extends DDiagramElement> getCandidateChildren(EObject container);
@@ -159,8 +167,8 @@ abstract class ShowHideTask extends AbstractCommandTask implements ICreationTask
 
   @Override
   /**
-   * These elements weren't actually created. But the invoking Node/ContainerCreation tool doesnt' care,
-   * and creates a view for each of these, which is just what we want.
+   * These elements weren't actually created. But the invoking Node/ContainerCreation tool doesnt' care, and creates a
+   * view for each of these, which is just what we want.
    */
   public Collection<EObject> getCreatedElements() {
     return selectedObjects;

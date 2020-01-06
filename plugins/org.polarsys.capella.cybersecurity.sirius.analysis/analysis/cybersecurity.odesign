@@ -128,7 +128,7 @@
           </style>
         </edgeMappings>
         <toolSections name="Threats">
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="ToolCreateThreat" label="Threat" nodeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='Threat']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" documentation="Create a new Threat" name="ToolCreateThreat" label="Threat" nodeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='Threat']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -137,7 +137,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="ToolCreateFunctionalPrimaryAsset" label="Functional Primary Asset" nodeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='FunctionalPrimaryAsset']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" documentation="Create a new Functional Primary Asset" name="ToolCreateFunctionalPrimaryAsset" label="Functional Primary Asset" nodeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='FunctionalPrimaryAsset']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -146,7 +146,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="ToolCreateInformationPrimaryAsset" label="Information Primary Asset" nodeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='InformationPrimaryAsset']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" documentation="Create a new Information Primary Asset" name="ToolCreateInformationPrimaryAsset" label="Information Primary Asset" nodeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='InformationPrimaryAsset']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -155,7 +155,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="ToolCreateActor" label="Actor" nodeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='Actor']" iconPath="/org.polarsys.capella.core.sirius.analysis/icons/full/obj16/Actor.gif">
+          <ownedTools xsi:type="tool:NodeCreationDescription" documentation="Create a new Actor" name="ToolCreateActor" label="Actor" nodeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='Actor']" iconPath="/org.polarsys.capella.core.sirius.analysis/icons/full/obj16/Actor.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -164,7 +164,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="ToolCreateThreatInvolvement" label="Involves" edgeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@edgeMappings[name='ThreatInvolvement']">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" documentation="Create a new Threat Involvement between the selected Threat and Actor" name="ToolCreateThreatInvolvement" label="Involves" edgeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@edgeMappings[name='ThreatInvolvement']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -175,7 +175,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="ToolCreateThreatApplication" label="Applicable to" edgeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@edgeMappings[name='ThreatApplication']">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" documentation="Create a new Threat Application between the selected Threat and Primary Asset" name="ToolCreateThreatApplication" label="Applicable to" edgeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@edgeMappings[name='ThreatApplication']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -186,22 +186,22 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="show_hide__.actor" label="%show_hide__.actor" nodeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='Actor']" iconPath="/org.polarsys.capella.core.sirius.analysis/icons/full/obj16/ShowHide.gif">
+          <ownedTools xsi:type="tool:NodeCreationDescription" documentation="Insert/Remove Actors. Create or delete graphical objects corresponding to already existing Actors. Removing an Actor graphical object from the diagram does not delete the Actor from the model. This tool does not modify the semantic model." name="show_hide__.actor" label="%show_hide__.actor" nodeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='Actor']" iconPath="/org.polarsys.capella.core.sirius.analysis/icons/full/obj16/ShowHide.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation/>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="show_hide__.threat" label="%show_hide__.threat" nodeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='Threat']" iconPath="/org.polarsys.capella.core.sirius.analysis/icons/full/obj16/ShowHide.gif">
+          <ownedTools xsi:type="tool:NodeCreationDescription" documentation="Insert/Remove Threats. Create or delete graphical objects corresponding to already existing Threats. Removing a Threat graphical object from the diagram does not delete the Threat from the model. This tool does not modify the semantic model." name="show_hide__.threat" label="%show_hide__.threat" nodeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='Threat']" iconPath="/org.polarsys.capella.core.sirius.analysis/icons/full/obj16/ShowHide.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation/>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="show_hide__.functionalasset" label="%show_hide__.functionalasset" nodeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='FunctionalPrimaryAsset']" iconPath="/org.polarsys.capella.core.sirius.analysis/icons/full/obj16/ShowHide.gif">
+          <ownedTools xsi:type="tool:NodeCreationDescription" documentation="Insert/Remove Functional Assets. Create or delete graphical objects corresponding to already existing Functional Assets. Removing a Functional Asset graphical object from the diagram does not delete the Functional Asset from the model. This tool does not modify the semantic model." name="show_hide__.functionalasset" label="%show_hide__.functionalasset" nodeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='FunctionalPrimaryAsset']" iconPath="/org.polarsys.capella.core.sirius.analysis/icons/full/obj16/ShowHide.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation/>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="show_hide__.informationasset" label="%show_hide__.informationasset" nodeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='InformationPrimaryAsset']" iconPath="/org.polarsys.capella.core.sirius.analysis/icons/full/obj16/ShowHide.gif">
+          <ownedTools xsi:type="tool:NodeCreationDescription" documentation="Insert/Remove Information Assets. Create or delete graphical objects corresponding to already existing Information Assets. Removing a Information Asset graphical object from the diagram does not delete the Information Asset from the model. This tool does not modify the semantic model." name="show_hide__.informationasset" label="%show_hide__.informationasset" nodeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='InformationPrimaryAsset']" iconPath="/org.polarsys.capella.core.sirius.analysis/icons/full/obj16/ShowHide.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation/>
@@ -241,7 +241,7 @@
           </style>
         </nodeMappings>
         <toolSections name="Primary Assets">
-          <ownedTools xsi:type="tool_1:ToolDescription" name="primary.assets" label="Primary Assets" iconPath="/org.polarsys.capella.core.sirius.analysis/icons/full/obj16/ShowHide.gif">
+          <ownedTools xsi:type="tool_1:ToolDescription" documentation="Insert/Remove Primary Assets. Create or delete graphical objects corresponding to already existing Primary Assets. Removing a Primary Asset graphical object from the diagram does not delete the Primary Asset from the model. This tool does not modify the semantic model." name="primary.assets" label="Primary Assets" iconPath="/org.polarsys.capella.core.sirius.analysis/icons/full/obj16/ShowHide.gif">
             <element name="element"/>
             <elementView name="elementView">
               <subVariables xsi:type="tool_1:AcceleoVariable" name="diagram" computationExpression="aql:elementView.eContainerOrSelf(diagram::DDiagram)"/>
@@ -254,7 +254,7 @@
                   <parameters name="context" value="aql:element"/>
                   <parameters name="scope" value="aql:scope"/>
                   <parameters name="resultVariable" value="selection"/>
-                  <parameters name="wizardMessage" value="aql:'Select Primary Assets'"/>
+                  <parameters name="wizardMessage" value="aql:'Select Primary Assets to show in '+ element.name + '.'"/>
                   <parameters name="initialSelection" value="aql:self.void2Null(self.getIntersection(ownedNodeContainer->select(x | x.visible and x.actualMapping.name = 'PrimaryAsset').target,scope))"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:not (selection = 'WIZARD_CANCELED')">
@@ -292,6 +292,92 @@
           </vsmElementCustomizations>
         </customization>
       </layers>
+      <layers name="Cybersecurity Security Needs Confidentiality">
+        <customization>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:view.getMaxSecurityNeedValue() = 1">
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="color" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_1']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="backgroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_1']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="foregroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_1']"/>
+          </vsmElementCustomizations>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:view.getMaxSecurityNeedValue() = 2">
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="color" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_2']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="labelColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_label']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="backgroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_2']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="foregroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_2']"/>
+          </vsmElementCustomizations>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:view.getMaxSecurityNeedValue() = 3">
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="color" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_3']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="labelColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_label']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="backgroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_3']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="foregroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_3']"/>
+          </vsmElementCustomizations>
+        </customization>
+      </layers>
+      <layers name="Cybersecurity Security Needs Integrity">
+        <customization>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:view.getMaxSecurityNeedValue() = 1">
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="color" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_1']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="backgroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_1']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="foregroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_1']"/>
+          </vsmElementCustomizations>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:view.getMaxSecurityNeedValue() = 2">
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="color" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_2']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="labelColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_label']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="backgroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_2']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="foregroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_2']"/>
+          </vsmElementCustomizations>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:view.getMaxSecurityNeedValue() = 3">
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="color" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_3']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="labelColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_label']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="backgroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_3']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="foregroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_3']"/>
+          </vsmElementCustomizations>
+        </customization>
+      </layers>
+      <layers name="Cybersecurity Security Needs Availability">
+        <customization>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:view.getMaxSecurityNeedValue() = 1">
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="color" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_1']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="backgroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_1']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="foregroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_1']"/>
+          </vsmElementCustomizations>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:view.getMaxSecurityNeedValue() = 2">
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="color" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_2']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="labelColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_label']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="backgroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_2']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="foregroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_2']"/>
+          </vsmElementCustomizations>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:view.getMaxSecurityNeedValue() = 3">
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="color" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_3']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="labelColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_label']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="backgroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_3']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="foregroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_3']"/>
+          </vsmElementCustomizations>
+        </customization>
+      </layers>
+      <layers name="Cybersecurity Security Needs Traceability">
+        <customization>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:view.getMaxSecurityNeedValue() = 1">
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="color" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_1']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="backgroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_1']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="foregroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_1']"/>
+          </vsmElementCustomizations>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:view.getMaxSecurityNeedValue() = 2">
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="color" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_2']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="labelColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_label']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="backgroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_2']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="foregroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_2']"/>
+          </vsmElementCustomizations>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:view.getMaxSecurityNeedValue() = 3">
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="color" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_3']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="labelColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_label']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="backgroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_3']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="foregroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_3']"/>
+          </vsmElementCustomizations>
+        </customization>
+      </layers>
+    </ownedRepresentationExtensions>
+    <ownedRepresentationExtensions xsi:type="description_1:DiagramExtensionDescription" name="Cybersecurity Architecture Diagram Extensions Second" viewpointURI="viewpoint:/org.polarsys.capella.core.sirius.analysis/.*" representationName="(Physical Architecture Blank)|(Physical Data Flow Blank)|(Component Exchanges Scenario)">
       <layers name="Cybersecurity Trust Boundaries Layer" activeByDefault="true">
         <decorationDescriptionsSet>
           <decorationDescriptions xsi:type="description:GenericDecorationDescription" name="Flame Decorator" position="CENTER" preconditionExpression="aql:element.hasFlameDecoration()" imageExpression="aql:self.getFlameDecoration()"/>
@@ -310,90 +396,6 @@
           </vsmElementCustomizations>
         </customization>
       </layers>
-      <layers name="Cybersecurity Security Needs Confidentiality">
-        <customization>
-          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.getConfidentiality() = 1">
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="color" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_1']"/>
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="backgroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_1']"/>
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="foregroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_1']"/>
-          </vsmElementCustomizations>
-          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.getConfidentiality() = 2">
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="color" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_2']"/>
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="labelColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_label']"/>
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="backgroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_2']"/>
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="foregroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_2']"/>
-          </vsmElementCustomizations>
-          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.getConfidentiality() = 3">
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="color" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_3']"/>
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="labelColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_label']"/>
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="backgroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_3']"/>
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="foregroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_3']"/>
-          </vsmElementCustomizations>
-        </customization>
-      </layers>
-      <layers name="Cybersecurity Security Needs Integrity">
-        <customization>
-          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.getIntegrity() = 1">
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="color" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_1']"/>
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="backgroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_1']"/>
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="foregroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_1']"/>
-          </vsmElementCustomizations>
-          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.getIntegrity() = 2">
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="color" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_2']"/>
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="labelColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_label']"/>
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="backgroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_2']"/>
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="foregroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_2']"/>
-          </vsmElementCustomizations>
-          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.getIntegrity() = 3">
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="color" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_3']"/>
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="labelColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_label']"/>
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="backgroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_3']"/>
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="foregroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_3']"/>
-          </vsmElementCustomizations>
-        </customization>
-      </layers>
-      <layers name="Cybersecurity Security Needs Availability">
-        <customization>
-          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.getAvailability() = 1">
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="color" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_1']"/>
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="backgroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_1']"/>
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="foregroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_1']"/>
-          </vsmElementCustomizations>
-          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.getAvailability() = 2">
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="color" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_2']"/>
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="labelColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_label']"/>
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="backgroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_2']"/>
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="foregroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_2']"/>
-          </vsmElementCustomizations>
-          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.getAvailability() = 3">
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="color" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_3']"/>
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="labelColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_label']"/>
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="backgroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_3']"/>
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="foregroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_3']"/>
-          </vsmElementCustomizations>
-        </customization>
-      </layers>
-      <layers name="Cybersecurity Security Needs Traceability">
-        <customization>
-          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.getTraceability() = 1">
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="color" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_1']"/>
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="backgroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_1']"/>
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="foregroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_1']"/>
-          </vsmElementCustomizations>
-          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.getTraceability() = 2">
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="color" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_2']"/>
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="labelColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_label']"/>
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="backgroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_2']"/>
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="foregroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_2']"/>
-          </vsmElementCustomizations>
-          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.getTraceability() = 3">
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="color" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_3']"/>
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="labelColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_label']"/>
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="backgroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_3']"/>
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="foregroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='cyber_color_securityNeeds_3']"/>
-          </vsmElementCustomizations>
-        </customization>
-      </layers>
     </ownedRepresentationExtensions>
     <ownedJavaExtensions qualifiedClassName="org.polarsys.capella.cybersecurity.sirius.analysis.CybersecurityServices"/>
   </ownedViewpoints>
@@ -402,7 +404,7 @@
     <entries xsi:type="description:UserFixedColor" green="190" blue="235" name="cyber_color2"/>
     <entries xsi:type="description:ComputedColor" name="asset_color1" red="service:view.getAssetColor1Red()" green="service:view.getAssetColor1Green()" blue="service:view.getAssetColor1Blue()"/>
     <entries xsi:type="description:UserFixedColor" red="255" green="255" blue="255" name="cyber_color_trusted"/>
-    <entries xsi:type="description:UserFixedColor" red="180" green="0" blue="0" name="cyber_color_not_trusted"/>
+    <entries xsi:type="description:UserFixedColor" red="213" green="65" blue="57" name="cyber_color_not_trusted"/>
     <entries xsi:type="description:UserFixedColor" red="255" green="255" blue="255" name="cyber_labelColor_not_trusted"/>
     <entries xsi:type="description:UserFixedColor" red="255" green="211" blue="0" name="cyber_color_securityNeeds_1"/>
     <entries xsi:type="description:UserFixedColor" red="255" green="100" blue="0" name="cyber_color_securityNeeds_2"/>
@@ -412,9 +414,9 @@
     <entries xsi:type="description:UserFixedColor" red="9" green="92" blue="46" name="_CYB_xAB_Function_Border_Green"/>
     <entries xsi:type="description:UserFixedColor" red="9" green="92" blue="46" name="_CYB_xAB_Function_Label_Green"/>
     <entries xsi:type="description:UserFixedColor" red="246" green="235" blue="235" name="_CYB_ExchangeItem_Pinkkish"/>
-    <entries xsi:type="description:UserFixedColor" red="231" green="239" blue="248" name="_CYB_Threat_Background"/>
+    <entries xsi:type="description:UserFixedColor" red="214" green="214" blue="214" name="_CYB_Threat_Background"/>
     <entries xsi:type="description:UserFixedColor" red="51" green="100" blue="150" name="_CYB_Threat_Border"/>
-    <entries xsi:type="description:UserFixedColor" red="51" green="100" blue="150" name="_CYB_Threat_Label"/>
+    <entries xsi:type="description:UserFixedColor" red="0" green="0" blue="0" name="_CYB_Threat_Label"/>
     <entries xsi:type="description:UserFixedColor" red="124" green="61" blue="61" name="_CYB_Interface_Border_Reddish"/>
     <entries xsi:type="description:UserFixedColor" red="124" green="61" blue="61" name="_CYB_Interface_Label"/>
   </userColorsPalettes>

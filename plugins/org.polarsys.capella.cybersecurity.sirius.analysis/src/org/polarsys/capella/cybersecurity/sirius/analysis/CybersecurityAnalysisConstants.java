@@ -12,13 +12,18 @@ package org.polarsys.capella.cybersecurity.sirius.analysis;
 
 public final class CybersecurityAnalysisConstants {
 
-  public final static String VIEWPOINT_ID="org.polarsys.capella.cybersecurity"; //$NON-NLS-1$
-  
-  public final static String LAYER_TRUST_BOUNDARIES = "Cybersecurity Trust Boundaries Layer"; //$NON-NLS-1$
-  public final static String LAYER_ASSETS = "Cybersecurity Assets Layer"; //$NON-NLS-1$
-  public final static String LAYER_DECORATION = "Cybersecurity Decoration Layer"; //$NON-NLS-1$
+  public static final String VIEWPOINT_ID = "org.polarsys.capella.cybersecurity"; //$NON-NLS-1$
 
-  public final static String DIAGRAM_THREAT = "Threat Diagram"; //$NON-NLS-1$
+  public static final String LAYER_TRUST_BOUNDARIES = "Cybersecurity Trust Boundaries Layer"; //$NON-NLS-1$
+  public static final String LAYER_ASSETS = "Cybersecurity Assets Layer"; //$NON-NLS-1$
+  public static final String LAYER_DECORATION = "Cybersecurity Decoration Layer"; //$NON-NLS-1$
+
+  public static final String LAYER_CONFIDENTIALITY = "Cybersecurity Security Needs Confidentiality"; //$NON-NLS-1$
+  public static final String LAYER_INTEGRITY = "Cybersecurity Security Needs Integrity"; //$NON-NLS-1$
+  public static final String LAYER_AVAILABILITY = "Cybersecurity Security Needs Availability"; //$NON-NLS-1$
+  public static final String LAYER_TRACEABILITY = "Cybersecurity Security Needs Traceability"; //$NON-NLS-1$
+
+  public static final String DIAGRAM_THREAT = "Threat Diagram"; //$NON-NLS-1$
   public static final String TOOL_CREATE_THREAT = "ToolCreateThreat"; //$NON-NLS-1$
   public static final String TOOL_CREATE_FUNCTIONAL_PRIMARY_ASSET = "ToolCreateFunctionalPrimaryAsset"; //$NON-NLS-1$
   public static final String TOOL_CREATE_INFORMATION_PRIMARY_ASSET = "ToolCreateInformationPrimaryAsset"; //$NON-NLS-1$

@@ -15,6 +15,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.PrimitiveIterator.OfInt;
 import java.util.Random;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.eclipse.draw2d.IFigure;
@@ -30,8 +31,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
-import org.eclipse.jface.resource.FontDescriptor;
-import org.eclipse.jface.resource.FontRegistry;
 import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.sirius.diagram.AbstractDNode;
 import org.eclipse.sirius.diagram.DDiagram;
@@ -40,14 +39,18 @@ import org.eclipse.sirius.diagram.DEdge;
 import org.eclipse.sirius.diagram.DNode;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.diagram.Square;
+import org.eclipse.sirius.diagram.business.api.query.DDiagramQuery;
+import org.eclipse.sirius.diagram.description.Layer;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.RGBValues;
 import org.eclipse.swt.graphics.Font;
+import org.eclipse.ui.PlatformUI;
 import org.polarsys.capella.common.data.modellingcore.ModelElement;
 import org.polarsys.capella.common.helpers.EObjectExt;
 import org.polarsys.capella.common.helpers.EObjectLabelProviderHelper;
 import org.polarsys.capella.common.helpers.EcoreUtil2;
 import org.polarsys.capella.common.helpers.TransactionHelper;
+import org.polarsys.capella.common.menu.dynamic.util.INamePrefixService;
 import org.polarsys.capella.common.platform.sirius.ted.SemanticEditingDomainFactory.SemanticEditingDomain;
 import org.polarsys.capella.core.data.cs.BlockArchitecture;
 import org.polarsys.capella.core.data.cs.Component;
@@ -66,7 +69,6 @@ import org.polarsys.capella.core.model.helpers.BlockArchitectureExt;
 import org.polarsys.capella.core.sirius.analysis.CapellaServices;
 import org.polarsys.capella.core.sirius.analysis.CsServices;
 import org.polarsys.capella.core.sirius.analysis.DiagramServices;
-import org.polarsys.capella.core.sirius.analysis.FaServices;
 import org.polarsys.capella.cybersecurity.model.CybersecurityFactory;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPkg;
@@ -93,9 +95,8 @@ public class CybersecurityServices {
   private static final String THREATSOURCE_DECORATION = "/org.polarsys.capella.cybersecurity.model.edit/icons/full/ovr16/ThreatSource.png"; //$NON-NLS-1$
   private static final String PRIMARY_ASSET_DECORATION = "/org.polarsys.capella.cybersecurity.model.edit/icons/full/ovr16/PrimaryAsset.png"; //$NON-NLS-1$
   private static final String FLAME_DECORATION = "/org.polarsys.capella.cybersecurity.model.edit/icons/full/ovr16/TrustLimit.png"; //$NON-NLS-1$
-  
-  final FaServices FA_SERVICES = new FaServices();
-  final CsServices CS_SERVICES = new CsServices();
+
+  final INamePrefixService prefixService = PlatformUI.getWorkbench().getService(INamePrefixService.class);
 
   final OfInt colorRands = new Random().ints(0, 255).iterator();
 
@@ -122,24 +123,29 @@ public class CybersecurityServices {
     if (pkg != null) {
       Threat threat = CybersecurityFactory.eINSTANCE.createThreat();
       pkg.getOwnedThreats().add(threat);
+
+      String elementPrefix = prefixService.getPrefix(threat);
+      String uniqueName = CapellaServices.getService().getUniqueName(threat, elementPrefix);
+      threat.setName(uniqueName);
+
       return threat;
     }
     return null;
   }
 
   public String getThreatLabel(EObject asset) {
-    Threat thear = (Threat)asset;
-    String kind = ((Threat)asset).getThreatKind().getName().replaceAll("_", " ").toUpperCase();
+    Threat thear = (Threat) asset;
+    String kind = ((Threat) asset).getThreatKind().getName().replaceAll("_", " ").toUpperCase();
     if (thear.getName() == null || thear.getName().trim().isEmpty()) {
       return kind;
     }
-    return EObjectLabelProviderHelper.getText(asset) + "\n(" + kind+")";
+    return EObjectLabelProviderHelper.getText(asset) + "\n(" + kind + ")";
   }
-  
+
   public String getPrimaryAssetLabel(EObject asset) {
     return EObjectLabelProviderHelper.getText(asset);
   }
-  
+
   public Collection<EObject> getABPrimaryAssetScope(DSemanticDecorator view) {
     EObject object = view.getTarget();
     CybersecurityPkg cspkg = getDefaultCyberSecurityPackage(object, false);
@@ -186,13 +192,29 @@ public class CybersecurityServices {
   }
 
   public FunctionalPrimaryAsset createFunctionalPrimaryAsset(EObject any) {
-    FunctionalPrimaryAsset asset = CybersecurityFactory.eINSTANCE.createFunctionalPrimaryAsset();
-    return (FunctionalPrimaryAsset) attachToDefaultCybersecurityPkg(any, asset);
+    FunctionalPrimaryAsset asset = (FunctionalPrimaryAsset) attachToDefaultCybersecurityPkg(any,
+        CybersecurityFactory.eINSTANCE.createFunctionalPrimaryAsset());
+
+    if (asset != null) {
+      String elementPrefix = prefixService.getPrefix(asset);
+      String uniqueName = CapellaServices.getService().getUniqueName(asset, elementPrefix);
+      asset.setName(uniqueName);
+    }
+
+    return asset;
   }
 
   public InformationPrimaryAsset createInformationPrimaryAsset(EObject any) {
-    InformationPrimaryAsset asset = CybersecurityFactory.eINSTANCE.createInformationPrimaryAsset();
-    return (InformationPrimaryAsset) attachToDefaultCybersecurityPkg(any, asset);
+    InformationPrimaryAsset asset = (InformationPrimaryAsset) attachToDefaultCybersecurityPkg(any,
+        CybersecurityFactory.eINSTANCE.createInformationPrimaryAsset());
+
+    if (asset != null) {
+      String elementPrefix = prefixService.getPrefix(asset);
+      String uniqueName = CapellaServices.getService().getUniqueName(asset, elementPrefix);
+      asset.setName(uniqueName);
+    }
+
+    return asset;
   }
 
   private EObject attachToDefaultCybersecurityPkg(EObject context, EObject cyberObject) {
@@ -207,7 +229,7 @@ public class CybersecurityServices {
   }
 
   public Component createActor(EObject any) {
-    return CS_SERVICES.createActor(BlockArchitectureExt.getRootBlockArchitecture(any));
+    return CsServices.getService().createActor(BlockArchitectureExt.getRootBlockArchitecture(any));
   }
 
   public ThreatInvolvement createThreatInvolvement(Threat threat, Component actor) {
@@ -243,7 +265,7 @@ public class CybersecurityServices {
   public String getThreatSourceDecoration(ModelElement element) {
     return THREATSOURCE_DECORATION;
   }
-  
+
   public String getPrimaryAssetDecoration(ModelElement element) {
     return PRIMARY_ASSET_DECORATION;
   }
@@ -257,7 +279,7 @@ public class CybersecurityServices {
     }
     return af;
   }
-  
+
   public String getFlameDecoration(EObject object) {
     return FLAME_DECORATION;
   }
@@ -274,7 +296,7 @@ public class CybersecurityServices {
     }
     return fe;
   }
-  
+
   protected ComponentExchange getRepresentedComponentExchange(ModelElement element) {
     ComponentExchange ce = null;
     if (element instanceof ComponentExchange) {
@@ -287,7 +309,7 @@ public class CybersecurityServices {
     }
     return ce;
   }
-  
+
   public boolean hasDatastorageDecoration(ModelElement element) {
     AbstractFunction af = getRepresentedFunction(element);
     if (af != null) {
@@ -310,10 +332,10 @@ public class CybersecurityServices {
     Component component = null;
     if (element instanceof Component) {
       component = (Component) element;
-      
+
     } else if (element instanceof Part) {
       component = (Component) ((Part) element).getAbstractType();
-      
+
     } else if (element instanceof InstanceRole) {
       AbstractInstance representedInstance = ((InstanceRole) element).getRepresentedInstance();
       if (representedInstance instanceof Part) {
@@ -322,7 +344,7 @@ public class CybersecurityServices {
     }
     return component;
   }
-  
+
   public boolean hasTrustDecoration(ModelElement element) {
     Component component = getRepresentedComponent(element);
     if (component != null) {
@@ -368,10 +390,11 @@ public class CybersecurityServices {
   private SecurityNeeds getSecurityNeeds(ExtensibleElement element) {
     return getSecurityNeeds(element, false);
   }
-  
+
   public Collection<Component> getAllThreatActors(EObject element) {
     BlockArchitecture architecture = BlockArchitectureExt.getRootBlockArchitecture(element);
-    return BlockArchitectureExt.getAllComponents(architecture).stream().filter(c -> c.isActor()).collect(Collectors.toList());
+    return BlockArchitectureExt.getAllComponents(architecture).stream().filter(c -> c.isActor())
+        .collect(Collectors.toList());
   }
 
   public Collection<PrimaryAsset> getRelatedAssets(EObject element) {
@@ -381,7 +404,7 @@ public class CybersecurityServices {
     } else if (element instanceof StateFragment) {
       element = getRepresentedFunction((ModelElement) element);
     }
-    
+
     semantics.add(element);
     if (element instanceof FunctionalExchange) {
       semantics.addAll(((FunctionalExchange) element).getExchangedItems());
@@ -413,7 +436,7 @@ public class CybersecurityServices {
       } else if (element instanceof StateFragment) {
         element = getRepresentedFunction((ModelElement) element);
       }
-      
+
       Collection<EStructuralFeature.Setting> refs = ((SemanticEditingDomain) domain).getCrossReferencer()
           .getInverseReferences(element, CybersecurityPackage.Literals.PRIMARY_ASSET_MEMBER__MEMBER, true);
       if (!refs.isEmpty()) {
@@ -473,7 +496,7 @@ public class CybersecurityServices {
   public boolean hasTrustedColor(Part part) {
     return CybersecurityQueries.isTrusted(part);
   }
-  
+
   public boolean hasTrustedColor(InstanceRole element) {
     Component component = getRepresentedComponent(element);
     if (component != null) {
@@ -494,7 +517,7 @@ public class CybersecurityServices {
     return false;
   }
 
-  public Integer getConfidentiality(ModelElement modelElement) {
+  public int getConfidentiality(ModelElement modelElement) {
     AbstractFunction representedFunction = getRepresentedFunction(modelElement);
     if (representedFunction != null) {
       modelElement = representedFunction;
@@ -506,7 +529,7 @@ public class CybersecurityServices {
     return 0;
   }
 
-  public Integer getIntegrity(ModelElement modelElement) {
+  public int getIntegrity(ModelElement modelElement) {
     AbstractFunction representedFunction = getRepresentedFunction(modelElement);
     if (representedFunction != null) {
       modelElement = representedFunction;
@@ -518,7 +541,7 @@ public class CybersecurityServices {
     return 0;
   }
 
-  public Integer getAvailability(ModelElement modelElement) {
+  public int getAvailability(ModelElement modelElement) {
     AbstractFunction representedFunction = getRepresentedFunction(modelElement);
     if (representedFunction != null) {
       modelElement = representedFunction;
@@ -530,7 +553,7 @@ public class CybersecurityServices {
     return 0;
   }
 
-  public Integer getTraceability(ModelElement modelElement) {
+  public int getTraceability(ModelElement modelElement) {
     AbstractFunction representedFunction = getRepresentedFunction(modelElement);
     if (representedFunction != null) {
       modelElement = representedFunction;
@@ -541,17 +564,59 @@ public class CybersecurityServices {
     }
     return 0;
   }
-  
+
+  /**
+   * Returns the max value of the Security Need, from the currently activated Security Needs Layers. Example:
+   * Confidentiality: 3, Integrity: 2. If the both layers are activated then the result is 3, if only Integrity layer is
+   * activated then the result is 2, if no layer is activated then the result is 0.
+   * 
+   * @param decorator
+   *          the element decorator.
+   * @return the the max value of the Security Need.
+   */
+  public int getMaxSecurityNeedValue(DSemanticDecorator decorator) {
+    DDiagram diagram = CapellaServices.getService().getDiagramContainer(decorator);
+    ModelElement element = (ModelElement) decorator.getTarget();
+
+    Set<String> activatedLayerNames = new DDiagramQuery(diagram).getAllActivatedLayers().stream().map(Layer::getName)
+        .collect(Collectors.toSet());
+
+    int maxSecurityNeedValue = 0;
+
+    if (activatedLayerNames.contains(CybersecurityAnalysisConstants.LAYER_CONFIDENTIALITY)) {
+      int confidentiality = getConfidentiality(element);
+      maxSecurityNeedValue = confidentiality > maxSecurityNeedValue ? confidentiality : maxSecurityNeedValue;
+    }
+
+    if (activatedLayerNames.contains(CybersecurityAnalysisConstants.LAYER_INTEGRITY)) {
+      int integrity = getIntegrity(element);
+      maxSecurityNeedValue = integrity > maxSecurityNeedValue ? integrity : maxSecurityNeedValue;
+    }
+
+    if (activatedLayerNames.contains(CybersecurityAnalysisConstants.LAYER_AVAILABILITY)) {
+      int availability = getAvailability(element);
+      maxSecurityNeedValue = availability > maxSecurityNeedValue ? availability : maxSecurityNeedValue;
+    }
+
+    if (activatedLayerNames.contains(CybersecurityAnalysisConstants.LAYER_TRACEABILITY)) {
+      int traceability = getTraceability(element);
+      maxSecurityNeedValue = traceability > maxSecurityNeedValue ? traceability : maxSecurityNeedValue;
+    }
+
+    return maxSecurityNeedValue;
+  }
+
   // make a new random color for every new asset node
   public EObject setNewRandomColor(DNode assetView) {
-    ((Square)assetView.getOwnedStyle()).setColor(RGBValues.create(colorRands.nextInt(), colorRands.nextInt(), colorRands.nextInt()));
-    ((Square)assetView.getOwnedStyle()).getCustomFeatures().add("color"); //$NON-NLS-1$
+    ((Square) assetView.getOwnedStyle())
+        .setColor(RGBValues.create(colorRands.nextInt(), colorRands.nextInt(), colorRands.nextInt()));
+    ((Square) assetView.getOwnedStyle()).getCustomFeatures().add("color"); //$NON-NLS-1$
     return assetView;
   }
 
-
   public IFigure getThreatLevelDecorator(final EObject context, DSemanticDiagram diagram) {
-    ThreatLevelDecorator decorator = (ThreatLevelDecorator) EcoreUtil.getExistingAdapter(context, ThreatLevelDecorator.class);
+    ThreatLevelDecorator decorator = (ThreatLevelDecorator) EcoreUtil.getExistingAdapter(context,
+        ThreatLevelDecorator.class);
     if (decorator != null) {
       return decorator.getLabel();
     } else {
@@ -588,16 +653,17 @@ public class CybersecurityServices {
   private static class ThreatLevelDecorator extends AdapterImpl {
     private final static String FONT = "CybersecurityServices.ThreatLevelDecoratorFont"; //$NON-NLS-1$
     private final Label label;
+
     private ThreatLevelDecorator(Threat threat) {
       this.label = new Label(getLabelText(threat)) {
         @Override
         public void removeNotify() {
           removeDecorator();
         }
-        
+
         @Override
         public void addNotify() {
-          //Nothing
+          // Nothing
         }
       };
       label.setFont(getThreatLevelDecoratorFont());
@@ -631,24 +697,15 @@ public class CybersecurityServices {
 
     @Override
     public void notifyChanged(Notification msg) {
-      if (msg.getFeature() == CybersecurityPackage.Literals.THREAT__LEVEL) {        
+      if (msg.getFeature() == CybersecurityPackage.Literals.THREAT__LEVEL) {
         updateLabel((Threat) msg.getNotifier());
       }
     }
 
     private Font getThreatLevelDecoratorFont() {
-      FontRegistry registry = JFaceResources.getFontRegistry();
-      Font font = registry.get(FONT);
-      if (font == registry.defaultFont()) {
-        FontDescriptor smaller = JFaceResources.getDefaultFontDescriptor().increaseHeight(-2);
-        registry.put(FONT, smaller.getFontData());
-        font = registry.get(FONT);
-      }
-      return font;
+      return JFaceResources.getFontRegistry().defaultFont();
     }
 
   }
 
-  
-  
 }
