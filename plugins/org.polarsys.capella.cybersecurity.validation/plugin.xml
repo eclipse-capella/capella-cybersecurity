@@ -139,7 +139,7 @@
                   severity="WARNING"
                   statusCode="0">
                <message>
-                  {0} {1}'s SecurityNeeds is not consistent with those of its Exchange Items.
+                  {0} {1}SecurityNeeds is not consistent with those of its allocated Exchange Items.
                </message>
                <target
                      class="FunctionalExchange">
@@ -158,7 +158,7 @@
                   severity="WARNING"
                   statusCode="0">
                <message>
-                  {0} {1}'s SecurityNeeds is not consistent with those of its Functional Exchanges.
+                  {0} {1}SecurityNeeds is not consistent with those of its allocated Functional Exchanges.
                </message>
                <target
                      class="ComponentExchange">
