@@ -24,14 +24,19 @@ import org.polarsys.kitalpha.emde.model.EmdePackage;
 import org.polarsys.kitalpha.emde.model.ExtensibleElement;
 
 /**
- * This storage implementation attaches the extension to its extended element when the extension is modified.
+ * This storage implementation allows the creation of an element extension (elementExtension) stored in a reference
+ * (storageRef) in the extended element (extendedElement).
+ * 
+ * The element extension is initially created without being attached to its extendedElement. The attachment is triggered
+ * when the element extension is modified for the first time.
+ * 
  **/
 public class ElementExtensionStorageImpl<T extends ElementExtension> extends EditingDomainProvider
     implements ElementExtensionStorage<T> {
 
   private final T elementExtension;
   private final EReference storageRef;
-  private ExtensibleElement extendedElement;
+  private ExtensibleElement extendedElement; 
 
   public ElementExtensionStorageImpl(ExtensibleElement extendedElement, EClass storageClass) {
     this(extendedElement, storageClass, EmdePackage.Literals.EXTENSIBLE_ELEMENT__OWNED_EXTENSIONS);
@@ -39,11 +44,17 @@ public class ElementExtensionStorageImpl<T extends ElementExtension> extends Edi
 
   public ElementExtensionStorageImpl(ExtensibleElement extendedElement, EClass storageClass, EReference storageRef) {
     super(TransactionUtil.getEditingDomain(extendedElement));
+
+    // the element is created but is not yet attached to the extended element
     this.elementExtension = (T) storageClass.getEPackage().getEFactoryInstance().create(storageClass);
+
     this.storageRef = storageRef;
     this.extendedElement = extendedElement;
+
+    // install this adapter in order to listen to external modification that may trigger the attachment
     extendedElement.eAdapters().add(this);
     elementExtension.eAdapters().add(this);
+
   }
 
   @Override
@@ -73,7 +84,7 @@ public class ElementExtensionStorageImpl<T extends ElementExtension> extends Edi
 
   @Override
   public void notifyChanged(Notification msg) {
-    // when something is set on the extension for the first time, attach it and re-fire the notification
+    // when the extension is modified for the first time, attach it and re-fire the notification
     // so that it gets recorded and can be undone later
     if (msg.getNotifier() == elementExtension && elementExtension.eResource() == null && isAttachmentTrigger(msg)) {
       if (storageRef.isMany()) {
@@ -81,6 +92,7 @@ public class ElementExtensionStorageImpl<T extends ElementExtension> extends Edi
       } else {
         extendedElement.eSet(storageRef, elementExtension);
       }
+
       ((InternalEObject) msg.getNotifier()).eNotify(msg);
     }
   }

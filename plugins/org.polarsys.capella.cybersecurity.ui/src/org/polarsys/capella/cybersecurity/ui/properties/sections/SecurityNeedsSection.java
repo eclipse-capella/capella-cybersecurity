@@ -57,6 +57,7 @@ public class SecurityNeedsSection extends AbstractSection {
    *          current object
    * @generated
    */
+  @Override
   public boolean select(Object eObject) {
     EObject eObjectToTest = super.selection(eObject);
 
@@ -81,6 +82,7 @@ public class SecurityNeedsSection extends AbstractSection {
    * @param selection
    * @generated
    */
+  @Override
   public void setInput(IWorkbenchPart part, ISelection selection) {
     EObject newEObject = super.setInputSelection(part, selection);
 
@@ -100,10 +102,14 @@ public class SecurityNeedsSection extends AbstractSection {
     if (!CommonHelpers.isViewpointActive(parent, CybersecurityUIActivator.VIEWPOINT_ID))
       return null;
 
-    if (parent.eContents() == null)
-      return null;
+    for (EObject eObject : parent.eContents()) {
+      if (eObject instanceof SecurityNeeds) {
+        return eObject;
+      }
+    }
 
     EObject result = null;
+
     EReference storageRef = getStorageRef(parent);
     if (storageRef != null) {
       for (Adapter adapter : parent.eAdapters()) {
@@ -138,6 +144,7 @@ public class SecurityNeedsSection extends AbstractSection {
    * @param aTabbedPropertySheetPage:
    * @generated
    */
+  @Override
   public void createControls(Composite parent, TabbedPropertySheetPage aTabbedPropertySheetPage) {
     super.createControls(parent, aTabbedPropertySheetPage);
 
@@ -177,6 +184,7 @@ public class SecurityNeedsSection extends AbstractSection {
    * @param object
    * @generated
    */
+  @Override
   public void loadData(EObject object) {
     super.loadData(object);
     confidentiality.loadData(object, CybersecurityPackage.Literals.SECURITY_NEEDS__CONFIDENTIALITY);
@@ -192,6 +200,7 @@ public class SecurityNeedsSection extends AbstractSection {
    * 
    * @generated
    */
+  @Override
   public List<AbstractSemanticField> getSemanticFields() {
     List<AbstractSemanticField> abstractSemanticFields = new ArrayList<AbstractSemanticField>();
     abstractSemanticFields.add(confidentiality);
