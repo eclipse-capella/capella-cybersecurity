@@ -55,6 +55,7 @@ public class FunctionCybersecuritySection extends AbstractSection {
    *          current object
    * @generated
    */
+  @Override
   public boolean select(Object eObject) {
     EObject eObjectToTest = super.selection(eObject);
 
@@ -79,6 +80,7 @@ public class FunctionCybersecuritySection extends AbstractSection {
    * @param selection
    * @generated
    */
+  @Override
   public void setInput(IWorkbenchPart part, ISelection selection) {
     EObject newEObject = super.setInputSelection(part, selection);
 
@@ -104,9 +106,6 @@ public class FunctionCybersecuritySection extends AbstractSection {
       return null;
 
     if (!CommonHelpers.isViewpointActive(parent, CybersecurityUIActivator.VIEWPOINT_ID))
-      return null;
-
-    if (parent.eContents() == null)
       return null;
 
     EObject result = null;
@@ -143,6 +142,7 @@ public class FunctionCybersecuritySection extends AbstractSection {
    * @param aTabbedPropertySheetPage:
    * @generated
    */
+  @Override
   public void createControls(Composite parent, TabbedPropertySheetPage aTabbedPropertySheetPage) {
     super.createControls(parent, aTabbedPropertySheetPage);
 
@@ -157,6 +157,7 @@ public class FunctionCybersecuritySection extends AbstractSection {
            * {@inheritDoc}
            */
           // TODO move this handling of queries for unattached objects to capella
+          @Override
           public List<EObject> readOpenValues(EObject semanticElement, EStructuralFeature semanticFeature,
               boolean availableElements) {
             List<EObject> result = new ArrayList<EObject>(0);
@@ -197,6 +198,7 @@ public class FunctionCybersecuritySection extends AbstractSection {
    * @param object
    * @generated
    */
+  @Override
   public void loadData(EObject object) {
     super.loadData(object);
     checkboxes.loadData(object);
@@ -209,6 +211,7 @@ public class FunctionCybersecuritySection extends AbstractSection {
    * 
    * @generated
    */
+  @Override
   public List<AbstractSemanticField> getSemanticFields() {
     List<AbstractSemanticField> abstractSemanticFields = new ArrayList<AbstractSemanticField>();
     abstractSemanticFields.add(checkboxes);
