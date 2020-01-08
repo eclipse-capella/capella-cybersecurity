@@ -78,6 +78,9 @@
             activityId="org.polarsys.capella.cybersecurity.rcp.deployment"
             categoryId="org.polarsys.capella.activities.categories.common">
       </categoryActivityBinding>
+      <defaultEnablement
+            id="org.polarsys.capella.cybersecurity.rcp.deployment">
+      </defaultEnablement>
    </extension>
    <extension
          point="org.eclipse.ui.activitySupport">
