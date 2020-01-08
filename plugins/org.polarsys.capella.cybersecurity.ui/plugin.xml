@@ -186,6 +186,9 @@
             image="icons/cyber-physical-architecture-diagram.png"
             index="0"
             name="%createPhysicalArchitecture">
+         <Predicate
+               class="org.polarsys.capella.cybersecurity.ui.activity.predicate.IsViewpointActivatedPredicate">
+         </Predicate>
       </Activity>
       <Activity
             class="org.polarsys.capella.cybersecurity.ui.activity.CreateCyberPABDiagramHyperlink"
@@ -193,6 +196,9 @@
             image="icons/cyber-physical-architecture-diagram.png"
             index="1"
             name="%createPABWithBoundariesAndAssets">
+         <Predicate
+               class="org.polarsys.capella.cybersecurity.ui.activity.predicate.IsViewpointActivatedPredicate">
+         </Predicate>
       </Activity>
       <Activity
             class="org.polarsys.capella.core.explorer.activity.ui.hyperlinkadapter.pa.NewExchangeScenarioAdapter"
@@ -200,6 +206,9 @@
             image="icons/cyber-exchange-scenario.png"
             index="2"
             name="%createScenario">
+         <Predicate
+               class="org.polarsys.capella.cybersecurity.ui.activity.predicate.IsViewpointActivatedPredicate">
+         </Predicate>
       </Activity>
       <Activity
             class="org.polarsys.capella.core.explorer.activity.ui.hyperlinkadapter.pa.NewBlankFunctionalDataflowDiagramAdapter"
@@ -207,6 +216,9 @@
             image="icons/cyber-dataflows-diagram.png"
             index="3"
             name="%createDataflow">
+         <Predicate
+               class="org.polarsys.capella.cybersecurity.ui.activity.predicate.IsViewpointActivatedPredicate">
+         </Predicate>
       </Activity>
       <Activity
             class="org.polarsys.capella.core.explorer.activity.ui.hyperlinkadapter.pa.NewClassDiagramAdapter"
@@ -214,6 +226,9 @@
             image="icons/cyber-class-diagram.png"
             index="4"
             name="%createInformationAsset">
+         <Predicate
+               class="org.polarsys.capella.cybersecurity.ui.activity.predicate.IsViewpointActivatedPredicate">
+         </Predicate>
       </Activity>
    </Section>
    <Section
@@ -229,6 +244,9 @@
             image="icons/cyber-threat-diagram.png"
             index="0"
             name="%createThreat">
+         <Predicate
+               class="org.polarsys.capella.cybersecurity.ui.activity.predicate.IsViewpointActivatedPredicate">
+         </Predicate>
       </Activity>
    </Section>
 </extension>
