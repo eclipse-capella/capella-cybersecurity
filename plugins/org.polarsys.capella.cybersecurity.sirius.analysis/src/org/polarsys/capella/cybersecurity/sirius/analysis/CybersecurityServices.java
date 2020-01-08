@@ -133,17 +133,19 @@ public class CybersecurityServices {
     return null;
   }
 
-  public String getThreatLabel(EObject asset) {
-    Threat thear = (Threat) asset;
-    String kind = ((Threat) asset).getThreatKind().getName().replaceAll("_", " ").toUpperCase();
-    if (thear.getName() == null || thear.getName().trim().isEmpty()) {
-      return kind;
-    }
-    return EObjectLabelProviderHelper.getText(asset) + "\n(" + kind + ")";
+  public String getThreatLabel(Threat threat) {
+    String kind = threat.getThreatKind().getName().replaceAll("_", " ").toUpperCase();
+    String defaultLabel = EObjectLabelProviderHelper.getText(threat);
+
+    return defaultLabel + "\n(" + kind + ")";
   }
 
   public String getPrimaryAssetLabel(EObject asset) {
     return EObjectLabelProviderHelper.getText(asset);
+  }
+  
+  public String getActorLabel(EObject actor) {
+    return EObjectLabelProviderHelper.getText(actor);
   }
 
   public Collection<EObject> getABPrimaryAssetScope(DSemanticDecorator view) {
