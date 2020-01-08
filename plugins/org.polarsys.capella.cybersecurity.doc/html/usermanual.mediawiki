@@ -150,50 +150,50 @@ The following tools are available:
 {| border="1"
 |-
 | 	Threat 	
-| [[Image:Images/placeholder.gif]] 
-|  Insert a new Threat into the diagram. 	
+| [[Image:Images/Threat.gif]] 
+|  Create a new Threat. 	
 |-
 | 	Functional Primary Asset
-| [[Image:Images/PrimaryAsset.png]] 
-|  Insert a new Functional Primary asset into the diagram.
+| [[Image:Images/FunctionalPrimaryAsset.gif]] 
+|  Create a new Functional Primary Asset.
 |-
 | 	Information Primary Asset
-| [[Image:Images/PrimaryAsset.png]] 
-| Insert a new InformationPrimaryAsset into the diagram.
+| [[Image:Images/InformationPrimaryAsset.gif]] 
+|  Create a new Information Primary Asset.
 |-
 | 	Actor 	
-| [[Image:Images/placeholder.gif]] 
-| Insert a new Actor into the diagram. 	
+| [[Image:Images/Actor.gif]] 
+|  Create a new Actor. 	
 |-
 | 	Involves 	
-| [[Image:Images/placeholder.gif]] 
-| Creates an involvement relationship from a Threat element to an Actor element. 	
+| [[Image:Images/ThreatInvolvement.gif]] 
+| Create a new Threat Involvement between the selected Threat and Actor. 	
 |-
 | 	Applicable to 	
-| [[Image:Images/placeholder.gif]] 
-|  Creates an involvement relationship from a Threat element to a Functional or Information Primary Asset.
+| [[Image:Images/ThreatApplication.gif]] 
+|  Create a new Threat Application between the selected Threat and Primary Asset.
 |-
 | 	Actors 	
 | [[Image:Images/ShowHide.gif]] 
-|  Shows/Hides selected existing Actors on the diagram.
+|  Insert/Remove Actors.  Create or delete graphical objects corresponding to already existing Actors. Removing an Actor graphical object from the diagram does not delete the Actor from the model. This tool does not modify the semantic model.
 |-
 | 	Threats 	
 | [[Image:Images/ShowHide.gif]] 
-|  Shows/Hides selected existing Threats on the diagram.
+|  Insert/Remove Threats. Create or delete graphical objects corresponding to already existing Threats. Removing a Threat graphical object from the diagram does not delete the Threat from the model. This tool does not modify the semantic model.
 |-
 | 	Functional Primary Assets 	
 | [[Image:Images/ShowHide.gif]] 
-|  Shows/Hides selected existing Functional Primary Assets on the diagram.
+|  Insert/Remove Functional Assets. Create or delete graphical objects corresponding to already existing Functional Assets. Removing a Functional Asset graphical object from the diagram does not delete the Functional Asset from the model. This tool does not modify the semantic model.
 |-
 | 	Information Primary Assets	
 | [[Image:Images/ShowHide.gif]] 
-|  Shows/Hides selected existing Information Primary Assets on the diagram.
+|  Insert/Remove Information Assets. Create or delete graphical objects corresponding to already existing Information Assets. Removing a Information Asset graphical object from the diagram does not delete the Information Asset from the model. This tool does not modify the semantic model.
 |}
 
 === Threat Level Decoration Layer ===
 
 Threat diagrams have an optional layer named "Threat Level Decorations". When this layer is enabled,
-each Threat's level value is displayed in parenthesis next to the Threat element:
+each Threat's level value is displayed in parenthesis on the up right corner of the Threat element:
 
 [[Image:Images/threat_diagram_2.png]] 
 
@@ -211,7 +211,7 @@ One additional tool is provided by the Viewpoint:
 |-
 | Primary Assets
 | [[Image:Images/ShowHide.gif]]
-| Shows/Hides existing Functional or Information Primary Assets on the diagram. When a Primary Asset is added to a diagram, its color is chosen randomly from a set of predefined colors. Node elements related to the asset will then receive an emphasized border that matches the color of the asset element. Related edges will change the color to the color of the asset element.
+| Insert/Remove Primary Assets. Create or delete graphical objects corresponding to already existing Primary Assets. Removing a Primary Asset graphical object from the diagram does not delete the Primary Asset from the model. This tool does not modify the semantic model.. When a Primary Asset is added to a diagram, its color is chosen randomly from a set of predefined colors. Node elements related to the asset will then receive an emphasized border that matches the color of the asset element. Related edges will change the color to the color of the asset element.
 |}
 
 
