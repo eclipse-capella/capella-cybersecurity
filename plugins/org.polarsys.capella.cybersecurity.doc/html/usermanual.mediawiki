@@ -128,7 +128,7 @@ An Information Primary Asset references one or more Exchange Items. An Exchange 
 The following diagram types are provided by the Capella Cybersecurity Viewpoint:
 
 * Threats Diagram
-* System Architecture Diagram
+* Architecture Diagram
 * Scenario Diagram
 * Information Asset Diagram
 
@@ -198,11 +198,11 @@ each Threat's level value is displayed in parenthesis on the up right corner of 
 [[Image:Images/threat_diagram_2.png]] 
 
 
-== System Architecture Diagram ==
+== Architecture Diagram ==
 
 [[Image:Images/pab_diagram_1.png]] 
 
-System Architecture Diagrams are extended Capella Physical Architecture Diagrams.
+Architecture Diagrams are extended Capella Physical Architecture Diagrams.
 Thus, most of the tools available in Cybersecurity PAB diagrams are documented [[../help/topic/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.html?#Physical_Architecture_Blank |here]].
 
 One additional tool is provided by the Viewpoint:
