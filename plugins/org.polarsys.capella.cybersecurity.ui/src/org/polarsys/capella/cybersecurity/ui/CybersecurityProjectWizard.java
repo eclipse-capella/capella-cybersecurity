@@ -31,8 +31,8 @@ public class CybersecurityProjectWizard extends NewProjectWizard {
   @Override
   protected WizardNewProjectCreationPage createLocalProjectDescriptionPage() {
     WizardNewProjectCreationPage page = super.createLocalProjectDescriptionPage();
-    page.setDescription(Messages.CybersecurityProjectWizard_description);
     page.setTitle(Messages.CybersecurityProjectWizard_title);
+    page.setDescription(Messages.CybersecurityProjectWizard_description);
     return page;
   }
   
