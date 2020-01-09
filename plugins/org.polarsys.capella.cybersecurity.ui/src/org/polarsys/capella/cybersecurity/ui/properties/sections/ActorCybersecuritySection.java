@@ -28,7 +28,7 @@ import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 import org.polarsys.capella.common.mdsofa.common.constant.ICommonConstants;
 import org.polarsys.capella.core.data.cs.Component;
 import org.polarsys.capella.core.ui.properties.fields.AbstractSemanticField;
-import org.polarsys.capella.core.ui.properties.fields.IntegerValueGroup;
+import org.polarsys.capella.core.ui.properties.fields.TextAreaValueGroup;
 import org.polarsys.capella.core.ui.properties.fields.TextValueGroup;
 import org.polarsys.capella.core.ui.properties.sections.AbstractSection;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
@@ -37,6 +37,7 @@ import org.polarsys.capella.cybersecurity.ui.CommonHelpers;
 import org.polarsys.capella.cybersecurity.ui.CybersecurityUIActivator;
 import org.polarsys.capella.cybersecurity.ui.ElementExtensionStorage;
 import org.polarsys.capella.cybersecurity.ui.ElementExtensionStorageImpl;
+import org.polarsys.capella.cybersecurity.ui.properties.fields.IntegerValueRadioGroup;
 import org.polarsys.capella.cybersecurity.ui.properties.fields.SemanticCheckboxGroup;
 import org.polarsys.kitalpha.emde.model.ExtensibleElement;
 
@@ -56,7 +57,7 @@ public class ActorCybersecuritySection extends AbstractSection {
 
   private SemanticCheckboxGroup checkBoxes;
 
-  private IntegerValueGroup threatSourceProfileGroup;
+  private IntegerValueRadioGroup threatSourceProfileGroup;
   private TextValueGroup rationaleGroup;
 
   /**
@@ -168,8 +169,8 @@ public class ActorCybersecuritySection extends AbstractSection {
           return container instanceof Component && ((Component)container).isActor();
         });
 
-    threatSourceProfileGroup = new IntegerValueGroup(rootParentComposite, Messages.ActorCybersecuritySection_0, getWidgetFactory());
-    rationaleGroup = new TextValueGroup(rootParentComposite, Messages.ActorCybersecuritySection_1, getWidgetFactory());
+    threatSourceProfileGroup = new IntegerValueRadioGroup(rootParentComposite, Messages.ActorCybersecuritySection_0, getWidgetFactory(), 1, 5);
+    rationaleGroup = new TextAreaValueGroup(rootParentComposite, Messages.ActorCybersecuritySection_1, getWidgetFactory());
   }
 
   /**
@@ -185,7 +186,7 @@ public class ActorCybersecuritySection extends AbstractSection {
         CybersecurityPackage.Literals.TRUST_BOUNDARY_STORAGE__THREAT_SOURCE_PROFILE);
     rationaleGroup.loadData(object, CybersecurityPackage.Literals.TRUST_BOUNDARY_STORAGE__RATIONALE);
     elementExtension = (TrustBoundaryStorage) object;
-    threatSourceProfileGroup.setEnabled(object.eContainer() instanceof Component && ((Component) object.eContainer()).isActor());
+    threatSourceProfileGroup.setEnabled(object.eContainer() instanceof Component && ((Component) object.eContainer()).isActor() && !elementExtension.isTrusted());
   }
 
   /**
