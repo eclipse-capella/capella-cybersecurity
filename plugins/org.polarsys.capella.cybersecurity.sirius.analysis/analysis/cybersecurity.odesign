@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="cybersecurity" version="12.0.0.2017041100">
   <ownedViewpoints name="Cybersecurity" modelFileExtension="melodymodeller">
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Threat Diagram" titleExpression="aql:'[TDB] ' + self.name" domainClass="cs.Component">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='D%26D%20Threat%20From%20Project%20Explorer'] //@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='D%26D%20Actor%20From%20Project%20Explorer'] //@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='D%26D%20Functional%20Primary%20Asset%20From%20Project%20Explorer'] //@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='D%26D%20Information%20Primary%20Asset%20From%20Project%20Explorer']" name="Threat Diagram" titleExpression="aql:'[TDB] ' + self.name" domainClass="cs.Component">
       <metamodel href="../../org.polarsys.capella.core.data.gen/model/CompositeStructure.ecore#/"/>
       <metamodel href="../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#/"/>
       <metamodel href="../../org.polarsys.capella.core.data.gen/model/FunctionalAnalysis.ecore#/"/>
@@ -205,6 +205,47 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="D&amp;D Threat From Project Explorer" precondition="aql:element.oclIsKindOf(cybersecurity::Threat)" forceRefresh="true" mappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='Threat']" dragSource="PROJECT_EXPLORER">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="D&amp;D Functional Primary Asset From Project Explorer" precondition="aql:element.oclIsKindOf(cybersecurity::FunctionalPrimaryAsset)" forceRefresh="true" mappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='FunctionalPrimaryAsset']" dragSource="PROJECT_EXPLORER">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="D&amp;D Information Primary Asset From Project Explorer" precondition="aql:element.oclIsKindOf(cybersecurity::InformationPrimaryAsset)" forceRefresh="true" mappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='InformationPrimaryAsset']" dragSource="PROJECT_EXPLORER">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="D&amp;D Actor From Project Explorer" precondition="aql:element.getComponentType().oclIsKindOf(cs::Component) and element.getComponentType().isActor()" forceRefresh="true" dragSource="PROJECT_EXPLORER">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:Switch">
+                  <cases conditionExpression="aql:element.oclIsKindOf(cs::Part)">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.getComponentType()">
+                      <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='Actor']" containerViewExpression="var:newContainerView"/>
+                    </subModelOperations>
+                  </cases>
+                  <cases conditionExpression="aql:element.oclIsKindOf(cs::Component)">
+                    <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='Actor']" containerViewExpression="var:newContainerView"/>
+                  </cases>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
           </ownedTools>
         </toolSections>
       </defaultLayer>
