@@ -19,19 +19,19 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 import org.polarsys.capella.core.ui.properties.fields.AbstractSemanticField;
-import org.polarsys.capella.core.ui.properties.fields.IntegerValueGroup;
 import org.polarsys.capella.core.ui.properties.fields.TextAreaValueGroup;
 import org.polarsys.capella.core.ui.properties.fields.TextValueGroup;
 import org.polarsys.capella.core.ui.properties.sections.AbstractSection;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.Threat;
+import org.polarsys.capella.cybersecurity.ui.properties.fields.IntegerValueRadioGroup;
 import org.polarsys.capella.cybersecurity.ui.properties.fields.ThreatKindGroup;
 
 public class ThreatSection extends AbstractSection {
 
   ThreatKindGroup threatKindGroup;
   TextValueGroup rationaleGroup;
-  IntegerValueGroup levelGroup;
+  IntegerValueRadioGroup levelGroup;
   
   @Override
   public boolean select(Object toTest) {
@@ -43,7 +43,7 @@ public class ThreatSection extends AbstractSection {
   protected void createContents(Composite rootParentComposite, TabbedPropertySheetPage aTabbedPropertySheetPage) {
     super.createContents(rootParentComposite, aTabbedPropertySheetPage);
     threatKindGroup = new ThreatKindGroup(rootParentComposite, getWidgetFactory());
-    levelGroup = new IntegerValueGroup(rootParentComposite, Messages.ThreatSection_0, getWidgetFactory());
+    levelGroup = new IntegerValueRadioGroup(rootParentComposite, Messages.ThreatSection_0, getWidgetFactory(), 1, 5);
     rationaleGroup = new TextAreaValueGroup(rootParentComposite, Messages.ActorCybersecuritySection_1, getWidgetFactory());
   }
 

@@ -28,7 +28,6 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 import org.polarsys.capella.core.ui.properties.fields.AbstractSemanticField;
-import org.polarsys.capella.core.ui.properties.fields.IntegerValueGroup;
 import org.polarsys.capella.core.ui.properties.sections.AbstractSection;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.SecurityNeeds;
@@ -37,6 +36,7 @@ import org.polarsys.capella.cybersecurity.ui.CommonHelpers;
 import org.polarsys.capella.cybersecurity.ui.CybersecurityUIActivator;
 import org.polarsys.capella.cybersecurity.ui.ElementExtensionStorage;
 import org.polarsys.capella.cybersecurity.ui.ElementExtensionStorageImpl;
+import org.polarsys.capella.cybersecurity.ui.properties.fields.IntegerValueRadioGroup;
 import org.polarsys.kitalpha.emde.model.EmdePackage;
 import org.polarsys.kitalpha.emde.model.ExtensibleElement;
 
@@ -45,10 +45,10 @@ public class SecurityNeedsSection extends AbstractSection {
   // display properties for this element
   private SecurityNeeds elementExtension;
 
-  private IntegerValueGroup confidentiality;
-  private IntegerValueGroup integrity;
-  private IntegerValueGroup traceability;
-  private IntegerValueGroup availability;
+  private IntegerValueRadioGroup confidentiality;
+  private IntegerValueRadioGroup integrity;
+  private IntegerValueRadioGroup traceability;
+  private IntegerValueRadioGroup availability;
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -158,22 +158,22 @@ public class SecurityNeedsSection extends AbstractSection {
     group.setLayout(layout);
     group.setLayoutData(gd);
 
-    confidentiality = createIntegerValueGroup(group, Messages.SecurityNeedsSection_1);
-    integrity = createIntegerValueGroup(group, Messages.SecurityNeedsSection_2);
-    traceability = createIntegerValueGroup(group, Messages.SecurityNeedsSection_3);
-    availability = createIntegerValueGroup(group, Messages.SecurityNeedsSection_4);
+    confidentiality = createIntegerValueRadioGroup(group, Messages.SecurityNeedsSection_1);
+    integrity = createIntegerValueRadioGroup(group, Messages.SecurityNeedsSection_2);
+    traceability = createIntegerValueRadioGroup(group, Messages.SecurityNeedsSection_3);
+    availability = createIntegerValueRadioGroup(group, Messages.SecurityNeedsSection_4);
   }
 
   // we want a 2x2 layout
   // default integer value group always wants to span all columns, so we'll just trick it
-  private IntegerValueGroup createIntegerValueGroup(Group parent, String label) {
+  private IntegerValueRadioGroup createIntegerValueRadioGroup(Group parent, String label) {
     Composite compo = getWidgetFactory().createComposite(parent);
     GridLayout gl = new GridLayout();
     gl.marginHeight = 0;
     gl.marginWidth = 0;
     compo.setLayout(gl);
     compo.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
-    IntegerValueGroup result = new IntegerValueGroup(compo, label, getWidgetFactory(), true);
+    IntegerValueRadioGroup result = new IntegerValueRadioGroup(compo, label, getWidgetFactory(), 0, 3);
     result.setDisplayedInWizard(isDisplayedInWizard());
     return result;
   }
