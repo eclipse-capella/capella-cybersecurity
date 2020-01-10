@@ -191,7 +191,7 @@
          </Predicate>
       </Activity>
       <Activity
-            class="org.polarsys.capella.core.explorer.activity.ui.hyperlinkadapter.pa.NewExchangeScenarioAdapter"
+            class="org.polarsys.capella.cybersecurity.ui.activity.NewExchangeScenarioAdapter"
             id="org.polarsys.capella.cybersecurity.ui.activity.scenario1"
             image="icons/cyber-exchange-scenario.png"
             index="1"
