@@ -27,6 +27,8 @@ public class CybersecurityTestSuite extends TestSuite {
 
   public CybersecurityTestSuite() {
     super("CybersecurityTestSuite"); //$NON-NLS-1$
+    addTest(new PluginCustomizationTest());
+    
     addTest(new CY_DCOVRulesTestSuite());
     addTest(new CY_DCONRulesTestSuite());
 
