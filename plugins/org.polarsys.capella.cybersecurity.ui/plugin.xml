@@ -309,7 +309,8 @@
    <category
          id="Threat__ThreatenedPrimaryAssets"
          isTopLevel="true"
-         name="Threatened Primary Assets">
+         name="Threatened Primary Assets"
+         usedInShowRelated="true">
       <availableForType
             class="org.polarsys.capella.cybersecurity.model.Threat">
       </availableForType>
@@ -341,7 +342,8 @@
    <category
          id="Threat__InvolvedActors"
          isTopLevel="true"
-         name="Involved Actors">
+         name="Involved Actors"
+         usedInShowRelated="true">
       <availableForType
             class="org.polarsys.capella.cybersecurity.model.Threat">
       </availableForType>
@@ -373,7 +375,8 @@
    <category
          id="Component__InvolvingThreats"
          isTopLevel="true"
-         name="Involving Threats">
+         name="Involving Threats"
+         usedInShowRelated="true">
       <availableForType
             class="org.polarsys.capella.core.data.cs.Component">
       </availableForType>
@@ -421,7 +424,8 @@
    <category
          id="PrimaryAsset__Threats"
          isTopLevel="true"
-         name="Threatened by">
+         name="Threatened by"
+         usedInShowRelated="true">
       <availableForType
             class="org.polarsys.capella.cybersecurity.model.PrimaryAsset">
       </availableForType>
@@ -437,7 +441,8 @@
    <category
          id="InformationPrimaryAssets__ExchangeItems"
          isTopLevel="true"
-         name="Exchange Items">
+         name="Exchange Items"
+         usedInShowRelated="true">
       <availableForType
             class="org.polarsys.capella.cybersecurity.model.InformationPrimaryAsset">
       </availableForType>
@@ -453,7 +458,8 @@
    <category
          id="FunctionalPrimaryAsset__Functions"
          isTopLevel="true"
-         name="Functions">
+         name="Functions"
+         usedInShowRelated="true">
       <availableForType
             class="org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset">
       </availableForType>
