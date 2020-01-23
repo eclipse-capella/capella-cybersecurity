@@ -143,7 +143,7 @@ public class CybersecurityServices {
   public String getPrimaryAssetLabel(EObject asset) {
     return EObjectLabelProviderHelper.getText(asset);
   }
-  
+
   public String getActorLabel(EObject actor) {
     return EObjectLabelProviderHelper.getText(actor);
   }
@@ -160,10 +160,12 @@ public class CybersecurityServices {
   public int getAssetColor1Red(DSemanticDecorator view) {
     EObject e = view.getTarget();
     DDiagram diagram = CapellaServices.getService().getDiagramContainer(view);
-    for (PrimaryAsset asset : getRelatedAssets(e)) {
-      DDiagramElement element = DiagramServices.getDiagramServices().getDiagramElement(diagram, asset);
-      if (element != null && element instanceof DNode) {
-        return ((Square) element.getStyle()).getColor().getRed();
+    if (diagram != null) {
+      for (PrimaryAsset asset : getRelatedAssets(e)) {
+        DDiagramElement element = DiagramServices.getDiagramServices().getDiagramElement(diagram, asset);
+        if (element != null && element instanceof DNode) {
+          return ((Square) element.getStyle()).getColor().getRed();
+        }
       }
     }
     return 0;
@@ -172,10 +174,12 @@ public class CybersecurityServices {
   public int getAssetColor1Blue(DSemanticDecorator view) {
     EObject e = view.getTarget();
     DDiagram diagram = CapellaServices.getService().getDiagramContainer(view);
-    for (PrimaryAsset asset : getRelatedAssets(e)) {
-      DDiagramElement element = DiagramServices.getDiagramServices().getDiagramElement(diagram, asset);
-      if (element != null && element instanceof DNode) {
-        return ((Square) element.getStyle()).getColor().getBlue();
+    if (diagram != null) {
+      for (PrimaryAsset asset : getRelatedAssets(e)) {
+        DDiagramElement element = DiagramServices.getDiagramServices().getDiagramElement(diagram, asset);
+        if (element != null && element instanceof DNode) {
+          return ((Square) element.getStyle()).getColor().getBlue();
+        }
       }
     }
     return 0;
@@ -184,10 +188,12 @@ public class CybersecurityServices {
   public int getAssetColor1Green(DSemanticDecorator view) {
     EObject e = view.getTarget();
     DDiagram diagram = CapellaServices.getService().getDiagramContainer(view);
-    for (PrimaryAsset asset : getRelatedAssets(e)) {
-      DDiagramElement element = DiagramServices.getDiagramServices().getDiagramElement(diagram, asset);
-      if (element != null && element instanceof DNode) {
-        return ((Square) element.getStyle()).getColor().getGreen();
+    if (diagram != null) {
+      for (PrimaryAsset asset : getRelatedAssets(e)) {
+        DDiagramElement element = DiagramServices.getDiagramServices().getDiagramElement(diagram, asset);
+        if (element != null && element instanceof DNode) {
+          return ((Square) element.getStyle()).getColor().getGreen();
+        }
       }
     }
     return 0;
@@ -469,10 +475,13 @@ public class CybersecurityServices {
     if (view instanceof AbstractDNode) {
       EObject e = view.getTarget();
       DDiagram diagram = CapellaServices.getService().getDiagramContainer(view);
-      for (PrimaryAsset asset : getRelatedAssets(e)) {
-        DDiagramElement element = DiagramServices.getDiagramServices().getDiagramElement(diagram, asset);
-        if (element instanceof DNode) {
-          return "5"; //$NON-NLS-1$
+      if (diagram != null) { // in decorations or style, diagram can be null when the decorated view has just been
+                             // created
+        for (PrimaryAsset asset : getRelatedAssets(e)) {
+          DDiagramElement element = DiagramServices.getDiagramServices().getDiagramElement(diagram, asset);
+          if (element instanceof DNode) {
+            return "5"; //$NON-NLS-1$
+          }
         }
       }
       return "1"; //$NON-NLS-1$
@@ -484,10 +493,13 @@ public class CybersecurityServices {
     if (view instanceof DEdge) {
       EObject e = view.getTarget();
       DDiagram diagram = CapellaServices.getService().getDiagramContainer(view);
-      for (PrimaryAsset asset : getRelatedAssets(e)) {
-        DDiagramElement element = DiagramServices.getDiagramServices().getDiagramElement(diagram, asset);
-        if (element != null && element instanceof DNode) {
-          return "5"; //$NON-NLS-1$
+      if (diagram != null) { // in decorations or style, diagram can be null when the decorated view has just been
+                             // created
+        for (PrimaryAsset asset : getRelatedAssets(e)) {
+          DDiagramElement element = DiagramServices.getDiagramServices().getDiagramElement(diagram, asset);
+          if (element != null && element instanceof DNode) {
+            return "5"; //$NON-NLS-1$
+          }
         }
       }
       return "1"; //$NON-NLS-1$
@@ -577,13 +589,16 @@ public class CybersecurityServices {
    * @return the the max value of the Security Need.
    */
   public int getMaxSecurityNeedValue(DSemanticDecorator decorator) {
+    int maxSecurityNeedValue = 0;
+
     DDiagram diagram = CapellaServices.getService().getDiagramContainer(decorator);
+    if (diagram != null) {
+      return maxSecurityNeedValue;
+    }
     ModelElement element = (ModelElement) decorator.getTarget();
 
     Set<String> activatedLayerNames = new DDiagramQuery(diagram).getAllActivatedLayers().stream().map(Layer::getName)
         .collect(Collectors.toSet());
-
-    int maxSecurityNeedValue = 0;
 
     if (activatedLayerNames.contains(CybersecurityAnalysisConstants.LAYER_CONFIDENTIALITY)) {
       int confidentiality = getConfidentiality(element);
