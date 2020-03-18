@@ -27,10 +27,6 @@
       %license
    </license>
 
-   <includes
-         id="org.polarsys.capella.cybersecurity.feature.source"
-         version="0.0.0"/>
-
    <plugin
          id="org.polarsys.capella.cybersecurity.af"
          download-size="0"
