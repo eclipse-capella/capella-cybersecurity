@@ -95,10 +95,8 @@ pipeline {
             expression { return "${env.FROM_PR}".contains("false") } 
         }
       steps {
-            sh "wget -O director.zip www.eclipse.org/downloads/download.php?file=/tools/buckminster/products/director_latest.zip"
             sh "wget -O capella.zip http://download.eclipse.org/capella/core/products/$CAPELLA_BUILD"
             sh "unzip -q capella.zip -d ."
-            sh "unzip -q director.zip -d ."
         }
     }
     stage('Adapt Capella to DARC') {
@@ -109,15 +107,15 @@ pipeline {
             //Install Cybersecurity on Capella
             sh "ls -lat ."
             sh "ls -lat ${WORKSPACE}/releng/org.polarsys.capella.cybersecurity.site/target/repository"
-            sh "chmod 755 ./director/director"
-            sh "./director/director -application org.eclipse.equinox.p2.director -profile DefaultProfile -destination ${workspace}/capella/eclipse/ -repository file:/${WORKSPACE}/releng/org.polarsys.capella.cybersecurity.site/target/repository -installIU org.polarsys.capella.cybersecurity.feature.feature.group -noSplash"
+            sh "chmod 755 ./capella/capella"
+            sh "./capella/capella -application org.eclipse.equinox.p2.director -repository file:/${WORKSPACE}/releng/org.polarsys.capella.cybersecurity.site/target/repository -installIU org.polarsys.capella.cybersecurity.feature.feature.group -noSplash"            
             
             //Adapt eclipse.ini config.ini and other things
-            sh "cat capella/eclipse/eclipse.ini"
-            sh "cat capella/eclipse/configuration/config.ini"
-            sh "sed -i \"s,eclipse.product=org.polarsys.capella.rcp.product,eclipse.product=org.polarsys.capella.cybersecurity.rcp.product,g\" capella/eclipse/configuration/config.ini"
-            sh "sed -i 's,osgi.splashPath=platform\\\\:/base/plugins/org.polarsys.capella.core.platform.sirius.ui.perspective,osgi.splashPath=platform\\\\:/base/plugins/org.polarsys.capella.cybersecurity.rcp,g' capella/eclipse/configuration/config.ini"
-            sh "cat capella/eclipse/configuration/config.ini"
+            sh "cat capella/capella.ini"
+            sh "cat capella/configuration/config.ini"
+            sh "sed -i \"s,eclipse.product=org.polarsys.capella.rcp.product,eclipse.product=org.polarsys.capella.cybersecurity.rcp.product,g\" capella/configuration/config.ini"
+            sh "sed -i 's,osgi.splashPath=platform\\\\:/base/plugins/org.polarsys.capella.core.platform.sirius.ui.perspective,osgi.splashPath=platform\\\\:/base/plugins/org.polarsys.capella.cybersecurity.rcp,g' capella/configuration/config.ini"
+            sh "cat capella/configuration/config.ini"
             sh "mv capella capella-darc"
         }
     }
