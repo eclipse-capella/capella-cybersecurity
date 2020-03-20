@@ -26,5 +26,6 @@
 	  <module>org.polarsys.capella.cybersecurity.feature</module>
 	  <module>org.polarsys.capella.cybersecurity.cdo.feature</module>
 	  <module>org.polarsys.capella.cybersecurity.sdk.feature</module>
+	  <module>org.polarsys.capella.cybersecurity.cdo.sdk.feature</module>
 	</modules>
 </project>
