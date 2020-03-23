@@ -95,7 +95,7 @@ pipeline {
 					
 					deployer.addonNightlyDropins("${WORKSPACE}/releng/org.polarsys.capella.cybersecurity.site/target/*-dropins-*.zip", deploymentDirName)
 					deployer.addonNightlyUpdateSite("${WORKSPACE}/releng/org.polarsys.capella.cybersecurity.site/target/*-updateSite-*.zip", deploymentDirName)					
-					deployer.addonNightlyUpdateSite("${WORKSPACE}/releng/org.polarsys.capella.cybersecurity.site/target/capella-darc-*-win32-win32-x86_64.zip", deploymentDirName)
+					deployer.addonNightlyUpdateSite("${WORKSPACE}/capella-darc-*-win32-win32-x86_64.zip", deploymentDirName)
 	       		}         
 	     	}
 	    }
