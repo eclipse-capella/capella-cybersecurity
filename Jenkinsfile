@@ -41,12 +41,6 @@ pipeline {
 	    }
 	    
 	    stage('Download Capella') {
-    		when {
-        		expression { 
-        			github.isPullRequest() 
-        		}
-      		}
-      		
         	steps {
         		script {
 	        		def capellaURL = capella.getDownloadURL("${BUILD_KEY}", 'linux', '')
@@ -59,9 +53,6 @@ pipeline {
 	    }
 	    
 	    stage('Adapt Capella to DARC') {
-	        when {
-	            expression { return "${env.FROM_PR}".contains("false") } 
-	        }
 	        steps {
 	            //Install Cybersecurity on Capella
 	            sh "ls -lat ."
