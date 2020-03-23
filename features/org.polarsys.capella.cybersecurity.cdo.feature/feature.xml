@@ -27,10 +27,6 @@
       %license
    </license>
 
-   <includes
-         id="org.polarsys.capella.cybersecurity.cdo.feature.source"
-         version="0.0.0"/>
-
    <requires>
       <import feature="org.polarsys.capella.cybersecurity.feature" version="0.9.1.qualifier"/>
    </requires>
