@@ -39,20 +39,6 @@ pipeline {
 	       		}         
 	     	}
 	    }
-    
-		stage('Deploy to Nightly') {
-      		steps {
-				script {
-		    		def deploymentDirName = 
-		    			(github.isPullRequest() ? "${BUILD_KEY}-${BRANCH_NAME}-${BUILD_ID}" : "${BRANCH_NAME}-${BUILD_ID}")
-		    			.replaceAll('/','-')		
-					
-					deployer.addonNightlyDropins("${WORKSPACE}/releng/org.polarsys.capella.cybersecurity.site/target/*-dropins-*.zip", deploymentDirName)
-					deployer.addonNightlyUpdateSite("${WORKSPACE}/releng/org.polarsys.capella.cybersecurity.site/target/*-updateSite-*.zip", deploymentDirName)					
-
-	       		}         
-	     	}
-	    }
 	    
 	    stage('Download Capella') {
     		when {
@@ -71,7 +57,49 @@ pipeline {
 	       		}         
 	     	}
 	    }
+	    
+	    stage('Adapt Capella to DARC') {
+	        when {
+	            expression { return "${env.FROM_PR}".contains("false") } 
+	        }
+	        steps {
+	            //Install Cybersecurity on Capella
+	            sh "ls -lat ."
+	            sh "ls -lat ${WORKSPACE}/releng/org.polarsys.capella.cybersecurity.site/target/repository"
+	            sh "chmod 755 ./capella/capella"
+	            sh "./capella/capella -application org.eclipse.equinox.p2.director -repository file:/${WORKSPACE}/releng/org.polarsys.capella.cybersecurity.site/target/repository -installIU org.polarsys.capella.cybersecurity.feature.feature.group -noSplash"            
+	            
+	            //Adapt eclipse.ini config.ini and other things
+	            sh "cat capella/capella.ini"
+	            sh "cat capella/configuration/config.ini"
+	            sh "sed -i \"s,eclipse.product=org.polarsys.capella.rcp.product,eclipse.product=org.polarsys.capella.cybersecurity.rcp.product,g\" capella/configuration/config.ini"
+	            sh "sed -i 's,osgi.splashPath=platform\\\\:/base/plugins/org.polarsys.capella.core.platform.sirius.ui.perspective,osgi.splashPath=platform\\\\:/base/plugins/org.polarsys.capella.cybersecurity.rcp,g' capella/configuration/config.ini"
+	            sh "cat capella/configuration/config.ini"
+	            sh "mv capella capella-darc"
+	            sh '''
+	                # Identify darc name
+	                addon_local_dropins_name=`ls ${WORKSPACE}/releng/org.polarsys.capella.cybersecurity.site/target | grep "Cybersecurity-dropins" | cut -d"-" -f3 | sed "s/.zip//"`
+	                # Build the product zip
+	                DARC_BUILD="capella-darc-${addon_local_dropins_name}-win32-win32-x86_64.zip"
+	                zip -q -r $DARC_BUILD capella-darc
+	            '''
+	        }
+	    }
 
+		stage('Deploy to Nightly') {
+      		steps {
+				script {
+		    		def deploymentDirName = 
+		    			(github.isPullRequest() ? "${BUILD_KEY}-${BRANCH_NAME}-${BUILD_ID}" : "${BRANCH_NAME}-${BUILD_ID}")
+		    			.replaceAll('/','-')		
+					
+					deployer.addonNightlyDropins("${WORKSPACE}/releng/org.polarsys.capella.cybersecurity.site/target/*-dropins-*.zip", deploymentDirName)
+					deployer.addonNightlyUpdateSite("${WORKSPACE}/releng/org.polarsys.capella.cybersecurity.site/target/*-updateSite-*.zip", deploymentDirName)					
+					deployer.addonNightlyUpdateSite("${WORKSPACE}/releng/org.polarsys.capella.cybersecurity.site/target/capella-darc-*-win32-win32-x86_64.zip", deploymentDirName)
+	       		}         
+	     	}
+	    }
+    
     	stage('Install test features') {
     		when {
         		expression { 
