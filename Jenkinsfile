@@ -143,7 +143,7 @@ pipeline {
   
 	post {
     	always {
-       		archiveArtifacts artifacts: '**/*.log, *.log, *.xml, **/*.layout'
+       		archiveArtifacts artifacts: '**/*.log, *.log, *.xml, **/*.layout, **/Cybersecurity*.zip, **/capella-darc*.zip'
     	}
     	
     	success  {
