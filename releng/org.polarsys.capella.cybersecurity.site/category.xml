@@ -1,29 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  Copyright (c) 2016, 2017 THALES GLOBAL SERVICES.
-  All rights reserved. This program and the accompanying materials
-  are made available under the terms of the Eclipse Public License v1.0
-  which accompanies this distribution, and is available at
-  http://www.eclipse.org/legal/epl-v10.html
-
-  Contributors:
-       Thales - initial API and implementation
--->
 <site>
    <description url="http://www.polarsys.org/capella">
       Capella Cybersecurity
    </description>
-   <feature id="org.polarsys.capella.cybersecurity.feature" version="0.9.1.qualifier">
-      <category name="org.polarsys.capella.cybersecurity"/>
-   </feature>
    <feature id="org.polarsys.capella.cybersecurity.feature.source" version="0.9.1.qualifier">
       <category name="org.polarsys.capella.cybersecurity"/>
    </feature>
-   <feature id="org.polarsys.capella.cybersecurity.cdo.feature" version="0.9.1.qualifier">
-      <category name="org.polarsys.capella.cybersecurity"/>
-   </feature>
    <feature id="org.polarsys.capella.cybersecurity.cdo.feature.source" version="0.9.1.qualifier">
-      <category name="org.polarsys.capella.cybersecurity"/>
+      <category name="org.polarsys.capella.cybersecurity.collaboration"/>
+   </feature>
+   <feature id="org.polarsys.capella.cybersecurity.tests.feature" version="0.9.1.qualifier">
+      <category name="org.polarsys.capella.cybersecurity.tests"/>
    </feature>
    <category-def name="org.polarsys.capella.cybersecurity" label="Cybersecurity"/>
+   <category-def name="org.polarsys.capella.cybersecurity.collaboration" label="Cybersecurity Collaboration"/>
+   <category-def name="org.polarsys.capella.cybersecurity.tests" label="Cybersecurity Tests"/>
 </site>
