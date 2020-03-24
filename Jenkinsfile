@@ -21,8 +21,6 @@ pipeline {
 		        	if(github.isPullRequest()){
 		        	    github.buildStartedComment()
 		        	}
-		
-		        	currentBuild.description = BUILD_KEY
 		        	
 		        	sh 'env'
 		        	sh 'mvn clean verify -f releng/org.polarsys.capella.cybersecurity.target/pom.xml'
@@ -86,7 +84,9 @@ pipeline {
 					
 					deployer.addonNightlyDropins("${WORKSPACE}/releng/org.polarsys.capella.cybersecurity.site/target/*-dropins-*.zip", deploymentDirName)
 					deployer.addonNightlyUpdateSite("${WORKSPACE}/releng/org.polarsys.capella.cybersecurity.site/target/*-updateSite-*.zip", deploymentDirName)					
-					deployer.addonNightlyUpdateSite("${WORKSPACE}/capella-darc-*-win32-win32-x86_64.zip", deploymentDirName)
+					deployer.addonNightlyProduct("${WORKSPACE}/capella-darc-*-win32-win32-x86_64.zip", deploymentDirName)
+					
+					currentBuild.description = "${deploymentDirName} - <a href=\"https://download.eclipse.org/capella/addons/cybersecurity/dropins/nightly/${deploymentDirName}\">drop-in</a> - <a href=\"https://download.eclipse.org/capella/addons/cybersecurity/updates/nightly/${deploymentDirName}\">update-site</a> - <a href=\"https://download.eclipse.org/capella/addons/cybersecurity/products/nightly/${deploymentDirName}\">product</a>"
 	       		}         
 	     	}
 	    }
