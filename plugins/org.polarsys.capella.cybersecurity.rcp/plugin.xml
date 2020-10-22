@@ -49,38 +49,6 @@
             activityId="org.polarsys.capella.activities.accelerator"
             pattern=".*\.activities\.from\.mode\.state">
       </activityPatternBinding>
-      <activityPatternBinding
-            activityId="org.polarsys.capella.cybersecurity.rcp.deployment"
-            isEqualityPattern="true"
-            pattern="pa.pab.deploy.behavior.pc">
-      </activityPatternBinding>
-      <activityPatternBinding
-            activityId="org.polarsys.capella.cybersecurity.rcp.deployment"
-            isEqualityPattern="true"
-            pattern="pa.pab.manage.behavior.pcs.deployment">
-      </activityPatternBinding>
-      <activityPatternBinding
-            activityId="org.polarsys.capella.cybersecurity.rcp.deployment"
-            isEqualityPattern="true"
-            pattern="pa.pab.deployed.behaviour.pcs">
-      </activityPatternBinding>
-      <activityPatternBinding
-            activityId="org.polarsys.capella.cybersecurity.rcp.deployment"
-            isEqualityPattern="true"
-            pattern="pa.pab.all.deployed.behaviour.pcs">
-      </activityPatternBinding>
-      <activity
-            description="Concepts related to component deployment"
-            id="org.polarsys.capella.cybersecurity.rcp.deployment"
-            name="Deployment Concepts">
-      </activity>
-      <categoryActivityBinding
-            activityId="org.polarsys.capella.cybersecurity.rcp.deployment"
-            categoryId="org.polarsys.capella.activities.categories.common">
-      </categoryActivityBinding>
-      <defaultEnablement
-            id="org.polarsys.capella.cybersecurity.rcp.deployment">
-      </defaultEnablement>
    </extension>
    <extension
          point="org.eclipse.ui.activitySupport">
