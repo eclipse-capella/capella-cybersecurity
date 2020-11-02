@@ -10,7 +10,7 @@ pipeline {
   
 	environment {
 		BUILD_KEY = (github.isPullRequest() ? CHANGE_TARGET : BRANCH_NAME).replaceFirst(/^v/, '')
-		CAPELLA_PRODUCT_PATH = "${WORKSPACE}/capella/capella"
+		CAPELLA_PRODUCT_PATH = "${WORKSPACE}/capella/eclipse/eclipse"
   	}
   
   	stages {
@@ -55,16 +55,16 @@ pipeline {
 	            //Install Cybersecurity on Capella
 	            sh "ls -lat ."
 	            sh "ls -lat ${WORKSPACE}/releng/org.polarsys.capella.cybersecurity.site/target/repository"
-	            sh "chmod 755 ./capella/capella"
-	            sh "./capella/capella -application org.eclipse.equinox.p2.director -repository file:/${WORKSPACE}/releng/org.polarsys.capella.cybersecurity.site/target/repository -installIU org.polarsys.capella.cybersecurity.feature.feature.group -noSplash"            
+	            sh "chmod 755 ./capella/eclipse/eclipse"
+	            sh "./capella/eclipse/eclipse -application org.eclipse.equinox.p2.director -repository file:/${WORKSPACE}/releng/org.polarsys.capella.cybersecurity.site/target/repository -installIU org.polarsys.capella.cybersecurity.feature.feature.group -noSplash"            
 	            
 	            //Adapt eclipse.ini config.ini and other things
 	            sh "cp -rp capella capella-darc"
-	            sh "cat capella-darc/capella.ini"
-	            sh "cat capella-darc/configuration/config.ini"
-	            sh "sed -i \"s,eclipse.product=org.polarsys.capella.rcp.product,eclipse.product=org.polarsys.capella.cybersecurity.rcp.product,g\" capella-darc/configuration/config.ini"
-	            sh "sed -i 's,osgi.splashPath=platform\\\\:/base/plugins/org.polarsys.capella.core.platform.sirius.ui.perspective,osgi.splashPath=platform\\\\:/base/plugins/org.polarsys.capella.cybersecurity.rcp,g' capella-darc/configuration/config.ini"
-	            sh "cat capella-darc/configuration/config.ini"
+	            sh "cat capella-darc/eclipse/eclipse.ini"
+	            sh "cat capella-darc/eclipse/configuration/config.ini"
+	            sh "sed -i \"s,eclipse.product=org.polarsys.capella.rcp.product,eclipse.product=org.polarsys.capella.cybersecurity.rcp.product,g\" capella-darc/eclipse/configuration/config.ini"
+	            sh "sed -i 's,osgi.splashPath=platform\\\\:/base/plugins/org.polarsys.capella.core.platform.sirius.ui.perspective,osgi.splashPath=platform\\\\:/base/plugins/org.polarsys.capella.cybersecurity.rcp,g' capella-darc/eclipse/configuration/config.ini"
+	            sh "cat capella-darc/eclipse/configuration/config.ini"
 	            sh '''
 	                # Identify darc name
 	                addon_local_dropins_name=`ls ${WORKSPACE}/releng/org.polarsys.capella.cybersecurity.site/target | grep "Cybersecurity-dropins" | cut -d"-" -f3 | sed "s/.zip//"`
