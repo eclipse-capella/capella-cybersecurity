@@ -10,16 +10,16 @@
  *******************************************************************************/
 target "CapellaCybersecurity"
 
-include "https://raw.githubusercontent.com/eclipse/capella/master/releng/plugins/org.polarsys.capella.targets/full/capella.target-definition.targetplatform"
+include "https://raw.githubusercontent.com/eclipse/capella/v1.4.x/releng/plugins/org.polarsys.capella.targets/full/capella.target-definition.targetplatform"
 
 with source, requirements
 
-location capella-master "https://download.eclipse.org/capella/core/updates/nightly/master/org.polarsys.capella.rcp.site/" {
+location capella-1.4.x "https://download.eclipse.org/capella/core/updates/nightly/1.4.x/org.polarsys.capella.rcp.site/" {
 	org.polarsys.capella.rcp.feature.feature.group
 	org.polarsys.capella.cdo.mock.feature.feature.group
 }
 
-location capella-tests-master "https://download.eclipse.org/capella/core/updates/nightly/master/org.polarsys.capella.test.site/" {
+location capella-tests-1.4.x "https://download.eclipse.org/capella/core/updates/nightly/1.4.x/org.polarsys.capella.test.site/" {
 	org.polarsys.capella.test.feature.feature.group
 }
 
