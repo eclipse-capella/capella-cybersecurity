@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.polarsys.capella.cybersecurity.test.diagram;
 
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.RollbackException;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.diagram.DEdge;
@@ -17,23 +19,34 @@ import org.eclipse.sirius.diagram.DNode;
 import org.eclipse.sirius.diagram.EdgeStyle;
 import org.eclipse.sirius.diagram.Square;
 import org.eclipse.sirius.viewpoint.RGBValues;
+import org.polarsys.capella.common.data.modellingcore.AbstractType;
 import org.polarsys.capella.common.data.modellingcore.ModelElement;
+import org.polarsys.capella.core.data.cs.Part;
+import org.polarsys.capella.core.data.cs.PhysicalLink;
+import org.polarsys.capella.core.data.fa.ComponentExchange;
+import org.polarsys.capella.core.data.fa.ComponentExchangeFunctionalExchangeAllocation;
+import org.polarsys.capella.core.data.fa.FaFactory;
 import org.polarsys.capella.core.data.fa.FunctionalExchange;
 import org.polarsys.capella.core.data.information.DataPkg;
 import org.polarsys.capella.core.data.information.ExchangeItem;
 import org.polarsys.capella.core.data.information.InformationFactory;
+import org.polarsys.capella.core.data.pa.PaFactory;
+import org.polarsys.capella.core.data.pa.PhysicalComponent;
 import org.polarsys.capella.core.data.pa.PhysicalFunction;
 import org.polarsys.capella.cybersecurity.model.CybersecurityFactory;
+import org.polarsys.capella.cybersecurity.model.CybersecurityQueries;
 import org.polarsys.capella.cybersecurity.model.FunctionStorage;
 import org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset;
 import org.polarsys.capella.cybersecurity.model.InformationPrimaryAsset;
 import org.polarsys.capella.cybersecurity.model.PrimaryAssetMember;
+import org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage;
 import org.polarsys.capella.cybersecurity.sirius.analysis.CybersecurityAnalysisConstants;
 import org.polarsys.capella.cybersecurity.sirius.analysis.CybersecurityServices;
 import org.polarsys.capella.cybersecurity.test.common.TransactionalEditingDomainHelper;
 import org.polarsys.capella.test.diagram.tools.ju.model.EmptyProject;
 import org.polarsys.capella.test.framework.context.SessionContext;
 import org.polarsys.kitalpha.ad.services.manager.ViewpointManager;
+import org.polarsys.kitalpha.emde.model.ElementExtension;
 
 public class CyberPABDiagramTest extends EmptyProject {
 
@@ -68,6 +81,7 @@ public class CyberPABDiagramTest extends EmptyProject {
   
     String c1 = diagram.createBehaviorComponent("comp1", diagram.getDiagramId());
     String c2 = diagram.createBehaviorComponent("comp2", diagram.getDiagramId());
+    
     
     String f1 = diagram.createFunction("f1", c1);
     String f2 = diagram.createFunction("f2", c2);
@@ -143,7 +157,49 @@ public class CyberPABDiagramTest extends EmptyProject {
     assertEquals(ipaColor, ((Square)f1Node.getStyle()).getBorderColor());
     assertEquals(ipaColor, ((Square)f2Node.getStyle()).getBorderColor());
     assertEquals(ipaColor, ((EdgeStyle)feEdge.getStyle()).getStrokeColor());
+    
+    executeCommand(() -> {
+      // create 2 actors in diagram
+      String actor1Id = diagram.createActor("actor1", diagram.getDiagramId());
+      String actor2Id = diagram.createActor("actor2", diagram.getDiagramId());
 
+      // create an untrusted actor and a trusted one inside the previous ones
+      String untrustedActorId = diagram.createActor("untrustedActor", actor1Id);
+      String trustedActorId = diagram.createActor("trustedActor", actor2Id);
+
+      AbstractType untrustedActor = ((Part) diagram.getSemanticObjectMap().get("untrustedActor")).getAbstractType();
+      TrustBoundaryStorage storage = CybersecurityFactory.eINSTANCE.createTrustBoundaryStorage();
+      storage.setTrusted(false);
+      untrustedActor.getOwnedExtensions().add(storage);
+
+      // create functions inside the actors and a functional exchange between them
+      String func1 = diagram.createFunction("func1", untrustedActorId);
+      String func2 = diagram.createFunction("func2", trustedActorId);
+      diagram.createFunctionalExchange(func1, func2, "functional exchange");
+      FunctionalExchange functionalExchange = (FunctionalExchange) diagram.getSemanticObjectMap()
+          .get("functional exchange");
+
+      // create a physical link between the actors
+      diagram.createPhysicalLink(untrustedActorId, trustedActorId, "physical link");
+      PhysicalLink physicalLink = (PhysicalLink) diagram.getSemanticObjectMap().get("physical link");
+
+      // create a component exchange between the 'container' actors
+      diagram.createComponentExchange(actor1Id, actor2Id, "component exchange");
+      ComponentExchange componentExchange = (ComponentExchange) diagram.getSemanticObjectMap()
+          .get("component exchange");
+
+      // add an allocated functional exchange to the component exchange
+      ComponentExchangeFunctionalExchangeAllocation a = FaFactory.eINSTANCE
+          .createComponentExchangeFunctionalExchangeAllocation();
+      a.setSourceElement(componentExchange);
+      a.setTargetElement(functionalExchange);
+      componentExchange.getOwnedComponentExchangeFunctionalExchangeAllocations().add(a);
+
+      assertTrue(CybersecurityQueries.isTrustBoundary(functionalExchange));
+      assertTrue(CybersecurityQueries.isTrustBoundary(physicalLink));
+      assertTrue(CybersecurityQueries.isTrustBoundary(componentExchange));
+    });
+    
 //    this dumps a screenshot..
 //    ExportFormat format = new ExportFormat(ExportDocumentFormat.NONE, ImageFileFormat.PNG);
 //    IPath dest = ResourcesPlugin.getWorkspace().getRoot().getLocation().append(new Path("/" + getRequiredTestModel() + "/png.gif"));
