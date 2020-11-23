@@ -15,16 +15,18 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.polarsys.capella.common.helpers.EObjectExt;
 import org.polarsys.capella.common.helpers.query.IQuery;
 import org.polarsys.capella.core.data.cs.Component;
 import org.polarsys.capella.core.data.cs.Part;
+import org.polarsys.capella.core.data.cs.PhysicalLink;
 import org.polarsys.capella.core.data.fa.AbstractFunction;
 import org.polarsys.capella.core.data.fa.AbstractFunctionalBlock;
 import org.polarsys.capella.core.data.fa.ComponentExchange;
@@ -115,7 +117,33 @@ public class CybersecurityQueries {
   public static boolean isTrustBoundary(ComponentExchange ce) {
     Component source = ComponentExchangeExt.getSourceComponent(ce);
     Component target = ComponentExchangeExt.getTargetComponent(ce);
-    return isTrusted(source) ^ isTrusted(target);
+    boolean areTrustedAllocatedFE = areTrustBoundaryFE(ce.getAllocatedFunctionalExchanges());
+    return areTrustedAllocatedFE || (isTrusted(source) ^ isTrusted(target));
+  }
+
+  public static boolean isTrustBoundary(PhysicalLink pl) {
+    EObject source = pl.getSourcePhysicalPort().eContainer();
+    EObject target = pl.getTargetPhysicalPort().eContainer();
+    if (!(source instanceof Component) || !(target instanceof Component))
+      return false;
+    boolean areTrustedAllocatedCE = areTrustBoundaryCE(pl.getAllocatedComponentExchanges());
+    return areTrustedAllocatedCE || (isTrusted((Component) source) ^ isTrusted((Component) target));
+  }
+
+  public static boolean areTrustBoundaryFE(EList<FunctionalExchange> allocatedFE) {
+    for (FunctionalExchange fe : allocatedFE) {
+      if (isTrustBoundary(fe))
+        return true;
+    }
+    return false;
+  }
+
+  public static boolean areTrustBoundaryCE(EList<ComponentExchange> allocatedCE) {
+    for (ComponentExchange ce : allocatedCE) {
+      if (isTrustBoundary(ce))
+        return true;
+    }
+    return false;
   }
 
   public static Stream<Threat> getThreatsOf(PrimaryAsset pe) {

@@ -56,6 +56,7 @@ import org.polarsys.capella.core.data.cs.BlockArchitecture;
 import org.polarsys.capella.core.data.cs.Component;
 import org.polarsys.capella.core.data.cs.CsPackage;
 import org.polarsys.capella.core.data.cs.Part;
+import org.polarsys.capella.core.data.cs.PhysicalLink;
 import org.polarsys.capella.core.data.fa.AbstractFunction;
 import org.polarsys.capella.core.data.fa.ComponentExchange;
 import org.polarsys.capella.core.data.fa.FunctionalExchange;
@@ -317,6 +318,14 @@ public class CybersecurityServices {
     }
     return ce;
   }
+  
+  protected PhysicalLink getRepresentedPhysicalLink(ModelElement element) {
+	  PhysicalLink pl = null;
+	  if (element instanceof PhysicalLink) {
+		  pl = (PhysicalLink) element;
+	  }
+	  return pl;  
+  }
 
   public boolean hasDatastorageDecoration(ModelElement element) {
     AbstractFunction af = getRepresentedFunction(element);
@@ -522,9 +531,15 @@ public class CybersecurityServices {
     if (representedComponentExchange != null) {
       return CybersecurityQueries.isTrustBoundary(representedComponentExchange);
     }
+    
     FunctionalExchange representedFunctionalExchange = getRepresentedFunctionalExchange(element);
     if (representedFunctionalExchange != null) {
       return CybersecurityQueries.isTrustBoundary(representedFunctionalExchange);
+    }
+    
+    PhysicalLink representedPhysicalLink = getRepresentedPhysicalLink(element);
+    if (representedPhysicalLink != null) {
+      return CybersecurityQueries.isTrustBoundary(representedPhysicalLink);
     }
     return false;
   }
