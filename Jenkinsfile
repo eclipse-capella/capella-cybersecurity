@@ -126,15 +126,24 @@ pipeline {
 		        			['org.polarsys.capella.cybersecurity.test.CybersecurityTestSuite'])		        			 
 	        		}
 	        		
-	        		junit '*.xml'
+	        		tester.publishTests()
 				}
 			}
 		}
+		
+		stage('Sonar') {
+			steps {
+				script {
+					sonar.runSonar("eclipse_capella-cybersecurity", "eclipse/capella-cybersecurity", 'sonarcloud-token-cybersecurity')
+				}
+			}
+		}
+		
 	}
   
 	post {
     	always {
-       		archiveArtifacts artifacts: '**/*.log, *.log, *.xml, **/*.layout'
+       		archiveArtifacts artifacts: '**/*.log, *.log, *.xml, **/*.layout, *.exec'
     	}
     	
     	success  {
