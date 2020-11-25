@@ -5,7 +5,7 @@ pipeline {
   
 	tools {
 		maven 'apache-maven-latest'
-		jdk 'oracle-jdk8-latest'
+		jdk 'openjdk-jdk14-latest'
 	}
   
 	environment {
@@ -56,6 +56,7 @@ pipeline {
 	            sh "ls -lat ."
 	            sh "ls -lat ${WORKSPACE}/releng/org.polarsys.capella.cybersecurity.site/target/repository"
 	            sh "chmod 755 ./capella/capella"
+	            sh "chmod 755 ./capella/jre/bin/java"
 	            sh "./capella/capella -application org.eclipse.equinox.p2.director -repository file:/${WORKSPACE}/releng/org.polarsys.capella.cybersecurity.site/target/repository -installIU org.polarsys.capella.cybersecurity.feature.feature.group -noSplash"            
 	            
 	            //Adapt eclipse.ini config.ini and other things
@@ -101,6 +102,7 @@ pipeline {
         	steps {
         		script {
 	        		sh "chmod 755 ${CAPELLA_PRODUCT_PATH}"
+	            	sh "chmod 755 ${WORKSPACE}/capella/jre/bin/java"
 	        		
 	        		eclipse.installFeature("${CAPELLA_PRODUCT_PATH}", 'http://download.eclipse.org/tools/orbit/downloads/drops/R20130827064939/repository', 'org.jsoup')	        		
 	        		eclipse.installFeature("${CAPELLA_PRODUCT_PATH}", capella.getTestUpdateSiteURL("${BUILD_KEY}"), 'org.polarsys.capella.test.feature.feature.group')

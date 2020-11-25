@@ -54,7 +54,7 @@
 							<!-- Use the product to get dependencies -->
 							<requirement>
 								<type>eclipse-feature</type>
-								<id>org.polarsys.capella.rcp.feature</id>
+								<id>org.polarsys.capella.rcp</id>
 								<versionRange>0.0.0</versionRange>
 							</requirement>
 							<requirement>
