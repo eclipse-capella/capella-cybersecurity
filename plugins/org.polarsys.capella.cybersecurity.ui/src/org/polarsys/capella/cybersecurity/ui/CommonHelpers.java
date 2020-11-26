@@ -19,7 +19,12 @@ import org.polarsys.kitalpha.ad.services.manager.ViewpointManager;
 import org.polarsys.kitalpha.emde.model.edit.provider.helpers.EMDEHelper;
 
 public class CommonHelpers {
-
+  public static final String CYBERSECURITY_CFG_KEYWORD = "Cybersecurity Configuration";
+  public static final String CYBERSECURITY_CFG_SECURITY_CONFIDENTIALITY_KEYWORD = "Security.Confidentiality";
+  public static final String CYBERSECURITY_CFG_SECURITY_INTEGRITY_KEYWORD = "Security.Integrity";
+  public static final String CYBERSECURITY_CFG_SECURITY_TRACEABILITY_KEYWORD = "Security.Traceability";
+  public static final String CYBERSECURITY_CFG_SECURITY_AVIABILITY_KEYWORD = "Security.Aviability";
+  
   public static boolean canBeExtendedBy(EObject parent, EClass extensionClass) {
     Collection<EClass> extendedElements = EMDEHelper.getExtendedElement(new BasicDiagnostic(), extensionClass);
     for (EClass extendedElement : extendedElements) {

@@ -10,18 +10,36 @@
  *******************************************************************************/
 package org.polarsys.capella.cybersecurity.ui;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
+import org.eclipse.amalgam.explorer.activity.ui.api.manager.ActivityExplorerManager;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.sirius.business.api.session.Session;
+import org.polarsys.capella.common.ef.command.AbstractReadWriteCommand;
+import org.polarsys.capella.common.helpers.TransactionHelper;
+import org.polarsys.capella.core.data.capellacore.CapellacoreFactory;
+import org.polarsys.capella.core.data.capellacore.EnumerationPropertyType;
+import org.polarsys.capella.core.data.capellamodeller.Folder;
+import org.polarsys.capella.core.data.capellamodeller.Project;
 import org.polarsys.capella.core.platform.sirius.ui.project.NewProjectWizard;
 import org.polarsys.capella.core.platform.sirius.ui.project.internal.WizardNewProjectCreationPage;
 import org.polarsys.capella.core.platform.sirius.ui.project.operations.ProjectSessionCreationHelper;
 import org.polarsys.capella.core.platform.sirius.ui.project.operations.SessionCreationHelper;
+import org.polarsys.capella.core.sirius.ui.actions.OpenSessionAction;
+import org.polarsys.capella.core.sirius.ui.helper.SessionHelper;
+import org.polarsys.capella.cybersecurity.model.CybersecurityPkg;
+import org.polarsys.capella.cybersecurity.model.impl.CybersecurityFactoryImpl;
 import org.polarsys.kitalpha.ad.services.manager.ViewpointActivationException;
 import org.polarsys.kitalpha.ad.services.manager.ViewpointManager;
 import org.polarsys.kitalpha.ad.viewpoint.predicate.exceptions.EvaluationException;
@@ -55,5 +73,40 @@ public class CybersecurityProjectWizard extends NewProjectWizard {
       }
 
     };
+  }
+  
+  @Override
+  public boolean performFinish() {
+    boolean result = super.performFinish();
+    
+    EObject rootModel = ActivityExplorerManager.INSTANCE.getRootSemanticModel();
+    AbstractReadWriteCommand command = new AbstractReadWriteCommand() {
+      public void run() {
+        if(rootModel instanceof Project)
+          addProjectCybersecurityConfig((Project)rootModel);
+      }
+    };
+    TransactionHelper.getExecutionManager(rootModel).execute(command);
+ 
+    return result;
+  }
+  
+  public void addProjectCybersecurityConfig(Project project_p) {
+    CybersecurityPkg pkg = CybersecurityFactoryImpl.eINSTANCE.createCybersecurityPkg();
+    pkg.setName(CommonHelpers.CYBERSECURITY_CFG_KEYWORD);
+    pkg.getOwnedEnumerationPropertyTypes().add(createEnumerationPropertyType(CommonHelpers.CYBERSECURITY_CFG_SECURITY_CONFIDENTIALITY_KEYWORD));
+    pkg.getOwnedEnumerationPropertyTypes().add(createEnumerationPropertyType(CommonHelpers.CYBERSECURITY_CFG_SECURITY_INTEGRITY_KEYWORD));
+    pkg.getOwnedEnumerationPropertyTypes().add(createEnumerationPropertyType(CommonHelpers.CYBERSECURITY_CFG_SECURITY_TRACEABILITY_KEYWORD));
+    pkg.getOwnedEnumerationPropertyTypes().add(createEnumerationPropertyType(CommonHelpers.CYBERSECURITY_CFG_SECURITY_AVIABILITY_KEYWORD));
+    project_p.getOwnedExtensions().add(pkg); 
+  }
+  
+  private EnumerationPropertyType createEnumerationPropertyType(String typeName) {
+    EnumerationPropertyType type = CapellacoreFactory.eINSTANCE.createEnumerationPropertyType(typeName);
+    type.getOwnedLiterals().add(CapellacoreFactory.eINSTANCE.createEnumerationPropertyLiteral("0"));
+    type.getOwnedLiterals().add(CapellacoreFactory.eINSTANCE.createEnumerationPropertyLiteral("1"));
+    type.getOwnedLiterals().add(CapellacoreFactory.eINSTANCE.createEnumerationPropertyLiteral("2"));
+    type.getOwnedLiterals().add(CapellacoreFactory.eINSTANCE.createEnumerationPropertyLiteral("3"));
+    return type;
   }
 }

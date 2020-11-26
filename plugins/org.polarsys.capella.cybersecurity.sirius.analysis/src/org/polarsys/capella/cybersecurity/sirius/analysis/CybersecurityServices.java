@@ -52,6 +52,7 @@ import org.polarsys.capella.common.helpers.EcoreUtil2;
 import org.polarsys.capella.common.helpers.TransactionHelper;
 import org.polarsys.capella.common.menu.dynamic.util.INamePrefixService;
 import org.polarsys.capella.common.platform.sirius.ted.SemanticEditingDomainFactory.SemanticEditingDomain;
+import org.polarsys.capella.core.data.capellacore.EnumerationPropertyLiteral;
 import org.polarsys.capella.core.data.cs.BlockArchitecture;
 import org.polarsys.capella.core.data.cs.Component;
 import org.polarsys.capella.core.data.cs.CsPackage;
@@ -551,7 +552,7 @@ public class CybersecurityServices {
     }
     SecurityNeeds needs = getSecurityNeeds(modelElement);
     if (needs != null) {
-      return needs.getConfidentiality();
+      return CybersecurityQueries.getConfidentialityIndex(needs);
     }
     return 0;
   }
@@ -563,7 +564,7 @@ public class CybersecurityServices {
     }
     SecurityNeeds needs = getSecurityNeeds(modelElement);
     if (needs != null) {
-      return needs.getIntegrity();
+      return CybersecurityQueries.getIntegrityIndex(needs);
     }
     return 0;
   }
@@ -575,7 +576,7 @@ public class CybersecurityServices {
     }
     SecurityNeeds needs = getSecurityNeeds(modelElement);
     if (needs != null) {
-      return needs.getAvailability();
+      return CybersecurityQueries.getAvailabilityIndex(needs);
     }
     return 0;
   }
@@ -587,7 +588,7 @@ public class CybersecurityServices {
     }
     SecurityNeeds needs = getSecurityNeeds(modelElement);
     if (needs != null) {
-      return needs.getTraceability();
+      return CybersecurityQueries.getTraceabilityIndex(needs);
     }
     return 0;
   }
@@ -660,22 +661,22 @@ public class CybersecurityServices {
     return context instanceof Threat;
   }
 
-  public void setConfidentiality(ExtensibleElement element, int value) {
+  public void setConfidentiality(ExtensibleElement element, EnumerationPropertyLiteral value) {
     SecurityNeeds sn = getSecurityNeeds(element, true);
     sn.setConfidentiality(value);
   }
 
-  public void setIntegrity(ExtensibleElement element, int value) {
+  public void setIntegrity(ExtensibleElement element, EnumerationPropertyLiteral value) {
     SecurityNeeds sn = getSecurityNeeds(element, true);
     sn.setIntegrity(value);
   }
 
-  public void setTraceability(ExtensibleElement element, int value) {
+  public void setTraceability(ExtensibleElement element, EnumerationPropertyLiteral value) {
     SecurityNeeds sn = getSecurityNeeds(element, true);
     sn.setTraceability(value);
   }
 
-  public void setAvailability(ExtensibleElement element, int value) {
+  public void setAvailability(ExtensibleElement element, EnumerationPropertyLiteral value) {
     SecurityNeeds sn = getSecurityNeeds(element, true);
     sn.setAvailability(value);
   }

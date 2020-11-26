@@ -24,6 +24,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.polarsys.capella.common.helpers.EObjectExt;
 import org.polarsys.capella.common.helpers.query.IQuery;
+import org.polarsys.capella.core.data.capellacore.EnumerationPropertyLiteral;
+import org.polarsys.capella.core.data.capellacore.EnumerationPropertyType;
 import org.polarsys.capella.core.data.cs.Component;
 import org.polarsys.capella.core.data.cs.Part;
 import org.polarsys.capella.core.data.cs.PhysicalLink;
@@ -263,24 +265,74 @@ public class CybersecurityQueries {
 
   public static int getMaxSecurityNeedsValue(SecurityNeeds sn) {
     return sn == null ? 0
-        : IntStream.of(sn.getConfidentiality(), sn.getIntegrity(), sn.getTraceability(), sn.getAvailability()).max()
+        : IntStream.of(getConfidentialityIndex(sn), getIntegrityIndex(sn),
+            getTraceabilityIndex(sn), getAvailabilityIndex(sn)).max()
             .getAsInt();
   }
-
-  public static int getConfidentiality(SecurityNeeds sn) {
-    return sn == null ? 0 : sn.getConfidentiality();
+  
+  public static int getConfidentialityIndex(SecurityNeeds sn) {
+    return sn == null ? 0 : getIndexOfLiteral(sn.getConfidentiality());
   }
 
-  public static int getIntegrity(SecurityNeeds sn) {
-    return sn == null ? 0 : sn.getIntegrity();
+  public static int getIntegrityIndex(SecurityNeeds sn) {
+    return sn == null ? 0 : getIndexOfLiteral(sn.getIntegrity());
   }
 
-  public static int getAvailability(SecurityNeeds sn) {
-    return sn == null ? 0 : sn.getAvailability();
+  public static int getAvailabilityIndex(SecurityNeeds sn) {
+    return sn == null ? 0 : getIndexOfLiteral(sn.getAvailability());
   }
 
-  public static int getTraceability(SecurityNeeds sn) {
-    return sn == null ? 0 : sn.getTraceability();
+  public static int getTraceabilityIndex(SecurityNeeds sn) {
+    return sn == null ? 0 : getIndexOfLiteral(sn.getTraceability());
+  }
+  
+  public static void setConfidentialityIndex(SecurityNeeds sn, int index) {
+    if(sn != null) {
+      EnumerationPropertyType type = (EnumerationPropertyType) sn.getConfidentiality().eContainer();
+      EnumerationPropertyLiteral newValue = getLiteralOnIndex(type, index);
+      if(newValue != null) {
+        sn.setConfidentiality(newValue);
+      }
+    }
+  }
+  
+  public static void setIntegrityIndex(SecurityNeeds sn, int index) {
+    if(sn != null) {
+      EnumerationPropertyType type = (EnumerationPropertyType) sn.getConfidentiality().eContainer();
+      EnumerationPropertyLiteral newValue = getLiteralOnIndex(type, index);
+      if(newValue != null) {
+        sn.setConfidentiality(newValue);
+      }
+    }
+  }
+  
+  public static void setAvailabilityIndex(SecurityNeeds sn, int index) {
+    if(sn != null) {
+      EnumerationPropertyType type = (EnumerationPropertyType) sn.getConfidentiality().eContainer();
+      EnumerationPropertyLiteral newValue = getLiteralOnIndex(type, index);
+      if(newValue != null) {
+        sn.setConfidentiality(newValue);
+      }
+    }
+  }
+  
+  public static void setTraceabilityIndex(SecurityNeeds sn, int index) {
+    if(sn != null) {
+      EnumerationPropertyType type = (EnumerationPropertyType) sn.getConfidentiality().eContainer();
+      EnumerationPropertyLiteral newValue = getLiteralOnIndex(type, index);
+      if(newValue != null) {
+        sn.setConfidentiality(newValue);
+      }
+    }
+  }
+  
+  private static int getIndexOfLiteral(EnumerationPropertyLiteral property) {
+    EnumerationPropertyType type = (EnumerationPropertyType) property.eContainer();
+    return  type.getOwnedLiterals().indexOf(property);
+  }
+  
+  private static EnumerationPropertyLiteral getLiteralOnIndex(EnumerationPropertyType type, int index) {
+    return  index >= 0 && index < type.getOwnedLiterals().size() ? type.getOwnedLiterals().get(index) : null;
   }
 
   public static Stream<FunctionalExchange> getAllocatingFunctionalExchanges(ExchangeItem ei) {
@@ -528,12 +580,12 @@ public class CybersecurityQueries {
     }
 
   }
-
+  
   public static SecurityNeeds reduceSecurityNeeds(SecurityNeeds result, SecurityNeeds a) {
-    result.setAvailability(Math.max(result.getAvailability(), a.getAvailability()));
-    result.setConfidentiality(Math.max(result.getConfidentiality(), a.getConfidentiality()));
-    result.setIntegrity(Math.max(result.getIntegrity(), a.getIntegrity()));
-    result.setTraceability((Math.max(result.getTraceability(), a.getTraceability())));
+    setAvailabilityIndex(result, Math.max(getAvailabilityIndex(result), getAvailabilityIndex(a)));
+    setConfidentialityIndex(result, Math.max(getConfidentialityIndex(result), getConfidentialityIndex(a)));
+    setIntegrityIndex(result, Math.max(getIntegrityIndex(result), getIntegrityIndex(a)));
+    setTraceabilityIndex(result, Math.max(getTraceabilityIndex(result), getTraceabilityIndex(a)));
     return result;
   }
 
