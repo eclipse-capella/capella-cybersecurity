@@ -406,8 +406,8 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
    * @generated
    */
   @Override
-  public EAttribute getSecurityNeeds_Confidentiality() {
-    return (EAttribute) securityNeedsEClass.getEStructuralFeatures().get(0);
+  public EReference getSecurityNeeds_Confidentiality() {
+    return (EReference) securityNeedsEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -415,8 +415,8 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
    * @generated
    */
   @Override
-  public EAttribute getSecurityNeeds_Integrity() {
-    return (EAttribute) securityNeedsEClass.getEStructuralFeatures().get(1);
+  public EReference getSecurityNeeds_Integrity() {
+    return (EReference) securityNeedsEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -424,8 +424,8 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
    * @generated
    */
   @Override
-  public EAttribute getSecurityNeeds_Availability() {
-    return (EAttribute) securityNeedsEClass.getEStructuralFeatures().get(2);
+  public EReference getSecurityNeeds_Availability() {
+    return (EReference) securityNeedsEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -433,8 +433,8 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
    * @generated
    */
   @Override
-  public EAttribute getSecurityNeeds_Traceability() {
-    return (EAttribute) securityNeedsEClass.getEStructuralFeatures().get(3);
+  public EReference getSecurityNeeds_Traceability() {
+    return (EReference) securityNeedsEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -525,6 +525,16 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
   @Override
   public EReference getFunctionalPrimaryAsset_Functions() {
     return (EReference) functionalPrimaryAssetEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getFunctionalPrimaryAsset_FunctionalChains() {
+    return (EReference) functionalPrimaryAssetEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -635,10 +645,10 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
     primaryAssetStorageEClass = createEClass(PRIMARY_ASSET_STORAGE);
 
     securityNeedsEClass = createEClass(SECURITY_NEEDS);
-    createEAttribute(securityNeedsEClass, SECURITY_NEEDS__CONFIDENTIALITY);
-    createEAttribute(securityNeedsEClass, SECURITY_NEEDS__INTEGRITY);
-    createEAttribute(securityNeedsEClass, SECURITY_NEEDS__AVAILABILITY);
-    createEAttribute(securityNeedsEClass, SECURITY_NEEDS__TRACEABILITY);
+    createEReference(securityNeedsEClass, SECURITY_NEEDS__CONFIDENTIALITY);
+    createEReference(securityNeedsEClass, SECURITY_NEEDS__INTEGRITY);
+    createEReference(securityNeedsEClass, SECURITY_NEEDS__AVAILABILITY);
+    createEReference(securityNeedsEClass, SECURITY_NEEDS__TRACEABILITY);
 
     trustBoundaryStorageEClass = createEClass(TRUST_BOUNDARY_STORAGE);
     createEAttribute(trustBoundaryStorageEClass, TRUST_BOUNDARY_STORAGE__THREAT_SOURCE);
@@ -652,6 +662,7 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
 
     functionalPrimaryAssetEClass = createEClass(FUNCTIONAL_PRIMARY_ASSET);
     createEReference(functionalPrimaryAssetEClass, FUNCTIONAL_PRIMARY_ASSET__FUNCTIONS);
+    createEReference(functionalPrimaryAssetEClass, FUNCTIONAL_PRIMARY_ASSET__FUNCTIONAL_CHAINS);
 
     informationPrimaryAssetEClass = createEClass(INFORMATION_PRIMARY_ASSET);
     createEReference(informationPrimaryAssetEClass, INFORMATION_PRIMARY_ASSET__EXCHANGE_ITEMS);
@@ -781,17 +792,18 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
 
     initEClass(securityNeedsEClass, SecurityNeeds.class, "SecurityNeeds", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
         IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getSecurityNeeds_Confidentiality(), ecorePackage.getEInt(), "confidentiality", null, 0, 1, //$NON-NLS-1$
-        SecurityNeeds.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-        IS_ORDERED);
-    initEAttribute(getSecurityNeeds_Integrity(), ecorePackage.getEInt(), "integrity", null, 0, 1, SecurityNeeds.class, //$NON-NLS-1$
-        !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getSecurityNeeds_Availability(), ecorePackage.getEInt(), "availability", null, 0, 1, //$NON-NLS-1$
-        SecurityNeeds.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-        IS_ORDERED);
-    initEAttribute(getSecurityNeeds_Traceability(), ecorePackage.getEInt(), "traceability", null, 0, 1, //$NON-NLS-1$
-        SecurityNeeds.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-        IS_ORDERED);
+    initEReference(getSecurityNeeds_Confidentiality(), theCapellacorePackage.getEnumerationPropertyLiteral(), null,
+        "confidentiality", null, 0, 1, SecurityNeeds.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, //$NON-NLS-1$
+        IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSecurityNeeds_Integrity(), theCapellacorePackage.getEnumerationPropertyLiteral(), null,
+        "integrity", null, 0, 1, SecurityNeeds.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, //$NON-NLS-1$
+        IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSecurityNeeds_Availability(), theCapellacorePackage.getEnumerationPropertyLiteral(), null,
+        "availability", null, 0, 1, SecurityNeeds.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, //$NON-NLS-1$
+        IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSecurityNeeds_Traceability(), theCapellacorePackage.getEnumerationPropertyLiteral(), null,
+        "traceability", null, 0, 1, SecurityNeeds.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, //$NON-NLS-1$
+        IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(trustBoundaryStorageEClass, TrustBoundaryStorage.class, "TrustBoundaryStorage", !IS_ABSTRACT, //$NON-NLS-1$
         !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -822,6 +834,9 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
     initEReference(getFunctionalPrimaryAsset_Functions(), theFaPackage.getAbstractFunction(), null, "functions", null, //$NON-NLS-1$
         0, -1, FunctionalPrimaryAsset.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE,
         IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+    initEReference(getFunctionalPrimaryAsset_FunctionalChains(), theFaPackage.getFunctionalChain(), null,
+        "functionalChains", null, 0, -1, FunctionalPrimaryAsset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, //$NON-NLS-1$
+        !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(informationPrimaryAssetEClass, InformationPrimaryAsset.class, "InformationPrimaryAsset", !IS_ABSTRACT, //$NON-NLS-1$
         !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

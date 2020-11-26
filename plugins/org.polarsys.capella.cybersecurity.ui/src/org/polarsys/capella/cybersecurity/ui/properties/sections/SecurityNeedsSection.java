@@ -15,7 +15,10 @@ package org.polarsys.capella.cybersecurity.ui.properties.sections;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
@@ -27,16 +30,21 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
+import org.polarsys.capella.core.data.capellacore.EnumerationPropertyType;
+import org.polarsys.capella.core.data.capellamodeller.Project;
 import org.polarsys.capella.core.ui.properties.fields.AbstractSemanticField;
 import org.polarsys.capella.core.ui.properties.sections.AbstractSection;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
+import org.polarsys.capella.cybersecurity.model.CybersecurityPkg;
 import org.polarsys.capella.cybersecurity.model.SecurityNeeds;
 import org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage;
+import org.polarsys.capella.cybersecurity.sirius.analysis.CybersecurityServices;
 import org.polarsys.capella.cybersecurity.ui.CommonHelpers;
 import org.polarsys.capella.cybersecurity.ui.CybersecurityUIActivator;
 import org.polarsys.capella.cybersecurity.ui.ElementExtensionStorage;
 import org.polarsys.capella.cybersecurity.ui.ElementExtensionStorageImpl;
-import org.polarsys.capella.cybersecurity.ui.properties.fields.IntegerValueRadioGroup;
+import org.polarsys.capella.cybersecurity.ui.properties.fields.EnumerationLiterealValueRadioGroup;
+import org.polarsys.kitalpha.emde.model.ElementExtension;
 import org.polarsys.kitalpha.emde.model.EmdePackage;
 import org.polarsys.kitalpha.emde.model.ExtensibleElement;
 
@@ -45,10 +53,10 @@ public class SecurityNeedsSection extends AbstractSection {
   // display properties for this element
   private SecurityNeeds elementExtension;
 
-  private IntegerValueRadioGroup confidentiality;
-  private IntegerValueRadioGroup integrity;
-  private IntegerValueRadioGroup traceability;
-  private IntegerValueRadioGroup availability;
+  private EnumerationLiterealValueRadioGroup confidentiality;
+  private EnumerationLiterealValueRadioGroup integrity;
+  private EnumerationLiterealValueRadioGroup traceability;
+  private EnumerationLiterealValueRadioGroup availability;
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -158,22 +166,24 @@ public class SecurityNeedsSection extends AbstractSection {
     group.setLayout(layout);
     group.setLayoutData(gd);
 
-    confidentiality = createIntegerValueRadioGroup(group, Messages.SecurityNeedsSection_1);
-    integrity = createIntegerValueRadioGroup(group, Messages.SecurityNeedsSection_2);
-    traceability = createIntegerValueRadioGroup(group, Messages.SecurityNeedsSection_3);
-    availability = createIntegerValueRadioGroup(group, Messages.SecurityNeedsSection_4);
+    confidentiality = createEnumerationLiteralValueRadioGroup(group, Messages.SecurityNeedsSection_1, CommonHelpers.CYBERSECURITY_CFG_SECURITY_CONFIDENTIALITY_KEYWORD);
+    integrity = createEnumerationLiteralValueRadioGroup(group, Messages.SecurityNeedsSection_2, CommonHelpers.CYBERSECURITY_CFG_SECURITY_INTEGRITY_KEYWORD);
+    traceability = createEnumerationLiteralValueRadioGroup(group, Messages.SecurityNeedsSection_3, CommonHelpers.CYBERSECURITY_CFG_SECURITY_TRACEABILITY_KEYWORD);
+    availability = createEnumerationLiteralValueRadioGroup(group, Messages.SecurityNeedsSection_4, CommonHelpers.CYBERSECURITY_CFG_SECURITY_AVIABILITY_KEYWORD);
   }
-
+  
   // we want a 2x2 layout
   // default integer value group always wants to span all columns, so we'll just trick it
-  private IntegerValueRadioGroup createIntegerValueRadioGroup(Group parent, String label) {
+  private EnumerationLiterealValueRadioGroup createEnumerationLiteralValueRadioGroup(Group parent, String label, String configType) {
     Composite compo = getWidgetFactory().createComposite(parent);
     GridLayout gl = new GridLayout();
     gl.marginHeight = 0;
     gl.marginWidth = 0;
     compo.setLayout(gl);
     compo.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
-    IntegerValueRadioGroup result = new IntegerValueRadioGroup(compo, label, getWidgetFactory(), 0, 3);
+    EnumerationPropertyType type = getEnumerationPropertyType(configType);
+    int max = type != null ? type.getOwnedLiterals().size() - 1 : 0;
+    EnumerationLiterealValueRadioGroup result = new EnumerationLiterealValueRadioGroup(compo, label, type, getWidgetFactory(), 0, max);
     result.setDisplayedInWizard(isDisplayedInWizard());
     return result;
   }
@@ -223,4 +233,20 @@ public class SecurityNeedsSection extends AbstractSection {
     }
   }
 
+  private EnumerationPropertyType getEnumerationPropertyType(String configType) {
+    Project project = CommonHelpers.getCurrentProject();
+    if (project != null) {
+      Optional<ElementExtension> result = project.getOwnedExtensions().stream()
+          .filter(x -> x instanceof CybersecurityPkg).findFirst();
+      if (result.isPresent()) {
+        CybersecurityPkg pkg = (CybersecurityPkg) result.get();
+        Optional<EnumerationPropertyType> result1 = pkg.getOwnedEnumerationPropertyTypes().stream()
+            .filter(x -> x.getName().equals(configType)).findFirst();
+        if (result1.isPresent()) {
+          return result1.get();
+        }
+      }
+    }
+    return null;
+  }
 }

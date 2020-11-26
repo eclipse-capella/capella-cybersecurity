@@ -13,6 +13,7 @@ package org.polarsys.capella.cybersecurity.model;
 
 import org.eclipse.emf.common.util.EList;
 import org.polarsys.capella.core.data.fa.AbstractFunction;
+import org.polarsys.capella.core.data.fa.FunctionalChain;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Functional Primary Asset</b></em>'. <!--
@@ -23,6 +24,7 @@ import org.polarsys.capella.core.data.fa.AbstractFunction;
  * </p>
  * <ul>
  *   <li>{@link org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset#getFunctions <em>Functions</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset#getFunctionalChains <em>Functional Chains</em>}</li>
  * </ul>
  *
  * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getFunctionalPrimaryAsset()
@@ -49,5 +51,19 @@ public interface FunctionalPrimaryAsset extends PrimaryAsset {
    */
 
   EList<AbstractFunction> getFunctions();
+
+  /**
+   * Returns the value of the '<em><b>Functional Chains</b></em>' reference list.
+   * The list contents are of type {@link org.polarsys.capella.core.data.fa.FunctionalChain}.
+  
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Functional Chains</em>' reference list.
+   * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getFunctionalPrimaryAsset_FunctionalChains()
+   * @model
+   * @generated
+   */
+
+  EList<FunctionalChain> getFunctionalChains();
 
 } // FunctionalPrimaryAsset

@@ -33,8 +33,10 @@ public class SecurityNeedsConsistency {
     SecurityNeeds refSN = relation.apply((ExtensibleElement) ctx.getTarget()).stream()
         .map(CybersecurityQueries::getSecurityNeeds).filter(Objects::nonNull)
         .reduce(CybersecurityFactory.eINSTANCE.createSecurityNeeds(), CybersecurityQueries::reduceSecurityNeeds);
-    if (testSN.getConfidentiality() < refSN.getConfidentiality() || testSN.getTraceability() < refSN.getTraceability()
-        || testSN.getAvailability() < refSN.getAvailability() || testSN.getIntegrity() < refSN.getIntegrity()) {
+    if (CybersecurityQueries.getConfidentialityIndex(testSN) < CybersecurityQueries.getConfidentialityIndex(refSN) ||
+        CybersecurityQueries.getTraceabilityIndex(testSN) < CybersecurityQueries.getTraceabilityIndex(refSN) ||
+        CybersecurityQueries.getAvailabilityIndex(testSN) < CybersecurityQueries.getAvailabilityIndex(refSN) ||
+        CybersecurityQueries.getIntegrityIndex(testSN) < CybersecurityQueries.getIntegrityIndex(refSN)) {
       return ctx.createFailureStatus(ctx.getTarget(), NamingHelper.getTitleLabel(ctx.getTarget()));
     }
     return ctx.createSuccessStatus();

@@ -66,10 +66,10 @@
     <eAnnotations source="http://www.polarsys.org/kitalpha/emde/1.0.0/constraintMapping">
       <details key="Mapping" value=" platform:/plugin/org.polarsys.capella.common.data.behavior.gen/model/Behavior.ecore#//AbstractEvent platform:/plugin/org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//PrimaryAsset"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="confidentiality" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="integrity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="availability" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="traceability" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="confidentiality" eType="ecore:EClass platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#//EnumerationPropertyLiteral"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="integrity" eType="ecore:EClass platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#//EnumerationPropertyLiteral"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="availability" eType="ecore:EClass platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#//EnumerationPropertyLiteral"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="traceability" eType="ecore:EClass platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#//EnumerationPropertyLiteral"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TrustBoundaryStorage" eSuperTypes="platform:/plugin/org.polarsys.capella.common.data.core.gen/model/ModellingCore.ecore#//ModelElement platform:/plugin/org.polarsys.kitalpha.emde/model/eMDE.ecore#//ElementExtension">
     <eAnnotations source="http://www.polarsys.org/kitalpha/emde/1.0.0/constraint">
@@ -101,6 +101,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="functions" upperBound="-1"
         eType="ecore:EClass platform:/plugin/org.polarsys.capella.core.data.gen/model/FunctionalAnalysis.ecore#//AbstractFunction"
         changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="functionalChains" upperBound="-1"
+        eType="ecore:EClass platform:/plugin/org.polarsys.capella.core.data.gen/model/FunctionalAnalysis.ecore#//FunctionalChain"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InformationPrimaryAsset" eSuperTypes="#//PrimaryAsset">
     <eStructuralFeatures xsi:type="ecore:EReference" name="exchangeItems" upperBound="-1"
