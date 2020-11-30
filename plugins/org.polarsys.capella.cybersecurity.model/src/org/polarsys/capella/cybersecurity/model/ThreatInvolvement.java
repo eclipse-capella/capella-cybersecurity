@@ -30,7 +30,7 @@ import org.polarsys.kitalpha.emde.model.ElementExtension;
  *
  * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getThreatInvolvement()
  * @model annotation="http://www.polarsys.org/kitalpha/emde/1.0.0/constraint ExtendedElement='
- *        http://www.polarsys.org/capella/core/cs/1.4.0#//Component'"
+ *        http://www.polarsys.org/capella/core/cs/5.0.0#//Component'"
  *        annotation="http://www.polarsys.org/kitalpha/emde/1.0.0/constraintMapping Mapping='
  *        platform:/plugin/org.polarsys.capella.core.data.gen/model/CompositeStructure.ecore#//AbstractActor'"
  * @generated
