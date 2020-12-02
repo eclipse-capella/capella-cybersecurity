@@ -281,6 +281,13 @@
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
           </style>
         </nodeMappings>
+        <nodeMappings name="Threat" createElements="false" domainClass="cybersecurity.Threat">
+          <style xsi:type="style:SquareDescription" labelSize="10" labelExpression="service:self.getThreatLabel()" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
+          </style>
+        </nodeMappings>
         <toolSections name="Primary Assets">
           <ownedTools xsi:type="tool_1:ToolDescription" documentation="Insert/Remove Primary Assets. Create or delete graphical objects corresponding to already existing Primary Assets. Removing a Primary Asset graphical object from the diagram does not delete the Primary Asset from the model. This tool does not modify the semantic model." name="primary.assets" label="Primary Assets" iconPath="/org.polarsys.capella.core.sirius.analysis/icons/full/obj16/ShowHide.gif">
             <element name="element"/>
@@ -313,6 +320,47 @@
                     <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:ownedNodeContainer->select(x | x.target = i)->size() = 0">
                       <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:i">
                         <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentationExtensions[name='Cybersecurity%20Architecture%20Diagram%20Extensions']/@layers[name='Cybersecurity%20Assets%20Layer']/@nodeMappings[name='PrimaryAsset']" containerViewExpression="aql:diagram">
+                          <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:createdView.setNewRandomColor()"/>
+                        </subModelOperations>
+                      </subModelOperations>
+                    </subModelOperations>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:diagram.forceRefresh()"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ToolDescription" documentation="Insert/Remove Threats. Create or delete graphical objects corresponding to already existing Threats. Removing a Threat graphical object from the diagram does not delete the Threat from the model. This tool does not modify the semantic model." name="threats" label="Threats" iconPath="/org.polarsys.capella.core.sirius.analysis/icons/full/obj16/ShowHide.gif">
+            <element name="element"/>
+            <elementView name="elementView">
+              <subVariables xsi:type="tool_1:AcceleoVariable" name="diagram" computationExpression="aql:elementView.eContainerOrSelf(diagram::DDiagram)"/>
+              <subVariables xsi:type="tool_1:AcceleoVariable" name="scope" computationExpression="aql:elementView.getABThreatScope()"/>
+              <subVariables xsi:type="tool_1:AcceleoVariable" name="ownedNodeContainer" computationExpression="aql:self.void2Null(diagram.eAllContents()->filter(diagram::DNode)->select(x | x.actualMapping.name = 'Threat'))"/>
+            </elementView>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element">
+                <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="selectSubComponent" id="org.polarsys.capella.core.sirius.analysis.actions.extensions.SelectElementsFromTransferWizard">
+                  <parameters name="context" value="aql:element"/>
+                  <parameters name="scope" value="aql:scope"/>
+                  <parameters name="resultVariable" value="selection"/>
+                  <parameters name="wizardMessage" value="aql:'Select Threats to show in '+ element.name + '.'"/>
+                  <parameters name="initialSelection" value="aql:self.void2Null(self.getIntersection(ownedNodeContainer->select(x | x.visible and x.actualMapping.name = 'Threat').target,scope))"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:not (selection = 'WIZARD_CANCELED')">
+                  <subModelOperations xsi:type="tool_1:For" expression="aql:self.void2Null(self.makeDiff(self.getIntersection((self.makeUnion(ownedNodeContainer->select(x | x.visible).target, diagram.target)),scope), selection))">
+                    <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:ownedNodeContainer->select(x | x.target = i)->size() > 0">
+                      <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:ownedNodeContainer->select(x | x.target = i)->first()">
+                        <subModelOperations xsi:type="tool_1:DeleteView"/>
+                      </subModelOperations>
+                    </subModelOperations>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:For" expression="aql:self.void2Null(selection)">
+                    <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:ownedNodeContainer->select(x | x.target = i)->size() > 0">
+                      <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:ownedNodeContainer->select(x | x.target = i).show()->first()"/>
+                    </subModelOperations>
+                    <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:ownedNodeContainer->select(x | x.target = i)->size() = 0">
+                      <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:i">
+                        <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentationExtensions[name='Cybersecurity%20Architecture%20Diagram%20Extensions']/@layers[name='Cybersecurity%20Assets%20Layer']/@nodeMappings[name='Threat']" containerViewExpression="aql:diagram">
                           <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:createdView.setNewRandomColor()"/>
                         </subModelOperations>
                       </subModelOperations>
@@ -366,6 +414,17 @@
             <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="color" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='security_needs_color']"/>
             <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="backgroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='security_needs_color']"/>
             <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="foregroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='security_needs_color']"/>
+          </vsmElementCustomizations>
+        </customization>
+      </layers>
+      <layers name="Cybersecurity Supporting Assets" reusedMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentationExtensions[name='Cybersecurity%20Architecture%20Diagram%20Extensions']/@layers[name='Cybersecurity%20Assets%20Layer']/@nodeMappings[name='PrimaryAsset'] //@ownedViewpoints[name='Cybersecurity']/@ownedRepresentationExtensions[name='Cybersecurity%20Architecture%20Diagram%20Extensions']/@layers[name='Cybersecurity%20Assets%20Layer']/@nodeMappings[name='Threat']" activeByDefault="true">
+        <toolSections name="Primary Assets" reusedTools="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentationExtensions[name='Cybersecurity%20Architecture%20Diagram%20Extensions']/@layers[name='Cybersecurity%20Assets%20Layer']/@toolSections.0/@ownedTools[name='primary.assets'] //@ownedViewpoints[name='Cybersecurity']/@ownedRepresentationExtensions[name='Cybersecurity%20Architecture%20Diagram%20Extensions']/@layers[name='Cybersecurity%20Assets%20Layer']/@toolSections.0/@ownedTools[name='threats']"/>
+        <customization>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.hasSupportingAssetStyleCustomization(view)">
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="borderColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='asset_color1']"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" applyOnAll="true" attributeName="borderSizeComputationExpression" value="aql:view.getSupportingAssetsDecorationBorderSize()"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="strokeColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='asset_color1']"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" applyOnAll="true" attributeName="sizeComputationExpression" value="aql:view.getSupportingAssetsDecorationSize()"/>
           </vsmElementCustomizations>
         </customization>
       </layers>
