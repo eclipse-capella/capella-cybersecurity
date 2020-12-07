@@ -53,23 +53,23 @@ public class Rule_CY_DCON_02 extends DynamicValidationTest {
   public void test() throws Exception {
     ok(ce, RULE);
     executeCommand(() -> {
-      service.setConfidentiality(fe1, 2);
-      service.setIntegrity(fe2, 3);
+      service.setConfidentiality(fe1, 2, typeConfidentiality);
+      service.setIntegrity(fe2, 3, typeIntegrity);
     });
     ko(ce, RULE);
     executeCommand(() -> {
-      service.setConfidentiality(ce, 2);
-      service.setIntegrity(ce, 3);
+      service.setConfidentiality(ce, 2, typeConfidentiality);
+      service.setIntegrity(ce, 3, typeIntegrity);
     });
     ok(ce, RULE);
     executeCommand(() -> {
-      service.setAvailability(fe1, 1);
-      service.setTraceability(fe2, 2);
+      service.setAvailability(fe1, 1, typeAvailability);
+      service.setTraceability(fe2, 2, typeTraceability);
     });
     ko(ce, RULE);
     executeCommand(() -> {
-      service.setAvailability(ce, 5);
-      service.setTraceability(ce, 5);
+      service.setAvailability(ce, 5, typeAvailability);
+      service.setTraceability(ce, 5, typeTraceability);
     });
     ok(ce, RULE);
   }

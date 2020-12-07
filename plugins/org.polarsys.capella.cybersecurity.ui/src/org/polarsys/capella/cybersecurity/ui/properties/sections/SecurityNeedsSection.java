@@ -20,6 +20,8 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -28,12 +30,14 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 import org.polarsys.capella.core.data.capellacore.EnumerationPropertyType;
+import org.polarsys.capella.core.data.capellamodeller.Project;
+import org.polarsys.capella.core.sirius.ui.helper.SessionHelper;
 import org.polarsys.capella.core.ui.properties.fields.AbstractSemanticField;
 import org.polarsys.capella.core.ui.properties.sections.AbstractSection;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
+import org.polarsys.capella.cybersecurity.model.CybersecurityQueries;
 import org.polarsys.capella.cybersecurity.model.SecurityNeeds;
 import org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage;
-import org.polarsys.capella.cybersecurity.model.helpers.CybersecurityHelpers;
 import org.polarsys.capella.cybersecurity.ui.CommonHelpers;
 import org.polarsys.capella.cybersecurity.ui.CybersecurityUIActivator;
 import org.polarsys.capella.cybersecurity.ui.ElementExtensionStorage;
@@ -51,6 +55,8 @@ public class SecurityNeedsSection extends AbstractSection {
   private EnumerationLiterealValueRadioGroup integrity;
   private EnumerationLiterealValueRadioGroup traceability;
   private EnumerationLiterealValueRadioGroup availability;
+  private Group group;
+  
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -153,33 +159,60 @@ public class SecurityNeedsSection extends AbstractSection {
     GridData gd = new GridData(GridData.FILL_HORIZONTAL);
     gd.horizontalSpan = ((GridLayout) rootParentComposite.getLayout()).numColumns;
 
-    Group group = getWidgetFactory().createGroup(rootParentComposite, ""); //$NON-NLS-1$
+    group = getWidgetFactory().createGroup(rootParentComposite, ""); //$NON-NLS-1$
     GridLayout layout = new GridLayout(2, true);
     layout.marginWidth = 0;
     layout.marginHeight = 0;
     group.setLayout(layout);
     group.setLayoutData(gd);
-
-    confidentiality = createEnumerationLiteralValueRadioGroup(group, Messages.SecurityNeedsSection_1, CybersecurityHelpers.CYBERSECURITY_CFG_SECURITY_CONFIDENTIALITY_KEYWORD);
-    integrity = createEnumerationLiteralValueRadioGroup(group, Messages.SecurityNeedsSection_2, CybersecurityHelpers.CYBERSECURITY_CFG_SECURITY_INTEGRITY_KEYWORD);
-    traceability = createEnumerationLiteralValueRadioGroup(group, Messages.SecurityNeedsSection_3, CybersecurityHelpers.CYBERSECURITY_CFG_SECURITY_TRACEABILITY_KEYWORD);
-    availability = createEnumerationLiteralValueRadioGroup(group, Messages.SecurityNeedsSection_4, CybersecurityHelpers.CYBERSECURITY_CFG_SECURITY_AVAILABILITY_KEYWORD);
+    
+    confidentiality = null;
+    integrity = null;
+    traceability = null;
+    availability = null;
   }
   
   // we want a 2x2 layout
   // default integer value group always wants to span all columns, so we'll just trick it
-  private EnumerationLiterealValueRadioGroup createEnumerationLiteralValueRadioGroup(Group parent, String label, String configType) {
-    Composite compo = getWidgetFactory().createComposite(parent);
-    GridLayout gl = new GridLayout();
-    gl.marginHeight = 0;
-    gl.marginWidth = 0;
-    compo.setLayout(gl);
-    compo.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
-    EnumerationPropertyType type = CybersecurityHelpers.getEnumerationPropertyType(configType);
-    int max = type != null ? type.getOwnedLiterals().size() - 1 : 0;
-    EnumerationLiterealValueRadioGroup result = new EnumerationLiterealValueRadioGroup(compo, label, type, getWidgetFactory(), 0, max);
-    result.setDisplayedInWizard(isDisplayedInWizard());
-    return result;
+  private EnumerationLiterealValueRadioGroup createEnumerationLiteralValueRadioGroup(Group parent, String label,
+      String configType, Project project) {
+    if (parent != null) {
+      Composite compo = getWidgetFactory().createComposite(parent);
+      GridLayout gl = new GridLayout();
+      gl.marginHeight = 0;
+      gl.marginWidth = 0;
+      compo.setLayout(gl);
+      compo.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+      EnumerationPropertyType type = CybersecurityQueries.getEnumerationPropertyType(configType, project);
+      int max = type != null ? type.getOwnedLiterals().size() - 1 : 0;
+      EnumerationLiterealValueRadioGroup result = new EnumerationLiterealValueRadioGroup(compo, label, type,
+          getWidgetFactory(), 0, max);
+      result.setDisplayedInWizard(isDisplayedInWizard());
+      return result;
+    }
+    return null;
+  }
+  
+  private void createSecurityNeedsGroup(Group group, EObject object) {
+    EObject element = object;
+    if (object instanceof SecurityNeeds) {
+      SecurityNeeds need = (SecurityNeeds) object;
+      for (Adapter ee : need.eAdapters()) {
+        if (ee instanceof ElementExtensionStorage) {
+          element = ((ElementExtensionStorage<?>) ee).getExtendedElement();
+        }
+      }
+    }
+    Session session = SessionManager.INSTANCE.getSession(element);
+    Project project = SessionHelper.getCapellaProject(session);
+    confidentiality = createEnumerationLiteralValueRadioGroup(group, Messages.SecurityNeedsSection_1,
+        CybersecurityQueries.CYBERSECURITY_CFG_SECURITY_CONFIDENTIALITY_KEYWORD, project);
+    integrity = createEnumerationLiteralValueRadioGroup(group, Messages.SecurityNeedsSection_2,
+        CybersecurityQueries.CYBERSECURITY_CFG_SECURITY_INTEGRITY_KEYWORD, project);
+    traceability = createEnumerationLiteralValueRadioGroup(group, Messages.SecurityNeedsSection_3,
+        CybersecurityQueries.CYBERSECURITY_CFG_SECURITY_TRACEABILITY_KEYWORD, project);
+    availability = createEnumerationLiteralValueRadioGroup(group, Messages.SecurityNeedsSection_4,
+        CybersecurityQueries.CYBERSECURITY_CFG_SECURITY_AVAILABILITY_KEYWORD, project);
   }
 
   /**
@@ -191,6 +224,9 @@ public class SecurityNeedsSection extends AbstractSection {
   @Override
   public void loadData(EObject object) {
     super.loadData(object);
+    if(confidentiality == null || integrity == null || traceability == null || availability == null) {
+      createSecurityNeedsGroup(group, object);
+    }
     confidentiality.loadData(object, CybersecurityPackage.Literals.SECURITY_NEEDS__CONFIDENTIALITY);
     integrity.loadData(object, CybersecurityPackage.Literals.SECURITY_NEEDS__INTEGRITY);
     traceability.loadData(object, CybersecurityPackage.Literals.SECURITY_NEEDS__TRACEABILITY);

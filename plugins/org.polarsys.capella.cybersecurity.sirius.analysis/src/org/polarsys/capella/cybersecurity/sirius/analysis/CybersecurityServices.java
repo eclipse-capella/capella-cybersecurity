@@ -32,6 +32,8 @@ import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.jface.resource.JFaceResources;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.diagram.AbstractDNode;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
@@ -54,6 +56,7 @@ import org.polarsys.capella.common.menu.dynamic.util.INamePrefixService;
 import org.polarsys.capella.common.platform.sirius.ted.SemanticEditingDomainFactory.SemanticEditingDomain;
 import org.polarsys.capella.core.data.capellacore.EnumerationPropertyLiteral;
 import org.polarsys.capella.core.data.capellacore.EnumerationPropertyType;
+import org.polarsys.capella.core.data.capellamodeller.Project;
 import org.polarsys.capella.core.data.cs.BlockArchitecture;
 import org.polarsys.capella.core.data.cs.Component;
 import org.polarsys.capella.core.data.cs.CsPackage;
@@ -72,6 +75,7 @@ import org.polarsys.capella.core.model.helpers.BlockArchitectureExt;
 import org.polarsys.capella.core.sirius.analysis.CapellaServices;
 import org.polarsys.capella.core.sirius.analysis.CsServices;
 import org.polarsys.capella.core.sirius.analysis.DiagramServices;
+import org.polarsys.capella.core.sirius.ui.helper.SessionHelper;
 import org.polarsys.capella.cybersecurity.model.CybersecurityFactory;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPkg;
@@ -86,7 +90,6 @@ import org.polarsys.capella.cybersecurity.model.Threat;
 import org.polarsys.capella.cybersecurity.model.ThreatApplication;
 import org.polarsys.capella.cybersecurity.model.ThreatInvolvement;
 import org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage;
-import org.polarsys.capella.cybersecurity.model.helpers.CybersecurityHelpers;
 import org.polarsys.capella.cybersecurity.model.impl.TrustBoundaryStorageImpl;
 import org.polarsys.kitalpha.emde.model.ExtensibleElement;
 
@@ -225,30 +228,33 @@ public class CybersecurityServices {
     Set<String> activatedLayerNames = new DDiagramQuery(diagram).getAllActivatedLayers().stream().map(Layer::getName)
         .collect(Collectors.toSet());
 
+    Session session = SessionManager.INSTANCE.getSession(view);
+    Project project = SessionHelper.getCapellaProject(session);
+    
     if (activatedLayerNames.contains(CybersecurityAnalysisConstants.LAYER_CONFIDENTIALITY)) {
       int confidentiality = getConfidentiality(element);
-      int confidentialitySize = CybersecurityHelpers.getConfidentialitySize();
+      int confidentialitySize = CybersecurityQueries.getConfidentialitySize(project);
       int color = (confidentialitySize - confidentiality - 1) * 210/(confidentialitySize - 1);
       colorGreenMin = color < colorGreenMin ? color : colorGreenMin;
     }
 
     if (activatedLayerNames.contains(CybersecurityAnalysisConstants.LAYER_INTEGRITY)) {
       int integrity = getIntegrity(element);
-      int integritySize = CybersecurityHelpers.getIntegritySize();
+      int integritySize = CybersecurityQueries.getIntegritySize(project);
       int color = (integritySize - integrity - 1) * 210/(integritySize - 1);
       colorGreenMin = color < colorGreenMin ? color : colorGreenMin;
     }
 
     if (activatedLayerNames.contains(CybersecurityAnalysisConstants.LAYER_AVAILABILITY)) {
       int availability = getAvailability(element);
-      int availabilitySize = CybersecurityHelpers.getAvailabilitySize();
+      int availabilitySize = CybersecurityQueries.getAvailabilitySize(project);
       int color = (availabilitySize - availability - 1) * 210/(availabilitySize - 1);
       colorGreenMin = color < colorGreenMin ? color : colorGreenMin;
     }
 
     if (activatedLayerNames.contains(CybersecurityAnalysisConstants.LAYER_TRACEABILITY)) {
       int traceability = getTraceability(element);
-      int traceabilitySize = CybersecurityHelpers.getAvailabilitySize();
+      int traceabilitySize = CybersecurityQueries.getTraceabilitySize(project);
       int color = (traceabilitySize - traceability - 1) * 210/(traceabilitySize - 1);
       colorGreenMin = color < colorGreenMin ? color : colorGreenMin;
     }
@@ -735,39 +741,19 @@ public class CybersecurityServices {
     sn.setAvailability(value);
   }
   
-  public void setConfidentiality(ExtensibleElement element, int index) {
-    SecurityNeeds sn = getSecurityNeeds(element, true);
-    CybersecurityQueries.setConfidentialityFromIndex(sn, index);
-  }
-  
   public void setConfidentiality(ExtensibleElement element, int index, EnumerationPropertyType type) {
     SecurityNeeds sn = getSecurityNeeds(element, true);
     CybersecurityQueries.setConfidentialityFromIndex(sn, index, type);
-  }
-  
-  public void setIntegrity(ExtensibleElement element, int index) {
-    SecurityNeeds sn = getSecurityNeeds(element, true);
-    CybersecurityQueries.setIntegrityFromIndex(sn, index);
   }
   
   public void setIntegrity(ExtensibleElement element, int index, EnumerationPropertyType type) {
     SecurityNeeds sn = getSecurityNeeds(element, true);
     CybersecurityQueries.setIntegrityFromIndex(sn, index, type);
   }
-
-  public void setTraceability(ExtensibleElement element, int index) {
-    SecurityNeeds sn = getSecurityNeeds(element, true);
-    CybersecurityQueries.setTraceabilityFromIndex(sn, index);
-  }
   
   public void setTraceability(ExtensibleElement element, int index, EnumerationPropertyType type) {
     SecurityNeeds sn = getSecurityNeeds(element, true);
     CybersecurityQueries.setTraceabilityFromIndex(sn, index, type);
-  }
-
-  public void setAvailability(ExtensibleElement element, int index) {
-    SecurityNeeds sn = getSecurityNeeds(element, true);
-    CybersecurityQueries.setAvailabilityFromIndex(sn, index);
   }
   
   public void setAvailability(ExtensibleElement element, int index, EnumerationPropertyType type) {

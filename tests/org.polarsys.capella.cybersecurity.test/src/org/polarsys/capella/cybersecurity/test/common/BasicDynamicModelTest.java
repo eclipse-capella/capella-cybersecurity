@@ -32,6 +32,7 @@ import org.polarsys.capella.core.data.la.LaPackage;
 import org.polarsys.capella.core.data.pa.PaPackage;
 import org.polarsys.capella.core.model.helpers.CapellaElementExt;
 import org.polarsys.capella.core.model.skeleton.CapellaModelSkeleton;
+import org.polarsys.capella.cybersecurity.model.activator.CybersecurityModelActivator;
 import org.polarsys.capella.cybersecurity.ui.CybersecurityProjectWizard;
 import org.polarsys.capella.test.framework.api.BasicTestCase;
 
@@ -77,7 +78,7 @@ public abstract class BasicDynamicModelTest extends BasicTestCase {
     if (target instanceof Project) {
       project = (Project) target;
       executeCommand(() -> {
-        new CybersecurityProjectWizard().addProjectCybersecurityConfig(project);
+        new CybersecurityModelActivator().addProjectCybersecurityConfig(project);
       });
     }
     

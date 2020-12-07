@@ -68,6 +68,11 @@ public class Rule_CY_DCON_01 extends DynamicValidationTest {
       service.setAvailability(fe, 5, typeAvailability);
       service.setTraceability(fe, 5, typeTraceability);
     });
+    ko(fe, RULE);
+    executeCommand(() -> {
+      service.setAvailability(fe, 3, typeAvailability);
+      service.setTraceability(fe, 3, typeTraceability);
+    });
     ok(fe, RULE);
   }
 

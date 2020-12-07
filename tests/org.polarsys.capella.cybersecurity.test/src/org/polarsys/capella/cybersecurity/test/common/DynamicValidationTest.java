@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.validation.service.ModelValidationService;
 import org.eclipse.ui.statushandlers.StatusManager;
 import org.polarsys.capella.core.data.capellacore.EnumerationPropertyType;
-import org.polarsys.capella.cybersecurity.model.helpers.CybersecurityHelpers;
+import org.polarsys.capella.cybersecurity.model.CybersecurityQueries;
 
 public abstract class DynamicValidationTest extends BasicDynamicModelTest {
   protected EnumerationPropertyType typeConfidentiality;
@@ -28,10 +28,10 @@ public abstract class DynamicValidationTest extends BasicDynamicModelTest {
     super.setUp();
     ModelValidationService.getInstance().loadXmlConstraintDeclarations();
     
-    typeConfidentiality = CybersecurityHelpers.getEnumerationPropertyType(CybersecurityHelpers.CYBERSECURITY_CFG_SECURITY_CONFIDENTIALITY_KEYWORD, project);
-    typeAvailability = CybersecurityHelpers.getEnumerationPropertyType(CybersecurityHelpers.CYBERSECURITY_CFG_SECURITY_AVAILABILITY_KEYWORD, project);
-    typeIntegrity = CybersecurityHelpers.getEnumerationPropertyType(CybersecurityHelpers.CYBERSECURITY_CFG_SECURITY_INTEGRITY_KEYWORD, project);
-    typeTraceability = CybersecurityHelpers.getEnumerationPropertyType(CybersecurityHelpers.CYBERSECURITY_CFG_SECURITY_TRACEABILITY_KEYWORD, project);
+    typeConfidentiality = CybersecurityQueries.getEnumerationPropertyType(CybersecurityQueries.CYBERSECURITY_CFG_SECURITY_CONFIDENTIALITY_KEYWORD, project);
+    typeAvailability = CybersecurityQueries.getEnumerationPropertyType(CybersecurityQueries.CYBERSECURITY_CFG_SECURITY_AVAILABILITY_KEYWORD, project);
+    typeIntegrity = CybersecurityQueries.getEnumerationPropertyType(CybersecurityQueries.CYBERSECURITY_CFG_SECURITY_INTEGRITY_KEYWORD, project);
+    typeTraceability = CybersecurityQueries.getEnumerationPropertyType(CybersecurityQueries.CYBERSECURITY_CFG_SECURITY_TRACEABILITY_KEYWORD, project);
   }
 
   /**
