@@ -37,6 +37,7 @@ import org.polarsys.capella.core.data.fa.FunctionalExchange;
 import org.polarsys.capella.core.data.information.ExchangeItem;
 import org.polarsys.capella.core.model.helpers.ComponentExchangeExt;
 import org.polarsys.capella.core.model.helpers.ComponentExt;
+import org.polarsys.capella.cybersecurity.model.helpers.CybersecurityHelpers;
 import org.polarsys.capella.cybersecurity.model.impl.TrustBoundaryStorageImpl;
 import org.polarsys.kitalpha.emde.model.ElementExtension;
 import org.polarsys.kitalpha.emde.model.ExtensibleElement;
@@ -286,63 +287,55 @@ public class CybersecurityQueries {
     return sn == null || sn.getTraceability() == null  ? 0 : getIndexOfLiteral(sn.getTraceability());
   }
   
-  public static int getConfidentialitySize(SecurityNeeds sn) {
-    EnumerationPropertyType type = (EnumerationPropertyType) sn.getConfidentiality().eContainer();
-    return type == null ? 0 : type.getOwnedLiterals().size();
-  }
-
-  public static int getIntegritySize(SecurityNeeds sn) {
-    EnumerationPropertyType type = (EnumerationPropertyType) sn.getIntegrity().eContainer();
-    return type == null ? 0 : type.getOwnedLiterals().size();
-  }
-
-  public static int getAvailabilitySize(SecurityNeeds sn) {
-    EnumerationPropertyType type = (EnumerationPropertyType) sn.getAvailability().eContainer();
-    return type == null ? 0 : type.getOwnedLiterals().size();
-  }
-
-  public static int getTraceabilitySize(SecurityNeeds sn) {
-    EnumerationPropertyType type = (EnumerationPropertyType) sn.getTraceability().eContainer();
-    return type == null ? 0 : type.getOwnedLiterals().size();
-  }
-  
   public static void setConfidentialityFromIndex(SecurityNeeds sn, int index) {
-    if(sn != null && sn.getConfidentiality() != null) {
-      EnumerationPropertyType type = (EnumerationPropertyType) sn.getConfidentiality().eContainer();
-      EnumerationPropertyLiteral newValue = getLiteralOnIndex(type, index);
-      if(newValue != null) {
-        sn.setConfidentiality(newValue);
-      }
-    }
+    EnumerationPropertyType type = CybersecurityHelpers
+        .getEnumerationPropertyType(CybersecurityHelpers.CYBERSECURITY_CFG_SECURITY_CONFIDENTIALITY_KEYWORD);
+    setConfidentialityFromIndex(sn, index, type);
   }
   
+  public static void setConfidentialityFromIndex(SecurityNeeds sn, int index, EnumerationPropertyType type) {
+    if (type != null && sn != null) {
+      EnumerationPropertyLiteral newValue = getLiteralOnIndex(type, index);
+      sn.setConfidentiality(newValue);
+    }
+  }
+
   public static void setIntegrityFromIndex(SecurityNeeds sn, int index) {
-    if(sn != null && sn.getIntegrity() != null) {
-      EnumerationPropertyType type = (EnumerationPropertyType) sn.getIntegrity().eContainer();
+    EnumerationPropertyType type = CybersecurityHelpers
+        .getEnumerationPropertyType(CybersecurityHelpers.CYBERSECURITY_CFG_SECURITY_INTEGRITY_KEYWORD);
+    setIntegrityFromIndex(sn, index, type);
+  }
+
+  public static void setIntegrityFromIndex(SecurityNeeds sn, int index, EnumerationPropertyType type) {
+    if (type != null && sn != null) {
       EnumerationPropertyLiteral newValue = getLiteralOnIndex(type, index);
-      if(newValue != null) {
-        sn.setIntegrity(newValue);
-      }
+      sn.setIntegrity(newValue);
     }
   }
-  
+
   public static void setAvailabilityFromIndex(SecurityNeeds sn, int index) {
-    if(sn != null && sn.getAvailability() != null) {
-      EnumerationPropertyType type = (EnumerationPropertyType) sn.getAvailability().eContainer();
+    EnumerationPropertyType type = CybersecurityHelpers
+        .getEnumerationPropertyType(CybersecurityHelpers.CYBERSECURITY_CFG_SECURITY_AVAILABILITY_KEYWORD);
+    setAvailabilityFromIndex(sn, index, type);
+  }
+
+  public static void setAvailabilityFromIndex(SecurityNeeds sn, int index, EnumerationPropertyType type) {
+    if (type != null && sn != null) {
       EnumerationPropertyLiteral newValue = getLiteralOnIndex(type, index);
-      if(newValue != null) {
-        sn.setAvailability(newValue);
-      }
+      sn.setAvailability(newValue);
     }
   }
-  
+
   public static void setTraceabilityFromIndex(SecurityNeeds sn, int index) {
-    if(sn != null && sn.getTraceability() != null) {
-      EnumerationPropertyType type = (EnumerationPropertyType) sn.getTraceability().eContainer();
+    EnumerationPropertyType type = CybersecurityHelpers
+        .getEnumerationPropertyType(CybersecurityHelpers.CYBERSECURITY_CFG_SECURITY_TRACEABILITY_KEYWORD);
+    setTraceabilityFromIndex(sn, index, type);
+  }
+
+  public static void setTraceabilityFromIndex(SecurityNeeds sn, int index, EnumerationPropertyType type) {
+    if (type != null && sn != null) {
       EnumerationPropertyLiteral newValue = getLiteralOnIndex(type, index);
-      if(newValue != null) {
-        sn.setTraceability(newValue);
-      }
+      sn.setTraceability(newValue);
     }
   }
   

@@ -59,6 +59,7 @@ public abstract class BasicDynamicModelTest extends BasicTestCase {
   protected ExecutionManager manager;
   protected CapellaModelSkeleton skeleton;
   protected TransactionalEditingDomainHelper tedHelper;
+  protected Project project;
   
   @Override
   public void setUp() throws Exception {
@@ -72,12 +73,16 @@ public abstract class BasicDynamicModelTest extends BasicTestCase {
         .setName("project")
         .build(); //$NON-NLS-1$
     
+    Notifier target = skeleton.getTarget();
+    if (target instanceof Project) {
+      project = (Project) target;
+      executeCommand(() -> {
+        new CybersecurityProjectWizard().addProjectCybersecurityConfig(project);
+      });
+    }
+    
     executeCommand(() -> {
       initModel(skeleton);
-      Notifier target = skeleton.getTarget();
-      if (target instanceof Project) {
-        new CybersecurityProjectWizard().addProjectCybersecurityConfig((Project) target);
-      }
     });
   }
 

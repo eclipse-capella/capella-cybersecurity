@@ -11,16 +11,9 @@ Export-Package: org.polarsys.capella.cybersecurity.model,
  org.polarsys.capella.cybersecurity.model.helpers,
  org.polarsys.capella.cybersecurity.model.impl,
  org.polarsys.capella.cybersecurity.model.util
-Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport,
- org.eclipse.emf.ecore.xmi;visibility:=reexport,
- org.polarsys.kitalpha.emde.model;visibility:=reexport,
- org.polarsys.capella.core.data.gen;visibility:=reexport,
- org.polarsys.capella.common.data.core.gen;visibility:=reexport,
- org.polarsys.capella.common.data.activity.gen;visibility:=reexport,
- org.polarsys.capella.common.data.behavior.gen;visibility:=reexport,
- org.polarsys.capella.core.data.helpers;visibility:=reexport,
- org.polarsys.kitalpha.emde.xmi;visibility:=reexport,
- org.polarsys.capella.core.model.helpers
+Require-Bundle: org.eclipse.emf.common.ui,
+ org.polarsys.capella.core.model.helpers,
+ org.eclipse.sirius.ui,
+ org.polarsys.capella.core.sirius.ui
 Bundle-ActivationPolicy: lazy
 Automatic-Module-Name: org.polarsys.capella.cybersecurity.model

@@ -30,6 +30,7 @@ import org.polarsys.capella.core.platform.sirius.ui.project.internal.WizardNewPr
 import org.polarsys.capella.core.platform.sirius.ui.project.operations.ProjectSessionCreationHelper;
 import org.polarsys.capella.core.platform.sirius.ui.project.operations.SessionCreationHelper;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPkg;
+import org.polarsys.capella.cybersecurity.model.helpers.CybersecurityHelpers;
 import org.polarsys.capella.cybersecurity.model.impl.CybersecurityFactoryImpl;
 import org.polarsys.kitalpha.ad.services.manager.ViewpointActivationException;
 import org.polarsys.kitalpha.ad.services.manager.ViewpointManager;
@@ -84,11 +85,11 @@ public class CybersecurityProjectWizard extends NewProjectWizard {
   
   public void addProjectCybersecurityConfig(Project project_p) {
     CybersecurityPkg pkg = CybersecurityFactoryImpl.eINSTANCE.createCybersecurityPkg();
-    pkg.setName(CommonHelpers.CYBERSECURITY_CFG_KEYWORD);
-    pkg.getOwnedEnumerationPropertyTypes().add(createEnumerationPropertyType(CommonHelpers.CYBERSECURITY_CFG_SECURITY_CONFIDENTIALITY_KEYWORD));
-    pkg.getOwnedEnumerationPropertyTypes().add(createEnumerationPropertyType(CommonHelpers.CYBERSECURITY_CFG_SECURITY_INTEGRITY_KEYWORD));
-    pkg.getOwnedEnumerationPropertyTypes().add(createEnumerationPropertyType(CommonHelpers.CYBERSECURITY_CFG_SECURITY_TRACEABILITY_KEYWORD));
-    pkg.getOwnedEnumerationPropertyTypes().add(createEnumerationPropertyType(CommonHelpers.CYBERSECURITY_CFG_SECURITY_AVIABILITY_KEYWORD));
+    pkg.setName(CybersecurityHelpers.CYBERSECURITY_CFG_KEYWORD);
+    pkg.getOwnedEnumerationPropertyTypes().add(createEnumerationPropertyType(CybersecurityHelpers.CYBERSECURITY_CFG_SECURITY_CONFIDENTIALITY_KEYWORD));
+    pkg.getOwnedEnumerationPropertyTypes().add(createEnumerationPropertyType(CybersecurityHelpers.CYBERSECURITY_CFG_SECURITY_INTEGRITY_KEYWORD));
+    pkg.getOwnedEnumerationPropertyTypes().add(createEnumerationPropertyType(CybersecurityHelpers.CYBERSECURITY_CFG_SECURITY_TRACEABILITY_KEYWORD));
+    pkg.getOwnedEnumerationPropertyTypes().add(createEnumerationPropertyType(CybersecurityHelpers.CYBERSECURITY_CFG_SECURITY_AVAILABILITY_KEYWORD));
     project_p.getOwnedExtensions().add(pkg); 
   }
   
