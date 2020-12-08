@@ -19,7 +19,7 @@ import org.polarsys.kitalpha.ad.services.manager.ViewpointManager;
 import org.polarsys.kitalpha.emde.model.edit.provider.helpers.EMDEHelper;
 
 public class CommonHelpers {
-
+  
   public static boolean canBeExtendedBy(EObject parent, EClass extensionClass) {
     Collection<EClass> extendedElements = EMDEHelper.getExtendedElement(new BasicDiagnostic(), extensionClass);
     for (EClass extendedElement : extendedElements) {
@@ -34,5 +34,5 @@ public class CommonHelpers {
     return ViewpointManager.getInstance(modelElement).isUsed(viewpointId)
         && !ViewpointManager.getInstance(modelElement).isFiltered(viewpointId);
   }
-
+  
 }

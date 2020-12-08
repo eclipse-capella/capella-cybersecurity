@@ -54,6 +54,7 @@ public class FunctionalPrimaryAssetItemProvider extends PrimaryAssetItemProvider
       super.getPropertyDescriptors(object);
 
       addFunctionsPropertyDescriptor(object);
+      addFunctionalChainsPropertyDescriptor(object);
     }
     // begin-extension-code
     checkChildCreationExtender(object);
@@ -76,6 +77,27 @@ public class FunctionalPrimaryAssetItemProvider extends PrimaryAssetItemProvider
         getString("_UI_PropertyDescriptor_description", "_UI_FunctionalPrimaryAsset_functions_feature", //$NON-NLS-1$//$NON-NLS-2$
             "_UI_FunctionalPrimaryAsset_type"), //$NON-NLS-1$
         CybersecurityPackage.Literals.FUNCTIONAL_PRIMARY_ASSET__FUNCTIONS, false, false, false, null, null,
+        // begin-extension-code
+        null));
+    // end-extension-code
+  }
+
+  /**
+   * This adds a property descriptor for the Functional Chains feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addFunctionalChainsPropertyDescriptor(Object object) {
+
+    // begin-extension-code
+    itemPropertyDescriptors.add(createItemPropertyDescriptor
+    // end-extension-code
+    (((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+        getString("_UI_FunctionalPrimaryAsset_functionalChains_feature"), //$NON-NLS-1$
+        getString("_UI_PropertyDescriptor_description", "_UI_FunctionalPrimaryAsset_functionalChains_feature", //$NON-NLS-1$//$NON-NLS-2$
+            "_UI_FunctionalPrimaryAsset_type"), //$NON-NLS-1$
+        CybersecurityPackage.Literals.FUNCTIONAL_PRIMARY_ASSET__FUNCTIONAL_CHAINS, true, false, true, null, null,
         // begin-extension-code
         null));
     // end-extension-code

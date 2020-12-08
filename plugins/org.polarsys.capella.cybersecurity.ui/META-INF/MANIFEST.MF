@@ -5,22 +5,13 @@ Bundle-SymbolicName: org.polarsys.capella.cybersecurity.ui;singleton:=true
 Bundle-Version: 0.9.1.qualifier
 Automatic-Module-Name: org.polarsys.capella.cybersecurity.vp.ui
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Require-Bundle: org.eclipse.ui.views.properties.tabbed,
- org.polarsys.capella.core.ui.properties,
- org.polarsys.capella.core.data.core.properties,
- org.polarsys.capella.cybersecurity.model,
- org.polarsys.kitalpha.ad.services,
- org.polarsys.capella.core.ui.properties,
- org.eclipse.emf.ecore,
+Require-Bundle: org.polarsys.kitalpha.ad.services,
  org.polarsys.capella.cybersecurity.model.edit,
- org.polarsys.capella.cybersecurity.business.queries,
- org.eclipse.amalgam.explorer.activity.ui,
  org.polarsys.capella.core.explorer.activity.ui,
  org.polarsys.capella.cybersecurity.sirius.analysis,
  org.polarsys.capella.core.platform.sirius.ui.project,
- org.polarsys.capella.common.ui.toolkit.browser,
- org.polarsys.kitalpha.massactions.core,
- org.polarsys.capella.common.ui.massactions.core
+ org.polarsys.capella.common.ui.massactions.core,
+ org.polarsys.capella.core.libraries
 Bundle-Activator: org.polarsys.capella.cybersecurity.ui.CybersecurityUIActivator
 Export-Package: org.polarsys.capella.cybersecurity.ui,
  org.polarsys.capella.cybersecurity.ui.activity,

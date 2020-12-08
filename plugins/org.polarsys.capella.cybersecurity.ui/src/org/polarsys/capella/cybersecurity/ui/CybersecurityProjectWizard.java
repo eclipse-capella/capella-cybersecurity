@@ -27,7 +27,6 @@ import org.polarsys.kitalpha.ad.services.manager.ViewpointManager;
 import org.polarsys.kitalpha.ad.viewpoint.predicate.exceptions.EvaluationException;
 
 public class CybersecurityProjectWizard extends NewProjectWizard {
-
   @Override
   protected WizardNewProjectCreationPage createLocalProjectDescriptionPage() {
     WizardNewProjectCreationPage page = super.createLocalProjectDescriptionPage();
@@ -43,17 +42,16 @@ public class CybersecurityProjectWizard extends NewProjectWizard {
 
       @Override
       public Session createAirdSession(List<IFile> semanticFiles, URI airdResourceURI, IProgressMonitor monitor) {
-        Session sess = super.createAirdSession(semanticFiles, airdResourceURI, monitor);
+        Session session = super.createAirdSession(semanticFiles, airdResourceURI, monitor);
         try {
-          ViewpointManager.getInstance(sess.getTransactionalEditingDomain().getResourceSet())
+          ViewpointManager.getInstance(session.getTransactionalEditingDomain().getResourceSet())
               .activate(CybersecurityUIActivator.VIEWPOINT_ID);
         } catch (ViewpointActivationException | EvaluationException e) {
           CybersecurityUIActivator.getDefault().getLog().log(new Status(IStatus.ERROR,
               CybersecurityUIActivator.getDefault().getBundle().getSymbolicName(), e.getMessage(), e));
         }
-        return sess;
+        return session;
       }
-
     };
   }
 }

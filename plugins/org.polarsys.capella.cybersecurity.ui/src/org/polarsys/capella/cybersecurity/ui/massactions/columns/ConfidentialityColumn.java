@@ -13,6 +13,7 @@ package org.polarsys.capella.cybersecurity.ui.massactions.columns;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.nebula.widgets.nattable.data.convert.DefaultIntegerDisplayConverter;
 import org.eclipse.nebula.widgets.nattable.data.convert.IDisplayConverter;
+import org.polarsys.capella.core.data.capellacore.EnumerationPropertyLiteral;
 import org.polarsys.capella.cybersecurity.model.CybersecurityQueries;
 import org.polarsys.capella.cybersecurity.model.SecurityNeeds;
 import org.polarsys.capella.cybersecurity.ui.massactions.Messages;
@@ -38,8 +39,8 @@ public class ConfidentialityColumn extends AbstractCybersecurityColumn {
   
   @Override
   public void setDataValue(EObject rowObject, Object newValue) {
-    if (newValue instanceof Integer) {
-      getCyberService().setConfidentiality((ExtensibleElement) rowObject, (Integer) newValue);
+    if (newValue instanceof EnumerationPropertyLiteral) {
+      getCyberService().setConfidentiality((ExtensibleElement) rowObject, (EnumerationPropertyLiteral) newValue);
     }
   }
   

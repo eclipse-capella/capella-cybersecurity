@@ -1194,7 +1194,7 @@ public interface CybersecurityPackage extends EPackage {
   int SECURITY_NEEDS__OWNED_MIGRATED_ELEMENTS = ModellingcorePackage.MODEL_ELEMENT__OWNED_MIGRATED_ELEMENTS;
 
   /**
-   * The feature id for the '<em><b>Confidentiality</b></em>' attribute.
+   * The feature id for the '<em><b>Confidentiality</b></em>' reference.
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
@@ -1202,7 +1202,7 @@ public interface CybersecurityPackage extends EPackage {
   int SECURITY_NEEDS__CONFIDENTIALITY = ModellingcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Integrity</b></em>' attribute.
+   * The feature id for the '<em><b>Integrity</b></em>' reference.
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
@@ -1210,7 +1210,7 @@ public interface CybersecurityPackage extends EPackage {
   int SECURITY_NEEDS__INTEGRITY = ModellingcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Availability</b></em>' attribute.
+   * The feature id for the '<em><b>Availability</b></em>' reference.
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
@@ -1218,7 +1218,7 @@ public interface CybersecurityPackage extends EPackage {
   int SECURITY_NEEDS__AVAILABILITY = ModellingcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 2;
 
   /**
-   * The feature id for the '<em><b>Traceability</b></em>' attribute.
+   * The feature id for the '<em><b>Traceability</b></em>' reference.
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
@@ -1782,13 +1782,22 @@ public interface CybersecurityPackage extends EPackage {
   int FUNCTIONAL_PRIMARY_ASSET__FUNCTIONS = PRIMARY_ASSET_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Functional Chains</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTIONAL_PRIMARY_ASSET__FUNCTIONAL_CHAINS = PRIMARY_ASSET_FEATURE_COUNT + 1;
+
+  /**
    * The number of structural features of the '<em>Functional Primary Asset</em>' class.
    * <!-- begin-user-doc --> <!--
    * end-user-doc -->
    * @generated
    * @ordered
    */
-  int FUNCTIONAL_PRIMARY_ASSET_FEATURE_COUNT = PRIMARY_ASSET_FEATURE_COUNT + 1;
+  int FUNCTIONAL_PRIMARY_ASSET_FEATURE_COUNT = PRIMARY_ASSET_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.polarsys.capella.cybersecurity.model.impl.InformationPrimaryAssetImpl <em>Information Primary Asset</em>}' class.
@@ -2480,7 +2489,7 @@ public interface CybersecurityPackage extends EPackage {
    * @see #getSecurityNeeds()
    * @generated
    */
-  EAttribute getSecurityNeeds_Confidentiality();
+  EReference getSecurityNeeds_Confidentiality();
 
   /**
    * Returns the meta object for the attribute
@@ -2492,7 +2501,7 @@ public interface CybersecurityPackage extends EPackage {
    * @see #getSecurityNeeds()
    * @generated
    */
-  EAttribute getSecurityNeeds_Integrity();
+  EReference getSecurityNeeds_Integrity();
 
   /**
    * Returns the meta object for the attribute
@@ -2504,7 +2513,7 @@ public interface CybersecurityPackage extends EPackage {
    * @see #getSecurityNeeds()
    * @generated
    */
-  EAttribute getSecurityNeeds_Availability();
+  EReference getSecurityNeeds_Availability();
 
   /**
    * Returns the meta object for the attribute
@@ -2516,7 +2525,7 @@ public interface CybersecurityPackage extends EPackage {
    * @see #getSecurityNeeds()
    * @generated
    */
-  EAttribute getSecurityNeeds_Traceability();
+  EReference getSecurityNeeds_Traceability();
 
   /**
    * Returns the meta object for class '{@link org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage <em>Trust Boundary Storage</em>}'.
@@ -2624,6 +2633,17 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    */
   EReference getFunctionalPrimaryAsset_Functions();
+
+  /**
+   * Returns the meta object for the reference list '{@link org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset#getFunctionalChains <em>Functional Chains</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Functional Chains</em>'.
+   * @see org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset#getFunctionalChains()
+   * @see #getFunctionalPrimaryAsset()
+   * @generated
+   */
+  EReference getFunctionalPrimaryAsset_FunctionalChains();
 
   /**
    * Returns the meta object for class '{@link org.polarsys.capella.cybersecurity.model.InformationPrimaryAsset <em>Information Primary Asset</em>}'.
@@ -2880,36 +2900,36 @@ public interface CybersecurityPackage extends EPackage {
     EClass SECURITY_NEEDS = eINSTANCE.getSecurityNeeds();
 
     /**
-     * The meta object literal for the '<em><b>Confidentiality</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Confidentiality</b></em>' reference feature.
      * <!-- begin-user-doc --> <!--
      * end-user-doc -->
      * @generated
      */
-    EAttribute SECURITY_NEEDS__CONFIDENTIALITY = eINSTANCE.getSecurityNeeds_Confidentiality();
+    EReference SECURITY_NEEDS__CONFIDENTIALITY = eINSTANCE.getSecurityNeeds_Confidentiality();
 
     /**
-     * The meta object literal for the '<em><b>Integrity</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Integrity</b></em>' reference feature.
      * <!-- begin-user-doc --> <!--
      * end-user-doc -->
      * @generated
      */
-    EAttribute SECURITY_NEEDS__INTEGRITY = eINSTANCE.getSecurityNeeds_Integrity();
+    EReference SECURITY_NEEDS__INTEGRITY = eINSTANCE.getSecurityNeeds_Integrity();
 
     /**
-     * The meta object literal for the '<em><b>Availability</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Availability</b></em>' reference feature.
      * <!-- begin-user-doc --> <!--
      * end-user-doc -->
      * @generated
      */
-    EAttribute SECURITY_NEEDS__AVAILABILITY = eINSTANCE.getSecurityNeeds_Availability();
+    EReference SECURITY_NEEDS__AVAILABILITY = eINSTANCE.getSecurityNeeds_Availability();
 
     /**
-     * The meta object literal for the '<em><b>Traceability</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Traceability</b></em>' reference feature.
      * <!-- begin-user-doc --> <!--
      * end-user-doc -->
      * @generated
      */
-    EAttribute SECURITY_NEEDS__TRACEABILITY = eINSTANCE.getSecurityNeeds_Traceability();
+    EReference SECURITY_NEEDS__TRACEABILITY = eINSTANCE.getSecurityNeeds_Traceability();
 
     /**
      * The meta object literal for the '{@link org.polarsys.capella.cybersecurity.model.impl.TrustBoundaryStorageImpl <em>Trust Boundary Storage</em>}' class.
@@ -2992,6 +3012,14 @@ public interface CybersecurityPackage extends EPackage {
      * @generated
      */
     EReference FUNCTIONAL_PRIMARY_ASSET__FUNCTIONS = eINSTANCE.getFunctionalPrimaryAsset_Functions();
+
+    /**
+     * The meta object literal for the '<em><b>Functional Chains</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FUNCTIONAL_PRIMARY_ASSET__FUNCTIONAL_CHAINS = eINSTANCE.getFunctionalPrimaryAsset_FunctionalChains();
 
     /**
      * The meta object literal for the '{@link org.polarsys.capella.cybersecurity.model.impl.InformationPrimaryAssetImpl <em>Information Primary Asset</em>}' class.

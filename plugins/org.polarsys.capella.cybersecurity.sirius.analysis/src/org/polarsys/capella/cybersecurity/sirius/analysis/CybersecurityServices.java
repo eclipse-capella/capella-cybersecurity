@@ -32,6 +32,8 @@ import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.jface.resource.JFaceResources;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.diagram.AbstractDNode;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
@@ -52,6 +54,9 @@ import org.polarsys.capella.common.helpers.EcoreUtil2;
 import org.polarsys.capella.common.helpers.TransactionHelper;
 import org.polarsys.capella.common.menu.dynamic.util.INamePrefixService;
 import org.polarsys.capella.common.platform.sirius.ted.SemanticEditingDomainFactory.SemanticEditingDomain;
+import org.polarsys.capella.core.data.capellacore.EnumerationPropertyLiteral;
+import org.polarsys.capella.core.data.capellacore.EnumerationPropertyType;
+import org.polarsys.capella.core.data.capellamodeller.Project;
 import org.polarsys.capella.core.data.cs.BlockArchitecture;
 import org.polarsys.capella.core.data.cs.Component;
 import org.polarsys.capella.core.data.cs.CsPackage;
@@ -70,6 +75,7 @@ import org.polarsys.capella.core.model.helpers.BlockArchitectureExt;
 import org.polarsys.capella.core.sirius.analysis.CapellaServices;
 import org.polarsys.capella.core.sirius.analysis.CsServices;
 import org.polarsys.capella.core.sirius.analysis.DiagramServices;
+import org.polarsys.capella.core.sirius.ui.helper.SessionHelper;
 import org.polarsys.capella.cybersecurity.model.CybersecurityFactory;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPkg;
@@ -100,7 +106,7 @@ public class CybersecurityServices {
   final INamePrefixService prefixService = PlatformUI.getWorkbench().getService(INamePrefixService.class);
 
   final OfInt colorRands = new Random().ints(0, 255).iterator();
-
+  
   public CybersecurityPkg getDefaultCyberSecurityPackage(EObject any, boolean create) {
     BlockArchitecture ba = (BlockArchitecture) EcoreUtil2.getFirstContainer(any, CsPackage.Literals.BLOCK_ARCHITECTURE);
     if (ba != null) {
@@ -198,6 +204,61 @@ public class CybersecurityServices {
       }
     }
     return 0;
+  }
+
+  /**
+   * Returns the green value of the Security Need, from the currently activated Security Needs Layers.
+   * Because the size of Security Needs value is different, we calculate which is the min value of the green color:
+   * Example:
+   * If we have Confidentiality 3, but confidentiaity size is 6 and we have Integrity 2 and Integrity size is 2, 
+   * the green value shall be 0. (because in odesign red's value is 255, the element will be painted in red)
+   * 
+   * @param view
+   * @return the the min value of the Green color, the smaller the green is, the element will be more red-ish.
+   */
+  public int getSecurityNeedsGreen(DSemanticDecorator view) {
+    DDiagram diagram = CapellaServices.getService().getDiagramContainer(view);
+    int colorGreenMin = 210;
+    
+    if (diagram == null) {
+      return colorGreenMin;
+    }
+    ModelElement element = (ModelElement) view.getTarget();
+
+    Set<String> activatedLayerNames = new DDiagramQuery(diagram).getAllActivatedLayers().stream().map(Layer::getName)
+        .collect(Collectors.toSet());
+
+    Session session = SessionManager.INSTANCE.getSession(view);
+    Project project = SessionHelper.getCapellaProject(session);
+    
+    if (activatedLayerNames.contains(CybersecurityAnalysisConstants.LAYER_CONFIDENTIALITY)) {
+      int confidentiality = getConfidentiality(element);
+      int confidentialitySize = CybersecurityQueries.getConfidentialitySize(project);
+      int color = (confidentialitySize - confidentiality - 1) * 210/(confidentialitySize - 1);
+      colorGreenMin = color < colorGreenMin ? color : colorGreenMin;
+    }
+
+    if (activatedLayerNames.contains(CybersecurityAnalysisConstants.LAYER_INTEGRITY)) {
+      int integrity = getIntegrity(element);
+      int integritySize = CybersecurityQueries.getIntegritySize(project);
+      int color = (integritySize - integrity - 1) * 210/(integritySize - 1);
+      colorGreenMin = color < colorGreenMin ? color : colorGreenMin;
+    }
+
+    if (activatedLayerNames.contains(CybersecurityAnalysisConstants.LAYER_AVAILABILITY)) {
+      int availability = getAvailability(element);
+      int availabilitySize = CybersecurityQueries.getAvailabilitySize(project);
+      int color = (availabilitySize - availability - 1) * 210/(availabilitySize - 1);
+      colorGreenMin = color < colorGreenMin ? color : colorGreenMin;
+    }
+
+    if (activatedLayerNames.contains(CybersecurityAnalysisConstants.LAYER_TRACEABILITY)) {
+      int traceability = getTraceability(element);
+      int traceabilitySize = CybersecurityQueries.getTraceabilitySize(project);
+      int color = (traceabilitySize - traceability - 1) * 210/(traceabilitySize - 1);
+      colorGreenMin = color < colorGreenMin ? color : colorGreenMin;
+    }
+    return colorGreenMin;
   }
 
   public FunctionalPrimaryAsset createFunctionalPrimaryAsset(EObject any) {
@@ -407,7 +468,7 @@ public class CybersecurityServices {
   private SecurityNeeds getSecurityNeeds(ExtensibleElement element) {
     return getSecurityNeeds(element, false);
   }
-
+ 
   public Collection<Component> getAllThreatActors(EObject element) {
     BlockArchitecture architecture = BlockArchitectureExt.getRootBlockArchitecture(element);
     return BlockArchitectureExt.getAllComponents(architecture).stream().filter(c -> c.isActor())
@@ -551,7 +612,7 @@ public class CybersecurityServices {
     }
     SecurityNeeds needs = getSecurityNeeds(modelElement);
     if (needs != null) {
-      return needs.getConfidentiality();
+      return CybersecurityQueries.getConfidentialityIndex(needs);
     }
     return 0;
   }
@@ -563,7 +624,7 @@ public class CybersecurityServices {
     }
     SecurityNeeds needs = getSecurityNeeds(modelElement);
     if (needs != null) {
-      return needs.getIntegrity();
+      return CybersecurityQueries.getIntegrityIndex(needs);
     }
     return 0;
   }
@@ -575,7 +636,7 @@ public class CybersecurityServices {
     }
     SecurityNeeds needs = getSecurityNeeds(modelElement);
     if (needs != null) {
-      return needs.getAvailability();
+      return CybersecurityQueries.getAvailabilityIndex(needs);
     }
     return 0;
   }
@@ -587,7 +648,7 @@ public class CybersecurityServices {
     }
     SecurityNeeds needs = getSecurityNeeds(modelElement);
     if (needs != null) {
-      return needs.getTraceability();
+      return CybersecurityQueries.getTraceabilityIndex(needs);
     }
     return 0;
   }
@@ -605,7 +666,7 @@ public class CybersecurityServices {
     int maxSecurityNeedValue = 0;
 
     DDiagram diagram = CapellaServices.getService().getDiagramContainer(decorator);
-    if (diagram != null) {
+    if (diagram == null) {
       return maxSecurityNeedValue;
     }
     ModelElement element = (ModelElement) decorator.getTarget();
@@ -660,24 +721,44 @@ public class CybersecurityServices {
     return context instanceof Threat;
   }
 
-  public void setConfidentiality(ExtensibleElement element, int value) {
+  public void setConfidentiality(ExtensibleElement element, EnumerationPropertyLiteral value) {
     SecurityNeeds sn = getSecurityNeeds(element, true);
     sn.setConfidentiality(value);
   }
 
-  public void setIntegrity(ExtensibleElement element, int value) {
+  public void setIntegrity(ExtensibleElement element, EnumerationPropertyLiteral value) {
     SecurityNeeds sn = getSecurityNeeds(element, true);
     sn.setIntegrity(value);
   }
 
-  public void setTraceability(ExtensibleElement element, int value) {
+  public void setTraceability(ExtensibleElement element, EnumerationPropertyLiteral value) {
     SecurityNeeds sn = getSecurityNeeds(element, true);
     sn.setTraceability(value);
   }
 
-  public void setAvailability(ExtensibleElement element, int value) {
+  public void setAvailability(ExtensibleElement element, EnumerationPropertyLiteral value) {
     SecurityNeeds sn = getSecurityNeeds(element, true);
     sn.setAvailability(value);
+  }
+  
+  public void setConfidentiality(ExtensibleElement element, int index, EnumerationPropertyType type) {
+    SecurityNeeds sn = getSecurityNeeds(element, true);
+    CybersecurityQueries.setConfidentialityFromIndex(sn, index, type);
+  }
+  
+  public void setIntegrity(ExtensibleElement element, int index, EnumerationPropertyType type) {
+    SecurityNeeds sn = getSecurityNeeds(element, true);
+    CybersecurityQueries.setIntegrityFromIndex(sn, index, type);
+  }
+  
+  public void setTraceability(ExtensibleElement element, int index, EnumerationPropertyType type) {
+    SecurityNeeds sn = getSecurityNeeds(element, true);
+    CybersecurityQueries.setTraceabilityFromIndex(sn, index, type);
+  }
+  
+  public void setAvailability(ExtensibleElement element, int index, EnumerationPropertyType type) {
+    SecurityNeeds sn = getSecurityNeeds(element, true);
+    CybersecurityQueries.setAvailabilityFromIndex(sn, index, type);
   }
 
   private static class ThreatLevelDecorator extends AdapterImpl {

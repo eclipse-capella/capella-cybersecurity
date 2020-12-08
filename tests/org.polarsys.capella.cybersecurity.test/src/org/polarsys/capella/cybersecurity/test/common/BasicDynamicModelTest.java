@@ -14,6 +14,7 @@ import java.util.Collections;
 import java.util.Map;
 
 import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -23,6 +24,7 @@ import org.eclipse.emf.transaction.RollbackException;
 import org.eclipse.emf.transaction.TransactionalCommandStack;
 import org.polarsys.capella.common.ef.ExecutionManager;
 import org.polarsys.capella.common.ef.ExecutionManagerRegistry;
+import org.polarsys.capella.core.data.capellamodeller.Project;
 import org.polarsys.capella.core.data.cs.CsPackage;
 import org.polarsys.capella.core.data.fa.FaPackage;
 import org.polarsys.capella.core.data.information.InformationPackage;
@@ -30,6 +32,8 @@ import org.polarsys.capella.core.data.la.LaPackage;
 import org.polarsys.capella.core.data.pa.PaPackage;
 import org.polarsys.capella.core.model.helpers.CapellaElementExt;
 import org.polarsys.capella.core.model.skeleton.CapellaModelSkeleton;
+import org.polarsys.capella.cybersecurity.model.activator.CybersecurityModelActivator;
+import org.polarsys.capella.cybersecurity.ui.CybersecurityProjectWizard;
 import org.polarsys.capella.test.framework.api.BasicTestCase;
 
 /**
@@ -56,6 +60,7 @@ public abstract class BasicDynamicModelTest extends BasicTestCase {
   protected ExecutionManager manager;
   protected CapellaModelSkeleton skeleton;
   protected TransactionalEditingDomainHelper tedHelper;
+  protected Project project;
   
   @Override
   public void setUp() throws Exception {
@@ -66,9 +71,20 @@ public abstract class BasicDynamicModelTest extends BasicTestCase {
     
     skeleton = new CapellaModelSkeleton.Builder(manager)
         .setURI(URI.createPlatformResourceURI("/project/project.melodymodeller", false)) //$NON-NLS-1$
-        .setName("project").build(); //$NON-NLS-1$
-
-    executeCommand(() -> initModel(skeleton));
+        .setName("project")
+        .build(); //$NON-NLS-1$
+    
+    Notifier target = skeleton.getTarget();
+    if (target instanceof Project) {
+      project = (Project) target;
+      executeCommand(() -> {
+        new CybersecurityModelActivator().addProjectCybersecurityConfig(project);
+      });
+    }
+    
+    executeCommand(() -> {
+      initModel(skeleton);
+    });
   }
 
   public void tearDown() {
