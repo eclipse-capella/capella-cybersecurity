@@ -13,6 +13,7 @@ package org.polarsys.capella.cybersecurity.sirius.analysis;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 import java.util.PrimitiveIterator.OfInt;
 import java.util.Random;
 import java.util.Set;
@@ -25,6 +26,7 @@ import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -40,6 +42,7 @@ import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.DEdge;
 import org.eclipse.sirius.diagram.DNode;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
+import org.eclipse.sirius.diagram.DiagramPackage;
 import org.eclipse.sirius.diagram.Square;
 import org.eclipse.sirius.diagram.business.api.query.DDiagramQuery;
 import org.eclipse.sirius.diagram.description.Layer;
@@ -64,6 +67,7 @@ import org.polarsys.capella.core.data.cs.Part;
 import org.polarsys.capella.core.data.cs.PhysicalLink;
 import org.polarsys.capella.core.data.fa.AbstractFunction;
 import org.polarsys.capella.core.data.fa.ComponentExchange;
+import org.polarsys.capella.core.data.fa.FunctionalChain;
 import org.polarsys.capella.core.data.fa.FunctionalExchange;
 import org.polarsys.capella.core.data.information.AbstractEventOperation;
 import org.polarsys.capella.core.data.information.AbstractInstance;
@@ -72,9 +76,11 @@ import org.polarsys.capella.core.data.interaction.InstanceRole;
 import org.polarsys.capella.core.data.interaction.SequenceMessage;
 import org.polarsys.capella.core.data.interaction.StateFragment;
 import org.polarsys.capella.core.model.helpers.BlockArchitectureExt;
+import org.polarsys.capella.core.model.helpers.FunctionalChainExt;
 import org.polarsys.capella.core.sirius.analysis.CapellaServices;
 import org.polarsys.capella.core.sirius.analysis.CsServices;
 import org.polarsys.capella.core.sirius.analysis.DiagramServices;
+import org.polarsys.capella.core.sirius.analysis.ShapeUtil;
 import org.polarsys.capella.core.sirius.ui.helper.SessionHelper;
 import org.polarsys.capella.cybersecurity.model.CybersecurityFactory;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
@@ -477,6 +483,9 @@ public class CybersecurityServices {
 
   public Collection<PrimaryAsset> getRelatedAssets(EObject element) {
     Collection<EObject> semantics = new ArrayList<>();
+    BlockArchitecture architecture = BlockArchitectureExt.getRootBlockArchitecture(element);
+    List<FunctionalChain> functionalChains = FunctionalChainExt.getAllFunctionalChains(architecture);
+    
     if (element instanceof SequenceMessage) {
       element = getRepresentedFunctionalExchange((ModelElement) element);
     } else if (element instanceof StateFragment) {
@@ -486,11 +495,22 @@ public class CybersecurityServices {
     semantics.add(element);
     if (element instanceof FunctionalExchange) {
       semantics.addAll(((FunctionalExchange) element).getExchangedItems());
+      for (FunctionalChain fc : functionalChains) {
+        if (fc.getInvolvedFunctionalExchanges().contains(element)) {
+          semantics.add(fc);
+        }
+      }
     }
+
     if (element instanceof AbstractFunction) {
       FunctionStorage fs = getFunctionStorage((ExtensibleElement) element);
       if (fs != null) {
         semantics.addAll(fs.getExchangedItems());
+      }
+      for (FunctionalChain fc : functionalChains) {
+        if (fc.getInvolvedFunctions().contains(element)) {
+          semantics.add(fc);
+        }
       }
     }
 
@@ -508,6 +528,9 @@ public class CybersecurityServices {
 
   public boolean hasAssetStyleCustomization(EObject element) {
     TransactionalEditingDomain domain = TransactionHelper.getEditingDomain(element);
+    BlockArchitecture architecture = BlockArchitectureExt.getRootBlockArchitecture(element);
+    List<FunctionalChain> functionalChains = FunctionalChainExt.getAllFunctionalChains(architecture);
+
     if (domain instanceof SemanticEditingDomain) {
       if (element instanceof SequenceMessage) {
         element = getRepresentedFunctionalExchange((ModelElement) element);
@@ -521,6 +544,13 @@ public class CybersecurityServices {
         return true;
       }
       if (element instanceof FunctionalExchange) {
+        for (FunctionalChain fc : functionalChains) {
+          if (fc.getInvolvedFunctionalExchanges().contains(element)) {
+            if (hasAssetStyleCustomization(fc)) {
+              return true;
+            }
+          }
+        }
         for (ExchangeItem ei : ((FunctionalExchange) element).getExchangedItems()) {
           if (hasAssetStyleCustomization(ei)) {
             return true;
@@ -536,11 +566,44 @@ public class CybersecurityServices {
             }
           }
         }
+        
+        for (FunctionalChain fc : functionalChains) {
+          if (fc.getInvolvedFunctions().contains(element)) {
+            if (hasAssetStyleCustomization(fc)) {
+              return true;
+            }
+          }
+        }
       }
     }
     return false;
   }
-
+  
+  /*
+   * Remove customization of a function if it has two or more involving functional chains and they are not present in
+   * diagram
+   */
+  public boolean removeCustomizationIfNeeded(DSemanticDecorator view) {
+    EObject target = view.getTarget();
+    DDiagram diagram = CapellaServices.getService().getDiagramContainer(view);
+    if (diagram != null && target instanceof AbstractFunction) {
+      EList<FunctionalChain> functionalChains = ((AbstractFunction) target).getInvolvingFunctionalChains();
+      if (functionalChains.size() > 1) {
+        boolean allFunctionalChainsAreRemoved = true;
+        for (FunctionalChain fc : functionalChains) {
+          if (diagram.getOwnedDiagramElements().contains(fc)) {
+            allFunctionalChainsAreRemoved = false;
+          }
+        }
+        if (allFunctionalChainsAreRemoved) {
+          ShapeUtil.removeCustomisation(ShapeUtil.getCurrentStyle((DDiagramElement) view),
+              new EStructuralFeature[] { DiagramPackage.Literals.BORDERED_STYLE__BORDER_COLOR });
+        }
+      }
+    }
+    return true;
+  }
+  
   public String getAssetDecorationBorderSize(DSemanticDecorator view) {
     if (view instanceof AbstractDNode) {
       EObject e = view.getTarget();

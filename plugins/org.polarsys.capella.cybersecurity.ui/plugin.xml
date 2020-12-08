@@ -473,6 +473,23 @@
       </categoryQuery>
    </category>
    <category
+         id="FunctionalPrimaryAsset__FunctionalChains"
+         isTopLevel="true"
+         name="Functional Chains"
+         usedInShowRelated="true">
+      <availableForType
+            class="org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset">
+      </availableForType>
+      <targetBrowserId
+            id="ReferencedElementBrowser">
+      </targetBrowserId>
+      <categoryQuery>
+         <basicQuery
+               class="org.polarsys.capella.cybersecurity.model.CybersecurityQueries$FunctionalPrimaryAsset__FunctionalChains">
+         </basicQuery>
+      </categoryQuery>
+   </category>
+   <category
          id="FunctionalPrimaryAsset__FunctionalExchanges"
          isTopLevel="true"
          name="Functional Exchanges">
