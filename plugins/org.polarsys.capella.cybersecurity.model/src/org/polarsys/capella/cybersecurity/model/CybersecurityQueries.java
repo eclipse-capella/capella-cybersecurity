@@ -454,6 +454,13 @@ public class CybersecurityQueries {
     }
   }
 
+  public static class FunctionalPrimaryAsset__FunctionalChains implements IQuery {
+    @Override
+    public List<Object> compute(Object object) {
+      return new ArrayList<>(((FunctionalPrimaryAsset) object).getFunctionalChains());
+    }
+  }
+
   public static class FunctionalPrimaryAsset__FunctionalExchanges implements IQuery {
     @Override
     public List<Object> compute(Object object) {

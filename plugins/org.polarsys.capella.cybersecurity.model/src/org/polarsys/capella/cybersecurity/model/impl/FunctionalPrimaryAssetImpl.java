@@ -86,19 +86,22 @@ public class FunctionalPrimaryAssetImpl extends PrimaryAssetImpl implements Func
   }
 
   /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * 
+   * @generated NOT
    */
 
   @Override
   public EList<FunctionalChain> getFunctionalChains() {
-
-    if (functionalChains == null) {
-      functionalChains = new EObjectResolvingEList<FunctionalChain>(FunctionalChain.class, this,
-          CybersecurityPackage.FUNCTIONAL_PRIMARY_ASSET__FUNCTIONAL_CHAINS);
+    Collection<FunctionalChain> result = new ArrayList<>();
+    for (PrimaryAssetMember pam : getOwnedMembers()) {
+      if (pam.getMember() instanceof FunctionalChain) {
+        result.add((FunctionalChain) pam.getMember());
+      }
     }
-    return functionalChains;
+    Object[] data = result.toArray();
+    return new EcoreEList.UnmodifiableEList<FunctionalChain>(this,
+        CybersecurityPackage.Literals.FUNCTIONAL_PRIMARY_ASSET__FUNCTIONAL_CHAINS, data.length, data);
   }
 
   /**
