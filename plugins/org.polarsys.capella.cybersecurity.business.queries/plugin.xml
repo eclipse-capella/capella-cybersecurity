@@ -15,7 +15,7 @@
    <extension
          point="org.polarsys.capella.core.data.business.queries.MDEBusinessQueries">
       <MDEBusinessQueries
-            class="org.polarsys.capella.cybersecurity.business.queries.FunctionalPrimaryAsset_Functions"
+            class="org.polarsys.capella.cybersecurity.business.queries.FunctionalPrimaryAsset_Members"
             id="org.polarsys.capella.cybersecurity.business.queries.FunctionalPrimaryAsset_Functions">
       </MDEBusinessQueries>
       <MDEBusinessQueries

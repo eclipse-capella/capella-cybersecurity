@@ -325,7 +325,7 @@
           </ownedTools>
         </toolSections>
         <customization>
-          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.hasAssetStyleCustomization()">
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.hasAssetStyleCustomization() and view.removeCustomizationIfNeeded()">
             <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="borderColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='asset_color1']"/>
             <featureCustomizations xsi:type="description:EAttributeCustomization" applyOnAll="true" attributeName="borderSizeComputationExpression" value="aql:view.getAssetDecorationBorderSize()"/>
             <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="strokeColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='asset_color1']"/>
