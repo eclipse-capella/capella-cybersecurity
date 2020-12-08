@@ -586,6 +586,7 @@ public class CybersecurityServices {
   public boolean removeCustomizationIfNeeded(DSemanticDecorator view) {
     EObject target = view.getTarget();
     DDiagram diagram = CapellaServices.getService().getDiagramContainer(view);
+    
     if (diagram != null && target instanceof AbstractFunction) {
       EList<FunctionalChain> functionalChains = ((AbstractFunction) target).getInvolvingFunctionalChains();
       if (functionalChains.size() > 1) {
