@@ -15,21 +15,28 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
+import org.polarsys.capella.core.data.capellacore.EnumerationPropertyType;
+import org.polarsys.capella.core.data.capellamodeller.Project;
+import org.polarsys.capella.core.sirius.ui.helper.SessionHelper;
 import org.polarsys.capella.core.ui.properties.fields.AbstractSemanticField;
 import org.polarsys.capella.core.ui.properties.fields.TextAreaValueGroup;
 import org.polarsys.capella.core.ui.properties.fields.TextValueGroup;
 import org.polarsys.capella.core.ui.properties.sections.AbstractSection;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
+import org.polarsys.capella.cybersecurity.model.CybersecurityQueries;
 import org.polarsys.capella.cybersecurity.model.Threat;
+import org.polarsys.capella.cybersecurity.model.provider.CybersecurityEditPlugin;
+import org.polarsys.capella.cybersecurity.ui.properties.fields.EnumerationLiterealValueRadioGroup;
 import org.polarsys.capella.cybersecurity.ui.properties.fields.IntegerValueRadioGroup;
-import org.polarsys.capella.cybersecurity.ui.properties.fields.ThreatKindGroup;
 
 public class ThreatSection extends AbstractSection {
 
-  ThreatKindGroup threatKindGroup;
+  EnumerationLiterealValueRadioGroup threatKindGroup;
   TextValueGroup rationaleGroup;
   IntegerValueRadioGroup levelGroup;
   
@@ -42,9 +49,9 @@ public class ThreatSection extends AbstractSection {
   @Override
   protected void createContents(Composite rootParentComposite, TabbedPropertySheetPage aTabbedPropertySheetPage) {
     super.createContents(rootParentComposite, aTabbedPropertySheetPage);
-    threatKindGroup = new ThreatKindGroup(rootParentComposite, getWidgetFactory());
-    levelGroup = new IntegerValueRadioGroup(rootParentComposite, Messages.ThreatSection_0, getWidgetFactory(), 1, 5);
-    rationaleGroup = new TextAreaValueGroup(rootParentComposite, Messages.ActorCybersecuritySection_1, getWidgetFactory());
+    threatKindGroup = null;
+    levelGroup = null;
+    rationaleGroup = null;
   }
 
   @Override
@@ -56,7 +63,12 @@ public class ThreatSection extends AbstractSection {
   @Override
   public void loadData(EObject capellaElement) {
     super.loadData(capellaElement);
-    threatKindGroup.loadData(capellaElement, CybersecurityPackage.Literals.THREAT__THREAT_KIND);
+    if(threatKindGroup == null || levelGroup == null || rationaleGroup == null) {
+      createThreatKindGroup(capellaElement);
+      levelGroup = new IntegerValueRadioGroup(rootParentComposite, Messages.ThreatSection_0, getWidgetFactory(), 1, 5);
+      rationaleGroup = new TextAreaValueGroup(rootParentComposite, Messages.ActorCybersecuritySection_1, getWidgetFactory());
+    }
+    threatKindGroup.loadData(capellaElement, CybersecurityPackage.Literals.THREAT__KIND);
     levelGroup.loadData(capellaElement, CybersecurityPackage.Literals.THREAT__LEVEL);
     rationaleGroup.loadData(capellaElement, CybersecurityPackage.Literals.THREAT__RATIONALE);
   }
@@ -70,6 +82,15 @@ public class ThreatSection extends AbstractSection {
     return fields;
   }
 
-  
-  
+  protected void  createThreatKindGroup(EObject capellaElement) {
+    EObject element = capellaElement;
+    Session session = SessionManager.INSTANCE.getSession(element);
+    Project project = SessionHelper.getCapellaProject(session);
+    
+    EnumerationPropertyType type = CybersecurityQueries.getThreatKindPropertyType(project);
+    int numCols = type != null ? 3 : 1;
+    threatKindGroup = new EnumerationLiterealValueRadioGroup(rootParentComposite, CybersecurityEditPlugin.INSTANCE.getString("_UI_Threat_threatKind_feature"),
+        type,
+        getWidgetFactory(), numCols); 
+  }
 }

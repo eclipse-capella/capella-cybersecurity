@@ -16,8 +16,11 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Group;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetWidgetFactory;
 import org.polarsys.capella.core.data.capellacore.EnumerationPropertyLiteral;
 import org.polarsys.capella.core.data.capellacore.EnumerationPropertyType;
@@ -37,19 +40,26 @@ public class EnumerationLiterealValueRadioGroup extends AbstractSemanticKindGrou
    * @param enabled
    */
   public EnumerationLiterealValueRadioGroup(Composite parent, String label, EnumerationPropertyType type,
-      TabbedPropertySheetWidgetFactory widgetFactory, int min, int max) {
-    super(parent, widgetFactory, label, max - min + 1); // $NON-NLS-1$
+      TabbedPropertySheetWidgetFactory widgetFactory, int numCols) {
+    super(parent, widgetFactory, label, numCols); // $NON-NLS-1$
     buttons = new ArrayList<Button>();
-    if (type != null) {
+    if (type != null && !type.getOwnedLiterals().isEmpty()) {
       EList<EnumerationPropertyLiteral> literals = type.getOwnedLiterals();
-      for (int i = min; i <= max; ++i) {
-        Button button = createButton(_group, literals.get(i).getName(), literals.get(i), true, SWT.RADIO);
+      for(EnumerationPropertyLiteral literal : literals) {
+        Button button = createButton(_group, literal.getName(), literal, true, SWT.RADIO);
         buttons.add(button);
       }
     } else {
-      Button button = createButton(_group, "UNDEFINED", "UNDEFINED", true, SWT.RADIO);
+      Button button = createButton(_group, "UNDEFINED", null, false, SWT.RADIO);
       buttons.add(button);
     }
+  }
+  
+  @Override
+  protected Group createGroup(Composite parent, String label, boolean enabled, int numColumns) {
+    super.createGroup(parent, label, enabled, numColumns);
+    _group.setLayout(new GridLayout(numColumns, false));
+    return _group;
   }
 
   /**

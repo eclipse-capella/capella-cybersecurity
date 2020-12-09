@@ -175,7 +175,7 @@ public class SecurityNeedsSection extends AbstractSection {
   // we want a 2x2 layout
   // default integer value group always wants to span all columns, so we'll just trick it
   private EnumerationLiterealValueRadioGroup createEnumerationLiteralValueRadioGroup(Group parent, String label,
-      String configType, Project project) {
+      EnumerationPropertyType type) {
     if (parent != null) {
       Composite compo = getWidgetFactory().createComposite(parent);
       GridLayout gl = new GridLayout();
@@ -183,10 +183,10 @@ public class SecurityNeedsSection extends AbstractSection {
       gl.marginWidth = 0;
       compo.setLayout(gl);
       compo.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
-      EnumerationPropertyType type = CybersecurityQueries.getEnumerationPropertyType(configType, project);
-      int max = type != null ? type.getOwnedLiterals().size() - 1 : 0;
+      // we display at least one column (display undefined if no configuration is found)
+      int numCols = Math.max(type != null ? type.getOwnedLiterals().size() : 1, 1);
       EnumerationLiterealValueRadioGroup result = new EnumerationLiterealValueRadioGroup(compo, label, type,
-          getWidgetFactory(), 0, max);
+          getWidgetFactory(), numCols);
       result.setDisplayedInWizard(isDisplayedInWizard());
       return result;
     }
@@ -206,13 +206,13 @@ public class SecurityNeedsSection extends AbstractSection {
     Session session = SessionManager.INSTANCE.getSession(element);
     Project project = SessionHelper.getCapellaProject(session);
     confidentiality = createEnumerationLiteralValueRadioGroup(group, Messages.SecurityNeedsSection_1,
-        CybersecurityQueries.CYBERSECURITY_CFG_SECURITY_CONFIDENTIALITY_KEYWORD, project);
+        CybersecurityQueries.getConfidentialityPropertyType(project));
     integrity = createEnumerationLiteralValueRadioGroup(group, Messages.SecurityNeedsSection_2,
-        CybersecurityQueries.CYBERSECURITY_CFG_SECURITY_INTEGRITY_KEYWORD, project);
+        CybersecurityQueries.getIntegrityPropertyType(project));
     traceability = createEnumerationLiteralValueRadioGroup(group, Messages.SecurityNeedsSection_3,
-        CybersecurityQueries.CYBERSECURITY_CFG_SECURITY_TRACEABILITY_KEYWORD, project);
+        CybersecurityQueries.getTraceabilityPropertyType(project));
     availability = createEnumerationLiteralValueRadioGroup(group, Messages.SecurityNeedsSection_4,
-        CybersecurityQueries.CYBERSECURITY_CFG_SECURITY_AVAILABILITY_KEYWORD, project);
+        CybersecurityQueries.getAvailabilityPropertyType(project));
   }
 
   /**

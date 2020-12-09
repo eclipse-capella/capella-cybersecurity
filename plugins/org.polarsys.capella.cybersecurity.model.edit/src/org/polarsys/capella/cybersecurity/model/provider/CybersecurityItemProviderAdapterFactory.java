@@ -348,6 +348,29 @@ public class CybersecurityItemProviderAdapterFactory extends CybersecurityAdapte
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link org.polarsys.capella.cybersecurity.model.CybersecurityConfiguration} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected CybersecurityConfigurationItemProvider cybersecurityConfigurationItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.polarsys.capella.cybersecurity.model.CybersecurityConfiguration}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createCybersecurityConfigurationAdapter() {
+    if (cybersecurityConfigurationItemProvider == null) {
+      cybersecurityConfigurationItemProvider = new CybersecurityConfigurationItemProvider(this);
+    }
+
+    return cybersecurityConfigurationItemProvider;
+  }
+
+  /**
    * This returns the root adapter factory that contains this factory.
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
@@ -491,6 +514,8 @@ public class CybersecurityItemProviderAdapterFactory extends CybersecurityAdapte
       informationPrimaryAssetItemProvider.dispose();
     if (primaryAssetMemberItemProvider != null)
       primaryAssetMemberItemProvider.dispose();
+    if (cybersecurityConfigurationItemProvider != null)
+      cybersecurityConfigurationItemProvider.dispose();
   }
 
   /**
@@ -615,6 +640,17 @@ public class CybersecurityItemProviderAdapterFactory extends CybersecurityAdapte
           CommandParameter commandParameter = createChildParameter(
               EmdePackage.Literals.EXTENSIBLE_ELEMENT__OWNED_EXTENSIONS,
               CybersecurityFactory.eINSTANCE.createTrustBoundaryStorage());
+          if (NewChildDescriptorHelper.isValidCommand(object, commandParameter)) {
+            newChildDescriptors.add(commandParameter);
+          }
+        }
+        // end-extension-code
+
+        // begin-extension-code
+        {
+          CommandParameter commandParameter = createChildParameter(
+              EmdePackage.Literals.EXTENSIBLE_ELEMENT__OWNED_EXTENSIONS,
+              CybersecurityFactory.eINSTANCE.createCybersecurityConfiguration());
           if (NewChildDescriptorHelper.isValidCommand(object, commandParameter)) {
             newChildDescriptors.add(commandParameter);
           }

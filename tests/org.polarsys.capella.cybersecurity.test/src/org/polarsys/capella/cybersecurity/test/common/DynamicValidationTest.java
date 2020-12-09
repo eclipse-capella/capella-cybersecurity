@@ -28,10 +28,10 @@ public abstract class DynamicValidationTest extends BasicDynamicModelTest {
     super.setUp();
     ModelValidationService.getInstance().loadXmlConstraintDeclarations();
     
-    typeConfidentiality = CybersecurityQueries.getEnumerationPropertyType(CybersecurityQueries.CYBERSECURITY_CFG_SECURITY_CONFIDENTIALITY_KEYWORD, project);
-    typeAvailability = CybersecurityQueries.getEnumerationPropertyType(CybersecurityQueries.CYBERSECURITY_CFG_SECURITY_AVAILABILITY_KEYWORD, project);
-    typeIntegrity = CybersecurityQueries.getEnumerationPropertyType(CybersecurityQueries.CYBERSECURITY_CFG_SECURITY_INTEGRITY_KEYWORD, project);
-    typeTraceability = CybersecurityQueries.getEnumerationPropertyType(CybersecurityQueries.CYBERSECURITY_CFG_SECURITY_TRACEABILITY_KEYWORD, project);
+    typeConfidentiality = CybersecurityQueries.getConfidentialityPropertyType(project);
+    typeAvailability = CybersecurityQueries.getAvailabilityPropertyType(project);
+    typeIntegrity = CybersecurityQueries.getIntegrityPropertyType(project);
+    typeTraceability = CybersecurityQueries.getTraceabilityPropertyType(project);
   }
 
   /**

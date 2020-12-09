@@ -824,4 +824,10 @@
          kind="editing">
    </columnProvider>
 </extension>
+<extension point="org.polarsys.capella.common.menu.dynamic.MDEMenuItemContribution">
+      <MDEMenuItemContribution
+            class="org.polarsys.capella.cybersecurity.ui.contribution.menu.CybersecurityConfigurationContribution"
+            id="org.polarsys.capella.cybersecurity.ui.contribution.menu.CybersecurityConfigurationContribution">
+      </MDEMenuItemContribution>
+</extension>      
 </plugin>

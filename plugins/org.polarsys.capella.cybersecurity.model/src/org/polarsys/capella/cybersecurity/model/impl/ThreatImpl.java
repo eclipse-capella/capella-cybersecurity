@@ -16,13 +16,14 @@ import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.polarsys.capella.core.data.capellacore.EnumerationPropertyLiteral;
 import org.polarsys.capella.core.data.capellacore.impl.NamedElementImpl;
 import org.polarsys.capella.core.data.cs.Component;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.Threat;
-import org.polarsys.capella.cybersecurity.model.ThreatKind;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Threat</b></em>'. <!-- end-user-doc -->
@@ -31,7 +32,7 @@ import org.polarsys.capella.cybersecurity.model.ThreatKind;
  * </p>
  * <ul>
  *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatImpl#getAddressedBy <em>Addressed By</em>}</li>
- *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatImpl#getThreatKind <em>Threat Kind</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatImpl#getKind <em>Kind</em>}</li>
  *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatImpl#getLevel <em>Level</em>}</li>
  *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatImpl#getRationale <em>Rationale</em>}</li>
  * </ul>
@@ -51,24 +52,14 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
   protected EList<Component> addressedBy;
 
   /**
-   * The default value of the '{@link #getThreatKind() <em>Threat Kind</em>}' attribute.
-   * <!-- begin-user-doc --> <!--
-   * end-user-doc -->
-   * @see #getThreatKind()
+   * The cached value of the '{@link #getKind() <em>Kind</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getKind()
    * @generated
    * @ordered
    */
-  protected static final ThreatKind THREAT_KIND_EDEFAULT = ThreatKind.EAVESDROPPING;
-
-  /**
-   * The cached value of the '{@link #getThreatKind() <em>Threat Kind</em>}' attribute.
-   * <!-- begin-user-doc --> <!--
-   * end-user-doc -->
-   * @see #getThreatKind()
-   * @generated
-   * @ordered
-   */
-  protected ThreatKind threatKind = THREAT_KIND_EDEFAULT;
+  protected EnumerationPropertyLiteral kind;
 
   /**
    * The default value of the '{@link #getLevel() <em>Level</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
@@ -145,29 +136,49 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
   }
 
   /**
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
 
   @Override
-  public ThreatKind getThreatKind() {
+  public EnumerationPropertyLiteral getKind() {
 
-    return threatKind;
+    if (kind != null && kind.eIsProxy()) {
+      InternalEObject oldKind = (InternalEObject) kind;
+      kind = (EnumerationPropertyLiteral) eResolveProxy(oldKind);
+      if (kind != oldKind) {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, CybersecurityPackage.THREAT__KIND, oldKind, kind));
+      }
+    }
+    return kind;
   }
 
   /**
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+
+  public EnumerationPropertyLiteral basicGetKind() {
+
+    return kind;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
 
   @Override
-  public void setThreatKind(ThreatKind newThreatKind) {
+  public void setKind(EnumerationPropertyLiteral newKind) {
 
-    ThreatKind oldThreatKind = threatKind;
-    threatKind = newThreatKind == null ? THREAT_KIND_EDEFAULT : newThreatKind;
+    EnumerationPropertyLiteral oldKind = kind;
+    kind = newKind;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, CybersecurityPackage.THREAT__THREAT_KIND, oldThreatKind,
-          threatKind));
+      eNotify(new ENotificationImpl(this, Notification.SET, CybersecurityPackage.THREAT__KIND, oldKind, kind));
 
   }
 
@@ -233,8 +244,10 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
     switch (featureID) {
     case CybersecurityPackage.THREAT__ADDRESSED_BY:
       return getAddressedBy();
-    case CybersecurityPackage.THREAT__THREAT_KIND:
-      return getThreatKind();
+    case CybersecurityPackage.THREAT__KIND:
+      if (resolve)
+        return getKind();
+      return basicGetKind();
     case CybersecurityPackage.THREAT__LEVEL:
       return getLevel();
     case CybersecurityPackage.THREAT__RATIONALE:
@@ -255,8 +268,8 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
       getAddressedBy().clear();
       getAddressedBy().addAll((Collection<? extends Component>) newValue);
       return;
-    case CybersecurityPackage.THREAT__THREAT_KIND:
-      setThreatKind((ThreatKind) newValue);
+    case CybersecurityPackage.THREAT__KIND:
+      setKind((EnumerationPropertyLiteral) newValue);
       return;
     case CybersecurityPackage.THREAT__LEVEL:
       setLevel((Integer) newValue);
@@ -278,8 +291,8 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
     case CybersecurityPackage.THREAT__ADDRESSED_BY:
       getAddressedBy().clear();
       return;
-    case CybersecurityPackage.THREAT__THREAT_KIND:
-      setThreatKind(THREAT_KIND_EDEFAULT);
+    case CybersecurityPackage.THREAT__KIND:
+      setKind((EnumerationPropertyLiteral) null);
       return;
     case CybersecurityPackage.THREAT__LEVEL:
       setLevel(LEVEL_EDEFAULT);
@@ -300,8 +313,8 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
     switch (featureID) {
     case CybersecurityPackage.THREAT__ADDRESSED_BY:
       return addressedBy != null && !addressedBy.isEmpty();
-    case CybersecurityPackage.THREAT__THREAT_KIND:
-      return threatKind != THREAT_KIND_EDEFAULT;
+    case CybersecurityPackage.THREAT__KIND:
+      return kind != null;
     case CybersecurityPackage.THREAT__LEVEL:
       return level != LEVEL_EDEFAULT;
     case CybersecurityPackage.THREAT__RATIONALE:
@@ -320,9 +333,7 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
       return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (threatKind: "); //$NON-NLS-1$
-    result.append(threatKind);
-    result.append(", level: "); //$NON-NLS-1$
+    result.append(" (level: "); //$NON-NLS-1$
     result.append(level);
     result.append(", rationale: "); //$NON-NLS-1$
     result.append(rationale);

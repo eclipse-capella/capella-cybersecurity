@@ -13,7 +13,6 @@ package org.polarsys.capella.cybersecurity.model;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.polarsys.capella.common.data.modellingcore.ModellingcorePackage;
@@ -497,12 +496,13 @@ public interface CybersecurityPackage extends EPackage {
   int THREAT__ADDRESSED_BY = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Threat Kind</b></em>' attribute.
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * The feature id for the '<em><b>Kind</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int THREAT__THREAT_KIND = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
+  int THREAT__KIND = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Level</b></em>' attribute.
@@ -2253,13 +2253,266 @@ public interface CybersecurityPackage extends EPackage {
   int PRIMARY_ASSET_MEMBER_FEATURE_COUNT = CapellacorePackage.RELATIONSHIP_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link org.polarsys.capella.cybersecurity.model.ThreatKind <em>Threat Kind</em>}' enum.
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * @see org.polarsys.capella.cybersecurity.model.ThreatKind
-   * @see org.polarsys.capella.cybersecurity.model.impl.CybersecurityPackageImpl#getThreatKind()
+   * The meta object id for the '{@link org.polarsys.capella.cybersecurity.model.impl.CybersecurityConfigurationImpl <em>Configuration</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.polarsys.capella.cybersecurity.model.impl.CybersecurityConfigurationImpl
+   * @see org.polarsys.capella.cybersecurity.model.impl.CybersecurityPackageImpl#getCybersecurityConfiguration()
    * @generated
    */
-  int THREAT_KIND = 12;
+  int CYBERSECURITY_CONFIGURATION = 12;
+
+  /**
+   * The feature id for the '<em><b>Owned Extensions</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CYBERSECURITY_CONFIGURATION__OWNED_EXTENSIONS = CapellacorePackage.NAMED_ELEMENT__OWNED_EXTENSIONS;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CYBERSECURITY_CONFIGURATION__ID = CapellacorePackage.NAMED_ELEMENT__ID;
+
+  /**
+   * The feature id for the '<em><b>Sid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CYBERSECURITY_CONFIGURATION__SID = CapellacorePackage.NAMED_ELEMENT__SID;
+
+  /**
+   * The feature id for the '<em><b>Constraints</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CYBERSECURITY_CONFIGURATION__CONSTRAINTS = CapellacorePackage.NAMED_ELEMENT__CONSTRAINTS;
+
+  /**
+   * The feature id for the '<em><b>Owned Constraints</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CYBERSECURITY_CONFIGURATION__OWNED_CONSTRAINTS = CapellacorePackage.NAMED_ELEMENT__OWNED_CONSTRAINTS;
+
+  /**
+   * The feature id for the '<em><b>Owned Migrated Elements</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CYBERSECURITY_CONFIGURATION__OWNED_MIGRATED_ELEMENTS = CapellacorePackage.NAMED_ELEMENT__OWNED_MIGRATED_ELEMENTS;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CYBERSECURITY_CONFIGURATION__NAME = CapellacorePackage.NAMED_ELEMENT__NAME;
+
+  /**
+   * The feature id for the '<em><b>Incoming Traces</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CYBERSECURITY_CONFIGURATION__INCOMING_TRACES = CapellacorePackage.NAMED_ELEMENT__INCOMING_TRACES;
+
+  /**
+   * The feature id for the '<em><b>Outgoing Traces</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CYBERSECURITY_CONFIGURATION__OUTGOING_TRACES = CapellacorePackage.NAMED_ELEMENT__OUTGOING_TRACES;
+
+  /**
+   * The feature id for the '<em><b>Visible In Doc</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CYBERSECURITY_CONFIGURATION__VISIBLE_IN_DOC = CapellacorePackage.NAMED_ELEMENT__VISIBLE_IN_DOC;
+
+  /**
+   * The feature id for the '<em><b>Visible In LM</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CYBERSECURITY_CONFIGURATION__VISIBLE_IN_LM = CapellacorePackage.NAMED_ELEMENT__VISIBLE_IN_LM;
+
+  /**
+   * The feature id for the '<em><b>Summary</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CYBERSECURITY_CONFIGURATION__SUMMARY = CapellacorePackage.NAMED_ELEMENT__SUMMARY;
+
+  /**
+   * The feature id for the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CYBERSECURITY_CONFIGURATION__DESCRIPTION = CapellacorePackage.NAMED_ELEMENT__DESCRIPTION;
+
+  /**
+   * The feature id for the '<em><b>Review</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CYBERSECURITY_CONFIGURATION__REVIEW = CapellacorePackage.NAMED_ELEMENT__REVIEW;
+
+  /**
+   * The feature id for the '<em><b>Owned Property Values</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CYBERSECURITY_CONFIGURATION__OWNED_PROPERTY_VALUES = CapellacorePackage.NAMED_ELEMENT__OWNED_PROPERTY_VALUES;
+
+  /**
+   * The feature id for the '<em><b>Owned Enumeration Property Types</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CYBERSECURITY_CONFIGURATION__OWNED_ENUMERATION_PROPERTY_TYPES = CapellacorePackage.NAMED_ELEMENT__OWNED_ENUMERATION_PROPERTY_TYPES;
+
+  /**
+   * The feature id for the '<em><b>Applied Property Values</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CYBERSECURITY_CONFIGURATION__APPLIED_PROPERTY_VALUES = CapellacorePackage.NAMED_ELEMENT__APPLIED_PROPERTY_VALUES;
+
+  /**
+   * The feature id for the '<em><b>Owned Property Value Groups</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CYBERSECURITY_CONFIGURATION__OWNED_PROPERTY_VALUE_GROUPS = CapellacorePackage.NAMED_ELEMENT__OWNED_PROPERTY_VALUE_GROUPS;
+
+  /**
+   * The feature id for the '<em><b>Applied Property Value Groups</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CYBERSECURITY_CONFIGURATION__APPLIED_PROPERTY_VALUE_GROUPS = CapellacorePackage.NAMED_ELEMENT__APPLIED_PROPERTY_VALUE_GROUPS;
+
+  /**
+   * The feature id for the '<em><b>Status</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CYBERSECURITY_CONFIGURATION__STATUS = CapellacorePackage.NAMED_ELEMENT__STATUS;
+
+  /**
+   * The feature id for the '<em><b>Features</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CYBERSECURITY_CONFIGURATION__FEATURES = CapellacorePackage.NAMED_ELEMENT__FEATURES;
+
+  /**
+   * The feature id for the '<em><b>Applied Requirements</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CYBERSECURITY_CONFIGURATION__APPLIED_REQUIREMENTS = CapellacorePackage.NAMED_ELEMENT__APPLIED_REQUIREMENTS;
+
+  /**
+   * The feature id for the '<em><b>Confidentiality</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CYBERSECURITY_CONFIGURATION__CONFIDENTIALITY = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Integrity</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CYBERSECURITY_CONFIGURATION__INTEGRITY = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Traceability</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CYBERSECURITY_CONFIGURATION__TRACEABILITY = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Availability</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CYBERSECURITY_CONFIGURATION__AVAILABILITY = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Threat Kind</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CYBERSECURITY_CONFIGURATION__THREAT_KIND = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
+
+  /**
+   * The number of structural features of the '<em>Configuration</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CYBERSECURITY_CONFIGURATION_FEATURE_COUNT = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 5;
 
   /**
    * Returns the meta object for class '{@link org.polarsys.capella.cybersecurity.model.CybersecurityPkg <em>Pkg</em>}'.
@@ -2324,14 +2577,15 @@ public interface CybersecurityPackage extends EPackage {
   EReference getThreat_AddressedBy();
 
   /**
-   * Returns the meta object for the attribute '{@link org.polarsys.capella.cybersecurity.model.Threat#getThreatKind <em>Threat Kind</em>}'.
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Threat Kind</em>'.
-   * @see org.polarsys.capella.cybersecurity.model.Threat#getThreatKind()
+   * Returns the meta object for the reference '{@link org.polarsys.capella.cybersecurity.model.Threat#getKind <em>Kind</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Kind</em>'.
+   * @see org.polarsys.capella.cybersecurity.model.Threat#getKind()
    * @see #getThreat()
    * @generated
    */
-  EAttribute getThreat_ThreatKind();
+  EReference getThreat_Kind();
 
   /**
    * Returns the meta object for the attribute '{@link org.polarsys.capella.cybersecurity.model.Threat#getLevel <em>Level</em>}'.
@@ -2697,13 +2951,69 @@ public interface CybersecurityPackage extends EPackage {
   EReference getPrimaryAssetMember_Member();
 
   /**
-   * Returns the meta object for enum '{@link org.polarsys.capella.cybersecurity.model.ThreatKind <em>Threat Kind</em>}'.
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * @return the meta object for enum '<em>Threat Kind</em>'.
-   * @see org.polarsys.capella.cybersecurity.model.ThreatKind
+   * Returns the meta object for class '{@link org.polarsys.capella.cybersecurity.model.CybersecurityConfiguration <em>Configuration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Configuration</em>'.
+   * @see org.polarsys.capella.cybersecurity.model.CybersecurityConfiguration
    * @generated
    */
-  EEnum getThreatKind();
+  EClass getCybersecurityConfiguration();
+
+  /**
+   * Returns the meta object for the reference '{@link org.polarsys.capella.cybersecurity.model.CybersecurityConfiguration#getConfidentiality <em>Confidentiality</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Confidentiality</em>'.
+   * @see org.polarsys.capella.cybersecurity.model.CybersecurityConfiguration#getConfidentiality()
+   * @see #getCybersecurityConfiguration()
+   * @generated
+   */
+  EReference getCybersecurityConfiguration_Confidentiality();
+
+  /**
+   * Returns the meta object for the reference '{@link org.polarsys.capella.cybersecurity.model.CybersecurityConfiguration#getIntegrity <em>Integrity</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Integrity</em>'.
+   * @see org.polarsys.capella.cybersecurity.model.CybersecurityConfiguration#getIntegrity()
+   * @see #getCybersecurityConfiguration()
+   * @generated
+   */
+  EReference getCybersecurityConfiguration_Integrity();
+
+  /**
+   * Returns the meta object for the reference '{@link org.polarsys.capella.cybersecurity.model.CybersecurityConfiguration#getTraceability <em>Traceability</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Traceability</em>'.
+   * @see org.polarsys.capella.cybersecurity.model.CybersecurityConfiguration#getTraceability()
+   * @see #getCybersecurityConfiguration()
+   * @generated
+   */
+  EReference getCybersecurityConfiguration_Traceability();
+
+  /**
+   * Returns the meta object for the reference '{@link org.polarsys.capella.cybersecurity.model.CybersecurityConfiguration#getAvailability <em>Availability</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Availability</em>'.
+   * @see org.polarsys.capella.cybersecurity.model.CybersecurityConfiguration#getAvailability()
+   * @see #getCybersecurityConfiguration()
+   * @generated
+   */
+  EReference getCybersecurityConfiguration_Availability();
+
+  /**
+   * Returns the meta object for the reference '{@link org.polarsys.capella.cybersecurity.model.CybersecurityConfiguration#getThreatKind <em>Threat Kind</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Threat Kind</em>'.
+   * @see org.polarsys.capella.cybersecurity.model.CybersecurityConfiguration#getThreatKind()
+   * @see #getCybersecurityConfiguration()
+   * @generated
+   */
+  EReference getCybersecurityConfiguration_ThreatKind();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -2775,12 +3085,12 @@ public interface CybersecurityPackage extends EPackage {
     EReference THREAT__ADDRESSED_BY = eINSTANCE.getThreat_AddressedBy();
 
     /**
-     * The meta object literal for the '<em><b>Threat Kind</b></em>' attribute feature.
-     * <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The meta object literal for the '<em><b>Kind</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute THREAT__THREAT_KIND = eINSTANCE.getThreat_ThreatKind();
+    EReference THREAT__KIND = eINSTANCE.getThreat_Kind();
 
     /**
      * The meta object literal for the '<em><b>Level</b></em>' attribute feature.
@@ -3064,13 +3374,54 @@ public interface CybersecurityPackage extends EPackage {
     EReference PRIMARY_ASSET_MEMBER__MEMBER = eINSTANCE.getPrimaryAssetMember_Member();
 
     /**
-     * The meta object literal for the '{@link org.polarsys.capella.cybersecurity.model.ThreatKind <em>Threat Kind</em>}' enum.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @see org.polarsys.capella.cybersecurity.model.ThreatKind
-     * @see org.polarsys.capella.cybersecurity.model.impl.CybersecurityPackageImpl#getThreatKind()
+     * The meta object literal for the '{@link org.polarsys.capella.cybersecurity.model.impl.CybersecurityConfigurationImpl <em>Configuration</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.polarsys.capella.cybersecurity.model.impl.CybersecurityConfigurationImpl
+     * @see org.polarsys.capella.cybersecurity.model.impl.CybersecurityPackageImpl#getCybersecurityConfiguration()
      * @generated
      */
-    EEnum THREAT_KIND = eINSTANCE.getThreatKind();
+    EClass CYBERSECURITY_CONFIGURATION = eINSTANCE.getCybersecurityConfiguration();
+
+    /**
+     * The meta object literal for the '<em><b>Confidentiality</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CYBERSECURITY_CONFIGURATION__CONFIDENTIALITY = eINSTANCE.getCybersecurityConfiguration_Confidentiality();
+
+    /**
+     * The meta object literal for the '<em><b>Integrity</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CYBERSECURITY_CONFIGURATION__INTEGRITY = eINSTANCE.getCybersecurityConfiguration_Integrity();
+
+    /**
+     * The meta object literal for the '<em><b>Traceability</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CYBERSECURITY_CONFIGURATION__TRACEABILITY = eINSTANCE.getCybersecurityConfiguration_Traceability();
+
+    /**
+     * The meta object literal for the '<em><b>Availability</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CYBERSECURITY_CONFIGURATION__AVAILABILITY = eINSTANCE.getCybersecurityConfiguration_Availability();
+
+    /**
+     * The meta object literal for the '<em><b>Threat Kind</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CYBERSECURITY_CONFIGURATION__THREAT_KIND = eINSTANCE.getCybersecurityConfiguration_ThreatKind();
 
   }
 

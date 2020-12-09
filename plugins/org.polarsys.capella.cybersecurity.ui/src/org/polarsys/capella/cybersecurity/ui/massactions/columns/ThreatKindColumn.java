@@ -28,7 +28,7 @@ public class ThreatKindColumn extends AbstractCybersecurityColumn {
   @Override
   public Object getDataValue(EObject rowObject) {
     return CybersecurityQueries.getThreatsOf(((PrimaryAsset) rowObject))
-        .map(t -> t.getThreatKind() == null ? "null" : t.getThreatKind().getLiteral()) //$NON-NLS-1$
+        .map(t -> t.getKind() == null ? "null" : t.getKind().getName()) //$NON-NLS-1$
         .distinct().collect(Collectors.joining("/")); //$NON-NLS-1$
   }
 }

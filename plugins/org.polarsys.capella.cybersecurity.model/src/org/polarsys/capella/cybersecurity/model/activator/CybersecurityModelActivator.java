@@ -22,8 +22,7 @@ import org.polarsys.capella.core.data.capellacore.CapellacoreFactory;
 import org.polarsys.capella.core.data.capellacore.EnumerationPropertyType;
 import org.polarsys.capella.core.data.capellamodeller.Project;
 import org.polarsys.capella.core.libraries.model.ICapellaModel;
-import org.polarsys.capella.cybersecurity.model.CybersecurityPkg;
-import org.polarsys.capella.cybersecurity.model.CybersecurityQueries;
+import org.polarsys.capella.cybersecurity.model.CybersecurityConfiguration;
 import org.polarsys.capella.cybersecurity.model.impl.CybersecurityFactoryImpl;
 import org.polarsys.kitalpha.ad.services.manager.ViewpointManager;
 import org.polarsys.kitalpha.ad.services.manager.ViewpointManager.OverallListener2;
@@ -36,6 +35,19 @@ public class CybersecurityModelActivator implements BundleActivator {
   private static BundleContext context;
   private static CybersecurityModelActivator defaultActivator;
   private static OverallListener2 listener;
+  
+  public static final String CYBERSECURITY_CFG_KEYWORD = "Cybersecurity Configuration";
+  public static final String CYBERSECURITY_CFG_SECURITY_CONFIDENTIALITY_KEYWORD = "Security.Confidentiality";
+  public static final String CYBERSECURITY_CFG_SECURITY_INTEGRITY_KEYWORD = "Security.Integrity";
+  public static final String CYBERSECURITY_CFG_SECURITY_TRACEABILITY_KEYWORD = "Security.Traceability";
+  public static final String CYBERSECURITY_CFG_SECURITY_AVAILABILITY_KEYWORD = "Security.Availability";
+  
+  public static final String CYBERSECURITY_CFG_THREAD_KIND_KEYWORD = "Thread.Kind";
+  public static final String THREAT_KIND_EAVESDROPPING_KEYWORD = "Eavesdropping";
+  public static final String THREAT_KIND_THEFT_AND_DATA_ALTERATION_KEYWORD = "Theft and data alteration";
+  public static final String THREAT_KIND_DENIAL_OF_SERVICE_KEYWORD = "Denial of service";
+  public static final String THREAT_KIND_INTRUSION_KEYWORD = "Intrusion";
+  public static final String THREAT_KIND_TAMPERING_KEYWORD = "Tampering";
   
   public CybersecurityModelActivator() {
     listener = new OverallListener2() {
@@ -50,9 +62,6 @@ public class CybersecurityModelActivator implements BundleActivator {
               addProjectCybersecurityConfig(project);
             }
           };
-          if(project instanceof EObject) {
-            System.out.println(ted);
-          }
           TransactionHelper.getExecutionManager((EObject)project).execute(command);
         }
       }
@@ -103,21 +112,34 @@ public class CybersecurityModelActivator implements BundleActivator {
   }
   
   public void addProjectCybersecurityConfig(Project project_p) {
-    CybersecurityPkg pkg = CybersecurityFactoryImpl.eINSTANCE.createCybersecurityPkg();
-    pkg.setName(CybersecurityQueries.CYBERSECURITY_CFG_KEYWORD);
-    pkg.getOwnedEnumerationPropertyTypes().add(createEnumerationPropertyType(CybersecurityQueries.CYBERSECURITY_CFG_SECURITY_CONFIDENTIALITY_KEYWORD));
-    pkg.getOwnedEnumerationPropertyTypes().add(createEnumerationPropertyType(CybersecurityQueries.CYBERSECURITY_CFG_SECURITY_INTEGRITY_KEYWORD));
-    pkg.getOwnedEnumerationPropertyTypes().add(createEnumerationPropertyType(CybersecurityQueries.CYBERSECURITY_CFG_SECURITY_TRACEABILITY_KEYWORD));
-    pkg.getOwnedEnumerationPropertyTypes().add(createEnumerationPropertyType(CybersecurityQueries.CYBERSECURITY_CFG_SECURITY_AVAILABILITY_KEYWORD));
-    project_p.getOwnedExtensions().add(pkg); 
+    CybersecurityConfiguration config = CybersecurityFactoryImpl.eINSTANCE.createCybersecurityConfiguration();
+    config.setName(CYBERSECURITY_CFG_KEYWORD);
+    config.setConfidentiality(createEnumerationPropertySecurityType(CYBERSECURITY_CFG_SECURITY_CONFIDENTIALITY_KEYWORD, config));
+    config.setIntegrity(createEnumerationPropertySecurityType(CYBERSECURITY_CFG_SECURITY_INTEGRITY_KEYWORD, config));
+    config.setTraceability(createEnumerationPropertySecurityType(CYBERSECURITY_CFG_SECURITY_TRACEABILITY_KEYWORD, config));
+    config.setAvailability(createEnumerationPropertySecurityType(CYBERSECURITY_CFG_SECURITY_AVAILABILITY_KEYWORD, config));
+    config.setThreatKind(createEnumerationPropertyThreadKindType(CYBERSECURITY_CFG_THREAD_KIND_KEYWORD, config));
+    project_p.getOwnedExtensions().add(config); 
   }
   
-  private EnumerationPropertyType createEnumerationPropertyType(String typeName) {
+  private EnumerationPropertyType createEnumerationPropertySecurityType(String typeName,  CybersecurityConfiguration config) {
     EnumerationPropertyType type = CapellacoreFactory.eINSTANCE.createEnumerationPropertyType(typeName);
     type.getOwnedLiterals().add(CapellacoreFactory.eINSTANCE.createEnumerationPropertyLiteral("0"));
     type.getOwnedLiterals().add(CapellacoreFactory.eINSTANCE.createEnumerationPropertyLiteral("1"));
     type.getOwnedLiterals().add(CapellacoreFactory.eINSTANCE.createEnumerationPropertyLiteral("2"));
     type.getOwnedLiterals().add(CapellacoreFactory.eINSTANCE.createEnumerationPropertyLiteral("3"));
+    config.getOwnedEnumerationPropertyTypes().add(type);
+    return type;
+  }
+  
+  private EnumerationPropertyType createEnumerationPropertyThreadKindType(String typeName, CybersecurityConfiguration config) {
+    EnumerationPropertyType type = CapellacoreFactory.eINSTANCE.createEnumerationPropertyType(typeName);
+    type.getOwnedLiterals().add(CapellacoreFactory.eINSTANCE.createEnumerationPropertyLiteral(THREAT_KIND_EAVESDROPPING_KEYWORD));
+    type.getOwnedLiterals().add(CapellacoreFactory.eINSTANCE.createEnumerationPropertyLiteral(THREAT_KIND_DENIAL_OF_SERVICE_KEYWORD));
+    type.getOwnedLiterals().add(CapellacoreFactory.eINSTANCE.createEnumerationPropertyLiteral(THREAT_KIND_THEFT_AND_DATA_ALTERATION_KEYWORD));
+    type.getOwnedLiterals().add(CapellacoreFactory.eINSTANCE.createEnumerationPropertyLiteral(THREAT_KIND_INTRUSION_KEYWORD));
+    type.getOwnedLiterals().add(CapellacoreFactory.eINSTANCE.createEnumerationPropertyLiteral(THREAT_KIND_TAMPERING_KEYWORD));
+    config.getOwnedEnumerationPropertyTypes().add(type);
     return type;
   }
 }

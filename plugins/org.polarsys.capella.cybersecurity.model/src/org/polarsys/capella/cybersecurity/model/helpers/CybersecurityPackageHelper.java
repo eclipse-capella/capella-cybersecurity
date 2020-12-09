@@ -21,6 +21,7 @@ import org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset;
 import org.polarsys.capella.cybersecurity.model.InformationPrimaryAsset;
 import org.polarsys.capella.cybersecurity.model.PrimaryAsset;
 import org.polarsys.capella.cybersecurity.model.PrimaryAssetMember;
+import org.polarsys.capella.cybersecurity.model.CybersecurityConfiguration;
 import org.polarsys.capella.cybersecurity.model.PrimaryAssetStorage;
 import org.polarsys.capella.cybersecurity.model.SecurityNeeds;
 import org.polarsys.capella.cybersecurity.model.Threat;
@@ -74,6 +75,9 @@ public class CybersecurityPackageHelper implements IHelper {
     }
     if (ret == null && object instanceof PrimaryAssetMember) {
       ret = PrimaryAssetMemberHelper.getInstance().doSwitch((PrimaryAssetMember) object, feature);
+    }
+    if (ret == null && object instanceof CybersecurityConfiguration) {
+      ret = CybersecurityConfigurationHelper.getInstance().doSwitch((CybersecurityConfiguration) object, feature);
     }
     return ret;
   }

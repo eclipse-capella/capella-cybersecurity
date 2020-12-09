@@ -16,6 +16,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -30,6 +31,8 @@ import org.polarsys.capella.core.data.capellacore.provider.NamedElementItemProvi
 import org.polarsys.capella.cybersecurity.model.CybersecurityFactory;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.Threat;
+import org.polarsys.kitalpha.emde.extension.ExtensionModelManager;
+import org.polarsys.kitalpha.emde.extension.ModelExtensionHelper;
 import org.polarsys.kitalpha.emde.model.EmdePackage;
 import org.polarsys.kitalpha.emde.model.edit.provider.NewChildDescriptorHelper;
 
@@ -42,12 +45,45 @@ import org.polarsys.kitalpha.emde.model.edit.provider.NewChildDescriptorHelper;
 public class ThreatItemProvider extends NamedElementItemProvider implements IEditingDomainItemProvider,
     IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
   /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected IItemPropertyDescriptor kindPropertyDescriptor;
+
+  /**
    * This constructs an instance from a factory and a notifier.
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   public ThreatItemProvider(AdapterFactory adapterFactory) {
     super(adapterFactory);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void checkChildCreationExtender(Object object) {
+    super.checkChildCreationExtender(object);
+    if (object instanceof EObject) {
+      EObject eObject = (EObject) object;
+      // Process CybersecurityPackage.Literals.THREAT__KIND
+      if (kindPropertyDescriptor != null) {
+        Object kindValue = eObject.eGet(CybersecurityPackage.Literals.THREAT__KIND, true);
+        if (kindValue != null && kindValue instanceof EObject
+            && ModelExtensionHelper.getInstance(eObject).isExtensionModelDisabled((EObject) kindValue)) {
+          itemPropertyDescriptors.remove(kindPropertyDescriptor);
+        } else if (kindValue == null
+            && ExtensionModelManager.getAnyType(eObject, CybersecurityPackage.Literals.THREAT__KIND) != null) {
+          itemPropertyDescriptors.remove(kindPropertyDescriptor);
+        } else if (itemPropertyDescriptors.contains(kindPropertyDescriptor) == false) {
+          itemPropertyDescriptors.add(kindPropertyDescriptor);
+        }
+      }
+    }
   }
 
   /**
@@ -61,7 +97,7 @@ public class ThreatItemProvider extends NamedElementItemProvider implements IEdi
       super.getPropertyDescriptors(object);
 
       addAddressedByPropertyDescriptor(object);
-      addThreatKindPropertyDescriptor(object);
+      addKindPropertyDescriptor(object);
       addLevelPropertyDescriptor(object);
       addRationalePropertyDescriptor(object);
     }
@@ -91,22 +127,22 @@ public class ThreatItemProvider extends NamedElementItemProvider implements IEdi
   }
 
   /**
-   * This adds a property descriptor for the Threat Kind feature.
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * This adds a property descriptor for the Kind feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-  protected void addThreatKindPropertyDescriptor(Object object) {
-
+  protected void addKindPropertyDescriptor(Object object) {
     // begin-extension-code
-    itemPropertyDescriptors.add(createItemPropertyDescriptor
-    // end-extension-code
+    kindPropertyDescriptor = createItemPropertyDescriptor
+    // end-extension-code		
     (((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-        getString("_UI_Threat_threatKind_feature"), //$NON-NLS-1$
-        getString("_UI_PropertyDescriptor_description", "_UI_Threat_threatKind_feature", "_UI_Threat_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        CybersecurityPackage.Literals.THREAT__THREAT_KIND, true, false, false,
-        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
+        getString("_UI_Threat_kind_feature"), //$NON-NLS-1$
+        getString("_UI_PropertyDescriptor_description", "_UI_Threat_kind_feature", "_UI_Threat_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        CybersecurityPackage.Literals.THREAT__KIND, true, false, true, null, null,
         // begin-extension-code
-        null));
+        null);
+    itemPropertyDescriptors.add(kindPropertyDescriptor);
     // end-extension-code
   }
 
@@ -204,7 +240,7 @@ public class ThreatItemProvider extends NamedElementItemProvider implements IEdi
     updateChildren(notification);
 
     switch (notification.getFeatureID(Threat.class)) {
-    case CybersecurityPackage.THREAT__THREAT_KIND:
+    case CybersecurityPackage.THREAT__KIND:
     case CybersecurityPackage.THREAT__LEVEL:
     case CybersecurityPackage.THREAT__RATIONALE:
       fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

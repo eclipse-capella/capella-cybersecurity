@@ -140,6 +140,10 @@ public class CybersecurityServices {
     CybersecurityPkg pkg = getDefaultCyberSecurityPackage(any, true);
     if (pkg != null) {
       Threat threat = CybersecurityFactory.eINSTANCE.createThreat();
+      // set threat kind to be the fisrt one available in the config threat kind type
+      Session session = SessionManager.INSTANCE.getSession(any);
+      Project project = SessionHelper.getCapellaProject(session);
+      CybersecurityQueries.setThreatKindFromIndex(threat, 0, CybersecurityQueries.getThreatKindPropertyType(project));
       pkg.getOwnedThreats().add(threat);
 
       String elementPrefix = prefixService.getPrefix(threat);
@@ -152,7 +156,7 @@ public class CybersecurityServices {
   }
 
   public String getThreatLabel(Threat threat) {
-    String kind = threat.getThreatKind().getName().replaceAll("_", " ").toUpperCase();
+    String kind = threat.getKind().getName().toUpperCase();
     String defaultLabel = EObjectLabelProviderHelper.getText(threat);
 
     return defaultLabel + "\n(" + kind + ")";

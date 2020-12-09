@@ -342,6 +342,31 @@ public class CybersecuritySwitch<T> extends Switch<T> {
         result = defaultCase(theEObject);
       return result;
     }
+    case CybersecurityPackage.CYBERSECURITY_CONFIGURATION: {
+      CybersecurityConfiguration cybersecurityConfiguration = (CybersecurityConfiguration) theEObject;
+      T result = caseCybersecurityConfiguration(cybersecurityConfiguration);
+      if (result == null)
+        result = caseNamedElement(cybersecurityConfiguration);
+      if (result == null)
+        result = caseElementExtension(cybersecurityConfiguration);
+      if (result == null)
+        result = caseAbstractNamedElement(cybersecurityConfiguration);
+      if (result == null)
+        result = caseCapellaElement(cybersecurityConfiguration);
+      if (result == null)
+        result = caseTraceableElement(cybersecurityConfiguration);
+      if (result == null)
+        result = casePublishableElement(cybersecurityConfiguration);
+      if (result == null)
+        result = caseModelElement(cybersecurityConfiguration);
+      if (result == null)
+        result = caseExtensibleElement(cybersecurityConfiguration);
+      if (result == null)
+        result = caseElement(cybersecurityConfiguration);
+      if (result == null)
+        result = defaultCase(theEObject);
+      return result;
+    }
     default:
       return defaultCase(theEObject);
     }
@@ -510,6 +535,21 @@ public class CybersecuritySwitch<T> extends Switch<T> {
    * @generated
    */
   public T casePrimaryAssetMember(PrimaryAssetMember object) {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Configuration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Configuration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCybersecurityConfiguration(CybersecurityConfiguration object) {
     return null;
   }
 
