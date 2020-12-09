@@ -19,7 +19,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Threat" eSuperTypes="platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="addressedBy" upperBound="-1"
         eType="ecore:EClass platform:/plugin/org.polarsys.capella.core.data.gen/model/CompositeStructure.ecore#//Component"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="threatKind" eType="#//ThreatKind"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="kind" eType="ecore:EClass platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#//EnumerationPropertyLiteral"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="level" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rationale" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -84,13 +84,6 @@
         defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rationale" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="ThreatKind">
-    <eLiterals name="Eavesdropping" literal="EAVESDROPPING"/>
-    <eLiterals name="Theft_and_data_alteration" value="1" literal="THEFT_AND_DATA_ALTERATION"/>
-    <eLiterals name="Denial_of_service" value="2" literal="DENIAL_OF_SERVICE"/>
-    <eLiterals name="Intrusion" value="3" literal="INTRUSION"/>
-    <eLiterals name="Tampering" value="4" literal="TAMPERING"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PrimaryAsset" abstract="true" eSuperTypes="platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedThreatApplications"
         upperBound="-1" eType="#//ThreatApplication" containment="true"/>
@@ -113,5 +106,18 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="asset" eType="#//PrimaryAsset"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="member" eType="ecore:EClass platform:/plugin/org.polarsys.capella.common.data.core.gen/model/ModellingCore.ecore#//ModelElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CybersecurityConfiguration" eSuperTypes="platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#//NamedElement platform:/plugin/org.polarsys.kitalpha.emde/model/eMDE.ecore#//ElementExtension">
+    <eAnnotations source="http://www.polarsys.org/kitalpha/emde/1.0.0/constraint">
+      <details key="ExtendedElement" value="http://www.polarsys.org/capella/core/modeller/5.0.0#//Project"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.polarsys.org/kitalpha/emde/1.0.0/constraintMapping">
+      <details key="Mapping" value=" platform:/plugin/org.polarsys.capella.core.data.gen/model/CompositeStructure.ecore#//BlockArchitecture"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="confidentiality" eType="ecore:EClass platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#//EnumerationPropertyType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="integrity" eType="ecore:EClass platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#//EnumerationPropertyType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="traceability" eType="ecore:EClass platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#//EnumerationPropertyType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="availability" eType="ecore:EClass platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#//EnumerationPropertyType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="threatKind" eType="ecore:EClass platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#//EnumerationPropertyType"/>
   </eClassifiers>
 </ecore:EPackage>

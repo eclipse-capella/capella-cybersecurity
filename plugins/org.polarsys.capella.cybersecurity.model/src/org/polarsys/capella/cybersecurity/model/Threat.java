@@ -12,6 +12,7 @@
 package org.polarsys.capella.cybersecurity.model;
 
 import org.eclipse.emf.common.util.EList;
+import org.polarsys.capella.core.data.capellacore.EnumerationPropertyLiteral;
 import org.polarsys.capella.core.data.capellacore.NamedElement;
 import org.polarsys.capella.core.data.cs.Component;
 
@@ -23,7 +24,7 @@ import org.polarsys.capella.core.data.cs.Component;
  * </p>
  * <ul>
  *   <li>{@link org.polarsys.capella.cybersecurity.model.Threat#getAddressedBy <em>Addressed By</em>}</li>
- *   <li>{@link org.polarsys.capella.cybersecurity.model.Threat#getThreatKind <em>Threat Kind</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.Threat#getKind <em>Kind</em>}</li>
  *   <li>{@link org.polarsys.capella.cybersecurity.model.Threat#getLevel <em>Level</em>}</li>
  *   <li>{@link org.polarsys.capella.cybersecurity.model.Threat#getRationale <em>Rationale</em>}</li>
  * </ul>
@@ -54,36 +55,30 @@ public interface Threat extends NamedElement {
   EList<Component> getAddressedBy();
 
   /**
-   * Returns the value of the '<em><b>Threat Kind</b></em>' attribute.
-   * The literals are from the enumeration {@link org.polarsys.capella.cybersecurity.model.ThreatKind}.
+   * Returns the value of the '<em><b>Kind</b></em>' reference.
   
    * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Threat Kind</em>' attribute isn't clear, there really should be more of a description
-   * here...
-   * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Threat Kind</em>' attribute.
-   * @see org.polarsys.capella.cybersecurity.model.ThreatKind
-   * @see #setThreatKind(ThreatKind)
-   * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getThreat_ThreatKind()
+   * @return the value of the '<em>Kind</em>' reference.
+   * @see #setKind(EnumerationPropertyLiteral)
+   * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getThreat_Kind()
    * @model
    * @generated
    */
 
-  ThreatKind getThreatKind();
+  EnumerationPropertyLiteral getKind();
 
   /**
-   * Sets the value of the '{@link org.polarsys.capella.cybersecurity.model.Threat#getThreatKind <em>Threat Kind</em>}' attribute.
+   * Sets the value of the '{@link org.polarsys.capella.cybersecurity.model.Threat#getKind <em>Kind</em>}' reference.
   
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * @param value the new value of the '<em>Threat Kind</em>' attribute.
-   * @see org.polarsys.capella.cybersecurity.model.ThreatKind
-   * @see #getThreatKind()
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Kind</em>' reference.
+   * @see #getKind()
    * @generated
    */
 
-  void setThreatKind(ThreatKind value);
+  void setKind(EnumerationPropertyLiteral value);
 
   /**
    * Returns the value of the '<em><b>Level</b></em>' attribute.

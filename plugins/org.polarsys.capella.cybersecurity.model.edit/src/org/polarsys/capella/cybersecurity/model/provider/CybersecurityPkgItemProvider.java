@@ -248,6 +248,17 @@ public class CybersecurityPkgItemProvider extends NamedElementItemProvider imple
     // begin-extension-code
     {
       CommandParameter commandParameter = createChildParameter(
+          EmdePackage.Literals.EXTENSIBLE_ELEMENT__OWNED_EXTENSIONS,
+          CybersecurityFactory.eINSTANCE.createCybersecurityConfiguration());
+      if (NewChildDescriptorHelper.isValidCommand(object, commandParameter)) {
+        newChildDescriptors.add(commandParameter);
+      }
+    }
+    // end-extension-code
+
+    // begin-extension-code
+    {
+      CommandParameter commandParameter = createChildParameter(
           CybersecurityPackage.Literals.CYBERSECURITY_PKG__OWNED_THREATS,
           CybersecurityFactory.eINSTANCE.createThreat());
       if (NewChildDescriptorHelper.isValidCommand(object, commandParameter)) {

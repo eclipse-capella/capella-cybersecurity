@@ -378,7 +378,7 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
     }
     return super.eIsSet(featureID);
   }
-  
+
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated

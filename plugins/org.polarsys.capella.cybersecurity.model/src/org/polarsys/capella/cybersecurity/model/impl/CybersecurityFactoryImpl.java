@@ -12,7 +12,6 @@
 package org.polarsys.capella.cybersecurity.model.impl;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
@@ -31,7 +30,6 @@ import org.polarsys.capella.cybersecurity.model.SecurityNeeds;
 import org.polarsys.capella.cybersecurity.model.Threat;
 import org.polarsys.capella.cybersecurity.model.ThreatApplication;
 import org.polarsys.capella.cybersecurity.model.ThreatInvolvement;
-import org.polarsys.capella.cybersecurity.model.ThreatKind;
 import org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage;
 
 /**
@@ -95,6 +93,8 @@ public class CybersecurityFactoryImpl extends EFactoryImpl implements Cybersecur
       return createInformationPrimaryAsset();
     case CybersecurityPackage.PRIMARY_ASSET_MEMBER:
       return createPrimaryAssetMember();
+    case CybersecurityPackage.CYBERSECURITY_CONFIGURATION:
+      return createCybersecurityConfiguration();
     default:
       throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
     }
@@ -105,39 +105,10 @@ public class CybersecurityFactoryImpl extends EFactoryImpl implements Cybersecur
    * @generated
    */
   @Override
-  public Object createFromString(EDataType eDataType, String initialValue) {
-    switch (eDataType.getClassifierID()) {
-    case CybersecurityPackage.THREAT_KIND:
-      return createThreatKindFromString(eDataType, initialValue);
-    default:
-      throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
-    }
-  }
-
-  /**
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String convertToString(EDataType eDataType, Object instanceValue) {
-    switch (eDataType.getClassifierID()) {
-    case CybersecurityPackage.THREAT_KIND:
-      return convertThreatKindToString(eDataType, instanceValue);
-    default:
-      throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
-    }
-  }
-
-  /**
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * @generated
-   */
   public CybersecurityPkg createCybersecurityPkg() {
     CybersecurityPkgImpl cybersecurityPkg = new CybersecurityPkgImpl();
     //begin-capella-code
-
     cybersecurityPkg.setId(IdGenerator.createId());
-
     //end-capella-code
     return cybersecurityPkg;
   }
@@ -146,12 +117,11 @@ public class CybersecurityFactoryImpl extends EFactoryImpl implements Cybersecur
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public Threat createThreat() {
     ThreatImpl threat = new ThreatImpl();
     //begin-capella-code
-
     threat.setId(IdGenerator.createId());
-
     //end-capella-code
     return threat;
   }
@@ -160,12 +130,11 @@ public class CybersecurityFactoryImpl extends EFactoryImpl implements Cybersecur
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public ThreatInvolvement createThreatInvolvement() {
     ThreatInvolvementImpl threatInvolvement = new ThreatInvolvementImpl();
     //begin-capella-code
-
     threatInvolvement.setId(IdGenerator.createId());
-
     //end-capella-code
     return threatInvolvement;
   }
@@ -174,12 +143,11 @@ public class CybersecurityFactoryImpl extends EFactoryImpl implements Cybersecur
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public FunctionStorage createFunctionStorage() {
     FunctionStorageImpl functionStorage = new FunctionStorageImpl();
     //begin-capella-code
-
     functionStorage.setId(IdGenerator.createId());
-
     //end-capella-code
     return functionStorage;
   }
@@ -188,12 +156,11 @@ public class CybersecurityFactoryImpl extends EFactoryImpl implements Cybersecur
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public ThreatApplication createThreatApplication() {
     ThreatApplicationImpl threatApplication = new ThreatApplicationImpl();
     //begin-capella-code
-
     threatApplication.setId(IdGenerator.createId());
-
     //end-capella-code
     return threatApplication;
   }
@@ -202,12 +169,11 @@ public class CybersecurityFactoryImpl extends EFactoryImpl implements Cybersecur
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public PrimaryAssetStorage createPrimaryAssetStorage() {
     PrimaryAssetStorageImpl primaryAssetStorage = new PrimaryAssetStorageImpl();
     //begin-capella-code
-
     primaryAssetStorage.setId(IdGenerator.createId());
-
     //end-capella-code
     return primaryAssetStorage;
   }
@@ -216,12 +182,11 @@ public class CybersecurityFactoryImpl extends EFactoryImpl implements Cybersecur
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public SecurityNeeds createSecurityNeeds() {
     SecurityNeedsImpl securityNeeds = new SecurityNeedsImpl();
     //begin-capella-code
-
     securityNeeds.setId(IdGenerator.createId());
-
     //end-capella-code
     return securityNeeds;
   }
@@ -230,12 +195,11 @@ public class CybersecurityFactoryImpl extends EFactoryImpl implements Cybersecur
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public TrustBoundaryStorage createTrustBoundaryStorage() {
     TrustBoundaryStorageImpl trustBoundaryStorage = new TrustBoundaryStorageImpl();
     //begin-capella-code
-
     trustBoundaryStorage.setId(IdGenerator.createId());
-
     //end-capella-code
     return trustBoundaryStorage;
   }
@@ -244,12 +208,11 @@ public class CybersecurityFactoryImpl extends EFactoryImpl implements Cybersecur
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public FunctionalPrimaryAsset createFunctionalPrimaryAsset() {
     FunctionalPrimaryAssetImpl functionalPrimaryAsset = new FunctionalPrimaryAssetImpl();
     //begin-capella-code
-
     functionalPrimaryAsset.setId(IdGenerator.createId());
-
     //end-capella-code
     return functionalPrimaryAsset;
   }
@@ -258,12 +221,11 @@ public class CybersecurityFactoryImpl extends EFactoryImpl implements Cybersecur
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public InformationPrimaryAsset createInformationPrimaryAsset() {
     InformationPrimaryAssetImpl informationPrimaryAsset = new InformationPrimaryAssetImpl();
     //begin-capella-code
-
     informationPrimaryAsset.setId(IdGenerator.createId());
-
     //end-capella-code
     return informationPrimaryAsset;
   }
@@ -272,40 +234,34 @@ public class CybersecurityFactoryImpl extends EFactoryImpl implements Cybersecur
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public PrimaryAssetMember createPrimaryAssetMember() {
     PrimaryAssetMemberImpl primaryAssetMember = new PrimaryAssetMemberImpl();
     //begin-capella-code
-
     primaryAssetMember.setId(IdGenerator.createId());
-
     //end-capella-code
     return primaryAssetMember;
   }
 
   /**
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-  public ThreatKind createThreatKindFromString(EDataType eDataType, String initialValue) {
-    ThreatKind result = ThreatKind.get(initialValue);
-    if (result == null)
-      throw new IllegalArgumentException(
-          "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-    return result;
+  @Override
+  public CybersecurityConfiguration createCybersecurityConfiguration() {
+    CybersecurityConfigurationImpl cybersecurityConfiguration = new CybersecurityConfigurationImpl();
+    //begin-capella-code
+    cybersecurityConfiguration.setId(IdGenerator.createId());
+    //end-capella-code
+    return cybersecurityConfiguration;
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
-  public String convertThreatKindToString(EDataType eDataType, Object instanceValue) {
-    return instanceValue == null ? null : instanceValue.toString();
-  }
-
-  /**
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * @generated
-   */
+  @Override
   public CybersecurityPackage getCybersecurityPackage() {
     return (CybersecurityPackage) getEPackage();
   }
@@ -370,6 +326,19 @@ public class CybersecurityFactoryImpl extends EFactoryImpl implements Cybersecur
     InformationPrimaryAsset informationPrimaryAsset = createInformationPrimaryAsset();
     informationPrimaryAsset.setName(name_p);
     return informationPrimaryAsset;
+  }
+
+  /**
+   * Creates class and sets its name
+   * (This method comes from a customization of the standard EMF generator)
+   *
+   * @param name_p : default name of created element
+   * @generated
+   */
+  public CybersecurityConfiguration createCybersecurityConfiguration(String name_p) {
+    CybersecurityConfiguration cybersecurityConfiguration = createCybersecurityConfiguration();
+    cybersecurityConfiguration.setName(name_p);
+    return cybersecurityConfiguration;
   }
 
   // begin-capella-code

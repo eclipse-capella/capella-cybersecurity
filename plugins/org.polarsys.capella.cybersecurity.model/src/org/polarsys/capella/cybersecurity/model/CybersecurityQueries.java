@@ -39,18 +39,11 @@ import org.polarsys.capella.core.data.fa.FunctionalExchange;
 import org.polarsys.capella.core.data.information.ExchangeItem;
 import org.polarsys.capella.core.model.helpers.ComponentExchangeExt;
 import org.polarsys.capella.core.model.helpers.ComponentExt;
-import org.polarsys.capella.core.sirius.ui.helper.SessionHelper;
 import org.polarsys.capella.cybersecurity.model.impl.TrustBoundaryStorageImpl;
 import org.polarsys.kitalpha.emde.model.ElementExtension;
 import org.polarsys.kitalpha.emde.model.ExtensibleElement;
 
 public class CybersecurityQueries {
-  public static final String CYBERSECURITY_CFG_KEYWORD = "Cybersecurity Configuration";
-  public static final String CYBERSECURITY_CFG_SECURITY_CONFIDENTIALITY_KEYWORD = "Security.Confidentiality";
-  public static final String CYBERSECURITY_CFG_SECURITY_INTEGRITY_KEYWORD = "Security.Integrity";
-  public static final String CYBERSECURITY_CFG_SECURITY_TRACEABILITY_KEYWORD = "Security.Traceability";
-  public static final String CYBERSECURITY_CFG_SECURITY_AVAILABILITY_KEYWORD = "Security.Availability";
-  
   public static SecurityNeeds getSecurityNeeds(ExtensibleElement e) {
     for (ElementExtension ee : e.getOwnedExtensions()) {
       if (ee instanceof SecurityNeeds) {
@@ -326,6 +319,15 @@ public class CybersecurityQueries {
     }
   }
   
+
+  public static void setThreatKindFromIndex(Threat threat, int index, EnumerationPropertyType type) {
+    if (type != null && threat != null) {
+      EnumerationPropertyLiteral newValue = getLiteralOnIndex(type, index);
+      if(newValue != null)
+        threat.setKind(newValue);
+    }
+  }
+  
   private static int getIndexOfLiteral(EnumerationPropertyLiteral property) {
     EnumerationPropertyType type = (EnumerationPropertyType) property.eContainer();
     return  type == null ? 0 : type.getOwnedLiterals().indexOf(property);
@@ -589,17 +591,10 @@ public class CybersecurityQueries {
   }
   
   public static SecurityNeeds reduceSecurityNeeds(SecurityNeeds result, SecurityNeeds a) {
-    EnumerationPropertyType typeA = getEnumerationPropertyType(CYBERSECURITY_CFG_SECURITY_AVAILABILITY_KEYWORD, a);
-    typeA = typeA != null ? typeA : getEnumerationPropertyType(CYBERSECURITY_CFG_SECURITY_AVAILABILITY_KEYWORD, result);
-    
-    EnumerationPropertyType typeC = getEnumerationPropertyType(CYBERSECURITY_CFG_SECURITY_CONFIDENTIALITY_KEYWORD, a);
-    typeC = typeC != null ? typeC : getEnumerationPropertyType(CYBERSECURITY_CFG_SECURITY_CONFIDENTIALITY_KEYWORD, result);
-    
-    EnumerationPropertyType typeI = getEnumerationPropertyType(CYBERSECURITY_CFG_SECURITY_INTEGRITY_KEYWORD, a);
-    typeI = typeI != null ? typeI : getEnumerationPropertyType(CYBERSECURITY_CFG_SECURITY_INTEGRITY_KEYWORD, result);
-    
-    EnumerationPropertyType typeT = getEnumerationPropertyType(CYBERSECURITY_CFG_SECURITY_TRACEABILITY_KEYWORD, a);
-    typeT = typeT != null ? typeT : getEnumerationPropertyType(CYBERSECURITY_CFG_SECURITY_TRACEABILITY_KEYWORD, result);
+    EnumerationPropertyType typeA = getAvailabilityPropertyType(a) != null ? getAvailabilityPropertyType(a) : getAvailabilityPropertyType(result);
+    EnumerationPropertyType typeC = getConfidentialityPropertyType(a) != null ? getConfidentialityPropertyType(a) : getConfidentialityPropertyType(result);
+    EnumerationPropertyType typeI = getIntegrityPropertyType(a) != null ? getIntegrityPropertyType(a) : getIntegrityPropertyType(result);
+    EnumerationPropertyType typeT = getTraceabilityPropertyType(a) != null ? getTraceabilityPropertyType(a) : getTraceabilityPropertyType(result);
     
     setAvailabilityFromIndex(result, Math.max(getAvailabilityIndex(result), getAvailabilityIndex(a)), typeA);
     setConfidentialityFromIndex(result, Math.max(getConfidentialityIndex(result), getConfidentialityIndex(a)), typeC);
@@ -630,64 +625,97 @@ public class CybersecurityQueries {
     }
   }
 
-  /*
-   * type is deduced from SecurityNeeds sn
-   */
-  public static EnumerationPropertyType getEnumerationPropertyType(String configType, SecurityNeeds sn) {
-    if(sn != null) {
-      switch (configType) {
-      case CYBERSECURITY_CFG_SECURITY_CONFIDENTIALITY_KEYWORD:
-        return sn.getConfidentiality() != null && (sn.getConfidentiality().eContainer() instanceof EnumerationPropertyType) ?
-        (EnumerationPropertyType) sn.getConfidentiality().eContainer() : null;
-      case CYBERSECURITY_CFG_SECURITY_INTEGRITY_KEYWORD:
-        return sn.getIntegrity() != null && (sn.getIntegrity().eContainer() instanceof EnumerationPropertyType) ?
-        (EnumerationPropertyType) sn.getIntegrity().eContainer() : null;
-      case CYBERSECURITY_CFG_SECURITY_TRACEABILITY_KEYWORD:
-        return sn.getTraceability() != null && (sn.getTraceability().eContainer() instanceof EnumerationPropertyType) ?
-        (EnumerationPropertyType) sn.getTraceability().eContainer() : null;
-      case CYBERSECURITY_CFG_SECURITY_AVAILABILITY_KEYWORD:
-        return sn.getAvailability() != null && (sn.getAvailability().eContainer() instanceof EnumerationPropertyType) ?
-        (EnumerationPropertyType) sn.getAvailability().eContainer() : null;
-      default:
-        break;
+  public static CybersecurityConfiguration getCybersecurityConfiguration(Project project) {
+    if (project != null) {
+      Optional<ElementExtension> result = project.getOwnedExtensions().stream()
+          .filter(x -> x instanceof CybersecurityConfiguration).findFirst();
+      if (result.isPresent()) {
+        return (CybersecurityConfiguration) result.get();
       }
     }
     return null;
   }
   
-  public static EnumerationPropertyType getEnumerationPropertyType(String configType, Project project) {
-    if (project != null) {
-      Optional<ElementExtension> result = project.getOwnedExtensions().stream()
-          .filter(x -> x instanceof CybersecurityPkg).findFirst();
-      if (result.isPresent()) {
-        CybersecurityPkg pkg = (CybersecurityPkg) result.get();
-        Optional<EnumerationPropertyType> result1 = pkg.getOwnedEnumerationPropertyTypes().stream()
-            .filter(x -> x.getName().equals(configType)).findFirst();
-        if (result1.isPresent()) {
-          return result1.get();
-        }
-      }
+  /*
+   * type is deduced from SecurityNeeds sn
+   */
+  public static EnumerationPropertyType getConfidentialityPropertyType(SecurityNeeds sn) {
+    return sn.getConfidentiality() != null && (sn.getConfidentiality().eContainer() instanceof EnumerationPropertyType) ?
+        (EnumerationPropertyType) sn.getConfidentiality().eContainer() : null;
+  }
+  
+  public static EnumerationPropertyType getIntegrityPropertyType(SecurityNeeds sn) {
+    return sn.getConfidentiality() != null && (sn.getIntegrity().eContainer() instanceof EnumerationPropertyType) ?
+        (EnumerationPropertyType) sn.getConfidentiality().eContainer() : null;
+  }
+  
+  public static EnumerationPropertyType getTraceabilityPropertyType(SecurityNeeds sn) {
+    return sn.getConfidentiality() != null && (sn.getTraceability().eContainer() instanceof EnumerationPropertyType) ?
+        (EnumerationPropertyType) sn.getConfidentiality().eContainer() : null;
+  }
+  
+  public static EnumerationPropertyType getAvailabilityPropertyType(SecurityNeeds sn) {
+    return sn.getConfidentiality() != null && (sn.getAvailability().eContainer() instanceof EnumerationPropertyType) ?
+        (EnumerationPropertyType) sn.getConfidentiality().eContainer() : null;
+  }
+  
+  public static EnumerationPropertyType getConfidentialityPropertyType(Project project) {
+    CybersecurityConfiguration config = getCybersecurityConfiguration(project);
+    if (config != null) {
+      return config.getConfidentiality();
+    }
+    return null;
+  }
+  
+  public static EnumerationPropertyType getIntegrityPropertyType(Project project) {
+    CybersecurityConfiguration config = getCybersecurityConfiguration(project);
+    if (config != null) {
+      return config.getIntegrity();
+    }
+    return null;
+  }
+  
+  public static EnumerationPropertyType getTraceabilityPropertyType(Project project) {
+    CybersecurityConfiguration config = getCybersecurityConfiguration(project);
+    if (config != null) {
+      return config.getTraceability();
+    }
+    return null;
+  }
+  
+  public static EnumerationPropertyType getAvailabilityPropertyType(Project project) {
+    CybersecurityConfiguration config = getCybersecurityConfiguration(project);
+    if (config != null) {
+      return config.getAvailability();
+    }
+    return null;
+  }
+  
+  public static EnumerationPropertyType getThreatKindPropertyType(Project project) {
+    CybersecurityConfiguration config = getCybersecurityConfiguration(project);
+    if (config != null) {
+      return config.getThreatKind();
     }
     return null;
   }
   
   public static int getConfidentialitySize(Project project) {
-    EnumerationPropertyType type = getEnumerationPropertyType(CYBERSECURITY_CFG_SECURITY_CONFIDENTIALITY_KEYWORD, project);
+    EnumerationPropertyType type = getConfidentialityPropertyType(project);
     return type == null ? 0 : type.getOwnedLiterals().size();
   }
 
   public static int getIntegritySize(Project project) {
-    EnumerationPropertyType type = getEnumerationPropertyType(CYBERSECURITY_CFG_SECURITY_INTEGRITY_KEYWORD, project);
+    EnumerationPropertyType type = getIntegrityPropertyType(project);
     return type == null ? 0 : type.getOwnedLiterals().size();
   }
 
   public static int getAvailabilitySize(Project project) {
-    EnumerationPropertyType type = getEnumerationPropertyType(CYBERSECURITY_CFG_SECURITY_AVAILABILITY_KEYWORD, project);
+    EnumerationPropertyType type = getAvailabilityPropertyType(project);
     return type == null ? 0 : type.getOwnedLiterals().size();
   }
 
   public static int getTraceabilitySize(Project project) {
-    EnumerationPropertyType type = getEnumerationPropertyType(CYBERSECURITY_CFG_SECURITY_TRACEABILITY_KEYWORD, project);
+    EnumerationPropertyType type = getTraceabilityPropertyType(project);
     return type == null ? 0 : type.getOwnedLiterals().size();
   }
 }

@@ -16,7 +16,17 @@ Require-Bundle: org.polarsys.capella.core.model.helpers,
  org.eclipse.sirius.ui,
  org.polarsys.capella.core.sirius.ui,
  org.polarsys.kitalpha.ad.services,
- org.polarsys.capella.core.libraries
+ org.polarsys.capella.core.libraries,
+ org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.emf.ecore.xmi;visibility:=reexport,
+ org.polarsys.kitalpha.emde.model;visibility:=reexport,
+ org.polarsys.capella.core.data.gen;visibility:=reexport,
+ org.polarsys.capella.common.data.core.gen;visibility:=reexport,
+ org.polarsys.capella.common.data.activity.gen;visibility:=reexport,
+ org.polarsys.capella.common.data.behavior.gen;visibility:=reexport,
+ org.polarsys.capella.core.data.helpers;visibility:=reexport,
+ org.polarsys.kitalpha.emde.xmi;visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Automatic-Module-Name: org.polarsys.capella.cybersecurity.model
 Bundle-Activator: org.polarsys.capella.cybersecurity.model.activator.CybersecurityModelActivator

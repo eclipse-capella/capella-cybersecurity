@@ -152,6 +152,11 @@ public class CybersecurityAdapterFactory extends AdapterFactoryImpl {
     }
 
     @Override
+    public Adapter caseCybersecurityConfiguration(CybersecurityConfiguration object) {
+      return createCybersecurityConfigurationAdapter();
+    }
+
+    @Override
     public Adapter caseElement(Element object) {
       return createElementAdapter();
     }
@@ -374,6 +379,20 @@ public class CybersecurityAdapterFactory extends AdapterFactoryImpl {
    * @generated
    */
   public Adapter createPrimaryAssetMemberAdapter() {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.polarsys.capella.cybersecurity.model.CybersecurityConfiguration <em>Configuration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.polarsys.capella.cybersecurity.model.CybersecurityConfiguration
+   * @generated
+   */
+  public Adapter createCybersecurityConfigurationAdapter() {
     return null;
   }
 
