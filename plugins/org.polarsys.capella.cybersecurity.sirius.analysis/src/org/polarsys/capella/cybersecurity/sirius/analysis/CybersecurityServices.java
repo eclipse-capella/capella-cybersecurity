@@ -78,6 +78,7 @@ import org.polarsys.capella.core.data.interaction.SequenceMessage;
 import org.polarsys.capella.core.data.interaction.StateFragment;
 import org.polarsys.capella.core.data.pa.PhysicalComponent;
 import org.polarsys.capella.core.data.pa.PhysicalComponentNature;
+import org.polarsys.capella.core.data.pa.PhysicalFunction;
 import org.polarsys.capella.core.model.helpers.BlockArchitectureExt;
 import org.polarsys.capella.core.model.helpers.FunctionalChainExt;
 import org.polarsys.capella.core.model.helpers.ComponentExt;
@@ -678,6 +679,11 @@ public class CybersecurityServices {
     // - element is a ComponentExchange
     // - element is a PhysicalLink
 
+    //filter out PhysicalFunctions
+    if (element instanceof PhysicalFunction) {
+      return false;
+    }
+    
     TransactionalEditingDomain domain = TransactionHelper.getEditingDomain(element);
     if (domain instanceof SemanticEditingDomain) {
       DDiagram diagram = CapellaServices.getService().getDiagramContainer(view);
@@ -778,7 +784,7 @@ public class CybersecurityServices {
     // get related assets
     List<PrimaryAsset> relatedAssets = allocatedFunctions.stream().map(func -> getRelatedAssets(func))
         .flatMap(Collection::stream).distinct().collect(Collectors.toList());
-    return relatedAssets.stream().distinct().collect(Collectors.toList());
+    return relatedAssets;
   }
 
   public String getAssetDecorationBorderSize(DSemanticDecorator view) {
@@ -808,7 +814,7 @@ public class CybersecurityServices {
     if (view instanceof AbstractDNode) {
       EObject e = view.getTarget();
 
-      if (!mustHighlightComponent(e)) {
+      if (!isSupportingAssetHighlightedComponent(e)) {
         return "1";
       }
 
@@ -832,7 +838,7 @@ public class CybersecurityServices {
     return null;
   }
 
-  private boolean mustHighlightComponent(EObject element) {
+  private boolean isSupportingAssetHighlightedComponent(EObject element) {
     if (!(element instanceof Part)) {
       return false;
     }
@@ -848,7 +854,7 @@ public class CybersecurityServices {
     return allocatedFunctions.size() > 0 ? true : false;
   }
 
-  private boolean mustHighlightExchange(EObject element) {
+  private boolean isSupportingAssetHighlightedExchange(EObject element) {
     // filter out the FunctionalExchanges, they will be considered in Assets Layer
     if (element instanceof FunctionalExchange) {
       return false;
@@ -883,7 +889,7 @@ public class CybersecurityServices {
     if (view instanceof DEdge) {
       EObject e = view.getTarget();
 
-      if (!mustHighlightExchange(e)) {
+      if (!isSupportingAssetHighlightedExchange(e)) {
         return "1";
       }
 
