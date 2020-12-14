@@ -10,15 +10,17 @@
  *******************************************************************************/
 package org.polarsys.capella.cybersecurity.test.diagram;
 
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
+
 import org.eclipse.emf.transaction.RollbackException;
 import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.DEdge;
 import org.eclipse.sirius.diagram.DNode;
 import org.eclipse.sirius.diagram.EdgeStyle;
 import org.eclipse.sirius.diagram.Square;
+import org.eclipse.sirius.diagram.impl.SquareImpl;
 import org.eclipse.sirius.viewpoint.RGBValues;
+import org.eclipse.sirius.viewpoint.Style;
 import org.polarsys.capella.common.data.modellingcore.AbstractType;
 import org.polarsys.capella.common.data.modellingcore.ModelElement;
 import org.polarsys.capella.core.data.cs.Part;
@@ -26,12 +28,11 @@ import org.polarsys.capella.core.data.cs.PhysicalLink;
 import org.polarsys.capella.core.data.fa.ComponentExchange;
 import org.polarsys.capella.core.data.fa.ComponentExchangeFunctionalExchangeAllocation;
 import org.polarsys.capella.core.data.fa.FaFactory;
+import org.polarsys.capella.core.data.fa.FunctionalChain;
 import org.polarsys.capella.core.data.fa.FunctionalExchange;
 import org.polarsys.capella.core.data.information.DataPkg;
 import org.polarsys.capella.core.data.information.ExchangeItem;
 import org.polarsys.capella.core.data.information.InformationFactory;
-import org.polarsys.capella.core.data.pa.PaFactory;
-import org.polarsys.capella.core.data.pa.PhysicalComponent;
 import org.polarsys.capella.core.data.pa.PhysicalFunction;
 import org.polarsys.capella.cybersecurity.model.CybersecurityFactory;
 import org.polarsys.capella.cybersecurity.model.CybersecurityQueries;
@@ -46,7 +47,6 @@ import org.polarsys.capella.cybersecurity.test.common.TransactionalEditingDomain
 import org.polarsys.capella.test.diagram.tools.ju.model.EmptyProject;
 import org.polarsys.capella.test.framework.context.SessionContext;
 import org.polarsys.kitalpha.ad.services.manager.ViewpointManager;
-import org.polarsys.kitalpha.emde.model.ElementExtension;
 
 public class CyberPABDiagramTest extends EmptyProject {
 
@@ -198,6 +198,55 @@ public class CyberPABDiagramTest extends EmptyProject {
       assertTrue(CybersecurityQueries.isTrustBoundary(functionalExchange));
       assertTrue(CybersecurityQueries.isTrustBoundary(physicalLink));
       assertTrue(CybersecurityQueries.isTrustBoundary(componentExchange));
+      
+    });
+    
+    executeCommand(() -> {
+      // create an actor
+      String actorId = diagram.createActor("actor", diagram.getDiagramId());
+
+      // create three functions inside the actor and functional exchange between them
+      String function1 = diagram.createFunction("function1", actorId);
+      String function2 = diagram.createFunction("function2", actorId);
+      String function3 = diagram.createFunction("function3", actorId);
+      diagram.createFunctionalExchange(function1, function2, "functionalExchange");
+      diagram.createFunctionalExchange(function2, function3, "functionalExchange2");
+
+      // create two functional chains
+      diagram.createFunctionalChain("path", "functionalExchange");
+      FunctionalChain funcChain = (FunctionalChain) diagram.getSemanticObjectMap().get("path");
+
+      diagram.createFunctionalChain("path2", "functionalExchange2");
+      FunctionalChain funcChain2 = (FunctionalChain) diagram.getSemanticObjectMap().get("path2");
+
+      // create a functional primary asset and add the functional chains as members
+      fpa = services.createFunctionalPrimaryAsset(context.getSemanticElement(PA__PHYSICAL_SYSTEM));
+      PrimaryAssetMember m1 = CybersecurityFactory.eINSTANCE.createPrimaryAssetMember();
+      PrimaryAssetMember m2 = CybersecurityFactory.eINSTANCE.createPrimaryAssetMember();
+      m1.setMember(funcChain2);
+      m1.setMember(funcChain);
+      fpa.getOwnedMembers().add(m1);
+      fpa.getOwnedMembers().add(m2);
+      diagram.insertPrimaryAsset(fpa);
+
+      // remove functional chains
+      diagram.removeFunctionalChain("path");
+      diagram.removeFunctionalChain("path2");
+
+      // get view and style for one function and the primaryAsset
+      DDiagramElement functionView = diagram.getView(diagram.getSemanticObjectMap().get("function1"));
+      Style functionStyle = functionView.getStyle();
+      DDiagramElement primaryAssetView = diagram.getView(diagram.getSemanticObjectMap().get(fpa.getId()));
+      Style primaryAssetStyle = primaryAssetView.getStyle();
+
+      // assert that the border color of the function and the primaryAsset are the same
+      assertEquals(((SquareImpl) functionStyle).getBorderColor(), ((SquareImpl) primaryAssetStyle).getColor());
+
+      // get view and style for the middle function
+      DDiagramElement middleFunctionView = diagram.getView(diagram.getSemanticObjectMap().get("function2"));
+      Style middleFunctionStyle = middleFunctionView.getStyle();
+
+      assertEquals(((SquareImpl) middleFunctionStyle).getBorderColor(), ((SquareImpl) primaryAssetStyle).getColor());
     });
     
 //    this dumps a screenshot..
