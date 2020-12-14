@@ -59,6 +59,9 @@ public class EnumerationLiterealValueRadioGroup extends AbstractSemanticKindGrou
   protected Group createGroup(Composite parent, String label, boolean enabled, int numColumns) {
     super.createGroup(parent, label, enabled, numColumns);
     _group.setLayout(new GridLayout(numColumns, false));
+    GridData gd = new GridData(GridData.FILL_HORIZONTAL | GridData.FILL_VERTICAL);
+    gd.horizontalSpan = ((GridLayout) parent.getLayout()).numColumns;
+    _group.setLayoutData(gd);
     return _group;
   }
 
