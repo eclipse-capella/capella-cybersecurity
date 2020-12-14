@@ -194,7 +194,7 @@ public class CybersecurityServices {
     if (diagram != null) {
       int nbOfElements = 0;
       int color = 0;
-      for (PrimaryAsset asset : getRelatedAssets(e)) {
+      for (PrimaryAsset asset : getRelatedAssets(e).stream().collect(Collectors.toSet())) {
         DDiagramElement element = DiagramServices.getDiagramServices().getDiagramElement(diagram, asset);
         if (element != null && element instanceof DNode) {
           nbOfElements++;
@@ -219,7 +219,7 @@ public class CybersecurityServices {
     if (diagram != null) {
       int nbOfElements = 0;
       int color = 0;
-      for (PrimaryAsset asset : getRelatedAssets(e)) {
+      for (PrimaryAsset asset : getRelatedAssets(e).stream().collect(Collectors.toSet())) {
         DDiagramElement element = DiagramServices.getDiagramServices().getDiagramElement(diagram, asset);
         if (element != null && element instanceof DNode) {
           nbOfElements++;
@@ -244,7 +244,7 @@ public class CybersecurityServices {
     if (diagram != null) {
       int nbOfElements = 0;
       int color = 0;
-      for (PrimaryAsset asset : getRelatedAssets(e)) {
+      for (PrimaryAsset asset : getRelatedAssets(e).stream().collect(Collectors.toSet())) {
         DDiagramElement element = DiagramServices.getDiagramServices().getDiagramElement(diagram, asset);
         if (element != null && element instanceof DNode) {
           nbOfElements++;
@@ -740,8 +740,15 @@ public class CybersecurityServices {
     EObject target = view.getTarget();
     DDiagram diagram = CapellaServices.getService().getDiagramContainer(view);
 
-    if (diagram != null && target instanceof AbstractFunction) {
-      EList<FunctionalChain> functionalChains = ((AbstractFunction) target).getInvolvingFunctionalChains();
+    if (diagram != null ) {
+      EList<FunctionalChain> functionalChains = null;
+      if (target instanceof AbstractFunction) {
+       functionalChains = ((AbstractFunction) target).getInvolvingFunctionalChains();
+      }
+      if (target instanceof FunctionalExchange) {
+        functionalChains = ((FunctionalExchange) target).getInvolvingFunctionalChains();
+      }
+      
       if (functionalChains.size() > 1) {
         boolean allFunctionalChainsAreRemoved = true;
         for (FunctionalChain fc : functionalChains) {
@@ -752,6 +759,8 @@ public class CybersecurityServices {
         if (allFunctionalChainsAreRemoved) {
           ShapeUtil.removeCustomisation(ShapeUtil.getCurrentStyle((DDiagramElement) view),
               new EStructuralFeature[] { DiagramPackage.Literals.BORDERED_STYLE__BORDER_COLOR });
+          ShapeUtil.removeCustomisation(ShapeUtil.getCurrentStyle((DDiagramElement) view),
+              new EStructuralFeature[] { DiagramPackage.Literals.EDGE_STYLE__STROKE_COLOR });
         }
       }
     }
