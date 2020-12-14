@@ -251,7 +251,8 @@ public class CybersecurityQueries {
   }
 
   public static Stream<FunctionalPrimaryAsset> getFunctionalPrimaryAssets(Component c) {
-    return c.getAllocatedFunctions().stream().flatMap(af -> getFunctionalPrimaryAssets(af)).distinct();
+    return ComponentExt.getAllSubUsedAndDeployedComponents(c).stream().map(cmp -> cmp.getAllocatedFunctions())
+    .flatMap(List::stream).flatMap(af -> getFunctionalPrimaryAssets(af)).distinct();
   }
 
   public static Stream<InformationPrimaryAsset> getInformationPrimaryAssets(Component c) {
@@ -582,10 +583,10 @@ public class CybersecurityQueries {
           .filter(SecurityNeeds.class::isInstance).map(SecurityNeeds.class::cast);
       SecurityNeeds max = Stream.concat(fsn, isn).reduce(CybersecurityFactory.eINSTANCE.createSecurityNeeds(),
           CybersecurityQueries::reduceSecurityNeeds);
-      return Arrays.asList("Confidentiality: " + max.getConfidentiality(), //$NON-NLS-1$
-          "Integrity: " + max.getIntegrity(), //$NON-NLS-1$
-          "Availability: " + max.getAvailability(), //$NON-NLS-1$
-          "Traceability: " + max.getTraceability()); //$NON-NLS-1$
+      return Arrays.asList("Confidentiality: " + CybersecurityQueries.getConfidentialityIndex(max), //$NON-NLS-1$
+          "Integrity: " + CybersecurityQueries.getIntegrityIndex(max), //$NON-NLS-1$
+          "Availability: " + CybersecurityQueries.getAvailabilityIndex(max), //$NON-NLS-1$
+          "Traceability: " + CybersecurityQueries.getTraceabilityIndex(max)); //$NON-NLS-1$
     }
 
   }
@@ -645,18 +646,18 @@ public class CybersecurityQueries {
   }
   
   public static EnumerationPropertyType getIntegrityPropertyType(SecurityNeeds sn) {
-    return sn.getConfidentiality() != null && (sn.getIntegrity().eContainer() instanceof EnumerationPropertyType) ?
-        (EnumerationPropertyType) sn.getConfidentiality().eContainer() : null;
+    return sn.getIntegrity() != null && (sn.getIntegrity().eContainer() instanceof EnumerationPropertyType) ?
+        (EnumerationPropertyType) sn.getIntegrity().eContainer() : null;
   }
   
   public static EnumerationPropertyType getTraceabilityPropertyType(SecurityNeeds sn) {
-    return sn.getConfidentiality() != null && (sn.getTraceability().eContainer() instanceof EnumerationPropertyType) ?
-        (EnumerationPropertyType) sn.getConfidentiality().eContainer() : null;
+    return sn.getTraceability() != null && (sn.getTraceability().eContainer() instanceof EnumerationPropertyType) ?
+        (EnumerationPropertyType) sn.getTraceability().eContainer() : null;
   }
   
   public static EnumerationPropertyType getAvailabilityPropertyType(SecurityNeeds sn) {
-    return sn.getConfidentiality() != null && (sn.getAvailability().eContainer() instanceof EnumerationPropertyType) ?
-        (EnumerationPropertyType) sn.getConfidentiality().eContainer() : null;
+    return sn.getAvailability() != null && (sn.getAvailability().eContainer() instanceof EnumerationPropertyType) ?
+        (EnumerationPropertyType) sn.getAvailability().eContainer() : null;
   }
   
   public static EnumerationPropertyType getConfidentialityPropertyType(Project project) {

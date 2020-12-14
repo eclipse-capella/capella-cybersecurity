@@ -87,10 +87,8 @@ public class ThreatSection extends AbstractSection {
     Session session = SessionManager.INSTANCE.getSession(element);
     Project project = SessionHelper.getCapellaProject(session);
     
-    EnumerationPropertyType type = CybersecurityQueries.getThreatKindPropertyType(project);
-    int numCols = type != null ? 3 : 1;
     threatKindGroup = new EnumerationLiterealValueRadioGroup(rootParentComposite, CybersecurityEditPlugin.INSTANCE.getString("_UI_Threat_threatKind_feature"),
-        type,
-        getWidgetFactory(), numCols); 
+        CybersecurityQueries.getThreatKindPropertyType(project),
+        getWidgetFactory(), 3); 
   }
 }

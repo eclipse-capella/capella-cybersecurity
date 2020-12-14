@@ -184,9 +184,8 @@ public class SecurityNeedsSection extends AbstractSection {
       compo.setLayout(gl);
       compo.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
       // we display at least one column (display undefined if no configuration is found)
-      int numCols = Math.max(type != null ? type.getOwnedLiterals().size() : 1, 1);
       EnumerationLiterealValueRadioGroup result = new EnumerationLiterealValueRadioGroup(compo, label, type,
-          getWidgetFactory(), numCols);
+          getWidgetFactory(), 4);
       result.setDisplayedInWizard(isDisplayedInWizard());
       return result;
     }
