@@ -23,6 +23,7 @@ import org.eclipse.sirius.viewpoint.RGBValues;
 import org.eclipse.sirius.viewpoint.Style;
 import org.polarsys.capella.common.data.modellingcore.AbstractType;
 import org.polarsys.capella.common.data.modellingcore.ModelElement;
+import org.polarsys.capella.core.data.cs.InterfacePkg;
 import org.polarsys.capella.core.data.cs.Part;
 import org.polarsys.capella.core.data.cs.PhysicalLink;
 import org.polarsys.capella.core.data.fa.ComponentExchange;
@@ -248,6 +249,50 @@ public class CyberPABDiagramTest extends EmptyProject {
 
       assertEquals(((SquareImpl) middleFunctionStyle).getBorderColor(), ((SquareImpl) primaryAssetStyle).getColor());
     });
+    
+    executeCommand(() -> {
+      // create an actor
+      String actor3Id = diagram.createActor("actor3", diagram.getDiagramId());
+
+      // create two functions inside the actor and a functional exchange between them
+      String function1Id = diagram.createFunction("funct1", actor3Id);
+      String function2Id = diagram.createFunction("funct2", actor3Id);
+      diagram.createFunctionalExchange(function1Id, function2Id, "exchange");
+
+      // create an exchange item and add to interfaces
+      ExchangeItem exchangeItem1 = InformationFactory.eINSTANCE.createExchangeItem();
+      InterfacePkg pkg = context.getSemanticElement(PA__INTERFACES);
+      pkg.getOwnedExchangeItems().add(exchangeItem1);
+
+      // add exchange item to functional exchange and information primary assets
+      FunctionalExchange fe = (FunctionalExchange) diagram.getSemanticObjectMap().get("exchange");
+      fe.getExchangedItems().add(exchangeItem1);
+      PrimaryAssetMember member1 = CybersecurityFactory.eINSTANCE.createPrimaryAssetMember();
+      member1.setMember(exchangeItem1);
+
+      InformationPrimaryAsset ipa1 = services
+          .createInformationPrimaryAsset(context.getSemanticElement(PA__PHYSICAL_SYSTEM));
+      ipa1.getOwnedMembers().add(member1);
+      diagram.insertPrimaryAsset(ipa1);
+      DDiagramElement exchangeView = diagram.getView(fe);
+      Style exchangeStyle = exchangeView.getStyle();
+
+      DDiagramElement informationAssetView = diagram.getView(diagram.getSemanticObjectMap().get(ipa1.getId()));
+      Style informationAssetStyle = informationAssetView.getStyle();
+      assertEquals(((EdgeStyle) exchangeStyle).getStrokeColor(), ((Square) informationAssetStyle).getColor());
+
+      InformationPrimaryAsset ipa2 = services
+          .createInformationPrimaryAsset(context.getSemanticElement(PA__PHYSICAL_SYSTEM));
+      PrimaryAssetMember member2 = CybersecurityFactory.eINSTANCE.createPrimaryAssetMember();
+      member2.setMember(exchangeItem1);
+      ipa2.getOwnedMembers().add(member2);
+      diagram.insertPrimaryAsset(ipa2);
+      diagram.refreshDiagram();
+      assertEquals(((EdgeStyle) exchangeStyle).getStrokeColor().getBlue(), 0);
+      assertEquals(((EdgeStyle) exchangeStyle).getStrokeColor().getRed(), 0);
+      assertEquals(((EdgeStyle) exchangeStyle).getStrokeColor().getGreen(), 0);
+    });
+    
     
 //    this dumps a screenshot..
 //    ExportFormat format = new ExportFormat(ExportDocumentFormat.NONE, ImageFileFormat.PNG);
