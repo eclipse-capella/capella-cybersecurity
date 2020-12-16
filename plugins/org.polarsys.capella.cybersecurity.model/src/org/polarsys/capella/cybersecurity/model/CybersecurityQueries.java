@@ -23,6 +23,8 @@ import java.util.stream.Stream;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
 import org.polarsys.capella.common.helpers.EObjectExt;
 import org.polarsys.capella.common.helpers.query.IQuery;
 import org.polarsys.capella.core.data.capellacore.EnumerationPropertyLiteral;
@@ -39,6 +41,7 @@ import org.polarsys.capella.core.data.fa.FunctionalExchange;
 import org.polarsys.capella.core.data.information.ExchangeItem;
 import org.polarsys.capella.core.model.helpers.ComponentExchangeExt;
 import org.polarsys.capella.core.model.helpers.ComponentExt;
+import org.polarsys.capella.core.sirius.ui.helper.SessionHelper;
 import org.polarsys.capella.cybersecurity.model.impl.TrustBoundaryStorageImpl;
 import org.polarsys.kitalpha.emde.model.ElementExtension;
 import org.polarsys.kitalpha.emde.model.ExtensibleElement;
@@ -249,10 +252,9 @@ public class CybersecurityQueries {
     }
     return result.stream();
   }
-
+  
   public static Stream<FunctionalPrimaryAsset> getFunctionalPrimaryAssets(Component c) {
-    return ComponentExt.getAllSubUsedAndDeployedComponents(c).stream().map(cmp -> cmp.getAllocatedFunctions())
-    .flatMap(List::stream).flatMap(af -> getFunctionalPrimaryAssets(af)).distinct();
+    return c.getAllocatedFunctions().stream().flatMap(af -> getFunctionalPrimaryAssets(af)).distinct();
   }
 
   public static Stream<InformationPrimaryAsset> getInformationPrimaryAssets(Component c) {
@@ -270,6 +272,39 @@ public class CybersecurityQueries {
         : IntStream.of(getConfidentialityIndex(sn), getIntegrityIndex(sn),
             getTraceabilityIndex(sn), getAvailabilityIndex(sn)).max()
             .getAsInt();
+  }
+
+  /*
+   * the default security need level is the one on the first position in the literal (index 0)
+   */
+  public static String getDefaultSecurityNeedValue(EnumerationPropertyType type) {
+    EnumerationPropertyLiteral literal = getLiteralOnIndex(type, 0);
+    return literal != null ? literal.getName() : null;
+  }  
+  
+  /*
+   * get the value of the stored confidentiality security need;
+   * if confidentiality is not set, return as default value, the value on index 0 in the configuration type of confidentiality.
+   */
+  public static String getConfidentialityValue(SecurityNeeds sn, Project project) {
+    return sn != null && sn.getConfidentiality() != null
+        ? sn.getConfidentiality().getName()
+        : getDefaultSecurityNeedValue(getConfidentialityPropertyType(project));
+  }
+  
+  public static String getIntegrityValue(SecurityNeeds sn, Project project) {
+    return sn != null && sn.getIntegrity() != null ? sn.getIntegrity().getName()
+      : getDefaultSecurityNeedValue(getIntegrityPropertyType(project));
+  }
+  
+  public static String getTraceabilityValue(SecurityNeeds sn, Project project) {
+    return sn != null && sn.getTraceability() != null ? sn.getTraceability().getName()
+        : getDefaultSecurityNeedValue(getTraceabilityPropertyType(project));
+  }
+  
+  public static String getAvailabilityValue(SecurityNeeds sn, Project project) {
+    return sn != null && sn.getAvailability() != null ? sn.getAvailability().getName()
+        : getDefaultSecurityNeedValue(getAvailabilityPropertyType(project));
   }
   
   public static int getConfidentialityIndex(SecurityNeeds sn) {
@@ -335,7 +370,7 @@ public class CybersecurityQueries {
   }
   
   private static EnumerationPropertyLiteral getLiteralOnIndex(EnumerationPropertyType type, int index) {
-    return  index >= 0 && index < type.getOwnedLiterals().size() ? type.getOwnedLiterals().get(index) : null;
+    return  index >= 0 && type != null && index < type.getOwnedLiterals().size() ? type.getOwnedLiterals().get(index) : null;
   }
 
   public static Stream<FunctionalExchange> getAllocatingFunctionalExchanges(ExchangeItem ei) {
@@ -575,20 +610,31 @@ public class CybersecurityQueries {
   public static class Component__MaxCIAT implements IQuery {
     @Override
     public List<Object> compute(Object object) {
-      Stream<SecurityNeeds> fsn = getFunctionalPrimaryAssets(((Component) object))
-          .flatMap(fpa -> fpa.getFunctions().stream()).flatMap(af -> af.getOwnedExtensions().stream())
-          .filter(SecurityNeeds.class::isInstance).map(SecurityNeeds.class::cast);
-      Stream<SecurityNeeds> isn = getInformationPrimaryAssets(((Component) object))
-          .flatMap(ipa -> ipa.getExchangeItems().stream()).flatMap(ei -> ei.getOwnedExtensions().stream())
-          .filter(SecurityNeeds.class::isInstance).map(SecurityNeeds.class::cast);
-      SecurityNeeds max = Stream.concat(fsn, isn).reduce(CybersecurityFactory.eINSTANCE.createSecurityNeeds(),
-          CybersecurityQueries::reduceSecurityNeeds);
-      return Arrays.asList("Confidentiality: " + CybersecurityQueries.getConfidentialityIndex(max), //$NON-NLS-1$
-          "Integrity: " + CybersecurityQueries.getIntegrityIndex(max), //$NON-NLS-1$
-          "Availability: " + CybersecurityQueries.getAvailabilityIndex(max), //$NON-NLS-1$
-          "Traceability: " + CybersecurityQueries.getTraceabilityIndex(max)); //$NON-NLS-1$
-    }
+      if (object instanceof Component && !((Component) object).getAllocatedFunctions().isEmpty()) {
+        Component component = (Component) object;
+        // for allocated functions
+        Stream<SecurityNeeds> fsn = component.getAllocatedFunctions().stream()
+            .flatMap(af -> af.getOwnedExtensions().stream()).filter(SecurityNeeds.class::isInstance)
+            .map(SecurityNeeds.class::cast);
 
+        // for exchange items
+        Stream<SecurityNeeds> esn = component.getAllocatedFunctions().stream().flatMap(fct -> getExchangeItems(fct))
+            .flatMap(af -> af.getOwnedExtensions().stream()).filter(SecurityNeeds.class::isInstance)
+            .map(SecurityNeeds.class::cast);
+
+        SecurityNeeds max = Stream.concat(fsn, esn).reduce(CybersecurityFactory.eINSTANCE.createSecurityNeeds(),
+            CybersecurityQueries::reduceSecurityNeeds);
+        
+        Session session = SessionManager.INSTANCE.getSession(component);
+        Project project = SessionHelper.getCapellaProject(session);
+        
+        return Arrays.asList("Confidentiality: " + getConfidentialityValue(max, project), //$NON-NLS-1$
+            "Integrity: " + getIntegrityValue(max, project), //$NON-NLS-1$
+            "Availability: " + getAvailabilityValue(max, project), //$NON-NLS-1$
+            "Traceability: " + getTraceabilityValue(max, project)); //$NON-NLS-1$
+      }
+      return new ArrayList<>();
+    }
   }
   
   public static SecurityNeeds reduceSecurityNeeds(SecurityNeeds result, SecurityNeeds a) {
