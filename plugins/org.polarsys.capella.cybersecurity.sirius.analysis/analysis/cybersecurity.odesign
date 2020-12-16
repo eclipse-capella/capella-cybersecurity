@@ -276,7 +276,7 @@
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
           </style>
         </nodeMappings>
-        <toolSections name="Primary Assets">
+        <toolSections name="Cybersecurity">
           <ownedTools xsi:type="tool_1:ToolDescription" documentation="Insert/Remove Primary Assets. Create or delete graphical objects corresponding to already existing Primary Assets. Removing a Primary Asset graphical object from the diagram does not delete the Primary Asset from the model. This tool does not modify the semantic model." name="primary.assets" label="Primary Assets" iconPath="/org.polarsys.capella.core.sirius.analysis/icons/full/obj16/ShowHide.gif">
             <element name="element"/>
             <elementView name="elementView">
@@ -406,7 +406,7 @@
         </customization>
       </layers>
       <layers name="Cybersecurity Supporting Assets" reusedMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentationExtensions[name='Cybersecurity%20Architecture%20Diagram%20Extensions']/@layers[name='Cybersecurity%20Assets%20Layer']/@nodeMappings[name='PrimaryAsset'] //@ownedViewpoints[name='Cybersecurity']/@ownedRepresentationExtensions[name='Cybersecurity%20Architecture%20Diagram%20Extensions']/@layers[name='Cybersecurity%20Assets%20Layer']/@nodeMappings[name='Threat']" activeByDefault="true">
-        <toolSections name="Primary Assets" reusedTools="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentationExtensions[name='Cybersecurity%20Architecture%20Diagram%20Extensions']/@layers[name='Cybersecurity%20Assets%20Layer']/@toolSections.0/@ownedTools[name='primary.assets'] //@ownedViewpoints[name='Cybersecurity']/@ownedRepresentationExtensions[name='Cybersecurity%20Architecture%20Diagram%20Extensions']/@layers[name='Cybersecurity%20Assets%20Layer']/@toolSections.0/@ownedTools[name='threats']"/>
+        <toolSections name="Cybersecurity" reusedTools="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentationExtensions[name='Cybersecurity%20Architecture%20Diagram%20Extensions']/@layers[name='Cybersecurity%20Assets%20Layer']/@toolSections.0/@ownedTools[name='primary.assets'] //@ownedViewpoints[name='Cybersecurity']/@ownedRepresentationExtensions[name='Cybersecurity%20Architecture%20Diagram%20Extensions']/@layers[name='Cybersecurity%20Assets%20Layer']/@toolSections.0/@ownedTools[name='threats']"/>
         <customization>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.hasSupportingAssetStyleCustomization(view)">
             <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="borderColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='asset_color1']"/>
