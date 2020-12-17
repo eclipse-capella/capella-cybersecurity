@@ -944,7 +944,11 @@ public class CybersecurityServices {
         }
       }
     }   
-    return false;
+    //no BPC children, no NPC children, check functions
+    List<PrimaryAsset> relatedAssets = comp.getAllocatedFunctions().stream()
+        .map(func -> getRelatedAssets(func))
+        .flatMap(Collection::stream).distinct().collect(Collectors.toList()); 
+    return relatedAssets.size() > 0 ? true : false;
   }
 
   private boolean isDisplayedInDiagram(DDiagram diagram, PhysicalComponent npcComponent) {
