@@ -829,5 +829,11 @@
             class="org.polarsys.capella.cybersecurity.ui.contribution.menu.CybersecurityConfigurationContribution"
             id="org.polarsys.capella.cybersecurity.ui.contribution.menu.CybersecurityConfigurationContribution">
       </MDEMenuItemContribution>
-</extension>      
+</extension>
+<extension
+         point="org.polarsys.capella.core.data.migration.migrationContributions">
+      <migrationContribution
+            class="org.polarsys.capella.cybersecurity.ui.contribution.migration.CybersecurityMigrationContribution">
+      </migrationContribution>
+</extension>     
 </plugin>

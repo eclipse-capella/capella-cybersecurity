@@ -66,10 +66,10 @@
     <eAnnotations source="http://www.polarsys.org/kitalpha/emde/1.0.0/constraintMapping">
       <details key="Mapping" value=" platform:/plugin/org.polarsys.capella.common.data.behavior.gen/model/Behavior.ecore#//AbstractEvent platform:/plugin/org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//PrimaryAsset"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="confidentiality" eType="ecore:EClass platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#//EnumerationPropertyLiteral"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="integrity" eType="ecore:EClass platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#//EnumerationPropertyLiteral"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="availability" eType="ecore:EClass platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#//EnumerationPropertyLiteral"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="traceability" eType="ecore:EClass platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#//EnumerationPropertyLiteral"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="confidentialityValue" eType="ecore:EClass platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#//EnumerationPropertyLiteral"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="integrityValue" eType="ecore:EClass platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#//EnumerationPropertyLiteral"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="availabilityValue" eType="ecore:EClass platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#//EnumerationPropertyLiteral"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="traceabilityValue" eType="ecore:EClass platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#//EnumerationPropertyLiteral"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TrustBoundaryStorage" eSuperTypes="platform:/plugin/org.polarsys.capella.common.data.core.gen/model/ModellingCore.ecore#//ModelElement platform:/plugin/org.polarsys.kitalpha.emde/model/eMDE.ecore#//ElementExtension">
     <eAnnotations source="http://www.polarsys.org/kitalpha/emde/1.0.0/constraint">

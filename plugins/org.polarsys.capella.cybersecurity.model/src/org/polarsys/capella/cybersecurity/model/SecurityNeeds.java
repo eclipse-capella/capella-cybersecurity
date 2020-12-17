@@ -22,10 +22,10 @@ import org.polarsys.kitalpha.emde.model.ElementExtension;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.polarsys.capella.cybersecurity.model.SecurityNeeds#getConfidentiality <em>Confidentiality</em>}</li>
- *   <li>{@link org.polarsys.capella.cybersecurity.model.SecurityNeeds#getIntegrity <em>Integrity</em>}</li>
- *   <li>{@link org.polarsys.capella.cybersecurity.model.SecurityNeeds#getAvailability <em>Availability</em>}</li>
- *   <li>{@link org.polarsys.capella.cybersecurity.model.SecurityNeeds#getTraceability <em>Traceability</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.SecurityNeeds#getConfidentialityValue <em>Confidentiality Value</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.SecurityNeeds#getIntegrityValue <em>Integrity Value</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.SecurityNeeds#getAvailabilityValue <em>Availability Value</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.SecurityNeeds#getTraceabilityValue <em>Traceability Value</em>}</li>
  * </ul>
  *
  * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getSecurityNeeds()
@@ -37,123 +37,107 @@ import org.polarsys.kitalpha.emde.model.ElementExtension;
 public interface SecurityNeeds extends ModelElement, ElementExtension {
 
   /**
-   * Returns the value of the '<em><b>Confidentiality</b></em>' reference.
+   * Returns the value of the '<em><b>Confidentiality Value</b></em>' reference.
   
    * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Confidentiality</em>' attribute isn't clear, there really should be more of a
-   * description here...
-   * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Confidentiality</em>' reference.
-   * @see #setConfidentiality(EnumerationPropertyLiteral)
-   * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getSecurityNeeds_Confidentiality()
+   * @return the value of the '<em>Confidentiality Value</em>' reference.
+   * @see #setConfidentialityValue(EnumerationPropertyLiteral)
+   * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getSecurityNeeds_ConfidentialityValue()
    * @model
    * @generated
    */
 
-  EnumerationPropertyLiteral getConfidentiality();
+  EnumerationPropertyLiteral getConfidentialityValue();
 
   /**
-   * Sets the value of the '{@link org.polarsys.capella.cybersecurity.model.SecurityNeeds#getConfidentiality <em>Confidentiality</em>}' reference.
+   * Sets the value of the '{@link org.polarsys.capella.cybersecurity.model.SecurityNeeds#getConfidentialityValue <em>Confidentiality Value</em>}' reference.
   
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Confidentiality</em>' reference.
-   * @see #getConfidentiality()
+   * @param value the new value of the '<em>Confidentiality Value</em>' reference.
+   * @see #getConfidentialityValue()
    * @generated
    */
 
-  void setConfidentiality(EnumerationPropertyLiteral value);
+  void setConfidentialityValue(EnumerationPropertyLiteral value);
 
   /**
-   * Returns the value of the '<em><b>Integrity</b></em>' reference.
+   * Returns the value of the '<em><b>Integrity Value</b></em>' reference.
   
    * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Integrity</em>' attribute isn't clear, there really should be more of a description
-   * here...
-   * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Integrity</em>' reference.
-   * @see #setIntegrity(EnumerationPropertyLiteral)
-   * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getSecurityNeeds_Integrity()
+   * @return the value of the '<em>Integrity Value</em>' reference.
+   * @see #setIntegrityValue(EnumerationPropertyLiteral)
+   * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getSecurityNeeds_IntegrityValue()
    * @model
    * @generated
    */
 
-  EnumerationPropertyLiteral getIntegrity();
+  EnumerationPropertyLiteral getIntegrityValue();
 
   /**
-   * Sets the value of the '{@link org.polarsys.capella.cybersecurity.model.SecurityNeeds#getIntegrity <em>Integrity</em>}' reference.
+   * Sets the value of the '{@link org.polarsys.capella.cybersecurity.model.SecurityNeeds#getIntegrityValue <em>Integrity Value</em>}' reference.
   
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Integrity</em>' reference.
-   * @see #getIntegrity()
+   * @param value the new value of the '<em>Integrity Value</em>' reference.
+   * @see #getIntegrityValue()
    * @generated
    */
 
-  void setIntegrity(EnumerationPropertyLiteral value);
+  void setIntegrityValue(EnumerationPropertyLiteral value);
 
   /**
-   * Returns the value of the '<em><b>Availability</b></em>' reference.
+   * Returns the value of the '<em><b>Availability Value</b></em>' reference.
   
    * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Availability</em>' attribute isn't clear, there really should be more of a description
-   * here...
-   * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Availability</em>' reference.
-   * @see #setAvailability(EnumerationPropertyLiteral)
-   * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getSecurityNeeds_Availability()
+   * @return the value of the '<em>Availability Value</em>' reference.
+   * @see #setAvailabilityValue(EnumerationPropertyLiteral)
+   * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getSecurityNeeds_AvailabilityValue()
    * @model
    * @generated
    */
 
-  EnumerationPropertyLiteral getAvailability();
+  EnumerationPropertyLiteral getAvailabilityValue();
 
   /**
-   * Sets the value of the '{@link org.polarsys.capella.cybersecurity.model.SecurityNeeds#getAvailability <em>Availability</em>}' reference.
+   * Sets the value of the '{@link org.polarsys.capella.cybersecurity.model.SecurityNeeds#getAvailabilityValue <em>Availability Value</em>}' reference.
   
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Availability</em>' reference.
-   * @see #getAvailability()
+   * @param value the new value of the '<em>Availability Value</em>' reference.
+   * @see #getAvailabilityValue()
    * @generated
    */
 
-  void setAvailability(EnumerationPropertyLiteral value);
+  void setAvailabilityValue(EnumerationPropertyLiteral value);
 
   /**
-   * Returns the value of the '<em><b>Traceability</b></em>' reference.
+   * Returns the value of the '<em><b>Traceability Value</b></em>' reference.
   
    * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Traceability</em>' attribute isn't clear, there really should be more of a description
-   * here...
-   * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Traceability</em>' reference.
-   * @see #setTraceability(EnumerationPropertyLiteral)
-   * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getSecurityNeeds_Traceability()
+   * @return the value of the '<em>Traceability Value</em>' reference.
+   * @see #setTraceabilityValue(EnumerationPropertyLiteral)
+   * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getSecurityNeeds_TraceabilityValue()
    * @model
    * @generated
    */
 
-  EnumerationPropertyLiteral getTraceability();
+  EnumerationPropertyLiteral getTraceabilityValue();
 
   /**
-   * Sets the value of the '{@link org.polarsys.capella.cybersecurity.model.SecurityNeeds#getTraceability <em>Traceability</em>}' reference.
+   * Sets the value of the '{@link org.polarsys.capella.cybersecurity.model.SecurityNeeds#getTraceabilityValue <em>Traceability Value</em>}' reference.
   
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Traceability</em>' reference.
-   * @see #getTraceability()
+   * @param value the new value of the '<em>Traceability Value</em>' reference.
+   * @see #getTraceabilityValue()
    * @generated
    */
 
-  void setTraceability(EnumerationPropertyLiteral value);
+  void setTraceabilityValue(EnumerationPropertyLiteral value);
 
 } // SecurityNeeds

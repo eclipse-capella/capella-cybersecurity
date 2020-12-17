@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata:Metadata xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:metadata="http://www.polarsys.org/kitalpha/ad/metadata/1.0.0" id="_4w2F0A0VEeqlca8SB56_iA">
   <viewpointReferences id="_4x_VUA0VEeqlca8SB56_iA" vpId="org.polarsys.capella.core.viewpoint" version="5.0.0"/>
-  <viewpointReferences id="_4zqJQA0VEeqlca8SB56_iA" vpId="org.polarsys.capella.cybersecurity" version="0.10.0.qualifier"/>
+  <viewpointReferences id="_4zqJQA0VEeqlca8SB56_iA" vpId="org.polarsys.capella.cybersecurity" version="0.10.0"/>
 </metadata:Metadata>

@@ -30,7 +30,7 @@ public class ConfidentialityColumn extends AbstractCybersecurityColumn {
   public Object getDataValue(EObject rowObject) {
     SecurityNeeds sn = CybersecurityQueries.getSecurityNeeds((ExtensibleElement) rowObject);
     if (sn != null) {
-      return sn.getConfidentiality();
+      return sn.getConfidentialityValue();
     }
     
     // consistency with the property view

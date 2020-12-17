@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--Capella_Version_null-->
+<!--Capella_Version_5.0.0-->
 <org.polarsys.capella.core.data.capellamodeller:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cybersecurity="http://www.polarsys.org/capella/cybersecurity/1.0"
     xmlns:libraries="http://www.polarsys.org/capella/common/libraries/5.0.0" xmlns:org.polarsys.capella.core.data.capellacommon="http://www.polarsys.org/capella/core/common/5.0.0"
@@ -19,6 +19,68 @@
     id="bcc34427-20ab-454c-bf02-420e8a06f0bb"
     name="documentation">
   <ownedExtensions xsi:type="libraries:ModelInformation" id="08a66c4a-245a-4908-876d-41c1a9631e56"/>
+  <ownedExtensions xsi:type="cybersecurity:CybersecurityConfiguration" id="889a65f5-6f48-48c1-83dc-d0ea10804d5c"
+      name="Cybersecurity Configuration" confidentiality="#4adeb469-fc09-4b1a-a0f9-0ab7d87040a1"
+      integrity="#824a28f7-e77f-45d7-88d9-223b5b04b10a" traceability="#4cef2e66-3c01-4b73-9ccf-85d32634bb7d"
+      availability="#a0d6c5fe-f330-4cee-8940-987d3f99dbf3" threatKind="#8a9acd2f-ebf2-4344-bc15-168b0a8541e2">
+    <ownedEnumerationPropertyTypes xsi:type="org.polarsys.capella.core.data.capellacore:EnumerationPropertyType"
+        id="4adeb469-fc09-4b1a-a0f9-0ab7d87040a1" name="Security.Confidentiality">
+      <ownedLiterals xsi:type="org.polarsys.capella.core.data.capellacore:EnumerationPropertyLiteral"
+          id="9de801c6-55b9-4b9a-a570-b71861e2246b" name="0"/>
+      <ownedLiterals xsi:type="org.polarsys.capella.core.data.capellacore:EnumerationPropertyLiteral"
+          id="69d4e598-7227-4bbc-bda2-cfa212032314" name="1"/>
+      <ownedLiterals xsi:type="org.polarsys.capella.core.data.capellacore:EnumerationPropertyLiteral"
+          id="46318130-4eac-4420-b45b-040da706e2aa" name="2"/>
+      <ownedLiterals xsi:type="org.polarsys.capella.core.data.capellacore:EnumerationPropertyLiteral"
+          id="a920459b-c796-4aff-9f82-1c7ce7995fc3" name="3"/>
+    </ownedEnumerationPropertyTypes>
+    <ownedEnumerationPropertyTypes xsi:type="org.polarsys.capella.core.data.capellacore:EnumerationPropertyType"
+        id="824a28f7-e77f-45d7-88d9-223b5b04b10a" name="Security.Integrity">
+      <ownedLiterals xsi:type="org.polarsys.capella.core.data.capellacore:EnumerationPropertyLiteral"
+          id="d31c2669-d957-4c5b-90c3-4c9f6966931b" name="0"/>
+      <ownedLiterals xsi:type="org.polarsys.capella.core.data.capellacore:EnumerationPropertyLiteral"
+          id="bb79dd0e-18db-4719-9258-bf06c483d8c2" name="1"/>
+      <ownedLiterals xsi:type="org.polarsys.capella.core.data.capellacore:EnumerationPropertyLiteral"
+          id="738d1821-080e-4b9e-b30d-c8857bf1658f" name="2"/>
+      <ownedLiterals xsi:type="org.polarsys.capella.core.data.capellacore:EnumerationPropertyLiteral"
+          id="c970f223-bf7a-4aaf-90a5-0942af83d2c8" name="3"/>
+    </ownedEnumerationPropertyTypes>
+    <ownedEnumerationPropertyTypes xsi:type="org.polarsys.capella.core.data.capellacore:EnumerationPropertyType"
+        id="4cef2e66-3c01-4b73-9ccf-85d32634bb7d" name="Security.Traceability">
+      <ownedLiterals xsi:type="org.polarsys.capella.core.data.capellacore:EnumerationPropertyLiteral"
+          id="8c127492-09f2-4756-b9e1-15f6081f5a54" name="0"/>
+      <ownedLiterals xsi:type="org.polarsys.capella.core.data.capellacore:EnumerationPropertyLiteral"
+          id="8a2e2d9a-0bf7-4c4a-8210-e42f53ad79d2" name="1"/>
+      <ownedLiterals xsi:type="org.polarsys.capella.core.data.capellacore:EnumerationPropertyLiteral"
+          id="5651d6d7-51d8-4e4c-85e6-c2e1c71e600b" name="2"/>
+      <ownedLiterals xsi:type="org.polarsys.capella.core.data.capellacore:EnumerationPropertyLiteral"
+          id="9aabfe09-15b4-430b-a575-9a728a719f52" name="3"/>
+    </ownedEnumerationPropertyTypes>
+    <ownedEnumerationPropertyTypes xsi:type="org.polarsys.capella.core.data.capellacore:EnumerationPropertyType"
+        id="a0d6c5fe-f330-4cee-8940-987d3f99dbf3" name="Security.Availability">
+      <ownedLiterals xsi:type="org.polarsys.capella.core.data.capellacore:EnumerationPropertyLiteral"
+          id="338ca83c-a509-472b-b8fe-7099b7d880c3" name="0"/>
+      <ownedLiterals xsi:type="org.polarsys.capella.core.data.capellacore:EnumerationPropertyLiteral"
+          id="09a377c6-7127-4109-b54e-e58b5869351e" name="1"/>
+      <ownedLiterals xsi:type="org.polarsys.capella.core.data.capellacore:EnumerationPropertyLiteral"
+          id="eacfbd6a-197b-4b4f-a26c-e9b700093e40" name="2"/>
+      <ownedLiterals xsi:type="org.polarsys.capella.core.data.capellacore:EnumerationPropertyLiteral"
+          id="08924543-085d-4c3f-a99d-7cb03f6e8f3c" name="3"/>
+    </ownedEnumerationPropertyTypes>
+    <ownedEnumerationPropertyTypes xsi:type="org.polarsys.capella.core.data.capellacore:EnumerationPropertyType"
+        id="8a9acd2f-ebf2-4344-bc15-168b0a8541e2" name="Thread.Kind">
+      <ownedLiterals xsi:type="org.polarsys.capella.core.data.capellacore:EnumerationPropertyLiteral"
+          id="e1fed63a-d6af-4463-baed-21b4221dd022" name="Eavesdropping"/>
+      <ownedLiterals xsi:type="org.polarsys.capella.core.data.capellacore:EnumerationPropertyLiteral"
+          id="fab8ec21-8d3d-4c38-aea9-2836f2b50cd2" name="Denial of service"/>
+      <ownedLiterals xsi:type="org.polarsys.capella.core.data.capellacore:EnumerationPropertyLiteral"
+          id="e4efaae3-a6cf-49b2-a981-66a312a5dff1" name="Theft and data alteration"/>
+      <ownedLiterals xsi:type="org.polarsys.capella.core.data.capellacore:EnumerationPropertyLiteral"
+          id="5c830fcb-cf04-44a0-a76e-5c6fac5d2544" name="Intrusion"/>
+      <ownedLiterals xsi:type="org.polarsys.capella.core.data.capellacore:EnumerationPropertyLiteral"
+          id="150bfa51-ea6a-4872-ae48-6d124efd8938" name="Tampering"/>
+    </ownedEnumerationPropertyTypes>
+  </ownedExtensions>
   <ownedEnumerationPropertyTypes xsi:type="org.polarsys.capella.core.data.capellacore:EnumerationPropertyType"
       id="78776ae7-0a01-4d95-8caa-498f67edf8cd" name="ProgressStatus">
     <ownedLiterals xsi:type="org.polarsys.capella.core.data.capellacore:EnumerationPropertyLiteral"
@@ -224,26 +286,27 @@
         <ownedThreats xsi:type="cybersecurity:Threat" id="8538e1dc-8bc3-4845-a1bb-9319a4579415"
             name="Steal Citizens Data" level="2"/>
         <ownedThreats xsi:type="cybersecurity:Threat" id="5e46349d-3f44-4f93-aca7-eaf3b5c4665d"
-            name="Make the video stream unusable" threatKind="Denial_of_service" level="1"/>
+            name="Make the video stream unusable" kind="#fab8ec21-8d3d-4c38-aea9-2836f2b50cd2"
+            level="1"/>
         <ownedPrimaryAssets xsi:type="cybersecurity:InformationPrimaryAsset" id="12a192bb-0a5a-4dd1-a4eb-6d2b718d240c"
             name="Citizens Identification Data asset">
           <ownedThreatApplications xsi:type="cybersecurity:ThreatApplication" id="b462c2e0-1d67-467d-89dd-08630e63ae48"
-              threat="#8538e1dc-8bc3-4845-a1bb-9319a4579415" asset="#12a192bb-0a5a-4dd1-a4eb-6d2b718d240c"/>
+              threat="#8538e1dc-8bc3-4845-a1bb-9319a4579415"/>
         </ownedPrimaryAssets>
         <ownedPrimaryAssets xsi:type="cybersecurity:FunctionalPrimaryAsset" id="c16a6254-b5b7-412e-8cee-dcfb56d131ed"
             name="Visualize the video stream service asset">
           <ownedThreatApplications xsi:type="cybersecurity:ThreatApplication" id="72bd53ba-cdf4-4886-a500-a0fe528fea9d"
-              threat="#5e46349d-3f44-4f93-aca7-eaf3b5c4665d" asset="#c16a6254-b5b7-412e-8cee-dcfb56d131ed"/>
+              threat="#5e46349d-3f44-4f93-aca7-eaf3b5c4665d"/>
         </ownedPrimaryAssets>
         <ownedPrimaryAssets xsi:type="cybersecurity:FunctionalPrimaryAsset" id="fbad09e0-6d2c-48a8-97bf-5ba185ad85a0"
             name="Video visualization service">
           <ownedMembers xsi:type="cybersecurity:PrimaryAssetMember" id="83205f0b-abb5-47c8-b4fe-14a4f20ef371"
-              asset="#fbad09e0-6d2c-48a8-97bf-5ba185ad85a0" member="#f3780ace-40e6-4584-8beb-67af6dc36f27"/>
+              member="#f3780ace-40e6-4584-8beb-67af6dc36f27"/>
         </ownedPrimaryAssets>
         <ownedPrimaryAssets xsi:type="cybersecurity:InformationPrimaryAsset" id="544aa80a-ce84-49cd-90b1-37643298f56e"
             name="Citizens biometric information">
           <ownedMembers xsi:type="cybersecurity:PrimaryAssetMember" id="6bd88b69-c1d1-414d-aae3-3432eed14255"
-              asset="#544aa80a-ce84-49cd-90b1-37643298f56e" member="#8f26c424-c95a-4777-9b8d-b61ebd630daf"/>
+              member="#8f26c424-c95a-4777-9b8d-b61ebd630daf"/>
         </ownedPrimaryAssets>
       </ownedExtensions>
       <ownedFunctionPkg xsi:type="org.polarsys.capella.core.data.pa:PhysicalFunctionPkg"
@@ -271,7 +334,7 @@
             <ownedExtensions xsi:type="cybersecurity:FunctionStorage" id="2864e0bb-9c7e-42e9-8ca3-edbd32527a2d"
                 dataStorage="true"/>
             <ownedExtensions xsi:type="cybersecurity:SecurityNeeds" id="23bcb98a-34a0-4aa5-9b1d-6d7cdb014571"
-                confidentiality="3"/>
+                confidentialityValue="#a920459b-c796-4aff-9f82-1c7ce7995fc3"/>
             <inputs xsi:type="org.polarsys.capella.core.data.fa:FunctionInputPort"
                 id="28272d69-fbf2-4830-af83-d6f3196eec90" name="FIP 1"/>
             <outputs xsi:type="org.polarsys.capella.core.data.fa:FunctionOutputPort"
@@ -298,7 +361,7 @@
             <ownedExtensions xsi:type="cybersecurity:FunctionStorage" id="11a9d972-3659-4470-b5c9-16c18a0c07ec"
                 exchangedItems="#8f26c424-c95a-4777-9b8d-b61ebd630daf" dataStorage="true"/>
             <ownedExtensions xsi:type="cybersecurity:SecurityNeeds" id="842bb858-d087-4973-8c1d-f2d7de555a6d"
-                confidentiality="3"/>
+                confidentialityValue="#a920459b-c796-4aff-9f82-1c7ce7995fc3"/>
             <inputs xsi:type="org.polarsys.capella.core.data.fa:FunctionInputPort"
                 id="cf037779-2108-4d22-8a57-04d8eecd4cf6" name="FIP 1"/>
             <outputs xsi:type="org.polarsys.capella.core.data.fa:FunctionOutputPort"
@@ -374,13 +437,13 @@
             <ownedExtensions xsi:type="cybersecurity:TrustBoundaryStorage" id="5704272a-7ff2-4c12-bec3-880260b48597"
                 threatSource="true" trusted="false"/>
             <ownedExtensions xsi:type="cybersecurity:ThreatInvolvement" id="b6103a11-fb5a-4eb5-8862-ba127b6c0292"
-                component="#eee9197a-6113-499e-a2df-1d402fbc1550" threat="#8538e1dc-8bc3-4845-a1bb-9319a4579415"/>
+                threat="#8538e1dc-8bc3-4845-a1bb-9319a4579415"/>
           </ownedPhysicalComponents>
           <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
               id="ccd854ae-5454-416a-93d5-0eceb17e9201" name="Police Monitoring System"
               actor="true" nature="NODE">
             <ownedExtensions xsi:type="cybersecurity:ThreatInvolvement" id="09e3658c-9f49-495e-9564-68d23db96992"
-                component="#ccd854ae-5454-416a-93d5-0eceb17e9201" threat="#8538e1dc-8bc3-4845-a1bb-9319a4579415"/>
+                threat="#8538e1dc-8bc3-4845-a1bb-9319a4579415"/>
           </ownedPhysicalComponents>
           <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
               id="c5dfab2d-2e52-468f-a30a-a5ef5d6d0740" name="Opposant Hacker" actor="true"
@@ -388,7 +451,7 @@
             <ownedExtensions xsi:type="cybersecurity:TrustBoundaryStorage" id="f1764bde-3e86-4d54-9933-bb425d3c5535"
                 threatSource="true" trusted="false"/>
             <ownedExtensions xsi:type="cybersecurity:ThreatInvolvement" id="6321fb6b-ea00-413a-9366-89e0b456a023"
-                component="#c5dfab2d-2e52-468f-a30a-a5ef5d6d0740" threat="#5e46349d-3f44-4f93-aca7-eaf3b5c4665d"/>
+                threat="#5e46349d-3f44-4f93-aca7-eaf3b5c4665d"/>
           </ownedPhysicalComponents>
           <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
               id="5af60508-4398-4617-b327-d8f62899fe79" name="Surveillance Drone System"

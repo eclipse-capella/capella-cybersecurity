@@ -174,16 +174,6 @@ public class PrimaryAssetMemberItemProvider extends RelationshipItemProvider imp
   }
 
   /**
-   * This returns PrimaryAssetMember.gif.
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Object getImage(Object object) {
-    return overlayImage(object, getResourceLocator().getImage("full/obj16/PrimaryAssetMember")); //$NON-NLS-1$
-  }
-
-  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -299,6 +289,17 @@ public class PrimaryAssetMemberItemProvider extends RelationshipItemProvider imp
       CommandParameter commandParameter = createChildParameter(
           EmdePackage.Literals.EXTENSIBLE_ELEMENT__OWNED_EXTENSIONS,
           CybersecurityFactory.eINSTANCE.createTrustBoundaryStorage());
+      if (NewChildDescriptorHelper.isValidCommand(object, commandParameter)) {
+        newChildDescriptors.add(commandParameter);
+      }
+    }
+    // end-extension-code
+
+    // begin-extension-code
+    {
+      CommandParameter commandParameter = createChildParameter(
+          EmdePackage.Literals.EXTENSIBLE_ELEMENT__OWNED_EXTENSIONS,
+          CybersecurityFactory.eINSTANCE.createCybersecurityConfiguration());
       if (NewChildDescriptorHelper.isValidCommand(object, commandParameter)) {
         newChildDescriptors.add(commandParameter);
       }
