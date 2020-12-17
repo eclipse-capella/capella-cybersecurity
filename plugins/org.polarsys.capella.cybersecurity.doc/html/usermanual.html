@@ -52,7 +52,7 @@
 			</tr>
 		</table>
 		<h2 id="Threat">Threat</h2>
-		<p>A situation that is unwanted by the stakeholders and that is to be avoided. Threat is an abstract concept that is concretized by the following kinds of attacks:</p>
+		<p>A situation that is unwanted by the stakeholders and that is to be avoided. Threat is an abstract concept that is concretized by the following kinds of attacks (by default):</p>
 		<table border="1">
 			<tr>
 				<td>Eavesdropping</td>
@@ -75,6 +75,18 @@
 				<td>Tampering attacks refer to many forms of sabotage (intentional modification of the information system in a way that makes them harmful).</td>
 			</tr>
 		</table>
+		<p>A 
+			<i>Threat kinds</i> can be customized by the user in the Cybersecurity Configuration, by editing the Threat.Kind type.
+		</p>
+		<p>
+			<img border="0" src="Images/threat_kind.png"/>
+		</p>
+		<p>The threat kinds can be updated as below: </p>
+		<ul>
+			<li>To add a new kind: right click on the 'Threat.Kind' -&gt; Add Capella Element -&gt; Enumeration Property Literal</li>
+			<li>To edit an existing kind: double click -&gt; edit it from the open window or click -&gt; edit from properties view</li>
+			<li>To remove a kind: click on the delete button or right click -&gt; delete</li>
+		</ul>
 		<p>
 			<i>Threats</i> are applied to 
 			<i>Primary Assets</i>.
@@ -99,7 +111,7 @@
 			<tr>
 				<td>Functional Primary Asset</td>
 				<td>Activity, process or functionality that is valuable for the customer and then needs to be protected.</td>
-				<td>Functions</td>
+				<td>Functions and Functional Chains</td>
 			</tr>
 			<tr>
 				<td>Information Primary Asset</td>
@@ -114,7 +126,11 @@
 			<li>Availability: property of being accessible and useable upon demand by an authorized entity.</li>
 			<li>Traceability: property of verifying access and use thanks to documented recorded identification.</li>
 		</ul>
-		<p>An asset can define a value between 0 and 3 for each of these attributes. Project/Product teams shall define the equivalences between these sensitivity levels and those specific to their standards framework.</p>
+		<p>By default, an asset can define a value between 0 and 3 for each of these attributes. Project/Product teams shall define the equivalences between these sensitivity levels and those specific to their standards framework.
+			If this values are not suitable for the project, the user could customize (remove, add, rename) them from Cybersecurity Configuration located on the root Project element (see Capella Guide &gt; Preferences &gt; Project Explorer to reveal it).</p>
+		<p>
+			<img border="0" src="Images/custom_value.png"/> 
+		</p>
 		<p>Primary Assets are threatened by Threats.</p>
 		<h2 id="Function">Function</h2>
 		<p>Action, operation or service performed by the system, or by an actor interacting with the system (ref: Arcadia).
@@ -258,8 +274,24 @@
 		<p>
 			<img border="0" src="Images/layers.png"/>
 		</p>
+		<h3 id="Assets_Layer">Assets Layer</h3>
+		<p>The Assets Layer will display in the diagram the inserted assets. The elements that are threatened by them will be highlighted with the same border color as the asset color. If two ore more assets threat the same element and at least two of them are displayed in diagram, the border color of the element will be black.</p>
+		<p>
+			<img border="0" src="Images/pab_diagram_4.png"/> 
+		</p>
+		<p>When the primary asset covers a functional chain, the involved functions and functional exchanges will be highlighted in the same way (if the primary asset is displayed).
+			If FunctionalChains (FC) are displayed in diagram, they will override the colors of Primary Asset Layer!</p>
+		<p>Two tools are available in this layer, under the Cybersecurity section: Primary Assets and Threats.
+			With 
+			<i>Primary Assets Tool</i> the user has the ability to show/hide Primary Assets (Functional and Information) in/from diagram.
+			With 
+			<i>Threats Tool</i> the user can show/hide Threats in/from diagram.
+		</p>
+		<p>
+			<img border="0" src="Images/cybersecurity_tool.png"/> 
+		</p>
 		<h3 id="Trust_Boundaries_Layer">Trust Boundaries Layer</h3>
-		<p>The Trust Boundaries Layer will change the diagrams appearence: Trusted components and actors will change their background color to white, untrusted components and actors will change their color to red. Communication edges between Trusted and Untrusted elements, so called Trust Boundaries, will be decorated with a small flame icon:</p>
+		<p>The Trust Boundaries Layer will change the diagrams appearance: Trusted components and actors will change their background color to white, untrusted components and actors will change their color to red. Communication edges between Trusted and Untrusted elements, so called Trust Boundaries, will be decorated with a small flame icon covered by a red border:</p>
 		<p>
 			<img border="0" src="Images/pab_diagram_2.png"/> 
 		</p>
@@ -304,6 +336,12 @@
 				<td>Someone or something that could affect the product (ref: 87210649-DDQ-GRP-EN - Cyber Security For Architects Guide).</td>
 			</tr>
 		</table>
+		<h3 id="Supporting_Assets_Layer">Supporting Assets Layer</h3>
+		<p>The Supporting Assets Layer adds decorations to the Components, Component Exchanges and Physical Links of Primary Assets. It highlights the first node component/physical actor
+			and the first deploy behavior component that contains at least one function threaten by the primary asset. This components are highlighted with the color of the primary asset (if it's only one) or black (if there are two or many primary assets that cover the same function).</p>
+		<p>
+			<img border="0" src="Images/pab_diagram_5.png"/>
+		</p>
 		<h2 id="Scenario_Diagram">Scenario Diagram</h2>
 		<p>See Capella 
 			<a href="/wiki/../help/topic/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.html?#Exchange_Scenario" title="../help/topic/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.html?#Exchange_Scenario">Exchange  Scenario Documentation</a>.
