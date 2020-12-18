@@ -1194,36 +1194,40 @@ public interface CybersecurityPackage extends EPackage {
   int SECURITY_NEEDS__OWNED_MIGRATED_ELEMENTS = ModellingcorePackage.MODEL_ELEMENT__OWNED_MIGRATED_ELEMENTS;
 
   /**
-   * The feature id for the '<em><b>Confidentiality</b></em>' reference.
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * The feature id for the '<em><b>Confidentiality Value</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SECURITY_NEEDS__CONFIDENTIALITY = ModellingcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 0;
+  int SECURITY_NEEDS__CONFIDENTIALITY_VALUE = ModellingcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Integrity</b></em>' reference.
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * The feature id for the '<em><b>Integrity Value</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SECURITY_NEEDS__INTEGRITY = ModellingcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 1;
+  int SECURITY_NEEDS__INTEGRITY_VALUE = ModellingcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Availability</b></em>' reference.
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * The feature id for the '<em><b>Availability Value</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SECURITY_NEEDS__AVAILABILITY = ModellingcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 2;
+  int SECURITY_NEEDS__AVAILABILITY_VALUE = ModellingcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 2;
 
   /**
-   * The feature id for the '<em><b>Traceability</b></em>' reference.
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * The feature id for the '<em><b>Traceability Value</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SECURITY_NEEDS__TRACEABILITY = ModellingcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 3;
+  int SECURITY_NEEDS__TRACEABILITY_VALUE = ModellingcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>Security Needs</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
@@ -2734,52 +2738,48 @@ public interface CybersecurityPackage extends EPackage {
   EClass getSecurityNeeds();
 
   /**
-   * Returns the meta object for the attribute
-   * '{@link org.polarsys.capella.cybersecurity.model.SecurityNeeds#getConfidentiality <em>Confidentiality</em>}'. <!--
-   * begin-user-doc --> <!-- end-user-doc -->
-   * 
-   * @return the meta object for the attribute '<em>Confidentiality</em>'.
-   * @see org.polarsys.capella.cybersecurity.model.SecurityNeeds#getConfidentiality()
+   * Returns the meta object for the reference '{@link org.polarsys.capella.cybersecurity.model.SecurityNeeds#getConfidentialityValue <em>Confidentiality Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Confidentiality Value</em>'.
+   * @see org.polarsys.capella.cybersecurity.model.SecurityNeeds#getConfidentialityValue()
    * @see #getSecurityNeeds()
    * @generated
    */
-  EReference getSecurityNeeds_Confidentiality();
+  EReference getSecurityNeeds_ConfidentialityValue();
 
   /**
-   * Returns the meta object for the attribute
-   * '{@link org.polarsys.capella.cybersecurity.model.SecurityNeeds#getIntegrity <em>Integrity</em>}'. <!--
-   * begin-user-doc --> <!-- end-user-doc -->
-   * 
-   * @return the meta object for the attribute '<em>Integrity</em>'.
-   * @see org.polarsys.capella.cybersecurity.model.SecurityNeeds#getIntegrity()
+   * Returns the meta object for the reference '{@link org.polarsys.capella.cybersecurity.model.SecurityNeeds#getIntegrityValue <em>Integrity Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Integrity Value</em>'.
+   * @see org.polarsys.capella.cybersecurity.model.SecurityNeeds#getIntegrityValue()
    * @see #getSecurityNeeds()
    * @generated
    */
-  EReference getSecurityNeeds_Integrity();
+  EReference getSecurityNeeds_IntegrityValue();
 
   /**
-   * Returns the meta object for the attribute
-   * '{@link org.polarsys.capella.cybersecurity.model.SecurityNeeds#getAvailability <em>Availability</em>}'. <!--
-   * begin-user-doc --> <!-- end-user-doc -->
-   * 
-   * @return the meta object for the attribute '<em>Availability</em>'.
-   * @see org.polarsys.capella.cybersecurity.model.SecurityNeeds#getAvailability()
+   * Returns the meta object for the reference '{@link org.polarsys.capella.cybersecurity.model.SecurityNeeds#getAvailabilityValue <em>Availability Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Availability Value</em>'.
+   * @see org.polarsys.capella.cybersecurity.model.SecurityNeeds#getAvailabilityValue()
    * @see #getSecurityNeeds()
    * @generated
    */
-  EReference getSecurityNeeds_Availability();
+  EReference getSecurityNeeds_AvailabilityValue();
 
   /**
-   * Returns the meta object for the attribute
-   * '{@link org.polarsys.capella.cybersecurity.model.SecurityNeeds#getTraceability <em>Traceability</em>}'. <!--
-   * begin-user-doc --> <!-- end-user-doc -->
-   * 
-   * @return the meta object for the attribute '<em>Traceability</em>'.
-   * @see org.polarsys.capella.cybersecurity.model.SecurityNeeds#getTraceability()
+   * Returns the meta object for the reference '{@link org.polarsys.capella.cybersecurity.model.SecurityNeeds#getTraceabilityValue <em>Traceability Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Traceability Value</em>'.
+   * @see org.polarsys.capella.cybersecurity.model.SecurityNeeds#getTraceabilityValue()
    * @see #getSecurityNeeds()
    * @generated
    */
-  EReference getSecurityNeeds_Traceability();
+  EReference getSecurityNeeds_TraceabilityValue();
 
   /**
    * Returns the meta object for class '{@link org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage <em>Trust Boundary Storage</em>}'.
@@ -3210,36 +3210,36 @@ public interface CybersecurityPackage extends EPackage {
     EClass SECURITY_NEEDS = eINSTANCE.getSecurityNeeds();
 
     /**
-     * The meta object literal for the '<em><b>Confidentiality</b></em>' reference feature.
-     * <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The meta object literal for the '<em><b>Confidentiality Value</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-    EReference SECURITY_NEEDS__CONFIDENTIALITY = eINSTANCE.getSecurityNeeds_Confidentiality();
+    EReference SECURITY_NEEDS__CONFIDENTIALITY_VALUE = eINSTANCE.getSecurityNeeds_ConfidentialityValue();
 
     /**
-     * The meta object literal for the '<em><b>Integrity</b></em>' reference feature.
-     * <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The meta object literal for the '<em><b>Integrity Value</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-    EReference SECURITY_NEEDS__INTEGRITY = eINSTANCE.getSecurityNeeds_Integrity();
+    EReference SECURITY_NEEDS__INTEGRITY_VALUE = eINSTANCE.getSecurityNeeds_IntegrityValue();
 
     /**
-     * The meta object literal for the '<em><b>Availability</b></em>' reference feature.
-     * <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The meta object literal for the '<em><b>Availability Value</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-    EReference SECURITY_NEEDS__AVAILABILITY = eINSTANCE.getSecurityNeeds_Availability();
+    EReference SECURITY_NEEDS__AVAILABILITY_VALUE = eINSTANCE.getSecurityNeeds_AvailabilityValue();
 
     /**
-     * The meta object literal for the '<em><b>Traceability</b></em>' reference feature.
-     * <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The meta object literal for the '<em><b>Traceability Value</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-    EReference SECURITY_NEEDS__TRACEABILITY = eINSTANCE.getSecurityNeeds_Traceability();
+    EReference SECURITY_NEEDS__TRACEABILITY_VALUE = eINSTANCE.getSecurityNeeds_TraceabilityValue();
 
     /**
      * The meta object literal for the '{@link org.polarsys.capella.cybersecurity.model.impl.TrustBoundaryStorageImpl <em>Trust Boundary Storage</em>}' class.

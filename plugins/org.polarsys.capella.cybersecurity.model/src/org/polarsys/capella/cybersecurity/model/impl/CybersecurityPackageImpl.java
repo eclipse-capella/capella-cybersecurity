@@ -403,38 +403,42 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
   }
 
   /**
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public EReference getSecurityNeeds_Confidentiality() {
+  public EReference getSecurityNeeds_ConfidentialityValue() {
     return (EReference) securityNeedsEClass.getEStructuralFeatures().get(0);
   }
 
   /**
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public EReference getSecurityNeeds_Integrity() {
+  public EReference getSecurityNeeds_IntegrityValue() {
     return (EReference) securityNeedsEClass.getEStructuralFeatures().get(1);
   }
 
   /**
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public EReference getSecurityNeeds_Availability() {
+  public EReference getSecurityNeeds_AvailabilityValue() {
     return (EReference) securityNeedsEClass.getEStructuralFeatures().get(2);
   }
 
   /**
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
   @Override
-  public EReference getSecurityNeeds_Traceability() {
+  public EReference getSecurityNeeds_TraceabilityValue() {
     return (EReference) securityNeedsEClass.getEStructuralFeatures().get(3);
   }
 
@@ -697,10 +701,10 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
     primaryAssetStorageEClass = createEClass(PRIMARY_ASSET_STORAGE);
 
     securityNeedsEClass = createEClass(SECURITY_NEEDS);
-    createEReference(securityNeedsEClass, SECURITY_NEEDS__CONFIDENTIALITY);
-    createEReference(securityNeedsEClass, SECURITY_NEEDS__INTEGRITY);
-    createEReference(securityNeedsEClass, SECURITY_NEEDS__AVAILABILITY);
-    createEReference(securityNeedsEClass, SECURITY_NEEDS__TRACEABILITY);
+    createEReference(securityNeedsEClass, SECURITY_NEEDS__CONFIDENTIALITY_VALUE);
+    createEReference(securityNeedsEClass, SECURITY_NEEDS__INTEGRITY_VALUE);
+    createEReference(securityNeedsEClass, SECURITY_NEEDS__AVAILABILITY_VALUE);
+    createEReference(securityNeedsEClass, SECURITY_NEEDS__TRACEABILITY_VALUE);
 
     trustBoundaryStorageEClass = createEClass(TRUST_BOUNDARY_STORAGE);
     createEAttribute(trustBoundaryStorageEClass, TRUST_BOUNDARY_STORAGE__THREAT_SOURCE);
@@ -851,17 +855,17 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
 
     initEClass(securityNeedsEClass, SecurityNeeds.class, "SecurityNeeds", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
         IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSecurityNeeds_Confidentiality(), theCapellacorePackage.getEnumerationPropertyLiteral(), null,
-        "confidentiality", null, 0, 1, SecurityNeeds.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, //$NON-NLS-1$
+    initEReference(getSecurityNeeds_ConfidentialityValue(), theCapellacorePackage.getEnumerationPropertyLiteral(), null,
+        "confidentialityValue", null, 0, 1, SecurityNeeds.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, //$NON-NLS-1$
+        !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSecurityNeeds_IntegrityValue(), theCapellacorePackage.getEnumerationPropertyLiteral(), null,
+        "integrityValue", null, 0, 1, SecurityNeeds.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, //$NON-NLS-1$
         IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSecurityNeeds_Integrity(), theCapellacorePackage.getEnumerationPropertyLiteral(), null,
-        "integrity", null, 0, 1, SecurityNeeds.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, //$NON-NLS-1$
+    initEReference(getSecurityNeeds_AvailabilityValue(), theCapellacorePackage.getEnumerationPropertyLiteral(), null,
+        "availabilityValue", null, 0, 1, SecurityNeeds.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, //$NON-NLS-1$
         IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSecurityNeeds_Availability(), theCapellacorePackage.getEnumerationPropertyLiteral(), null,
-        "availability", null, 0, 1, SecurityNeeds.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, //$NON-NLS-1$
-        IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSecurityNeeds_Traceability(), theCapellacorePackage.getEnumerationPropertyLiteral(), null,
-        "traceability", null, 0, 1, SecurityNeeds.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, //$NON-NLS-1$
+    initEReference(getSecurityNeeds_TraceabilityValue(), theCapellacorePackage.getEnumerationPropertyLiteral(), null,
+        "traceabilityValue", null, 0, 1, SecurityNeeds.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, //$NON-NLS-1$
         IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(trustBoundaryStorageEClass, TrustBoundaryStorage.class, "TrustBoundaryStorage", !IS_ABSTRACT, //$NON-NLS-1$

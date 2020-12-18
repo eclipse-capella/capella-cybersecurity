@@ -30,7 +30,7 @@ public class IntegrityColumn extends AbstractCybersecurityColumn {
   public Object getDataValue(EObject rowObject) {
     SecurityNeeds sn = CybersecurityQueries.getSecurityNeeds((ExtensibleElement) rowObject);
     if (sn != null) {
-      return sn.getIntegrity();
+      return sn.getIntegrityValue();
     }
     
     // consistency with the property view

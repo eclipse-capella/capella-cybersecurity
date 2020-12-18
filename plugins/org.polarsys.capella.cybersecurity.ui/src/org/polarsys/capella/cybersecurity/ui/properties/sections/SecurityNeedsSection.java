@@ -226,10 +226,10 @@ public class SecurityNeedsSection extends AbstractSection {
     if(confidentiality == null || integrity == null || traceability == null || availability == null) {
       createSecurityNeedsGroup(group, object);
     }
-    confidentiality.loadData(object, CybersecurityPackage.Literals.SECURITY_NEEDS__CONFIDENTIALITY);
-    integrity.loadData(object, CybersecurityPackage.Literals.SECURITY_NEEDS__INTEGRITY);
-    traceability.loadData(object, CybersecurityPackage.Literals.SECURITY_NEEDS__TRACEABILITY);
-    availability.loadData(object, CybersecurityPackage.Literals.SECURITY_NEEDS__AVAILABILITY);
+    confidentiality.loadData(object, CybersecurityPackage.Literals.SECURITY_NEEDS__CONFIDENTIALITY_VALUE);
+    integrity.loadData(object, CybersecurityPackage.Literals.SECURITY_NEEDS__INTEGRITY_VALUE);
+    traceability.loadData(object, CybersecurityPackage.Literals.SECURITY_NEEDS__TRACEABILITY_VALUE);
+    availability.loadData(object, CybersecurityPackage.Literals.SECURITY_NEEDS__AVAILABILITY_VALUE);
 
     elementExtension = (SecurityNeeds) object;
   }

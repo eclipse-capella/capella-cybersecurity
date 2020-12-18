@@ -287,47 +287,47 @@ public class CybersecurityQueries {
    * if confidentiality is not set, return as default value, the value on index 0 in the configuration type of confidentiality.
    */
   public static String getConfidentialityValue(SecurityNeeds sn, Project project) {
-    return sn != null && sn.getConfidentiality() != null
-        ? sn.getConfidentiality().getName()
+    return sn != null && sn.getConfidentialityValue() != null
+        ? sn.getConfidentialityValue().getName()
         : getDefaultSecurityNeedValue(getConfidentialityPropertyType(project));
   }
   
   public static String getIntegrityValue(SecurityNeeds sn, Project project) {
-    return sn != null && sn.getIntegrity() != null ? sn.getIntegrity().getName()
+    return sn != null && sn.getIntegrityValue() != null ? sn.getIntegrityValue().getName()
       : getDefaultSecurityNeedValue(getIntegrityPropertyType(project));
   }
   
   public static String getTraceabilityValue(SecurityNeeds sn, Project project) {
-    return sn != null && sn.getTraceability() != null ? sn.getTraceability().getName()
+    return sn != null && sn.getTraceabilityValue() != null ? sn.getTraceabilityValue().getName()
         : getDefaultSecurityNeedValue(getTraceabilityPropertyType(project));
   }
   
   public static String getAvailabilityValue(SecurityNeeds sn, Project project) {
-    return sn != null && sn.getAvailability() != null ? sn.getAvailability().getName()
+    return sn != null && sn.getAvailabilityValue() != null ? sn.getAvailabilityValue().getName()
         : getDefaultSecurityNeedValue(getAvailabilityPropertyType(project));
   }
   
   public static int getConfidentialityIndex(SecurityNeeds sn) {
-    return sn == null || sn.getConfidentiality() == null ? 0 : getIndexOfLiteral(sn.getConfidentiality());
+    return sn == null || sn.getConfidentialityValue() == null ? 0 : getIndexOfLiteral(sn.getConfidentialityValue());
   }
 
   public static int getIntegrityIndex(SecurityNeeds sn) {
-    return sn == null || sn.getIntegrity() == null ? 0 : getIndexOfLiteral(sn.getIntegrity());
+    return sn == null || sn.getIntegrityValue() == null ? 0 : getIndexOfLiteral(sn.getIntegrityValue());
   }
 
   public static int getAvailabilityIndex(SecurityNeeds sn) {
-    return sn == null || sn.getAvailability() == null ? 0 : getIndexOfLiteral(sn.getAvailability());
+    return sn == null || sn.getAvailabilityValue() == null ? 0 : getIndexOfLiteral(sn.getAvailabilityValue());
   }
 
   public static int getTraceabilityIndex(SecurityNeeds sn) {
-    return sn == null || sn.getTraceability() == null  ? 0 : getIndexOfLiteral(sn.getTraceability());
+    return sn == null || sn.getTraceabilityValue() == null  ? 0 : getIndexOfLiteral(sn.getTraceabilityValue());
   }
   
   public static void setConfidentialityFromIndex(SecurityNeeds sn, int index, EnumerationPropertyType type) {
     if (type != null && sn != null) {
       EnumerationPropertyLiteral newValue = getLiteralOnIndex(type, index);
       if(newValue != null)
-        sn.setConfidentiality(newValue);
+        sn.setConfidentialityValue(newValue);
     }
   }
 
@@ -335,7 +335,7 @@ public class CybersecurityQueries {
     if (type != null && sn != null) {
       EnumerationPropertyLiteral newValue = getLiteralOnIndex(type, index);
       if(newValue != null)
-        sn.setIntegrity(newValue);
+        sn.setIntegrityValue(newValue);
     }
   }
 
@@ -343,7 +343,7 @@ public class CybersecurityQueries {
     if (type != null && sn != null) {
       EnumerationPropertyLiteral newValue = getLiteralOnIndex(type, index);
       if(newValue != null)
-        sn.setAvailability(newValue);
+        sn.setAvailabilityValue(newValue);
     }
   }
 
@@ -351,7 +351,7 @@ public class CybersecurityQueries {
     if (type != null && sn != null) {
       EnumerationPropertyLiteral newValue = getLiteralOnIndex(type, index);
       if(newValue != null)
-        sn.setTraceability(newValue);
+        sn.setTraceabilityValue(newValue);
     }
   }
   
@@ -687,23 +687,23 @@ public class CybersecurityQueries {
    * type is deduced from SecurityNeeds sn
    */
   public static EnumerationPropertyType getConfidentialityPropertyType(SecurityNeeds sn) {
-    return sn.getConfidentiality() != null && (sn.getConfidentiality().eContainer() instanceof EnumerationPropertyType) ?
-        (EnumerationPropertyType) sn.getConfidentiality().eContainer() : null;
+    return sn.getConfidentialityValue() != null && (sn.getConfidentialityValue().eContainer() instanceof EnumerationPropertyType) ?
+        (EnumerationPropertyType) sn.getConfidentialityValue().eContainer() : null;
   }
   
   public static EnumerationPropertyType getIntegrityPropertyType(SecurityNeeds sn) {
-    return sn.getIntegrity() != null && (sn.getIntegrity().eContainer() instanceof EnumerationPropertyType) ?
-        (EnumerationPropertyType) sn.getIntegrity().eContainer() : null;
+    return sn.getIntegrityValue() != null && (sn.getIntegrityValue().eContainer() instanceof EnumerationPropertyType) ?
+        (EnumerationPropertyType) sn.getIntegrityValue().eContainer() : null;
   }
   
   public static EnumerationPropertyType getTraceabilityPropertyType(SecurityNeeds sn) {
-    return sn.getTraceability() != null && (sn.getTraceability().eContainer() instanceof EnumerationPropertyType) ?
-        (EnumerationPropertyType) sn.getTraceability().eContainer() : null;
+    return sn.getTraceabilityValue() != null && (sn.getTraceabilityValue().eContainer() instanceof EnumerationPropertyType) ?
+        (EnumerationPropertyType) sn.getTraceabilityValue().eContainer() : null;
   }
   
   public static EnumerationPropertyType getAvailabilityPropertyType(SecurityNeeds sn) {
-    return sn.getAvailability() != null && (sn.getAvailability().eContainer() instanceof EnumerationPropertyType) ?
-        (EnumerationPropertyType) sn.getAvailability().eContainer() : null;
+    return sn.getAvailabilityValue() != null && (sn.getAvailabilityValue().eContainer() instanceof EnumerationPropertyType) ?
+        (EnumerationPropertyType) sn.getAvailabilityValue().eContainer() : null;
   }
   
   public static EnumerationPropertyType getConfidentialityPropertyType(Project project) {

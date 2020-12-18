@@ -26,10 +26,10 @@ import org.polarsys.capella.cybersecurity.model.SecurityNeeds;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.SecurityNeedsImpl#getConfidentiality <em>Confidentiality</em>}</li>
- *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.SecurityNeedsImpl#getIntegrity <em>Integrity</em>}</li>
- *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.SecurityNeedsImpl#getAvailability <em>Availability</em>}</li>
- *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.SecurityNeedsImpl#getTraceability <em>Traceability</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.SecurityNeedsImpl#getConfidentialityValue <em>Confidentiality Value</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.SecurityNeedsImpl#getIntegrityValue <em>Integrity Value</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.SecurityNeedsImpl#getAvailabilityValue <em>Availability Value</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.SecurityNeedsImpl#getTraceabilityValue <em>Traceability Value</em>}</li>
  * </ul>
  *
  * @generated
@@ -56,15 +56,16 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
   }
 
   /**
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
 
   @Override
-  public EnumerationPropertyLiteral getConfidentiality() {
+  public EnumerationPropertyLiteral getConfidentialityValue() {
 
-    return (EnumerationPropertyLiteral) eDynamicGet(CybersecurityPackage.SECURITY_NEEDS__CONFIDENTIALITY,
-        CybersecurityPackage.Literals.SECURITY_NEEDS__CONFIDENTIALITY, true, true);
+    return (EnumerationPropertyLiteral) eDynamicGet(CybersecurityPackage.SECURITY_NEEDS__CONFIDENTIALITY_VALUE,
+        CybersecurityPackage.Literals.SECURITY_NEEDS__CONFIDENTIALITY_VALUE, true, true);
   }
 
   /**
@@ -73,48 +74,10 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
    * @generated
    */
 
-  public EnumerationPropertyLiteral basicGetConfidentiality() {
+  public EnumerationPropertyLiteral basicGetConfidentialityValue() {
 
-    return (EnumerationPropertyLiteral) eDynamicGet(CybersecurityPackage.SECURITY_NEEDS__CONFIDENTIALITY,
-        CybersecurityPackage.Literals.SECURITY_NEEDS__CONFIDENTIALITY, false, true);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-
-  @Override
-  public void setConfidentiality(EnumerationPropertyLiteral newConfidentiality) {
-
-    eDynamicSet(CybersecurityPackage.SECURITY_NEEDS__CONFIDENTIALITY,
-        CybersecurityPackage.Literals.SECURITY_NEEDS__CONFIDENTIALITY, newConfidentiality);
-
-  }
-
-  /**
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * @generated
-   */
-
-  @Override
-  public EnumerationPropertyLiteral getIntegrity() {
-
-    return (EnumerationPropertyLiteral) eDynamicGet(CybersecurityPackage.SECURITY_NEEDS__INTEGRITY,
-        CybersecurityPackage.Literals.SECURITY_NEEDS__INTEGRITY, true, true);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-
-  public EnumerationPropertyLiteral basicGetIntegrity() {
-
-    return (EnumerationPropertyLiteral) eDynamicGet(CybersecurityPackage.SECURITY_NEEDS__INTEGRITY,
-        CybersecurityPackage.Literals.SECURITY_NEEDS__INTEGRITY, false, true);
+    return (EnumerationPropertyLiteral) eDynamicGet(CybersecurityPackage.SECURITY_NEEDS__CONFIDENTIALITY_VALUE,
+        CybersecurityPackage.Literals.SECURITY_NEEDS__CONFIDENTIALITY_VALUE, false, true);
   }
 
   /**
@@ -124,35 +87,11 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
    */
 
   @Override
-  public void setIntegrity(EnumerationPropertyLiteral newIntegrity) {
+  public void setConfidentialityValue(EnumerationPropertyLiteral newConfidentialityValue) {
 
-    eDynamicSet(CybersecurityPackage.SECURITY_NEEDS__INTEGRITY, CybersecurityPackage.Literals.SECURITY_NEEDS__INTEGRITY,
-        newIntegrity);
+    eDynamicSet(CybersecurityPackage.SECURITY_NEEDS__CONFIDENTIALITY_VALUE,
+        CybersecurityPackage.Literals.SECURITY_NEEDS__CONFIDENTIALITY_VALUE, newConfidentialityValue);
 
-  }
-
-  /**
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * @generated
-   */
-
-  @Override
-  public EnumerationPropertyLiteral getAvailability() {
-
-    return (EnumerationPropertyLiteral) eDynamicGet(CybersecurityPackage.SECURITY_NEEDS__AVAILABILITY,
-        CybersecurityPackage.Literals.SECURITY_NEEDS__AVAILABILITY, true, true);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-
-  public EnumerationPropertyLiteral basicGetAvailability() {
-
-    return (EnumerationPropertyLiteral) eDynamicGet(CybersecurityPackage.SECURITY_NEEDS__AVAILABILITY,
-        CybersecurityPackage.Literals.SECURITY_NEEDS__AVAILABILITY, false, true);
   }
 
   /**
@@ -162,23 +101,10 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
    */
 
   @Override
-  public void setAvailability(EnumerationPropertyLiteral newAvailability) {
+  public EnumerationPropertyLiteral getIntegrityValue() {
 
-    eDynamicSet(CybersecurityPackage.SECURITY_NEEDS__AVAILABILITY,
-        CybersecurityPackage.Literals.SECURITY_NEEDS__AVAILABILITY, newAvailability);
-
-  }
-
-  /**
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * @generated
-   */
-
-  @Override
-  public EnumerationPropertyLiteral getTraceability() {
-
-    return (EnumerationPropertyLiteral) eDynamicGet(CybersecurityPackage.SECURITY_NEEDS__TRACEABILITY,
-        CybersecurityPackage.Literals.SECURITY_NEEDS__TRACEABILITY, true, true);
+    return (EnumerationPropertyLiteral) eDynamicGet(CybersecurityPackage.SECURITY_NEEDS__INTEGRITY_VALUE,
+        CybersecurityPackage.Literals.SECURITY_NEEDS__INTEGRITY_VALUE, true, true);
   }
 
   /**
@@ -187,10 +113,10 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
    * @generated
    */
 
-  public EnumerationPropertyLiteral basicGetTraceability() {
+  public EnumerationPropertyLiteral basicGetIntegrityValue() {
 
-    return (EnumerationPropertyLiteral) eDynamicGet(CybersecurityPackage.SECURITY_NEEDS__TRACEABILITY,
-        CybersecurityPackage.Literals.SECURITY_NEEDS__TRACEABILITY, false, true);
+    return (EnumerationPropertyLiteral) eDynamicGet(CybersecurityPackage.SECURITY_NEEDS__INTEGRITY_VALUE,
+        CybersecurityPackage.Literals.SECURITY_NEEDS__INTEGRITY_VALUE, false, true);
   }
 
   /**
@@ -200,10 +126,88 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
    */
 
   @Override
-  public void setTraceability(EnumerationPropertyLiteral newTraceability) {
+  public void setIntegrityValue(EnumerationPropertyLiteral newIntegrityValue) {
 
-    eDynamicSet(CybersecurityPackage.SECURITY_NEEDS__TRACEABILITY,
-        CybersecurityPackage.Literals.SECURITY_NEEDS__TRACEABILITY, newTraceability);
+    eDynamicSet(CybersecurityPackage.SECURITY_NEEDS__INTEGRITY_VALUE,
+        CybersecurityPackage.Literals.SECURITY_NEEDS__INTEGRITY_VALUE, newIntegrityValue);
+
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+
+  @Override
+  public EnumerationPropertyLiteral getAvailabilityValue() {
+
+    return (EnumerationPropertyLiteral) eDynamicGet(CybersecurityPackage.SECURITY_NEEDS__AVAILABILITY_VALUE,
+        CybersecurityPackage.Literals.SECURITY_NEEDS__AVAILABILITY_VALUE, true, true);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+
+  public EnumerationPropertyLiteral basicGetAvailabilityValue() {
+
+    return (EnumerationPropertyLiteral) eDynamicGet(CybersecurityPackage.SECURITY_NEEDS__AVAILABILITY_VALUE,
+        CybersecurityPackage.Literals.SECURITY_NEEDS__AVAILABILITY_VALUE, false, true);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+
+  @Override
+  public void setAvailabilityValue(EnumerationPropertyLiteral newAvailabilityValue) {
+
+    eDynamicSet(CybersecurityPackage.SECURITY_NEEDS__AVAILABILITY_VALUE,
+        CybersecurityPackage.Literals.SECURITY_NEEDS__AVAILABILITY_VALUE, newAvailabilityValue);
+
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+
+  @Override
+  public EnumerationPropertyLiteral getTraceabilityValue() {
+
+    return (EnumerationPropertyLiteral) eDynamicGet(CybersecurityPackage.SECURITY_NEEDS__TRACEABILITY_VALUE,
+        CybersecurityPackage.Literals.SECURITY_NEEDS__TRACEABILITY_VALUE, true, true);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+
+  public EnumerationPropertyLiteral basicGetTraceabilityValue() {
+
+    return (EnumerationPropertyLiteral) eDynamicGet(CybersecurityPackage.SECURITY_NEEDS__TRACEABILITY_VALUE,
+        CybersecurityPackage.Literals.SECURITY_NEEDS__TRACEABILITY_VALUE, false, true);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+
+  @Override
+  public void setTraceabilityValue(EnumerationPropertyLiteral newTraceabilityValue) {
+
+    eDynamicSet(CybersecurityPackage.SECURITY_NEEDS__TRACEABILITY_VALUE,
+        CybersecurityPackage.Literals.SECURITY_NEEDS__TRACEABILITY_VALUE, newTraceabilityValue);
 
   }
 
@@ -214,22 +218,22 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType) {
     switch (featureID) {
-    case CybersecurityPackage.SECURITY_NEEDS__CONFIDENTIALITY:
+    case CybersecurityPackage.SECURITY_NEEDS__CONFIDENTIALITY_VALUE:
       if (resolve)
-        return getConfidentiality();
-      return basicGetConfidentiality();
-    case CybersecurityPackage.SECURITY_NEEDS__INTEGRITY:
+        return getConfidentialityValue();
+      return basicGetConfidentialityValue();
+    case CybersecurityPackage.SECURITY_NEEDS__INTEGRITY_VALUE:
       if (resolve)
-        return getIntegrity();
-      return basicGetIntegrity();
-    case CybersecurityPackage.SECURITY_NEEDS__AVAILABILITY:
+        return getIntegrityValue();
+      return basicGetIntegrityValue();
+    case CybersecurityPackage.SECURITY_NEEDS__AVAILABILITY_VALUE:
       if (resolve)
-        return getAvailability();
-      return basicGetAvailability();
-    case CybersecurityPackage.SECURITY_NEEDS__TRACEABILITY:
+        return getAvailabilityValue();
+      return basicGetAvailabilityValue();
+    case CybersecurityPackage.SECURITY_NEEDS__TRACEABILITY_VALUE:
       if (resolve)
-        return getTraceability();
-      return basicGetTraceability();
+        return getTraceabilityValue();
+      return basicGetTraceabilityValue();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -241,17 +245,17 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
   @Override
   public void eSet(int featureID, Object newValue) {
     switch (featureID) {
-    case CybersecurityPackage.SECURITY_NEEDS__CONFIDENTIALITY:
-      setConfidentiality((EnumerationPropertyLiteral) newValue);
+    case CybersecurityPackage.SECURITY_NEEDS__CONFIDENTIALITY_VALUE:
+      setConfidentialityValue((EnumerationPropertyLiteral) newValue);
       return;
-    case CybersecurityPackage.SECURITY_NEEDS__INTEGRITY:
-      setIntegrity((EnumerationPropertyLiteral) newValue);
+    case CybersecurityPackage.SECURITY_NEEDS__INTEGRITY_VALUE:
+      setIntegrityValue((EnumerationPropertyLiteral) newValue);
       return;
-    case CybersecurityPackage.SECURITY_NEEDS__AVAILABILITY:
-      setAvailability((EnumerationPropertyLiteral) newValue);
+    case CybersecurityPackage.SECURITY_NEEDS__AVAILABILITY_VALUE:
+      setAvailabilityValue((EnumerationPropertyLiteral) newValue);
       return;
-    case CybersecurityPackage.SECURITY_NEEDS__TRACEABILITY:
-      setTraceability((EnumerationPropertyLiteral) newValue);
+    case CybersecurityPackage.SECURITY_NEEDS__TRACEABILITY_VALUE:
+      setTraceabilityValue((EnumerationPropertyLiteral) newValue);
       return;
     }
     super.eSet(featureID, newValue);
@@ -264,17 +268,17 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
   @Override
   public void eUnset(int featureID) {
     switch (featureID) {
-    case CybersecurityPackage.SECURITY_NEEDS__CONFIDENTIALITY:
-      setConfidentiality((EnumerationPropertyLiteral) null);
+    case CybersecurityPackage.SECURITY_NEEDS__CONFIDENTIALITY_VALUE:
+      setConfidentialityValue((EnumerationPropertyLiteral) null);
       return;
-    case CybersecurityPackage.SECURITY_NEEDS__INTEGRITY:
-      setIntegrity((EnumerationPropertyLiteral) null);
+    case CybersecurityPackage.SECURITY_NEEDS__INTEGRITY_VALUE:
+      setIntegrityValue((EnumerationPropertyLiteral) null);
       return;
-    case CybersecurityPackage.SECURITY_NEEDS__AVAILABILITY:
-      setAvailability((EnumerationPropertyLiteral) null);
+    case CybersecurityPackage.SECURITY_NEEDS__AVAILABILITY_VALUE:
+      setAvailabilityValue((EnumerationPropertyLiteral) null);
       return;
-    case CybersecurityPackage.SECURITY_NEEDS__TRACEABILITY:
-      setTraceability((EnumerationPropertyLiteral) null);
+    case CybersecurityPackage.SECURITY_NEEDS__TRACEABILITY_VALUE:
+      setTraceabilityValue((EnumerationPropertyLiteral) null);
       return;
     }
     super.eUnset(featureID);
@@ -287,14 +291,14 @@ public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds
   @Override
   public boolean eIsSet(int featureID) {
     switch (featureID) {
-    case CybersecurityPackage.SECURITY_NEEDS__CONFIDENTIALITY:
-      return basicGetConfidentiality() != null;
-    case CybersecurityPackage.SECURITY_NEEDS__INTEGRITY:
-      return basicGetIntegrity() != null;
-    case CybersecurityPackage.SECURITY_NEEDS__AVAILABILITY:
-      return basicGetAvailability() != null;
-    case CybersecurityPackage.SECURITY_NEEDS__TRACEABILITY:
-      return basicGetTraceability() != null;
+    case CybersecurityPackage.SECURITY_NEEDS__CONFIDENTIALITY_VALUE:
+      return basicGetConfidentialityValue() != null;
+    case CybersecurityPackage.SECURITY_NEEDS__INTEGRITY_VALUE:
+      return basicGetIntegrityValue() != null;
+    case CybersecurityPackage.SECURITY_NEEDS__AVAILABILITY_VALUE:
+      return basicGetAvailabilityValue() != null;
+    case CybersecurityPackage.SECURITY_NEEDS__TRACEABILITY_VALUE:
+      return basicGetTraceabilityValue() != null;
     }
     return super.eIsSet(featureID);
   }

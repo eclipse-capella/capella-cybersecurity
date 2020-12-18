@@ -1201,22 +1201,22 @@ public class CybersecurityServices {
 
   public void setConfidentiality(ExtensibleElement element, EnumerationPropertyLiteral value) {
     SecurityNeeds sn = getSecurityNeeds(element, true);
-    sn.setConfidentiality(value);
+    sn.setConfidentialityValue(value);
   }
 
   public void setIntegrity(ExtensibleElement element, EnumerationPropertyLiteral value) {
     SecurityNeeds sn = getSecurityNeeds(element, true);
-    sn.setIntegrity(value);
+    sn.setIntegrityValue(value);
   }
 
   public void setTraceability(ExtensibleElement element, EnumerationPropertyLiteral value) {
     SecurityNeeds sn = getSecurityNeeds(element, true);
-    sn.setTraceability(value);
+    sn.setTraceabilityValue(value);
   }
 
   public void setAvailability(ExtensibleElement element, EnumerationPropertyLiteral value) {
     SecurityNeeds sn = getSecurityNeeds(element, true);
-    sn.setAvailability(value);
+    sn.setAvailabilityValue(value);
   }
 
   public void setConfidentiality(ExtensibleElement element, int index, EnumerationPropertyType type) {

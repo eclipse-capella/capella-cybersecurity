@@ -51,25 +51,25 @@ public class SecurityNeedsItemProvider extends ModelElementItemProvider implemen
    * <!-- end-user-doc -->
    * @generated
    */
-  protected IItemPropertyDescriptor confidentialityPropertyDescriptor;
+  protected IItemPropertyDescriptor confidentialityValuePropertyDescriptor;
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected IItemPropertyDescriptor integrityPropertyDescriptor;
+  protected IItemPropertyDescriptor integrityValuePropertyDescriptor;
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected IItemPropertyDescriptor availabilityPropertyDescriptor;
+  protected IItemPropertyDescriptor availabilityValuePropertyDescriptor;
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected IItemPropertyDescriptor traceabilityPropertyDescriptor;
+  protected IItemPropertyDescriptor traceabilityValuePropertyDescriptor;
 
   /**
    * This constructs an instance from a factory and a notifier.
@@ -90,56 +90,59 @@ public class SecurityNeedsItemProvider extends ModelElementItemProvider implemen
     super.checkChildCreationExtender(object);
     if (object instanceof EObject) {
       EObject eObject = (EObject) object;
-      // Process CybersecurityPackage.Literals.SECURITY_NEEDS__CONFIDENTIALITY
-      if (confidentialityPropertyDescriptor != null) {
-        Object confidentialityValue = eObject.eGet(CybersecurityPackage.Literals.SECURITY_NEEDS__CONFIDENTIALITY, true);
-        if (confidentialityValue != null && confidentialityValue instanceof EObject
-            && ModelExtensionHelper.getInstance(eObject).isExtensionModelDisabled((EObject) confidentialityValue)) {
-          itemPropertyDescriptors.remove(confidentialityPropertyDescriptor);
-        } else if (confidentialityValue == null && ExtensionModelManager.getAnyType(eObject,
-            CybersecurityPackage.Literals.SECURITY_NEEDS__CONFIDENTIALITY) != null) {
-          itemPropertyDescriptors.remove(confidentialityPropertyDescriptor);
-        } else if (itemPropertyDescriptors.contains(confidentialityPropertyDescriptor) == false) {
-          itemPropertyDescriptors.add(confidentialityPropertyDescriptor);
+      // Process CybersecurityPackage.Literals.SECURITY_NEEDS__CONFIDENTIALITY_VALUE
+      if (confidentialityValuePropertyDescriptor != null) {
+        Object confidentialityValueValue = eObject
+            .eGet(CybersecurityPackage.Literals.SECURITY_NEEDS__CONFIDENTIALITY_VALUE, true);
+        if (confidentialityValueValue != null && confidentialityValueValue instanceof EObject && ModelExtensionHelper
+            .getInstance(eObject).isExtensionModelDisabled((EObject) confidentialityValueValue)) {
+          itemPropertyDescriptors.remove(confidentialityValuePropertyDescriptor);
+        } else if (confidentialityValueValue == null && ExtensionModelManager.getAnyType(eObject,
+            CybersecurityPackage.Literals.SECURITY_NEEDS__CONFIDENTIALITY_VALUE) != null) {
+          itemPropertyDescriptors.remove(confidentialityValuePropertyDescriptor);
+        } else if (itemPropertyDescriptors.contains(confidentialityValuePropertyDescriptor) == false) {
+          itemPropertyDescriptors.add(confidentialityValuePropertyDescriptor);
         }
       }
-      // Process CybersecurityPackage.Literals.SECURITY_NEEDS__INTEGRITY
-      if (integrityPropertyDescriptor != null) {
-        Object integrityValue = eObject.eGet(CybersecurityPackage.Literals.SECURITY_NEEDS__INTEGRITY, true);
-        if (integrityValue != null && integrityValue instanceof EObject
-            && ModelExtensionHelper.getInstance(eObject).isExtensionModelDisabled((EObject) integrityValue)) {
-          itemPropertyDescriptors.remove(integrityPropertyDescriptor);
-        } else if (integrityValue == null && ExtensionModelManager.getAnyType(eObject,
-            CybersecurityPackage.Literals.SECURITY_NEEDS__INTEGRITY) != null) {
-          itemPropertyDescriptors.remove(integrityPropertyDescriptor);
-        } else if (itemPropertyDescriptors.contains(integrityPropertyDescriptor) == false) {
-          itemPropertyDescriptors.add(integrityPropertyDescriptor);
+      // Process CybersecurityPackage.Literals.SECURITY_NEEDS__INTEGRITY_VALUE
+      if (integrityValuePropertyDescriptor != null) {
+        Object integrityValueValue = eObject.eGet(CybersecurityPackage.Literals.SECURITY_NEEDS__INTEGRITY_VALUE, true);
+        if (integrityValueValue != null && integrityValueValue instanceof EObject
+            && ModelExtensionHelper.getInstance(eObject).isExtensionModelDisabled((EObject) integrityValueValue)) {
+          itemPropertyDescriptors.remove(integrityValuePropertyDescriptor);
+        } else if (integrityValueValue == null && ExtensionModelManager.getAnyType(eObject,
+            CybersecurityPackage.Literals.SECURITY_NEEDS__INTEGRITY_VALUE) != null) {
+          itemPropertyDescriptors.remove(integrityValuePropertyDescriptor);
+        } else if (itemPropertyDescriptors.contains(integrityValuePropertyDescriptor) == false) {
+          itemPropertyDescriptors.add(integrityValuePropertyDescriptor);
         }
       }
-      // Process CybersecurityPackage.Literals.SECURITY_NEEDS__AVAILABILITY
-      if (availabilityPropertyDescriptor != null) {
-        Object availabilityValue = eObject.eGet(CybersecurityPackage.Literals.SECURITY_NEEDS__AVAILABILITY, true);
-        if (availabilityValue != null && availabilityValue instanceof EObject
-            && ModelExtensionHelper.getInstance(eObject).isExtensionModelDisabled((EObject) availabilityValue)) {
-          itemPropertyDescriptors.remove(availabilityPropertyDescriptor);
-        } else if (availabilityValue == null && ExtensionModelManager.getAnyType(eObject,
-            CybersecurityPackage.Literals.SECURITY_NEEDS__AVAILABILITY) != null) {
-          itemPropertyDescriptors.remove(availabilityPropertyDescriptor);
-        } else if (itemPropertyDescriptors.contains(availabilityPropertyDescriptor) == false) {
-          itemPropertyDescriptors.add(availabilityPropertyDescriptor);
+      // Process CybersecurityPackage.Literals.SECURITY_NEEDS__AVAILABILITY_VALUE
+      if (availabilityValuePropertyDescriptor != null) {
+        Object availabilityValueValue = eObject.eGet(CybersecurityPackage.Literals.SECURITY_NEEDS__AVAILABILITY_VALUE,
+            true);
+        if (availabilityValueValue != null && availabilityValueValue instanceof EObject
+            && ModelExtensionHelper.getInstance(eObject).isExtensionModelDisabled((EObject) availabilityValueValue)) {
+          itemPropertyDescriptors.remove(availabilityValuePropertyDescriptor);
+        } else if (availabilityValueValue == null && ExtensionModelManager.getAnyType(eObject,
+            CybersecurityPackage.Literals.SECURITY_NEEDS__AVAILABILITY_VALUE) != null) {
+          itemPropertyDescriptors.remove(availabilityValuePropertyDescriptor);
+        } else if (itemPropertyDescriptors.contains(availabilityValuePropertyDescriptor) == false) {
+          itemPropertyDescriptors.add(availabilityValuePropertyDescriptor);
         }
       }
-      // Process CybersecurityPackage.Literals.SECURITY_NEEDS__TRACEABILITY
-      if (traceabilityPropertyDescriptor != null) {
-        Object traceabilityValue = eObject.eGet(CybersecurityPackage.Literals.SECURITY_NEEDS__TRACEABILITY, true);
-        if (traceabilityValue != null && traceabilityValue instanceof EObject
-            && ModelExtensionHelper.getInstance(eObject).isExtensionModelDisabled((EObject) traceabilityValue)) {
-          itemPropertyDescriptors.remove(traceabilityPropertyDescriptor);
-        } else if (traceabilityValue == null && ExtensionModelManager.getAnyType(eObject,
-            CybersecurityPackage.Literals.SECURITY_NEEDS__TRACEABILITY) != null) {
-          itemPropertyDescriptors.remove(traceabilityPropertyDescriptor);
-        } else if (itemPropertyDescriptors.contains(traceabilityPropertyDescriptor) == false) {
-          itemPropertyDescriptors.add(traceabilityPropertyDescriptor);
+      // Process CybersecurityPackage.Literals.SECURITY_NEEDS__TRACEABILITY_VALUE
+      if (traceabilityValuePropertyDescriptor != null) {
+        Object traceabilityValueValue = eObject.eGet(CybersecurityPackage.Literals.SECURITY_NEEDS__TRACEABILITY_VALUE,
+            true);
+        if (traceabilityValueValue != null && traceabilityValueValue instanceof EObject
+            && ModelExtensionHelper.getInstance(eObject).isExtensionModelDisabled((EObject) traceabilityValueValue)) {
+          itemPropertyDescriptors.remove(traceabilityValuePropertyDescriptor);
+        } else if (traceabilityValueValue == null && ExtensionModelManager.getAnyType(eObject,
+            CybersecurityPackage.Literals.SECURITY_NEEDS__TRACEABILITY_VALUE) != null) {
+          itemPropertyDescriptors.remove(traceabilityValuePropertyDescriptor);
+        } else if (itemPropertyDescriptors.contains(traceabilityValuePropertyDescriptor) == false) {
+          itemPropertyDescriptors.add(traceabilityValuePropertyDescriptor);
         }
       }
     }
@@ -155,10 +158,10 @@ public class SecurityNeedsItemProvider extends ModelElementItemProvider implemen
     if (itemPropertyDescriptors == null) {
       super.getPropertyDescriptors(object);
 
-      addConfidentialityPropertyDescriptor(object);
-      addIntegrityPropertyDescriptor(object);
-      addAvailabilityPropertyDescriptor(object);
-      addTraceabilityPropertyDescriptor(object);
+      addConfidentialityValuePropertyDescriptor(object);
+      addIntegrityValuePropertyDescriptor(object);
+      addAvailabilityValuePropertyDescriptor(object);
+      addTraceabilityValuePropertyDescriptor(object);
     }
     // begin-extension-code
     checkChildCreationExtender(object);
@@ -167,82 +170,86 @@ public class SecurityNeedsItemProvider extends ModelElementItemProvider implemen
   }
 
   /**
-   * This adds a property descriptor for the Confidentiality feature.
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * This adds a property descriptor for the Confidentiality Value feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-  protected void addConfidentialityPropertyDescriptor(Object object) {
+  protected void addConfidentialityValuePropertyDescriptor(Object object) {
     // begin-extension-code
-    confidentialityPropertyDescriptor = createItemPropertyDescriptor
+    confidentialityValuePropertyDescriptor = createItemPropertyDescriptor
     // end-extension-code		
     (((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-        getString("_UI_SecurityNeeds_confidentiality_feature"), //$NON-NLS-1$
-        getString("_UI_PropertyDescriptor_description", "_UI_SecurityNeeds_confidentiality_feature", //$NON-NLS-1$//$NON-NLS-2$
+        getString("_UI_SecurityNeeds_confidentialityValue_feature"), //$NON-NLS-1$
+        getString("_UI_PropertyDescriptor_description", "_UI_SecurityNeeds_confidentialityValue_feature", //$NON-NLS-1$//$NON-NLS-2$
             "_UI_SecurityNeeds_type"), //$NON-NLS-1$
-        CybersecurityPackage.Literals.SECURITY_NEEDS__CONFIDENTIALITY, true, false, false, null, null,
+        CybersecurityPackage.Literals.SECURITY_NEEDS__CONFIDENTIALITY_VALUE, true, false, true, null, null,
         // begin-extension-code
         null);
-    itemPropertyDescriptors.add(confidentialityPropertyDescriptor);
+    itemPropertyDescriptors.add(confidentialityValuePropertyDescriptor);
     // end-extension-code
   }
 
   /**
-   * This adds a property descriptor for the Integrity feature.
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * This adds a property descriptor for the Integrity Value feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-  protected void addIntegrityPropertyDescriptor(Object object) {
+  protected void addIntegrityValuePropertyDescriptor(Object object) {
     // begin-extension-code
-    integrityPropertyDescriptor = createItemPropertyDescriptor
+    integrityValuePropertyDescriptor = createItemPropertyDescriptor
     // end-extension-code		
     (((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-        getString("_UI_SecurityNeeds_integrity_feature"), //$NON-NLS-1$
-        getString("_UI_PropertyDescriptor_description", "_UI_SecurityNeeds_integrity_feature", //$NON-NLS-1$//$NON-NLS-2$
+        getString("_UI_SecurityNeeds_integrityValue_feature"), //$NON-NLS-1$
+        getString("_UI_PropertyDescriptor_description", "_UI_SecurityNeeds_integrityValue_feature", //$NON-NLS-1$//$NON-NLS-2$
             "_UI_SecurityNeeds_type"), //$NON-NLS-1$
-        CybersecurityPackage.Literals.SECURITY_NEEDS__INTEGRITY, true, false, false, null, null,
+        CybersecurityPackage.Literals.SECURITY_NEEDS__INTEGRITY_VALUE, true, false, true, null, null,
         // begin-extension-code
         null);
-    itemPropertyDescriptors.add(integrityPropertyDescriptor);
+    itemPropertyDescriptors.add(integrityValuePropertyDescriptor);
     // end-extension-code
   }
 
   /**
-   * This adds a property descriptor for the Availability feature.
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * This adds a property descriptor for the Availability Value feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-  protected void addAvailabilityPropertyDescriptor(Object object) {
+  protected void addAvailabilityValuePropertyDescriptor(Object object) {
     // begin-extension-code
-    availabilityPropertyDescriptor = createItemPropertyDescriptor
+    availabilityValuePropertyDescriptor = createItemPropertyDescriptor
     // end-extension-code		
     (((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-        getString("_UI_SecurityNeeds_availability_feature"), //$NON-NLS-1$
-        getString("_UI_PropertyDescriptor_description", "_UI_SecurityNeeds_availability_feature", //$NON-NLS-1$//$NON-NLS-2$
+        getString("_UI_SecurityNeeds_availabilityValue_feature"), //$NON-NLS-1$
+        getString("_UI_PropertyDescriptor_description", "_UI_SecurityNeeds_availabilityValue_feature", //$NON-NLS-1$//$NON-NLS-2$
             "_UI_SecurityNeeds_type"), //$NON-NLS-1$
-        CybersecurityPackage.Literals.SECURITY_NEEDS__AVAILABILITY, true, false, false, null, null,
+        CybersecurityPackage.Literals.SECURITY_NEEDS__AVAILABILITY_VALUE, true, false, true, null, null,
         // begin-extension-code
         null);
-    itemPropertyDescriptors.add(availabilityPropertyDescriptor);
+    itemPropertyDescriptors.add(availabilityValuePropertyDescriptor);
     // end-extension-code
   }
 
   /**
-   * This adds a property descriptor for the Traceability feature.
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * This adds a property descriptor for the Traceability Value feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-  protected void addTraceabilityPropertyDescriptor(Object object) {
+  protected void addTraceabilityValuePropertyDescriptor(Object object) {
     // begin-extension-code
-    traceabilityPropertyDescriptor = createItemPropertyDescriptor
+    traceabilityValuePropertyDescriptor = createItemPropertyDescriptor
     // end-extension-code		
     (((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-        getString("_UI_SecurityNeeds_traceability_feature"), //$NON-NLS-1$
-        getString("_UI_PropertyDescriptor_description", "_UI_SecurityNeeds_traceability_feature", //$NON-NLS-1$//$NON-NLS-2$
+        getString("_UI_SecurityNeeds_traceabilityValue_feature"), //$NON-NLS-1$
+        getString("_UI_PropertyDescriptor_description", "_UI_SecurityNeeds_traceabilityValue_feature", //$NON-NLS-1$//$NON-NLS-2$
             "_UI_SecurityNeeds_type"), //$NON-NLS-1$
-        CybersecurityPackage.Literals.SECURITY_NEEDS__TRACEABILITY, true, false, false, null, null,
+        CybersecurityPackage.Literals.SECURITY_NEEDS__TRACEABILITY_VALUE, true, false, true, null, null,
         // begin-extension-code
         null);
-    itemPropertyDescriptors.add(traceabilityPropertyDescriptor);
+    itemPropertyDescriptors.add(traceabilityValuePropertyDescriptor);
     // end-extension-code
   }
 
@@ -298,15 +305,6 @@ public class SecurityNeedsItemProvider extends ModelElementItemProvider implemen
   @Override
   public void notifyChanged(Notification notification) {
     updateChildren(notification);
-
-    switch (notification.getFeatureID(SecurityNeeds.class)) {
-    case CybersecurityPackage.SECURITY_NEEDS__CONFIDENTIALITY:
-    case CybersecurityPackage.SECURITY_NEEDS__INTEGRITY:
-    case CybersecurityPackage.SECURITY_NEEDS__AVAILABILITY:
-    case CybersecurityPackage.SECURITY_NEEDS__TRACEABILITY:
-      fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-      return;
-    }
     super.notifyChanged(notification);
   }
 
@@ -390,6 +388,17 @@ public class SecurityNeedsItemProvider extends ModelElementItemProvider implemen
       CommandParameter commandParameter = createChildParameter(
           EmdePackage.Literals.EXTENSIBLE_ELEMENT__OWNED_EXTENSIONS,
           CybersecurityFactory.eINSTANCE.createTrustBoundaryStorage());
+      if (NewChildDescriptorHelper.isValidCommand(object, commandParameter)) {
+        newChildDescriptors.add(commandParameter);
+      }
+    }
+    // end-extension-code
+
+    // begin-extension-code
+    {
+      CommandParameter commandParameter = createChildParameter(
+          EmdePackage.Literals.EXTENSIBLE_ELEMENT__OWNED_EXTENSIONS,
+          CybersecurityFactory.eINSTANCE.createCybersecurityConfiguration());
       if (NewChildDescriptorHelper.isValidCommand(object, commandParameter)) {
         newChildDescriptors.add(commandParameter);
       }
