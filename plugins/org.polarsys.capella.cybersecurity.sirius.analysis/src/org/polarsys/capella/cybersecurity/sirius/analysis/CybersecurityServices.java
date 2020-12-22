@@ -158,11 +158,25 @@ public class CybersecurityServices {
     return null;
   }
 
-  public String getThreatLabel(Threat threat) {
-    String kind = threat.getKind().getName().toUpperCase();
+  public String getThreatLabel(Threat threat) { 
+    String kind = null;
+    if (threat.getKind() != null) {
+      kind = threat.getKind().getName().toUpperCase();
+    } else {
+        Session session = SessionManager.INSTANCE.getSession(threat);
+        Project project = SessionHelper.getCapellaProject(session);
+        EnumerationPropertyType property = CybersecurityQueries.getThreatKindPropertyType(project);
+        if (property != null && !property.getOwnedLiterals().isEmpty()) {
+          kind = property.getOwnedLiterals().get(0).getName().toUpperCase();
+        }
+    }
     String defaultLabel = EObjectLabelProviderHelper.getText(threat);
-
-    return defaultLabel + "\n(" + kind + ")";
+    
+    if (kind != null) {
+      return defaultLabel + "\n(" + kind + ")";
+    }
+    return defaultLabel + "\n(UNDEFINED)";
+    
   }
 
   public String getPrimaryAssetLabel(EObject asset) {
