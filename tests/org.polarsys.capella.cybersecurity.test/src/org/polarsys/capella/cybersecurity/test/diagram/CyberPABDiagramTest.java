@@ -16,7 +16,9 @@ import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.DEdge;
 import org.eclipse.sirius.diagram.DNode;
+import org.eclipse.sirius.diagram.DNodeContainer;
 import org.eclipse.sirius.diagram.EdgeStyle;
+import org.eclipse.sirius.diagram.FlatContainerStyle;
 import org.eclipse.sirius.diagram.Square;
 import org.eclipse.sirius.diagram.impl.SquareImpl;
 import org.eclipse.sirius.viewpoint.RGBValues;
@@ -27,6 +29,7 @@ import org.polarsys.capella.core.data.cs.InterfacePkg;
 import org.polarsys.capella.core.data.cs.Part;
 import org.polarsys.capella.core.data.cs.PhysicalLink;
 import org.polarsys.capella.core.data.fa.ComponentExchange;
+import org.polarsys.capella.core.data.fa.ComponentExchangeAllocation;
 import org.polarsys.capella.core.data.fa.ComponentExchangeFunctionalExchangeAllocation;
 import org.polarsys.capella.core.data.fa.FaFactory;
 import org.polarsys.capella.core.data.fa.FunctionalChain;
@@ -41,6 +44,7 @@ import org.polarsys.capella.cybersecurity.model.FunctionStorage;
 import org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset;
 import org.polarsys.capella.cybersecurity.model.InformationPrimaryAsset;
 import org.polarsys.capella.cybersecurity.model.PrimaryAssetMember;
+import org.polarsys.capella.cybersecurity.model.Threat;
 import org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage;
 import org.polarsys.capella.cybersecurity.sirius.analysis.CybersecurityAnalysisConstants;
 import org.polarsys.capella.cybersecurity.sirius.analysis.CybersecurityServices;
@@ -55,8 +59,7 @@ public class CyberPABDiagramTest extends EmptyProject {
   
   private FunctionalPrimaryAsset fpa;
   private InformationPrimaryAsset ipa;
-  private PrimaryAssetMember m1;
-  private PrimaryAssetMember m2;
+  private Threat threat;
 
   @Override
   protected void undoAllChanges() {
@@ -293,6 +296,202 @@ public class CyberPABDiagramTest extends EmptyProject {
       assertEquals(((EdgeStyle) exchangeStyle).getStrokeColor().getGreen(), 0);
     });
     
+    
+    //Support Assets layer 
+    // remove asset members to clear colorization
+    executeCommand(() -> fpa.getOwnedMembers().clear());  
+    
+    //scenario 1
+    //create one NPC component, then another NPC component inside it
+    String compNPC1 = diagram.createNodeComponent("compNPC1", diagram.getDiagramId());
+    String compNPC2 = diagram.createNodeComponent("compNPC2", compNPC1);
+    
+    //create one BPC component inside NPC2, then another BPC component inside it
+    String compBPC3 = diagram.createDeployedBehaviorComponent("compBPC3", compNPC2);
+    String compBPC4 = diagram.createDeployedBehaviorComponent("compBPC4", compBPC3);
+    
+    //create PhysicalFunction inside BPC4
+    String physicalFunction1 = diagram.createFunction("physicalFunction1", compBPC4);
+    
+    executeCommand(() -> {    
+      //create FunctionalPrimaryAsset and add PhysicalFunction1 as member
+      fpa = services.createFunctionalPrimaryAsset(context.getSemanticElement(PA__PHYSICAL_SYSTEM));
+      PrimaryAssetMember m1 = CybersecurityFactory.eINSTANCE.createPrimaryAssetMember();
+      m1.setMember((ModelElement) diagram.getSemanticObjectMap().get("physicalFunction1"));
+      fpa.getOwnedMembers().add(m1);    
+    
+      diagram.insertPrimaryAsset(fpa);
+      CyberDiagramLayers.activateLayer(session, diagram.getDiagram(), CybersecurityAnalysisConstants.LAYER_SUPPORTING_ASSETS);
+      diagram.refreshDiagram(); 
+    }); 
+    Integer highlightedBorderSize = new Integer(5);
+    Integer borderSize = new Integer(1);
+    
+    //check that function node has same border color as primary asset color
+    fpaNode = (DNode) diagram.getView(fpa);
+    fpaColor = ((Square) fpaNode.getStyle()).getColor();
+    DNode fNode = (DNode) diagram.getViewObjectMap().get("physicalFunction1");
+    assertEquals(fpaColor, ((Square) fNode.getStyle()).getBorderColor());
+
+    //check that first node component has same border color as primary asset color and highlighted border
+    DNodeContainer fNodeContainer = (DNodeContainer) diagram.getViewObjectMap().get("compNPC2");
+    assertEquals(fpaColor, ((FlatContainerStyle) fNodeContainer.getStyle()).getBorderColor());
+    assertEquals(highlightedBorderSize, ((FlatContainerStyle) fNodeContainer.getStyle()).getBorderSize());
+    
+    //check that first behavior component has same border color as primary asset color and highlighted border
+    fNodeContainer = (DNodeContainer) diagram.getViewObjectMap().get("compBPC4");
+    assertEquals(fpaColor, ((FlatContainerStyle) fNodeContainer.getStyle()).getBorderColor());
+    assertEquals(highlightedBorderSize, ((FlatContainerStyle) fNodeContainer.getStyle()).getBorderSize());
+    
+    //check that second node component has black border color and it is not highlighted
+    RGBValues blackColor = RGBValues.create(0, 0, 0);
+    fNodeContainer = (DNodeContainer) diagram.getViewObjectMap().get("compNPC1");
+    assertEquals(blackColor, ((FlatContainerStyle) fNodeContainer.getStyle()).getBorderColor());
+    assertEquals(borderSize, ((FlatContainerStyle) fNodeContainer.getStyle()).getBorderSize());
+    
+    //check that second behavior component has black border color and it is not highlighted
+    fNodeContainer = (DNodeContainer) diagram.getViewObjectMap().get("compBPC3");
+    assertEquals(blackColor, ((FlatContainerStyle) fNodeContainer.getStyle()).getBorderColor());
+    assertEquals(borderSize, ((FlatContainerStyle) fNodeContainer.getStyle()).getBorderSize());
+    
+    //scenario 2
+    //create threat, apply it to primary asset and add threat to diagram
+    executeCommand(() -> {
+      threat = services.createThreat(fpa);
+      services.createThreatApplication(threat, fpa);
+      diagram.insertThreat(threat);
+      diagram.refreshDiagram();
+    });
+    
+    //check that function node has black color (asset and threat present in the diagram)
+    fNode = (DNode) diagram.getViewObjectMap().get("physicalFunction1");
+    assertEquals(blackColor, ((Square) fNode.getStyle()).getBorderColor());
+    assertEquals(highlightedBorderSize, ((Square) fNode.getStyle()).getBorderSize());
+
+    //check that first node component has black color
+    fNodeContainer = (DNodeContainer) diagram.getViewObjectMap().get("compNPC2");
+    assertEquals(blackColor, ((FlatContainerStyle) fNodeContainer.getStyle()).getBorderColor());
+    assertEquals(highlightedBorderSize, ((FlatContainerStyle) fNodeContainer.getStyle()).getBorderSize());
+    
+    //check that first behavior component has black color
+    fNodeContainer = (DNodeContainer) diagram.getViewObjectMap().get("compBPC4");
+    assertEquals(blackColor, ((FlatContainerStyle) fNodeContainer.getStyle()).getBorderColor());
+    assertEquals(highlightedBorderSize, ((FlatContainerStyle) fNodeContainer.getStyle()).getBorderSize());
+    
+    
+    //scenario 3
+    //remove primary asset from diagram
+    diagram.removePrimaryAsset(fpa);
+    
+    //check that the function node has the same border color as the threat color
+    DNode threatNode = (DNode) diagram.getView(threat);
+    RGBValues threatColor = ((Square) threatNode.getStyle()).getColor();
+    assertEquals(threatColor, ((Square) fNode.getStyle()).getBorderColor());
+    assertEquals(highlightedBorderSize, ((Square) fNode.getStyle()).getBorderSize());
+
+    //check that first node component has the same border color as the threat color
+    fNodeContainer = (DNodeContainer) diagram.getViewObjectMap().get("compNPC2");
+    assertEquals(threatColor, ((FlatContainerStyle) fNodeContainer.getStyle()).getBorderColor());
+    assertEquals(highlightedBorderSize, ((FlatContainerStyle) fNodeContainer.getStyle()).getBorderSize());
+    
+    //check that first behavior component has the same border color as the threat color
+    fNodeContainer = (DNodeContainer) diagram.getViewObjectMap().get("compBPC4");
+    assertEquals(threatColor, ((FlatContainerStyle) fNodeContainer.getStyle()).getBorderColor());
+    assertEquals(highlightedBorderSize, ((FlatContainerStyle) fNodeContainer.getStyle()).getBorderSize());
+    
+    //scenario 4
+    //create one Physical Actor inside first NPC component, then another Physical Actor inside it
+    String actorPA1 = diagram.createNodeComponent("actorPA1", compNPC1);
+    String actorPA2 = diagram.createNodeComponent("actorPA2", actorPA1);
+    
+    //create one BPC component inside actorPA2, then another BPC component inside it
+    String compBPC5 = diagram.createDeployedBehaviorComponent("compBPC5", actorPA2);
+    String compBPC6 = diagram.createDeployedBehaviorComponent("compBPC6", compBPC5);
+    
+    //create PhysicalFunction inside BPC6
+    String physicalFunction3 = diagram.createFunction("physicalFunction3", compBPC6);
+    executeCommand(() -> {
+      //add the new functions as members of primary asset
+      PrimaryAssetMember m4 = CybersecurityFactory.eINSTANCE.createPrimaryAssetMember();
+      m4.setMember((ModelElement) diagram.getSemanticObjectMap().get("physicalFunction3"));
+      fpa.getOwnedMembers().add(m4);
+      diagram.refreshDiagram();
+    });
+    
+    //check that the new function nodes have the same border color as the threat color
+    fNode = (DNode) diagram.getViewObjectMap().get("physicalFunction3");
+    assertEquals(threatColor, ((Square) fNode.getStyle()).getBorderColor());
+    assertEquals(highlightedBorderSize, ((Square) fNode.getStyle()).getBorderSize());
+    
+    //check that first Physical Actor has same border color as the threat color
+    fNodeContainer = (DNodeContainer) diagram.getViewObjectMap().get("actorPA2");
+    assertEquals(threatColor, ((FlatContainerStyle) fNodeContainer.getStyle()).getBorderColor());
+    assertEquals(highlightedBorderSize, ((FlatContainerStyle) fNodeContainer.getStyle()).getBorderSize());
+    
+    //check that first behavior component has same border color as primary asset color
+    fNodeContainer = (DNodeContainer) diagram.getViewObjectMap().get("compBPC6");
+    assertEquals(threatColor, ((FlatContainerStyle) fNodeContainer.getStyle()).getBorderColor());
+    assertEquals(highlightedBorderSize, ((FlatContainerStyle) fNodeContainer.getStyle()).getBorderSize());
+    
+    //check that second Physical Actor has black border color
+    fNodeContainer = (DNodeContainer) diagram.getViewObjectMap().get("actorPA1");
+    assertEquals(blackColor, ((FlatContainerStyle) fNodeContainer.getStyle()).getBorderColor());
+    assertEquals(borderSize, ((FlatContainerStyle) fNodeContainer.getStyle()).getBorderSize());
+    
+    //check that second behavior component has black border color
+    fNodeContainer = (DNodeContainer) diagram.getViewObjectMap().get("compBPC5");
+    assertEquals(blackColor, ((FlatContainerStyle) fNodeContainer.getStyle()).getBorderColor());
+    assertEquals(borderSize, ((FlatContainerStyle) fNodeContainer.getStyle()).getBorderSize());
+    
+    //scenario 5
+    // create a component exchange between the 'container' actors
+    diagram.createComponentExchange(compBPC3, compBPC5, "CE1");
+    ComponentExchange componentExchange = (ComponentExchange) diagram.getSemanticObjectMap().get("CE1");
+
+    //create an exchange item and add to interfaces
+    ExchangeItem exchangeItem1 = InformationFactory.eINSTANCE.createExchangeItem();
+    InterfacePkg pkg = context.getSemanticElement(PA__INTERFACES);
+    executeCommand(() -> {
+      pkg.getOwnedExchangeItems().add(exchangeItem1);
+
+      // add exchange item to functional exchange and information primary assets
+      diagram.createFunctionalExchange(physicalFunction1, physicalFunction3, "functionalExchange1");
+      FunctionalExchange functionalExchange = (FunctionalExchange) diagram.getSemanticObjectMap().get("functionalExchange1");
+      functionalExchange.getExchangedItems().add(exchangeItem1);
+      PrimaryAssetMember m1 = CybersecurityFactory.eINSTANCE.createPrimaryAssetMember();
+      m1.setMember(exchangeItem1);
+      ipa = services.createInformationPrimaryAsset(context.getSemanticElement(PA__PHYSICAL_SYSTEM));
+      ipa.getOwnedMembers().add(m1);
+      services.createThreatApplication(threat, ipa);
+
+      // add an allocated functional exchange to the component exchange
+      ComponentExchangeFunctionalExchangeAllocation a = FaFactory.eINSTANCE
+          .createComponentExchangeFunctionalExchangeAllocation();
+      a.setSourceElement(componentExchange);
+      a.setTargetElement(functionalExchange);
+      componentExchange.getOwnedComponentExchangeFunctionalExchangeAllocations().add(a);
+    
+      // create a physical link between components and allocate component exchange
+      diagram.createPhysicalLink(compNPC2, compNPC1, "PL1");   
+      PhysicalLink physicalLink = (PhysicalLink) diagram.getSemanticObjectMap().get("PL1");
+      ComponentExchangeAllocation a1 = FaFactory.eINSTANCE.createComponentExchangeAllocation();
+      a1.setSourceElement(physicalLink);
+      a1.setTargetElement(componentExchange);
+      physicalLink.getOwnedComponentExchangeAllocations().add(a1);
+    });
+    
+    //check physical link and component exchange have same color as threat color
+    DEdge componentExchangeEdge = diagram.getDiagram().getEdges()
+        .stream().filter(e -> e.getTarget() == diagram.getSemanticObjectMap().get("CE1"))
+        .findFirst().get();
+    assertEquals(threatColor, ((EdgeStyle) componentExchangeEdge.getStyle()).getStrokeColor());
+    assertEquals(highlightedBorderSize, ((EdgeStyle) componentExchangeEdge.getStyle()).getSize());
+    
+    DEdge physicalLinkEdge = diagram.getDiagram().getEdges()
+        .stream().filter(e -> e.getTarget() == diagram.getSemanticObjectMap().get("PL1"))
+        .findFirst().get();
+    assertEquals(threatColor, ((EdgeStyle) physicalLinkEdge.getStyle()).getStrokeColor());
+    assertEquals(highlightedBorderSize, ((EdgeStyle) physicalLinkEdge.getStyle()).getSize());
     
 //    this dumps a screenshot..
 //    ExportFormat format = new ExportFormat(ExportDocumentFormat.NONE, ImageFileFormat.PNG);
