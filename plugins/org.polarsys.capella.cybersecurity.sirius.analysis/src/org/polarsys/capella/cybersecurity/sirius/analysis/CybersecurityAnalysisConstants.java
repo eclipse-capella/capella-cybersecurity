@@ -17,6 +17,7 @@ public final class CybersecurityAnalysisConstants {
   public static final String LAYER_TRUST_BOUNDARIES = "Cybersecurity Trust Boundaries Layer"; //$NON-NLS-1$
   public static final String LAYER_ASSETS = "Cybersecurity Assets Layer"; //$NON-NLS-1$
   public static final String LAYER_DECORATION = "Cybersecurity Decoration Layer"; //$NON-NLS-1$
+  public static final String LAYER_SUPPORTING_ASSETS = "Cybersecurity Supporting Assets"; //$NON-NLS-1$
 
   public static final String LAYER_CONFIDENTIALITY = "Cybersecurity Security Needs Confidentiality"; //$NON-NLS-1$
   public static final String LAYER_INTEGRITY = "Cybersecurity Security Needs Integrity"; //$NON-NLS-1$
@@ -36,5 +37,6 @@ public final class CybersecurityAnalysisConstants {
   public static final String TOOL_INSERTREMOVE__INFORMATION_PRIMARY_ASSET = "show_hide__.informationasset"; //$NON-NLS-1$
 
   public static final String TOOL_PAB_INSERT_PA = "Primary Assets"; //$NON-NLS-1$
+  public static final String TOOL_PAB_INSERT_THREAT = "Threats"; //$NON-NLS-1$
 
 }

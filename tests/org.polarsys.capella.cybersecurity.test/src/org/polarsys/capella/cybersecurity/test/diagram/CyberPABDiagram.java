@@ -10,18 +10,10 @@
  *******************************************************************************/
 package org.polarsys.capella.cybersecurity.test.diagram;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
-import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.diagram.DDiagram;
-import org.eclipse.sirius.diagram.business.api.componentization.DiagramComponentizationManager;
-import org.eclipse.sirius.diagram.description.DiagramDescription;
-import org.eclipse.sirius.diagram.description.Layer;
-import org.eclipse.sirius.diagram.tools.api.command.ChangeLayerActivationCommand;
-import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
 import org.polarsys.capella.core.sirius.analysis.IDiagramNameConstants;
 import org.polarsys.capella.cybersecurity.model.PrimaryAsset;
+import org.polarsys.capella.cybersecurity.model.Threat;
 import org.polarsys.capella.cybersecurity.sirius.analysis.CybersecurityAnalysisConstants;
 import org.polarsys.capella.test.diagram.common.ju.context.DiagramContext;
 import org.polarsys.capella.test.diagram.common.ju.context.PABDiagram;
@@ -53,6 +45,17 @@ public class CyberPABDiagram extends PABDiagram {
     irt.insert(pa.getId());
     irt.getResult();
   }
-
+  
+  public void removePrimaryAsset(PrimaryAsset pa) {
+    new InsertRemoveTool(this, CybersecurityAnalysisConstants.TOOL_PAB_INSERT_PA).remove(pa.getId());
+  }
+  
+  public void insertThreat(Threat threat) {
+    new InsertRemoveTool(this, CybersecurityAnalysisConstants.TOOL_PAB_INSERT_THREAT).insert(threat.getId());
+  }
+  
+  public void removeThreat(Threat threat) {
+    new InsertRemoveTool(this, CybersecurityAnalysisConstants.TOOL_PAB_INSERT_THREAT).remove(threat.getId());
+  }
 }
 
