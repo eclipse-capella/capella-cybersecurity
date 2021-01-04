@@ -74,7 +74,9 @@
       <ownedLiterals xsi:type="org.polarsys.capella.core.data.capellacore:EnumerationPropertyLiteral"
           id="fab8ec21-8d3d-4c38-aea9-2836f2b50cd2" name="Denial of service"/>
       <ownedLiterals xsi:type="org.polarsys.capella.core.data.capellacore:EnumerationPropertyLiteral"
-          id="e4efaae3-a6cf-49b2-a981-66a312a5dff1" name="Theft and data alteration"/>
+          id="e4efaae3-a6cf-49b2-a981-66a312a5dff1" name="Theft"/>
+      <ownedLiterals xsi:type="org.polarsys.capella.core.data.capellacore:EnumerationPropertyLiteral"
+          id="a3b45414-f8c4-4f51-9b9c-e7d4603e11d1" name="Data alteration"/>
       <ownedLiterals xsi:type="org.polarsys.capella.core.data.capellacore:EnumerationPropertyLiteral"
           id="5c830fcb-cf04-44a0-a76e-5c6fac5d2544" name="Intrusion"/>
       <ownedLiterals xsi:type="org.polarsys.capella.core.data.capellacore:EnumerationPropertyLiteral"

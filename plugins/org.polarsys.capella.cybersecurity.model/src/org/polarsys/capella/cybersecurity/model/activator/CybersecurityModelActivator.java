@@ -44,7 +44,7 @@ public class CybersecurityModelActivator implements BundleActivator {
   public static final String CYBERSECURITY_CFG_SECURITY_TRACEABILITY_KEYWORD = "Security.Traceability";
   public static final String CYBERSECURITY_CFG_SECURITY_AVAILABILITY_KEYWORD = "Security.Availability";
   
-  public static final String CYBERSECURITY_CFG_THREAD_KIND_KEYWORD = "Thread.Kind";
+  public static final String CYBERSECURITY_CFG_THREAT_KIND_KEYWORD = "Threat.Kind";
   public static final String THREAT_KIND_EAVESDROPPING_KEYWORD = "Eavesdropping";
   public static final String THREAT_KIND_THEFT_KEYWORD = "Theft";
   public static final String THREAT_KIND_DATA_ALTERATION_KEYWORD = "Data alteration";
@@ -121,7 +121,7 @@ public class CybersecurityModelActivator implements BundleActivator {
     config.setIntegrity(createEnumerationPropertySecurityType(CYBERSECURITY_CFG_SECURITY_INTEGRITY_KEYWORD, config));
     config.setTraceability(createEnumerationPropertySecurityType(CYBERSECURITY_CFG_SECURITY_TRACEABILITY_KEYWORD, config));
     config.setAvailability(createEnumerationPropertySecurityType(CYBERSECURITY_CFG_SECURITY_AVAILABILITY_KEYWORD, config));
-    config.setThreatKind(createEnumerationPropertyThreadKindType(CYBERSECURITY_CFG_THREAD_KIND_KEYWORD, config));
+    config.setThreatKind(createEnumerationPropertyThreadKindType(CYBERSECURITY_CFG_THREAT_KIND_KEYWORD, config));
     project_p.getOwnedExtensions().add(config); 
   }
   
