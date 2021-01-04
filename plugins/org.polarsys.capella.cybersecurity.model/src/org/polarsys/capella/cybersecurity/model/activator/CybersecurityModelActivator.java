@@ -44,7 +44,8 @@ public class CybersecurityModelActivator implements BundleActivator {
   
   public static final String CYBERSECURITY_CFG_THREAD_KIND_KEYWORD = "Thread.Kind";
   public static final String THREAT_KIND_EAVESDROPPING_KEYWORD = "Eavesdropping";
-  public static final String THREAT_KIND_THEFT_AND_DATA_ALTERATION_KEYWORD = "Theft and data alteration";
+  public static final String THREAT_KIND_THEFT_KEYWORD = "Theft";
+  public static final String THREAT_KIND_DATA_ALTERATION_KEYWORD = "Data alteration";
   public static final String THREAT_KIND_DENIAL_OF_SERVICE_KEYWORD = "Denial of service";
   public static final String THREAT_KIND_INTRUSION_KEYWORD = "Intrusion";
   public static final String THREAT_KIND_TAMPERING_KEYWORD = "Tampering";
@@ -136,7 +137,8 @@ public class CybersecurityModelActivator implements BundleActivator {
     EnumerationPropertyType type = CapellacoreFactory.eINSTANCE.createEnumerationPropertyType(typeName);
     type.getOwnedLiterals().add(CapellacoreFactory.eINSTANCE.createEnumerationPropertyLiteral(THREAT_KIND_EAVESDROPPING_KEYWORD));
     type.getOwnedLiterals().add(CapellacoreFactory.eINSTANCE.createEnumerationPropertyLiteral(THREAT_KIND_DENIAL_OF_SERVICE_KEYWORD));
-    type.getOwnedLiterals().add(CapellacoreFactory.eINSTANCE.createEnumerationPropertyLiteral(THREAT_KIND_THEFT_AND_DATA_ALTERATION_KEYWORD));
+    type.getOwnedLiterals().add(CapellacoreFactory.eINSTANCE.createEnumerationPropertyLiteral(THREAT_KIND_THEFT_KEYWORD));
+    type.getOwnedLiterals().add(CapellacoreFactory.eINSTANCE.createEnumerationPropertyLiteral(THREAT_KIND_DATA_ALTERATION_KEYWORD));
     type.getOwnedLiterals().add(CapellacoreFactory.eINSTANCE.createEnumerationPropertyLiteral(THREAT_KIND_INTRUSION_KEYWORD));
     type.getOwnedLiterals().add(CapellacoreFactory.eINSTANCE.createEnumerationPropertyLiteral(THREAT_KIND_TAMPERING_KEYWORD));
     config.getOwnedEnumerationPropertyTypes().add(type);
