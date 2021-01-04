@@ -48,7 +48,10 @@ A situation that is unwanted by the stakeholders and that is to be avoided. Thre
 | Secretly listening to the private conversation of others without their consent.
 |-
 | Theft and data alteration
-| Stealing, leaking data, modifying data, erasing data, attack against traceability or against rogue action detection.
+| Stealing, leaking data, attack against traceability or against rogue action detection.
+|-
+| Data alteration
+| Modifying data, erasing data.
 |-
 | Denial of Service
 | DoS attacks make a machine, a service or a network resource unavailable to its intended users.
@@ -61,7 +64,7 @@ A situation that is unwanted by the stakeholders and that is to be avoided. Thre
 |}
 
 
-A ''Threat kinds'' can be customized by the user in the Cybersecurity Configuration, by editing the Threat.Kind type.
+''Threat kinds'' can be customized by the user in the Cybersecurity Configuration, by editing the Threat.Kind type.
 
 [[Image:Images/threat_kind.png]]
 
@@ -236,7 +239,7 @@ Several Layers are provided for Cybersecurity PAB, PDFB, CDB and ES diagrams. A 
 
 === Assets Layer ===
 
-The Assets Layer will display in the diagram the inserted assets. The elements that are threatened by them will be highlighted with the same border color as the asset color. If two ore more assets threat the same element and at least two of them are displayed in diagram, the border color of the element will be black.
+The Assets Layer will display in the diagram the inserted assets. The elements that are threatened by them will be highlighted with the same border color as the asset color. If two or more assets threat the same element and at least two of them are displayed in diagram, the border color of the element will be black.
 
 [[Image:Images/pab_diagram_4.png]] 
 
