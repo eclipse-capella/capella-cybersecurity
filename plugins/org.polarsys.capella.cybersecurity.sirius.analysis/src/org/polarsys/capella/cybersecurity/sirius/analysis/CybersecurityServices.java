@@ -471,7 +471,7 @@ public class CybersecurityServices {
     PhysicalLink pl = null;
     if (element instanceof PhysicalLink) {
       pl = (PhysicalLink) element;
-    } System.out.println();
+    }
     return pl;
   }
 
