@@ -120,6 +120,14 @@ pipeline {
 				}
 			}
 		}
+		
+		stage('Sonar') {
+			steps {
+				script {
+					sonar.runSonar("eclipse_capella-cybersecurity", "eclipse/capella-cybersecurity", 'sonarcloud-token-cybersecurity')
+				}
+			}
+		}
 	}
   
 	post {
