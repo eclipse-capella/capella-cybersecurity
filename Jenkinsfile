@@ -116,7 +116,7 @@ pipeline {
 		        			['org.polarsys.capella.cybersecurity.test.CybersecurityTestSuite'])		        			 
 	        		}
 	        		
-	        		junit '*.xml'
+	        		tester.publishTests()
 				}
 			}
 		}

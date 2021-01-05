@@ -29,8 +29,6 @@
     <tycho-extras-version>2.0.0</tycho-extras-version>
     <tycho.scmUrl>scm:git:http://git.polarsys.org/c/capella/capella-cybersecurity.git</tycho.scmUrl>
 	<antrun-version>3.0.0</antrun-version>
-	<sonar-version>3.0.2</sonar-version>
-	<jacoco-version>0.7.6.201602180812</jacoco-version>
 
 	<!-- for junit -->
 	<capella-product-id>org.polarsys.capella.rcp.product</capella-product-id>
@@ -40,11 +38,6 @@
 	<platform-name>neon</platform-name>
 	<eclipse-repo.url>http://download.eclipse.org/releases/${platform-name}</eclipse-repo.url>
 	<packagedAddonName>Cybersecurity</packagedAddonName>
-
-	<!-- for sonar -->
-	<sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
-	<sonar.jacoco.reportPath>${project.basedir}/../../target/jacoco.exec</sonar.jacoco.reportPath>
-	<sonar.jacoco.itReportPath>${project.basedir}/../../target/jacoco-it.exec</sonar.jacoco.itReportPath>
   </properties>
 
   <modules>
@@ -114,21 +107,6 @@
           </environments>
         </configuration>
       </plugin>
-		<plugin>
-			<groupId>org.jacoco</groupId>
-			<artifactId>jacoco-maven-plugin</artifactId>
-			<version>${jacoco-version}</version>
-			<configuration>
-				<destFile>${sonar.jacoco.reportPath}</destFile>
-			</configuration>
-			<executions>
-				<execution>
-					<goals>
-						<goal>prepare-agent</goal>
-					</goals>
-				</execution>
-			</executions>
-		</plugin>
 			<!-- enable source feature generation -->
 			<plugin>
 				<groupId>org.eclipse.tycho.extras</groupId>
@@ -195,16 +173,10 @@
             <compilerArgument>-warn:+discouraged,forbidden</compilerArgument>
           </configuration>
         </plugin>
-		      <plugin>
-		        <groupId>org.sonarsource.scanner.maven</groupId>
-		        <artifactId>sonar-maven-plugin</artifactId>
-		        <version>${sonar-version}</version>
-		      </plugin>
-
-			</plugins>
+      </plugins>
     </pluginManagement>
   </build>
-  <profiles>
+    <profiles>
   	<profile>
 		<id>sign</id>
 		<activation>
@@ -245,4 +217,16 @@
 			</pluginRepositories>
 		</profile>
   </profiles>
+  <pluginRepositories>
+	<pluginRepository>
+		<id>cbi</id>
+		<url>https://repo.eclipse.org/content/repositories/cbi-releases/</url>
+		<releases>
+				<enabled>true</enabled>
+		</releases>
+		<snapshots>
+			<enabled>false</enabled>
+		</snapshots>
+	</pluginRepository>
+  </pluginRepositories>
 </project>
