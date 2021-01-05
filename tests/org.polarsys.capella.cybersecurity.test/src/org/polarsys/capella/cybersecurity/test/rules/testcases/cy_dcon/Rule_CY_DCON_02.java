@@ -34,18 +34,23 @@ public class Rule_CY_DCON_02 extends DynamicValidationTest {
   ComponentExchange ce;
   FunctionalExchange fe1;
   FunctionalExchange fe2;
-
+  
   private FunctionalExchange createFE() {
     FunctionalExchange res = FaFactory.eINSTANCE.createFunctionalExchange();
     skeleton.getPhysicalArchitecture().getContainedPhysicalFunctionPkg().getOwnedPhysicalFunctions().get(0)
         .getOwnedFunctionalExchanges().add(res);
     return res;
   }
+  
+  private ComponentExchange createCE() {
+    ComponentExchange res = FaFactory.eINSTANCE.createComponentExchange();
+    skeleton.getPhysicalArchitecture().getOwnedPhysicalComponentPkg().getOwnedComponentExchanges().add(res);
+    return res;
+  }
 
   @Override
   protected void initModel(CapellaModelSkeleton skeleton) {
-    ce = FaFactory.eINSTANCE.createComponentExchange();
-    skeleton.getPhysicalArchitecture().getOwnedPhysicalComponentPkg().getOwnedComponentExchanges().add(ce);
+    ce = createCE();
     fe1 = createFE();
     fe2 = createFE();
     Allocators.allocate(fe1, fe2).on(ce);
@@ -70,8 +75,8 @@ public class Rule_CY_DCON_02 extends DynamicValidationTest {
     });
     ko(ce, RULE);
     executeCommand(() -> {
-      service.setAvailability(ce, 5, typeAvailability);
-      service.setTraceability(ce, 5, typeTraceability);
+      service.setAvailability(ce, 3, typeAvailability);
+      service.setTraceability(ce, 3, typeTraceability);
     });
     ok(ce, RULE);
   }

@@ -35,7 +35,7 @@ public class Rule_CY_DCOV_03 extends DynamicValidationTest {
   @Override
   protected void initModel(CapellaModelSkeleton skeleton) {
     ComponentTemplate1 t = new ComponentTemplate1(skeleton, this);
-    threat = service.createThreat(t.component);
+    threat = service.createThreat(t.component, project);
     fpa = service.createFunctionalPrimaryAsset(t.component);
   }
 

@@ -72,7 +72,7 @@ public abstract class BasicDynamicModelTest extends BasicTestCase {
     tedHelper = new TransactionalEditingDomainHelper(manager.getEditingDomain());
     
     skeleton = new CapellaModelSkeleton.Builder(manager)
-        .setURI(URI.createPlatformResourceURI("/project/project.melodymodeller", false)) //$NON-NLS-1$
+        .setURI(URI.createPlatformResourceURI("/project/project.capella", false)) //$NON-NLS-1$
         .setName("project")
         .build(); //$NON-NLS-1$
     

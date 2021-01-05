@@ -13,6 +13,7 @@
 package org.polarsys.capella.cybersecurity.test.diagram;
 
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.transaction.RollbackException;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.diagram.DDiagramElement;
@@ -50,6 +51,7 @@ import org.polarsys.capella.cybersecurity.model.Threat;
 import org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage;
 import org.polarsys.capella.cybersecurity.sirius.analysis.CybersecurityAnalysisConstants;
 import org.polarsys.capella.cybersecurity.sirius.analysis.CybersecurityServices;
+import org.polarsys.capella.cybersecurity.test.common.Allocators;
 import org.polarsys.capella.cybersecurity.test.common.TransactionalEditingDomainHelper;
 import org.polarsys.capella.test.diagram.tools.ju.model.EmptyProject;
 import org.polarsys.capella.test.framework.context.SessionContext;
@@ -87,7 +89,6 @@ public class CyberPABDiagramTest extends EmptyProject {
   
     String c1 = diagram.createBehaviorComponent("comp1", diagram.getDiagramId());
     String c2 = diagram.createBehaviorComponent("comp2", diagram.getDiagramId());
-    
     
     String f1 = diagram.createFunction("f1", c1);
     String f2 = diagram.createFunction("f2", c2);
@@ -195,11 +196,7 @@ public class CyberPABDiagramTest extends EmptyProject {
           .get("component exchange");
 
       // add an allocated functional exchange to the component exchange
-      ComponentExchangeFunctionalExchangeAllocation a = FaFactory.eINSTANCE
-          .createComponentExchangeFunctionalExchangeAllocation();
-      a.setSourceElement(componentExchange);
-      a.setTargetElement(functionalExchange);
-      componentExchange.getOwnedComponentExchangeFunctionalExchangeAllocations().add(a);
+      Allocators.allocate(functionalExchange).on(componentExchange);
 
       assertTrue(CybersecurityQueries.isTrustBoundary(functionalExchange));
       assertTrue(CybersecurityQueries.isTrustBoundary(physicalLink));
@@ -467,11 +464,7 @@ public class CyberPABDiagramTest extends EmptyProject {
       services.createThreatApplication(threat, ipa);
 
       // add an allocated functional exchange to the component exchange
-      ComponentExchangeFunctionalExchangeAllocation a = FaFactory.eINSTANCE
-          .createComponentExchangeFunctionalExchangeAllocation();
-      a.setSourceElement(componentExchange);
-      a.setTargetElement(functionalExchange);
-      componentExchange.getOwnedComponentExchangeFunctionalExchangeAllocations().add(a);
+      Allocators.allocate(functionalExchange).on(componentExchange);
     
       // create a physical link between components and allocate component exchange
       diagram.createPhysicalLink(compNPC2, compNPC1, "PL1");   
