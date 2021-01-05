@@ -51,7 +51,7 @@ public class Rule_CY_DCOV_01 extends DynamicValidationTest {
     executeCommand(() -> storage.setThreatSource(true));
     ko(threatSource, RULE);
     executeCommand(() -> {
-      Threat threat = service.createThreat(threatSource);
+      Threat threat = service.createThreat(threatSource, project);
       service.createThreatInvolvement(threat, threatSource);
     });
     ok(threatSource, RULE);

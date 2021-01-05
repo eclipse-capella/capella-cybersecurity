@@ -142,12 +142,19 @@ public class CybersecurityServices {
   }
 
   public Threat createThreat(EObject any) {
+    Session session = SessionManager.INSTANCE.getSession(any);
+    if (session != null) {
+      Project project = SessionHelper.getCapellaProject(session);
+      return createThreat(any, project);
+    }
+    return null;
+  }
+  
+  public Threat createThreat(EObject any, Project project) {
     CybersecurityPkg pkg = getDefaultCyberSecurityPackage(any, true);
     if (pkg != null) {
       Threat threat = CybersecurityFactory.eINSTANCE.createThreat();
       // set threat kind to be the fisrt one available in the config threat kind type
-      Session session = SessionManager.INSTANCE.getSession(any);
-      Project project = SessionHelper.getCapellaProject(session);
       CybersecurityQueries.setThreatKindFromIndex(threat, 0, CybersecurityQueries.getThreatKindPropertyType(project));
       pkg.getOwnedThreats().add(threat);
 
