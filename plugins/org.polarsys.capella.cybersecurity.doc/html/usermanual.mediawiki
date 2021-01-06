@@ -237,9 +237,9 @@ Several Layers are provided for Cybersecurity PAB, PDFB, CDB and ES diagrams. A 
 
 [[Image:Images/layers.png]]
 
-=== Assets Layer ===
+=== Primary Assets Layer ===
 
-The Assets Layer will display in the diagram the inserted assets. The elements that are threatened by them will be highlighted with the same border color as the asset color. If two or more assets threat the same element and at least two of them are displayed in diagram, the border color of the element will be black.
+The Primary Assets Layer will display in the diagram the inserted assets. The elements that are threatened by them will be highlighted with the same border color as the asset color. If two or more assets threat the same element and at least two of them are displayed in diagram, the border color of the element will be black.
 
 [[Image:Images/pab_diagram_4.png]] 
 
@@ -251,6 +251,15 @@ With ''Primary Assets Tool'' the user has the ability to show/hide Primary Asset
 With ''Threats Tool'' the user can show/hide Threats in/from diagram.
 
 [[Image:Images/cybersecurity_tool.png]] 
+
+
+=== Supporting Assets Layer ===
+
+The Supporting Assets Layer adds decorations to the Components, Component Exchanges and Physical Links of Primary Assets. It highlights the first node component/physical actor
+and the first deploy behavior component that contains at least one function threaten by the primary asset. This components are highlighted with the color of the primary asset (if it's only one) or black (if there are two or many primary assets that cover the same function).
+
+[[Image:Images/pab_diagram_5.png]]
+
 
 === Trust Boundaries Layer ===
 
@@ -290,12 +299,6 @@ The Cybersecurity Decorations Layer adds the following decorations to existing d
 | Someone or something that could affect the product (ref: 87210649-DDQ-GRP-EN - Cyber Security For Architects Guide).
 |}
 
-=== Supporting Assets Layer ===
-
-The Supporting Assets Layer adds decorations to the Components, Component Exchanges and Physical Links of Primary Assets. It highlights the first node component/physical actor
-and the first deploy behavior component that contains at least one function threaten by the primary asset. This components are highlighted with the color of the primary asset (if it's only one) or black (if there are two or many primary assets that cover the same function).
-
-[[Image:Images/pab_diagram_5.png]]
 
 == Scenario Diagram ==
 

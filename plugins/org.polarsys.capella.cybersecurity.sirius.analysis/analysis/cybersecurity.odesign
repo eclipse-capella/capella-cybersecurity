@@ -261,7 +261,7 @@
           <decorationDescriptions xsi:type="description:GenericDecorationDescription" name="Asset Member Decorator" position="NORTH_WEST" preconditionExpression="aql:element.hasAssetStyleCustomization()" imageExpression="aql:self.getPrimaryAssetDecoration()" tooltipExpression="Member of a Primary Asset"/>
         </decorationDescriptionsSet>
       </layers>
-      <layers name="Cybersecurity Assets Layer" activeByDefault="true">
+      <layers name="Cybersecurity Assets Layer" label="Cybersecurity Primary Assets Layer" activeByDefault="true">
         <nodeMappings name="PrimaryAsset" createElements="false" domainClass="cybersecurity.PrimaryAsset">
           <style xsi:type="style:SquareDescription" labelSize="10" labelExpression="service:self.getPrimaryAssetLabel()" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -369,6 +369,17 @@
           </vsmElementCustomizations>
         </customization>
       </layers>
+      <layers name="Cybersecurity Supporting Assets" reusedMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentationExtensions[name='Cybersecurity%20Architecture%20Diagram%20Extensions']/@layers[name='Cybersecurity%20Assets%20Layer']/@nodeMappings[name='PrimaryAsset'] //@ownedViewpoints[name='Cybersecurity']/@ownedRepresentationExtensions[name='Cybersecurity%20Architecture%20Diagram%20Extensions']/@layers[name='Cybersecurity%20Assets%20Layer']/@nodeMappings[name='Threat']">
+        <toolSections name="Cybersecurity" reusedTools="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentationExtensions[name='Cybersecurity%20Architecture%20Diagram%20Extensions']/@layers[name='Cybersecurity%20Assets%20Layer']/@toolSections.0/@ownedTools[name='primary.assets'] //@ownedViewpoints[name='Cybersecurity']/@ownedRepresentationExtensions[name='Cybersecurity%20Architecture%20Diagram%20Extensions']/@layers[name='Cybersecurity%20Assets%20Layer']/@toolSections.0/@ownedTools[name='threats']"/>
+        <customization>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.hasSupportingAssetStyleCustomization(view)">
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="borderColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='asset_color1']"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" applyOnAll="true" attributeName="borderSizeComputationExpression" value="aql:view.getSupportingAssetsDecorationBorderSize()"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="strokeColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='asset_color1']"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" applyOnAll="true" attributeName="sizeComputationExpression" value="aql:view.getSupportingAssetsDecorationSize()"/>
+          </vsmElementCustomizations>
+        </customization>
+      </layers>
       <layers name="Cybersecurity Security Needs Confidentiality">
         <customization>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:view.getMaxSecurityNeedValue() > 0">
@@ -402,17 +413,6 @@
             <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="color" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='security_needs_color']"/>
             <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="backgroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='security_needs_color']"/>
             <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="foregroundColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='security_needs_color']"/>
-          </vsmElementCustomizations>
-        </customization>
-      </layers>
-      <layers name="Cybersecurity Supporting Assets" reusedMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentationExtensions[name='Cybersecurity%20Architecture%20Diagram%20Extensions']/@layers[name='Cybersecurity%20Assets%20Layer']/@nodeMappings[name='PrimaryAsset'] //@ownedViewpoints[name='Cybersecurity']/@ownedRepresentationExtensions[name='Cybersecurity%20Architecture%20Diagram%20Extensions']/@layers[name='Cybersecurity%20Assets%20Layer']/@nodeMappings[name='Threat']" activeByDefault="true">
-        <toolSections name="Cybersecurity" reusedTools="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentationExtensions[name='Cybersecurity%20Architecture%20Diagram%20Extensions']/@layers[name='Cybersecurity%20Assets%20Layer']/@toolSections.0/@ownedTools[name='primary.assets'] //@ownedViewpoints[name='Cybersecurity']/@ownedRepresentationExtensions[name='Cybersecurity%20Architecture%20Diagram%20Extensions']/@layers[name='Cybersecurity%20Assets%20Layer']/@toolSections.0/@ownedTools[name='threats']"/>
-        <customization>
-          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.hasSupportingAssetStyleCustomization(view)">
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="borderColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='asset_color1']"/>
-            <featureCustomizations xsi:type="description:EAttributeCustomization" applyOnAll="true" attributeName="borderSizeComputationExpression" value="aql:view.getSupportingAssetsDecorationBorderSize()"/>
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="strokeColor" value="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='asset_color1']"/>
-            <featureCustomizations xsi:type="description:EAttributeCustomization" applyOnAll="true" attributeName="sizeComputationExpression" value="aql:view.getSupportingAssetsDecorationSize()"/>
           </vsmElementCustomizations>
         </customization>
       </layers>
