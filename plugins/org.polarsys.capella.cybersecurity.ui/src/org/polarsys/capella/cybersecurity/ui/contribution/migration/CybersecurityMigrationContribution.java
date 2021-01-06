@@ -16,13 +16,17 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.xmi.XMLResource;
+import org.polarsys.capella.common.ef.ExecutionManager;
 import org.polarsys.capella.core.data.capellacore.EnumerationPropertyLiteral;
 import org.polarsys.capella.core.data.capellacore.EnumerationPropertyType;
 import org.polarsys.capella.core.data.capellamodeller.Project;
 import org.polarsys.capella.core.data.migration.context.MigrationContext;
 import org.polarsys.capella.core.data.migration.contribution.AbstractMigrationContribution;
+import org.polarsys.capella.cybersecurity.CyberSecurityViewpointHelper;
 import org.polarsys.capella.cybersecurity.model.CybersecurityQueries;
 import org.polarsys.capella.cybersecurity.model.SecurityNeeds;
 import org.polarsys.capella.cybersecurity.model.Threat;
@@ -31,10 +35,11 @@ import org.polarsys.capella.cybersecurity.model.activator.CybersecurityModelActi
 public class CybersecurityMigrationContribution extends AbstractMigrationContribution {
   Map<String, String> savedValues = new HashMap<>();
   Project project;
+  boolean isCyberViewpointActive;
 
   @Override
   public void unaryMigrationExecute(EObject currentElement, MigrationContext context) {
-    if (currentElement instanceof Project && !savedValues.isEmpty()) {
+    if (currentElement instanceof Project && isCyberViewpointActive) {
       project = (Project) currentElement;
       if ((CybersecurityQueries.getCybersecurityConfiguration(project) == null)) {
         new CybersecurityModelActivator().addProjectCybersecurityConfig(project);
@@ -48,7 +53,17 @@ public class CybersecurityMigrationContribution extends AbstractMigrationContrib
       securityNeedsMigration((SecurityNeeds) currentElement);
     }
   }
-
+  
+  @Override
+  public void unaryStartMigrationExecute(ExecutionManager executionManager, Resource resource, MigrationContext context) {
+    if(context.getResource().getName().contains(".afm")) {
+      EList<EObject> ct = resource.getContents();
+      if(!ct.isEmpty()) {
+        isCyberViewpointActive = CyberSecurityViewpointHelper.isViewpointActive(ct.get(0));
+      }
+    }
+  }
+  
   @Override
   public boolean ignoreUnknownFeature(String prefix, String name, boolean isElement, EObject peekObject, String value,
       XMLResource resource, MigrationContext context) {
@@ -67,6 +82,7 @@ public class CybersecurityMigrationContribution extends AbstractMigrationContrib
   public void dispose(MigrationContext context) {
     savedValues.clear();
     project = null;
+    isCyberViewpointActive = false;
   }
 
   private void threatMigration(Threat threat) {
