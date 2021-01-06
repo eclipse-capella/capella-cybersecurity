@@ -16,13 +16,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
-import org.polarsys.capella.core.data.capellacore.EnumerationPropertyType;
 import org.polarsys.capella.core.data.capellamodeller.Project;
 import org.polarsys.capella.core.sirius.ui.helper.SessionHelper;
 import org.polarsys.capella.core.ui.properties.fields.AbstractSemanticField;
@@ -89,8 +90,20 @@ public class ThreatSection extends AbstractSection {
     Session session = SessionManager.INSTANCE.getSession(element);
     Project project = SessionHelper.getCapellaProject(session);
     
-    threatKindGroup = new EnumerationLiterealValueRadioGroup(rootParentComposite, CybersecurityEditPlugin.INSTANCE.getString("_UI_Threat_threatKind_feature"),
-        CybersecurityQueries.getThreatKindPropertyType(project),
-        getWidgetFactory(), 3); 
+    threatKindGroup = new EnumerationLiterealValueRadioGroup(rootParentComposite,
+        CybersecurityEditPlugin.INSTANCE.getString("_UI_Threat_threatKind_feature"),
+        CybersecurityQueries.getThreatKindPropertyType(project), getWidgetFactory(), 3) {
+      @Override
+      public void loadData(EObject capellaElement, EStructuralFeature feature) {
+        super.loadData(capellaElement, feature);
+
+        Object value = semanticElement.eGet(semanticFeature);
+        for (Button button : getSemanticFields()) {
+          if (button != null) {
+            button.setSelection(value != null ? value.equals(button.getData()) : false);
+          }
+        }
+      }
+    };
   }
 }

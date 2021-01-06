@@ -168,10 +168,12 @@ public class CybersecurityServices {
   }
 
   public String getThreatLabel(Threat threat) {
-    String kind = threat.getKind().getName().toUpperCase();
     String defaultLabel = EObjectLabelProviderHelper.getText(threat);
-
-    return defaultLabel + "\n(" + kind + ")";
+    if (threat.getKind() != null) {
+      String kind = threat.getKind().getName().toUpperCase();
+      return defaultLabel + "\n(" + kind + ")";
+    }
+    return defaultLabel + "\n(UNDEFINED)";
   }
 
   public String getPrimaryAssetLabel(EObject asset) {
