@@ -12,6 +12,7 @@
  *******************************************************************************/
 package org.polarsys.capella.cybersecurity.test;
 
+import org.polarsys.capella.cybersecurity.test.config.CybersecurityConfigurationTestSuite;
 import org.polarsys.capella.cybersecurity.test.diagram.CyberPABDiagramTest;
 import org.polarsys.capella.cybersecurity.test.diagram.ThreatDiagramTest;
 import org.polarsys.capella.cybersecurity.test.rules.testcases.cy_dcon.CY_DCONRulesTestSuite;
@@ -36,6 +37,8 @@ public class CybersecurityTestSuite extends TestSuite {
 
     addTest(new ThreatDiagramTest());
     addTest(new CyberPABDiagramTest());
+    
+    addTest(new CybersecurityConfigurationTestSuite());
   }
 
   public static Test suite() {
