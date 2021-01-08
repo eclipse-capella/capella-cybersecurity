@@ -41,16 +41,6 @@ import org.polarsys.capella.cybersecurity.model.PrimaryAssetMember;
  */
 public class FunctionalPrimaryAssetImpl extends PrimaryAssetImpl implements FunctionalPrimaryAsset {
   /**
-   * The cached value of the '{@link #getFunctionalChains() <em>Functional Chains</em>}' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getFunctionalChains()
-   * @generated
-   * @ordered
-   */
-  protected EList<FunctionalChain> functionalChains;
-
-  /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
@@ -122,38 +112,6 @@ public class FunctionalPrimaryAssetImpl extends PrimaryAssetImpl implements Func
   }
 
   /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @SuppressWarnings("unchecked")
-  @Override
-  public void eSet(int featureID, Object newValue) {
-    switch (featureID) {
-    case CybersecurityPackage.FUNCTIONAL_PRIMARY_ASSET__FUNCTIONAL_CHAINS:
-      getFunctionalChains().clear();
-      getFunctionalChains().addAll((Collection<? extends FunctionalChain>) newValue);
-      return;
-    }
-    super.eSet(featureID, newValue);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void eUnset(int featureID) {
-    switch (featureID) {
-    case CybersecurityPackage.FUNCTIONAL_PRIMARY_ASSET__FUNCTIONAL_CHAINS:
-      getFunctionalChains().clear();
-      return;
-    }
-    super.eUnset(featureID);
-  }
-
-  /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
@@ -163,7 +121,7 @@ public class FunctionalPrimaryAssetImpl extends PrimaryAssetImpl implements Func
     case CybersecurityPackage.FUNCTIONAL_PRIMARY_ASSET__FUNCTIONS:
       return !getFunctions().isEmpty();
     case CybersecurityPackage.FUNCTIONAL_PRIMARY_ASSET__FUNCTIONAL_CHAINS:
-      return functionalChains != null && !functionalChains.isEmpty();
+      return !getFunctionalChains().isEmpty();
     }
     return super.eIsSet(featureID);
   }

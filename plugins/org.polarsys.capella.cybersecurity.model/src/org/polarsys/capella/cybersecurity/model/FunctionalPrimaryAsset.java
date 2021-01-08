@@ -62,7 +62,7 @@ public interface FunctionalPrimaryAsset extends PrimaryAsset {
    * <!-- end-user-doc -->
    * @return the value of the '<em>Functional Chains</em>' reference list.
    * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getFunctionalPrimaryAsset_FunctionalChains()
-   * @model
+   * @model transient="true" changeable="false" volatile="true" derived="true"
    * @generated
    */
 
