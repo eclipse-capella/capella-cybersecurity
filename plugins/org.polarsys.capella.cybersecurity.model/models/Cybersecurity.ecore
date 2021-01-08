@@ -95,7 +95,8 @@
         eType="ecore:EClass platform:/plugin/org.polarsys.capella.core.data.gen/model/FunctionalAnalysis.ecore#//AbstractFunction"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="functionalChains" upperBound="-1"
-        eType="ecore:EClass platform:/plugin/org.polarsys.capella.core.data.gen/model/FunctionalAnalysis.ecore#//FunctionalChain"/>
+        eType="ecore:EClass platform:/plugin/org.polarsys.capella.core.data.gen/model/FunctionalAnalysis.ecore#//FunctionalChain"
+        changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InformationPrimaryAsset" eSuperTypes="#//PrimaryAsset">
     <eStructuralFeatures xsi:type="ecore:EReference" name="exchangeItems" upperBound="-1"

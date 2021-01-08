@@ -84,7 +84,7 @@
     </genClasses>
     <genClasses ecoreClass="../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//FunctionalPrimaryAsset">
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//FunctionalPrimaryAsset/functions"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//FunctionalPrimaryAsset/functionalChains"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//FunctionalPrimaryAsset/functionalChains"/>
     </genClasses>
     <genClasses ecoreClass="../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//InformationPrimaryAsset">
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//InformationPrimaryAsset/exchangeItems"/>

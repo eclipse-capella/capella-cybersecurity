@@ -900,8 +900,8 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
         0, -1, FunctionalPrimaryAsset.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE,
         IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
     initEReference(getFunctionalPrimaryAsset_FunctionalChains(), theFaPackage.getFunctionalChain(), null,
-        "functionalChains", null, 0, -1, FunctionalPrimaryAsset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, //$NON-NLS-1$
-        !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        "functionalChains", null, 0, -1, FunctionalPrimaryAsset.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, //$NON-NLS-1$
+        !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
     initEClass(informationPrimaryAssetEClass, InformationPrimaryAsset.class, "InformationPrimaryAsset", !IS_ABSTRACT, //$NON-NLS-1$
         !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
