@@ -564,11 +564,12 @@ public class CybersecurityItemProviderAdapterFactory extends CybersecurityAdapte
        */
       @Override
       public Object caseExtensibleElement(ExtensibleElement object) {
+        Object result = null;
         // begin-extension-code
         if (ModelExtensionHelper.getInstance(object).isExtensionModelDisabled(
             EcoreUtil.getRootContainer(object).eClass().getEPackage().getNsURI(),
             "http://www.polarsys.org/capella/cybersecurity/1.0")) { //$NON-NLS-1$
-          return null;
+          return result;
         }
         // end-extension-code
         // begin-extension-code
@@ -659,7 +660,7 @@ public class CybersecurityItemProviderAdapterFactory extends CybersecurityAdapte
         }
         // end-extension-code
 
-        return null;
+        return result;
       }
 
       /**
