@@ -47,6 +47,7 @@ import org.eclipse.sirius.diagram.DEdge;
 import org.eclipse.sirius.diagram.DNode;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.diagram.DiagramPackage;
+import org.eclipse.sirius.diagram.Ellipse;
 import org.eclipse.sirius.diagram.Square;
 import org.eclipse.sirius.diagram.business.api.query.DDiagramQuery;
 import org.eclipse.sirius.diagram.business.internal.metamodel.spec.DNodeContainerSpec;
@@ -1188,9 +1189,9 @@ public class CybersecurityServices {
 
   // make a new random color for every new asset node
   public EObject setNewRandomColor(DNode assetView) {
-    ((Square) assetView.getOwnedStyle())
+    ((Ellipse) assetView.getOwnedStyle())
         .setColor(RGBValues.create(colorRands.nextInt(), colorRands.nextInt(), colorRands.nextInt()));
-    ((Square) assetView.getOwnedStyle()).getCustomFeatures().add("color"); //$NON-NLS-1$
+    ((Ellipse) assetView.getOwnedStyle()).getCustomFeatures().add("color"); //$NON-NLS-1$
     return assetView;
   }
 
