@@ -27,6 +27,7 @@ import org.polarsys.capella.core.data.capellamodeller.Project;
 import org.polarsys.capella.core.data.migration.context.MigrationContext;
 import org.polarsys.capella.core.data.migration.contribution.AbstractMigrationContribution;
 import org.polarsys.capella.cybersecurity.CyberSecurityViewpointHelper;
+import org.polarsys.capella.cybersecurity.model.CybersecurityConfiguration;
 import org.polarsys.capella.cybersecurity.model.CybersecurityQueries;
 import org.polarsys.capella.cybersecurity.model.SecurityNeeds;
 import org.polarsys.capella.cybersecurity.model.Threat;
@@ -34,45 +35,48 @@ import org.polarsys.capella.cybersecurity.model.activator.CybersecurityModelActi
 
 public class CybersecurityMigrationContribution extends AbstractMigrationContribution {
   Map<String, String> savedValues = new HashMap<>();
-  Project project;
-  boolean isCyberViewpointActive;
+  private CybersecurityConfiguration config;
 
   @Override
   public void unaryMigrationExecute(EObject currentElement, MigrationContext context) {
-    if (currentElement instanceof Project && isCyberViewpointActive) {
-      project = (Project) currentElement;
-      if ((CybersecurityQueries.getCybersecurityConfiguration(project) == null)) {
-        new CybersecurityModelActivator().addProjectCybersecurityConfig(project);
-      }
-    }
-
-    if (project != null && currentElement instanceof Threat) {
+    if (config != null && currentElement instanceof Threat) {
       threatMigration((Threat) currentElement);
     }
-    if (project != null && currentElement instanceof SecurityNeeds) {
+    if (config != null && currentElement instanceof SecurityNeeds) {
       securityNeedsMigration((SecurityNeeds) currentElement);
     }
   }
-  
+
   @Override
-  public void unaryStartMigrationExecute(ExecutionManager executionManager, Resource resource, MigrationContext context) {
-    if(context.getResource().getName().contains(".afm")) {
+  public void unaryStartMigrationExecute(ExecutionManager executionManager, Resource resource,
+      MigrationContext context) {
+    if (context.getResource().getName().contains(".afm")) {
       EList<EObject> ct = resource.getContents();
-      if(!ct.isEmpty()) {
-        isCyberViewpointActive = CyberSecurityViewpointHelper.isViewpointActive(ct.get(0));
+      if (!ct.isEmpty() && CyberSecurityViewpointHelper.isViewpointActive(ct.get(0))) {
+        config = new CybersecurityModelActivator().createCybersecurityConfiguration();
       }
     }
   }
-  
+
+  @Override
+  public void unaryEndMigrationExecute(ExecutionManager executionManager, Resource resource, MigrationContext context) {
+    if (config != null && !resource.getContents().isEmpty() && resource.getContents().get(0) instanceof Project) {
+      Project project = (Project) resource.getContents().get(0);
+      if (CybersecurityQueries.getCybersecurityConfiguration(project) == null) {
+        project.getOwnedExtensions().add(config);
+      }
+    }
+  }
+
   @Override
   public boolean ignoreUnknownFeature(String prefix, String name, boolean isElement, EObject peekObject, String value,
       XMLResource resource, MigrationContext context) {
     if (peekObject instanceof Threat && "threatKind".equals(name)) {
-      savedValues.put(peekObject.hashCode() + ":" + name, value);
+      savedValues.put(((Threat)peekObject).getId() + ":" + name, value);
       return true;
     }
     if (peekObject instanceof SecurityNeeds) {
-      savedValues.put(peekObject.hashCode() + ":" + name, value);
+      savedValues.put(((SecurityNeeds)peekObject).getId() + ":" + name, value);
       return true;
     }
     return false;
@@ -81,28 +85,31 @@ public class CybersecurityMigrationContribution extends AbstractMigrationContrib
   @Override
   public void dispose(MigrationContext context) {
     savedValues.clear();
-    project = null;
-    isCyberViewpointActive = false;
+    config = null;
   }
 
   private void threatMigration(Threat threat) {
-    EnumerationPropertyLiteral literal = getLiteral(CybersecurityQueries.getThreatKindPropertyType(project),
-        savedValues.get(threat.hashCode() + ":threatKind"));
+    String searchValue = savedValues.get(threat.getId() + ":threatKind");
+    // threat kind "Theft and data alteration" was split in "Theft" and "Data alteration"
+    if (searchValue != null && searchValue.contains("THEFT")) {
+      searchValue = "THEFT";
+    }
 
+    EnumerationPropertyLiteral literal = getLiteral(config.getThreatKind(), searchValue);
     if (literal != null) {
       threat.setKind(literal);
     }
   }
 
   private void securityNeedsMigration(SecurityNeeds sn) {
-    EnumerationPropertyLiteral literalC = getLiteral(CybersecurityQueries.getConfidentialityPropertyType(project),
-        savedValues.get(sn.hashCode() + ":confidentiality"));
-    EnumerationPropertyLiteral literalI = getLiteral(CybersecurityQueries.getIntegrityPropertyType(project),
-        savedValues.get(sn.hashCode() + ":integrity"));
-    EnumerationPropertyLiteral literalT = getLiteral(CybersecurityQueries.getTraceabilityPropertyType(project),
-        savedValues.get(sn.hashCode() + ":traceability"));
-    EnumerationPropertyLiteral literalA = getLiteral(CybersecurityQueries.getAvailabilityPropertyType(project),
-        savedValues.get(sn.hashCode() + ":availability"));
+    EnumerationPropertyLiteral literalC = getLiteral(config.getConfidentiality(),
+        savedValues.get(sn.getId() + ":confidentiality"));
+    EnumerationPropertyLiteral literalI = getLiteral(config.getIntegrity(),
+        savedValues.get(sn.getId() + ":integrity"));
+    EnumerationPropertyLiteral literalT = getLiteral(config.getTraceability(),
+        savedValues.get(sn.getId() + ":traceability"));
+    EnumerationPropertyLiteral literalA = getLiteral(config.getAvailability(),
+        savedValues.get(sn.getId() + ":availability"));
 
     if (literalC != null) {
       sn.setConfidentialityValue(literalC);
@@ -130,4 +137,5 @@ public class CybersecurityMigrationContribution extends AbstractMigrationContrib
     }
     return null;
   }
+
 }

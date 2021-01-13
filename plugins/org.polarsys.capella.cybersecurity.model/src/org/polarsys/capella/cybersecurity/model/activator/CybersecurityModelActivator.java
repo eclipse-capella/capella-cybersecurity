@@ -121,7 +121,7 @@ public class CybersecurityModelActivator implements BundleActivator {
     ViewpointManager.removeOverallListener(listener);
   }
   
-  public void addProjectCybersecurityConfig(Project project_p) {
+  public CybersecurityConfiguration createCybersecurityConfiguration() {
     CybersecurityConfiguration config = CybersecurityFactoryImpl.eINSTANCE.createCybersecurityConfiguration();
     config.setName(CYBERSECURITY_CFG_KEYWORD);
     config.setConfidentiality(createEnumerationPropertySecurityType(CYBERSECURITY_CFG_SECURITY_CONFIDENTIALITY_KEYWORD, config));
@@ -129,7 +129,11 @@ public class CybersecurityModelActivator implements BundleActivator {
     config.setTraceability(createEnumerationPropertySecurityType(CYBERSECURITY_CFG_SECURITY_TRACEABILITY_KEYWORD, config));
     config.setAvailability(createEnumerationPropertySecurityType(CYBERSECURITY_CFG_SECURITY_AVAILABILITY_KEYWORD, config));
     config.setThreatKind(createEnumerationPropertyThreadKindType(CYBERSECURITY_CFG_THREAT_KIND_KEYWORD, config));
-    project_p.getOwnedExtensions().add(config); 
+    return config;
+  }
+  
+  public void addProjectCybersecurityConfig(Project project) {
+    project.getOwnedExtensions().add(createCybersecurityConfiguration()); 
   }
   
   private EnumerationPropertyType createEnumerationPropertySecurityType(String typeName,  CybersecurityConfiguration config) {
