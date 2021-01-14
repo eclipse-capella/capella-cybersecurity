@@ -17,9 +17,26 @@ import java.util.Map;
 import java.util.Optional;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.util.EContentsEList.FeatureIterator;
+import org.eclipse.emf.ecore.xmi.XMLHelper;
 import org.eclipse.emf.ecore.xmi.XMLResource;
+import org.eclipse.emf.ecore.xmi.impl.XMLHelperImpl;
+import org.eclipse.gmf.runtime.notation.Node;
+import org.eclipse.sirius.diagram.DNode;
+import org.eclipse.sirius.diagram.DSemanticDiagram;
+import org.eclipse.sirius.diagram.business.internal.metamodel.spec.DNodeSpec;
+import org.eclipse.sirius.diagram.description.DiagramDescription;
+import org.eclipse.sirius.diagram.description.DiagramElementMapping;
+import org.eclipse.sirius.diagram.description.NodeMapping;
+import org.eclipse.sirius.viewpoint.description.RepresentationElementMapping;
 import org.polarsys.capella.common.ef.ExecutionManager;
 import org.polarsys.capella.core.data.capellacore.EnumerationPropertyLiteral;
 import org.polarsys.capella.core.data.capellacore.EnumerationPropertyType;
@@ -29,6 +46,7 @@ import org.polarsys.capella.core.data.migration.contribution.AbstractMigrationCo
 import org.polarsys.capella.cybersecurity.CyberSecurityViewpointHelper;
 import org.polarsys.capella.cybersecurity.model.CybersecurityConfiguration;
 import org.polarsys.capella.cybersecurity.model.CybersecurityQueries;
+import org.polarsys.capella.cybersecurity.model.PrimaryAsset;
 import org.polarsys.capella.cybersecurity.model.SecurityNeeds;
 import org.polarsys.capella.cybersecurity.model.Threat;
 import org.polarsys.capella.cybersecurity.model.activator.CybersecurityModelActivator;
@@ -44,6 +62,37 @@ public class CybersecurityMigrationContribution extends AbstractMigrationContrib
     }
     if (config != null && currentElement instanceof SecurityNeeds) {
       securityNeedsMigration((SecurityNeeds) currentElement);
+    }
+  }
+
+  @Override
+  public String getQName(EObject peekObject, String typeQName, EStructuralFeature feature, Resource resource,
+      XMLHelper helper, MigrationContext context) {
+    if (typeQName.equals("style:SquareDescription") && peekObject instanceof DNode
+        && ((DNode) peekObject).getTarget() instanceof PrimaryAsset) {
+      return "style:EllipseNodeDescription";
+    }
+    if (typeQName.equals("diagram:Square") && peekObject instanceof DNode
+        && ((DNode) peekObject).getTarget() instanceof PrimaryAsset) {
+      return "diagram:Ellipse";
+    }
+    return super.getQName(peekObject, typeQName, feature, resource, helper, context);
+  }
+
+  @Override
+  public void updateCreatedObject(EObject peekObject, EObject eObject, String typeQName, EStructuralFeature feature,
+      XMLResource resource, XMLHelper helper, MigrationContext context) {
+    if (typeQName.contains("notation:Node")) {
+      if (peekObject instanceof Node) {
+        for (Object child : ((Node) peekObject).getChildren()) {
+          if (child instanceof Node) {
+            Node node = (Node) child;
+            if (node.getType().equals("3003")) {
+              node.setType("3016");
+            }
+          }
+        }
+      }
     }
   }
 
@@ -72,11 +121,11 @@ public class CybersecurityMigrationContribution extends AbstractMigrationContrib
   public boolean ignoreUnknownFeature(String prefix, String name, boolean isElement, EObject peekObject, String value,
       XMLResource resource, MigrationContext context) {
     if (peekObject instanceof Threat && "threatKind".equals(name)) {
-      savedValues.put(((Threat)peekObject).getId() + ":" + name, value);
+      savedValues.put(((Threat) peekObject).getId() + ":" + name, value);
       return true;
     }
     if (peekObject instanceof SecurityNeeds) {
-      savedValues.put(((SecurityNeeds)peekObject).getId() + ":" + name, value);
+      savedValues.put(((SecurityNeeds) peekObject).getId() + ":" + name, value);
       return true;
     }
     return false;
@@ -104,8 +153,7 @@ public class CybersecurityMigrationContribution extends AbstractMigrationContrib
   private void securityNeedsMigration(SecurityNeeds sn) {
     EnumerationPropertyLiteral literalC = getLiteral(config.getConfidentiality(),
         savedValues.get(sn.getId() + ":confidentiality"));
-    EnumerationPropertyLiteral literalI = getLiteral(config.getIntegrity(),
-        savedValues.get(sn.getId() + ":integrity"));
+    EnumerationPropertyLiteral literalI = getLiteral(config.getIntegrity(), savedValues.get(sn.getId() + ":integrity"));
     EnumerationPropertyLiteral literalT = getLiteral(config.getTraceability(),
         savedValues.get(sn.getId() + ":traceability"));
     EnumerationPropertyLiteral literalA = getLiteral(config.getAvailability(),
