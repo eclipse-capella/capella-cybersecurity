@@ -47,7 +47,7 @@ A situation that is unwanted by the stakeholders and that is to be avoided. Thre
 | Eavesdropping
 | Secretly listening to the private conversation of others without their consent.
 |-
-| Theft and data alteration
+| Theft
 | Stealing, leaking data, attack against traceability or against rogue action detection.
 |-
 | Data alteration
@@ -235,13 +235,13 @@ One additional tool is provided by the Viewpoint:
 
 Several Layers are provided for Cybersecurity PAB, PDFB, CDB and ES diagrams. A layer allows to change the presentation of a diagram in order to focus on specific aspects of the modeled system. Layers are activated in the diagram toolbar:
 
-[[Image:Images/layers.png]]
+[[Image:Images/layers.png|630x270px]]
 
 === Primary Assets Layer ===
 
 The Primary Assets Layer will display in the diagram the inserted assets. The elements that are threatened by them will be highlighted with the same border color as the asset color. If two or more assets threat the same element and at least two of them are displayed in diagram, the border color of the element will be black.
 
-[[Image:Images/pab_diagram_4.png]] 
+[[Image:Images/pab_diagram_4.png|950x650px]] 
 
 When the primary asset covers a functional chain, the involved functions and functional exchanges will be highlighted in the same way (if the primary asset is displayed).
 If FunctionalChains (FC) are displayed in diagram, they will override the colors of Primary Asset Layer!
@@ -258,14 +258,14 @@ With ''Threats Tool'' the user can show/hide Threats in/from diagram.
 The Supporting Assets Layer adds decorations to the Components, Component Exchanges and Physical Links of Primary Assets. It highlights the first node component/physical actor
 and the first deploy behavior component that contains at least one function threaten by the primary asset. This components are highlighted with the color of the primary asset (if it's only one) or black (if there are two or many primary assets that cover the same function).
 
-[[Image:Images/pab_diagram_5.png]]
+[[Image:Images/pab_diagram_5.png|950x650px]]
 
 
 === Trust Boundaries Layer ===
 
 The Trust Boundaries Layer will change the diagrams appearance: Trusted components and actors will change their background color to white, untrusted components and actors will change their color to red. Communication edges between Trusted and Untrusted elements, so called Trust Boundaries, will be decorated with a small flame icon covered by a red border:
 
-[[Image:Images/pab_diagram_2.png]] 
+[[Image:Images/pab_diagram_2.png|950x650px]] 
 
 
 

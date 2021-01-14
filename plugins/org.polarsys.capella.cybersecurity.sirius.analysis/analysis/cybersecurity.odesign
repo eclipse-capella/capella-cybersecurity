@@ -251,7 +251,7 @@
       </additionalLayers>
     </ownedRepresentations>
     <ownedRepresentationExtensions xsi:type="description_1:DiagramExtensionDescription" name="Cybersecurity Architecture Diagram Extensions" viewpointURI="viewpoint:/org.polarsys.capella.core.sirius.analysis/.*" representationName="(Class Diagram Blank)|(Physical Architecture Blank)|(Physical Data Flow Blank)|(Component Exchanges Scenario)">
-      <layers name="Cybersecurity Decoration Layer" activeByDefault="true">
+      <layers name="Cybersecurity Decoration Layer" label="Cybersecurity Decoration" activeByDefault="true">
         <decorationDescriptionsSet>
           <decorationDescriptions xsi:type="description:GenericDecorationDescription" name="Component Trust Decorator" position="NORTH_EAST" preconditionExpression="aql:element.hasTrustDecoration()" imageExpression="aql:self.getTrustDecoration()" tooltipExpression="Trusted"/>
           <decorationDescriptions xsi:type="description:GenericDecorationDescription" name="Component No Trust Decorator" position="NORTH_EAST" preconditionExpression="aql:element.hasNoTrustDecoration()" imageExpression="aql:self.getNoTrustDecoration()" tooltipExpression="Not Trusted"/>
@@ -261,19 +261,19 @@
           <decorationDescriptions xsi:type="description:GenericDecorationDescription" name="Asset Member Decorator" position="NORTH_WEST" preconditionExpression="aql:element.hasAssetStyleCustomization()" imageExpression="aql:self.getPrimaryAssetDecoration()" tooltipExpression="Member of a Primary Asset"/>
         </decorationDescriptionsSet>
       </layers>
-      <layers name="Cybersecurity Assets Layer" label="Cybersecurity Primary Assets Layer" activeByDefault="true">
+      <layers name="Cybersecurity Assets Layer" label="Cybersecurity Primary Assets" activeByDefault="true">
         <nodeMappings name="PrimaryAsset" createElements="false" domainClass="cybersecurity.PrimaryAsset">
-          <style xsi:type="style:SquareDescription" labelSize="10" labelExpression="service:self.getPrimaryAssetLabel()" resizeKind="NSEW">
+          <style xsi:type="style:EllipseNodeDescription" labelSize="10" labelExpression="service:self.getPrimaryAssetLabel()" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
           </style>
         </nodeMappings>
         <nodeMappings name="Threat" createElements="false" domainClass="cybersecurity.Threat">
-          <style xsi:type="style:SquareDescription" labelSize="10" labelExpression="service:self.getThreatLabel()" resizeKind="NSEW">
+          <style xsi:type="style:EllipseNodeDescription" labelSize="10" labelExpression="service:self.getPrimaryAssetLabel()" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
           </style>
         </nodeMappings>
         <toolSections name="Cybersecurity">
@@ -418,7 +418,7 @@
       </layers>
     </ownedRepresentationExtensions>
     <ownedRepresentationExtensions xsi:type="description_1:DiagramExtensionDescription" name="Cybersecurity Architecture Diagram Extensions Second" viewpointURI="viewpoint:/org.polarsys.capella.core.sirius.analysis/.*" representationName="(Physical Architecture Blank)|(Physical Data Flow Blank)|(Component Exchanges Scenario)">
-      <layers name="Cybersecurity Trust Boundaries Layer" activeByDefault="true">
+      <layers name="Cybersecurity Trust Boundaries Layer" label="Cybersecurity Trust Boundaries" activeByDefault="true">
         <decorationDescriptionsSet>
           <decorationDescriptions xsi:type="description:GenericDecorationDescription" name="Flame Decorator" position="CENTER" preconditionExpression="aql:element.hasFlameDecoration()" imageExpression="aql:self.getFlameDecoration()"/>
         </decorationDescriptionsSet>
