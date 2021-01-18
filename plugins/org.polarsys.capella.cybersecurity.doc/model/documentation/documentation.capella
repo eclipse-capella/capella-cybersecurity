@@ -74,7 +74,9 @@
       <ownedLiterals xsi:type="org.polarsys.capella.core.data.capellacore:EnumerationPropertyLiteral"
           id="fab8ec21-8d3d-4c38-aea9-2836f2b50cd2" name="Denial of service"/>
       <ownedLiterals xsi:type="org.polarsys.capella.core.data.capellacore:EnumerationPropertyLiteral"
-          id="e4efaae3-a6cf-49b2-a981-66a312a5dff1" name="Theft and data alteration"/>
+          id="e4efaae3-a6cf-49b2-a981-66a312a5dff1" name="Theft"/>
+      <ownedLiterals xsi:type="org.polarsys.capella.core.data.capellacore:EnumerationPropertyLiteral"
+          id="432cec3c-2882-409f-941d-377e62caeaf7" name="Data alteration"/>
       <ownedLiterals xsi:type="org.polarsys.capella.core.data.capellacore:EnumerationPropertyLiteral"
           id="5c830fcb-cf04-44a0-a76e-5c6fac5d2544" name="Intrusion"/>
       <ownedLiterals xsi:type="org.polarsys.capella.core.data.capellacore:EnumerationPropertyLiteral"
@@ -284,10 +286,11 @@
       <ownedExtensions xsi:type="cybersecurity:CybersecurityPkg" id="af09e4d8-19e3-4c0e-8441-286fdce9ce2e"
           name="Cybersecurity">
         <ownedThreats xsi:type="cybersecurity:Threat" id="8538e1dc-8bc3-4845-a1bb-9319a4579415"
-            name="Steal Citizens Data" level="2"/>
+            name="Steal Citizens Data" kind="#e1fed63a-d6af-4463-baed-21b4221dd022"
+            level="1"/>
         <ownedThreats xsi:type="cybersecurity:Threat" id="5e46349d-3f44-4f93-aca7-eaf3b5c4665d"
             name="Make the video stream unusable" kind="#fab8ec21-8d3d-4c38-aea9-2836f2b50cd2"
-            level="1"/>
+            level="2"/>
         <ownedPrimaryAssets xsi:type="cybersecurity:InformationPrimaryAsset" id="12a192bb-0a5a-4dd1-a4eb-6d2b718d240c"
             name="Citizens Identification Data asset">
           <ownedThreatApplications xsi:type="cybersecurity:ThreatApplication" id="b462c2e0-1d67-467d-89dd-08630e63ae48"
