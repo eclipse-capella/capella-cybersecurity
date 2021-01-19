@@ -9,6 +9,7 @@ pipeline {
 	}
   
 	environment {
+		@Library('capella-pipeline-library@v1.4.x')
 		BUILD_KEY = (github.isPullRequest() ? CHANGE_TARGET : BRANCH_NAME).replaceFirst(/^v/, '')
 		CAPELLA_PRODUCT_PATH = "${WORKSPACE}/capella/eclipse/eclipse"
   	}
