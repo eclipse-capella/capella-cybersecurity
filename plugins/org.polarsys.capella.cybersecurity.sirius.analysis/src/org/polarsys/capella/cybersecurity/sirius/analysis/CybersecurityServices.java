@@ -45,11 +45,11 @@ import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.DEdge;
 import org.eclipse.sirius.diagram.DNode;
+import org.eclipse.sirius.diagram.DNodeContainer;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.diagram.DiagramPackage;
 import org.eclipse.sirius.diagram.Square;
 import org.eclipse.sirius.diagram.business.api.query.DDiagramQuery;
-import org.eclipse.sirius.diagram.business.internal.metamodel.spec.DNodeContainerSpec;
 import org.eclipse.sirius.diagram.description.Layer;
 import org.eclipse.sirius.viewpoint.DRepresentationElement;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
@@ -964,7 +964,7 @@ public class CybersecurityServices {
 
   private boolean isDisplayedInDiagram(DDiagram diagram, PhysicalComponent npcComponent) {
     List<DRepresentationElement> diagramElements = diagram.getRepresentationElements()
-        .stream().filter(element -> element instanceof DNodeContainerSpec && element.getSemanticElements().contains(npcComponent))
+        .stream().filter(element -> element instanceof DNodeContainer && element.getSemanticElements().contains(npcComponent))
         .collect(Collectors.toList());
     return diagramElements.size() > 0 ? true : false;
   }
