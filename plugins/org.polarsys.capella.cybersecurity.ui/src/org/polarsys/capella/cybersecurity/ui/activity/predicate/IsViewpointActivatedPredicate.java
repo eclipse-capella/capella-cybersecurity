@@ -15,15 +15,16 @@ package org.polarsys.capella.cybersecurity.ui.activity.predicate;
 import org.eclipse.amalgam.explorer.activity.ui.api.editor.activities.ExplorerActivity;
 import org.eclipse.amalgam.explorer.activity.ui.api.editor.input.ActivityExplorerEditorInput;
 import org.eclipse.amalgam.explorer.activity.ui.api.editor.predicates.IPredicate;
+import org.eclipse.amalgam.explorer.activity.ui.api.manager.ActivityExplorerManager;
 import org.eclipse.sirius.business.api.session.Session;
 import org.polarsys.capella.core.data.capellamodeller.Project;
-import org.polarsys.capella.core.sirius.ui.helper.SessionHelper;
 import org.polarsys.capella.cybersecurity.CyberSecurityViewpointHelper;
+import org.polarsys.capella.core.sirius.ui.helper.SessionHelper;
 
 public class IsViewpointActivatedPredicate implements IPredicate {
   @Override
   public boolean isActivityOk(ExplorerActivity activity) {
-    ActivityExplorerEditorInput editorInput = activity.getSection().getActivityExplorerPage().getEditorInput();
+    ActivityExplorerEditorInput editorInput = ActivityExplorerManager.INSTANCE.getEditor().getEditorInput();
     if (editorInput != null) {
       Object adapter = editorInput.getAdapter(Session.class);
       if (adapter instanceof Session) {
