@@ -31,7 +31,7 @@
 	<taskdef classpathref="wikitext.classpath" resource="org/eclipse/mylyn/wikitext/core/util/anttask/tasks.properties" />
     -->
 	<target name="generate-html" description="Generate HTML from textile source">
-		<wikitext-to-html markupLanguage="MediaWiki" formatOutput="true">
+		<wikitext-to-html markupLanguage="MediaWiki" formatOutput="true" defaultAbsoluteLinkTarget="_blank">
 			<fileset dir="${basedir}">
 				<include name="**/*.mediawiki"/>
 			</fileset>
