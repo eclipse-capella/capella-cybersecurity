@@ -148,7 +148,7 @@ The following diagram types are provided by the Capella Cybersecurity Viewpoint:
 * Scenario Diagram
 * Information Asset Diagram
 
-To create a Diagram, select the corresponding hyperlink from the [[../help/topic/org.polarsys.capella.ui.doc/html/04.%20User%20Interface/4.03.%20Activity%20Browser.html? |Activity Explorer]]:
+To create a Diagram, select the corresponding hyperlink from the [[../help/topic/org.polarsys.capella.ui.doc/html/04.%20User%20Interface/4.03.%20Activity%20Browser.html? |Activity Explorer]]<span class="github-link">[[https://github.com/eclipse/capella/blob/master/doc/plugins/org.polarsys.capella.ui.doc/html/04.%20User%20Interface/4.03.%20Activity%20Browser.mediawiki|(online documentation)]]</span>:
 
 [[Image:Images/activityExplorer.png]]
 
@@ -219,7 +219,7 @@ each Threat's level value is displayed in parenthesis on the up right corner of 
 [[Image:Images/pab_diagram_1.png]] 
 
 Architecture Diagrams are extended Capella Physical Architecture Diagrams.
-Thus, most of the tools available in Cybersecurity PAB diagrams are documented [[../help/topic/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.html?#Physical_Architecture_Blank |here]].
+Thus, most of the tools available in Cybersecurity PAB diagrams are documented [[../help/topic/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.html?#Physical_Architecture_Blank |here]]<span class="github-link">[[https://github.com/eclipse/capella/blob/master/doc/plugins/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.mediawiki#Physical_Architecture_Blank|(online documentation)]]</span>.
 
 One additional tool is provided by the Viewpoint:
 
@@ -302,11 +302,11 @@ The Cybersecurity Decorations Layer adds the following decorations to existing d
 
 == Scenario Diagram ==
 
-See Capella [[../help/topic/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.html?#Exchange_Scenario | Exchange  Scenario Documentation]].
+See Capella [[../help/topic/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.html?#Exchange_Scenario | Exchange  Scenario Documentation]]<span class="github-link">[[https://github.com/eclipse/capella/blob/master/doc/plugins/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.mediawiki#Exchange_Scenario|(online documentation)]]</span>.
 
 == Information Asset Diagram ==
 
-See Capella [[../help/topic/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.html?#Class_Diagram_Blank | Class Diagram Documentation]].
+See Capella [[../help/topic/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.html?#Class_Diagram_Blank | Class Diagram Documentation]]<span class="github-link">[[https://github.com/eclipse/capella/blob/master/doc/plugins/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.mediawiki#Class_Diagram_Blank|(online documentation)]]</span>.
 
 == Model Validation ==
 
