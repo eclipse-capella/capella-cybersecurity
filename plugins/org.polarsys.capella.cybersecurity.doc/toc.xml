@@ -10,15 +10,20 @@
   Contributors:
        Thales - initial API and implementation
 -->
-<toc label="Capella Cybersecurity Modeling Guide" sort="false">
-   <topic href="html/darc.html" label="Capella DARC">
-   <enablement>
-      <with variable="platform">
-         <test property="org.eclipse.core.runtime.product" value="org.polarsys.capella.cybersecurity.rcp.product"/>
-      </with>
-   </enablement>
+<toc label="Cybersecurity Guide" sort="false">
+   <topic label="Release Notes">
+      <topic href="html/Release notes/Whatsnew.html" label="What's new">
+      </topic>
+      <topic href="html/Release notes/KnownIssues.html" label="Known issues">
+      </topic>
+      <topic href="html/Release notes/Limitations.html" label="Limitations">
+      </topic>
    </topic>
-   <topic href="html/usermanual.html" label="Cybersecurity Viewpoint">
+   <topic href="html/InstallationUninstallation/Installation and Uninstallation.html" label="Installation and Uninstallation">
+   </topic>
+   <topic href="html/usermanual.html" label="User manual">
+      <topic href="html/darc.html" label="Introduction">
+      </topic>
       <topic href="html/usermanual.html#Concepts" label="Concepts"/>
       <topic href="html/usermanual.html#Diagrams" label="Diagrams"/>
       
@@ -27,5 +32,7 @@
 	      <topic href="html/Validation Rules/cybersecurity/design/coverage/ValidationRules.html" label="Coverage"/>
 	   </topic>
    </topic>
+   
+   
  
 </toc>
