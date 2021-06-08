@@ -1,0 +1,8 @@
+stages:
+    - target
+
+target:
+  stage: target
+  script:
+    - echo "Test"
+    

@@ -206,7 +206,7 @@ public class CybersecurityServices {
     EObject e = view.getTarget();
     DDiagram diagram = CapellaServices.getService().getDiagramContainer(view);
     
-    if (e instanceof Part && ((Part) e).getAbstractType() instanceof PhysicalComponent
+    if (e instanceof Part && ((Part) e).getAbstractType() instanceof Component
         && !isSupportingAssetHighlightedComponent(view)) {
       return 0;
     }
@@ -237,7 +237,7 @@ public class CybersecurityServices {
     EObject e = view.getTarget();
     DDiagram diagram = CapellaServices.getService().getDiagramContainer(view);
     
-    if (e instanceof Part && ((Part) e).getAbstractType() instanceof PhysicalComponent
+    if (e instanceof Part && ((Part) e).getAbstractType() instanceof Component
         && !isSupportingAssetHighlightedComponent(view)) {
       return 0;
     }
@@ -268,7 +268,7 @@ public class CybersecurityServices {
     EObject e = view.getTarget();
     DDiagram diagram = CapellaServices.getService().getDiagramContainer(view);
     
-    if (e instanceof Part && ((Part) e).getAbstractType() instanceof PhysicalComponent
+    if (e instanceof Part && ((Part) e).getAbstractType() instanceof Component
         && !isSupportingAssetHighlightedComponent(view)) {
       return 0;
     }
@@ -565,12 +565,12 @@ public class CybersecurityServices {
   }
 
   public Collection<PrimaryAsset> getRelatedAssets(EObject element) {
-    if (element instanceof Part && ((Part) element).getAbstractType() instanceof PhysicalComponent) {
-      PhysicalComponent component = (PhysicalComponent) ((Part) element).getAbstractType();
+    if (element instanceof Part && ((Part) element).getAbstractType() instanceof Component) {
+      Component component = (Component) ((Part) element).getAbstractType();
       return getRelatedAssetsForComponent(component);
     }
-    if (element instanceof PhysicalComponent) {
-      PhysicalComponent component = (PhysicalComponent) element;
+    if (element instanceof Component) {
+    	Component component = (Component) element;
       return getRelatedAssetsForComponent(component);
     }
     if (element instanceof ComponentExchange) {
@@ -660,7 +660,7 @@ public class CybersecurityServices {
     BlockArchitecture architecture = BlockArchitectureExt.getRootBlockArchitecture(element);
     List<FunctionalChain> functionalChains = FunctionalChainExt.getAllFunctionalChains(architecture);
 
-    if (element instanceof ComponentExchange || element instanceof PhysicalComponent) {
+    if (element instanceof ComponentExchange || element instanceof Component) {
       return false;
     }
     
@@ -723,8 +723,8 @@ public class CybersecurityServices {
     // - element is a ComponentExchange
     // - element is a PhysicalLink
 
-    //filter out PhysicalFunctions and FunctionalExchanges
-    if (element instanceof PhysicalFunction || element instanceof FunctionalExchange) {
+    //filter out Functions and FunctionalExchanges
+    if (element instanceof AbstractFunction || element instanceof FunctionalExchange) {
       return false;
     }
     
@@ -820,7 +820,7 @@ public class CybersecurityServices {
     return displayedRelatedAssets;
   }
 
-  private Collection<PrimaryAsset> getRelatedAssetsForComponent(PhysicalComponent component) {
+  private Collection<PrimaryAsset> getRelatedAssetsForComponent(Component component) {
     Collection<Component> allSubUsedComponents = ComponentExt.getAllSubUsedAndDeployedComponents(component);
     
     List<AbstractFunction> allocatedFunctions = allSubUsedComponents.stream().map(comp -> comp.getAllocatedFunctions())
@@ -901,16 +901,36 @@ public class CybersecurityServices {
         //no allocated functions, check the BPC child components that should be highlighted, but are hidden
         return isSupportingAssetHighlightedBPCComponent(diagram, comp);
       }
+    } else if (((Part) element).getAbstractType() instanceof Component) {
+      Component comp = (Component) ((Part) element).getAbstractType();
+      DDiagram diagram = CapellaServices.getService().getDiagramContainer(view);
+      return isSupportingAssetHighlightedComponent(diagram, comp);
     }
     
     return false;
   }
 
-  private boolean hasAllocatedFunctions(PhysicalComponent comp) {
+  private boolean hasAllocatedFunctions(Component comp) {
     List<AbstractFunction> allocatedFunctions = comp.getAllocatedFunctions();
     return allocatedFunctions.size() > 0 ? true : false;
   }
   
+  private boolean isSupportingAssetHighlightedComponent(DDiagram diagram, Component comp) {
+    // if component has allocated functions, return true
+    if (hasAllocatedFunctions(comp)) {
+      return true;
+    }
+
+    // if component has component children that are highlighted, but not visible, it must take the highlighting style
+    List<Component> componentChildren = ComponentExt.getSubUsedComponents(comp);
+    for (Component component : componentChildren) {
+      if (isSupportingAssetHighlightedComponent(diagram, component) && !isDisplayedInDiagram(diagram, component)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   private boolean isSupportingAssetHighlightedBPCComponent(DDiagram diagram, PhysicalComponent comp) {
     //if component has allocated functions, return true
     if (hasAllocatedFunctions(comp)) {
@@ -962,11 +982,11 @@ public class CybersecurityServices {
     return relatedAssets.size() > 0 ? true : false;
   }
 
-  private boolean isDisplayedInDiagram(DDiagram diagram, PhysicalComponent npcComponent) {
+  private boolean isDisplayedInDiagram(DDiagram diagram, Component component) {
     List<DRepresentationElement> diagramElements = diagram.getRepresentationElements()
-        .stream().filter(element -> element instanceof DNodeContainer && element.getSemanticElements().contains(npcComponent))
+        .stream().filter(element -> element instanceof DNodeContainer && element.getSemanticElements().contains(component))
         .collect(Collectors.toList());
-    return diagramElements.size() > 0 ? true : false;
+    return diagramElements.isEmpty() ? false : true;
   }
 
   private List<PhysicalComponent> getBPCChildrenOfComponent(PhysicalComponent comp) {
