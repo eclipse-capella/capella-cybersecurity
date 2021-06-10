@@ -279,6 +279,24 @@
 			         </Predicate>
 			      </Activity>
 	   </Section>
+	   <Section
+         expanded="true"
+         filtering="true"
+         id="org.polarsys.capella.cybersecurity.ui.activity.category_threats"
+         index="2"
+         name="%categoryThreatsAndThreatSources"
+         pageId="org.polarsys.capella.core.explorer.activity.ui.page.system.analysis">
+      <Activity
+            class="org.polarsys.capella.cybersecurity.ui.activity.CreateSystemThreatDiagramHyperlink"
+            id="org.polarsys.capella.cybersecurity.ui.activity.threat"
+            image="icons/cyber-threat-diagram.png"
+            index="0"
+            name="%createThreat">
+         <Predicate
+               class="org.polarsys.capella.cybersecurity.ui.activity.predicate.IsViewpointActivatedPredicate">
+         </Predicate>
+      </Activity>
+   </Section>
    <Section
          expanded="true"
          filtering="true"
@@ -326,6 +344,24 @@
 		               class="org.polarsys.capella.cybersecurity.ui.activity.predicate.IsViewpointActivatedPredicate">
 		         </Predicate>
 		      </Activity>
+   </Section>
+   <Section
+         expanded="true"
+         filtering="true"
+         id="org.polarsys.capella.cybersecurity.ui.activity.category_threats"
+         index="2"
+         name="%categoryThreatsAndThreatSources"
+         pageId="org.polarsys.capella.core.explorer.activity.ui.page.logical.architecture">
+      <Activity
+            class="org.polarsys.capella.cybersecurity.ui.activity.CreateLogicalThreatDiagramHyperlink"
+            id="org.polarsys.capella.cybersecurity.ui.activity.threat"
+            image="icons/cyber-threat-diagram.png"
+            index="0"
+            name="%createThreat">
+         <Predicate
+               class="org.polarsys.capella.cybersecurity.ui.activity.predicate.IsViewpointActivatedPredicate">
+         </Predicate>
+      </Activity>
    </Section>
    <Section
          expanded="true"

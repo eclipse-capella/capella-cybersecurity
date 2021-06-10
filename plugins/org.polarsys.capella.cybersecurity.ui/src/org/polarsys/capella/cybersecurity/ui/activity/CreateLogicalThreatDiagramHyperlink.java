@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2019 THALES GLOBAL SERVICES.
+ * Copyright (c) 2021 THALES GLOBAL SERVICES.
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License 2.0 which is available at
@@ -12,32 +12,23 @@
  *******************************************************************************/
 package org.polarsys.capella.cybersecurity.ui.activity;
 
-import java.util.Collection;
-import java.util.Collections;
-
 import org.eclipse.emf.ecore.EObject;
 import org.polarsys.capella.common.data.modellingcore.ModelElement;
 import org.polarsys.capella.core.data.capellamodeller.Project;
 import org.polarsys.capella.core.explorer.activity.ui.hyperlinkadapter.AbstractCapellaNewDiagramHyperlinkAdapter;
 import org.polarsys.capella.core.model.helpers.ModelQueryHelper;
-import org.polarsys.capella.core.sirius.analysis.IDiagramNameConstants;
-import org.polarsys.capella.core.sirius.analysis.constants.IFilterNameConstants;
+import org.polarsys.capella.cybersecurity.sirius.analysis.CybersecurityAnalysisConstants;
 
-public class CreateCyberSABDiagramHyperlink extends AbstractCapellaNewDiagramHyperlinkAdapter {
+public class CreateLogicalThreatDiagramHyperlink extends AbstractCapellaNewDiagramHyperlinkAdapter {
 
   @Override
   public String getRepresentationName() {
-    return IDiagramNameConstants.SYSTEM_ARCHITECTURE_BLANK_DIAGRAM_NAME;
+    return CybersecurityAnalysisConstants.DIAGRAM_THREAT;
   }
 
   @Override
   protected ModelElement getModelElement(EObject rootSemanticModel) {
-    return ModelQueryHelper.getSystem((Project) rootSemanticModel);
-  }
-
-  @Override
-  protected Collection<String> getExtraFilterNames() {
-    return Collections.singleton(IFilterNameConstants.FILTER_SAB_COLLAPSE_FUNCTION_PORTS);
+    return ModelQueryHelper.getLogicalSystem((Project) rootSemanticModel);
   }
 
 }
