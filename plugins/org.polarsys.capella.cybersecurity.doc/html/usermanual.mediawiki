@@ -150,7 +150,20 @@ The following diagram types are provided by the Capella Cybersecurity Viewpoint:
 
 To create a Diagram, select the corresponding hyperlink from the [[../help/topic/org.polarsys.capella.ui.doc/html/04.%20User%20Interface/4.03.%20Activity%20Browser.html? |Activity Explorer]]<span class="github-link">[[https://github.com/eclipse/capella/blob/master/doc/plugins/org.polarsys.capella.ui.doc/html/04.%20User%20Interface/4.03.%20Activity%20Browser.mediawiki|(online documentation)]]</span>:
 
-[[Image:Images/activityExplorer.png]]
+* Operational Analysis 
+
+: [[Image:Images/activityExplorerOperational.png]]
+* System Analysis
+
+: [[Image:Images/activityExplorerSystem.png]]
+
+* Logical Architecture
+
+: [[Image:Images/activityExplorerLogical.png]]
+
+* Physical Architecture
+
+: [[Image:Images/activityExplorer.png]]
 
 == Threat Diagram ==
 
@@ -218,8 +231,8 @@ each Threat's level value is displayed in parenthesis on the up right corner of 
 
 [[Image:Images/pab_diagram_1.png]] 
 
-Architecture Diagrams are extended Capella Physical Architecture Diagrams.
-Thus, most of the tools available in Cybersecurity PAB diagrams are documented [[../help/topic/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.html?#Physical_Architecture_Blank |here]]<span class="github-link">[[https://github.com/eclipse/capella/blob/master/doc/plugins/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.mediawiki#Physical_Architecture_Blank|(online documentation)]]</span>.
+Architecture Diagrams are extended Capella Architecture Diagrams.
+Thus, most of the tools available in Cybersecurity xAB diagrams are documented here (OAB, [[../help/topic/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.html?#System_Architecture_Blank |SAB]]<span class="github-link">[[https://github.com/eclipse/capella/blob/master/doc/plugins/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.mediawiki#System_Architecture_Blank|(online documentation)]]</span>,[[../help/topic/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.html?#Logical_Architecture_Blank |LAB]]<span class="github-link">[[https://github.com/eclipse/capella/blob/master/doc/plugins/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.mediawiki#Logical_Architecture_Blank|(online documentation)]]</span>, [[../help/topic/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.html?#Physical_Architecture_Blank |PAB]]<span class="github-link">[[https://github.com/eclipse/capella/blob/master/doc/plugins/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.mediawiki#Physical_Architecture_Blank|(online documentation)]]</span>).
 
 One additional tool is provided by the Viewpoint:
 
@@ -231,9 +244,9 @@ One additional tool is provided by the Viewpoint:
 |}
 
 
-== Cybersecurity PAB Layer Extensions ==
+== Cybersecurity Layer Extensions ==
 
-Several Layers are provided for Cybersecurity PAB, PDFB, CDB and ES diagrams. A layer allows to change the presentation of a diagram in order to focus on specific aspects of the modeled system. Layers are activated in the diagram toolbar:
+Several Layers are provided for Cybersecurity xAB, xDFB, CDB and ES diagrams. A layer allows to change the presentation of a diagram in order to focus on specific aspects of the modeled system. Layers are activated in the diagram toolbar:
 
 [[Image:Images/layers.png|630x270px]]
 
@@ -255,7 +268,7 @@ With ''Threats Tool'' the user can show/hide Threats in/from diagram.
 
 === Supporting Assets Layer ===
 
-The Supporting Assets Layer adds decorations to the Components, Component Exchanges and Physical Links of Primary Assets. It highlights the first node component/physical actor
+The Supporting Assets Layer adds decorations to the Components, Component Exchanges and Physical Links of Primary Assets. It highlights the first node component/ actor
 and the first deploy behavior component that contains at least one function threaten by the primary asset. This components are highlighted with the color of the primary asset (if it's only one) or black (if there are two or many primary assets that cover the same function).
 
 [[Image:Images/pab_diagram_5.png|950x650px]]
