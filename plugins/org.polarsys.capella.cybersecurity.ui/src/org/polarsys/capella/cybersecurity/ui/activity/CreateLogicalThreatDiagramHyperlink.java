@@ -27,7 +27,7 @@ public class CreateLogicalThreatDiagramHyperlink extends AbstractCapellaNewDiagr
   }
 
   @Override
-  protected ModelElement getModelElement(EObject rootSemanticModel) {
+  public ModelElement getModelElement(EObject rootSemanticModel) {
     return ModelQueryHelper.getLogicalSystem((Project) rootSemanticModel);
   }
 
