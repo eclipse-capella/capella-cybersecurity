@@ -31,7 +31,7 @@ public class CreateCyberLABDiagramHyperlink extends AbstractCapellaNewDiagramHyp
   }
 
   @Override
-  protected ModelElement getModelElement(EObject rootSemanticModel) {
+  public ModelElement getModelElement(EObject rootSemanticModel) {
     return ModelQueryHelper.getLogicalSystem((Project) rootSemanticModel);
   }
 
