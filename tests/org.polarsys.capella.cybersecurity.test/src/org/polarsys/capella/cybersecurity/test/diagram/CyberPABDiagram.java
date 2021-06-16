@@ -43,21 +43,21 @@ public class CyberPABDiagram extends PABDiagram {
 
   public void insertPrimaryAsset(PrimaryAsset pa) {
     InsertRemoveTool irt = 
-    new InsertRemoveTool(this, CybersecurityAnalysisConstants.TOOL_PAB_INSERT_PA);
+        new InsertRemoveTool(this, CybersecurityAnalysisConstants.TOOL_XAB_INSERT_PA);
     irt.insert(pa.getId());
     irt.getResult();
   }
   
   public void removePrimaryAsset(PrimaryAsset pa) {
-    new InsertRemoveTool(this, CybersecurityAnalysisConstants.TOOL_PAB_INSERT_PA).remove(pa.getId());
+    new InsertRemoveTool(this, CybersecurityAnalysisConstants.TOOL_XAB_INSERT_PA).remove(pa.getId());
   }
   
   public void insertThreat(Threat threat) {
-    new InsertRemoveTool(this, CybersecurityAnalysisConstants.TOOL_PAB_INSERT_THREAT).insert(threat.getId());
+    new InsertRemoveTool(this, CybersecurityAnalysisConstants.TOOL_XAB_INSERT_THREAT).insert(threat.getId());
   }
   
   public void removeThreat(Threat threat) {
-    new InsertRemoveTool(this, CybersecurityAnalysisConstants.TOOL_PAB_INSERT_THREAT).remove(threat.getId());
+    new InsertRemoveTool(this, CybersecurityAnalysisConstants.TOOL_XAB_INSERT_THREAT).remove(threat.getId());
   }
 }
 
