@@ -32,6 +32,7 @@ import org.polarsys.capella.common.helpers.query.IQuery;
 import org.polarsys.capella.core.data.capellacore.EnumerationPropertyLiteral;
 import org.polarsys.capella.core.data.capellacore.EnumerationPropertyType;
 import org.polarsys.capella.core.data.capellamodeller.Project;
+import org.polarsys.capella.core.data.cs.BlockArchitecture;
 import org.polarsys.capella.core.data.cs.Component;
 import org.polarsys.capella.core.data.cs.Part;
 import org.polarsys.capella.core.data.cs.PhysicalLink;
@@ -41,6 +42,8 @@ import org.polarsys.capella.core.data.fa.ComponentExchange;
 import org.polarsys.capella.core.data.fa.FaPackage;
 import org.polarsys.capella.core.data.fa.FunctionalExchange;
 import org.polarsys.capella.core.data.information.ExchangeItem;
+import org.polarsys.capella.core.data.oa.OperationalAnalysis;
+import org.polarsys.capella.core.model.helpers.BlockArchitectureExt;
 import org.polarsys.capella.core.model.helpers.ComponentExchangeExt;
 import org.polarsys.capella.core.model.helpers.ComponentExt;
 import org.polarsys.capella.core.sirius.ui.helper.SessionHelper;
@@ -117,8 +120,17 @@ public class CybersecurityQueries {
   }
 
   public static boolean isTrustBoundary(FunctionalExchange fe) {
-    AbstractFunction sf = (AbstractFunction) fe.getSourceFunctionOutputPort().eContainer();
-    AbstractFunction tf = (AbstractFunction) fe.getTargetFunctionInputPort().eContainer();
+    AbstractFunction sf;
+    AbstractFunction tf;
+    BlockArchitecture blockArchitecture = BlockArchitectureExt.getRootBlockArchitecture(fe);
+    if (blockArchitecture instanceof OperationalAnalysis) {
+      sf = (AbstractFunction) fe.getSource();
+      tf = (AbstractFunction) fe.getTarget();
+    } else {
+      sf = (AbstractFunction) fe.getSourceFunctionOutputPort().eContainer();
+      tf = (AbstractFunction) fe.getTargetFunctionInputPort().eContainer();
+    }
+
     return isTrusted(sf) ^ isTrusted(tf);
   }
 
