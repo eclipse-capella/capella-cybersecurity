@@ -17,6 +17,7 @@ import org.polarsys.capella.cybersecurity.test.config.CybersecurityConfiguration
 import org.polarsys.capella.cybersecurity.test.diagram.CyberLABDiagramTest;
 import org.polarsys.capella.cybersecurity.test.diagram.CyberOABDiagramTest;
 import org.polarsys.capella.cybersecurity.test.diagram.CyberPABDiagramTest;
+import org.polarsys.capella.cybersecurity.test.diagram.CyberSABDiagramTest;
 import org.polarsys.capella.cybersecurity.test.diagram.ThreatDiagramTest;
 import org.polarsys.capella.cybersecurity.test.rules.testcases.cy_dcon.CY_DCONRulesTestSuite;
 import org.polarsys.capella.cybersecurity.test.rules.testcases.cy_dcov.CY_DCOVRulesTestSuite;
@@ -42,6 +43,7 @@ public class CybersecurityTestSuite extends TestSuite {
     addTest(new CyberPABDiagramTest());
     addTest(new CyberLABDiagramTest());
     addTest(new CyberOABDiagramTest());
+    addTest(new CyberSABDiagramTest());
     
     addTest(new CybersecurityConfigurationTestSuite());
     addTest(new CyberActivityExplorerTestSuite());
