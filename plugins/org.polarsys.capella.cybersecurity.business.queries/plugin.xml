@@ -26,6 +26,18 @@
             class="org.polarsys.capella.cybersecurity.business.queries.FunctionStorage_ExchangeItems"
             id="org.polarsys.capella.cybersecurity.business.queries.FunctionStorage_ExchangeItems">
       </MDEBusinessQueries>
+      <MDEBusinessQueries
+            class="org.polarsys.capella.cybersecurity.business.queries.Threat_RealizedThreats"
+            id="org.polarsys.capella.cybersecurity.business.queries.Threat_RealizedThreats">
+      </MDEBusinessQueries>
+       <MDEBusinessQueries
+            class="org.polarsys.capella.cybersecurity.business.queries.FunctionalPrimaryAsset_RealizedPrimaryAssets"
+            id="org.polarsys.capella.cybersecurity.business.queries.FunctionalPrimaryAsset_RealizedPrimaryAssets">
+      </MDEBusinessQueries>
+      <MDEBusinessQueries
+            class="org.polarsys.capella.cybersecurity.business.queries.InformationPrimaryAsset_RealizedPrimaryAssets"
+            id="org.polarsys.capella.cybersecurity.business.queries.InformationPrimaryAsset_RealizedPrimaryAssets">
+      </MDEBusinessQueries>
    </extension>
 
 </plugin>

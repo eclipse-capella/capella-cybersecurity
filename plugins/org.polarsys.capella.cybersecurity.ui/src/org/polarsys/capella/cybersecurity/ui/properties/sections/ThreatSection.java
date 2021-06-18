@@ -36,12 +36,15 @@ import org.polarsys.capella.cybersecurity.model.Threat;
 import org.polarsys.capella.cybersecurity.model.provider.CybersecurityEditPlugin;
 import org.polarsys.capella.cybersecurity.ui.properties.fields.EnumerationLiterealValueRadioGroup;
 import org.polarsys.capella.cybersecurity.ui.properties.fields.IntegerValueRadioGroup;
+import org.polarsys.capella.common.data.modellingcore.ModellingcorePackage;
+import org.polarsys.capella.common.mdsofa.common.constant.ICommonConstants;
 
 public class ThreatSection extends AbstractSection {
 
   EnumerationLiterealValueRadioGroup threatKindGroup;
   TextValueGroup rationaleGroup;
   IntegerValueRadioGroup levelGroup;
+  CyberMultipleSemanticField realizedWidget;
   
   @Override
   public boolean select(Object toTest) {
@@ -55,6 +58,11 @@ public class ThreatSection extends AbstractSection {
     threatKindGroup = null;
     levelGroup = null;
     rationaleGroup = null;
+    
+    realizedWidget = new CyberMultipleSemanticField(getReferencesGroup(),
+        ICommonConstants.EMPTY_STRING, getWidgetFactory(), new CybersecurityRealizationsController());
+    realizedWidget.setLabel("Realized Threats");
+    realizedWidget.setDisplayedInWizard(false);
   }
 
   @Override
@@ -74,6 +82,8 @@ public class ThreatSection extends AbstractSection {
     threatKindGroup.loadData(capellaElement, CybersecurityPackage.Literals.THREAT__KIND);
     levelGroup.loadData(capellaElement, CybersecurityPackage.Literals.THREAT__LEVEL);
     rationaleGroup.loadData(capellaElement, CybersecurityPackage.Literals.THREAT__RATIONALE);
+    
+    realizedWidget.loadData(capellaElement, ModellingcorePackage.Literals.TRACEABLE_ELEMENT__OUTGOING_TRACES);
   }
 
   @Override
@@ -82,6 +92,7 @@ public class ThreatSection extends AbstractSection {
     fields.add(threatKindGroup);
     fields.add(levelGroup);
     fields.add(rationaleGroup);
+    fields.add(realizedWidget);
     return fields;
   }
 
