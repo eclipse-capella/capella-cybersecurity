@@ -12,6 +12,7 @@
  *******************************************************************************/
 package org.polarsys.capella.cybersecurity.ui.properties.sections;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -23,6 +24,8 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
+import org.polarsys.capella.common.data.modellingcore.ModellingcorePackage;
+import org.polarsys.capella.common.mdsofa.common.constant.ICommonConstants;
 import org.polarsys.capella.core.ui.properties.fields.AbstractSemanticField;
 import org.polarsys.capella.core.ui.properties.fields.ContainmentTableField;
 import org.polarsys.capella.core.ui.properties.sections.AbstractSection;
@@ -32,6 +35,7 @@ import org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset;
 public class FunctionalPrimaryAssetSection extends AbstractSection {
 
   private ContainmentTableField _containmentTableField;
+  CyberMultipleSemanticField realizedWidget;
 
   @Override
   public boolean select(Object toTest) {
@@ -55,6 +59,11 @@ public class FunctionalPrimaryAssetSection extends AbstractSection {
         CybersecurityPackage.Literals.PRIMARY_ASSET_MEMBER__MEMBER, CybersecurityPackage.Literals.PRIMARY_ASSET_MEMBER,
         Messages.FunctionalPrimaryAssetSection_0, Messages.FunctionalPrimaryAssetSection_1);
     _containmentTableField.setDisplayedInWizard(displayedInWizard);
+    
+    realizedWidget = new CyberMultipleSemanticField(getReferencesGroup(),
+        ICommonConstants.EMPTY_STRING, getWidgetFactory(), new CybersecurityRealizationsController());
+    realizedWidget.setLabel("Realized Functional Primary Assets");
+    realizedWidget.setDisplayedInWizard(false);
   }
 
   @Override
@@ -67,11 +76,15 @@ public class FunctionalPrimaryAssetSection extends AbstractSection {
   public void loadData(EObject capellaElement) {
     super.loadData(capellaElement);
     _containmentTableField.loadData(capellaElement, CybersecurityPackage.Literals.PRIMARY_ASSET__OWNED_MEMBERS);
+    realizedWidget.loadData(capellaElement, ModellingcorePackage.Literals.TRACEABLE_ELEMENT__OUTGOING_TRACES);
   }
 
   @Override
   public List<AbstractSemanticField> getSemanticFields() {
-    return Collections.singletonList(_containmentTableField);
+    List<AbstractSemanticField> fields = new ArrayList<>();
+    fields.add(_containmentTableField);
+    fields.add(realizedWidget);
+    return fields;
   }
 
 }
