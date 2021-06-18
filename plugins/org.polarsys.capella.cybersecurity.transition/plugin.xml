@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>   
+     <extension
+         id="org.polarsys.capella.core.transition.system.topdown"
+         name="Transition System IntraModel Mapping"
+         point="org.polarsys.kitalpha.transposer.rules.handler.mapping">    
+      <mapping
+            context="org.polarsys.capella.core.transition.common.context.TransitionContext"
+            description="Cybersecurity Transition"
+            domainHelper="org.polarsys.capella.cybersecurity.transition.util.CybersecurityDomainHelper"
+            extendedMappingExtensionID="org.polarsys.capella.core.transition.system"
+            mappingName="Cybersecurity Transition"
+            mappingPurpose="org.polarsys.capella.core.transition">
+            
+            <mappingPackage name="cybersecurity">
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.cybersecurity.model.Threat"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     context="org.polarsys.capella.core.transition.common.context.TransitionContext"
+                     enabled="true"
+                     completeRule="org.polarsys.capella.cybersecurity.transition.rules.ThreatRule"
+                     incompleteRule="org.polarsys.capella.cybersecurity.transition.rules.ThreatRule"
+                     name="Threat">
+               </defaultMappingPossibility>
+            </mappingElement>
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.cybersecurity.model.ThreatInvolvement"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     context="org.polarsys.capella.core.transition.common.context.TransitionContext"
+                     enabled="true"
+                     completeRule="org.polarsys.capella.cybersecurity.transition.rules.ThreatInvolvementRule"
+                     incompleteRule="org.polarsys.capella.cybersecurity.transition.rules.ThreatInvolvementRule"
+                     name="ThreatInvolvement">
+               </defaultMappingPossibility>
+            </mappingElement>
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.cybersecurity.model.ThreatApplication"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     context="org.polarsys.capella.core.transition.common.context.TransitionContext"
+                     enabled="true"
+                     completeRule="org.polarsys.capella.cybersecurity.transition.rules.ThreatApplicationRule"
+                     incompleteRule="org.polarsys.capella.cybersecurity.transition.rules.ThreatApplicationRule"
+                     name="ThreatApplication">
+               </defaultMappingPossibility>
+            </mappingElement>
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.cybersecurity.model.CybersecurityPkg"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     context="org.polarsys.capella.core.transition.common.context.TransitionContext"
+                     enabled="true"
+                     completeRule="org.polarsys.capella.cybersecurity.transition.rules.CybersecurityPkgRule"
+                     incompleteRule="org.polarsys.capella.cybersecurity.transition.rules.CybersecurityPkgRule"
+                     name="CybersecurityPkg">
+               </defaultMappingPossibility>
+            </mappingElement>
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     completeRule="org.polarsys.capella.cybersecurity.transition.rules.TrustBoundaryStorageRule"
+                     incompleteRule="org.polarsys.capella.cybersecurity.transition.rules.TrustBoundaryStorageRule"
+                     enabled="true"
+                     name="TrustBoundaryStorage">
+               </defaultMappingPossibility>
+            </mappingElement>
+		 </mappingPackage>
+	     </mapping>
+	</extension>
+	
+	<extension
+         point="org.polarsys.capella.core.transition.handlers">
+      <handlers
+            id="Cybersecurity extension"
+            mapping="all"
+            purpose="org.polarsys.capella.core.transition">
+         <domain
+               id="http://www.polarsys.org/capella/cybersecurity/1.0">
+         </domain>
+         <scopeRetriever
+               id="scopeCybersecurity"
+               class="org.polarsys.capella.cybersecurity.transition.handlers.traceability.ExtensionRetriever">
+         </scopeRetriever>
+         <sourceTraceabilityConfiguration
+               class="org.polarsys.capella.cybersecurity.transition.handlers.traceability.ExtensionTraceabilityConfiguration"
+               id="sourceTraceabilityConfiguration">
+         </sourceTraceabilityConfiguration>
+         <targetTraceabilityConfiguration
+               class="org.polarsys.capella.cybersecurity.transition.handlers.traceability.ExtensionTraceabilityConfiguration"
+               id="targetTraceabilityConfiguration">
+         </targetTraceabilityConfiguration>
+         <transformationTraceabilityConfiguration
+               class="org.polarsys.capella.cybersecurity.transition.handlers.traceability.TransformationTraceabilityConfiguration"
+               id="transformationTraceabilityConfiguration">
+         </transformationTraceabilityConfiguration>
+      </handlers>
+    </extension>
+
+	<extension
+         point="org.eclipse.ui.menus">
+         <menuContribution allPopups="true"
+            locationURI="popup:org.polarsys.capella.core.transitions?after=additions">
+	         <command
+	               commandId="org.polarsys.capella.cybersecurity.transition.command1"
+	               style="push">
+	               <visibleWhen checkEnabled="false">
+		            <and>
+		           <reference definitionId="org.polarsys.capella.core.transition.system.topdown.ui.expression.transitionVisibilityModelElementExpression"/>
+		                <with variable="selection">
+		                <iterate>
+		                            <test property="org.polarsys.capella.cybersecurity.transition.transitionMode" forcePluginActivation="true"
+		                               value="transitionCybersecurity">
+		                            </test>
+		                </iterate>
+		            </with>
+		            </and>
+		         </visibleWhen> 
+	         </command>
+         </menuContribution>
+    </extension>  
+       
+	<extension   point="org.eclipse.ui.commands">
+         <category
+                id="org.polarsys.capella.core.transitions.ui.category"
+                name="Transitions">
+         </category>
+          
+         <command
+         	   categoryId="org.polarsys.capella.core.transitions"
+               defaultHandler="org.polarsys.capella.cybersecurity.transition.util.ThreatTransitionHandler"
+               id="org.polarsys.capella.cybersecurity.transition.command1"
+               name="Cybersecurity Transition">
+         </command>
+    </extension>
+    
+	<extension point="org.eclipse.core.expressions.propertyTesters">
+         <propertyTester
+             id="org.polarsys.capella.cybersecurity.transition.property"
+             type="org.polarsys.capella.common.data.modellingcore.ModelElement"
+             namespace="org.polarsys.capella.cybersecurity.transition"
+             properties="transitionMode"
+             class="org.polarsys.capella.cybersecurity.transition.util.CommandTester"
+         >
+         </propertyTester>    
+         <propertyTester
+             id="org.polarsys.capella.cybersecurity.transition.graphicalProperty"
+             type="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart"
+             namespace="org.polarsys.capella.cybersecurity.transition"
+             properties="transitionMode"
+             class="org.polarsys.capella.cybersecurity.transition.util.CommandTester"
+         >
+         </propertyTester>
+    </extension>
+    
+    <extension
+            point="org.eclipse.ui.commandImages">
+         <image
+               commandId="org.polarsys.capella.cybersecurity.transition.command1"
+               icon="platform:/plugin/org.polarsys.capella.core.ui.resources/icons/full/obj16/capella_process.gif">
+         </image>
+     </extension>
+    
+</plugin>
+

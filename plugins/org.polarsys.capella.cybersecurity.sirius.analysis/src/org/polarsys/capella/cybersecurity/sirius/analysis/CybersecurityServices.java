@@ -124,7 +124,8 @@ public class CybersecurityServices {
   final OfInt colorRands = new Random().ints(0, 255).iterator();
 
   public CybersecurityPkg getDefaultCyberSecurityPackage(EObject any, boolean create) {
-    BlockArchitecture ba = (BlockArchitecture) EcoreUtil2.getFirstContainer(any, CsPackage.Literals.BLOCK_ARCHITECTURE);
+    BlockArchitecture ba = any instanceof BlockArchitecture ? (BlockArchitecture)any : 
+        (BlockArchitecture) EcoreUtil2.getFirstContainer(any, CsPackage.Literals.BLOCK_ARCHITECTURE);
     if (ba != null) {
       for (EObject e : ba.getOwnedExtensions()) {
         if (e instanceof CybersecurityPkg) {
