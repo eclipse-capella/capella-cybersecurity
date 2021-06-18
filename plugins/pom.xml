@@ -36,5 +36,6 @@
 	  <module>org.polarsys.capella.cybersecurity.validation</module>
 	  <module>org.polarsys.capella.cybersecurity.helpers</module>
 	  <module>org.polarsys.capella.cybersecurity.model.edit.decorators</module>
+	  <module>org.polarsys.capella.cybersecurity.transition</module>
 	</modules>
 </project>
