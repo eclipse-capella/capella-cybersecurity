@@ -81,9 +81,9 @@ import org.polarsys.capella.core.data.information.ExchangeItem;
 import org.polarsys.capella.core.data.interaction.InstanceRole;
 import org.polarsys.capella.core.data.interaction.SequenceMessage;
 import org.polarsys.capella.core.data.interaction.StateFragment;
+import org.polarsys.capella.core.data.oa.Entity;
 import org.polarsys.capella.core.data.pa.PhysicalComponent;
 import org.polarsys.capella.core.data.pa.PhysicalComponentNature;
-import org.polarsys.capella.core.data.pa.PhysicalFunction;
 import org.polarsys.capella.core.model.helpers.BlockArchitectureExt;
 import org.polarsys.capella.core.model.helpers.FunctionalChainExt;
 import org.polarsys.capella.core.model.helpers.ComponentExt;
@@ -211,6 +211,10 @@ public class CybersecurityServices {
       return 0;
     }
     
+    if (e instanceof Entity && !isSupportingAssetHighlightedComponent(view)) {
+      return 0;
+    }
+    
     if (diagram != null) {
       int nbOfElements = 0;
       int color = 0;
@@ -242,6 +246,10 @@ public class CybersecurityServices {
       return 0;
     }
     
+    if (e instanceof Entity && !isSupportingAssetHighlightedComponent(view)) {
+      return 0;
+    }
+    
     if (diagram != null) {
       int nbOfElements = 0;
       int color = 0;
@@ -270,6 +278,10 @@ public class CybersecurityServices {
     
     if (e instanceof Part && ((Part) e).getAbstractType() instanceof Component
         && !isSupportingAssetHighlightedComponent(view)) {
+      return 0;
+    }
+    
+    if (e instanceof Entity && !isSupportingAssetHighlightedComponent(view)) {
       return 0;
     }
     
@@ -885,9 +897,15 @@ public class CybersecurityServices {
 
   private boolean isSupportingAssetHighlightedComponent(DSemanticDecorator view) {
     EObject element = view.getTarget();
-    if (!(element instanceof Part)) {
+    if (!(element instanceof Part || element instanceof Entity)) {
       return false;
     }
+    
+    if (element instanceof Entity) {
+      DDiagram diagram = CapellaServices.getService().getDiagramContainer(view);
+      return isSupportingAssetHighlightedComponent(diagram, (Entity) element);
+    }
+    
     if (((Part) element).getAbstractType() instanceof PhysicalComponent) {
       PhysicalComponent comp = (PhysicalComponent) ((Part) element).getAbstractType();
       DDiagram diagram = CapellaServices.getService().getDiagramContainer(view);
@@ -1086,6 +1104,10 @@ public class CybersecurityServices {
 
   public boolean hasTrustedColor(Part part) {
     return CybersecurityQueries.isTrusted(part);
+  }
+  
+  public boolean hasTrustedColor(Entity entity) {
+    return CybersecurityQueries.isTrusted(entity);
   }
 
   public boolean hasTrustedColor(InstanceRole element) {
