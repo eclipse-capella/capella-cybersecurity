@@ -13,6 +13,8 @@
 package org.polarsys.capella.cybersecurity.test.diagram;
 
 import org.eclipse.sirius.diagram.DDiagram;
+import org.eclipse.sirius.diagram.DDiagramElementContainer;
+import org.polarsys.capella.core.data.capellacore.CapellaElement;
 import org.polarsys.capella.core.sirius.analysis.IDiagramNameConstants;
 import org.polarsys.capella.core.sirius.analysis.constants.IToolNameConstants;
 import org.polarsys.capella.cybersecurity.model.PrimaryAsset;
@@ -21,6 +23,7 @@ import org.polarsys.capella.cybersecurity.sirius.analysis.CybersecurityAnalysisC
 import org.polarsys.capella.test.diagram.common.ju.context.DiagramContext;
 import org.polarsys.capella.test.diagram.common.ju.context.OABDiagram;
 import org.polarsys.capella.test.diagram.common.ju.step.crud.CreateDiagramStep;
+import org.polarsys.capella.test.diagram.common.ju.step.tools.CreateContainerTool;
 import org.polarsys.capella.test.diagram.common.ju.step.tools.CreatePathTool;
 import org.polarsys.capella.test.diagram.common.ju.step.tools.InsertRemoveTool;
 import org.polarsys.capella.test.framework.context.SessionContext;
@@ -62,6 +65,12 @@ public class CyberOABDiagram extends OABDiagram {
   @Override
   public void createFunctionalChain(String path, String... links) {
     new CreatePathTool(this, IToolNameConstants.TOOL_OAIB_CREATE_OPERATIONAL_PROCESS, path, links).run();
+  }
+
+  public String createEntity(String id, String containerId) {
+    DDiagramElementContainer element = new CreateContainerTool(this, IToolNameConstants.TOOL_OAB_CREATE_OE, containerId,
+        id).run();
+    return ((CapellaElement) element.getTarget()).getId();
   }
 
 }
