@@ -12,28 +12,27 @@
  *******************************************************************************/
 package org.polarsys.capella.cybersecurity.test.common;
 
+import org.eclipse.emf.ecore.EClass;
+import org.polarsys.capella.core.data.cs.Component;
 import org.polarsys.capella.core.data.cs.PhysicalPort;
+import org.polarsys.capella.core.data.fa.AbstractFunction;
 import org.polarsys.capella.core.data.fa.ComponentPort;
 import org.polarsys.capella.core.data.fa.FunctionInputPort;
 import org.polarsys.capella.core.data.fa.FunctionOutputPort;
-import org.polarsys.capella.core.data.pa.PhysicalArchitecture;
-import org.polarsys.capella.core.data.pa.PhysicalComponent;
-import org.polarsys.capella.core.data.pa.PhysicalFunction;
 import org.polarsys.capella.core.model.skeleton.CapellaModelSkeleton;
 
 /**
  * A physical component with 2 unused cp and 2 allocated functions, each function has 2 fip and 2 fop.
  */
-public class ComponentTemplate1 {
+public abstract class ComponentTemplate1 {
   
-  public PhysicalComponent component;
-  
-  public PhysicalFunction pf1;
+  public Component component;
+  public AbstractFunction pf1;
   public FunctionOutputPort fop1_1;
   public FunctionOutputPort fop1_2;
   public FunctionInputPort fip1_1;
   public FunctionInputPort fip1_2; 
-  public PhysicalFunction pf2;
+  public AbstractFunction pf2;
   public FunctionOutputPort fop2_1;
   public FunctionOutputPort fop2_2;
   public FunctionInputPort fip2_1;
@@ -47,17 +46,16 @@ public class ComponentTemplate1 {
 
   public ComponentTemplate1(CapellaModelSkeleton skeleton, DynamicValidationTest test) {
 
-    PhysicalArchitecture pa = skeleton.getPhysicalArchitecture();
+    Component rootC = getRootComponent(skeleton);
+    AbstractFunction rootF = getRootFunction(skeleton);
 
-    PhysicalComponent rootPC = pa.getOwnedPhysicalComponentPkg().getOwnedPhysicalComponents().get(0);
-    PhysicalFunction rootF = pa.getContainedPhysicalFunctionPkg().getOwnedPhysicalFunctions().get(0);
+    component = test.create(rootC, getComponentClass());
 
-    component = test.create(rootPC, BasicDynamicModelTest.PC);
     cp1 = test.create(component, BasicDynamicModelTest.CP);
     cp2 = test.create(component, BasicDynamicModelTest.CP);
 
-    pf1 = test.create(rootF, BasicDynamicModelTest.PF);
-    pf2 = test.create(rootF, BasicDynamicModelTest.PF);
+    pf1 = test.create(rootF, getFunctionClass());
+    pf2 = test.create(rootF, getFunctionClass());
 
     Allocators.allocate(pf1, pf2).on(component);
 
@@ -74,4 +72,12 @@ public class ComponentTemplate1 {
     pp1 = test.create(component, BasicDynamicModelTest.PP);
     pp2 = test.create(component, BasicDynamicModelTest.PP);
   }
+  
+  protected abstract Component getRootComponent(CapellaModelSkeleton skeleton);
+  
+  protected abstract AbstractFunction getRootFunction(CapellaModelSkeleton skeleton);
+  
+  protected abstract EClass getComponentClass();
+  
+  protected abstract EClass getFunctionClass();
 }

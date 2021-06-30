@@ -24,9 +24,14 @@ public class CY_DCONRulesTestSuite extends TestSuite {
 
   public CY_DCONRulesTestSuite() {
     super("CY_DCONRulesTestSuite"); //$NON-NLS-1$
-    addTest(new Rule_CY_DCON_01());
-    addTest(new Rule_CY_DCON_02());
-
+    addTest(new Rule_CY_DCON_01_OA());
+    addTest(new Rule_CY_DCON_01_SA());
+    addTest(new Rule_CY_DCON_01_LA());
+    addTest(new Rule_CY_DCON_01_PA());
+    addTest(new Rule_CY_DCON_02_OA());
+    addTest(new Rule_CY_DCON_02_SA());
+    addTest(new Rule_CY_DCON_02_LA());
+    addTest(new Rule_CY_DCON_02_PA());
   }
 
   public static Test suite() {

@@ -38,10 +38,16 @@ public class Rule_CY_DCOV_05 extends DynamicValidationTest {
   InformationPrimaryAsset ipa;
   ExchangeItem ei1;
   AbstractFunction af;
+  String architecture;
+
+  public Rule_CY_DCOV_05(String arch) {
+    super();
+    architecture = arch;
+  }
 
   @Override
   protected void initModel(CapellaModelSkeleton skeleton) {
-    ComponentTemplate1 t = new ComponentTemplate1(skeleton, this);
+    ComponentTemplate1 t = createComponentTemplate(skeleton, architecture);
     ipa = service.createInformationPrimaryAsset(t.component);
     ei1 = InformationFactory.eINSTANCE.createExchangeItem();
     skeleton.getPhysicalArchitecture().getOwnedDataPkg().getOwnedExchangeItems().add(ei1);
