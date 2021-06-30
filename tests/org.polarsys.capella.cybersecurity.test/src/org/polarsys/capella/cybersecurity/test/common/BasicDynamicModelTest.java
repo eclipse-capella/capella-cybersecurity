@@ -28,14 +28,15 @@ import org.polarsys.capella.common.ef.ExecutionManager;
 import org.polarsys.capella.common.ef.ExecutionManagerRegistry;
 import org.polarsys.capella.core.data.capellamodeller.Project;
 import org.polarsys.capella.core.data.cs.CsPackage;
+import org.polarsys.capella.core.data.ctx.CtxPackage;
 import org.polarsys.capella.core.data.fa.FaPackage;
 import org.polarsys.capella.core.data.information.InformationPackage;
 import org.polarsys.capella.core.data.la.LaPackage;
+import org.polarsys.capella.core.data.oa.OaPackage;
 import org.polarsys.capella.core.data.pa.PaPackage;
 import org.polarsys.capella.core.model.helpers.CapellaElementExt;
 import org.polarsys.capella.core.model.skeleton.CapellaModelSkeleton;
 import org.polarsys.capella.cybersecurity.model.activator.CybersecurityModelActivator;
-import org.polarsys.capella.cybersecurity.ui.CybersecurityProjectWizard;
 import org.polarsys.capella.test.framework.api.BasicTestCase;
 
 /**
@@ -45,6 +46,10 @@ import org.polarsys.capella.test.framework.api.BasicTestCase;
  */
 public abstract class BasicDynamicModelTest extends BasicTestCase {
 
+  public static final String PA = "PA";
+  public static final String SA = "SA";
+  public static final String LA = "LA";
+  public static final String OA = "OA";
   public static final EClass PC = PaPackage.Literals.PHYSICAL_COMPONENT;
   public static final EClass PF = PaPackage.Literals.PHYSICAL_FUNCTION;
   public static final EClass CP = FaPackage.Literals.COMPONENT_PORT;
@@ -57,6 +62,11 @@ public abstract class BasicDynamicModelTest extends BasicTestCase {
   public static final EClass PP = CsPackage.Literals.PHYSICAL_PORT;
   public static final EClass PL = CsPackage.Literals.PHYSICAL_LINK;
   public static final EClass LC = LaPackage.Literals.LOGICAL_COMPONENT;
+  public static final EClass LF = LaPackage.Literals.LOGICAL_FUNCTION;
+  public static final EClass SC = CtxPackage.Literals.SYSTEM_COMPONENT;
+  public static final EClass SF = CtxPackage.Literals.SYSTEM_FUNCTION;
+  public static final EClass OAC = OaPackage.Literals.OPERATIONAL_ACTIVITY;
+  public static final EClass OE = OaPackage.Literals.ENTITY;
 
 
   protected ExecutionManager manager;

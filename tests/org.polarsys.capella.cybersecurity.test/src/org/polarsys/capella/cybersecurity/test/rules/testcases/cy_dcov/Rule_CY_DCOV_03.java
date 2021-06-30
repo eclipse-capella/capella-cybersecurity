@@ -31,10 +31,16 @@ public class Rule_CY_DCOV_03 extends DynamicValidationTest {
   CybersecurityServices service = new CybersecurityServices();
   Threat threat;
   FunctionalPrimaryAsset fpa;
+  String architecture;
+
+  public Rule_CY_DCOV_03(String arch) {
+    super();
+    architecture = arch;
+  }
 
   @Override
   protected void initModel(CapellaModelSkeleton skeleton) {
-    ComponentTemplate1 t = new ComponentTemplate1(skeleton, this);
+    ComponentTemplate1 t = createComponentTemplate(skeleton, architecture);
     threat = service.createThreat(t.component, project);
     fpa = service.createFunctionalPrimaryAsset(t.component);
   }

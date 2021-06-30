@@ -12,6 +12,8 @@
  *******************************************************************************/
 package org.polarsys.capella.cybersecurity.test.rules.testcases.cy_dcon;
 
+import org.polarsys.capella.core.data.cs.ComponentPkg;
+import org.polarsys.capella.core.data.fa.AbstractFunction;
 import org.polarsys.capella.core.data.fa.ComponentExchange;
 import org.polarsys.capella.core.data.fa.FaFactory;
 import org.polarsys.capella.core.data.fa.FunctionalExchange;
@@ -26,7 +28,7 @@ import org.polarsys.capella.cybersecurity.test.common.DynamicValidationTest;
  * allocated Functional Exchanges.
  *
  */
-public class Rule_CY_DCON_02 extends DynamicValidationTest {
+public abstract class Rule_CY_DCON_02 extends DynamicValidationTest {
 
   private static final String RULE = "org.polarsys.capella.cybersecurity.validation.CY_DCON_02"; //$NON-NLS-1$
 
@@ -37,14 +39,17 @@ public class Rule_CY_DCON_02 extends DynamicValidationTest {
   
   private FunctionalExchange createFE() {
     FunctionalExchange res = FaFactory.eINSTANCE.createFunctionalExchange();
-    skeleton.getPhysicalArchitecture().getContainedPhysicalFunctionPkg().getOwnedPhysicalFunctions().get(0)
-        .getOwnedFunctionalExchanges().add(res);
+    getFunction(skeleton).getOwnedFunctionalExchanges().add(res);
     return res;
   }
   
+  protected abstract AbstractFunction getFunction(CapellaModelSkeleton skeleton);
+
+  protected abstract ComponentPkg getComponentPkg(CapellaModelSkeleton skeleton);
+  
   private ComponentExchange createCE() {
     ComponentExchange res = FaFactory.eINSTANCE.createComponentExchange();
-    skeleton.getPhysicalArchitecture().getOwnedPhysicalComponentPkg().getOwnedComponentExchanges().add(res);
+    getComponentPkg(skeleton).getOwnedComponentExchanges().add(res);
     return res;
   }
 
