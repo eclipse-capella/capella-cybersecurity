@@ -12,6 +12,8 @@
  *******************************************************************************/
 package org.polarsys.capella.cybersecurity.test.rules.testcases.cy_dcon;
 
+import org.polarsys.capella.core.data.cs.BlockArchitecture;
+import org.polarsys.capella.core.data.fa.AbstractFunction;
 import org.polarsys.capella.core.data.fa.FaFactory;
 import org.polarsys.capella.core.data.fa.FunctionalExchange;
 import org.polarsys.capella.core.data.information.ExchangeItem;
@@ -26,7 +28,7 @@ import org.polarsys.capella.cybersecurity.test.common.DynamicValidationTest;
  * allocated Exchange Items.
  *
  */
-public class Rule_CY_DCON_01 extends DynamicValidationTest {
+public abstract class Rule_CY_DCON_01 extends DynamicValidationTest {
 
   private static final String RULE = "org.polarsys.capella.cybersecurity.validation.CY_DCON_01"; //$NON-NLS-1$
 
@@ -39,14 +41,19 @@ public class Rule_CY_DCON_01 extends DynamicValidationTest {
   protected void initModel(CapellaModelSkeleton skeleton) {
     ei1 = InformationFactory.eINSTANCE.createExchangeItem();
     ei2 = InformationFactory.eINSTANCE.createExchangeItem();
-    skeleton.getPhysicalArchitecture().getOwnedDataPkg().getOwnedExchangeItems().add(ei1);
-    skeleton.getPhysicalArchitecture().getOwnedDataPkg().getOwnedExchangeItems().add(ei2);
+    BlockArchitecture architecture = getArchitecture(skeleton);
+    architecture.getOwnedDataPkg().getOwnedExchangeItems().add(ei1);
+    architecture.getOwnedDataPkg().getOwnedExchangeItems().add(ei2);
     fe = FaFactory.eINSTANCE.createFunctionalExchange();
-    skeleton.getPhysicalArchitecture().getContainedPhysicalFunctionPkg().getOwnedPhysicalFunctions().get(0)
-        .getOwnedFunctionalExchanges().add(fe);
+    AbstractFunction function = getFunction(architecture);
+    function.getOwnedFunctionalExchanges().add(fe);
     fe.getExchangedItems().add(ei1);
     fe.getExchangedItems().add(ei2);
   }
+  
+  protected abstract BlockArchitecture getArchitecture(CapellaModelSkeleton skeleton);
+  
+  protected abstract AbstractFunction getFunction(BlockArchitecture architecture);
 
   @Override
   public void test() throws Exception {

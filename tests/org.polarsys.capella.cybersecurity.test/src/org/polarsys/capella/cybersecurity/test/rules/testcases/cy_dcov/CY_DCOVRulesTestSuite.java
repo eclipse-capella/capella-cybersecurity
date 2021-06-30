@@ -12,6 +12,8 @@
  *******************************************************************************/
 package org.polarsys.capella.cybersecurity.test.rules.testcases.cy_dcov;
 
+import org.polarsys.capella.cybersecurity.test.common.BasicDynamicModelTest;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 /**
@@ -23,11 +25,30 @@ public class CY_DCOVRulesTestSuite extends TestSuite {
 
     public CY_DCOVRulesTestSuite() {
       super("CY_DCOVRulesTestSuite"); //$NON-NLS-1$
-      addTest(new Rule_CY_DCOV_01());
-      addTest(new Rule_CY_DCOV_02());
-      addTest(new Rule_CY_DCOV_03());
-      addTest(new Rule_CY_DCOV_04());
-      addTest(new Rule_CY_DCOV_05());
+      addTest(new Rule_CY_DCOV_01(BasicDynamicModelTest.OA));
+      addTest(new Rule_CY_DCOV_01(BasicDynamicModelTest.SA));
+      addTest(new Rule_CY_DCOV_01(BasicDynamicModelTest.LA));
+      addTest(new Rule_CY_DCOV_01(BasicDynamicModelTest.PA));
+      
+      addTest(new Rule_CY_DCOV_02(BasicDynamicModelTest.OA));
+      addTest(new Rule_CY_DCOV_02(BasicDynamicModelTest.SA));
+      addTest(new Rule_CY_DCOV_02(BasicDynamicModelTest.LA));
+      addTest(new Rule_CY_DCOV_02(BasicDynamicModelTest.PA));
+      
+      addTest(new Rule_CY_DCOV_03(BasicDynamicModelTest.OA));
+      addTest(new Rule_CY_DCOV_03(BasicDynamicModelTest.SA));
+      addTest(new Rule_CY_DCOV_03(BasicDynamicModelTest.LA));
+      addTest(new Rule_CY_DCOV_03(BasicDynamicModelTest.PA));
+      
+      addTest(new Rule_CY_DCOV_04(BasicDynamicModelTest.OA));
+      addTest(new Rule_CY_DCOV_04(BasicDynamicModelTest.SA));
+      addTest(new Rule_CY_DCOV_04(BasicDynamicModelTest.LA));
+      addTest(new Rule_CY_DCOV_04(BasicDynamicModelTest.PA));
+      
+      addTest(new Rule_CY_DCOV_05(BasicDynamicModelTest.OA));
+      addTest(new Rule_CY_DCOV_05(BasicDynamicModelTest.SA));
+      addTest(new Rule_CY_DCOV_05(BasicDynamicModelTest.LA));
+      addTest(new Rule_CY_DCOV_05(BasicDynamicModelTest.PA));
       
     }
 

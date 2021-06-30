@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.validation.service.ModelValidationService;
 import org.eclipse.ui.statushandlers.StatusManager;
 import org.polarsys.capella.core.data.capellacore.EnumerationPropertyType;
+import org.polarsys.capella.core.model.skeleton.CapellaModelSkeleton;
 import org.polarsys.capella.cybersecurity.model.CybersecurityQueries;
 
 public abstract class DynamicValidationTest extends BasicDynamicModelTest {
@@ -70,6 +71,19 @@ public abstract class DynamicValidationTest extends BasicDynamicModelTest {
     IStatus status = ValidationHelpers.validate(e, ruleID);
     assertFalse("Validator returned unexpected OK Status", status.isOK()); //$NON-NLS-1$
     return status;
+  }
+  
+  protected ComponentTemplate1 createComponentTemplate(CapellaModelSkeleton skeleton, String architecture) {
+    switch(architecture) {
+    case LA:
+      return new ComponentTemplateLA(skeleton, this);
+    case SA:
+      return new ComponentTemplateSA(skeleton, this);
+    case PA:
+      return new ComponentTemplatePA(skeleton, this);
+    default:
+      return new ComponentTemplateOA(skeleton, this);
+    }
   }
   
 }

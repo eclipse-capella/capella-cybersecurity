@@ -12,6 +12,7 @@
  *******************************************************************************/
 package org.polarsys.capella.cybersecurity.test.rules.testcases.cy_dcov;
 
+
 import org.polarsys.capella.core.data.cs.Component;
 import org.polarsys.capella.core.model.skeleton.CapellaModelSkeleton;
 import org.polarsys.capella.cybersecurity.model.CybersecurityFactory;
@@ -28,6 +29,14 @@ import org.polarsys.capella.cybersecurity.test.common.DynamicValidationTest;
  */
 public class Rule_CY_DCOV_01 extends DynamicValidationTest {
 
+  String architecture;
+  
+  public Rule_CY_DCOV_01(String arch) {
+    super();
+    architecture = arch;
+    
+  }
+
   private static final String RULE = "org.polarsys.capella.cybersecurity.validation.CY_DCOV_01"; //$NON-NLS-1$
 
   CybersecurityServices service = new CybersecurityServices();
@@ -35,7 +44,7 @@ public class Rule_CY_DCOV_01 extends DynamicValidationTest {
 
   @Override
   protected void initModel(CapellaModelSkeleton skeleton) {
-    ComponentTemplate1 t = new ComponentTemplate1(skeleton, this);
+    ComponentTemplate1 t = createComponentTemplate(skeleton, architecture);
     threatSource = t.component;
   }
 
