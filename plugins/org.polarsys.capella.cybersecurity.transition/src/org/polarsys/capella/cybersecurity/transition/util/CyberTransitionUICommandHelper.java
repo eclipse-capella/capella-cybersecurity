@@ -35,4 +35,13 @@ public class CyberTransitionUICommandHelper
     };
   }
   
+  public ICommand getPrimaryAssetTransitionCommand(Collection<?> elements, IProgressMonitor monitor) {
+    return new IntramodelTransitionCommand(elements, monitor) {
+      @Override
+      protected String getTransitionKind() {
+        return ICyberTopDownConstants.TRANSITION_TOPDOWN_PRIMARY_ASSET;
+      }
+    };
+  }
+
 } 
