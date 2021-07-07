@@ -14,6 +14,9 @@ Require-Bundle: org.polarsys.capella.test.framework,
  org.apache.xerces,
  org.polarsys.capella.cybersecurity.ui,
  org.polarsys.capella.test.explorer.activity.ju,
- org.polarsys.capella.core.explorer.activity.ui
+ org.polarsys.capella.core.explorer.activity.ui,
+ org.polarsys.capella.test.transition.ju,
+ org.polarsys.capella.cybersecurity.transition,
+ org.polarsys.capella.core.transition.system.topdown
 Export-Package: org.polarsys.capella.cybersecurity.test,
  org.polarsys.capella.cybersecurity.test.common

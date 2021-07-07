@@ -13,6 +13,7 @@
 package org.polarsys.capella.cybersecurity.transition.util;
 
 import org.eclipse.emf.ecore.EObject;
+import org.polarsys.capella.core.data.cs.BlockArchitecture;
 import org.polarsys.capella.core.projection.common.TransitionHelper;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPkg;
 import org.polarsys.capella.cybersecurity.model.PrimaryAsset;
@@ -37,10 +38,11 @@ public class CybersecurityTransitionHelper extends TransitionHelper {
 
   public boolean isThreatTransitionAvailable(EObject element) {
     return (element instanceof CybersecurityPkg)
-        || (element instanceof Threat);
+        || (element instanceof Threat) || (element instanceof BlockArchitecture);
   }
 
   public boolean isPrimaryAssetTransitionAvailable(EObject element) {
-    return (element instanceof CybersecurityPkg) || (element instanceof PrimaryAsset);
+    return (element instanceof CybersecurityPkg) || (element instanceof PrimaryAsset)
+        || (element instanceof BlockArchitecture);
   }
 }
