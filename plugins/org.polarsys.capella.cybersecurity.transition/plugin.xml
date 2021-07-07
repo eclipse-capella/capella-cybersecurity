@@ -27,6 +27,54 @@
                </defaultMappingPossibility>
             </mappingElement>
             <mappingElement
+                  domainMetaClass="org.polarsys.capella.cybersecurity.model.PrimaryAsset"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     context="org.polarsys.capella.core.transition.common.context.TransitionContext"
+                     enabled="true"
+                     completeRule="org.polarsys.capella.cybersecurity.transition.rules.PrimaryAssetRule"
+                     incompleteRule="org.polarsys.capella.cybersecurity.transition.rules.PrimaryAssetRule"
+                     name="PrimaryAsset">
+               </defaultMappingPossibility>
+            </mappingElement>
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.cybersecurity.model.PrimaryAssetMember"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     context="org.polarsys.capella.core.transition.common.context.TransitionContext"
+                     enabled="true"
+                     completeRule="org.polarsys.capella.cybersecurity.transition.rules.PrimaryAssetMemberRule"
+                     incompleteRule="org.polarsys.capella.cybersecurity.transition.rules.PrimaryAssetMemberRule"
+                     name="PrimaryAssetMember">
+               </defaultMappingPossibility>
+            </mappingElement>
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.cybersecurity.model.FunctionStorage"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     context="org.polarsys.capella.core.transition.common.context.TransitionContext"
+                     enabled="true"
+                     completeRule="org.polarsys.capella.cybersecurity.transition.rules.FunctionStorageRule"
+                     incompleteRule="org.polarsys.capella.cybersecurity.transition.rules.FunctionStorageRule"
+                     name="FunctionStorageRule">
+               </defaultMappingPossibility>
+            </mappingElement>
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.cybersecurity.model.SecurityNeeds"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     context="org.polarsys.capella.core.transition.common.context.TransitionContext"
+                     enabled="true"
+                     completeRule="org.polarsys.capella.cybersecurity.transition.rules.SecurityNeedsRule"
+                     incompleteRule="org.polarsys.capella.cybersecurity.transition.rules.SecurityNeedsRule"
+                     name="SecurityNeeds">
+               </defaultMappingPossibility>
+            </mappingElement>
+            <mappingElement
                   domainMetaClass="org.polarsys.capella.cybersecurity.model.ThreatInvolvement"
                   reuseExtendedElementDefaultPossibility="true"
                   reuseExtendedElementPossibilities="true">
@@ -62,6 +110,7 @@
                      name="CybersecurityPkg">
                </defaultMappingPossibility>
             </mappingElement>
+            
             <mappingElement
                   domainMetaClass="org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage"
                   reuseExtendedElementDefaultPossibility="true"
@@ -102,6 +151,8 @@
                class="org.polarsys.capella.cybersecurity.transition.handlers.traceability.TransformationTraceabilityConfiguration"
                id="transformationTraceabilityConfiguration">
          </transformationTraceabilityConfiguration>
+         
+         
       </handlers>
     </extension>
 
