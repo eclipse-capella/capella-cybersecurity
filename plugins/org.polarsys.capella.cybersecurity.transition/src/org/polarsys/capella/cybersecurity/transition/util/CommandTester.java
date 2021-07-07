@@ -23,7 +23,8 @@ public class CommandTester extends PropertyTester {
       ModelElement element = ModelAdaptation.adaptToCapella(object);
 
       if ((element != null) && (testedValue instanceof String) && testedValue.equals("transitionCybersecurity")) {
-         return CybersecurityTransitionHelper.getService().isThreatTransitionAvailable(element);
+         return CybersecurityTransitionHelper.getService().isThreatTransitionAvailable(element) ||
+             CybersecurityTransitionHelper.getService().isPrimaryAssetTransitionAvailable(element);
       }
     }
 
