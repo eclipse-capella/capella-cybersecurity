@@ -10,22 +10,22 @@
  * Contributors:
  *    Thales - initial API and implementation
  *******************************************************************************/
-package org.polarsys.capella.cybersecurity.transition.util;
+package org.polarsys.capella.cybersecurity.test.transition;
 
 import java.util.Collection;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.polarsys.capella.common.ef.command.ICommand;
+import org.polarsys.capella.core.transition.system.topdown.commands.IntramodelTransitionCommand;
 import org.polarsys.capella.core.transition.system.topdown.constants.ITopDownConstants;
-import org.polarsys.capella.core.transition.system.topdown.ui.commands.IntramodelTransitionCommand;
 
-public class CyberTransitionUICommandHelper
+public class CyberTransitionCommandHelper
     extends org.polarsys.capella.core.transition.system.topdown.commands.TransitionCommandHelper {
 
-  public static CyberTransitionUICommandHelper getInstance() {
-    return new CyberTransitionUICommandHelper();
+  public static CyberTransitionCommandHelper getInstance() {
+    return new CyberTransitionCommandHelper();
   }
-  
+
   public ICommand getThreatTransitionCommand(Collection<?> elements, IProgressMonitor monitor) {
     return new IntramodelTransitionCommand(elements, monitor) {
       @Override
@@ -34,7 +34,7 @@ public class CyberTransitionUICommandHelper
       }
     };
   }
-  
+
   public ICommand getPrimaryAssetTransitionCommand(Collection<?> elements, IProgressMonitor monitor) {
     return new IntramodelTransitionCommand(elements, monitor) {
       @Override
@@ -43,5 +43,4 @@ public class CyberTransitionUICommandHelper
       }
     };
   }
-
-} 
+}

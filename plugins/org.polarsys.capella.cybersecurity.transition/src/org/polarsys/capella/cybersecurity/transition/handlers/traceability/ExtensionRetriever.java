@@ -21,6 +21,9 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.ecore.EObject;
 import org.polarsys.capella.core.data.capellacore.CapellaElement;
+import org.polarsys.capella.core.data.cs.BlockArchitecture;
+import org.polarsys.capella.core.model.helpers.BlockArchitectureExt;
+import org.polarsys.capella.core.model.helpers.BlockArchitectureExt.Type;
 import org.polarsys.capella.core.transition.common.handlers.scope.IScopeRetriever;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.kitalpha.transposer.rules.handler.rules.api.IContext;
@@ -52,7 +55,10 @@ public class ExtensionRetriever implements IScopeRetriever {
     Collection<EObject> elements = new LinkedList<>();
     if (source instanceof CapellaElement) {
       CapellaElement element = (CapellaElement) source;
-      if (element.getOwnedExtensions() != null) {
+      BlockArchitecture blockArchitecture = BlockArchitectureExt.getRootBlockArchitecture(element);
+      if (element.getOwnedExtensions() != null
+          && BlockArchitectureExt.getBlockArchitectureType(blockArchitecture) != Type.PA
+          && BlockArchitectureExt.getBlockArchitectureType(blockArchitecture) != Type.EPBS) {
         elements.addAll(element.getOwnedExtensions()
             .stream()
             .filter(x -> x.eClass().getEPackage() == CybersecurityPackage.eINSTANCE)
