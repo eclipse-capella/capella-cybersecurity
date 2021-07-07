@@ -107,7 +107,10 @@
       <ownedFunctionPkg xsi:type="org.polarsys.capella.core.data.oa:OperationalActivityPkg"
           id="5418f0d2-5ce9-4830-b87f-bfc583ed774c" name="Operational Activities">
         <ownedOperationalActivities xsi:type="org.polarsys.capella.core.data.oa:OperationalActivity"
-            id="a388aa7e-ef09-4aad-86b3-d7c70c663b7e" name="Root Operational Activity"/>
+            id="a388aa7e-ef09-4aad-86b3-d7c70c663b7e" name="Root Operational Activity">
+          <ownedFunctions xsi:type="org.polarsys.capella.core.data.oa:OperationalActivity"
+              id="618e273c-5b56-4855-8a43-18217359fd7b" name="OperationalActivity 1"/>
+        </ownedOperationalActivities>
       </ownedFunctionPkg>
       <ownedAbstractCapabilityPkg xsi:type="org.polarsys.capella.core.data.oa:OperationalCapabilityPkg"
           id="e1b9e752-9415-49ac-b3ad-790c252dee92" name="Operational Capabilities"/>
@@ -118,7 +121,17 @@
       <ownedRolePkg xsi:type="org.polarsys.capella.core.data.oa:RolePkg" id="67b826d0-d66e-467e-8d5c-7087e37649c9"
           name="Roles"/>
       <ownedEntityPkg xsi:type="org.polarsys.capella.core.data.oa:EntityPkg" id="f6985216-39d9-48a0-8b3d-ab47621b6b82"
-          name="Operational Entities"/>
+          name="Operational Entities">
+        <ownedParts xsi:type="org.polarsys.capella.core.data.cs:Part" id="87de0a44-c284-4b9b-bc60-6894493f621e"
+            name="OE 1" abstractType="#89336d07-e5d3-4846-9ed1-0ac0189462b9"/>
+        <ownedEntities xsi:type="org.polarsys.capella.core.data.oa:Entity" id="89336d07-e5d3-4846-9ed1-0ac0189462b9"
+            name="OE 1">
+          <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="388a26d0-f5d7-409f-9bb0-84119d1cd14a"
+              name="OA 1" abstractType="#17fdd0d6-c2de-4abe-b136-dff1f8b69f2b"/>
+          <ownedEntities xsi:type="org.polarsys.capella.core.data.oa:Entity" id="17fdd0d6-c2de-4abe-b136-dff1f8b69f2b"
+              name="OA 1" actor="true" human="true"/>
+        </ownedEntities>
+      </ownedEntityPkg>
     </ownedArchitectures>
     <ownedArchitectures xsi:type="org.polarsys.capella.core.data.ctx:SystemAnalysis"
         id="3a51614f-166f-4674-bd55-983df6dc9f93" name="System Analysis">

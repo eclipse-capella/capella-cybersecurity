@@ -21,6 +21,7 @@ import org.polarsys.capella.cybersecurity.test.diagram.CyberSABDiagramTest;
 import org.polarsys.capella.cybersecurity.test.diagram.ThreatDiagramTest;
 import org.polarsys.capella.cybersecurity.test.rules.testcases.cy_dcon.CY_DCONRulesTestSuite;
 import org.polarsys.capella.cybersecurity.test.rules.testcases.cy_dcov.CY_DCOVRulesTestSuite;
+import org.polarsys.capella.cybersecurity.test.transition.CybersecurityTransitionTestSuite;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
@@ -44,6 +45,7 @@ public class CybersecurityTestSuite extends TestSuite {
     addTest(new CyberLABDiagramTest());
     addTest(new CyberOABDiagramTest());
     addTest(new CyberSABDiagramTest());
+    addTest(new CybersecurityTransitionTestSuite());
     
     addTest(new CybersecurityConfigurationTestSuite());
     addTest(new CyberActivityExplorerTestSuite());

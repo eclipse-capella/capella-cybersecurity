@@ -1,3 +1,15 @@
+/*******************************************************************************
+ * Copyright (c) 2021 THALES GLOBAL SERVICES.
+ * 
+ * This program and the accompanying materials are made available under the
+ * terms of the Eclipse Public License 2.0 which is available at
+ * http://www.eclipse.org/legal/epl-2.0
+ * 
+ * SPDX-License-Identifier: EPL-2.0
+ * 
+ * Contributors:
+ *    Thales - initial API and implementation
+ *******************************************************************************/
 package org.polarsys.capella.cybersecurity.transition.rules;
 
 import java.util.ArrayList;
@@ -39,5 +51,14 @@ public class FunctionStorageRule extends AbstractCapellaElementRule {
   protected void retrieveGoDeep(EObject source, List<EObject> result, IContext context) {
     super.retrieveGoDeep(source, result, context);
     result.addAll(((FunctionStorage) source).getExchangedItems());
+  }
+
+  @Override
+  protected void updateElement(EObject element, EObject result, IContext context) {
+    super.updateElement(element, result, context);
+    FunctionStorage fsTarget = (FunctionStorage) result;
+    FunctionStorage fsSource = (FunctionStorage) element;
+    fsTarget.setDataStorage(fsSource.isDataStorage());
+    fsTarget.setRemanentData(fsSource.isRemanentData());
   }
 }
