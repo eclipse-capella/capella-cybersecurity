@@ -12,7 +12,6 @@
  *******************************************************************************/
 package org.polarsys.capella.cybersecurity.ui.properties.sections;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
@@ -35,8 +34,10 @@ import org.polarsys.capella.common.helpers.TransactionHelper;
 import org.polarsys.capella.common.platform.sirius.ted.SemanticEditingDomainFactory.SemanticEditingDomain;
 import org.polarsys.capella.core.business.queries.IBusinessQuery;
 import org.polarsys.capella.core.data.capellacore.CapellaElement;
+import org.polarsys.capella.core.data.cs.BlockArchitecture;
 import org.polarsys.capella.core.data.fa.FaPackage;
 import org.polarsys.capella.core.data.information.InformationPackage;
+import org.polarsys.capella.core.model.helpers.BlockArchitectureExt;
 import org.polarsys.capella.core.ui.properties.controllers.AbstractMultipleSemanticFieldController;
 import org.polarsys.capella.core.ui.properties.fields.AbstractSemanticField;
 import org.polarsys.capella.core.ui.properties.fields.MultipleSemanticField;
@@ -130,8 +131,11 @@ public abstract class PrimaryAssetInverseMember extends AbstractSection {
         .collect(Collectors.toList());
     }
 
+    @Override
     protected List<EObject> doQueryAvailableElements(EObject semanticElement, IBusinessQuery query){
-      return new ArrayList<>(ItemPropertyDescriptor.getReachableObjectsOfType(semanticElement, assetClass));
+      BlockArchitecture arch = BlockArchitectureExt.getRootBlockArchitecture(semanticElement);
+      return ItemPropertyDescriptor.getReachableObjectsOfType(semanticElement, assetClass).stream()
+          .filter(el -> BlockArchitectureExt.getRootBlockArchitecture(el).equals(arch)).collect(Collectors.toList());
     }
 
     @Override

@@ -576,6 +576,30 @@ public class CybersecurityServices {
     return BlockArchitectureExt.getAllComponents(architecture).stream().filter(c -> c.isActor())
         .collect(Collectors.toList());
   }
+  
+  public Collection<Threat> getAllCurrentLevelThreats(EObject element) {
+    CybersecurityPkg pkg = getDefaultCyberSecurityPackage(element, false);
+    if (pkg != null) {
+      return pkg.getOwnedThreats();
+    }
+    return new ArrayList<>();
+  }
+  
+  public Collection<PrimaryAsset> getAllCurrentLevelFunctionalPrimaryAssets(EObject element) {
+    CybersecurityPkg pkg = getDefaultCyberSecurityPackage(element, false);
+    if (pkg != null) {
+      return pkg.getOwnedPrimaryAssets().stream().filter(pa -> (pa instanceof FunctionalPrimaryAsset)).collect(Collectors.toList());
+    }
+    return new ArrayList<>();
+  }
+  
+  public Collection<PrimaryAsset> getAllCurrentLevelInformationPrimaryAssets(EObject element) {
+    CybersecurityPkg pkg = getDefaultCyberSecurityPackage(element, false);
+    if (pkg != null) {
+      return pkg.getOwnedPrimaryAssets().stream().filter(pa -> (pa instanceof InformationPrimaryAsset)).collect(Collectors.toList());
+    }
+    return new ArrayList<>();
+  }
 
   public Collection<PrimaryAsset> getRelatedAssets(EObject element) {
     if (element instanceof Part && ((Part) element).getAbstractType() instanceof Component) {
