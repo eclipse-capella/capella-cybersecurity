@@ -219,17 +219,6 @@ public class PrimaryAssetStorageItemProvider extends NamedElementItemProvider im
     }
     // end-extension-code
 
-    // begin-extension-code
-    {
-      CommandParameter commandParameter = createChildParameter(
-          ModellingcorePackage.Literals.MODEL_ELEMENT__OWNED_CONSTRAINTS,
-          CapellacoreFactory.eINSTANCE.createConstraint());
-      if (NewChildDescriptorHelper.isValidCommand(object, commandParameter)) {
-        newChildDescriptors.add(commandParameter);
-      }
-    }
-    // end-extension-code
-
   }
 
 }

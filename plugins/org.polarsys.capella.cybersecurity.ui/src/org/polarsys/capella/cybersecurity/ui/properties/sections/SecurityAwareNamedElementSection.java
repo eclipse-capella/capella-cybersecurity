@@ -23,6 +23,10 @@ import org.polarsys.capella.core.data.fa.FunctionalExchange;
 import org.polarsys.capella.core.data.information.ExchangeItem;
 import org.polarsys.capella.cybersecurity.CyberSecurityViewpointHelper;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
+import org.polarsys.capella.cybersecurity.model.FunctionStorage;
+import org.polarsys.capella.cybersecurity.model.PrimaryAssetStorage;
+import org.polarsys.capella.cybersecurity.model.SecurityNeeds;
+import org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage;
 
 public class SecurityAwareNamedElementSection extends NamedElementSection {
 
@@ -34,6 +38,11 @@ public class SecurityAwareNamedElementSection extends NamedElementSection {
           || eObjectToTest instanceof Component || eObjectToTest instanceof ComponentExchange || eObjectToTest instanceof ExchangeItem) {
         return true;
       }
+      if (eObjectToTest instanceof SecurityNeeds || eObjectToTest instanceof FunctionStorage
+          || eObjectToTest instanceof TrustBoundaryStorage || eObjectToTest instanceof PrimaryAssetStorage) {
+        return false;
+      }
+      
       EPackage pkg = eObjectToTest.eClass().getEPackage();
       if (CybersecurityPackage.eINSTANCE.equals(pkg)) {
         return true;
