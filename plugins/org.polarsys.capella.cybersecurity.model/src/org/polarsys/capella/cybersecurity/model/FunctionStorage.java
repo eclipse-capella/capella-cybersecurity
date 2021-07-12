@@ -14,6 +14,7 @@
 package org.polarsys.capella.cybersecurity.model;
 
 import org.eclipse.emf.common.util.EList;
+import org.polarsys.capella.core.data.capellacore.NamedElement;
 import org.polarsys.capella.common.data.modellingcore.ModelElement;
 import org.polarsys.capella.core.data.information.ExchangeItem;
 import org.polarsys.kitalpha.emde.model.ElementExtension;
@@ -39,7 +40,7 @@ import org.polarsys.kitalpha.emde.model.ElementExtension;
  * @generated
  */
 
-public interface FunctionStorage extends ModelElement, ElementExtension {
+public interface FunctionStorage extends NamedElement, ElementExtension {
 
   /**
    * Returns the value of the '<em><b>Exchanged Items</b></em>' reference list.

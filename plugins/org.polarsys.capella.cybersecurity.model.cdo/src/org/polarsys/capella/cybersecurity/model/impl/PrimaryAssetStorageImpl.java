@@ -14,6 +14,7 @@
 package org.polarsys.capella.cybersecurity.model.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.polarsys.capella.core.data.capellacore.impl.NamedElementImpl;
 import org.polarsys.capella.common.data.modellingcore.impl.ModelElementImpl;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.PrimaryAssetStorage;
@@ -24,7 +25,7 @@ import org.polarsys.capella.cybersecurity.model.PrimaryAssetStorage;
  *
  * @generated
  */
-public class PrimaryAssetStorageImpl extends ModelElementImpl implements PrimaryAssetStorage {
+public class PrimaryAssetStorageImpl extends NamedElementImpl implements PrimaryAssetStorage {
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated

@@ -15,6 +15,7 @@ package org.polarsys.capella.cybersecurity.model;
 
 import org.polarsys.capella.common.data.modellingcore.ModelElement;
 import org.polarsys.capella.core.data.capellacore.EnumerationPropertyLiteral;
+import org.polarsys.capella.core.data.capellacore.NamedElement;
 import org.polarsys.kitalpha.emde.model.ElementExtension;
 
 /**
@@ -36,7 +37,7 @@ import org.polarsys.kitalpha.emde.model.ElementExtension;
  * @generated
  */
 
-public interface SecurityNeeds extends ModelElement, ElementExtension {
+public interface SecurityNeeds extends NamedElement, ElementExtension {
 
   /**
    * Returns the value of the '<em><b>Confidentiality Value</b></em>' reference.

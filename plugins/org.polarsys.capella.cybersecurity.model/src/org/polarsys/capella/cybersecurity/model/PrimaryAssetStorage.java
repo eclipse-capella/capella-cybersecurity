@@ -13,6 +13,7 @@
 
 package org.polarsys.capella.cybersecurity.model;
 
+import org.polarsys.capella.core.data.capellacore.NamedElement;
 import org.polarsys.capella.common.data.modellingcore.ModelElement;
 import org.polarsys.kitalpha.emde.model.ElementExtension;
 
@@ -27,6 +28,6 @@ import org.polarsys.kitalpha.emde.model.ElementExtension;
  * @generated
  */
 
-public interface PrimaryAssetStorage extends ModelElement, ElementExtension {
+public interface PrimaryAssetStorage extends NamedElement, ElementExtension {
 
 } // PrimaryAssetStorage

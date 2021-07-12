@@ -16,6 +16,7 @@ package org.polarsys.capella.cybersecurity.model.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.polarsys.capella.core.data.capellacore.impl.NamedElementImpl;
 import org.polarsys.capella.common.data.modellingcore.impl.ModelElementImpl;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage;
@@ -35,7 +36,7 @@ import org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage;
  *
  * @generated
  */
-public class TrustBoundaryStorageImpl extends ModelElementImpl implements TrustBoundaryStorage {
+public class TrustBoundaryStorageImpl extends NamedElementImpl implements TrustBoundaryStorage {
 
   /**
    * The default value of the '{@link #isThreatSource() <em>Threat Source</em>}' attribute.

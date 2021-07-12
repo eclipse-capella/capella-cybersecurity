@@ -305,6 +305,58 @@ public class CybersecurityFactoryImpl extends EFactoryImpl implements Cybersecur
   }
 
   /**
+   * Creates class and sets its name
+   * (This method comes from a customization of the standard EMF generator)
+   *
+   * @param name_p : default name of created element
+   * @generated
+   */
+  public FunctionStorage createFunctionStorage(String name_p) {
+    FunctionStorage functionStorage = createFunctionStorage();
+    functionStorage.setName(name_p);
+    return functionStorage;
+  }
+
+  /**
+   * Creates class and sets its name
+   * (This method comes from a customization of the standard EMF generator)
+   *
+   * @param name_p : default name of created element
+   * @generated
+   */
+  public PrimaryAssetStorage createPrimaryAssetStorage(String name_p) {
+    PrimaryAssetStorage primaryAssetStorage = createPrimaryAssetStorage();
+    primaryAssetStorage.setName(name_p);
+    return primaryAssetStorage;
+  }
+
+  /**
+   * Creates class and sets its name
+   * (This method comes from a customization of the standard EMF generator)
+   *
+   * @param name_p : default name of created element
+   * @generated
+   */
+  public SecurityNeeds createSecurityNeeds(String name_p) {
+    SecurityNeeds securityNeeds = createSecurityNeeds();
+    securityNeeds.setName(name_p);
+    return securityNeeds;
+  }
+
+  /**
+   * Creates class and sets its name
+   * (This method comes from a customization of the standard EMF generator)
+   *
+   * @param name_p : default name of created element
+   * @generated
+   */
+  public TrustBoundaryStorage createTrustBoundaryStorage(String name_p) {
+    TrustBoundaryStorage trustBoundaryStorage = createTrustBoundaryStorage();
+    trustBoundaryStorage.setName(name_p);
+    return trustBoundaryStorage;
+  }
+
+  /**
    * Creates class and sets its name (This method comes from a customization of the standard EMF generator)
    *
    * @param name_p

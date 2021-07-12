@@ -34,7 +34,7 @@
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="threat" eType="#//Threat"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FunctionStorage" eSuperTypes="platform:/plugin/org.polarsys.capella.common.data.core.gen/model/ModellingCore.ecore#//ModelElement platform:/plugin/org.polarsys.kitalpha.emde/model/eMDE.ecore#//ElementExtension">
+  <eClassifiers xsi:type="ecore:EClass" name="FunctionStorage" eSuperTypes="platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#//NamedElement platform:/plugin/org.polarsys.kitalpha.emde/model/eMDE.ecore#//ElementExtension">
     <eAnnotations source="http://www.polarsys.org/kitalpha/emde/1.0.0/constraint">
       <details key="ExtendedElement" value=" http://www.polarsys.org/capella/core/fa/5.0.0#//AbstractFunction"/>
     </eAnnotations>
@@ -51,7 +51,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="asset" eType="#//PrimaryAsset"
         changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PrimaryAssetStorage" eSuperTypes="platform:/plugin/org.polarsys.capella.common.data.core.gen/model/ModellingCore.ecore#//ModelElement platform:/plugin/org.polarsys.kitalpha.emde/model/eMDE.ecore#//ElementExtension">
+  <eClassifiers xsi:type="ecore:EClass" name="PrimaryAssetStorage" eSuperTypes="platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#//NamedElement platform:/plugin/org.polarsys.kitalpha.emde/model/eMDE.ecore#//ElementExtension">
     <eAnnotations source="http://www.polarsys.org/kitalpha/emde/1.0.0/constraint">
       <details key="ExtendedElement" value=" http://www.polarsys.org/capella/common/behavior/5.0.0#//AbstractEvent"/>
     </eAnnotations>
@@ -59,7 +59,7 @@
       <details key="Mapping" value=" platform:/plugin/org.polarsys.capella.common.data.behavior.gen/model/Behavior.ecore#//AbstractEvent"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SecurityNeeds" eSuperTypes="platform:/plugin/org.polarsys.capella.common.data.core.gen/model/ModellingCore.ecore#//ModelElement platform:/plugin/org.polarsys.kitalpha.emde/model/eMDE.ecore#//ElementExtension">
+  <eClassifiers xsi:type="ecore:EClass" name="SecurityNeeds" eSuperTypes="platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#//NamedElement platform:/plugin/org.polarsys.kitalpha.emde/model/eMDE.ecore#//ElementExtension">
     <eAnnotations source="http://www.polarsys.org/kitalpha/emde/1.0.0/constraint">
       <details key="ExtendedElement" value="http://www.polarsys.org/capella/common/behavior/5.0.0#//AbstractEvent http://www.polarsys.org/capella/cybersecurity/1.0#//PrimaryAsset"/>
     </eAnnotations>
@@ -71,7 +71,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="availabilityValue" eType="ecore:EClass platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#//EnumerationPropertyLiteral"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="traceabilityValue" eType="ecore:EClass platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#//EnumerationPropertyLiteral"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TrustBoundaryStorage" eSuperTypes="platform:/plugin/org.polarsys.capella.common.data.core.gen/model/ModellingCore.ecore#//ModelElement platform:/plugin/org.polarsys.kitalpha.emde/model/eMDE.ecore#//ElementExtension">
+  <eClassifiers xsi:type="ecore:EClass" name="TrustBoundaryStorage" eSuperTypes="platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#//NamedElement platform:/plugin/org.polarsys.kitalpha.emde/model/eMDE.ecore#//ElementExtension">
     <eAnnotations source="http://www.polarsys.org/kitalpha/emde/1.0.0/constraint">
       <details key="ExtendedElement" value=" http://www.polarsys.org/capella/core/cs/5.0.0#//Component"/>
     </eAnnotations>

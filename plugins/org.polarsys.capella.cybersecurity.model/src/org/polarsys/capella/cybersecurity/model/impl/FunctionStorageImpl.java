@@ -20,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.polarsys.capella.core.data.capellacore.impl.NamedElementImpl;
 import org.polarsys.capella.common.data.modellingcore.impl.ModelElementImpl;
 import org.polarsys.capella.core.data.information.ExchangeItem;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
@@ -42,7 +43,7 @@ import org.polarsys.capella.cybersecurity.model.FunctionStorage;
  *
  * @generated
  */
-public class FunctionStorageImpl extends ModelElementImpl implements FunctionStorage {
+public class FunctionStorageImpl extends NamedElementImpl implements FunctionStorage {
 
   /**
    * The cached value of the '{@link #getExchangedItems() <em>Exchanged Items</em>}' reference list.
