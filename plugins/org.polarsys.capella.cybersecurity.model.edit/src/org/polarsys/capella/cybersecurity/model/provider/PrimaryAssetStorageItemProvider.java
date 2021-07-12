@@ -25,6 +25,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.polarsys.capella.core.data.capellacore.provider.NamedElementItemProvider;
 import org.polarsys.capella.common.data.modellingcore.ModellingcorePackage;
 import org.polarsys.capella.common.data.modellingcore.provider.ModelElementItemProvider;
 import org.polarsys.capella.core.data.capellacore.CapellacoreFactory;
@@ -38,7 +39,7 @@ import org.polarsys.kitalpha.emde.model.edit.provider.NewChildDescriptorHelper;
  * <!-- begin-user-doc --> <!-- end-user-doc -->
  * @generated
  */
-public class PrimaryAssetStorageItemProvider extends ModelElementItemProvider implements IEditingDomainItemProvider,
+public class PrimaryAssetStorageItemProvider extends NamedElementItemProvider implements IEditingDomainItemProvider,
     IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
   /**
    * This constructs an instance from a factory and a notifier.
@@ -103,7 +104,7 @@ public class PrimaryAssetStorageItemProvider extends ModelElementItemProvider im
   @Override
   public String getText(Object object) {
 
-    String label = ((PrimaryAssetStorage) object).getId();
+    String label = ((PrimaryAssetStorage) object).getName();
     // begin-extension-code
     return label == null || label.length() == 0 ? "[" + getString("_UI_PrimaryAssetStorage_type") + "]" : label; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
     // end-extension-code

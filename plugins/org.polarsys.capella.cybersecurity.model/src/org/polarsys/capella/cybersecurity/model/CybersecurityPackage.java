@@ -767,7 +767,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int FUNCTION_STORAGE__OWNED_EXTENSIONS = ModellingcorePackage.MODEL_ELEMENT__OWNED_EXTENSIONS;
+  int FUNCTION_STORAGE__OWNED_EXTENSIONS = CapellacorePackage.NAMED_ELEMENT__OWNED_EXTENSIONS;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -775,7 +775,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int FUNCTION_STORAGE__ID = ModellingcorePackage.MODEL_ELEMENT__ID;
+  int FUNCTION_STORAGE__ID = CapellacorePackage.NAMED_ELEMENT__ID;
 
   /**
    * The feature id for the '<em><b>Sid</b></em>' attribute.
@@ -783,7 +783,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int FUNCTION_STORAGE__SID = ModellingcorePackage.MODEL_ELEMENT__SID;
+  int FUNCTION_STORAGE__SID = CapellacorePackage.NAMED_ELEMENT__SID;
 
   /**
    * The feature id for the '<em><b>Constraints</b></em>' reference list.
@@ -791,7 +791,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int FUNCTION_STORAGE__CONSTRAINTS = ModellingcorePackage.MODEL_ELEMENT__CONSTRAINTS;
+  int FUNCTION_STORAGE__CONSTRAINTS = CapellacorePackage.NAMED_ELEMENT__CONSTRAINTS;
 
   /**
    * The feature id for the '<em><b>Owned Constraints</b></em>' containment reference list.
@@ -800,7 +800,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int FUNCTION_STORAGE__OWNED_CONSTRAINTS = ModellingcorePackage.MODEL_ELEMENT__OWNED_CONSTRAINTS;
+  int FUNCTION_STORAGE__OWNED_CONSTRAINTS = CapellacorePackage.NAMED_ELEMENT__OWNED_CONSTRAINTS;
 
   /**
    * The feature id for the '<em><b>Owned Migrated Elements</b></em>' containment reference list.
@@ -809,7 +809,151 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int FUNCTION_STORAGE__OWNED_MIGRATED_ELEMENTS = ModellingcorePackage.MODEL_ELEMENT__OWNED_MIGRATED_ELEMENTS;
+  int FUNCTION_STORAGE__OWNED_MIGRATED_ELEMENTS = CapellacorePackage.NAMED_ELEMENT__OWNED_MIGRATED_ELEMENTS;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_STORAGE__NAME = CapellacorePackage.NAMED_ELEMENT__NAME;
+
+  /**
+   * The feature id for the '<em><b>Incoming Traces</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_STORAGE__INCOMING_TRACES = CapellacorePackage.NAMED_ELEMENT__INCOMING_TRACES;
+
+  /**
+   * The feature id for the '<em><b>Outgoing Traces</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_STORAGE__OUTGOING_TRACES = CapellacorePackage.NAMED_ELEMENT__OUTGOING_TRACES;
+
+  /**
+   * The feature id for the '<em><b>Visible In Doc</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_STORAGE__VISIBLE_IN_DOC = CapellacorePackage.NAMED_ELEMENT__VISIBLE_IN_DOC;
+
+  /**
+   * The feature id for the '<em><b>Visible In LM</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_STORAGE__VISIBLE_IN_LM = CapellacorePackage.NAMED_ELEMENT__VISIBLE_IN_LM;
+
+  /**
+   * The feature id for the '<em><b>Summary</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_STORAGE__SUMMARY = CapellacorePackage.NAMED_ELEMENT__SUMMARY;
+
+  /**
+   * The feature id for the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_STORAGE__DESCRIPTION = CapellacorePackage.NAMED_ELEMENT__DESCRIPTION;
+
+  /**
+   * The feature id for the '<em><b>Review</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_STORAGE__REVIEW = CapellacorePackage.NAMED_ELEMENT__REVIEW;
+
+  /**
+   * The feature id for the '<em><b>Owned Property Values</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_STORAGE__OWNED_PROPERTY_VALUES = CapellacorePackage.NAMED_ELEMENT__OWNED_PROPERTY_VALUES;
+
+  /**
+   * The feature id for the '<em><b>Owned Enumeration Property Types</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_STORAGE__OWNED_ENUMERATION_PROPERTY_TYPES = CapellacorePackage.NAMED_ELEMENT__OWNED_ENUMERATION_PROPERTY_TYPES;
+
+  /**
+   * The feature id for the '<em><b>Applied Property Values</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_STORAGE__APPLIED_PROPERTY_VALUES = CapellacorePackage.NAMED_ELEMENT__APPLIED_PROPERTY_VALUES;
+
+  /**
+   * The feature id for the '<em><b>Owned Property Value Groups</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_STORAGE__OWNED_PROPERTY_VALUE_GROUPS = CapellacorePackage.NAMED_ELEMENT__OWNED_PROPERTY_VALUE_GROUPS;
+
+  /**
+   * The feature id for the '<em><b>Applied Property Value Groups</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_STORAGE__APPLIED_PROPERTY_VALUE_GROUPS = CapellacorePackage.NAMED_ELEMENT__APPLIED_PROPERTY_VALUE_GROUPS;
+
+  /**
+   * The feature id for the '<em><b>Status</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_STORAGE__STATUS = CapellacorePackage.NAMED_ELEMENT__STATUS;
+
+  /**
+   * The feature id for the '<em><b>Features</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_STORAGE__FEATURES = CapellacorePackage.NAMED_ELEMENT__FEATURES;
+
+  /**
+   * The feature id for the '<em><b>Applied Requirements</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_STORAGE__APPLIED_REQUIREMENTS = CapellacorePackage.NAMED_ELEMENT__APPLIED_REQUIREMENTS;
 
   /**
    * The feature id for the '<em><b>Exchanged Items</b></em>' reference list. <!-- begin-user-doc --> <!-- end-user-doc
@@ -818,7 +962,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int FUNCTION_STORAGE__EXCHANGED_ITEMS = ModellingcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 0;
+  int FUNCTION_STORAGE__EXCHANGED_ITEMS = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Data Storage</b></em>' attribute.
@@ -826,7 +970,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int FUNCTION_STORAGE__DATA_STORAGE = ModellingcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 1;
+  int FUNCTION_STORAGE__DATA_STORAGE = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Remanent Data</b></em>' attribute.
@@ -834,7 +978,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int FUNCTION_STORAGE__REMANENT_DATA = ModellingcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 2;
+  int FUNCTION_STORAGE__REMANENT_DATA = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Function Storage</em>' class.
@@ -843,7 +987,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int FUNCTION_STORAGE_FEATURE_COUNT = ModellingcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 3;
+  int FUNCTION_STORAGE_FEATURE_COUNT = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link org.polarsys.capella.cybersecurity.model.impl.ThreatApplicationImpl <em>Threat Application</em>}' class.
@@ -1082,7 +1226,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int PRIMARY_ASSET_STORAGE__OWNED_EXTENSIONS = ModellingcorePackage.MODEL_ELEMENT__OWNED_EXTENSIONS;
+  int PRIMARY_ASSET_STORAGE__OWNED_EXTENSIONS = CapellacorePackage.NAMED_ELEMENT__OWNED_EXTENSIONS;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1090,7 +1234,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int PRIMARY_ASSET_STORAGE__ID = ModellingcorePackage.MODEL_ELEMENT__ID;
+  int PRIMARY_ASSET_STORAGE__ID = CapellacorePackage.NAMED_ELEMENT__ID;
 
   /**
    * The feature id for the '<em><b>Sid</b></em>' attribute.
@@ -1098,7 +1242,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int PRIMARY_ASSET_STORAGE__SID = ModellingcorePackage.MODEL_ELEMENT__SID;
+  int PRIMARY_ASSET_STORAGE__SID = CapellacorePackage.NAMED_ELEMENT__SID;
 
   /**
    * The feature id for the '<em><b>Constraints</b></em>' reference list.
@@ -1106,7 +1250,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int PRIMARY_ASSET_STORAGE__CONSTRAINTS = ModellingcorePackage.MODEL_ELEMENT__CONSTRAINTS;
+  int PRIMARY_ASSET_STORAGE__CONSTRAINTS = CapellacorePackage.NAMED_ELEMENT__CONSTRAINTS;
 
   /**
    * The feature id for the '<em><b>Owned Constraints</b></em>' containment reference list.
@@ -1115,7 +1259,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int PRIMARY_ASSET_STORAGE__OWNED_CONSTRAINTS = ModellingcorePackage.MODEL_ELEMENT__OWNED_CONSTRAINTS;
+  int PRIMARY_ASSET_STORAGE__OWNED_CONSTRAINTS = CapellacorePackage.NAMED_ELEMENT__OWNED_CONSTRAINTS;
 
   /**
    * The feature id for the '<em><b>Owned Migrated Elements</b></em>' containment reference list.
@@ -1124,7 +1268,151 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int PRIMARY_ASSET_STORAGE__OWNED_MIGRATED_ELEMENTS = ModellingcorePackage.MODEL_ELEMENT__OWNED_MIGRATED_ELEMENTS;
+  int PRIMARY_ASSET_STORAGE__OWNED_MIGRATED_ELEMENTS = CapellacorePackage.NAMED_ELEMENT__OWNED_MIGRATED_ELEMENTS;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_ASSET_STORAGE__NAME = CapellacorePackage.NAMED_ELEMENT__NAME;
+
+  /**
+   * The feature id for the '<em><b>Incoming Traces</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_ASSET_STORAGE__INCOMING_TRACES = CapellacorePackage.NAMED_ELEMENT__INCOMING_TRACES;
+
+  /**
+   * The feature id for the '<em><b>Outgoing Traces</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_ASSET_STORAGE__OUTGOING_TRACES = CapellacorePackage.NAMED_ELEMENT__OUTGOING_TRACES;
+
+  /**
+   * The feature id for the '<em><b>Visible In Doc</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_ASSET_STORAGE__VISIBLE_IN_DOC = CapellacorePackage.NAMED_ELEMENT__VISIBLE_IN_DOC;
+
+  /**
+   * The feature id for the '<em><b>Visible In LM</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_ASSET_STORAGE__VISIBLE_IN_LM = CapellacorePackage.NAMED_ELEMENT__VISIBLE_IN_LM;
+
+  /**
+   * The feature id for the '<em><b>Summary</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_ASSET_STORAGE__SUMMARY = CapellacorePackage.NAMED_ELEMENT__SUMMARY;
+
+  /**
+   * The feature id for the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_ASSET_STORAGE__DESCRIPTION = CapellacorePackage.NAMED_ELEMENT__DESCRIPTION;
+
+  /**
+   * The feature id for the '<em><b>Review</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_ASSET_STORAGE__REVIEW = CapellacorePackage.NAMED_ELEMENT__REVIEW;
+
+  /**
+   * The feature id for the '<em><b>Owned Property Values</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_ASSET_STORAGE__OWNED_PROPERTY_VALUES = CapellacorePackage.NAMED_ELEMENT__OWNED_PROPERTY_VALUES;
+
+  /**
+   * The feature id for the '<em><b>Owned Enumeration Property Types</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_ASSET_STORAGE__OWNED_ENUMERATION_PROPERTY_TYPES = CapellacorePackage.NAMED_ELEMENT__OWNED_ENUMERATION_PROPERTY_TYPES;
+
+  /**
+   * The feature id for the '<em><b>Applied Property Values</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_ASSET_STORAGE__APPLIED_PROPERTY_VALUES = CapellacorePackage.NAMED_ELEMENT__APPLIED_PROPERTY_VALUES;
+
+  /**
+   * The feature id for the '<em><b>Owned Property Value Groups</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_ASSET_STORAGE__OWNED_PROPERTY_VALUE_GROUPS = CapellacorePackage.NAMED_ELEMENT__OWNED_PROPERTY_VALUE_GROUPS;
+
+  /**
+   * The feature id for the '<em><b>Applied Property Value Groups</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_ASSET_STORAGE__APPLIED_PROPERTY_VALUE_GROUPS = CapellacorePackage.NAMED_ELEMENT__APPLIED_PROPERTY_VALUE_GROUPS;
+
+  /**
+   * The feature id for the '<em><b>Status</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_ASSET_STORAGE__STATUS = CapellacorePackage.NAMED_ELEMENT__STATUS;
+
+  /**
+   * The feature id for the '<em><b>Features</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_ASSET_STORAGE__FEATURES = CapellacorePackage.NAMED_ELEMENT__FEATURES;
+
+  /**
+   * The feature id for the '<em><b>Applied Requirements</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_ASSET_STORAGE__APPLIED_REQUIREMENTS = CapellacorePackage.NAMED_ELEMENT__APPLIED_REQUIREMENTS;
 
   /**
    * The number of structural features of the '<em>Primary Asset Storage</em>' class.
@@ -1133,7 +1421,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int PRIMARY_ASSET_STORAGE_FEATURE_COUNT = ModellingcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 0;
+  int PRIMARY_ASSET_STORAGE_FEATURE_COUNT = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link org.polarsys.capella.cybersecurity.model.impl.SecurityNeedsImpl <em>Security Needs</em>}' class.
@@ -1151,7 +1439,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int SECURITY_NEEDS__OWNED_EXTENSIONS = ModellingcorePackage.MODEL_ELEMENT__OWNED_EXTENSIONS;
+  int SECURITY_NEEDS__OWNED_EXTENSIONS = CapellacorePackage.NAMED_ELEMENT__OWNED_EXTENSIONS;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1159,7 +1447,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int SECURITY_NEEDS__ID = ModellingcorePackage.MODEL_ELEMENT__ID;
+  int SECURITY_NEEDS__ID = CapellacorePackage.NAMED_ELEMENT__ID;
 
   /**
    * The feature id for the '<em><b>Sid</b></em>' attribute.
@@ -1167,7 +1455,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int SECURITY_NEEDS__SID = ModellingcorePackage.MODEL_ELEMENT__SID;
+  int SECURITY_NEEDS__SID = CapellacorePackage.NAMED_ELEMENT__SID;
 
   /**
    * The feature id for the '<em><b>Constraints</b></em>' reference list.
@@ -1175,7 +1463,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int SECURITY_NEEDS__CONSTRAINTS = ModellingcorePackage.MODEL_ELEMENT__CONSTRAINTS;
+  int SECURITY_NEEDS__CONSTRAINTS = CapellacorePackage.NAMED_ELEMENT__CONSTRAINTS;
 
   /**
    * The feature id for the '<em><b>Owned Constraints</b></em>' containment reference list.
@@ -1184,7 +1472,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int SECURITY_NEEDS__OWNED_CONSTRAINTS = ModellingcorePackage.MODEL_ELEMENT__OWNED_CONSTRAINTS;
+  int SECURITY_NEEDS__OWNED_CONSTRAINTS = CapellacorePackage.NAMED_ELEMENT__OWNED_CONSTRAINTS;
 
   /**
    * The feature id for the '<em><b>Owned Migrated Elements</b></em>' containment reference list.
@@ -1193,7 +1481,151 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int SECURITY_NEEDS__OWNED_MIGRATED_ELEMENTS = ModellingcorePackage.MODEL_ELEMENT__OWNED_MIGRATED_ELEMENTS;
+  int SECURITY_NEEDS__OWNED_MIGRATED_ELEMENTS = CapellacorePackage.NAMED_ELEMENT__OWNED_MIGRATED_ELEMENTS;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SECURITY_NEEDS__NAME = CapellacorePackage.NAMED_ELEMENT__NAME;
+
+  /**
+   * The feature id for the '<em><b>Incoming Traces</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SECURITY_NEEDS__INCOMING_TRACES = CapellacorePackage.NAMED_ELEMENT__INCOMING_TRACES;
+
+  /**
+   * The feature id for the '<em><b>Outgoing Traces</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SECURITY_NEEDS__OUTGOING_TRACES = CapellacorePackage.NAMED_ELEMENT__OUTGOING_TRACES;
+
+  /**
+   * The feature id for the '<em><b>Visible In Doc</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SECURITY_NEEDS__VISIBLE_IN_DOC = CapellacorePackage.NAMED_ELEMENT__VISIBLE_IN_DOC;
+
+  /**
+   * The feature id for the '<em><b>Visible In LM</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SECURITY_NEEDS__VISIBLE_IN_LM = CapellacorePackage.NAMED_ELEMENT__VISIBLE_IN_LM;
+
+  /**
+   * The feature id for the '<em><b>Summary</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SECURITY_NEEDS__SUMMARY = CapellacorePackage.NAMED_ELEMENT__SUMMARY;
+
+  /**
+   * The feature id for the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SECURITY_NEEDS__DESCRIPTION = CapellacorePackage.NAMED_ELEMENT__DESCRIPTION;
+
+  /**
+   * The feature id for the '<em><b>Review</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SECURITY_NEEDS__REVIEW = CapellacorePackage.NAMED_ELEMENT__REVIEW;
+
+  /**
+   * The feature id for the '<em><b>Owned Property Values</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SECURITY_NEEDS__OWNED_PROPERTY_VALUES = CapellacorePackage.NAMED_ELEMENT__OWNED_PROPERTY_VALUES;
+
+  /**
+   * The feature id for the '<em><b>Owned Enumeration Property Types</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SECURITY_NEEDS__OWNED_ENUMERATION_PROPERTY_TYPES = CapellacorePackage.NAMED_ELEMENT__OWNED_ENUMERATION_PROPERTY_TYPES;
+
+  /**
+   * The feature id for the '<em><b>Applied Property Values</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SECURITY_NEEDS__APPLIED_PROPERTY_VALUES = CapellacorePackage.NAMED_ELEMENT__APPLIED_PROPERTY_VALUES;
+
+  /**
+   * The feature id for the '<em><b>Owned Property Value Groups</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SECURITY_NEEDS__OWNED_PROPERTY_VALUE_GROUPS = CapellacorePackage.NAMED_ELEMENT__OWNED_PROPERTY_VALUE_GROUPS;
+
+  /**
+   * The feature id for the '<em><b>Applied Property Value Groups</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SECURITY_NEEDS__APPLIED_PROPERTY_VALUE_GROUPS = CapellacorePackage.NAMED_ELEMENT__APPLIED_PROPERTY_VALUE_GROUPS;
+
+  /**
+   * The feature id for the '<em><b>Status</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SECURITY_NEEDS__STATUS = CapellacorePackage.NAMED_ELEMENT__STATUS;
+
+  /**
+   * The feature id for the '<em><b>Features</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SECURITY_NEEDS__FEATURES = CapellacorePackage.NAMED_ELEMENT__FEATURES;
+
+  /**
+   * The feature id for the '<em><b>Applied Requirements</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SECURITY_NEEDS__APPLIED_REQUIREMENTS = CapellacorePackage.NAMED_ELEMENT__APPLIED_REQUIREMENTS;
 
   /**
    * The feature id for the '<em><b>Confidentiality Value</b></em>' reference.
@@ -1202,7 +1634,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int SECURITY_NEEDS__CONFIDENTIALITY_VALUE = ModellingcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 0;
+  int SECURITY_NEEDS__CONFIDENTIALITY_VALUE = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Integrity Value</b></em>' reference.
@@ -1211,7 +1643,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int SECURITY_NEEDS__INTEGRITY_VALUE = ModellingcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 1;
+  int SECURITY_NEEDS__INTEGRITY_VALUE = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Availability Value</b></em>' reference.
@@ -1220,7 +1652,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int SECURITY_NEEDS__AVAILABILITY_VALUE = ModellingcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 2;
+  int SECURITY_NEEDS__AVAILABILITY_VALUE = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Traceability Value</b></em>' reference.
@@ -1229,7 +1661,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int SECURITY_NEEDS__TRACEABILITY_VALUE = ModellingcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 3;
+  int SECURITY_NEEDS__TRACEABILITY_VALUE = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>Security Needs</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
@@ -1238,7 +1670,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int SECURITY_NEEDS_FEATURE_COUNT = ModellingcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 4;
+  int SECURITY_NEEDS_FEATURE_COUNT = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link org.polarsys.capella.cybersecurity.model.impl.TrustBoundaryStorageImpl <em>Trust Boundary Storage</em>}' class.
@@ -1256,7 +1688,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int TRUST_BOUNDARY_STORAGE__OWNED_EXTENSIONS = ModellingcorePackage.MODEL_ELEMENT__OWNED_EXTENSIONS;
+  int TRUST_BOUNDARY_STORAGE__OWNED_EXTENSIONS = CapellacorePackage.NAMED_ELEMENT__OWNED_EXTENSIONS;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1264,7 +1696,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int TRUST_BOUNDARY_STORAGE__ID = ModellingcorePackage.MODEL_ELEMENT__ID;
+  int TRUST_BOUNDARY_STORAGE__ID = CapellacorePackage.NAMED_ELEMENT__ID;
 
   /**
    * The feature id for the '<em><b>Sid</b></em>' attribute.
@@ -1272,7 +1704,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int TRUST_BOUNDARY_STORAGE__SID = ModellingcorePackage.MODEL_ELEMENT__SID;
+  int TRUST_BOUNDARY_STORAGE__SID = CapellacorePackage.NAMED_ELEMENT__SID;
 
   /**
    * The feature id for the '<em><b>Constraints</b></em>' reference list.
@@ -1280,7 +1712,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int TRUST_BOUNDARY_STORAGE__CONSTRAINTS = ModellingcorePackage.MODEL_ELEMENT__CONSTRAINTS;
+  int TRUST_BOUNDARY_STORAGE__CONSTRAINTS = CapellacorePackage.NAMED_ELEMENT__CONSTRAINTS;
 
   /**
    * The feature id for the '<em><b>Owned Constraints</b></em>' containment reference list.
@@ -1289,7 +1721,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int TRUST_BOUNDARY_STORAGE__OWNED_CONSTRAINTS = ModellingcorePackage.MODEL_ELEMENT__OWNED_CONSTRAINTS;
+  int TRUST_BOUNDARY_STORAGE__OWNED_CONSTRAINTS = CapellacorePackage.NAMED_ELEMENT__OWNED_CONSTRAINTS;
 
   /**
    * The feature id for the '<em><b>Owned Migrated Elements</b></em>' containment reference list.
@@ -1298,7 +1730,151 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int TRUST_BOUNDARY_STORAGE__OWNED_MIGRATED_ELEMENTS = ModellingcorePackage.MODEL_ELEMENT__OWNED_MIGRATED_ELEMENTS;
+  int TRUST_BOUNDARY_STORAGE__OWNED_MIGRATED_ELEMENTS = CapellacorePackage.NAMED_ELEMENT__OWNED_MIGRATED_ELEMENTS;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRUST_BOUNDARY_STORAGE__NAME = CapellacorePackage.NAMED_ELEMENT__NAME;
+
+  /**
+   * The feature id for the '<em><b>Incoming Traces</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRUST_BOUNDARY_STORAGE__INCOMING_TRACES = CapellacorePackage.NAMED_ELEMENT__INCOMING_TRACES;
+
+  /**
+   * The feature id for the '<em><b>Outgoing Traces</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRUST_BOUNDARY_STORAGE__OUTGOING_TRACES = CapellacorePackage.NAMED_ELEMENT__OUTGOING_TRACES;
+
+  /**
+   * The feature id for the '<em><b>Visible In Doc</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRUST_BOUNDARY_STORAGE__VISIBLE_IN_DOC = CapellacorePackage.NAMED_ELEMENT__VISIBLE_IN_DOC;
+
+  /**
+   * The feature id for the '<em><b>Visible In LM</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRUST_BOUNDARY_STORAGE__VISIBLE_IN_LM = CapellacorePackage.NAMED_ELEMENT__VISIBLE_IN_LM;
+
+  /**
+   * The feature id for the '<em><b>Summary</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRUST_BOUNDARY_STORAGE__SUMMARY = CapellacorePackage.NAMED_ELEMENT__SUMMARY;
+
+  /**
+   * The feature id for the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRUST_BOUNDARY_STORAGE__DESCRIPTION = CapellacorePackage.NAMED_ELEMENT__DESCRIPTION;
+
+  /**
+   * The feature id for the '<em><b>Review</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRUST_BOUNDARY_STORAGE__REVIEW = CapellacorePackage.NAMED_ELEMENT__REVIEW;
+
+  /**
+   * The feature id for the '<em><b>Owned Property Values</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRUST_BOUNDARY_STORAGE__OWNED_PROPERTY_VALUES = CapellacorePackage.NAMED_ELEMENT__OWNED_PROPERTY_VALUES;
+
+  /**
+   * The feature id for the '<em><b>Owned Enumeration Property Types</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRUST_BOUNDARY_STORAGE__OWNED_ENUMERATION_PROPERTY_TYPES = CapellacorePackage.NAMED_ELEMENT__OWNED_ENUMERATION_PROPERTY_TYPES;
+
+  /**
+   * The feature id for the '<em><b>Applied Property Values</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRUST_BOUNDARY_STORAGE__APPLIED_PROPERTY_VALUES = CapellacorePackage.NAMED_ELEMENT__APPLIED_PROPERTY_VALUES;
+
+  /**
+   * The feature id for the '<em><b>Owned Property Value Groups</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRUST_BOUNDARY_STORAGE__OWNED_PROPERTY_VALUE_GROUPS = CapellacorePackage.NAMED_ELEMENT__OWNED_PROPERTY_VALUE_GROUPS;
+
+  /**
+   * The feature id for the '<em><b>Applied Property Value Groups</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRUST_BOUNDARY_STORAGE__APPLIED_PROPERTY_VALUE_GROUPS = CapellacorePackage.NAMED_ELEMENT__APPLIED_PROPERTY_VALUE_GROUPS;
+
+  /**
+   * The feature id for the '<em><b>Status</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRUST_BOUNDARY_STORAGE__STATUS = CapellacorePackage.NAMED_ELEMENT__STATUS;
+
+  /**
+   * The feature id for the '<em><b>Features</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRUST_BOUNDARY_STORAGE__FEATURES = CapellacorePackage.NAMED_ELEMENT__FEATURES;
+
+  /**
+   * The feature id for the '<em><b>Applied Requirements</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRUST_BOUNDARY_STORAGE__APPLIED_REQUIREMENTS = CapellacorePackage.NAMED_ELEMENT__APPLIED_REQUIREMENTS;
 
   /**
    * The feature id for the '<em><b>Threat Source</b></em>' attribute.
@@ -1306,7 +1882,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int TRUST_BOUNDARY_STORAGE__THREAT_SOURCE = ModellingcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 0;
+  int TRUST_BOUNDARY_STORAGE__THREAT_SOURCE = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Threat Source Profile</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
@@ -1315,7 +1891,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int TRUST_BOUNDARY_STORAGE__THREAT_SOURCE_PROFILE = ModellingcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 1;
+  int TRUST_BOUNDARY_STORAGE__THREAT_SOURCE_PROFILE = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Trusted</b></em>' attribute.
@@ -1323,7 +1899,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int TRUST_BOUNDARY_STORAGE__TRUSTED = ModellingcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 2;
+  int TRUST_BOUNDARY_STORAGE__TRUSTED = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Rationale</b></em>' attribute.
@@ -1331,7 +1907,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int TRUST_BOUNDARY_STORAGE__RATIONALE = ModellingcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 3;
+  int TRUST_BOUNDARY_STORAGE__RATIONALE = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>Trust Boundary Storage</em>' class.
@@ -1340,7 +1916,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int TRUST_BOUNDARY_STORAGE_FEATURE_COUNT = ModellingcorePackage.MODEL_ELEMENT_FEATURE_COUNT + 4;
+  int TRUST_BOUNDARY_STORAGE_FEATURE_COUNT = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link org.polarsys.capella.cybersecurity.model.impl.PrimaryAssetImpl <em>Primary Asset</em>}' class.

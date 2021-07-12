@@ -764,11 +764,11 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
         .getEPackage(CapellacorePackage.eNS_URI);
     EmdePackage theEmdePackage = (EmdePackage) EPackage.Registry.INSTANCE.getEPackage(EmdePackage.eNS_URI);
     CsPackage theCsPackage = (CsPackage) EPackage.Registry.INSTANCE.getEPackage(CsPackage.eNS_URI);
-    ModellingcorePackage theModellingcorePackage = (ModellingcorePackage) EPackage.Registry.INSTANCE
-        .getEPackage(ModellingcorePackage.eNS_URI);
     InformationPackage theInformationPackage = (InformationPackage) EPackage.Registry.INSTANCE
         .getEPackage(InformationPackage.eNS_URI);
     FaPackage theFaPackage = (FaPackage) EPackage.Registry.INSTANCE.getEPackage(FaPackage.eNS_URI);
+    ModellingcorePackage theModellingcorePackage = (ModellingcorePackage) EPackage.Registry.INSTANCE
+        .getEPackage(ModellingcorePackage.eNS_URI);
 
     // Create type parameters
 
@@ -780,15 +780,15 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
     threatEClass.getESuperTypes().add(theCapellacorePackage.getNamedElement());
     threatInvolvementEClass.getESuperTypes().add(theCapellacorePackage.getRelationship());
     threatInvolvementEClass.getESuperTypes().add(theEmdePackage.getElementExtension());
-    functionStorageEClass.getESuperTypes().add(theModellingcorePackage.getModelElement());
+    functionStorageEClass.getESuperTypes().add(theCapellacorePackage.getNamedElement());
     functionStorageEClass.getESuperTypes().add(theEmdePackage.getElementExtension());
     threatApplicationEClass.getESuperTypes().add(theCapellacorePackage.getRelationship());
     threatApplicationEClass.getESuperTypes().add(theEmdePackage.getElementExtension());
-    primaryAssetStorageEClass.getESuperTypes().add(theModellingcorePackage.getModelElement());
+    primaryAssetStorageEClass.getESuperTypes().add(theCapellacorePackage.getNamedElement());
     primaryAssetStorageEClass.getESuperTypes().add(theEmdePackage.getElementExtension());
-    securityNeedsEClass.getESuperTypes().add(theModellingcorePackage.getModelElement());
+    securityNeedsEClass.getESuperTypes().add(theCapellacorePackage.getNamedElement());
     securityNeedsEClass.getESuperTypes().add(theEmdePackage.getElementExtension());
-    trustBoundaryStorageEClass.getESuperTypes().add(theModellingcorePackage.getModelElement());
+    trustBoundaryStorageEClass.getESuperTypes().add(theCapellacorePackage.getNamedElement());
     trustBoundaryStorageEClass.getESuperTypes().add(theEmdePackage.getElementExtension());
     primaryAssetEClass.getESuperTypes().add(theCapellacorePackage.getNamedElement());
     functionalPrimaryAssetEClass.getESuperTypes().add(this.getPrimaryAsset());
