@@ -21,8 +21,68 @@
 
 
 <!--@generated-->
+  <extension point="org.polarsys.capella.common.menu.dynamic.MDEMenuItemContribution">
+</extension>
 
 <!--@generated-->
+  <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+    <propertySections contributorId="org.polarsys.capella.core.data.capellamodeller.properties">
+        <propertySection class="org.polarsys.capella.core.data.core.properties.sections.DefaultNamedElementSection" filter="org.polarsys.capella.cybersecurity.model.provider.sections.CybersecurityPkgSection" id="org.polarsys.capella.cybersecurity.model.provider.contributions.CybersecurityPkgItemContribution.section" tab="BaseCapella">
+            <input type="org.polarsys.capella.cybersecurity.model.CybersecurityPkg"/>
+        </propertySection>
+        <propertySection class="org.polarsys.capella.core.data.core.properties.sections.DefaultNamedElementSection" filter="org.polarsys.capella.cybersecurity.model.provider.sections.ThreatSection" id="org.polarsys.capella.cybersecurity.model.provider.contributions.ThreatItemContribution.section" tab="BaseCapella">
+            <input type="org.polarsys.capella.cybersecurity.model.Threat"/>
+        </propertySection>
+        <propertySection class="org.polarsys.capella.core.data.core.properties.sections.DefaultNamedElementSection" filter="org.polarsys.capella.cybersecurity.model.provider.sections.FunctionStorageSection" id="org.polarsys.capella.cybersecurity.model.provider.contributions.FunctionStorageItemContribution.section" tab="BaseCapella">
+            <input type="org.polarsys.capella.cybersecurity.model.FunctionStorage"/>
+        </propertySection>
+        <propertySection class="org.polarsys.capella.core.data.core.properties.sections.DefaultNamedElementSection" filter="org.polarsys.capella.cybersecurity.model.provider.sections.PrimaryAssetStorageSection" id="org.polarsys.capella.cybersecurity.model.provider.contributions.PrimaryAssetStorageItemContribution.section" tab="BaseCapella">
+            <input type="org.polarsys.capella.cybersecurity.model.PrimaryAssetStorage"/>
+        </propertySection>
+        <propertySection class="org.polarsys.capella.core.data.core.properties.sections.DefaultNamedElementSection" filter="org.polarsys.capella.cybersecurity.model.provider.sections.SecurityNeedsSection" id="org.polarsys.capella.cybersecurity.model.provider.contributions.SecurityNeedsItemContribution.section" tab="BaseCapella">
+            <input type="org.polarsys.capella.cybersecurity.model.SecurityNeeds"/>
+        </propertySection>
+        <propertySection class="org.polarsys.capella.core.data.core.properties.sections.DefaultNamedElementSection" filter="org.polarsys.capella.cybersecurity.model.provider.sections.TrustBoundaryStorageSection" id="org.polarsys.capella.cybersecurity.model.provider.contributions.TrustBoundaryStorageItemContribution.section" tab="BaseCapella">
+            <input type="org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage"/>
+        </propertySection>
+        <propertySection class="org.polarsys.capella.core.data.core.properties.sections.DefaultNamedElementSection" filter="org.polarsys.capella.cybersecurity.model.provider.sections.PrimaryAssetSection" id="org.polarsys.capella.cybersecurity.model.provider.contributions.PrimaryAssetItemContribution.section" tab="BaseCapella">
+            <input type="org.polarsys.capella.cybersecurity.model.PrimaryAsset"/>
+        </propertySection>
+        <propertySection class="org.polarsys.capella.core.data.core.properties.sections.DefaultNamedElementSection" filter="org.polarsys.capella.cybersecurity.model.provider.sections.FunctionalPrimaryAssetSection" id="org.polarsys.capella.cybersecurity.model.provider.contributions.FunctionalPrimaryAssetItemContribution.section" tab="BaseCapella">
+            <input type="org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset"/>
+        </propertySection>
+        <propertySection class="org.polarsys.capella.core.data.core.properties.sections.DefaultNamedElementSection" filter="org.polarsys.capella.cybersecurity.model.provider.sections.InformationPrimaryAssetSection" id="org.polarsys.capella.cybersecurity.model.provider.contributions.InformationPrimaryAssetItemContribution.section" tab="BaseCapella">
+            <input type="org.polarsys.capella.cybersecurity.model.InformationPrimaryAsset"/>
+        </propertySection>
+        <propertySection class="org.polarsys.capella.core.data.core.properties.sections.DefaultNamedElementSection" filter="org.polarsys.capella.cybersecurity.model.provider.sections.CybersecurityConfigurationSection" id="org.polarsys.capella.cybersecurity.model.provider.contributions.CybersecurityConfigurationItemContribution.section" tab="BaseCapella">
+            <input type="org.polarsys.capella.cybersecurity.model.CybersecurityConfiguration"/>
+        </propertySection>
+</propertySections>
+    </extension>
 
 <!--@generated-->
+  <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+    <propertySections contributorId="org.eclipse.sirius.diagram.ui">
+        <propertySection class="org.polarsys.capella.cybersecurity.model.provider.sections.CybersecurityPkgSection" filter="org.polarsys.capella.cybersecurity.model.provider.sections.CybersecurityPkgSection" id="org.polarsys.capella.cybersecurity.model.provider.sections.CybersecurityPkgSection.section" tab="BaseSiriusDiagram">
+        </propertySection>
+        <propertySection class="org.polarsys.capella.cybersecurity.model.provider.sections.ThreatSection" filter="org.polarsys.capella.cybersecurity.model.provider.sections.ThreatSection" id="org.polarsys.capella.cybersecurity.model.provider.sections.ThreatSection.section" tab="BaseSiriusDiagram">
+        </propertySection>
+        <propertySection class="org.polarsys.capella.cybersecurity.model.provider.sections.FunctionStorageSection" filter="org.polarsys.capella.cybersecurity.model.provider.sections.FunctionStorageSection" id="org.polarsys.capella.cybersecurity.model.provider.sections.FunctionStorageSection.section" tab="BaseSiriusDiagram">
+        </propertySection>
+        <propertySection class="org.polarsys.capella.cybersecurity.model.provider.sections.PrimaryAssetStorageSection" filter="org.polarsys.capella.cybersecurity.model.provider.sections.PrimaryAssetStorageSection" id="org.polarsys.capella.cybersecurity.model.provider.sections.PrimaryAssetStorageSection.section" tab="BaseSiriusDiagram">
+        </propertySection>
+        <propertySection class="org.polarsys.capella.cybersecurity.model.provider.sections.SecurityNeedsSection" filter="org.polarsys.capella.cybersecurity.model.provider.sections.SecurityNeedsSection" id="org.polarsys.capella.cybersecurity.model.provider.sections.SecurityNeedsSection.section" tab="BaseSiriusDiagram">
+        </propertySection>
+        <propertySection class="org.polarsys.capella.cybersecurity.model.provider.sections.TrustBoundaryStorageSection" filter="org.polarsys.capella.cybersecurity.model.provider.sections.TrustBoundaryStorageSection" id="org.polarsys.capella.cybersecurity.model.provider.sections.TrustBoundaryStorageSection.section" tab="BaseSiriusDiagram">
+        </propertySection>
+        <propertySection class="org.polarsys.capella.cybersecurity.model.provider.sections.PrimaryAssetSection" filter="org.polarsys.capella.cybersecurity.model.provider.sections.PrimaryAssetSection" id="org.polarsys.capella.cybersecurity.model.provider.sections.PrimaryAssetSection.section" tab="BaseSiriusDiagram">
+        </propertySection>
+        <propertySection class="org.polarsys.capella.core.data.core.properties.sections.DefaultNamedElementSection" filter="org.polarsys.capella.cybersecurity.model.provider.sections.FunctionalPrimaryAssetSection" id="org.polarsys.capella.cybersecurity.model.provider.sections.FunctionalPrimaryAssetSection.section" tab="BaseSiriusDiagram">
+        </propertySection>
+        <propertySection class="org.polarsys.capella.core.data.core.properties.sections.DefaultNamedElementSection" filter="org.polarsys.capella.cybersecurity.model.provider.sections.InformationPrimaryAssetSection" id="org.polarsys.capella.cybersecurity.model.provider.sections.InformationPrimaryAssetSection.section" tab="BaseSiriusDiagram">
+        </propertySection>
+        <propertySection class="org.polarsys.capella.cybersecurity.model.provider.sections.CybersecurityConfigurationSection" filter="org.polarsys.capella.cybersecurity.model.provider.sections.CybersecurityConfigurationSection" id="org.polarsys.capella.cybersecurity.model.provider.sections.CybersecurityConfigurationSection.section" tab="BaseSiriusDiagram">
+        </propertySection>
+</propertySections>
+    </extension>
 </plugin>

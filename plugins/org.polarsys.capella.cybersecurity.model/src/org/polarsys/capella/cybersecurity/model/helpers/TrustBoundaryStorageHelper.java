@@ -37,7 +37,7 @@ public class TrustBoundaryStorageHelper {
     // handle derivated feature
 
     // delegate to parent helper
-    return org.polarsys.capella.common.data.helpers.modellingcore.delegates.ModelElementHelper.getInstance()
+    return org.polarsys.capella.core.data.helpers.capellacore.delegates.NamedElementHelper.getInstance()
         .doSwitch(object, feature);
 
   }

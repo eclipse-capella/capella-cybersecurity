@@ -13,6 +13,7 @@
 
 package org.polarsys.capella.cybersecurity.model;
 
+import org.polarsys.capella.core.data.capellacore.NamedElement;
 import org.polarsys.capella.common.data.modellingcore.ModelElement;
 import org.polarsys.kitalpha.emde.model.ElementExtension;
 
@@ -36,7 +37,7 @@ import org.polarsys.kitalpha.emde.model.ElementExtension;
  * @generated
  */
 
-public interface TrustBoundaryStorage extends ModelElement, ElementExtension {
+public interface TrustBoundaryStorage extends NamedElement, ElementExtension {
 
   /**
    * Returns the value of the '<em><b>Threat Source</b></em>' attribute.

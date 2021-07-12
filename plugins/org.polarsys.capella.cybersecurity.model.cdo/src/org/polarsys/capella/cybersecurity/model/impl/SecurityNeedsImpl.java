@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.polarsys.capella.common.data.modellingcore.impl.ModelElementImpl;
 import org.polarsys.capella.core.data.capellacore.EnumerationPropertyLiteral;
+import org.polarsys.capella.core.data.capellacore.impl.NamedElementImpl;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.SecurityNeeds;
 
@@ -36,7 +37,7 @@ import org.polarsys.capella.cybersecurity.model.SecurityNeeds;
  *
  * @generated
  */
-public class SecurityNeedsImpl extends ModelElementImpl implements SecurityNeeds {
+public class SecurityNeedsImpl extends NamedElementImpl implements SecurityNeeds {
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->

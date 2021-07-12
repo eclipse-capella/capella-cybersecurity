@@ -167,9 +167,19 @@ public class CybersecuritySwitch<T> extends Switch<T> {
       FunctionStorage functionStorage = (FunctionStorage) theEObject;
       T result = caseFunctionStorage(functionStorage);
       if (result == null)
-        result = caseModelElement(functionStorage);
+        result = caseNamedElement(functionStorage);
       if (result == null)
         result = caseElementExtension(functionStorage);
+      if (result == null)
+        result = caseAbstractNamedElement(functionStorage);
+      if (result == null)
+        result = caseCapellaElement(functionStorage);
+      if (result == null)
+        result = caseTraceableElement(functionStorage);
+      if (result == null)
+        result = casePublishableElement(functionStorage);
+      if (result == null)
+        result = caseModelElement(functionStorage);
       if (result == null)
         result = caseExtensibleElement(functionStorage);
       if (result == null)
@@ -207,9 +217,19 @@ public class CybersecuritySwitch<T> extends Switch<T> {
       PrimaryAssetStorage primaryAssetStorage = (PrimaryAssetStorage) theEObject;
       T result = casePrimaryAssetStorage(primaryAssetStorage);
       if (result == null)
-        result = caseModelElement(primaryAssetStorage);
+        result = caseNamedElement(primaryAssetStorage);
       if (result == null)
         result = caseElementExtension(primaryAssetStorage);
+      if (result == null)
+        result = caseAbstractNamedElement(primaryAssetStorage);
+      if (result == null)
+        result = caseCapellaElement(primaryAssetStorage);
+      if (result == null)
+        result = caseTraceableElement(primaryAssetStorage);
+      if (result == null)
+        result = casePublishableElement(primaryAssetStorage);
+      if (result == null)
+        result = caseModelElement(primaryAssetStorage);
       if (result == null)
         result = caseExtensibleElement(primaryAssetStorage);
       if (result == null)
@@ -222,9 +242,19 @@ public class CybersecuritySwitch<T> extends Switch<T> {
       SecurityNeeds securityNeeds = (SecurityNeeds) theEObject;
       T result = caseSecurityNeeds(securityNeeds);
       if (result == null)
-        result = caseModelElement(securityNeeds);
+        result = caseNamedElement(securityNeeds);
       if (result == null)
         result = caseElementExtension(securityNeeds);
+      if (result == null)
+        result = caseAbstractNamedElement(securityNeeds);
+      if (result == null)
+        result = caseCapellaElement(securityNeeds);
+      if (result == null)
+        result = caseTraceableElement(securityNeeds);
+      if (result == null)
+        result = casePublishableElement(securityNeeds);
+      if (result == null)
+        result = caseModelElement(securityNeeds);
       if (result == null)
         result = caseExtensibleElement(securityNeeds);
       if (result == null)
@@ -237,9 +267,19 @@ public class CybersecuritySwitch<T> extends Switch<T> {
       TrustBoundaryStorage trustBoundaryStorage = (TrustBoundaryStorage) theEObject;
       T result = caseTrustBoundaryStorage(trustBoundaryStorage);
       if (result == null)
-        result = caseModelElement(trustBoundaryStorage);
+        result = caseNamedElement(trustBoundaryStorage);
       if (result == null)
         result = caseElementExtension(trustBoundaryStorage);
+      if (result == null)
+        result = caseAbstractNamedElement(trustBoundaryStorage);
+      if (result == null)
+        result = caseCapellaElement(trustBoundaryStorage);
+      if (result == null)
+        result = caseTraceableElement(trustBoundaryStorage);
+      if (result == null)
+        result = casePublishableElement(trustBoundaryStorage);
+      if (result == null)
+        result = caseModelElement(trustBoundaryStorage);
       if (result == null)
         result = caseExtensibleElement(trustBoundaryStorage);
       if (result == null)
