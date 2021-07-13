@@ -1,8 +1,58 @@
 stages:
-    - target
+  - download-capella
+  - generate-target-platform
+  - build
+  - deploy
 
-target:
-  stage: target
+cache:
+  paths:
+    - downloads/
+    - releng/
+
+Download Capella:
+  stage: download-capella
+  image: curlimages/curl 
+  variables:
+    CAPELLA_URL_BASE: "https://download.eclipse.org/capella/core/products/nightly/master/"
   script:
-    - echo "Test"
+    - mkdir -p downloads
+    - html=$(curl -ks ${CAPELLA_URL_BASE})
+    - ZIP_NAME_WIN=$(echo $html | sed -e 's/.*\(capella-.*-win32-win32-x86_64.zip\).*/\1/')
+    - ZIP_NAME_LIN=$(echo $html | sed -e 's/.*\(capella-.*-linux-gtk-x86_64.tar.gz\).*/\1/')
+    - CAPELLA_URL_WIN="$CAPELLA_URL_BASE/$ZIP_NAME_WIN"
+    - CAPELLA_URL_LINUX="$CAPELLA_URL_BASE/$ZIP_NAME_LIN"
+    - echo "Downloading $CAPELLA_URL_WIN ..."
+    - curl -k -o downloads/capella-win.zip $CAPELLA_URL_WIN
+    - echo "Downloading $CAPELLA_URL_LINUX ..."
+    - curl -k -o downloads/capella.tar.gz $CAPELLA_URL_LINUX
+
+Generate Target Platform:
+  stage: generate-target-platform
+  image: maven:3.6.1-jdk-8-alpine
+  script:
+    - mvn clean verify -f releng/org.polarsys.capella.cybersecurity.target/pom.xml 
     
+Build and Package:
+  stage: build
+  image: adoptopenjdk/maven-openjdk11
+  script:
+    - mvn -Djacoco.skip=true -DjavaDocPhase=none clean package -f pom.xml
+
+Deploy:
+  stage: deploy
+  image: curlimages/curl 
+  variables:
+    CYBER_ARTIFACTORY_URL: https://artifactory.thalesdigital.io/artifactory/generic-internal/capella-invaders/
+    RESOURCES_DIR: "releng/org.polarsys.capella.cybersecurity.site/target"
+    DEPLOY_DIR: "Cybersecurity/nightly/$CI_COMMIT_BRANCH/$CI_PIPELINE_ID"
+  artifacts:
+    paths:
+      - $RESOURCES_DIR/Cybersecurity-dropins*
+      - $RESOURCES_DIR/Cybersecurity-updateSite*
+  script:
+    - DROPINS_FILE=$(find $RESOURCES_DIR -name Cybersecurity-dropins*)
+    - UPDATE_SITE_FILE=$(find $RESOURCES_DIR -name Cybersecurity-updateSite*)
+    - echo "Deploying $DROPINS_FILE..."
+    - curl -k -H "X-JFrog-Art-Api:$ARTIFACTORY_KEY" -T $DROPINS_FILE $CYBER_ARTIFACTORY_URL$DEPLOY_DIR/
+    - echo "Deploying $UPDATE_SITE_FILE..."
+    - curl -k -H "X-JFrog-Art-Api:$ARTIFACTORY_KEY" -T $UPDATE_SITE_FILE $CYBER_ARTIFACTORY_URL$DEPLOY_DIR/
