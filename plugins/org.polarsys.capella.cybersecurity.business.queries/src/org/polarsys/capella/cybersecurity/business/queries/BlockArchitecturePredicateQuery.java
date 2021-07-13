@@ -52,17 +52,21 @@ public class BlockArchitecturePredicateQuery implements IBusinessQuery {
   public List<EObject> getAvailableElements(EObject element) {
 
     TransactionalEditingDomain domain = TransactionUtil.getEditingDomain(element);
-    BlockArchitecture arch = (BlockArchitecture) EcoreUtil2.getFirstContainer(element,
+    BlockArchitecture blockArchitecture = (BlockArchitecture) EcoreUtil2.getFirstContainer(element,
         CsPackage.Literals.BLOCK_ARCHITECTURE);
+    return getAvailableElementsOnArchitecture(blockArchitecture, domain);
+  }
+  
+  protected List<EObject> getAvailableElementsOnArchitecture(BlockArchitecture blockArchitecture,
+      TransactionalEditingDomain domain) {
     List<EObject> result = new ArrayList<EObject>();
 
-    // Predicate<EObject> adder = ExchangeItem.class::isInstance;
-    walkProject(arch, arch, result, adder);
+    walkProject(blockArchitecture, blockArchitecture, result, adder);
 
     for (IModel model : LibraryManagerExt.getAllActivesReferences(LibraryManager.INSTANCE.getModel(domain))) {
       if (model instanceof ICapellaModel) {
         Project project = ((ICapellaModel) model).getProject(domain);
-        walkProject(project, arch, result, adder);
+        walkProject(project, blockArchitecture, result, adder);
       }
     }
     return result;

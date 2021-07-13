@@ -15,11 +15,10 @@ package org.polarsys.capella.cybersecurity.business.queries;
 import org.polarsys.capella.core.data.information.ExchangeItem;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 
-public class InformationPrimaryAsset_ExchangeItems extends BlockArchitecturePredicateQuery {
+public class InformationPrimaryAsset_ExchangeItems extends CybersecurityExchangeItems {
 
   public InformationPrimaryAsset_ExchangeItems() {
     super(CybersecurityPackage.Literals.PRIMARY_ASSET__OWNED_MEMBERS, ExchangeItem.class::isInstance,
         CybersecurityPackage.Literals.INFORMATION_PRIMARY_ASSET);
   }
-
 }
