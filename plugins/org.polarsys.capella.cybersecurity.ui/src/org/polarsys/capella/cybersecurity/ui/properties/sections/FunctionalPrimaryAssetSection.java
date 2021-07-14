@@ -13,7 +13,6 @@
 package org.polarsys.capella.cybersecurity.ui.properties.sections;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
@@ -24,23 +23,27 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
-import org.polarsys.capella.common.data.modellingcore.ModellingcorePackage;
-import org.polarsys.capella.common.mdsofa.common.constant.ICommonConstants;
 import org.polarsys.capella.core.ui.properties.fields.AbstractSemanticField;
 import org.polarsys.capella.core.ui.properties.fields.ContainmentTableField;
-import org.polarsys.capella.core.ui.properties.sections.AbstractSection;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset;
 
-public class FunctionalPrimaryAssetSection extends AbstractSection {
+public class FunctionalPrimaryAssetSection extends CybersecuritySection {
 
   private ContainmentTableField _containmentTableField;
-  CyberMultipleSemanticField realizedWidget;
 
+  public FunctionalPrimaryAssetSection() {
+    super(true);
+  }
+  
+  public FunctionalPrimaryAssetSection(boolean showRealizations) {
+    super(showRealizations);
+  }
+  
   @Override
   public boolean select(Object toTest) {
     EObject eObjectToTest = super.selection(toTest);
-    return eObjectToTest instanceof FunctionalPrimaryAsset;
+    return eObjectToTest instanceof FunctionalPrimaryAsset && isRealizedArchitecture(eObjectToTest);
   }
 
   @Override
@@ -60,10 +63,7 @@ public class FunctionalPrimaryAssetSection extends AbstractSection {
         Messages.FunctionalPrimaryAssetSection_0, Messages.FunctionalPrimaryAssetSection_1);
     _containmentTableField.setDisplayedInWizard(displayedInWizard);
     
-    realizedWidget = new CyberMultipleSemanticField(getReferencesGroup(),
-        ICommonConstants.EMPTY_STRING, getWidgetFactory(), new CybersecurityRealizationsController());
-    realizedWidget.setLabel("Realized Functional Primary Assets");
-    realizedWidget.setDisplayedInWizard(false);
+    super.addRealizedWidget("Realized Primary Assets");
   }
 
   @Override
@@ -76,14 +76,16 @@ public class FunctionalPrimaryAssetSection extends AbstractSection {
   public void loadData(EObject capellaElement) {
     super.loadData(capellaElement);
     _containmentTableField.loadData(capellaElement, CybersecurityPackage.Literals.PRIMARY_ASSET__OWNED_MEMBERS);
-    realizedWidget.loadData(capellaElement, ModellingcorePackage.Literals.TRACEABLE_ELEMENT__OUTGOING_TRACES);
+    
+    super.loadRealizedWidget(capellaElement);
   }
 
   @Override
   public List<AbstractSemanticField> getSemanticFields() {
     List<AbstractSemanticField> fields = new ArrayList<>();
     fields.add(_containmentTableField);
-    fields.add(realizedWidget);
+    
+    super.addRealizedFields(fields);
     return fields;
   }
 

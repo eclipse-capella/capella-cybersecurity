@@ -29,27 +29,31 @@ import org.polarsys.capella.core.sirius.ui.helper.SessionHelper;
 import org.polarsys.capella.core.ui.properties.fields.AbstractSemanticField;
 import org.polarsys.capella.core.ui.properties.fields.TextAreaValueGroup;
 import org.polarsys.capella.core.ui.properties.fields.TextValueGroup;
-import org.polarsys.capella.core.ui.properties.sections.AbstractSection;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.CybersecurityQueries;
 import org.polarsys.capella.cybersecurity.model.Threat;
 import org.polarsys.capella.cybersecurity.model.provider.CybersecurityEditPlugin;
 import org.polarsys.capella.cybersecurity.ui.properties.fields.EnumerationLiterealValueRadioGroup;
 import org.polarsys.capella.cybersecurity.ui.properties.fields.IntegerValueRadioGroup;
-import org.polarsys.capella.common.data.modellingcore.ModellingcorePackage;
-import org.polarsys.capella.common.mdsofa.common.constant.ICommonConstants;
 
-public class ThreatSection extends AbstractSection {
+public class ThreatSection extends CybersecuritySection {
 
   EnumerationLiterealValueRadioGroup threatKindGroup;
   TextValueGroup rationaleGroup;
   IntegerValueRadioGroup levelGroup;
-  CyberMultipleSemanticField realizedWidget;
+  
+  public ThreatSection() {
+    super(true);
+  }
+  
+  public ThreatSection(boolean showRealizations) {
+    super(showRealizations);
+  }
   
   @Override
   public boolean select(Object toTest) {
     EObject eObjectToTest = super.selection(toTest);
-    return eObjectToTest instanceof Threat;
+    return eObjectToTest instanceof Threat && isRealizedArchitecture(eObjectToTest);
   }
 
   @Override
@@ -59,10 +63,7 @@ public class ThreatSection extends AbstractSection {
     levelGroup = null;
     rationaleGroup = null;
     
-    realizedWidget = new CyberMultipleSemanticField(getReferencesGroup(),
-        ICommonConstants.EMPTY_STRING, getWidgetFactory(), new CybersecurityRealizationsController());
-    realizedWidget.setLabel("Realized Threats");
-    realizedWidget.setDisplayedInWizard(false);
+    super.addRealizedWidget("Realized Threats");
   }
 
   @Override
@@ -83,7 +84,7 @@ public class ThreatSection extends AbstractSection {
     levelGroup.loadData(capellaElement, CybersecurityPackage.Literals.THREAT__LEVEL);
     rationaleGroup.loadData(capellaElement, CybersecurityPackage.Literals.THREAT__RATIONALE);
     
-    realizedWidget.loadData(capellaElement, ModellingcorePackage.Literals.TRACEABLE_ELEMENT__OUTGOING_TRACES);
+    super.loadRealizedWidget(capellaElement);
   }
 
   @Override
@@ -92,7 +93,8 @@ public class ThreatSection extends AbstractSection {
     fields.add(threatKindGroup);
     fields.add(levelGroup);
     fields.add(rationaleGroup);
-    fields.add(realizedWidget);
+    
+    super.addRealizedFields(fields);
     return fields;
   }
 
