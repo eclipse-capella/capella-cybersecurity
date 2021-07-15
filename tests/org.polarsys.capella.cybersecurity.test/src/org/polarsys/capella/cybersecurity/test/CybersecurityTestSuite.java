@@ -26,6 +26,7 @@ import org.polarsys.capella.cybersecurity.test.queries.InformationPrimaryAssetsR
 import org.polarsys.capella.cybersecurity.test.queries.ThreatsRealizedTest;
 import org.polarsys.capella.cybersecurity.test.rules.testcases.cy_dcon.CY_DCONRulesTestSuite;
 import org.polarsys.capella.cybersecurity.test.rules.testcases.cy_dcov.CY_DCOVRulesTestSuite;
+import org.polarsys.capella.cybersecurity.test.semantic.queries.CybersecuritySemanticQueriesTestSuite;
 import org.polarsys.capella.cybersecurity.test.transition.CybersecurityTransitionTestSuite;
 
 import junit.framework.Test;
@@ -60,6 +61,8 @@ public class CybersecurityTestSuite extends TestSuite {
     
     addTest(new CybersecurityConfigurationTestSuite());
     addTest(new CyberActivityExplorerTestSuite());
+    
+    addTest(new CybersecuritySemanticQueriesTestSuite());
   }
 
   public static Test suite() {
