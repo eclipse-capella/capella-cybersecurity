@@ -1037,6 +1037,132 @@
          </basicQuery>
       </categoryQuery>
    </category>
+   <category
+            id="org.polarsys.capella.core.semantic.queries.basic.queries.TraceableElementIncomingTrace01"
+            isTopLevel="true"
+            name="Incoming Generic Traces">
+         <availableForType
+               class="org.polarsys.capella.common.data.modellingcore.TraceableElement">
+         </availableForType>
+         <targetBrowserId
+               id="ReferencingElementBrowser">
+         </targetBrowserId>
+         <categoryQuery>
+            <basicQuery
+                  class="org.polarsys.capella.cybersecurity.ui.semantic.browser.TraceableElementIncomingTrace">
+            </basicQuery>
+         </categoryQuery>
+         <itemQueries>
+            <basicQuery
+                  class="org.polarsys.capella.cybersecurity.ui.semantic.browser.TraceableElementTraceType">
+            </basicQuery>
+         </itemQueries>
+      </category>
+   <category
+            id="org.polarsys.capella.cybersecurity.ui.semantic.browser.TraceableElementThreatRealizing"
+            isTopLevel="true"
+            name="Realizing Threats">
+         <availableForType
+               class="org.polarsys.capella.cybersecurity.model.Threat">
+         </availableForType>
+         <targetBrowserId
+               id="ReferencingElementBrowser">
+         </targetBrowserId>
+         <categoryQuery>
+            <basicQuery
+                  class="org.polarsys.capella.cybersecurity.ui.semantic.browser.CybersecurityRealizing">
+            </basicQuery>
+         </categoryQuery>
+         <itemQueries>
+            <basicQuery
+                  class="org.polarsys.capella.cybersecurity.ui.semantic.browser.TraceableElementTraceType">
+            </basicQuery>
+         </itemQueries>
+   </category>
+   <category
+            id="org.polarsys.capella.cybersecurity.ui.semantic.browser.TraceableElementPrimaryAssetRealizing"
+            isTopLevel="true"
+            name="Realizing Primary Assets">
+         <availableForType
+               class="org.polarsys.capella.cybersecurity.model.PrimaryAsset">
+         </availableForType>
+         <targetBrowserId
+               id="ReferencingElementBrowser">
+         </targetBrowserId>
+         <categoryQuery>
+            <basicQuery
+                  class="org.polarsys.capella.cybersecurity.ui.semantic.browser.CybersecurityRealizing">
+            </basicQuery>
+         </categoryQuery>
+         <itemQueries>
+            <basicQuery
+                  class="org.polarsys.capella.core.semantic.queries.basic.queries.TraceableElementTraceType">
+            </basicQuery>
+         </itemQueries>
+   </category>
+   <category
+            id="org.polarsys.capella.core.semantic.queries.basic.queries.TraceableElementOutgoingTrace01"
+            isTopLevel="true"
+            name="Outgoing Generic Traces">
+         <availableForType
+               class="org.polarsys.capella.common.data.modellingcore.TraceableElement">
+         </availableForType>
+         <targetBrowserId
+               id="ReferencedElementBrowser">
+         </targetBrowserId>
+         <categoryQuery>
+            <basicQuery
+                  class="org.polarsys.capella.cybersecurity.ui.semantic.browser.TraceableElementOutgoingTrace">
+            </basicQuery>
+         </categoryQuery>
+         <itemQueries>
+            <basicQuery
+                  class="org.polarsys.capella.cybersecurity.ui.semantic.browser.TraceableElementTraceType">
+            </basicQuery>
+         </itemQueries>
+      </category>
+   <category
+            id="org.polarsys.capella.cybersecurity.ui.semantic.browser.TraceableElementThreatRealized"
+            isTopLevel="true"
+            name="Realized Threats">
+         <availableForType
+               class="org.polarsys.capella.cybersecurity.model.Threat">
+         </availableForType>
+         <targetBrowserId
+               id="ReferencedElementBrowser">
+         </targetBrowserId>
+         <categoryQuery>
+            <basicQuery
+                  class="org.polarsys.capella.cybersecurity.ui.semantic.browser.CybersecurityRealized">
+            </basicQuery>
+         </categoryQuery>
+         <itemQueries>
+            <basicQuery
+                  class="org.polarsys.capella.cybersecurity.ui.semantic.browser.TraceableElementTraceType">
+            </basicQuery>
+         </itemQueries>
+      </category>
+      <category
+            id="org.polarsys.capella.cybersecurity.ui.semantic.browser.TraceableElementPrimaryAssetRealized"
+            isTopLevel="true"
+            name="Realized Primary Assets">
+         <availableForType
+               class="org.polarsys.capella.cybersecurity.model.PrimaryAsset">
+         </availableForType>
+         <targetBrowserId
+               id="ReferencedElementBrowser">
+         </targetBrowserId>
+         <categoryQuery>
+            <basicQuery
+                  class="org.polarsys.capella.cybersecurity.ui.semantic.browser.CybersecurityRealized">
+            </basicQuery>
+         </categoryQuery>
+         <itemQueries>
+            <basicQuery
+                  class="org.polarsys.capella.cybersecurity.ui.semantic.browser.TraceableElementTraceType">
+            </basicQuery>
+         </itemQueries>
+      </category>
 </extension>
 <extension
       point="org.polarsys.kitalpha.massactions.core.columnfilter">
