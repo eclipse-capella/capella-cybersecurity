@@ -1,0 +1,34 @@
+<!--
+	Copyright (c) 2021 THALES GLOBAL SERVICES.
+	
+	This program and the accompanying materials are made available under the
+	terms of the Eclipse Public License 2.0 which is available at
+	http://www.eclipse.org/legal/epl-2.0
+	
+	SPDX-License-Identifier: EPL-2.0
+	
+	Contributors:
+	   Thales - initial API and implementation
+-->
+
+= Transition of Threats =
+
+
+Similar to the transition of Primary Assets, Threats are transitioned by selecting the "Cybersecurity Transition" in the transitions menu. See below an example on threat transition from operational to system level:
+
+
+[[Image:../../../Images/threat%20transition.PNG]]
+
+
+
+{| border="1"
+|-
+| 
+[[Image:../../../Images/info%20sign.png|48x48px]]
+
+
+| 
+Attributes such as Threat Kind or Level are maintained upon transitioning Threats, however to be noted that the Threat Application extension is transitioned only when performing the transition through the Primary Asset owning it.
+
+|}
+
