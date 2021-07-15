@@ -18,6 +18,7 @@ Export-Package: org.polarsys.capella.cybersecurity.ui,
  org.polarsys.capella.cybersecurity.ui.activity,
  org.polarsys.capella.cybersecurity.ui.massactions,
  org.polarsys.capella.cybersecurity.ui.properties.fields,
- org.polarsys.capella.cybersecurity.ui.properties.sections
+ org.polarsys.capella.cybersecurity.ui.properties.sections,
+ org.polarsys.capella.cybersecurity.ui.semantic.browser
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
