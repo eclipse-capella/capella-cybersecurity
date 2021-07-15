@@ -1,0 +1,33 @@
+<!--
+	Copyright (c) 2021 THALES GLOBAL SERVICES.
+	
+	This program and the accompanying materials are made available under the
+	terms of the Eclipse Public License 2.0 which is available at
+	http://www.eclipse.org/legal/epl-2.0
+	
+	SPDX-License-Identifier: EPL-2.0
+	
+	Contributors:
+	   Thales - initial API and implementation
+-->
+
+= Transition of Other Cybersecurity Elements =
+
+== Actor Transition ==
+
+
+When transitioning actors, the references of cybersecurity extension elements are also transitioned. Actors can have Involvements to Threats, Trust Boundary Storage references as well as attributes such as threat level which can be seen are transitioned as in the example below:
+
+
+
+[[Image:../../../Images/actor%20transition.PNG]]
+
+
+== Function Transition ==
+
+
+Just like above, when transitioning Functions (or Operational Activities) the references of cybersecurity extension elements are also transitioned. Functions can have Function Storage and Security Needs references which can be seen are transitioned as in the example below:
+
+
+
+[[Image:../../../Images/function%20transition.png]]

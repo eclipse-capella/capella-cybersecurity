@@ -1,0 +1,30 @@
+<!--
+	Copyright (c) 2021 THALES GLOBAL SERVICES.
+	
+	This program and the accompanying materials are made available under the
+	terms of the Eclipse Public License 2.0 which is available at
+	http://www.eclipse.org/legal/epl-2.0
+	
+	SPDX-License-Identifier: EPL-2.0
+	
+	Contributors:
+	   Thales - initial API and implementation
+-->
+
+= Transition of Primary Assets =
+
+
+As detailed in the concepts chapter, transition of cybersecurity elements (Threats, Primary Assets) is possible using the "Cybersecurity Transition" command available in the transitions menu. The example below shows a transition of FunctionalPrimaryAsset from the operational level to the system level.
+
+
+[[Image:../../../Images/fpa%20transition%20process.png]]
+
+
+As can be seen in the image below, the transition on Primary Assets will preserve the attributes on the transitioned element and will also trigger the transition of the references (Security Needs, Primary Asset Member, Function Storage).
+
+
+[[Image:../../../Images/fpa%20security%20needs.png]]
+
+The behaviour is similar for Information Primary Assets, the only difference being the element type that the Primary Asset Member can reference (Exchange Items vs Functions/Operational Activities).
+
+
