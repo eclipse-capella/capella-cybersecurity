@@ -28,6 +28,7 @@ public class PrimaryAssetRule extends AbstractCapellaElementRule {
 
   public PrimaryAssetRule() {
     registerUpdatedReference(CybersecurityPackage.Literals.PRIMARY_ASSET__OWNED_MEMBERS);
+    registerUpdatedReference(CybersecurityPackage.Literals.PRIMARY_ASSET__OWNED_THREAT_APPLICATIONS);
   }
 
   @Override
@@ -39,6 +40,7 @@ public class PrimaryAssetRule extends AbstractCapellaElementRule {
   protected void premicesRelated(EObject element, ArrayList<IPremise> needed) {
     super.premicesRelated(element, needed);
     needed.addAll(createDefaultPrecedencePremices(element, CybersecurityPackage.Literals.PRIMARY_ASSET__OWNED_MEMBERS));
+    needed.addAll(createDefaultPrecedencePremices(element, CybersecurityPackage.Literals.PRIMARY_ASSET__OWNED_THREAT_APPLICATIONS));
   }
 
   @Override
@@ -46,12 +48,15 @@ public class PrimaryAssetRule extends AbstractCapellaElementRule {
     super.attachRelated(element, result, context);
     AttachmentHelper.getInstance(context).attachTracedElements(element, result,
         CybersecurityPackage.Literals.PRIMARY_ASSET__OWNED_MEMBERS, context);
+    AttachmentHelper.getInstance(context).attachTracedElements(element, result,
+        CybersecurityPackage.Literals.PRIMARY_ASSET__OWNED_THREAT_APPLICATIONS, context);
   }
 
   @Override
   protected void retrieveGoDeep(EObject source, List<EObject> result, IContext context) {
     super.retrieveGoDeep(source, result, context);
     result.addAll(((PrimaryAsset) source).getOwnedMembers());
+    result.addAll(((PrimaryAsset) source).getOwnedThreatApplications());
   }
 
 }

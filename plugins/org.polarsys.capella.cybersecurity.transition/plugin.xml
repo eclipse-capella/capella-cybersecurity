@@ -187,7 +187,7 @@
           
          <command
          	   categoryId="org.polarsys.capella.core.transitions"
-               defaultHandler="org.polarsys.capella.cybersecurity.transition.util.ThreatTransitionHandler"
+               defaultHandler="org.polarsys.capella.cybersecurity.transition.util.CybersecurityTransitionHandler"
                id="org.polarsys.capella.cybersecurity.transition.command1"
                name="Cybersecurity Transition">
          </command>
