@@ -418,7 +418,7 @@
       </layers>
     </ownedRepresentationExtensions>
     <ownedRepresentationExtensions xsi:type="description_1:DiagramExtensionDescription" name="Cybersecurity Architecture Diagram Extensions Second" viewpointURI="viewpoint:/org.polarsys.capella.core.sirius.analysis/.*" representationName="(Operational Entity Blank)|(Operational Role Blank)|(System Architecture Blank)|(Logical Architecture Blank)|(Physical Architecture Blank)|(Operational Activity Interaction Blank)|(System Data Flow Blank)|(Logical Data Flow Blank)|(Physical Data Flow Blank)|(Component Exchanges Scenario)|(Operational Interaction Scenario)">
-      <layers name="Cybersecurity Trust Boundaries Layer" label="Cybersecurity Trust Boundaries" activeByDefault="true">
+      <layers name="Cybersecurity Trust Boundaries Layer" label="Cybersecurity Trust Boundaries">
         <decorationDescriptionsSet>
           <decorationDescriptions xsi:type="description:GenericDecorationDescription" name="Flame Decorator" position="CENTER" preconditionExpression="aql:element.hasFlameDecoration()" imageExpression="aql:self.getFlameDecoration()"/>
         </decorationDescriptionsSet>
