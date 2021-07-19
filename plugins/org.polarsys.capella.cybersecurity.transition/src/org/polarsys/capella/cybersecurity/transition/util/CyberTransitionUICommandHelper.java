@@ -26,7 +26,7 @@ public class CyberTransitionUICommandHelper
     return new CyberTransitionUICommandHelper();
   }
   
-  public ICommand getThreatTransitionCommand(Collection<?> elements, IProgressMonitor monitor) {
+  public ICommand getCybersecurityTransitionCommand(Collection<?> elements, IProgressMonitor monitor) {
     return new IntramodelTransitionCommand(elements, monitor) {
       @Override
       protected String getTransitionKind() {
@@ -34,14 +34,4 @@ public class CyberTransitionUICommandHelper
       }
     };
   }
-  
-  public ICommand getPrimaryAssetTransitionCommand(Collection<?> elements, IProgressMonitor monitor) {
-    return new IntramodelTransitionCommand(elements, monitor) {
-      @Override
-      protected String getTransitionKind() {
-        return ITopDownConstants.TRANSITION_TOPDOWN;
-      }
-    };
-  }
-
 } 
