@@ -42,9 +42,11 @@ public class CybersecurityPkgRule extends AbstractCapellaElementRule {
     
     //add children
     CybersecurityPkg element = (CybersecurityPkg) source;
-    result.addAll(element.getOwnedThreats());
-    result.addAll(element.getOwnedPrimaryAssets());
-    if (ContextScopeHandlerHelper.getInstance(context).contains(ITransitionConstants.SOURCE_SCOPE, element, context)) {
+    if (ContextScopeHandlerHelper.getInstance(context).contains(ITransitionConstants.SOURCE_SCOPE, element, context)
+        || ContextScopeHandlerHelper.getInstance(context).contains(ITransitionConstants.SOURCE_SCOPE,
+            element.eContainer(), context)) {
+      result.addAll(element.getOwnedThreats());
+      result.addAll(element.getOwnedPrimaryAssets());
       ContextScopeHandlerHelper.getInstance(context).addAll(ITransitionConstants.SOURCE_SCOPE,
           element.getOwnedThreats(), context);
       ContextScopeHandlerHelper.getInstance(context).addAll(ITransitionConstants.SOURCE_SCOPE,

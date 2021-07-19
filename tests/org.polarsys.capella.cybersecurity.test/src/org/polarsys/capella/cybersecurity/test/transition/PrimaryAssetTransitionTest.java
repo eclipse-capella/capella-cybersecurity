@@ -28,6 +28,7 @@ import org.polarsys.capella.cybersecurity.model.ThreatApplication;
 
 public abstract class PrimaryAssetTransitionTest extends CyberTopDownTransitionTestCase {
   PrimaryAsset primaryAsset;
+  PrimaryAsset primaryAsset2;
   SecurityNeeds securityNeeds;
   PrimaryAssetMember primaryAssetMember;
   Threat threat;
@@ -44,6 +45,7 @@ public abstract class PrimaryAssetTransitionTest extends CyberTopDownTransitionT
   protected void init() {
     super.init();
     primaryAsset = createPrimaryAsset();
+    primaryAsset2 = createPrimaryAsset();
     primaryAssetMember = CybersecurityFactory.eINSTANCE.createPrimaryAssetMember();
     threat = CybersecurityFactory.eINSTANCE.createThreat();
     threatApplication = CybersecurityFactory.eINSTANCE.createThreatApplication();
@@ -72,6 +74,7 @@ public abstract class PrimaryAssetTransitionTest extends CyberTopDownTransitionT
 
     // add the pa and threat on the operational level
     oaPkg.getOwnedPrimaryAssets().add(primaryAsset);
+    oaPkg.getOwnedPrimaryAssets().add(primaryAsset2);
     oaPkg.getOwnedThreats().add(threat);
 
     // add the exchange item in the interface package
@@ -99,6 +102,8 @@ public abstract class PrimaryAssetTransitionTest extends CyberTopDownTransitionT
     ThreatApplication systemThreatApplication = (ThreatApplication) mustBeTransitionedDirecltyContainedBy(
         threatApplication.getId(), systemPa);
     Threat systemThreat = (Threat) mustBeTransitionedDirecltyContainedBy(threat.getId(), saPkg);
+    // check that primaryAsset2 is not transitioned
+    assertTrue(primaryAsset2.getIncomingTraces().isEmpty());
 
     performPrimaryAssetTransition(getObjects(systemPa.getId()));
     PrimaryAsset logicalPa = (PrimaryAsset) mustBeTransitionedDirecltyContainedBy(systemPa.getId(), laPkg);

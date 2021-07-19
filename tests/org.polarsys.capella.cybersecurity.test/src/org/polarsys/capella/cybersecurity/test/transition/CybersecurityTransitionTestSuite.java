@@ -34,6 +34,8 @@ public class CybersecurityTransitionTestSuite extends BasicTestSuite {
     tests.add(new InformationPrimaryAssetTransitionTest());
     tests.add(new ThreatTransitionTest());
     tests.add(new CyberActorTransitionTest());
+    tests.add(new CybersecurityBlockArchitectureTransitionTest());
+    tests.add(new CybersecurityPkgTransitionTest());
     return tests;
   }
 

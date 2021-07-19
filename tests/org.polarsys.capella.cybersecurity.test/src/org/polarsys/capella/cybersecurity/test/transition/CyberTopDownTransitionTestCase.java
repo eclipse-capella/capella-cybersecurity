@@ -65,12 +65,15 @@ public abstract class CyberTopDownTransitionTestCase extends TopDownTransitionTe
   }
 
   public void performThreatTransition(Collection<? extends EObject> elements) {
-    executeCommand(
-        CyberTransitionCommandHelper.getInstance().getThreatTransitionCommand(elements, new NullProgressMonitor()));
+    performCybersecurityTransition(elements);
   }
 
   public void performPrimaryAssetTransition(Collection<? extends EObject> elements) {
-    executeCommand(CyberTransitionCommandHelper.getInstance().getPrimaryAssetTransitionCommand(elements,
+    performCybersecurityTransition(elements);
+  }
+  
+  public void performCybersecurityTransition(Collection<? extends EObject> elements) {
+    executeCommand(CyberTransitionCommandHelper.getInstance().getCybersecurityTransitionCommand(elements,
         new NullProgressMonitor()));
   }
 
