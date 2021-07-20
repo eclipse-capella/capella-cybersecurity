@@ -1,3 +1,13 @@
+###################################################################
+# Copyright © 2021 Thales Global Services SAS
+#
+# Licensed under the Thales Inner Source Software License:
+# Version 1.2, InnerOpen - Distribution Controlled
+#
+# You may not use this file except in compliance with the License.
+# You may obtain a copy of the License at https://gitlab.thalesdigital.io/Tiss-Organization/tiss-licenses
+# See the License for the specific language governing permissions and limitations under the License.
+###################################################################
 stages:
   - download-capella
   - generate-target-platform
@@ -5,6 +15,8 @@ stages:
   - deploy
 
 cache:
+  key:
+    $CI_PIPELINE_ID
   paths:
     - downloads/
     - releng/
@@ -47,11 +59,11 @@ Deploy:
     DEPLOY_DIR: "Cybersecurity/nightly/$CI_COMMIT_BRANCH/$CI_PIPELINE_ID"
   artifacts:
     paths:
-      - $RESOURCES_DIR/Cybersecurity-dropins*
-      - $RESOURCES_DIR/Cybersecurity-updateSite*
+      - $RESOURCES_DIR/Darc-dropins*
+      - $RESOURCES_DIR/Darc-updateSite*
   script:
-    - DROPINS_FILE=$(find $RESOURCES_DIR -name Cybersecurity-dropins*)
-    - UPDATE_SITE_FILE=$(find $RESOURCES_DIR -name Cybersecurity-updateSite*)
+    - DROPINS_FILE=$(find $RESOURCES_DIR -name Darc-dropins*)
+    - UPDATE_SITE_FILE=$(find $RESOURCES_DIR -name Darc-updateSite*)
     - echo "Deploying $DROPINS_FILE..."
     - curl -k -H "X-JFrog-Art-Api:$ARTIFACTORY_KEY" -T $DROPINS_FILE $CYBER_ARTIFACTORY_URL$DEPLOY_DIR/
     - echo "Deploying $UPDATE_SITE_FILE..."

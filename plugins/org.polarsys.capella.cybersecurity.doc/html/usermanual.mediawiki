@@ -22,7 +22,7 @@ An ''Actor'' is involved in ''Threats'' and allocates one or more ''Functions''.
 {| border="1"
 |- 
 | Threat Source 	
-| Someone or something that could affect the product (ref: 87210649-DDQ-GRP-EN - Cyber Security For Architects Guide).
+| Someone or something that could affect the product.
 | Yes/No
 |-
 | Threat Source Profile
@@ -89,8 +89,7 @@ A Threat has the following additional attributes:
 
 == Primary Asset ==
 
-Information, activity, process or functionality that is valuable for the customer and then needs to be protected (ref: 87210649-DDQ-GRP-EN - Cyber Security For Architects Guide). The Cybersecurity Viewpoint
-distinguishes between:
+Information, activity, process or functionality that is valuable for the customer and then needs to be protected. The Cybersecurity Viewpoint distinguishes between:
 
 {| border="1"
 |-
@@ -103,7 +102,7 @@ distinguishes between:
 | Exchange Items
 |}
 
-The attributes of a Primary Asset are its corresponding Security Needs, i.e. the characteristics that can be compromised / affected by a threat (based on ref: 87210649-DDQ-GRP-EN - Cyber Security For Architects Guide) and their sensitivity levels. The following characteristics are considered here:
+The attributes of a Primary Asset are its corresponding Security Needs, i.e. the characteristics that can be compromised / affected by a threat and their sensitivity levels. The following characteristics are considered here:
 
 * Confidentiality: property that information is only available to authorized persons.
 * Integrity: property of accuracy and completeness (WRT authorized entities).
@@ -309,7 +308,7 @@ The Cybersecurity Decorations Layer adds the following decorations to existing d
 | Indicates that the function manipulates data in such a way that data (or parts of it) remains even after attempts have been made to remove or erase it.
 |-
 |[[Image:Images/threatSource.png]] ThreatSource
-| Someone or something that could affect the product (ref: 87210649-DDQ-GRP-EN - Cyber Security For Architects Guide).
+| Someone or something that could affect the product.
 |}
 
 
