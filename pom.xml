@@ -21,7 +21,7 @@
   <name>Cybersecurity</name>
   <groupId>org.polarsys</groupId>
   <artifactId>org.polarsys.capella.cybersecurity</artifactId>
-  <version>0.10.0-SNAPSHOT</version>
+  <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <properties>
@@ -37,7 +37,7 @@
 	<!-- for packaging -->
 	<platform-name>neon</platform-name>
 	<eclipse-repo.url>http://download.eclipse.org/releases/${platform-name}</eclipse-repo.url>
-	<packagedAddonName>Cybersecurity</packagedAddonName>
+	<packagedAddonName>Darc</packagedAddonName>
   </properties>
 
   <modules>
@@ -84,7 +84,7 @@
 				<artifact>
 					<groupId>org.polarsys</groupId>
 					<artifactId>org.polarsys.capella.cybersecurity</artifactId>
-					<version>0.10.0-SNAPSHOT</version>
+					<version>1.0.0-SNAPSHOT</version>
 					<classifier>releng/org.polarsys.capella.cybersecurity.target/capella.target-definition</classifier>
 				</artifact>
 			</target>
