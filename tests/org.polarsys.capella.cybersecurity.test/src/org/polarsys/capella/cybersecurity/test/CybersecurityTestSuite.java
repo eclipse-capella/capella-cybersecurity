@@ -20,6 +20,7 @@ import org.polarsys.capella.cybersecurity.test.diagram.CyberPABDiagramTest;
 import org.polarsys.capella.cybersecurity.test.diagram.CyberSABDiagramTest;
 import org.polarsys.capella.cybersecurity.test.diagram.ThreatDiagramTest;
 import org.polarsys.capella.cybersecurity.test.odesign.CyberODesignTestSuite;
+import org.polarsys.capella.cybersecurity.test.properties.CybersecurityPropertiesTestSuite;
 import org.polarsys.capella.cybersecurity.test.queries.FunctionPrimaryAssetsRealizedTest;
 import org.polarsys.capella.cybersecurity.test.queries.FunctionStorageExchangeItemsTest;
 import org.polarsys.capella.cybersecurity.test.queries.InformationPrimaryAssetsExchangeItemsTest;
@@ -66,6 +67,8 @@ public class CybersecurityTestSuite extends TestSuite {
     addTest(new CybersecuritySemanticQueriesTestSuite());
 
     addTest(new CyberODesignTestSuite());
+    
+    addTest(new CybersecurityPropertiesTestSuite());
   }
 
   public static Test suite() {
