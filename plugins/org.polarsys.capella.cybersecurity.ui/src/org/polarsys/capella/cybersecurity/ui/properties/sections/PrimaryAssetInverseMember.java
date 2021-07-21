@@ -174,5 +174,16 @@ public abstract class PrimaryAssetInverseMember extends AbstractSection {
       super(CybersecurityPackage.Literals.INFORMATION_PRIMARY_ASSET, InformationPackage.Literals.EXCHANGE_ITEM);
     }
   }
+  
+  public static final class FunctionalChainSection extends PrimaryAssetInverseMember {
+    public FunctionalChainSection() {
+      super(CybersecurityPackage.Literals.FUNCTIONAL_PRIMARY_ASSET, FaPackage.Literals.FUNCTIONAL_CHAIN);
+    }
+  }
 
+  public List<EObject> getAvailableElements(EObject semanticElement) {
+    PrimaryAssetController controller = new PrimaryAssetController();
+    return controller.doQueryAvailableElements(semanticElement, null);
+  }
+ 
 }

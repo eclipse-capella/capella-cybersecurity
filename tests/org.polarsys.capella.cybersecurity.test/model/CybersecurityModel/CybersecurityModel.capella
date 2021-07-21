@@ -116,7 +116,10 @@
       <ownedFunctionPkg xsi:type="org.polarsys.capella.core.data.oa:OperationalActivityPkg"
           id="16aa4cf6-899d-4c02-8f86-0965feb8e64e" name="Operational Activities">
         <ownedOperationalActivities xsi:type="org.polarsys.capella.core.data.oa:OperationalActivity"
-            id="16386b87-27af-4740-90f1-d12ce8914efd" name="Root Operational Activity"/>
+            id="16386b87-27af-4740-90f1-d12ce8914efd" name="Root Operational Activity">
+          <ownedFunctionalChains xsi:type="org.polarsys.capella.core.data.oa:OperationalProcess"
+              id="12a75ec7-3dc9-40a2-b930-93bb5bee2b37" name="OperationalProcess 1"/>
+        </ownedOperationalActivities>
       </ownedFunctionPkg>
       <ownedAbstractCapabilityPkg xsi:type="org.polarsys.capella.core.data.oa:OperationalCapabilityPkg"
           id="6e0775f6-f73d-4b64-9713-a6837910aa5a" name="Operational Capabilities"/>
@@ -156,6 +159,8 @@
           id="ba501a60-ee06-4bb2-bda2-1deecde10b8a" name="System Functions">
         <ownedSystemFunctions xsi:type="org.polarsys.capella.core.data.ctx:SystemFunction"
             id="01b727b0-6ac1-496e-b04d-8dd2ebd25b37" name="Root System Function">
+          <ownedFunctionalChains xsi:type="org.polarsys.capella.core.data.fa:FunctionalChain"
+              id="4fe91596-f414-481d-a0ce-60c12dd582ed" name="FunctionalChain 1"/>
           <ownedFunctionRealizations xsi:type="org.polarsys.capella.core.data.fa:FunctionRealization"
               id="af6e21d1-6e02-489b-b227-4a54ef591042" targetElement="#16386b87-27af-4740-90f1-d12ce8914efd"
               sourceElement="#01b727b0-6ac1-496e-b04d-8dd2ebd25b37"/>
