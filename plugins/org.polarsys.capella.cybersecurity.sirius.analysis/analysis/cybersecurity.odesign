@@ -254,6 +254,7 @@
     </ownedRepresentations>
     <ownedRepresentationExtensions xsi:type="description_1:DiagramExtensionDescription" name="Cybersecurity Architecture Diagram Extensions" viewpointURI="viewpoint:/org.polarsys.capella.core.sirius.analysis/.*" representationName="(Class Diagram Blank)|(Operational Entity Blank)|(Operational Role Blank)|(System Architecture Blank)|(Logical Architecture Blank)|(Physical Architecture Blank)|(Operational Activity Interaction Blank)|(System Data Flow Blank)|(Logical Data Flow Blank)|(Physical Data Flow Blank)|(Component Exchanges Scenario)|(Operational Interaction Scenario)">
       <layers name="Cybersecurity Decoration Layer" label="Cybersecurity Decoration" activeByDefault="true">
+        <nodeMappings name="dummy" createElements="false"/>
         <decorationDescriptionsSet>
           <decorationDescriptions xsi:type="description:GenericDecorationDescription" name="Component Trust Decorator" position="NORTH_EAST" preconditionExpression="aql:element.hasTrustDecoration()" imageExpression="aql:self.getTrustDecoration()" tooltipExpression="Trusted"/>
           <decorationDescriptions xsi:type="description:GenericDecorationDescription" name="Component No Trust Decorator" position="NORTH_EAST" preconditionExpression="aql:element.hasNoTrustDecoration()" imageExpression="aql:self.getNoTrustDecoration()" tooltipExpression="Not Trusted"/>
