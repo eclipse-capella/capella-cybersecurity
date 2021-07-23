@@ -71,6 +71,7 @@ import org.polarsys.capella.core.data.cs.Component;
 import org.polarsys.capella.core.data.cs.CsPackage;
 import org.polarsys.capella.core.data.cs.Part;
 import org.polarsys.capella.core.data.cs.PhysicalLink;
+import org.polarsys.capella.core.data.ctx.SystemComponent;
 import org.polarsys.capella.core.data.fa.AbstractFunction;
 import org.polarsys.capella.core.data.fa.ComponentExchange;
 import org.polarsys.capella.core.data.fa.FunctionalChain;
@@ -81,12 +82,14 @@ import org.polarsys.capella.core.data.information.ExchangeItem;
 import org.polarsys.capella.core.data.interaction.InstanceRole;
 import org.polarsys.capella.core.data.interaction.SequenceMessage;
 import org.polarsys.capella.core.data.interaction.StateFragment;
+import org.polarsys.capella.core.data.la.LogicalComponent;
 import org.polarsys.capella.core.data.oa.Entity;
+import org.polarsys.capella.core.data.oa.OperationalAnalysis;
 import org.polarsys.capella.core.data.pa.PhysicalComponent;
 import org.polarsys.capella.core.data.pa.PhysicalComponentNature;
 import org.polarsys.capella.core.model.helpers.BlockArchitectureExt;
-import org.polarsys.capella.core.model.helpers.FunctionalChainExt;
 import org.polarsys.capella.core.model.helpers.ComponentExt;
+import org.polarsys.capella.core.model.helpers.FunctionalChainExt;
 import org.polarsys.capella.core.sirius.analysis.CapellaServices;
 import org.polarsys.capella.core.sirius.analysis.CsServices;
 import org.polarsys.capella.core.sirius.analysis.DiagramServices;
@@ -368,7 +371,13 @@ public class CybersecurityServices {
         CybersecurityFactory.eINSTANCE.createFunctionalPrimaryAsset());
 
     if (asset != null) {
-      String elementPrefix = prefixService.getPrefix(asset);
+      String elementPrefix;
+      if (BlockArchitectureExt.getRootBlockArchitecture(asset) instanceof OperationalAnalysis) {
+        elementPrefix = "OperationalActivityPrimaryAsset";
+      }
+      else 
+        elementPrefix = prefixService.getPrefix(asset);
+      
       String uniqueName = CapellaServices.getService().getUniqueName(asset, elementPrefix);
       asset.setName(uniqueName);
     }
@@ -1074,6 +1083,26 @@ public class CybersecurityServices {
       return false;
     }
     return true;
+  }
+
+  public boolean isElementAtOperationalLevel(EObject element) {
+    return BlockArchitectureExt.getRootBlockArchitecture(element) instanceof OperationalAnalysis;
+  }
+
+  public boolean isToolAtOperationalLevel(EObject context) {
+    return context.eCrossReferences().stream().anyMatch(o -> o instanceof Entity);
+  }
+
+  public boolean isToolAtSystemLevel(EObject context) {
+    return context.eCrossReferences().stream().anyMatch(o -> o instanceof SystemComponent);
+  }
+
+  public boolean isToolAtLogicalLevel(EObject context) {
+    return context.eCrossReferences().stream().anyMatch(o -> o instanceof LogicalComponent);
+  }
+
+  public boolean isToolAtPhysicalLevel(EObject context) {
+    return context.eCrossReferences().stream().anyMatch(o -> o instanceof PhysicalComponent);
   }
 
   public String getAssetDecorationSize(DSemanticDecorator view) {
