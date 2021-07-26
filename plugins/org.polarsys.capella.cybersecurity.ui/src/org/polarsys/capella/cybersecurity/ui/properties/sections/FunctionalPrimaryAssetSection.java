@@ -57,10 +57,12 @@ public class FunctionalPrimaryAssetSection extends CybersecuritySection {
     layoutData.horizontalSpan = 2;
     memberGroup.setLayoutData(layoutData);
 
-    _containmentTableField = new ContainmentTableField(memberGroup, getWidgetFactory(),
-        null,
+    _containmentTableField = new ContainmentTableField(memberGroup, getWidgetFactory(), null,
         CybersecurityPackage.Literals.PRIMARY_ASSET_MEMBER__MEMBER, CybersecurityPackage.Literals.PRIMARY_ASSET_MEMBER,
-        Messages.FunctionalPrimaryAssetSection_0, Messages.FunctionalPrimaryAssetSection_1);
+        this instanceof OperationalFunctionalPrimaryAssetSection ? Messages.OAPrimaryAssetSection_0
+            : Messages.FunctionalPrimaryAssetSection_0,
+        this instanceof OperationalFunctionalPrimaryAssetSection ? Messages.OAPrimaryAssetSection_1
+            : Messages.FunctionalPrimaryAssetSection_1);
     _containmentTableField.setDisplayedInWizard(displayedInWizard);
     
     super.addRealizedWidget("Realized Primary Assets");

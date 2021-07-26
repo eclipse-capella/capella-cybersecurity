@@ -498,27 +498,70 @@ public class CybersecurityQueries {
       return new ArrayList<>(((InformationPrimaryAsset) object).getExchangeItems());
     }
   }
-
+  
   public static class FunctionalPrimaryAsset__Functions implements IQuery {
     @Override
     public List<Object> compute(Object object) {
-      return new ArrayList<>(((FunctionalPrimaryAsset) object).getFunctions());
+      if (showCategory(object)) {
+        return new ArrayList<>(((FunctionalPrimaryAsset) object).getFunctions());
+      }
+      return new ArrayList<>();
+    }
+
+    public boolean showCategory(Object object) {
+      return !(BlockArchitectureExt.getRootBlockArchitecture((EObject) object) instanceof OperationalAnalysis);
     }
   }
-
+ 
+  public static class FunctionalPrimaryAsset__OperationalActivities extends FunctionalPrimaryAsset__Functions {
+    @Override
+    public boolean showCategory(Object object) {
+      return BlockArchitectureExt.getRootBlockArchitecture((EObject) object) instanceof OperationalAnalysis;
+    }
+  }
+  
   public static class FunctionalPrimaryAsset__FunctionalChains implements IQuery {
     @Override
     public List<Object> compute(Object object) {
-      return new ArrayList<>(((FunctionalPrimaryAsset) object).getFunctionalChains());
+      if (showCategory(object)) {
+        return new ArrayList<>(((FunctionalPrimaryAsset) object).getFunctionalChains());
+      }
+      return new ArrayList<>();
+    }
+    
+    public boolean showCategory(Object object) {
+      return !(BlockArchitectureExt.getRootBlockArchitecture((EObject) object) instanceof OperationalAnalysis);
     }
   }
+
+  public static class FunctionalPrimaryAsset__OperationalProcesses extends FunctionalPrimaryAsset__FunctionalChains {
+    @Override
+    public boolean showCategory(Object object) {
+      return BlockArchitectureExt.getRootBlockArchitecture((EObject) object) instanceof OperationalAnalysis;
+    }
+  }
+  
 
   public static class FunctionalPrimaryAsset__FunctionalExchanges implements IQuery {
     @Override
     public List<Object> compute(Object object) {
-      return ((FunctionalPrimaryAsset) object).getFunctions().stream()
-          .flatMap(af -> Stream.concat(af.getIncoming().stream(), af.getOutgoing().stream())).distinct()
-          .collect(Collectors.toList());
+      if (showCategory(object)) {
+        return ((FunctionalPrimaryAsset) object).getFunctions().stream()
+            .flatMap(af -> Stream.concat(af.getIncoming().stream(), af.getOutgoing().stream())).distinct()
+            .collect(Collectors.toList());
+      }
+      return new ArrayList<>();
+    }
+    
+    public boolean showCategory(Object object) {
+      return !(BlockArchitectureExt.getRootBlockArchitecture((EObject) object) instanceof OperationalAnalysis);
+    }
+  }
+
+  public static class FunctionalPrimaryAsset__Interactions extends FunctionalPrimaryAsset__FunctionalExchanges {
+    @Override
+    public boolean showCategory(Object object) {
+      return BlockArchitectureExt.getRootBlockArchitecture((EObject) object) instanceof OperationalAnalysis;
     }
   }
 
