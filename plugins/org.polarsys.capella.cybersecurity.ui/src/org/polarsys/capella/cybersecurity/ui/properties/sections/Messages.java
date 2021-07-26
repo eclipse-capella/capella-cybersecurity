@@ -25,6 +25,8 @@ public class Messages extends NLS {
   public static String InformationPrimaryAssetSection_0;
   public static String InformationPrimaryAssetSection_1;
   public static String PrimaryAssetInverseMember_TransferDialogTitle;
+  public static String OAPrimaryAssetSection_0;
+  public static String OAPrimaryAssetSection_1;
   public static String SecurityNeedsSection_1;
   public static String SecurityNeedsSection_2;
   public static String SecurityNeedsSection_3;
