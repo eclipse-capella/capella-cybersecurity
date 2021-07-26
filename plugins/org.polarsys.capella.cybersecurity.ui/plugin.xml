@@ -712,7 +712,7 @@
       </categoryQuery>
    </category>
    <category
-         id="FunctionalPrimaryAsset__Functions"
+         id="FunctionalPrimaryAsset__Functions1"
          isTopLevel="true"
          name="Functions"
          usedInShowRelated="true">
@@ -728,8 +728,25 @@
          </basicQuery>
       </categoryQuery>
    </category>
+      <category
+         id="FunctionalPrimaryAsset__Functions2"
+         isTopLevel="true"
+         name="Operational Activities"
+         usedInShowRelated="true">
+      <availableForType
+            class="org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset">
+      </availableForType>
+      <targetBrowserId
+            id="ReferencedElementBrowser">
+      </targetBrowserId>
+      <categoryQuery>
+         <basicQuery
+               class="org.polarsys.capella.cybersecurity.model.CybersecurityQueries$FunctionalPrimaryAsset__OperationalActivities">
+         </basicQuery>
+      </categoryQuery>
+   </category>
    <category
-         id="FunctionalPrimaryAsset__FunctionalChains"
+         id="FunctionalPrimaryAsset__FunctionalChains1"
          isTopLevel="true"
          name="Functional Chains"
          usedInShowRelated="true">
@@ -746,7 +763,24 @@
       </categoryQuery>
    </category>
    <category
-         id="FunctionalPrimaryAsset__FunctionalExchanges"
+         id="FunctionalPrimaryAsset__FunctionalChains2"
+         isTopLevel="true"
+         name="Operational Processes"
+         usedInShowRelated="true">
+      <availableForType
+            class="org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset">
+      </availableForType>
+      <targetBrowserId
+            id="ReferencedElementBrowser">
+      </targetBrowserId>
+      <categoryQuery>
+         <basicQuery
+               class="org.polarsys.capella.cybersecurity.model.CybersecurityQueries$FunctionalPrimaryAsset__OperationalProcesses">
+         </basicQuery>
+      </categoryQuery>
+   </category>
+   <category
+         id="FunctionalPrimaryAsset__FunctionalExchanges1"
          isTopLevel="true"
          name="Functional Exchanges">
       <availableForType
@@ -758,6 +792,22 @@
       <categoryQuery>
          <basicQuery
                class="org.polarsys.capella.cybersecurity.model.CybersecurityQueries$FunctionalPrimaryAsset__FunctionalExchanges">
+         </basicQuery>
+      </categoryQuery>
+   </category>
+      <category
+         id="FunctionalPrimaryAsset__FunctionalExchanges2"
+         isTopLevel="true"
+         name="Interactions">
+      <availableForType
+            class="org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset">
+      </availableForType>
+      <targetBrowserId
+            id="ReferencedElementBrowser">
+      </targetBrowserId>
+      <categoryQuery>
+         <basicQuery
+               class="org.polarsys.capella.cybersecurity.model.CybersecurityQueries$FunctionalPrimaryAsset__Interactions">
          </basicQuery>
       </categoryQuery>
    </category>
@@ -842,11 +892,59 @@
       </categoryQuery>
    </category>
    <category
-         id="AbstractFunction__FunctionalPrimaryAssets"
+         id="AbstractFunction__FunctionalPrimaryAssets1"
          isTopLevel="true"
          name="Functional Primary Assets">
       <availableForType
-            class="org.polarsys.capella.core.data.fa.AbstractFunction">
+            class="org.polarsys.capella.core.data.ctx.SystemFunction">
+      </availableForType>
+      <targetBrowserId
+            id="ReferencingElementBrowser">
+      </targetBrowserId>
+      <categoryQuery>
+         <basicQuery
+               class="org.polarsys.capella.cybersecurity.model.CybersecurityQueries$AbstractFunction__FunctionalPrimaryAssets">
+         </basicQuery>
+      </categoryQuery>
+   </category>
+      <category
+         id="AbstractFunction__FunctionalPrimaryAssets2"
+         isTopLevel="true"
+         name="Functional Primary Assets">
+      <availableForType
+            class="org.polarsys.capella.core.data.la.LogicalFunction">
+      </availableForType>
+      <targetBrowserId
+            id="ReferencingElementBrowser">
+      </targetBrowserId>
+      <categoryQuery>
+         <basicQuery
+               class="org.polarsys.capella.cybersecurity.model.CybersecurityQueries$AbstractFunction__FunctionalPrimaryAssets">
+         </basicQuery>
+      </categoryQuery>
+   </category>
+      <category
+         id="AbstractFunction__FunctionalPrimaryAssets3"
+         isTopLevel="true"
+         name="Operational Activity Primary Assets">
+      <availableForType
+            class="org.polarsys.capella.core.data.oa.OperationalActivity">
+      </availableForType>
+      <targetBrowserId
+            id="ReferencingElementBrowser">
+      </targetBrowserId>
+      <categoryQuery>
+         <basicQuery
+               class="org.polarsys.capella.cybersecurity.model.CybersecurityQueries$AbstractFunction__FunctionalPrimaryAssets">
+         </basicQuery>
+      </categoryQuery>
+   </category>
+   <category
+         id="AbstractFunction__FunctionalPrimaryAssets4"
+         isTopLevel="true"
+         name="Functional Primary Assets">
+      <availableForType
+            class="org.polarsys.capella.core.data.pa.PhysicalFunction">
       </availableForType>
       <targetBrowserId
             id="ReferencingElementBrowser">
