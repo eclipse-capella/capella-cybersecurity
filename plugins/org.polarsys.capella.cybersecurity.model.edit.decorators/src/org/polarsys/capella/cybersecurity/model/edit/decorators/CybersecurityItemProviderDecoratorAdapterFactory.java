@@ -15,6 +15,7 @@ package org.polarsys.capella.cybersecurity.model.edit.decorators;
 import org.eclipse.emf.edit.provider.IItemProviderDecorator;
 import org.polarsys.capella.core.data.gen.edit.decorators.CustomDecoratorAdapterFactory;
 import org.polarsys.capella.core.data.gen.edit.decorators.ForwardingItemProviderAdapterDecorator;
+import org.polarsys.capella.cybersecurity.model.CybersecurityPkg;
 import org.polarsys.capella.cybersecurity.model.FunctionStorage;
 import org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset;
 import org.polarsys.capella.cybersecurity.model.InformationPrimaryAsset;
@@ -52,6 +53,8 @@ public class CybersecurityItemProviderDecoratorAdapterFactory extends CustomDeco
       return new FunctionalPrimaryAssetProviderDecorator(this);
     } else if (target instanceof InformationPrimaryAsset) {
       return new InformationPrimaryAssetProviderDecorator(this);
+    } else if(target instanceof CybersecurityPkg) {
+      return new CybersecurityPkgItemProviderDecorator(this);
     }
 
     return new ForwardingItemProviderAdapterDecorator(this);
