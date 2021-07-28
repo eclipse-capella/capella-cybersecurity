@@ -1315,5 +1315,21 @@
       <migrationContribution
             class="org.polarsys.capella.cybersecurity.ui.contribution.migration.CybersecurityMigrationContribution">
       </migrationContribution>
-</extension>     
+</extension> 
+<extension
+         point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
+      <propertyContributor
+            contributorId="org.polarsys.capella.core.data.capellamodeller.properties"
+            labelProvider="org.polarsys.capella.cybersecurity.ui.contribution.properties.CyberTabbedPropertiesLabelProvider">
+         <propertyCategory
+               category="default">
+         </propertyCategory>
+         <propertyCategory
+               category="extended">
+         </propertyCategory>
+         <propertyCategory
+               category="advanced">
+         </propertyCategory>
+      </propertyContributor>
+   </extension>      
 </plugin>
