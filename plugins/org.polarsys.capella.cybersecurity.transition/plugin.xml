@@ -132,6 +132,18 @@
                      name="TrustBoundaryStorage">
                </defaultMappingPossibility>
             </mappingElement>
+            <mappingElement
+                  domainMetaClass="org.polarsys.capella.cybersecurity.model.CybersecurityConfiguration"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     context="org.polarsys.capella.core.transition.common.context.TransitionContext"
+                     enabled="true"
+                     completeRule="org.polarsys.capella.cybersecurity.transition.rules.CybersecurityConfigurationRule"
+                     incompleteRule="org.polarsys.capella.cybersecurity.transition.rules.CybersecurityConfigurationRule"
+                     name="CybersecurityConfiguration">
+               </defaultMappingPossibility>
+            </mappingElement>
 		 </mappingPackage>
 	     </mapping>
 	</extension>
