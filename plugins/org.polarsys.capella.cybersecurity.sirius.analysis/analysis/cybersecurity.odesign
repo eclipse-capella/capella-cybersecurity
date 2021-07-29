@@ -136,7 +136,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" documentation="Create a new Operational Activity Primary Asset" name="ToolCreateOperationalActivityPrimaryAsset" label="Operational Activity Primary Asset" nodeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='FunctionalPrimaryAsset']" iconPath="/org.polarsys.capella.cybersecurity.model.edit/icons/full/obj16/OperationalActivityPrimaryAssetDecorated.gif">
+          <ownedTools xsi:type="tool:NodeCreationDescription" documentation="Create a new Operational Activity Primary Asset" name="ToolCreateOperationalActivityPrimaryAsset" label="Operational Activity Primary Asset" nodeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='FunctionalPrimaryAsset']">
             <filters precondition="aql: not (self.isToolAtOperationalLevel())"/>
             <variable name="container"/>
             <viewVariable name="containerView"/>
@@ -146,7 +146,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" documentation="Create a new Functional Primary Asset" name="ToolCreateFunctionalPrimaryAssetSystem" label="Functional Primary Asset" nodeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='FunctionalPrimaryAsset']" iconPath="/org.polarsys.capella.cybersecurity.model.edit/icons/full/obj16/FunctionalPrimaryAssetDecorated.gif">
+          <ownedTools xsi:type="tool:NodeCreationDescription" documentation="Create a new Functional Primary Asset" name="ToolCreateFunctionalPrimaryAssetSystem" label="Functional Primary Asset" nodeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='FunctionalPrimaryAsset']">
             <filters precondition="aql: self.isToolAtOperationalLevel()"/>
             <variable name="container"/>
             <viewVariable name="containerView"/>
