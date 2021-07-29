@@ -59,18 +59,11 @@ public class ThreatRule extends AbstractCapellaElementRule {
   }
   
   @Override
-  protected void updateElement(EObject element, EObject result, IContext context) {
-    super.updateElement(element, result, context);
-    if(element instanceof Threat && result instanceof Threat) {
-      ((Threat) result).setKind(((Threat) element).getKind());
-    }
-  }
-  
-  @Override
   protected void retrieveGoDeep(EObject source, List<EObject> result, IContext context) {
     super.retrieveGoDeep(source, result, context);
     
     Threat element = (Threat) source;
+    result.add(element.getKind().eContainer().eContainer());
     if (ContextScopeHandlerHelper.getInstance(context).contains(ITransitionConstants.SOURCE_SCOPE, element, context)) {
       result.addAll(element.getAddressedBy());
       ContextScopeHandlerHelper.getInstance(context).addAll(ITransitionConstants.SOURCE_SCOPE, element.getAddressedBy(), context);
