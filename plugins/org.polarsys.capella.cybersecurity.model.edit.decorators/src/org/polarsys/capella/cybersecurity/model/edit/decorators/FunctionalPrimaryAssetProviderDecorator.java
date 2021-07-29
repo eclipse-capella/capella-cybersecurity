@@ -37,13 +37,7 @@ public class FunctionalPrimaryAssetProviderDecorator extends ItemProviderAdapter
   
   @Override
   public Object getImage(Object object) {
-    BlockArchitecture architecture = BlockArchitectureExt.getRootBlockArchitecture((EObject)object);
-    String image = "full/obj16/FunctionalPrimaryAssetDecorated";
-    if (architecture instanceof OperationalAnalysis) {
-      image = "full/obj16/OperationalActivityPrimaryAssetDecorated";
-    }
-    
-    return overlayImage(object, CybersecurityEditPlugin.INSTANCE.getImage(image));
+    return overlayImage(object, CybersecurityEditPlugin.INSTANCE.getImage("full/obj16/FunctionalPrimaryAsset"));
   }
   
   @Override
