@@ -14,3 +14,10 @@
 |-
 | colspan="2"|Verifies that the SecurityNeeds of a ComponentExchange are at least as high as each of its allocated Functional Exchanges.
 |}
+<br>
+{| class="VALIDATION-RULE"
+!|[[Image:../../../../Images/warning.gif|WARNING]]
+|CY_DCON_03 - DCON_03 - Threat or Primary Asset Realization check
+|-
+| colspan="2"|This rule checks that Threats or Primary Assets are realized.
+|}

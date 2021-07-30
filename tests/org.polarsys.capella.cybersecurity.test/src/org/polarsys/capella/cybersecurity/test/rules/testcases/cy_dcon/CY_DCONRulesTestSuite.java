@@ -32,6 +32,8 @@ public class CY_DCONRulesTestSuite extends TestSuite {
     addTest(new Rule_CY_DCON_02_SA());
     addTest(new Rule_CY_DCON_02_LA());
     addTest(new Rule_CY_DCON_02_PA());
+    addTest(new Rule_CY_DCON_03_Asset());
+    addTest(new Rule_CY_DCON_03_Threat());
   }
 
   public static Test suite() {

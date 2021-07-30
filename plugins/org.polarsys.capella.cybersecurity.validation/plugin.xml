@@ -167,6 +167,25 @@
                   Verifies that the SecurityNeeds of a ComponentExchange are at least as high as each of its allocated Functional Exchanges.
                </description>
             </constraint>
+            <constraint
+                  class="org.polarsys.capella.cybersecurity.validation.design.consistency.CY_DCON_03_ThreatOrAsset_Realization"
+                  id="CY_DCON_03"
+                  isEnabledByDefault="true"
+                  lang="Java"
+                  mode="Batch"
+                  name="CY_DCON_03 - Threat or Primary Asset Realization check"
+                  severity="WARNING"
+                  statusCode="0">
+               <message>
+                  {0} {1} is not realized by any {2} at {3} level.
+               </message>
+               <target
+                     class="NamedElement">
+               </target>
+               <description>
+                   This rule checks that Threats or Primary Assets are realized
+               </description>
+            </constraint>            
          </constraints>
       </constraintProvider>
    </extension>
