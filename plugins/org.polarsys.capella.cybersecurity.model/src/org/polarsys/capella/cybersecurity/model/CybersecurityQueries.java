@@ -40,6 +40,7 @@ import org.polarsys.capella.core.data.fa.AbstractFunction;
 import org.polarsys.capella.core.data.fa.AbstractFunctionalBlock;
 import org.polarsys.capella.core.data.fa.ComponentExchange;
 import org.polarsys.capella.core.data.fa.FaPackage;
+import org.polarsys.capella.core.data.fa.FunctionalChain;
 import org.polarsys.capella.core.data.fa.FunctionalExchange;
 import org.polarsys.capella.core.data.information.ExchangeItem;
 import org.polarsys.capella.core.data.oa.OperationalAnalysis;
@@ -120,17 +121,8 @@ public class CybersecurityQueries {
   }
 
   public static boolean isTrustBoundary(FunctionalExchange fe) {
-    AbstractFunction sf;
-    AbstractFunction tf;
-    BlockArchitecture blockArchitecture = BlockArchitectureExt.getRootBlockArchitecture(fe);
-    if (blockArchitecture instanceof OperationalAnalysis) {
-      sf = (AbstractFunction) fe.getSource();
-      tf = (AbstractFunction) fe.getTarget();
-    } else {
-      sf = (AbstractFunction) fe.getSourceFunctionOutputPort().eContainer();
-      tf = (AbstractFunction) fe.getTargetFunctionInputPort().eContainer();
-    }
-
+    AbstractFunction sf = getSourceFunction(fe);
+    AbstractFunction tf = getTargetFunction(fe);
     return isTrusted(sf) ^ isTrusted(tf);
   }
 
@@ -240,6 +232,11 @@ public class CybersecurityQueries {
     return EObjectExt.getReferencers(af, CybersecurityPackage.Literals.PRIMARY_ASSET_MEMBER__MEMBER).stream()
         .map(s -> (FunctionalPrimaryAsset) ((PrimaryAssetMember) s).getAsset());
   }
+  
+  public static Stream<FunctionalPrimaryAsset> getFunctionalPrimaryAssets(FunctionalChain fc) {
+    return EObjectExt.getReferencers(fc, CybersecurityPackage.Literals.PRIMARY_ASSET_MEMBER__MEMBER).stream()
+        .map(s -> (FunctionalPrimaryAsset) ((PrimaryAssetMember) s).getAsset());
+  }
 
   public static Stream<InformationPrimaryAsset> getInformationPrimaryAssets(ExchangeItem ei) {
     return EObjectExt.getReferencers(ei, CybersecurityPackage.Literals.PRIMARY_ASSET_MEMBER__MEMBER).stream()
@@ -256,8 +253,8 @@ public class CybersecurityQueries {
 
   public static Stream<AbstractFunctionalBlock> getTrustBoundaryBlocks(FunctionalExchange fe) {
     List<AbstractFunctionalBlock> result = new ArrayList<>();
-    AbstractFunction sf = (AbstractFunction) fe.getSourceFunctionOutputPort().eContainer();
-    AbstractFunction tf = (AbstractFunction) fe.getTargetFunctionInputPort().eContainer();
+    AbstractFunction sf = getSourceFunction(fe);
+    AbstractFunction tf = getTargetFunction(fe);
     if (isTrusted(sf)) {
       result.addAll(sf.getAllocationBlocks());
     }
@@ -265,6 +262,18 @@ public class CybersecurityQueries {
       result.addAll(tf.getAllocationBlocks());
     }
     return result.stream();
+  }
+  
+  public static AbstractFunction getSourceFunction(FunctionalExchange fe) {
+    if (BlockArchitectureExt.getRootBlockArchitecture(fe) instanceof OperationalAnalysis)
+      return (AbstractFunction) fe.getSource();
+    return (AbstractFunction) fe.getSourceFunctionOutputPort().eContainer();
+  }
+  
+  public static AbstractFunction getTargetFunction(FunctionalExchange fe) {
+    if (BlockArchitectureExt.getRootBlockArchitecture(fe) instanceof OperationalAnalysis)
+      return (AbstractFunction) fe.getTarget();
+    return (AbstractFunction) fe.getTargetFunctionInputPort().eContainer();
   }
   
   public static Stream<FunctionalPrimaryAsset> getFunctionalPrimaryAssets(Component c) {
@@ -403,9 +412,7 @@ public class CybersecurityQueries {
 
   public static Stream<AbstractFunctionalBlock> getSupportingComponents(ExchangeItem ei) {
     return Stream.concat(getAllocatingFunctions(ei).flatMap(af -> af.getAllocationBlocks().stream()),
-        getAllocatingFunctionalExchanges(ei)
-            .flatMap(fe -> Stream.of((AbstractFunction) fe.getSourceFunctionOutputPort().eContainer(),
-                (AbstractFunction) fe.getTargetFunctionInputPort().eContainer()))
+        getAllocatingFunctionalExchanges(ei).flatMap(fe -> Stream.of(getSourceFunction(fe), getTargetFunction(fe)))
             .flatMap(af -> af.getAllocationBlocks().stream()))
         .distinct();
   }
@@ -590,6 +597,27 @@ public class CybersecurityQueries {
     @Override
     public List<Object> compute(Object object) {
       return getFunctionalPrimaryAssets((AbstractFunction) object).collect(Collectors.toList());
+    }
+  }
+
+  public static class FunctionalChain__FunctionalPrimaryAssets implements IQuery {
+    @Override
+    public List<Object> compute(Object object) {
+      if (showCategory(object)) {
+        return getFunctionalPrimaryAssets((FunctionalChain) object).collect(Collectors.toList());
+      }
+      return new ArrayList<>();
+    }
+
+    public boolean showCategory(Object object) {
+      return !(BlockArchitectureExt.getRootBlockArchitecture((EObject) object) instanceof OperationalAnalysis);
+    }
+  }
+
+  public static class OperationalProcess__FunctionalPrimaryAssets extends FunctionalChain__FunctionalPrimaryAssets {
+    @Override
+    public boolean showCategory(Object object) {
+      return BlockArchitectureExt.getRootBlockArchitecture((EObject) object) instanceof OperationalAnalysis;
     }
   }
 
