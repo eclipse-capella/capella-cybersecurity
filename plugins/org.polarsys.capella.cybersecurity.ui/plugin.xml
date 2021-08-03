@@ -1309,6 +1309,14 @@
             class="org.polarsys.capella.cybersecurity.ui.contribution.menu.CybersecurityConfigurationContribution"
             id="org.polarsys.capella.cybersecurity.ui.contribution.menu.CybersecurityConfigurationContribution">
       </MDEMenuItemContribution>
+       <MDEMenuItemContribution
+            class="org.polarsys.capella.cybersecurity.ui.contribution.menu.ThreatContribution"
+            id="org.polarsys.capella.cybersecurity.ui.contribution.menu.ThreatContribution">
+      </MDEMenuItemContribution>
+       <MDEMenuItemContribution
+            class="org.polarsys.capella.cybersecurity.ui.contribution.menu.FunctionalPrimaryAssetContribution"
+            id="org.polarsys.capella.cybersecurity.ui.contribution.menu.FunctionalPrimaryAssetContribution">
+      </MDEMenuItemContribution>
 </extension>
 <extension
          point="org.polarsys.capella.core.data.migration.migrationContributions">

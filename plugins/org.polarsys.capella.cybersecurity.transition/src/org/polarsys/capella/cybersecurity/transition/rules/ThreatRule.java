@@ -63,7 +63,9 @@ public class ThreatRule extends AbstractCapellaElementRule {
     super.retrieveGoDeep(source, result, context);
     
     Threat element = (Threat) source;
-    result.add(element.getKind().eContainer().eContainer());
+    if (element.getKind() != null) {
+      result.add(element.getKind().eContainer().eContainer());
+    }
     if (ContextScopeHandlerHelper.getInstance(context).contains(ITransitionConstants.SOURCE_SCOPE, element, context)) {
       result.addAll(element.getAddressedBy());
       ContextScopeHandlerHelper.getInstance(context).addAll(ITransitionConstants.SOURCE_SCOPE, element.getAddressedBy(), context);

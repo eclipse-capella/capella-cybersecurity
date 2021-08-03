@@ -25,28 +25,16 @@ import org.polarsys.capella.core.data.oa.OperationalAnalysis;
 import org.polarsys.capella.core.model.helpers.BlockArchitectureExt;
 import org.polarsys.capella.cybersecurity.model.provider.CybersecurityEditPlugin;
 
-public class FunctionalPrimaryAssetProviderDecorator extends ItemProviderAdapterDecorator implements IEditingDomainItemProvider,
-    IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
-  
-  private static final String OA_PRIMARY_ASSETS_PREFIX = "OperationalActivity";
-  private static final String FUNCTIONAL_PRIMARY_ASSETS_PREFIX = "Functional";
+public class FunctionalPrimaryAssetProviderDecorator extends ItemProviderAdapterDecorator
+    implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider,
+    IItemPropertySource {
 
   public FunctionalPrimaryAssetProviderDecorator(AdapterFactory adapterFactory) {
     super(adapterFactory);
   }
-  
+
   @Override
   public Object getImage(Object object) {
     return overlayImage(object, CybersecurityEditPlugin.INSTANCE.getImage("full/obj16/FunctionalPrimaryAsset"));
-  }
-  
-  @Override
-  public String getText(Object object) {
-    BlockArchitecture architecture = BlockArchitectureExt.getRootBlockArchitecture((EObject)object);
-    String text = super.getText(object);
-    if (architecture instanceof OperationalAnalysis) {
-      text = text.replace(FUNCTIONAL_PRIMARY_ASSETS_PREFIX, OA_PRIMARY_ASSETS_PREFIX);
-    }
-    return text;
   }
 }
