@@ -12,9 +12,11 @@
  *******************************************************************************/
 package org.polarsys.capella.cybersecurity.ui.properties.sections;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EClass;
@@ -23,12 +25,14 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.osgi.util.NLS;
+import org.eclipse.sirius.common.tools.api.util.SiriusCrossReferenceAdapter;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetWidgetFactory;
 import org.polarsys.capella.common.data.modellingcore.ModelElement;
+import org.polarsys.capella.common.ef.ExecutionManager;
 import org.polarsys.capella.common.helpers.EObjectLabelProviderHelper;
 import org.polarsys.capella.common.helpers.TransactionHelper;
 import org.polarsys.capella.common.platform.sirius.ted.SemanticEditingDomainFactory.SemanticEditingDomain;
@@ -120,15 +124,25 @@ public abstract class PrimaryAssetInverseMember extends AbstractSection {
       return doQueryCurrentElements(semanticElement, null);
     }
 
+    @Override
     protected List<EObject> doQueryCurrentElements(EObject semanticElement, IBusinessQuery query){
-      SemanticEditingDomain domain = (SemanticEditingDomain) TransactionHelper.getExecutionManager(semanticElement).getEditingDomain();
-      return domain
-        .getCrossReferencer()
-        .getInverseReferences(semanticElement, CybersecurityPackage.Literals.PRIMARY_ASSET_MEMBER__MEMBER, true)
-        .stream()
-        .map(s -> ((PrimaryAssetMember)s.getEObject()).getAsset())
-        .distinct()
-        .collect(Collectors.toList());
+      List<EObject> result = new ArrayList<>();
+      ExecutionManager executionManager = TransactionHelper.getExecutionManager(semanticElement);
+      if (executionManager == null)
+        return result;
+
+      SemanticEditingDomain domain = (SemanticEditingDomain) executionManager.getEditingDomain();
+      if (domain == null)
+        return result;
+
+      SiriusCrossReferenceAdapter crossReferencer = domain.getCrossReferencer();
+      if (crossReferencer == null)
+        return result;
+
+      return crossReferencer
+          .getInverseReferences(semanticElement, CybersecurityPackage.Literals.PRIMARY_ASSET_MEMBER__MEMBER, true)
+          .stream().map(s -> s.getEObject() != null ? ((PrimaryAssetMember) s.getEObject()).getAsset() : null)
+          .filter(Objects::nonNull).distinct().collect(Collectors.toList());
     }
 
     @Override
