@@ -12,8 +12,13 @@
  *******************************************************************************/
 package org.polarsys.capella.cybersecurity.model.helpers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.polarsys.capella.common.model.helpers.HelperNotFoundException;
+import org.polarsys.capella.common.data.modellingcore.AbstractTrace;
+import org.polarsys.capella.core.data.capellacommon.TransfoLink;
+import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset;
 
 /**
@@ -31,15 +36,53 @@ public class FunctionalPrimaryAssetHelper {
   }
 
   /**
-   * @generated
+   * @generated NOT
    */
   public Object doSwitch(FunctionalPrimaryAsset object, EStructuralFeature feature) {
     // handle derivated feature
+    
+    if (feature.equals(CybersecurityPackage.Literals.FUNCTIONAL_PRIMARY_ASSET__REALIZED_PRIMARY_ASSETS)) {
+      return getRealizedPrimaryAssets(object);
+    } else if (feature.equals(CybersecurityPackage.Literals.FUNCTIONAL_PRIMARY_ASSET__REALIZING_PRIMARY_ASSETS)) {
+      return getRealizingPrimaryAssets(object);
+    }
 
     // delegate to parent helper
     return org.polarsys.capella.core.data.helpers.capellacore.delegates.NamedElementHelper.getInstance()
         .doSwitch(object, feature);
 
+  }
+  
+  /**
+   * @generated NOT
+   */
+  protected List<FunctionalPrimaryAsset> getRealizedPrimaryAssets(FunctionalPrimaryAsset element) {
+    List<FunctionalPrimaryAsset> ret = new ArrayList<>();
+    for ( AbstractTrace obj : element.getOutgoingTraces()) {
+      if(obj instanceof TransfoLink) {
+        TransfoLink link = (TransfoLink) obj;
+        if(link.getTarget() instanceof FunctionalPrimaryAsset) {
+          ret.add((FunctionalPrimaryAsset) link.getTarget());
+        }
+      }
+    }
+    return ret;
+  }
+
+  /**
+   * @generated NOT
+   */
+  protected List<FunctionalPrimaryAsset> getRealizingPrimaryAssets(FunctionalPrimaryAsset element) {
+    List<FunctionalPrimaryAsset> ret = new ArrayList<>();
+    for ( AbstractTrace obj : element.getIncomingTraces()) {
+      if(obj instanceof TransfoLink) {
+        TransfoLink link = (TransfoLink) obj;
+        if(link.getSource() instanceof FunctionalPrimaryAsset) {
+          ret.add((FunctionalPrimaryAsset) link.getSource());
+        }
+      }
+    }
+    return ret;
   }
 
 }

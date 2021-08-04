@@ -12,8 +12,13 @@
  *******************************************************************************/
 package org.polarsys.capella.cybersecurity.model.helpers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.polarsys.capella.common.model.helpers.HelperNotFoundException;
+import org.polarsys.capella.common.data.modellingcore.AbstractTrace;
+import org.polarsys.capella.core.data.capellacommon.TransfoLink;
+import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.Threat;
 
 /**
@@ -31,15 +36,53 @@ public class ThreatHelper {
   }
 
   /**
-   * @generated
+   * @generated NOT
    */
   public Object doSwitch(Threat object, EStructuralFeature feature) {
     // handle derivated feature
+
+    if (feature.equals(CybersecurityPackage.Literals.THREAT__REALIZED_THREATS)) {
+      return getRealizedThreats(object);
+    } else if (feature.equals(CybersecurityPackage.Literals.THREAT__REALIZING_THREATS)) {
+      return getRealizingThreats(object);
+    }
 
     // delegate to parent helper
     return org.polarsys.capella.core.data.helpers.capellacore.delegates.NamedElementHelper.getInstance()
         .doSwitch(object, feature);
 
+  }
+
+  /**
+   * @generated NOT
+   */
+  protected List<Threat> getRealizedThreats(Threat element) {
+    List<Threat> ret = new ArrayList<>();
+    for (AbstractTrace obj : element.getOutgoingTraces()) {
+      if (obj instanceof TransfoLink) {
+        TransfoLink link = (TransfoLink) obj;
+        if (link.getTarget() instanceof Threat) {
+          ret.add((Threat) link.getTarget());
+        }
+      }
+    }
+    return ret;
+  }
+
+  /**
+   * @generated NOT
+   */
+  protected List<Threat> getRealizingThreats(Threat element) {
+    List<Threat> ret = new ArrayList<>();
+    for (AbstractTrace obj : element.getIncomingTraces()) {
+      if (obj instanceof TransfoLink) {
+        TransfoLink link = (TransfoLink) obj;
+        if (link.getSource() instanceof Threat) {
+          ret.add((Threat) link.getSource());
+        }
+      }
+    }
+    return ret;
   }
 
 }

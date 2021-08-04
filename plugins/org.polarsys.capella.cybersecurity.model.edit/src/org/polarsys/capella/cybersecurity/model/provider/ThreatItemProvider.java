@@ -102,6 +102,8 @@ public class ThreatItemProvider extends NamedElementItemProvider implements IEdi
       addKindPropertyDescriptor(object);
       addLevelPropertyDescriptor(object);
       addRationalePropertyDescriptor(object);
+      addRealizedThreatsPropertyDescriptor(object);
+      addRealizingThreatsPropertyDescriptor(object);
     }
     // begin-extension-code
     checkChildCreationExtender(object);
@@ -183,6 +185,46 @@ public class ThreatItemProvider extends NamedElementItemProvider implements IEdi
         getString("_UI_PropertyDescriptor_description", "_UI_Threat_rationale_feature", "_UI_Threat_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         CybersecurityPackage.Literals.THREAT__RATIONALE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
         null,
+        // begin-extension-code
+        null));
+    // end-extension-code
+  }
+
+  /**
+   * This adds a property descriptor for the Realized Threats feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addRealizedThreatsPropertyDescriptor(Object object) {
+
+    // begin-extension-code
+    itemPropertyDescriptors.add(createItemPropertyDescriptor
+    // end-extension-code
+    (((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+        getString("_UI_Threat_realizedThreats_feature"), //$NON-NLS-1$
+        getString("_UI_PropertyDescriptor_description", "_UI_Threat_realizedThreats_feature", "_UI_Threat_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        CybersecurityPackage.Literals.THREAT__REALIZED_THREATS, false, false, false, null, null,
+        // begin-extension-code
+        null));
+    // end-extension-code
+  }
+
+  /**
+   * This adds a property descriptor for the Realizing Threats feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addRealizingThreatsPropertyDescriptor(Object object) {
+
+    // begin-extension-code
+    itemPropertyDescriptors.add(createItemPropertyDescriptor
+    // end-extension-code
+    (((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+        getString("_UI_Threat_realizingThreats_feature"), //$NON-NLS-1$
+        getString("_UI_PropertyDescriptor_description", "_UI_Threat_realizingThreats_feature", "_UI_Threat_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        CybersecurityPackage.Literals.THREAT__REALIZING_THREATS, false, false, false, null, null,
         // begin-extension-code
         null));
     // end-extension-code

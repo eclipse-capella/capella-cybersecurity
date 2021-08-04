@@ -15,12 +15,19 @@ package org.polarsys.capella.cybersecurity.model.impl;
 
 import java.util.Collection;
 
+import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.core.runtime.IAdapterManager;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EcoreEList;
+import org.polarsys.capella.common.model.helpers.IHelper;
 import org.polarsys.capella.core.data.capellacore.EnumerationPropertyLiteral;
 import org.polarsys.capella.core.data.capellacore.impl.NamedElementImpl;
 import org.polarsys.capella.core.data.cs.Component;
@@ -37,6 +44,8 @@ import org.polarsys.capella.cybersecurity.model.Threat;
  *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatImpl#getKind <em>Kind</em>}</li>
  *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatImpl#getLevel <em>Level</em>}</li>
  *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatImpl#getRationale <em>Rationale</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatImpl#getRealizedThreats <em>Realized Threats</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatImpl#getRealizingThreats <em>Realizing Threats</em>}</li>
  * </ul>
  *
  * @generated
@@ -238,6 +247,95 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
   }
 
   /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated NOT
+   */
+
+  @Override
+  public EList<Threat> getRealizedThreats() {
+    Object result = null;
+    // Helper that can get value for current feature.
+    IHelper helper = null;
+    // If current object is adaptable, ask it to get its IHelper.
+    if (this instanceof IAdaptable) {
+      helper = (IHelper) ((IAdaptable) this).getAdapter(IHelper.class);
+    }
+    if (null == helper) {
+      // No helper found yet.
+      // Ask the platform to get the adapter 'IHelper.class' for current object.
+      IAdapterManager adapterManager = Platform.getAdapterManager();
+      helper = (IHelper) adapterManager.getAdapter(this, IHelper.class);
+    }
+    if (null == helper) {
+      EPackage package_l = eClass().getEPackage();
+      // Get the root package of the owner package.
+      EPackage rootPackage = org.polarsys.capella.common.mdsofa.common.helper.EcoreHelper.getRootPackage(package_l);
+      throw new org.polarsys.capella.common.model.helpers.HelperNotFoundException(
+          "No helper retrieved for nsURI " + rootPackage.getNsURI()); //$NON-NLS-1$
+    }
+    // A helper is found, let's use it. 
+    EAnnotation annotation = CybersecurityPackage.Literals.THREAT__REALIZED_THREATS
+        .getEAnnotation(org.polarsys.capella.common.model.helpers.IModelConstants.HELPER_ANNOTATION_SOURCE);
+    result = helper.getValue(this, CybersecurityPackage.Literals.THREAT__REALIZED_THREATS, annotation);
+
+    try {
+      @SuppressWarnings("unchecked")
+      Collection<Component> resultAsList = (Collection<Component>) result;
+      return new EcoreEList.UnmodifiableEList<Threat>(this, CybersecurityPackage.Literals.THREAT__REALIZED_THREATS,
+          resultAsList.size(), resultAsList.toArray());
+    } catch (ClassCastException exception) {
+      exception.printStackTrace();
+      return org.eclipse.emf.common.util.ECollections.emptyEList();
+    }
+
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated NOT
+   */
+
+  @Override
+  public EList<Threat> getRealizingThreats() {
+    Object result = null;
+    // Helper that can get value for current feature.
+    IHelper helper = null;
+    // If current object is adaptable, ask it to get its IHelper.
+    if (this instanceof IAdaptable) {
+      helper = (IHelper) ((IAdaptable) this).getAdapter(IHelper.class);
+    }
+    if (null == helper) {
+      // No helper found yet.
+      // Ask the platform to get the adapter 'IHelper.class' for current object.
+      IAdapterManager adapterManager = Platform.getAdapterManager();
+      helper = (IHelper) adapterManager.getAdapter(this, IHelper.class);
+    }
+    if (null == helper) {
+      EPackage package_l = eClass().getEPackage();
+      // Get the root package of the owner package.
+      EPackage rootPackage = org.polarsys.capella.common.mdsofa.common.helper.EcoreHelper.getRootPackage(package_l);
+      throw new org.polarsys.capella.common.model.helpers.HelperNotFoundException(
+          "No helper retrieved for nsURI " + rootPackage.getNsURI()); //$NON-NLS-1$
+    }
+    // A helper is found, let's use it. 
+    EAnnotation annotation = CybersecurityPackage.Literals.THREAT__REALIZING_THREATS
+        .getEAnnotation(org.polarsys.capella.common.model.helpers.IModelConstants.HELPER_ANNOTATION_SOURCE);
+    result = helper.getValue(this, CybersecurityPackage.Literals.THREAT__REALIZING_THREATS, annotation);
+
+    try {
+      @SuppressWarnings("unchecked")
+      Collection<Component> resultAsList = (Collection<Component>) result;
+      return new EcoreEList.UnmodifiableEList<Threat>(this, CybersecurityPackage.Literals.THREAT__REALIZING_THREATS,
+          resultAsList.size(), resultAsList.toArray());
+    } catch (ClassCastException exception) {
+      exception.printStackTrace();
+      return org.eclipse.emf.common.util.ECollections.emptyEList();
+    }
+  }
+
+  /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
@@ -254,6 +352,10 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
       return getLevel();
     case CybersecurityPackage.THREAT__RATIONALE:
       return getRationale();
+    case CybersecurityPackage.THREAT__REALIZED_THREATS:
+      return getRealizedThreats();
+    case CybersecurityPackage.THREAT__REALIZING_THREATS:
+      return getRealizingThreats();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -321,6 +423,10 @@ public class ThreatImpl extends NamedElementImpl implements Threat {
       return level != LEVEL_EDEFAULT;
     case CybersecurityPackage.THREAT__RATIONALE:
       return RATIONALE_EDEFAULT == null ? rationale != null : !RATIONALE_EDEFAULT.equals(rationale);
+    case CybersecurityPackage.THREAT__REALIZED_THREATS:
+      return !getRealizedThreats().isEmpty();
+    case CybersecurityPackage.THREAT__REALIZING_THREATS:
+      return !getRealizingThreats().isEmpty();
     }
     return super.eIsSet(featureID);
   }

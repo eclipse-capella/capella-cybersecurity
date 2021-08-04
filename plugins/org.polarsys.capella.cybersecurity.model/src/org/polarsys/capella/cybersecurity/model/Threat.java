@@ -29,6 +29,8 @@ import org.polarsys.capella.core.data.cs.Component;
  *   <li>{@link org.polarsys.capella.cybersecurity.model.Threat#getKind <em>Kind</em>}</li>
  *   <li>{@link org.polarsys.capella.cybersecurity.model.Threat#getLevel <em>Level</em>}</li>
  *   <li>{@link org.polarsys.capella.cybersecurity.model.Threat#getRationale <em>Rationale</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.Threat#getRealizedThreats <em>Realized Threats</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.Threat#getRealizingThreats <em>Realizing Threats</em>}</li>
  * </ul>
  *
  * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getThreat()
@@ -138,5 +140,37 @@ public interface Threat extends NamedElement {
    */
 
   void setRationale(String value);
+
+  /**
+   * Returns the value of the '<em><b>Realized Threats</b></em>' reference list.
+   * The list contents are of type {@link org.polarsys.capella.cybersecurity.model.Threat}.
+  
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Realized Threats</em>' reference list.
+   * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getThreat_RealizedThreats()
+   * @model transient="true" changeable="false" volatile="true" derived="true"
+   *        annotation="http://www.polarsys.org/capella/derived"
+   *        annotation="http://www.polarsys.org/capella/semantic"
+   * @generated
+   */
+
+  EList<Threat> getRealizedThreats();
+
+  /**
+   * Returns the value of the '<em><b>Realizing Threats</b></em>' reference list.
+   * The list contents are of type {@link org.polarsys.capella.cybersecurity.model.Threat}.
+  
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Realizing Threats</em>' reference list.
+   * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getThreat_RealizingThreats()
+   * @model transient="true" changeable="false" volatile="true" derived="true"
+   *        annotation="http://www.polarsys.org/capella/derived"
+   *        annotation="http://www.polarsys.org/capella/semantic"
+   * @generated
+   */
+
+  EList<Threat> getRealizingThreats();
 
 } // Threat

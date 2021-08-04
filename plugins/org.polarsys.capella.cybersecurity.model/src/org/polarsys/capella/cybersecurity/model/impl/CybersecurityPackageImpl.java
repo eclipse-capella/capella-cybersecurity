@@ -297,6 +297,26 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
   }
 
   /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getThreat_RealizedThreats() {
+    return (EReference) threatEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getThreat_RealizingThreats() {
+    return (EReference) threatEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
@@ -545,6 +565,26 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
   }
 
   /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getFunctionalPrimaryAsset_RealizedPrimaryAssets() {
+    return (EReference) functionalPrimaryAssetEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getFunctionalPrimaryAsset_RealizingPrimaryAssets() {
+    return (EReference) functionalPrimaryAssetEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
@@ -560,6 +600,26 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
   @Override
   public EReference getInformationPrimaryAsset_ExchangeItems() {
     return (EReference) informationPrimaryAssetEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getInformationPrimaryAsset_RealizedPrimaryAssets() {
+    return (EReference) informationPrimaryAssetEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getInformationPrimaryAsset_RealizingPrimaryAssets() {
+    return (EReference) informationPrimaryAssetEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -686,6 +746,8 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
     createEReference(threatEClass, THREAT__KIND);
     createEAttribute(threatEClass, THREAT__LEVEL);
     createEAttribute(threatEClass, THREAT__RATIONALE);
+    createEReference(threatEClass, THREAT__REALIZED_THREATS);
+    createEReference(threatEClass, THREAT__REALIZING_THREATS);
 
     threatInvolvementEClass = createEClass(THREAT_INVOLVEMENT);
     createEReference(threatInvolvementEClass, THREAT_INVOLVEMENT__COMPONENT);
@@ -721,9 +783,13 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
     functionalPrimaryAssetEClass = createEClass(FUNCTIONAL_PRIMARY_ASSET);
     createEReference(functionalPrimaryAssetEClass, FUNCTIONAL_PRIMARY_ASSET__FUNCTIONS);
     createEReference(functionalPrimaryAssetEClass, FUNCTIONAL_PRIMARY_ASSET__FUNCTIONAL_CHAINS);
+    createEReference(functionalPrimaryAssetEClass, FUNCTIONAL_PRIMARY_ASSET__REALIZED_PRIMARY_ASSETS);
+    createEReference(functionalPrimaryAssetEClass, FUNCTIONAL_PRIMARY_ASSET__REALIZING_PRIMARY_ASSETS);
 
     informationPrimaryAssetEClass = createEClass(INFORMATION_PRIMARY_ASSET);
     createEReference(informationPrimaryAssetEClass, INFORMATION_PRIMARY_ASSET__EXCHANGE_ITEMS);
+    createEReference(informationPrimaryAssetEClass, INFORMATION_PRIMARY_ASSET__REALIZED_PRIMARY_ASSETS);
+    createEReference(informationPrimaryAssetEClass, INFORMATION_PRIMARY_ASSET__REALIZING_PRIMARY_ASSETS);
 
     primaryAssetMemberEClass = createEClass(PRIMARY_ASSET_MEMBER);
     createEReference(primaryAssetMemberEClass, PRIMARY_ASSET_MEMBER__ASSET);
@@ -821,6 +887,12 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
         !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getThreat_Rationale(), ecorePackage.getEString(), "rationale", null, 0, 1, Threat.class, //$NON-NLS-1$
         !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getThreat_RealizedThreats(), this.getThreat(), null, "realizedThreats", null, 0, -1, Threat.class, //$NON-NLS-1$
+        IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+        IS_DERIVED, IS_ORDERED);
+    initEReference(getThreat_RealizingThreats(), this.getThreat(), null, "realizingThreats", null, 0, -1, Threat.class, //$NON-NLS-1$
+        IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+        IS_DERIVED, IS_ORDERED);
 
     initEClass(threatInvolvementEClass, ThreatInvolvement.class, "ThreatInvolvement", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
         IS_GENERATED_INSTANCE_CLASS);
@@ -902,11 +974,23 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
     initEReference(getFunctionalPrimaryAsset_FunctionalChains(), theFaPackage.getFunctionalChain(), null,
         "functionalChains", null, 0, -1, FunctionalPrimaryAsset.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, //$NON-NLS-1$
         !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+    initEReference(getFunctionalPrimaryAsset_RealizedPrimaryAssets(), this.getFunctionalPrimaryAsset(), null,
+        "realizedPrimaryAssets", null, 0, -1, FunctionalPrimaryAsset.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, //$NON-NLS-1$
+        !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+    initEReference(getFunctionalPrimaryAsset_RealizingPrimaryAssets(), this.getFunctionalPrimaryAsset(), null,
+        "realizingPrimaryAssets", null, 0, -1, FunctionalPrimaryAsset.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, //$NON-NLS-1$
+        !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
     initEClass(informationPrimaryAssetEClass, InformationPrimaryAsset.class, "InformationPrimaryAsset", !IS_ABSTRACT, //$NON-NLS-1$
         !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getInformationPrimaryAsset_ExchangeItems(), theInformationPackage.getExchangeItem(), null,
         "exchangeItems", null, 0, -1, InformationPrimaryAsset.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, //$NON-NLS-1$
+        !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+    initEReference(getInformationPrimaryAsset_RealizedPrimaryAssets(), this.getInformationPrimaryAsset(), null,
+        "realizedPrimaryAssets", null, 0, -1, InformationPrimaryAsset.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, //$NON-NLS-1$
+        !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+    initEReference(getInformationPrimaryAsset_RealizingPrimaryAssets(), this.getInformationPrimaryAsset(), null,
+        "realizingPrimaryAssets", null, 0, -1, InformationPrimaryAsset.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, //$NON-NLS-1$
         !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
     initEClass(primaryAssetMemberEClass, PrimaryAssetMember.class, "PrimaryAssetMember", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
@@ -944,6 +1028,10 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
     createConstraintAnnotations();
     // http://www.polarsys.org/kitalpha/emde/1.0.0/constraintMapping
     createConstraintMappingAnnotations();
+    // http://www.polarsys.org/capella/derived
+    createDerivedAnnotations();
+    // http://www.polarsys.org/capella/semantic
+    createSemanticAnnotations();
   }
 
   /**
@@ -1006,6 +1094,38 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
     addAnnotation(cybersecurityConfigurationEClass, source, new String[] { "Mapping", //$NON-NLS-1$
         " platform:/plugin/org.polarsys.capella.core.data.gen/model/CompositeStructure.ecore#//BlockArchitecture" //$NON-NLS-1$
     });
+  }
+
+  /**
+   * Initializes the annotations for <b>http://www.polarsys.org/capella/derived</b>.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void createDerivedAnnotations() {
+    String source = "http://www.polarsys.org/capella/derived"; //$NON-NLS-1$
+    addAnnotation(getThreat_RealizedThreats(), source, new String[] {});
+    addAnnotation(getThreat_RealizingThreats(), source, new String[] {});
+    addAnnotation(getFunctionalPrimaryAsset_RealizedPrimaryAssets(), source, new String[] {});
+    addAnnotation(getFunctionalPrimaryAsset_RealizingPrimaryAssets(), source, new String[] {});
+    addAnnotation(getInformationPrimaryAsset_RealizedPrimaryAssets(), source, new String[] {});
+    addAnnotation(getInformationPrimaryAsset_RealizingPrimaryAssets(), source, new String[] {});
+  }
+
+  /**
+   * Initializes the annotations for <b>http://www.polarsys.org/capella/semantic</b>.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void createSemanticAnnotations() {
+    String source = "http://www.polarsys.org/capella/semantic"; //$NON-NLS-1$
+    addAnnotation(getThreat_RealizedThreats(), source, new String[] {});
+    addAnnotation(getThreat_RealizingThreats(), source, new String[] {});
+    addAnnotation(getFunctionalPrimaryAsset_RealizedPrimaryAssets(), source, new String[] {});
+    addAnnotation(getFunctionalPrimaryAsset_RealizingPrimaryAssets(), source, new String[] {});
+    addAnnotation(getInformationPrimaryAsset_RealizedPrimaryAssets(), source, new String[] {});
+    addAnnotation(getInformationPrimaryAsset_RealizingPrimaryAssets(), source, new String[] {});
   }
 
 } // CybersecurityPackageImpl
