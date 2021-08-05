@@ -10,4 +10,4 @@
 -->
 = Limitations =
 
-NA
+* Starting with Darc v1.0, the Primary Assets and Threats are displayed in the xAB diagrams as '''Ellipses'''. For older models, if Primary Assets and Threats are already inserted in the xAB diagrams as Squares, the user should do '''insert/remove''' to change their style and update the footprint of Primary Assets and Threats.
