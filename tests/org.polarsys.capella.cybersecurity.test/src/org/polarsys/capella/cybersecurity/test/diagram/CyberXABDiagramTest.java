@@ -21,6 +21,7 @@ import org.eclipse.sirius.diagram.DNodeContainer;
 import org.eclipse.sirius.diagram.EdgeStyle;
 import org.eclipse.sirius.diagram.FlatContainerStyle;
 import org.eclipse.sirius.diagram.Square;
+import org.eclipse.sirius.diagram.Ellipse;
 import org.eclipse.sirius.viewpoint.RGBValues;
 import org.eclipse.sirius.viewpoint.Style;
 import org.polarsys.capella.common.data.modellingcore.AbstractType;
@@ -95,15 +96,15 @@ public abstract class CyberXABDiagramTest extends EmptyProject {
   protected abstract void createDiagramElements();
 
   protected RGBValues getFpaColor() {
-    return ((Square) diagram.getView(fpa).getStyle()).getColor();
+    return ((Ellipse) diagram.getView(fpa).getStyle()).getColor();
   }
 
   protected RGBValues getIpaColor() {
-    return ((Square) diagram.getView(ipa).getStyle()).getColor();
+    return ((Ellipse) diagram.getView(ipa).getStyle()).getColor();
   }
 
   protected RGBValues getThreatColor() {
-    return ((Square) diagram.getView(threat).getStyle()).getColor();
+    return ((Ellipse) diagram.getView(threat).getStyle()).getColor();
   }
 
   protected void checkComponentLooksNormal(String component) {
@@ -292,13 +293,13 @@ public abstract class CyberXABDiagramTest extends EmptyProject {
       Style primaryAssetStyle = primaryAssetView.getStyle();
 
       // assert that the border color of the function and the primaryAsset are the same
-      assertEquals(((Square) functionStyle).getBorderColor(), ((Square) primaryAssetStyle).getColor());
+      assertEquals(((Square) functionStyle).getBorderColor(), ((Ellipse) primaryAssetStyle).getColor());
 
       // get view and style for the middle function
       DDiagramElement middleFunctionView = diagram.getView(diagram.getSemanticObjectMap().get("function6"));
       Style middleFunctionStyle = middleFunctionView.getStyle();
 
-      assertEquals(((Square) middleFunctionStyle).getBorderColor(), ((Square) primaryAssetStyle).getColor());
+      assertEquals(((Square) middleFunctionStyle).getBorderColor(), ((Ellipse) primaryAssetStyle).getColor());
     });
   }
 
@@ -332,7 +333,7 @@ public abstract class CyberXABDiagramTest extends EmptyProject {
 
       DDiagramElement informationAssetView = diagram.getView(diagram.getSemanticObjectMap().get(ipa1.getId()));
       Style informationAssetStyle = informationAssetView.getStyle();
-      assertEquals(((EdgeStyle) exchangeStyle).getStrokeColor(), ((Square) informationAssetStyle).getColor());
+      assertEquals(((EdgeStyle) exchangeStyle).getStrokeColor(), ((Ellipse) informationAssetStyle).getColor());
 
       InformationPrimaryAsset ipa2 = services
           .createInformationPrimaryAsset(context.getSemanticElement(getSystemId()));
