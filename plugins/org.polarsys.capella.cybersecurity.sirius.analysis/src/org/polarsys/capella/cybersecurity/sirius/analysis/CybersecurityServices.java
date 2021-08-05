@@ -48,7 +48,7 @@ import org.eclipse.sirius.diagram.DNode;
 import org.eclipse.sirius.diagram.DNodeContainer;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.diagram.DiagramPackage;
-import org.eclipse.sirius.diagram.Square;
+import org.eclipse.sirius.diagram.Ellipse;
 import org.eclipse.sirius.diagram.business.api.query.DDiagramQuery;
 import org.eclipse.sirius.diagram.description.Layer;
 import org.eclipse.sirius.viewpoint.DRepresentationElement;
@@ -226,14 +226,14 @@ public class CybersecurityServices {
         DDiagramElement element = DiagramServices.getDiagramServices().getDiagramElement(diagram, asset);
         if (element != null && element instanceof DNode) {
           nbOfElements++;
-          color = ((Square) element.getStyle()).getColor().getRed();
+          color = ((Ellipse) element.getStyle()).getColor().getRed();
         }
       }
       for (Threat threat : getRelatedThreats(e)) {
         DDiagramElement element = DiagramServices.getDiagramServices().getDiagramElement(diagram, threat);
         if (element != null && element instanceof DNode) {
           nbOfElements++;
-          color = ((Square) element.getStyle()).getColor().getRed();
+          color = ((Ellipse) element.getStyle()).getColor().getRed();
         }
       }
       return nbOfElements > 1 ? 0 : color;
@@ -261,14 +261,14 @@ public class CybersecurityServices {
         DDiagramElement element = DiagramServices.getDiagramServices().getDiagramElement(diagram, asset);
         if (element != null && element instanceof DNode) {
           nbOfElements++;
-          color = ((Square) element.getStyle()).getColor().getBlue();
+          color = ((Ellipse) element.getStyle()).getColor().getBlue();
         }
       }
       for (Threat threat : getRelatedThreats(e)) {
         DDiagramElement element = DiagramServices.getDiagramServices().getDiagramElement(diagram, threat);
         if (element != null && element instanceof DNode) {
           nbOfElements++;
-          color = ((Square) element.getStyle()).getColor().getBlue();
+          color = ((Ellipse) element.getStyle()).getColor().getBlue();
         }
       }
       return nbOfElements > 1 ? 0 : color;
@@ -296,14 +296,14 @@ public class CybersecurityServices {
         DDiagramElement element = DiagramServices.getDiagramServices().getDiagramElement(diagram, asset);
         if (element != null && element instanceof DNode) {
           nbOfElements++;
-          color = ((Square) element.getStyle()).getColor().getGreen();
+          color = ((Ellipse) element.getStyle()).getColor().getGreen();
         }
       }
       for (Threat threat : getRelatedThreats(e)) {
         DDiagramElement element = DiagramServices.getDiagramServices().getDiagramElement(diagram, threat);
         if (element != null && element instanceof DNode) {
           nbOfElements++;
-          color = ((Square) element.getStyle()).getColor().getGreen();
+          color = ((Ellipse) element.getStyle()).getColor().getGreen();
         }
       }
       return nbOfElements > 1 ? 0 : color;
@@ -1284,9 +1284,9 @@ public class CybersecurityServices {
 
   // make a new random color for every new asset node
   public EObject setNewRandomColor(DNode assetView) {
-    ((Square) assetView.getOwnedStyle())
+    ((Ellipse) assetView.getOwnedStyle())
         .setColor(RGBValues.create(colorRands.nextInt(), colorRands.nextInt(), colorRands.nextInt()));
-    ((Square) assetView.getOwnedStyle()).getCustomFeatures().add("color"); //$NON-NLS-1$
+    ((Ellipse) assetView.getOwnedStyle()).getCustomFeatures().add("color"); //$NON-NLS-1$
     return assetView;
   }
 

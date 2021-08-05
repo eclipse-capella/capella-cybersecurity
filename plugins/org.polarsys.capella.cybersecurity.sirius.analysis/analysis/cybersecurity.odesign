@@ -295,7 +295,7 @@
         <nodeMappings name="PrimaryAsset" createElements="false" domainClass="cybersecurity.PrimaryAsset">
           <deletionDescription href="../../org.polarsys.capella.core.sirius.analysis/description/common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Contextual%20Component%20Detailed%20Interfaces']/@defaultLayer/@toolSections.0/@ownedTools[name='delete%20capella%20elements']"/>
           <labelDirectEdit href="../../org.polarsys.capella.core.sirius.analysis/description/common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.0/@ownedTools[name='name']"/>
-          <style xsi:type="style:SquareDescription" labelSize="10" labelExpression="service:self.getPrimaryAssetLabel()" resizeKind="NSEW">
+          <style xsi:type="style:EllipseNodeDescription" labelSize="10" labelExpression="service:self.getPrimaryAssetLabel()" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
@@ -304,7 +304,7 @@
         <nodeMappings name="Threat" createElements="false" domainClass="cybersecurity.Threat">
           <deletionDescription href="../../org.polarsys.capella.core.sirius.analysis/description/common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Contextual%20Component%20Detailed%20Interfaces']/@defaultLayer/@toolSections.0/@ownedTools[name='delete%20capella%20elements']"/>
           <labelDirectEdit href="../../org.polarsys.capella.core.sirius.analysis/description/common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.0/@ownedTools[name='name']"/>
-          <style xsi:type="style:SquareDescription" labelSize="10" labelExpression="service:self.getThreatLabel()" resizeKind="NSEW">
+          <style xsi:type="style:EllipseNodeDescription" labelSize="10" labelExpression="service:self.getThreatLabel()" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
