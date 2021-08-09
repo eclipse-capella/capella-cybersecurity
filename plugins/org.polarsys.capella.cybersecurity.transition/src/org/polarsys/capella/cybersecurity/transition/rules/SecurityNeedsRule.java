@@ -15,7 +15,9 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.polarsys.capella.core.transition.common.constants.ITransitionConstants;
 import org.polarsys.capella.core.transition.common.handlers.attachment.AttachmentHelper;
+import org.polarsys.capella.core.transition.common.handlers.contextscope.ContextScopeHandlerHelper;
 import org.polarsys.capella.core.transition.common.rules.AbstractUpdateRule;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.SecurityNeeds;
@@ -73,16 +75,32 @@ public class SecurityNeedsRule extends AbstractUpdateRule {
   @Override
   protected void retrieveGoDeep(EObject source, List<EObject> result, IContext context) {
     super.retrieveGoDeep(source, result, context);
-
+    
     SecurityNeeds element = (SecurityNeeds) source;
+    EObject secNeedsContainer = getSecurityNeedsContainer(element);
+    if (secNeedsContainer != null) {
+      result.add(secNeedsContainer);
+      if (ContextScopeHandlerHelper.getInstance(context).contains(ITransitionConstants.SOURCE_SCOPE, source, context)) {
+        ContextScopeHandlerHelper.getInstance(context).add(ITransitionConstants.SOURCE_SCOPE, secNeedsContainer,
+            context);
+      }
+    }
+  }
+  
+  protected EObject getSecurityNeedsContainer(SecurityNeeds element) {
     if (element.getConfidentialityValue() != null)
-      result.add(element.getConfidentialityValue().eContainer().eContainer());
-    else if (element.getAvailabilityValue() != null)
-      result.add(element.getAvailabilityValue().eContainer().eContainer());
-    else if (element.getIntegrityValue() != null)
-      result.add(element.getIntegrityValue().eContainer().eContainer());
-    else if (element.getTraceabilityValue() != null)
-      result.add(element.getTraceabilityValue().eContainer().eContainer());
+      return element.getConfidentialityValue().eContainer().eContainer();
+
+    if (element.getAvailabilityValue() != null)
+      return element.getAvailabilityValue().eContainer().eContainer();
+
+    if (element.getIntegrityValue() != null)
+      return element.getIntegrityValue().eContainer().eContainer();
+
+    if (element.getTraceabilityValue() != null)
+      return element.getTraceabilityValue().eContainer().eContainer();
+
+    return null;
   }
 
 }
