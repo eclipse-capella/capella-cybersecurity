@@ -177,6 +177,10 @@
         </ownedPrimaryAssets>
         <ownedPrimaryAssets xsi:type="cybersecurity:InformationPrimaryAsset" id="c7583b9c-276d-4c44-8c54-9e3f928cb98b"
             name="InformationPrimaryAsset 2 SA"/>
+        <ownedPrimaryAssets xsi:type="cybersecurity:FunctionalPrimaryAsset" id="37e60d49-7838-435f-8b59-7c3c2b35fa6c"
+            name="FunctionalPrimaryAsset 3 SA"/>
+        <ownedPrimaryAssets xsi:type="cybersecurity:InformationPrimaryAsset" id="1a04c73c-a81d-4ae6-ade3-80537e032b50"
+            name="InformationPrimaryAsset 4 SA"/>
       </ownedExtensions>
       <ownedTraces xsi:type="org.polarsys.capella.core.data.capellacommon:TransfoLink"
           id="d28dad80-4bc1-4738-ad4a-2e5e6f5a532c" targetElement="#58b25370-b7df-4019-b38b-7d64ad157fb3"
@@ -329,6 +333,10 @@
         </ownedPrimaryAssets>
         <ownedPrimaryAssets xsi:type="cybersecurity:InformationPrimaryAsset" id="1b4b4f10-5370-46ac-bda8-c6f0fdc73e68"
             name="InformationPrimaryAsset 2 LA"/>
+        <ownedPrimaryAssets xsi:type="cybersecurity:FunctionalPrimaryAsset" id="dfcbdde0-cdb3-45d8-99be-46d556954b10"
+            name="FunctionalPrimaryAsset 3 LA"/>
+        <ownedPrimaryAssets xsi:type="cybersecurity:InformationPrimaryAsset" id="2dfdca0e-8145-4b17-afc9-0dcd1c17715e"
+            name="InformationPrimaryAsset 4 LA"/>
       </ownedExtensions>
       <ownedTraces xsi:type="org.polarsys.capella.core.data.capellacommon:TransfoLink"
           id="157dc242-5013-404f-8b94-339ce652a3d0" targetElement="#100b227c-6b62-4875-aded-7eeaddf8cba9"
@@ -342,6 +350,12 @@
       <ownedTraces xsi:type="org.polarsys.capella.core.data.capellacommon:TransfoLink"
           id="3e5dedef-f843-4ffa-a514-94a88ebf4d73" targetElement="#c7583b9c-276d-4c44-8c54-9e3f928cb98b"
           sourceElement="#1b4b4f10-5370-46ac-bda8-c6f0fdc73e68"/>
+      <ownedTraces xsi:type="org.polarsys.capella.core.data.capellacommon:TransfoLink"
+          id="10165646-6bc4-4cc5-9ef1-f1f72ad2db33" targetElement="#1a04c73c-a81d-4ae6-ade3-80537e032b50"
+          sourceElement="#dfcbdde0-cdb3-45d8-99be-46d556954b10"/>
+      <ownedTraces xsi:type="org.polarsys.capella.core.data.capellacommon:TransfoLink"
+          id="58f4d7c5-730a-4e9d-971c-6fbc561e9bec" targetElement="#37e60d49-7838-435f-8b59-7c3c2b35fa6c"
+          sourceElement="#2dfdca0e-8145-4b17-afc9-0dcd1c17715e"/>
       <ownedFunctionPkg xsi:type="org.polarsys.capella.core.data.la:LogicalFunctionPkg"
           id="13675cec-96d3-4ea5-99d3-8a4a695e8c72" name="Logical Functions">
         <ownedLogicalFunctions xsi:type="org.polarsys.capella.core.data.la:LogicalFunction"

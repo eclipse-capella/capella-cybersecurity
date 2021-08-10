@@ -83,17 +83,15 @@
     <genClasses ecoreClass="../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//PrimaryAsset">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//PrimaryAsset/ownedThreatApplications"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//PrimaryAsset/ownedMembers"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//PrimaryAsset/realizedPrimaryAssets"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//PrimaryAsset/realizingPrimaryAssets"/>
     </genClasses>
     <genClasses ecoreClass="../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//FunctionalPrimaryAsset">
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//FunctionalPrimaryAsset/functions"/>
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//FunctionalPrimaryAsset/functionalChains"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//FunctionalPrimaryAsset/realizedPrimaryAssets"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//FunctionalPrimaryAsset/realizingPrimaryAssets"/>
     </genClasses>
     <genClasses ecoreClass="../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//InformationPrimaryAsset">
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//InformationPrimaryAsset/exchangeItems"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//InformationPrimaryAsset/realizedPrimaryAssets"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//InformationPrimaryAsset/realizingPrimaryAssets"/>
     </genClasses>
     <genClasses image="false" ecoreClass="../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//PrimaryAssetMember">
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//PrimaryAssetMember/asset"/>

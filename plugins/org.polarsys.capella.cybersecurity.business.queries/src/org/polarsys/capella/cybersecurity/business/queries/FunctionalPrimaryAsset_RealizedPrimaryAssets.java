@@ -10,21 +10,20 @@
 *******************************************************************/
 package org.polarsys.capella.cybersecurity.business.queries;
 
-
 import org.eclipse.emf.ecore.EClass;
 import org.polarsys.capella.common.data.modellingcore.ModellingcorePackage;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
-import org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset;
+import org.polarsys.capella.cybersecurity.model.PrimaryAsset;
 
 public class FunctionalPrimaryAsset_RealizedPrimaryAssets extends CybersecurityRealizedElements {
 
   public FunctionalPrimaryAsset_RealizedPrimaryAssets() {
-    super(ModellingcorePackage.Literals.TRACEABLE_ELEMENT__OUTGOING_TRACES, FunctionalPrimaryAsset.class::isInstance,
+    super(ModellingcorePackage.Literals.TRACEABLE_ELEMENT__OUTGOING_TRACES, PrimaryAsset.class::isInstance,
         CybersecurityPackage.Literals.FUNCTIONAL_PRIMARY_ASSET);
   }
 
   @Override
   public EClass getExtensionClass() {
-    return CybersecurityPackage.Literals.FUNCTIONAL_PRIMARY_ASSET;
+    return CybersecurityPackage.Literals.PRIMARY_ASSET;
   }
 }

@@ -12,13 +12,16 @@ package org.polarsys.capella.cybersecurity.transition.rules;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
 import org.polarsys.capella.core.transition.common.constants.ITransitionConstants;
 import org.polarsys.capella.core.transition.common.handlers.attachment.AttachmentHelper;
 import org.polarsys.capella.core.transition.common.handlers.contextscope.ContextScopeHandlerHelper;
 import org.polarsys.capella.core.transition.system.rules.AbstractCapellaElementRule;
+import org.polarsys.capella.core.transition.system.topdown.handlers.transformation.TopDownTransformationHelper;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.PrimaryAsset;
 import org.polarsys.kitalpha.transposer.rules.handler.rules.api.IContext;
@@ -64,6 +67,15 @@ public class PrimaryAssetRule extends AbstractCapellaElementRule {
       ContextScopeHandlerHelper.getInstance(context).addAll(ITransitionConstants.SOURCE_SCOPE,
           ((PrimaryAsset) source).getOwnedThreatApplications(), context);
     }
+  }
+
+  @Override
+  public EClass getTargetType(EObject element, IContext context) {
+    if (!TopDownTransformationHelper.getInstance(context).retrieveTargetTracedElements(element, context).isEmpty()) {
+      return TopDownTransformationHelper.getInstance(context).retrieveTargetTracedElements(element, context).stream()
+          .collect(Collectors.toList()).get(0).eClass();
+    }
+    return super.getTargetType(element, context);
   }
 
 }
