@@ -23,11 +23,13 @@ import org.polarsys.capella.cybersecurity.sirius.analysis.CybersecurityServices;
 
 public class InformationPrimaryAssetsRealizedTest extends CybersecurityQueriesTest {
   PrimaryAsset oaPA;
+  PrimaryAsset oaFPA;
   PrimaryAsset saPA;
 
   protected void init() {
     super.init();
     oaPA = CybersecurityFactory.eINSTANCE.createInformationPrimaryAsset();
+    oaFPA = CybersecurityFactory.eINSTANCE.createFunctionalPrimaryAsset();
     saPA = CybersecurityFactory.eINSTANCE.createInformationPrimaryAsset();
     
     AbstractReadWriteCommand cmd = new AbstractReadWriteCommand() {
@@ -35,6 +37,7 @@ public class InformationPrimaryAssetsRealizedTest extends CybersecurityQueriesTe
       public void run() {
         CybersecurityPkg oaPkg = new CybersecurityServices().getDefaultCyberSecurityPackage(oaArch, true);
         oaPkg.getOwnedPrimaryAssets().add(oaPA);
+        oaPkg.getOwnedPrimaryAssets().add(oaFPA);
         CybersecurityPkg saPkg = new CybersecurityServices().getDefaultCyberSecurityPackage(saArch, true);
         saPkg.getOwnedPrimaryAssets().add(saPA);
       }
@@ -46,6 +49,7 @@ public class InformationPrimaryAssetsRealizedTest extends CybersecurityQueriesTe
   protected void doTest() {
     List<EObject> elements = new InformationPrimaryAsset_RealizedPrimaryAssets().getAvailableElements(saPA);
     assertTrue(elements.contains(oaPA));
+    assertTrue(elements.contains(oaFPA));
     assertFalse(elements.contains(saPA));
   }
 }

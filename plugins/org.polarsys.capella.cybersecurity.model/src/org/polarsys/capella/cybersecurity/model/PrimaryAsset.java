@@ -25,6 +25,8 @@ import org.polarsys.capella.core.data.capellacore.NamedElement;
  * <ul>
  *   <li>{@link org.polarsys.capella.cybersecurity.model.PrimaryAsset#getOwnedThreatApplications <em>Owned Threat Applications</em>}</li>
  *   <li>{@link org.polarsys.capella.cybersecurity.model.PrimaryAsset#getOwnedMembers <em>Owned Members</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.PrimaryAsset#getRealizedPrimaryAssets <em>Realized Primary Assets</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.PrimaryAsset#getRealizingPrimaryAssets <em>Realizing Primary Assets</em>}</li>
  * </ul>
  *
  * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getPrimaryAsset()
@@ -69,5 +71,37 @@ public interface PrimaryAsset extends NamedElement {
    */
 
   EList<PrimaryAssetMember> getOwnedMembers();
+
+  /**
+   * Returns the value of the '<em><b>Realized Primary Assets</b></em>' reference list.
+   * The list contents are of type {@link org.polarsys.capella.cybersecurity.model.PrimaryAsset}.
+  
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Realized Primary Assets</em>' reference list.
+   * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getPrimaryAsset_RealizedPrimaryAssets()
+   * @model transient="true" changeable="false" volatile="true" derived="true"
+   *        annotation="http://www.polarsys.org/capella/derived"
+   *        annotation="http://www.polarsys.org/capella/semantic"
+   * @generated
+   */
+
+  EList<PrimaryAsset> getRealizedPrimaryAssets();
+
+  /**
+   * Returns the value of the '<em><b>Realizing Primary Assets</b></em>' reference list.
+   * The list contents are of type {@link org.polarsys.capella.cybersecurity.model.PrimaryAsset}.
+  
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Realizing Primary Assets</em>' reference list.
+   * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getPrimaryAsset_RealizingPrimaryAssets()
+   * @model transient="true" changeable="false" volatile="true" derived="true"
+   *        annotation="http://www.polarsys.org/capella/derived"
+   *        annotation="http://www.polarsys.org/capella/semantic"
+   * @generated
+   */
+
+  EList<PrimaryAsset> getRealizingPrimaryAssets();
 
 } // PrimaryAsset

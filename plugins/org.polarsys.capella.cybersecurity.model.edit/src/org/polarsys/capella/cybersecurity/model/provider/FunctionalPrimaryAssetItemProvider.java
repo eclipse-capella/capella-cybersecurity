@@ -57,8 +57,6 @@ public class FunctionalPrimaryAssetItemProvider extends PrimaryAssetItemProvider
 
       addFunctionsPropertyDescriptor(object);
       addFunctionalChainsPropertyDescriptor(object);
-      addRealizedPrimaryAssetsPropertyDescriptor(object);
-      addRealizingPrimaryAssetsPropertyDescriptor(object);
     }
     // begin-extension-code
     checkChildCreationExtender(object);
@@ -102,50 +100,6 @@ public class FunctionalPrimaryAssetItemProvider extends PrimaryAssetItemProvider
         getString("_UI_PropertyDescriptor_description", "_UI_FunctionalPrimaryAsset_functionalChains_feature", //$NON-NLS-1$//$NON-NLS-2$
             "_UI_FunctionalPrimaryAsset_type"), //$NON-NLS-1$
         CybersecurityPackage.Literals.FUNCTIONAL_PRIMARY_ASSET__FUNCTIONAL_CHAINS, false, false, false, null, null,
-        // begin-extension-code
-        null));
-    // end-extension-code
-  }
-
-  /**
-   * This adds a property descriptor for the Realized Primary Assets feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addRealizedPrimaryAssetsPropertyDescriptor(Object object) {
-
-    // begin-extension-code
-    itemPropertyDescriptors.add(createItemPropertyDescriptor
-    // end-extension-code
-    (((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-        getString("_UI_FunctionalPrimaryAsset_realizedPrimaryAssets_feature"), //$NON-NLS-1$
-        getString("_UI_PropertyDescriptor_description", "_UI_FunctionalPrimaryAsset_realizedPrimaryAssets_feature", //$NON-NLS-1$//$NON-NLS-2$
-            "_UI_FunctionalPrimaryAsset_type"), //$NON-NLS-1$
-        CybersecurityPackage.Literals.FUNCTIONAL_PRIMARY_ASSET__REALIZED_PRIMARY_ASSETS, false, false, false, null,
-        null,
-        // begin-extension-code
-        null));
-    // end-extension-code
-  }
-
-  /**
-   * This adds a property descriptor for the Realizing Primary Assets feature.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addRealizingPrimaryAssetsPropertyDescriptor(Object object) {
-
-    // begin-extension-code
-    itemPropertyDescriptors.add(createItemPropertyDescriptor
-    // end-extension-code
-    (((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-        getString("_UI_FunctionalPrimaryAsset_realizingPrimaryAssets_feature"), //$NON-NLS-1$
-        getString("_UI_PropertyDescriptor_description", "_UI_FunctionalPrimaryAsset_realizingPrimaryAssets_feature", //$NON-NLS-1$//$NON-NLS-2$
-            "_UI_FunctionalPrimaryAsset_type"), //$NON-NLS-1$
-        CybersecurityPackage.Literals.FUNCTIONAL_PRIMARY_ASSET__REALIZING_PRIMARY_ASSETS, false, false, false, null,
-        null,
         // begin-extension-code
         null));
     // end-extension-code

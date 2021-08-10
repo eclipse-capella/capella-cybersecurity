@@ -99,6 +99,18 @@
         upperBound="-1" eType="#//ThreatApplication" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedMembers" upperBound="-1"
         eType="#//PrimaryAssetMember" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="realizedPrimaryAssets"
+        upperBound="-1" eType="#//PrimaryAsset" changeable="false" volatile="true"
+        transient="true" derived="true">
+      <eAnnotations source="http://www.polarsys.org/capella/derived"/>
+      <eAnnotations source="http://www.polarsys.org/capella/semantic"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="realizingPrimaryAssets"
+        upperBound="-1" eType="#//PrimaryAsset" changeable="false" volatile="true"
+        transient="true" derived="true">
+      <eAnnotations source="http://www.polarsys.org/capella/derived"/>
+      <eAnnotations source="http://www.polarsys.org/capella/semantic"/>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FunctionalPrimaryAsset" eSuperTypes="#//PrimaryAsset">
     <eStructuralFeatures xsi:type="ecore:EReference" name="functions" upperBound="-1"
@@ -107,35 +119,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="functionalChains" upperBound="-1"
         eType="ecore:EClass platform:/plugin/org.polarsys.capella.core.data.gen/model/FunctionalAnalysis.ecore#//FunctionalChain"
         changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="realizedPrimaryAssets"
-        upperBound="-1" eType="#//FunctionalPrimaryAsset" changeable="false" volatile="true"
-        transient="true" derived="true">
-      <eAnnotations source="http://www.polarsys.org/capella/derived"/>
-      <eAnnotations source="http://www.polarsys.org/capella/semantic"/>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="realizingPrimaryAssets"
-        upperBound="-1" eType="#//FunctionalPrimaryAsset" changeable="false" volatile="true"
-        transient="true" derived="true">
-      <eAnnotations source="http://www.polarsys.org/capella/derived"/>
-      <eAnnotations source="http://www.polarsys.org/capella/semantic"/>
-    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InformationPrimaryAsset" eSuperTypes="#//PrimaryAsset">
     <eStructuralFeatures xsi:type="ecore:EReference" name="exchangeItems" upperBound="-1"
         eType="ecore:EClass platform:/plugin/org.polarsys.capella.core.data.gen/model/Information.ecore#//ExchangeItem"
         changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="realizedPrimaryAssets"
-        upperBound="-1" eType="#//InformationPrimaryAsset" changeable="false" volatile="true"
-        transient="true" derived="true">
-      <eAnnotations source="http://www.polarsys.org/capella/derived"/>
-      <eAnnotations source="http://www.polarsys.org/capella/semantic"/>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="realizingPrimaryAssets"
-        upperBound="-1" eType="#//InformationPrimaryAsset" changeable="false" volatile="true"
-        transient="true" derived="true">
-      <eAnnotations source="http://www.polarsys.org/capella/derived"/>
-      <eAnnotations source="http://www.polarsys.org/capella/semantic"/>
-    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PrimaryAssetMember" eSuperTypes="platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#//Relationship">
     <eStructuralFeatures xsi:type="ecore:EReference" name="asset" eType="#//PrimaryAsset"
