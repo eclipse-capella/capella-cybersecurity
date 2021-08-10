@@ -2151,13 +2151,31 @@ public interface CybersecurityPackage extends EPackage {
   int PRIMARY_ASSET__OWNED_MEMBERS = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
 
   /**
+   * The feature id for the '<em><b>Realized Primary Assets</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_ASSET__REALIZED_PRIMARY_ASSETS = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Realizing Primary Assets</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_ASSET__REALIZING_PRIMARY_ASSETS = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+  /**
    * The number of structural features of the '<em>Primary Asset</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
    * -->
    * 
    * @generated
    * @ordered
    */
-  int PRIMARY_ASSET_FEATURE_COUNT = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
+  int PRIMARY_ASSET_FEATURE_COUNT = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link org.polarsys.capella.cybersecurity.model.impl.FunctionalPrimaryAssetImpl <em>Functional Primary Asset</em>}' class.
@@ -2374,6 +2392,24 @@ public interface CybersecurityPackage extends EPackage {
   int FUNCTIONAL_PRIMARY_ASSET__OWNED_MEMBERS = PRIMARY_ASSET__OWNED_MEMBERS;
 
   /**
+   * The feature id for the '<em><b>Realized Primary Assets</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTIONAL_PRIMARY_ASSET__REALIZED_PRIMARY_ASSETS = PRIMARY_ASSET__REALIZED_PRIMARY_ASSETS;
+
+  /**
+   * The feature id for the '<em><b>Realizing Primary Assets</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTIONAL_PRIMARY_ASSET__REALIZING_PRIMARY_ASSETS = PRIMARY_ASSET__REALIZING_PRIMARY_ASSETS;
+
+  /**
    * The feature id for the '<em><b>Functions</b></em>' reference list.
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
@@ -2391,31 +2427,13 @@ public interface CybersecurityPackage extends EPackage {
   int FUNCTIONAL_PRIMARY_ASSET__FUNCTIONAL_CHAINS = PRIMARY_ASSET_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Realized Primary Assets</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTIONAL_PRIMARY_ASSET__REALIZED_PRIMARY_ASSETS = PRIMARY_ASSET_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Realizing Primary Assets</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTIONAL_PRIMARY_ASSET__REALIZING_PRIMARY_ASSETS = PRIMARY_ASSET_FEATURE_COUNT + 3;
-
-  /**
    * The number of structural features of the '<em>Functional Primary Asset</em>' class.
    * <!-- begin-user-doc --> <!--
    * end-user-doc -->
    * @generated
    * @ordered
    */
-  int FUNCTIONAL_PRIMARY_ASSET_FEATURE_COUNT = PRIMARY_ASSET_FEATURE_COUNT + 4;
+  int FUNCTIONAL_PRIMARY_ASSET_FEATURE_COUNT = PRIMARY_ASSET_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.polarsys.capella.cybersecurity.model.impl.InformationPrimaryAssetImpl <em>Information Primary Asset</em>}' class.
@@ -2632,6 +2650,24 @@ public interface CybersecurityPackage extends EPackage {
   int INFORMATION_PRIMARY_ASSET__OWNED_MEMBERS = PRIMARY_ASSET__OWNED_MEMBERS;
 
   /**
+   * The feature id for the '<em><b>Realized Primary Assets</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INFORMATION_PRIMARY_ASSET__REALIZED_PRIMARY_ASSETS = PRIMARY_ASSET__REALIZED_PRIMARY_ASSETS;
+
+  /**
+   * The feature id for the '<em><b>Realizing Primary Assets</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INFORMATION_PRIMARY_ASSET__REALIZING_PRIMARY_ASSETS = PRIMARY_ASSET__REALIZING_PRIMARY_ASSETS;
+
+  /**
    * The feature id for the '<em><b>Exchange Items</b></em>' reference list. <!-- begin-user-doc --> <!-- end-user-doc
    * -->
    * 
@@ -2641,31 +2677,13 @@ public interface CybersecurityPackage extends EPackage {
   int INFORMATION_PRIMARY_ASSET__EXCHANGE_ITEMS = PRIMARY_ASSET_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Realized Primary Assets</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INFORMATION_PRIMARY_ASSET__REALIZED_PRIMARY_ASSETS = PRIMARY_ASSET_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Realizing Primary Assets</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INFORMATION_PRIMARY_ASSET__REALIZING_PRIMARY_ASSETS = PRIMARY_ASSET_FEATURE_COUNT + 2;
-
-  /**
    * The number of structural features of the '<em>Information Primary Asset</em>' class.
    * <!-- begin-user-doc --> <!--
    * end-user-doc -->
    * @generated
    * @ordered
    */
-  int INFORMATION_PRIMARY_ASSET_FEATURE_COUNT = PRIMARY_ASSET_FEATURE_COUNT + 3;
+  int INFORMATION_PRIMARY_ASSET_FEATURE_COUNT = PRIMARY_ASSET_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.polarsys.capella.cybersecurity.model.impl.PrimaryAssetMemberImpl <em>Primary Asset Member</em>}' class.
@@ -3522,6 +3540,28 @@ public interface CybersecurityPackage extends EPackage {
   EReference getPrimaryAsset_OwnedMembers();
 
   /**
+   * Returns the meta object for the reference list '{@link org.polarsys.capella.cybersecurity.model.PrimaryAsset#getRealizedPrimaryAssets <em>Realized Primary Assets</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Realized Primary Assets</em>'.
+   * @see org.polarsys.capella.cybersecurity.model.PrimaryAsset#getRealizedPrimaryAssets()
+   * @see #getPrimaryAsset()
+   * @generated
+   */
+  EReference getPrimaryAsset_RealizedPrimaryAssets();
+
+  /**
+   * Returns the meta object for the reference list '{@link org.polarsys.capella.cybersecurity.model.PrimaryAsset#getRealizingPrimaryAssets <em>Realizing Primary Assets</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Realizing Primary Assets</em>'.
+   * @see org.polarsys.capella.cybersecurity.model.PrimaryAsset#getRealizingPrimaryAssets()
+   * @see #getPrimaryAsset()
+   * @generated
+   */
+  EReference getPrimaryAsset_RealizingPrimaryAssets();
+
+  /**
    * Returns the meta object for class '{@link org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset <em>Functional Primary Asset</em>}'.
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @return the meta object for class '<em>Functional Primary Asset</em>'.
@@ -3554,28 +3594,6 @@ public interface CybersecurityPackage extends EPackage {
   EReference getFunctionalPrimaryAsset_FunctionalChains();
 
   /**
-   * Returns the meta object for the reference list '{@link org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset#getRealizedPrimaryAssets <em>Realized Primary Assets</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Realized Primary Assets</em>'.
-   * @see org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset#getRealizedPrimaryAssets()
-   * @see #getFunctionalPrimaryAsset()
-   * @generated
-   */
-  EReference getFunctionalPrimaryAsset_RealizedPrimaryAssets();
-
-  /**
-   * Returns the meta object for the reference list '{@link org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset#getRealizingPrimaryAssets <em>Realizing Primary Assets</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Realizing Primary Assets</em>'.
-   * @see org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset#getRealizingPrimaryAssets()
-   * @see #getFunctionalPrimaryAsset()
-   * @generated
-   */
-  EReference getFunctionalPrimaryAsset_RealizingPrimaryAssets();
-
-  /**
    * Returns the meta object for class '{@link org.polarsys.capella.cybersecurity.model.InformationPrimaryAsset <em>Information Primary Asset</em>}'.
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @return the meta object for class '<em>Information Primary Asset</em>'.
@@ -3593,28 +3611,6 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    */
   EReference getInformationPrimaryAsset_ExchangeItems();
-
-  /**
-   * Returns the meta object for the reference list '{@link org.polarsys.capella.cybersecurity.model.InformationPrimaryAsset#getRealizedPrimaryAssets <em>Realized Primary Assets</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Realized Primary Assets</em>'.
-   * @see org.polarsys.capella.cybersecurity.model.InformationPrimaryAsset#getRealizedPrimaryAssets()
-   * @see #getInformationPrimaryAsset()
-   * @generated
-   */
-  EReference getInformationPrimaryAsset_RealizedPrimaryAssets();
-
-  /**
-   * Returns the meta object for the reference list '{@link org.polarsys.capella.cybersecurity.model.InformationPrimaryAsset#getRealizingPrimaryAssets <em>Realizing Primary Assets</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Realizing Primary Assets</em>'.
-   * @see org.polarsys.capella.cybersecurity.model.InformationPrimaryAsset#getRealizingPrimaryAssets()
-   * @see #getInformationPrimaryAsset()
-   * @generated
-   */
-  EReference getInformationPrimaryAsset_RealizingPrimaryAssets();
 
   /**
    * Returns the meta object for class '{@link org.polarsys.capella.cybersecurity.model.PrimaryAssetMember <em>Primary Asset Member</em>}'.
@@ -4021,6 +4017,22 @@ public interface CybersecurityPackage extends EPackage {
     EReference PRIMARY_ASSET__OWNED_MEMBERS = eINSTANCE.getPrimaryAsset_OwnedMembers();
 
     /**
+     * The meta object literal for the '<em><b>Realized Primary Assets</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PRIMARY_ASSET__REALIZED_PRIMARY_ASSETS = eINSTANCE.getPrimaryAsset_RealizedPrimaryAssets();
+
+    /**
+     * The meta object literal for the '<em><b>Realizing Primary Assets</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PRIMARY_ASSET__REALIZING_PRIMARY_ASSETS = eINSTANCE.getPrimaryAsset_RealizingPrimaryAssets();
+
+    /**
      * The meta object literal for the '{@link org.polarsys.capella.cybersecurity.model.impl.FunctionalPrimaryAssetImpl <em>Functional Primary Asset</em>}' class.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @see org.polarsys.capella.cybersecurity.model.impl.FunctionalPrimaryAssetImpl
@@ -4046,24 +4058,6 @@ public interface CybersecurityPackage extends EPackage {
     EReference FUNCTIONAL_PRIMARY_ASSET__FUNCTIONAL_CHAINS = eINSTANCE.getFunctionalPrimaryAsset_FunctionalChains();
 
     /**
-     * The meta object literal for the '<em><b>Realized Primary Assets</b></em>' reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference FUNCTIONAL_PRIMARY_ASSET__REALIZED_PRIMARY_ASSETS = eINSTANCE
-        .getFunctionalPrimaryAsset_RealizedPrimaryAssets();
-
-    /**
-     * The meta object literal for the '<em><b>Realizing Primary Assets</b></em>' reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference FUNCTIONAL_PRIMARY_ASSET__REALIZING_PRIMARY_ASSETS = eINSTANCE
-        .getFunctionalPrimaryAsset_RealizingPrimaryAssets();
-
-    /**
      * The meta object literal for the '{@link org.polarsys.capella.cybersecurity.model.impl.InformationPrimaryAssetImpl <em>Information Primary Asset</em>}' class.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @see org.polarsys.capella.cybersecurity.model.impl.InformationPrimaryAssetImpl
@@ -4079,24 +4073,6 @@ public interface CybersecurityPackage extends EPackage {
      * @generated
      */
     EReference INFORMATION_PRIMARY_ASSET__EXCHANGE_ITEMS = eINSTANCE.getInformationPrimaryAsset_ExchangeItems();
-
-    /**
-     * The meta object literal for the '<em><b>Realized Primary Assets</b></em>' reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference INFORMATION_PRIMARY_ASSET__REALIZED_PRIMARY_ASSETS = eINSTANCE
-        .getInformationPrimaryAsset_RealizedPrimaryAssets();
-
-    /**
-     * The meta object literal for the '<em><b>Realizing Primary Assets</b></em>' reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference INFORMATION_PRIMARY_ASSET__REALIZING_PRIMARY_ASSETS = eINSTANCE
-        .getInformationPrimaryAsset_RealizingPrimaryAssets();
 
     /**
      * The meta object literal for the '{@link org.polarsys.capella.cybersecurity.model.impl.PrimaryAssetMemberImpl <em>Primary Asset Member</em>}' class.

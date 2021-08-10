@@ -27,8 +27,6 @@ import org.polarsys.capella.core.data.fa.FunctionalChain;
  * <ul>
  *   <li>{@link org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset#getFunctions <em>Functions</em>}</li>
  *   <li>{@link org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset#getFunctionalChains <em>Functional Chains</em>}</li>
- *   <li>{@link org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset#getRealizedPrimaryAssets <em>Realized Primary Assets</em>}</li>
- *   <li>{@link org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset#getRealizingPrimaryAssets <em>Realizing Primary Assets</em>}</li>
  * </ul>
  *
  * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getFunctionalPrimaryAsset()
@@ -69,37 +67,5 @@ public interface FunctionalPrimaryAsset extends PrimaryAsset {
    */
 
   EList<FunctionalChain> getFunctionalChains();
-
-  /**
-   * Returns the value of the '<em><b>Realized Primary Assets</b></em>' reference list.
-   * The list contents are of type {@link org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset}.
-  
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Realized Primary Assets</em>' reference list.
-   * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getFunctionalPrimaryAsset_RealizedPrimaryAssets()
-   * @model transient="true" changeable="false" volatile="true" derived="true"
-   *        annotation="http://www.polarsys.org/capella/derived"
-   *        annotation="http://www.polarsys.org/capella/semantic"
-   * @generated
-   */
-
-  EList<FunctionalPrimaryAsset> getRealizedPrimaryAssets();
-
-  /**
-   * Returns the value of the '<em><b>Realizing Primary Assets</b></em>' reference list.
-   * The list contents are of type {@link org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset}.
-  
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Realizing Primary Assets</em>' reference list.
-   * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getFunctionalPrimaryAsset_RealizingPrimaryAssets()
-   * @model transient="true" changeable="false" volatile="true" derived="true"
-   *        annotation="http://www.polarsys.org/capella/derived"
-   *        annotation="http://www.polarsys.org/capella/semantic"
-   * @generated
-   */
-
-  EList<FunctionalPrimaryAsset> getRealizingPrimaryAssets();
 
 } // FunctionalPrimaryAsset

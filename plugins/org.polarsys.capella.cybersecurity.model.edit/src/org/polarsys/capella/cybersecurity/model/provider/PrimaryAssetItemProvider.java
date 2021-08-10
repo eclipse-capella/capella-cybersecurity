@@ -20,6 +20,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.CommandParameter;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -61,11 +62,55 @@ public class PrimaryAssetItemProvider extends NamedElementItemProvider implement
     if (itemPropertyDescriptors == null) {
       super.getPropertyDescriptors(object);
 
+      addRealizedPrimaryAssetsPropertyDescriptor(object);
+      addRealizingPrimaryAssetsPropertyDescriptor(object);
     }
     // begin-extension-code
     checkChildCreationExtender(object);
     // end-extension-code
     return itemPropertyDescriptors;
+  }
+
+  /**
+   * This adds a property descriptor for the Realized Primary Assets feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addRealizedPrimaryAssetsPropertyDescriptor(Object object) {
+
+    // begin-extension-code
+    itemPropertyDescriptors.add(createItemPropertyDescriptor
+    // end-extension-code
+    (((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+        getString("_UI_PrimaryAsset_realizedPrimaryAssets_feature"), //$NON-NLS-1$
+        getString("_UI_PropertyDescriptor_description", "_UI_PrimaryAsset_realizedPrimaryAssets_feature", //$NON-NLS-1$//$NON-NLS-2$
+            "_UI_PrimaryAsset_type"), //$NON-NLS-1$
+        CybersecurityPackage.Literals.PRIMARY_ASSET__REALIZED_PRIMARY_ASSETS, false, false, false, null, null,
+        // begin-extension-code
+        null));
+    // end-extension-code
+  }
+
+  /**
+   * This adds a property descriptor for the Realizing Primary Assets feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addRealizingPrimaryAssetsPropertyDescriptor(Object object) {
+
+    // begin-extension-code
+    itemPropertyDescriptors.add(createItemPropertyDescriptor
+    // end-extension-code
+    (((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+        getString("_UI_PrimaryAsset_realizingPrimaryAssets_feature"), //$NON-NLS-1$
+        getString("_UI_PropertyDescriptor_description", "_UI_PrimaryAsset_realizingPrimaryAssets_feature", //$NON-NLS-1$//$NON-NLS-2$
+            "_UI_PrimaryAsset_type"), //$NON-NLS-1$
+        CybersecurityPackage.Literals.PRIMARY_ASSET__REALIZING_PRIMARY_ASSETS, false, false, false, null, null,
+        // begin-extension-code
+        null));
+    // end-extension-code
   }
 
   /**

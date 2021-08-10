@@ -39,8 +39,6 @@ import org.polarsys.capella.cybersecurity.model.PrimaryAssetMember;
  * </p>
  * <ul>
  *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.InformationPrimaryAssetImpl#getExchangeItems <em>Exchange Items</em>}</li>
- *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.InformationPrimaryAssetImpl#getRealizedPrimaryAssets <em>Realized Primary Assets</em>}</li>
- *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.InformationPrimaryAssetImpl#getRealizingPrimaryAssets <em>Realizing Primary Assets</em>}</li>
  * </ul>
  *
  * @generated
@@ -84,95 +82,6 @@ public class InformationPrimaryAssetImpl extends PrimaryAssetImpl implements Inf
   }
 
   /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated NOT
-   */
-
-  @Override
-  public EList<InformationPrimaryAsset> getRealizedPrimaryAssets() {
-    Object result = null;
-    // Helper that can get value for current feature.
-    IHelper helper = null;
-    // If current object is adaptable, ask it to get its IHelper.
-    if (this instanceof IAdaptable) {
-      helper = (IHelper) ((IAdaptable) this).getAdapter(IHelper.class);
-    }
-    if (null == helper) {
-      // No helper found yet.
-      // Ask the platform to get the adapter 'IHelper.class' for current object.
-      IAdapterManager adapterManager = Platform.getAdapterManager();
-      helper = (IHelper) adapterManager.getAdapter(this, IHelper.class);
-    }
-    if (null == helper) {
-      EPackage package_l = eClass().getEPackage();
-      // Get the root package of the owner package.
-      EPackage rootPackage = org.polarsys.capella.common.mdsofa.common.helper.EcoreHelper.getRootPackage(package_l);
-      throw new org.polarsys.capella.common.model.helpers.HelperNotFoundException(
-          "No helper retrieved for nsURI " + rootPackage.getNsURI()); //$NON-NLS-1$
-    }
-    // A helper is found, let's use it. 
-    EAnnotation annotation = CybersecurityPackage.Literals.INFORMATION_PRIMARY_ASSET__REALIZED_PRIMARY_ASSETS
-        .getEAnnotation(org.polarsys.capella.common.model.helpers.IModelConstants.HELPER_ANNOTATION_SOURCE);
-    result = helper.getValue(this, CybersecurityPackage.Literals.INFORMATION_PRIMARY_ASSET__REALIZED_PRIMARY_ASSETS, annotation);
-
-    try {
-      @SuppressWarnings("unchecked")
-      Collection<Component> resultAsList = (Collection<Component>) result;
-      return new EcoreEList.UnmodifiableEList<InformationPrimaryAsset>(this, CybersecurityPackage.Literals.INFORMATION_PRIMARY_ASSET__REALIZED_PRIMARY_ASSETS,
-          resultAsList.size(), resultAsList.toArray());
-    } catch (ClassCastException exception) {
-      exception.printStackTrace();
-      return org.eclipse.emf.common.util.ECollections.emptyEList();
-    }
-
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated NOT
-   */
-
-  @Override
-  public EList<InformationPrimaryAsset> getRealizingPrimaryAssets() {
-    Object result = null;
-    // Helper that can get value for current feature.
-    IHelper helper = null;
-    // If current object is adaptable, ask it to get its IHelper.
-    if (this instanceof IAdaptable) {
-      helper = (IHelper) ((IAdaptable) this).getAdapter(IHelper.class);
-    }
-    if (null == helper) {
-      // No helper found yet.
-      // Ask the platform to get the adapter 'IHelper.class' for current object.
-      IAdapterManager adapterManager = Platform.getAdapterManager();
-      helper = (IHelper) adapterManager.getAdapter(this, IHelper.class);
-    }
-    if (null == helper) {
-      EPackage package_l = eClass().getEPackage();
-      // Get the root package of the owner package.
-      EPackage rootPackage = org.polarsys.capella.common.mdsofa.common.helper.EcoreHelper.getRootPackage(package_l);
-      throw new org.polarsys.capella.common.model.helpers.HelperNotFoundException(
-          "No helper retrieved for nsURI " + rootPackage.getNsURI()); //$NON-NLS-1$
-    }
-    // A helper is found, let's use it. 
-    EAnnotation annotation = CybersecurityPackage.Literals.INFORMATION_PRIMARY_ASSET__REALIZING_PRIMARY_ASSETS
-        .getEAnnotation(org.polarsys.capella.common.model.helpers.IModelConstants.HELPER_ANNOTATION_SOURCE);
-    result = helper.getValue(this, CybersecurityPackage.Literals.INFORMATION_PRIMARY_ASSET__REALIZING_PRIMARY_ASSETS, annotation);
-
-    try {
-      @SuppressWarnings("unchecked")
-      Collection<Component> resultAsList = (Collection<Component>) result;
-      return new EcoreEList.UnmodifiableEList<InformationPrimaryAsset>(this, CybersecurityPackage.Literals.INFORMATION_PRIMARY_ASSET__REALIZING_PRIMARY_ASSETS,
-          resultAsList.size(), resultAsList.toArray());
-    } catch (ClassCastException exception) {
-      exception.printStackTrace();
-      return org.eclipse.emf.common.util.ECollections.emptyEList();
-    }
-  }
-
-  /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
@@ -181,10 +90,6 @@ public class InformationPrimaryAssetImpl extends PrimaryAssetImpl implements Inf
     switch (featureID) {
     case CybersecurityPackage.INFORMATION_PRIMARY_ASSET__EXCHANGE_ITEMS:
       return getExchangeItems();
-    case CybersecurityPackage.INFORMATION_PRIMARY_ASSET__REALIZED_PRIMARY_ASSETS:
-      return getRealizedPrimaryAssets();
-    case CybersecurityPackage.INFORMATION_PRIMARY_ASSET__REALIZING_PRIMARY_ASSETS:
-      return getRealizingPrimaryAssets();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -198,10 +103,6 @@ public class InformationPrimaryAssetImpl extends PrimaryAssetImpl implements Inf
     switch (featureID) {
     case CybersecurityPackage.INFORMATION_PRIMARY_ASSET__EXCHANGE_ITEMS:
       return !getExchangeItems().isEmpty();
-    case CybersecurityPackage.INFORMATION_PRIMARY_ASSET__REALIZED_PRIMARY_ASSETS:
-      return !getRealizedPrimaryAssets().isEmpty();
-    case CybersecurityPackage.INFORMATION_PRIMARY_ASSET__REALIZING_PRIMARY_ASSETS:
-      return !getRealizingPrimaryAssets().isEmpty();
     }
     return super.eIsSet(featureID);
   }

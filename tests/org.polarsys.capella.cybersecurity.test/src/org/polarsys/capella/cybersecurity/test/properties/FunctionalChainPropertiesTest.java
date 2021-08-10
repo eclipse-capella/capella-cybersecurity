@@ -30,7 +30,7 @@ import org.polarsys.capella.test.framework.helpers.EObjectHelper;
 
 public class FunctionalChainPropertiesTest extends BasicTestCase {
   private static final String FUNCTIONAL_CHAIN_ID = "4fe91596-f414-481d-a0ce-60c12dd582ed";
-  private static final String[] FC_PRIMARY_ASSETS_IDS = new String[] { "c9e3c8d2-5c36-4832-81bd-b836dea7e63b" };
+  private static final String[] FC_PRIMARY_ASSETS_IDS = new String[] { "c9e3c8d2-5c36-4832-81bd-b836dea7e63b", "37e60d49-7838-435f-8b59-7c3c2b35fa6c" };
   private static final String OPERATIONAL_PROCESS_ID = "12a75ec7-3dc9-40a2-b930-93bb5bee2b37";
   private static final String[] OP_PRIMARY_ASSETS_IDS = new String[] { "55ee6393-fc70-4135-9a5e-6ca8764d5114" };
 
