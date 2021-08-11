@@ -10,7 +10,7 @@
 -->
 = Concepts =
 
-The Cybersecurity Viewpoint allows the top-down transition of cybersecurity elements (Threats and Primary Assets) and their dependencies. For more details on transitions, check out the [[ ../../../help/topic/org.polarsys.capella.transitions.doc/html/11.%20Iterative%20Transitions/11.1.%20Concepts.html | Capella Documentation]] on the subject.
+The DARC Viewpoint allows the top-down transition of cybersecurity elements (Threats and Primary Assets) and their dependencies. For more details on transitions, check out the [[ ../../../help/topic/org.polarsys.capella.transitions.doc/html/11.%20Iterative%20Transitions/11.1.%20Concepts.html | Capella Documentation]] on the subject.
 
 == Performing a transition ==
 
