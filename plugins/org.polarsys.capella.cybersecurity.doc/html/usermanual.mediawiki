@@ -1,4 +1,6 @@
-= Capella Cybersecurity Viewpoint =
+= DARC Viewpoint =
+
+DARC Viewpoint is installed as viewpoint on Capella to manage Cybersecurity and Threats Modeling in relation with Arcadia methodology.
 
 The intent of this viewpoint is to support effective co-engineering between systems and
 cybersecurity engineering teams when performing the following tasks:
@@ -8,7 +10,7 @@ cybersecurity engineering teams when performing the following tasks:
 
 === Cybersecurity Projects ===
 
-To create a project with the Cybersecurity viewpoint activated automatically, select
+To create a project with the DARC Viewpoint activated automatically, select
 ''File->New->Cybersecurity Project'' from the application menu.
 
 == Concepts ==
@@ -89,7 +91,7 @@ A Threat has the following additional attributes:
 
 == Primary Asset ==
 
-Information, activity, process or functionality that is valuable for the customer and then needs to be protected. The Cybersecurity Viewpoint distinguishes between:
+Information, activity, process or functionality that is valuable for the customer and then needs to be protected. The DARC Viewpoint distinguishes between:
 
 {| border="1"
 |-
@@ -140,7 +142,7 @@ An Information Primary Asset references one or more Exchange Items. An Exchange 
 
 == Diagrams ==
 
-The following diagram types are provided by the Capella Cybersecurity Viewpoint:
+The following diagram types are provided by the DARC Viewpoint:
 
 * Threats Diagram
 * Architecture Diagram
