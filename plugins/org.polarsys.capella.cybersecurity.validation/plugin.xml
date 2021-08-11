@@ -24,6 +24,9 @@
                namespaceUri="http://www.polarsys.org/capella/cybersecurity/1.0">
          </package>
          <package
+               namespaceUri="http://www.polarsys.org/capella/core/core/5.0.0">
+         </package>
+         <package
                namespaceUri="http://www.polarsys.org/capella/core/cs/5.0.0">
          </package>
          <package
