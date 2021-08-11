@@ -22,8 +22,6 @@
    <topic href="html/InstallationUninstallation/Installation and Uninstallation.html" label="Installation and Uninstallation">
    </topic>
    <topic href="html/usermanual.html" label="User manual">
-      <topic href="html/darc.html" label="Introduction">
-      </topic>
       <topic href="html/usermanual.html#Concepts" label="Concepts"/>
       <topic href="html/usermanual.html#Diagrams" label="Diagrams"/>
       
