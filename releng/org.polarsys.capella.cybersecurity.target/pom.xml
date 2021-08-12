@@ -33,9 +33,8 @@
 	</licenses>
 
 	<properties>
-		<tycho-version>1.3.0</tycho-version>
-		<tycho-extras-version>1.3.0</tycho-extras-version>
-		<platform-name>photon</platform-name>
+		<tycho-version>2.0.0</tycho-version>
+		<tycho-extras-version>2.0.0</tycho-extras-version>
 		<targetPlatform.repository>http://pdulth.github.io/fr.obeo.releng.targetplatform/p2/latest</targetPlatform.repository>
 		<targetPlatform.name>capella.target-definition.targetplatform</targetPlatform.name>
 		<converterApplication.name>fr.obeo.releng.targetplatform.targetPlatform.converter</converterApplication.name>
@@ -43,6 +42,27 @@
 
 	<build>
 		<plugins>
+		  <plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-toolchains-plugin</artifactId>
+			<version>3.0.0</version>
+			<executions>
+			<execution>
+				<goals>
+				<goal>toolchain</goal>
+				</goals>
+			</execution>
+			</executions>
+			<configuration>
+			<toolchains>
+				<jdk>
+				<version>1.8</version>
+				<vendor>oracle</vendor>
+				</jdk>
+			</toolchains>
+			</configuration>
+		</plugin>
+		
 			<plugin>
 				<groupId>org.eclipse.tycho.extras</groupId>
 				<artifactId>tycho-eclipserun-plugin</artifactId>
@@ -50,9 +70,9 @@
 				<configuration>
 					<repositories>
 						<repository>
-							<id>${platform-name}</id>
+							<id>targetplatform-tp</id>
 							<layout>p2</layout>
-							<url>http://download.eclipse.org/releases/${platform-name}</url>
+							<url>http://download.eclipse.org/releases/oxygen/201709271000</url>
 						</repository>
 						<repository>
 							<id>targetplatform</id>
@@ -79,7 +99,7 @@
 						<phase>validate</phase>
 						<configuration>
 							<applicationsArgs>
-								<args>-application ${converterApplication.name} ${targetPlatform.name}</args>
+								<args>-application ${converterApplication.name} ${targetPlatform.name} -settingsFileLocation ${settingsFileLocation}</args>
 							</applicationsArgs>
 						</configuration>
 						<goals>
