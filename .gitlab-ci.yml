@@ -1,54 +1,46 @@
-###################################################################
-# Copyright © 2021 Thales Global Services SAS
-#
-# Licensed under the Thales Inner Source Software License:
-# Version 1.2, InnerOpen - Distribution Controlled
-#
-# You may not use this file except in compliance with the License.
-# You may obtain a copy of the License at https://gitlab.thalesdigital.io/Tiss-Organization/tiss-licenses
-# See the License for the specific language governing permissions and limitations under the License.
-###################################################################
+#include:
+#  - project: 'capella-addons/common/gitlab-libraries'
+#    ref: 'master'
+#    file: 'ci-steps.yml'
+
 stages:
-  - download-capella
-  - generate-target-platform
-  - build
+  - build-capella
   - deploy
 
 cache:
-  key:
-    $CI_PIPELINE_ID
-  paths:
-    - downloads/
-    - releng/
+  - key: $CI_COMMIT_SHA
+    paths:
+      - releng/org.polarsys.capella.cybersecurity.site/target/
+      - releng/org.polarsys.capella.cybersecurity.target/target/
+  - key: capella-cyber-m2
+    paths:
+      - .m2/repository
 
-.Download Capella:
-  stage: download-capella
-  image: curlimages/curl 
-  variables:
-    CAPELLA_URL_BASE: "https://download.eclipse.org/capella/core/products/nightly/master/"
-  script:
-    - mkdir -p downloads
-    - html=$(curl -ks ${CAPELLA_URL_BASE})
-    - ZIP_NAME_WIN=$(echo $html | sed -e 's/.*\(capella-.*-win32-win32-x86_64.zip\).*/\1/')
-    - ZIP_NAME_LIN=$(echo $html | sed -e 's/.*\(capella-.*-linux-gtk-x86_64.tar.gz\).*/\1/')
-    - CAPELLA_URL_WIN="$CAPELLA_URL_BASE/$ZIP_NAME_WIN"
-    - CAPELLA_URL_LINUX="$CAPELLA_URL_BASE/$ZIP_NAME_LIN"
-    - echo "Downloading $CAPELLA_URL_WIN ..."
-    - curl -k -o downloads/capella-win.zip $CAPELLA_URL_WIN
-    - echo "Downloading $CAPELLA_URL_LINUX ..."
-    - curl -k -o downloads/capella.tar.gz $CAPELLA_URL_LINUX
+variables:
+  MAVEN_OPTS: "-Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository"
+  ADDON_NAME: "Darc"  
 
-Generate Target Platform:
-  stage: generate-target-platform
-  image: maven:3.6.1-jdk-8-alpine
+build-capella:
+  stage: build-capella
+  image: gitlab.thalesdigital.io:5005/capella-addons/common/capella-invaders-docker/capella-invaders-ui-agent:0.72
   script:
-    - mvn clean verify -f releng/org.polarsys.capella.cybersecurity.target/pom.xml 
+    # generate TP
+    - mvn clean verify -f releng/org.polarsys.capella.cybersecurity.target/pom.xml -DsettingsFileLocation=$MAVEN_SETTINGS -t ~/.m2/toolchains.xml
     
-Build and Package:
-  stage: build
-  image: adoptopenjdk/maven-openjdk11
-  script:
-    - mvn -Djacoco.skip=true -DjavaDocPhase=none clean package -f pom.xml
+    # build and run tests
+    - ~/.vnc/xstartup.sh &
+    - mvn install -Dmaven.test.failure.ignore=true -Dtycho.localArtifacts=ignore -t ~/.m2/toolchains.xml
+    - pkill Xvnc
+  artifacts:
+      when: always
+      paths:
+        - tests/org.polarsys.capella.cybersecurity.test/target/work/data/.metadata/*.log
+        - releng/org.polarsys.capella.cybersecurity.target/workspace/.metadata/*.log
+        - releng/org.polarsys.capella.cybersecurity.target/target/eclipserun-work/configuration/*.log
+        - capella/configuration/*.log
+      reports:
+        junit:
+          - tests/org.polarsys.capella.cybersecurity.test/target/surefire-reports/TEST-*.xml
 
 Deploy:
   stage: deploy
