@@ -49,4 +49,9 @@ public class PrimaryAssetMemberItemProviderDecorator extends ItemProviderAdapter
     return "[" + CybersecurityEditPlugin.INSTANCE.getString("_UI_PrimaryAssetMember_type") + "]"; //$NON-NLS-1$
   }
 
+  @Override
+  public Object getImage(Object object) {
+    return overlayImage(object, CybersecurityEditPlugin.INSTANCE.getImage("full/obj16/PrimaryAssetMember"));
+  }
+
 }
