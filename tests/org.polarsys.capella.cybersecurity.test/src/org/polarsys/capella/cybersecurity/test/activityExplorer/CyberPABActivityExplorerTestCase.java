@@ -30,12 +30,12 @@ public class CyberPABActivityExplorerTestCase extends CyberDiagramActivityExplor
 
   @Override
   protected EObject getStructure() {
-    return context.getSemanticElement(PA__PHYSICAL_COMPONENT);
+    return context.getSemanticElement(PA__PHYSICAL_COMPONENT_PKG);
   }
 
   @Override
   protected String getDefaultName() {
-    return "[PAB] Physical System";
+    return "[PAB] Structure";
   }
 
   @Override

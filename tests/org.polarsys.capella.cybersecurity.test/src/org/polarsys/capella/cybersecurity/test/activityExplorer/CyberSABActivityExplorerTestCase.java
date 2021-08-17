@@ -29,12 +29,12 @@ public class CyberSABActivityExplorerTestCase extends CyberDiagramActivityExplor
   
   @Override
   protected EObject getStructure() {
-    return context.getSemanticElement(SA__SYSTEM_COMPONENT);
+    return context.getSemanticElement(SA__SYSTEM_COMPONENT_PKG);
   }
 
   @Override
   protected String getDefaultName() {
-    return "[SAB] System";
+    return "[SAB] Structure";
   }
 
   @Override
