@@ -32,9 +32,9 @@
       <topic label="Cybersecurity Transitions">
          <topic href="html/Transitions/cybersecurity/concepts/concepts.html" label="Concepts">
          </topic>
-         <topic href="html/Transitions/cybersecurity/threat transition/ThreatTransition.html" label="Transition of Threats">
-         </topic>
          <topic href="html/Transitions/cybersecurity/primary asset transition/PrimaryAssetTransition.html" label="Transition of Primary Assets">
+         </topic>
+         <topic href="html/Transitions/cybersecurity/threat transition/ThreatTransition.html" label="Transition of Threats">
          </topic>
          <topic href="html/Transitions/cybersecurity/other elements transition/OtherElementsTransition.html" label="Transition of other cybersecurity elements">
          </topic>
