@@ -24,7 +24,6 @@ import org.polarsys.capella.core.data.cs.BlockArchitecture;
 import org.polarsys.capella.core.data.oa.Entity;
 import org.polarsys.capella.core.data.oa.EntityPkg;
 import org.polarsys.capella.core.data.oa.OaFactory;
-import org.polarsys.capella.core.data.oa.OperationalAnalysis;
 import org.polarsys.capella.core.explorer.activity.ui.hyperlinkadapter.AbstractCapellaNewDiagramHyperlinkAdapter;
 import org.polarsys.capella.core.model.helpers.BlockArchitectureExt;
 import org.polarsys.capella.core.model.helpers.CapellaElementExt;
@@ -41,8 +40,7 @@ public class CreateOperationalThreatDiagramHyperlink extends AbstractCapellaNewD
 
   @Override
   public ModelElement getModelElement(EObject rootSemanticModel) {
-    OperationalAnalysis operationalAnalysis = ModelQueryHelper.getOperationalAnalysis((Project) rootSemanticModel);
-    return selectEntity((Project) rootSemanticModel, operationalAnalysis);
+    return ModelQueryHelper.getOperationalEntityPkg((Project) rootSemanticModel);
   }
 
   public static Entity selectEntity(final Project project, BlockArchitecture architecture) {

@@ -29,12 +29,12 @@ public class LogicalTDBActivityExplorerTestCase extends CyberDiagramActivityExpl
 
   @Override
   protected EObject getStructure() {
-    return context.getSemanticElement(LA__LOGICAL_COMPONENT);
+    return context.getSemanticElement(LA__LOGICAL_COMPONENT_PKG);
   }
 
   @Override
   protected String getDefaultName() {
-    return "[TDB] Logical System";
+    return "[TDB] Structure";
   }
 
   @Override
