@@ -229,7 +229,7 @@
 		         name="%categoryOperationalBoundariesAndAssets"
 		         pageId="org.polarsys.capella.core.explorer.activity.ui.page.operational.analysis">
 		               <Activity
-				            class="org.polarsys.capella.core.explorer.activity.ui.hyperlinkadapter.oa.NewOperationalEntityBlankDiagramAdapter"
+				            class="org.polarsys.capella.cybersecurity.ui.activity.CreateCyberOABDiagramHyperlink"
 				            id="org.polarsys.capella.cybersecurity.ui.activity.architecture.operational"
 				            image="icons/cyber-physical-architecture-diagram.png"
 				            index="0"
