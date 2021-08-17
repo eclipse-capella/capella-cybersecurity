@@ -28,9 +28,11 @@ public class CyberActivityExplorerTestSuite extends BasicTestSuite {
   @Override
   protected List<BasicTestArtefact> getTests() {
     List<BasicTestArtefact> tests = new ArrayList<BasicTestArtefact>();
+    tests.add(new CyberOABActivityExplorerTestCase());
     tests.add(new CyberLABActivityExplorerTestCase());
     tests.add(new CyberSABActivityExplorerTestCase());
     tests.add(new CyberPABActivityExplorerTestCase());
+    tests.add(new OperationalTDBActivityExplorerTestCase());
     tests.add(new LogicalTDBActivityExplorerTestCase());
     tests.add(new SystemTDBActivityExplorerTestCase());
     tests.add(new PhysicalTDBActivityExplorerTestCase());

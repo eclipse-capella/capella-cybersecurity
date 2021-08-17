@@ -30,12 +30,12 @@ public class CyberLABActivityExplorerTestCase extends CyberDiagramActivityExplor
 
   @Override
   protected EObject getStructure() {
-    return context.getSemanticElement(LA__LOGICAL_COMPONENT);
+    return context.getSemanticElement(LA__LOGICAL_COMPONENT_PKG);
   }
 
   @Override
   protected String getDefaultName() {
-    return "[LAB] Logical System";
+    return "[LAB] Structure";
   }
 
   @Override

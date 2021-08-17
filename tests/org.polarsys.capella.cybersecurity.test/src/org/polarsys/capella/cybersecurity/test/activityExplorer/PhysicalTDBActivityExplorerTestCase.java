@@ -29,12 +29,12 @@ public class PhysicalTDBActivityExplorerTestCase extends CyberDiagramActivityExp
 
   @Override
   protected EObject getStructure() {
-    return context.getSemanticElement(PA__PHYSICAL_COMPONENT);
+    return context.getSemanticElement(PA__PHYSICAL_COMPONENT_PKG);
   }
 
   @Override
   protected String getDefaultName() {
-    return "[TDB] Physical System";
+    return "[TDB] Structure";
   }
 
   @Override
