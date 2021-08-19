@@ -71,7 +71,6 @@ import org.polarsys.capella.core.data.cs.Component;
 import org.polarsys.capella.core.data.cs.CsPackage;
 import org.polarsys.capella.core.data.cs.Part;
 import org.polarsys.capella.core.data.cs.PhysicalLink;
-import org.polarsys.capella.core.data.ctx.SystemComponent;
 import org.polarsys.capella.core.data.fa.AbstractFunction;
 import org.polarsys.capella.core.data.fa.ComponentExchange;
 import org.polarsys.capella.core.data.fa.FunctionalChain;
@@ -82,8 +81,8 @@ import org.polarsys.capella.core.data.information.ExchangeItem;
 import org.polarsys.capella.core.data.interaction.InstanceRole;
 import org.polarsys.capella.core.data.interaction.SequenceMessage;
 import org.polarsys.capella.core.data.interaction.StateFragment;
-import org.polarsys.capella.core.data.la.LogicalComponent;
 import org.polarsys.capella.core.data.oa.Entity;
+import org.polarsys.capella.core.data.oa.EntityPkg;
 import org.polarsys.capella.core.data.oa.OperationalAnalysis;
 import org.polarsys.capella.core.data.pa.PhysicalComponent;
 import org.polarsys.capella.core.data.pa.PhysicalComponentNature;
@@ -313,9 +312,8 @@ public class CybersecurityServices {
 
   /**
    * Returns the green value of the Security Need, from the currently activated Security Needs Layers. Because the size
-   * of Security Needs value is different, we calculate which is the min value of the green color: 
-   * Example: 
-   * If we have Confidentiality 3, but confidentiaity size is 6 and we have Integrity 2 and Integrity size is 2, the green value
+   * of Security Needs value is different, we calculate which is the min value of the green color: Example: If we have
+   * Confidentiality 3, but confidentiaity size is 6 and we have Integrity 2 and Integrity size is 2, the green value
    * shall be 0. (because in odesign red's value is 255, the element will be painted in red)
    * 
    * @param view
@@ -616,7 +614,7 @@ public class CybersecurityServices {
       return getRelatedAssetsForComponent(component);
     }
     if (element instanceof Component) {
-    	Component component = (Component) element;
+      Component component = (Component) element;
       return getRelatedAssetsForComponent(component);
     }
     if (element instanceof ComponentExchange) {
@@ -1090,19 +1088,7 @@ public class CybersecurityServices {
   }
 
   public boolean isToolAtOperationalLevel(EObject context) {
-    return context.eCrossReferences().stream().anyMatch(o -> o instanceof Entity);
-  }
-
-  public boolean isToolAtSystemLevel(EObject context) {
-    return context.eCrossReferences().stream().anyMatch(o -> o instanceof SystemComponent);
-  }
-
-  public boolean isToolAtLogicalLevel(EObject context) {
-    return context.eCrossReferences().stream().anyMatch(o -> o instanceof LogicalComponent);
-  }
-
-  public boolean isToolAtPhysicalLevel(EObject context) {
-    return context.eCrossReferences().stream().anyMatch(o -> o instanceof PhysicalComponent);
+    return context.eCrossReferences().stream().anyMatch(o -> o instanceof Entity || o instanceof EntityPkg);
   }
 
   public String getAssetDecorationSize(DSemanticDecorator view) {
