@@ -21,11 +21,13 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.ecore.EObject;
 import org.polarsys.capella.core.data.capellacore.CapellaElement;
 import org.polarsys.capella.core.data.cs.BlockArchitecture;
+import org.polarsys.capella.core.data.oa.Entity;
 import org.polarsys.capella.core.model.helpers.BlockArchitectureExt;
 import org.polarsys.capella.core.model.helpers.BlockArchitectureExt.Type;
 import org.polarsys.capella.core.transition.common.constants.ITransitionConstants;
 import org.polarsys.capella.core.transition.common.handlers.contextscope.ContextScopeHandlerHelper;
 import org.polarsys.capella.core.transition.common.handlers.scope.IScopeRetriever;
+import org.polarsys.capella.core.transition.system.topdown.constants.ITopDownConstants;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPkg;
 import org.polarsys.kitalpha.emde.model.ElementExtension;
@@ -56,6 +58,11 @@ public class ExtensionRetriever implements IScopeRetriever {
    */
   public Collection<? extends EObject> retrieveRelatedElements(EObject source, IContext context) {
     Collection<EObject> elements = new LinkedList<>();
+    
+    if (source instanceof Entity && context.get(ITopDownConstants.TRANSITION_KIND).equals(ITopDownConstants.TRANSITION_TOPDOWN_OE2SYSTEM) ) {
+      return elements;
+    }
+    
     if (source instanceof CapellaElement) {
       CapellaElement element = (CapellaElement) source;
       if (!(element instanceof BlockArchitecture) || (element instanceof BlockArchitecture && ContextScopeHandlerHelper

@@ -40,6 +40,30 @@ An ''Actor'' is involved in ''Threats'' and allocates one or more ''Functions''.
 | Text 
 |}
 
+== Entity ==
+
+An ''Entity'' is involved in ''Threats''.
+
+{| border="1"
+|- 
+| Threat Source 	
+| Someone or something that could affect the product.
+| Yes/No
+|-
+| Threat Source Profile
+| Type of threat source.
+| 1 to 5
+|-
+| Trusted
+| Ability to be relied on as honest or truthful. Threat Source = Yes => Trusted = false.
+| Yes/No
+|-
+| Rationale
+| Rationale on the cybersecurity attributes. The trustworthiness of an Entity is absolute, it does not depend on the Threat that the Entity is involved in, or a given security property. Details on this aspect and others can be exposed in this Rationale field.
+| Text 
+|}
+
+
 == Threat ==
 
 A situation that is unwanted by the stakeholders and that is to be avoided. Threat is an abstract concept that is concretized by the following kinds of attacks (by default):
@@ -168,7 +192,7 @@ To create a Diagram, select the corresponding hyperlink from the [[../help/topic
 
 == Threat Diagram ==
 
-Threat diagrams are used to model System Threats, threatened Assets and Involved Actors:
+Threat diagrams are used to model System Threats, threatened Assets and Involved Actors/Entities:
 
 [[Image:Images/threat_diagram_1.png]] 
 
@@ -219,6 +243,19 @@ The following tools are available:
 | [[Image:Images/ShowHide.gif]] 
 |  Insert/Remove Information Assets. Create or delete graphical objects corresponding to already existing Information Assets. Removing a Information Asset graphical object from the diagram does not delete the Information Asset from the model. This tool does not modify the semantic model.
 |}
+
+At Operational level, the following tools are available, too: 
+{| border="1"
+|-
+| 	Operational Entity
+| [[Image:Images/Entity.gif]] 
+|  Create a new Operational Entity. 	
+|-
+| 	Operational Entities
+| [[Image:Images/ShowHide.gif]] 
+|  Insert/Remove Operational Entities. Create or delete graphical objects corresponding to already existing Operational Entities. Removing an Operational Entity graphical object from the diagram does not delete the Operational Entity from the model. This tool does not modify the semantic model.
+|}
+
 
 === Threat Level Decoration Layer ===
 
