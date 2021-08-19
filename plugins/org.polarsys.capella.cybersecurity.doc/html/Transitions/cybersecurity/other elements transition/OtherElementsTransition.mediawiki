@@ -19,6 +19,12 @@ When transitioning actors, the references of cybersecurity extension elements ar
 
 [[Image:../../../Images/actor%20transition.PNG]]
 
+== Entity Transition ==
+
+Entities transitions are similar to actors transitions.
+
+[[Image:../../../Images/entityTransition.png]]
+
 
 == Function Transition ==
 

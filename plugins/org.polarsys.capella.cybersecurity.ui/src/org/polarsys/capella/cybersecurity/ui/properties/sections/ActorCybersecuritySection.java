@@ -29,6 +29,7 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 import org.polarsys.capella.common.mdsofa.common.constant.ICommonConstants;
 import org.polarsys.capella.core.data.cs.Component;
+import org.polarsys.capella.core.data.oa.Entity;
 import org.polarsys.capella.core.ui.properties.fields.AbstractSemanticField;
 import org.polarsys.capella.core.ui.properties.fields.TextAreaValueGroup;
 import org.polarsys.capella.core.ui.properties.fields.TextValueGroup;
@@ -168,7 +169,7 @@ public class ActorCybersecuritySection extends AbstractSection {
     checkBoxes.addCheckbox(CybersecurityPackage.Literals.TRUST_BOUNDARY_STORAGE__THREAT_SOURCE,
         (e) -> {
           EObject container = ElementExtensionStorage.findContainer(e);
-          return container instanceof Component && ((Component)container).isActor();
+          return container instanceof Component && (((Component)container).isActor() || container instanceof Entity);
         });
 
     threatSourceProfileGroup = new IntegerValueRadioGroup(rootParentComposite, Messages.ActorCybersecuritySection_0, getWidgetFactory(), 1, 5);
@@ -188,7 +189,8 @@ public class ActorCybersecuritySection extends AbstractSection {
         CybersecurityPackage.Literals.TRUST_BOUNDARY_STORAGE__THREAT_SOURCE_PROFILE);
     rationaleGroup.loadData(object, CybersecurityPackage.Literals.TRUST_BOUNDARY_STORAGE__RATIONALE);
     elementExtension = (TrustBoundaryStorage) object;
-    threatSourceProfileGroup.setEnabled(object.eContainer() instanceof Component && ((Component) object.eContainer()).isActor() && !elementExtension.isTrusted());
+    threatSourceProfileGroup.setEnabled(object.eContainer() instanceof Component
+        && (((Component) object.eContainer()).isActor() || object.eContainer() instanceof Entity) && !elementExtension.isTrusted());
   }
 
   /**
