@@ -52,6 +52,33 @@
 				<td>Text </td>
 			</tr>
 		</table>
+		<h2 id="Entity">Entity</h2>
+		<p>An 
+			<i>Entity</i> is involved in 
+			<i>Threats</i>.
+		</p>
+		<table border="1">
+			<tr>
+				<td>Threat Source 	</td>
+				<td>Someone or something that could affect the product.</td>
+				<td>Yes/No</td>
+			</tr>
+			<tr>
+				<td>Threat Source Profile</td>
+				<td>Type of threat source.</td>
+				<td>1 to 5</td>
+			</tr>
+			<tr>
+				<td>Trusted</td>
+				<td>Ability to be relied on as honest or truthful. Threat Source = Yes =&gt; Trusted = false.</td>
+				<td>Yes/No</td>
+			</tr>
+			<tr>
+				<td>Rationale</td>
+				<td>Rationale on the cybersecurity attributes. The trustworthiness of an Entity is absolute, it does not depend on the Threat that the Entity is involved in, or a given security property. Details on this aspect and others can be exposed in this Rationale field.</td>
+				<td>Text </td>
+			</tr>
+		</table>
 		<h2 id="Threat">Threat</h2>
 		<p>A situation that is unwanted by the stakeholders and that is to be avoided. Threat is an abstract concept that is concretized by the following kinds of attacks (by default):</p>
 		<table border="1">
@@ -199,7 +226,7 @@
 			</dd>
 		</dl>
 		<h2 id="Threat_Diagram">Threat Diagram</h2>
-		<p>Threat diagrams are used to model System Threats, threatened Assets and Involved Actors:</p>
+		<p>Threat diagrams are used to model System Threats, threatened Assets and Involved Actors/Entities:</p>
 		<p>
 			<img border="0" src="Images/threat_diagram_1.png"/> 
 		</p>
@@ -277,6 +304,23 @@
 					<img border="0" src="Images/ShowHide.gif"/> 
 				</td>
 				<td>Insert/Remove Information Assets. Create or delete graphical objects corresponding to already existing Information Assets. Removing a Information Asset graphical object from the diagram does not delete the Information Asset from the model. This tool does not modify the semantic model.</td>
+			</tr>
+		</table>
+		<p>At Operational level, the following tools are available, too: </p>
+		<table border="1">
+			<tr>
+				<td>Operational Entity</td>
+				<td>
+					<img border="0" src="Images/Entity.gif"/> 
+				</td>
+				<td>Create a new Operational Entity. 	</td>
+			</tr>
+			<tr>
+				<td>Operational Entities</td>
+				<td>
+					<img border="0" src="Images/ShowHide.gif"/> 
+				</td>
+				<td>Insert/Remove Operational Entities. Create or delete graphical objects corresponding to already existing Operational Entities. Removing an Operational Entity graphical object from the diagram does not delete the Operational Entity from the model. This tool does not modify the semantic model.</td>
 			</tr>
 		</table>
 		<h3 id="Threat_Level_Decoration_Layer">Threat Level Decoration Layer</h3>

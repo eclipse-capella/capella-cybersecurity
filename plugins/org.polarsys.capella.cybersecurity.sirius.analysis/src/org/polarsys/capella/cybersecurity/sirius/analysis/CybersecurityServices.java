@@ -83,6 +83,7 @@ import org.polarsys.capella.core.data.interaction.SequenceMessage;
 import org.polarsys.capella.core.data.interaction.StateFragment;
 import org.polarsys.capella.core.data.oa.Entity;
 import org.polarsys.capella.core.data.oa.EntityPkg;
+import org.polarsys.capella.core.data.oa.OaFactory;
 import org.polarsys.capella.core.data.oa.OperationalAnalysis;
 import org.polarsys.capella.core.data.pa.PhysicalComponent;
 import org.polarsys.capella.core.data.pa.PhysicalComponentNature;
@@ -321,8 +322,9 @@ public class CybersecurityServices {
 
   /**
    * Returns the green value of the Security Need, from the currently activated Security Needs Layers. Because the size
-   * of Security Needs value is different, we calculate which is the min value of the green color: Example: If we have
-   * Confidentiality 3, but confidentiaity size is 6 and we have Integrity 2 and Integrity size is 2, the green value
+   * of Security Needs value is different, we calculate which is the min value of the green color: 
+   * Example: 
+   * If we have Confidentiality 3, but confidentiaity size is 6 and we have Integrity 2 and Integrity size is 2, the green value
    * shall be 0. (because in odesign red's value is 255, the element will be painted in red)
    * 
    * @param view
@@ -593,6 +595,12 @@ public class CybersecurityServices {
   public Collection<Component> getAllThreatActors(EObject element) {
     BlockArchitecture architecture = BlockArchitectureExt.getRootBlockArchitecture(element);
     return BlockArchitectureExt.getAllComponents(architecture).stream().filter(c -> c.isActor())
+        .collect(Collectors.toList());
+  }
+  
+  public List<Component> getAllThreatEntities(EObject element) {
+    BlockArchitecture architecture = BlockArchitectureExt.getRootBlockArchitecture(element);
+    return BlockArchitectureExt.getAllComponents(architecture).stream().filter(c -> !c.isActor() && c instanceof Entity)
         .collect(Collectors.toList());
   }
   
