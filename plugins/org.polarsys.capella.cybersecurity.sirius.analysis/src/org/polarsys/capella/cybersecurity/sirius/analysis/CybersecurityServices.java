@@ -310,6 +310,15 @@ public class CybersecurityServices {
     return 0;
   }
 
+  private int computeColorByLiteral(int literalValue, int literalSize, int colorMin, int colorMax) {
+    if (literalValue == literalSize - 1)
+      return colorMax;
+    else if (literalValue == 1)
+      return colorMin;
+    else
+      return (literalSize - literalValue - 1) * (colorMin - colorMax) / (literalSize - 2) + colorMax;
+  }
+
   /**
    * Returns the green value of the Security Need, from the currently activated Security Needs Layers. Because the size
    * of Security Needs value is different, we calculate which is the min value of the green color: Example: If we have
@@ -321,7 +330,9 @@ public class CybersecurityServices {
    */
   public int getSecurityNeedsGreen(DSemanticDecorator view) {
     DDiagram diagram = CapellaServices.getService().getDiagramContainer(view);
-    int colorGreenMin = 210;
+    int colorMinVal = 210;
+    int colorMaxVal = 20;
+    int colorGreenMin = colorMinVal;
 
     if (diagram == null) {
       return colorGreenMin;
@@ -337,29 +348,30 @@ public class CybersecurityServices {
     if (activatedLayerNames.contains(CybersecurityAnalysisConstants.LAYER_CONFIDENTIALITY)) {
       int confidentiality = getConfidentiality(element);
       int confidentialitySize = CybersecurityQueries.getConfidentialitySize(project);
-      int color = (confidentialitySize - confidentiality - 1) * 210 / (confidentialitySize - 1);
+      int color = computeColorByLiteral(confidentiality, confidentialitySize, colorMinVal, colorMaxVal);
       colorGreenMin = color < colorGreenMin ? color : colorGreenMin;
     }
 
     if (activatedLayerNames.contains(CybersecurityAnalysisConstants.LAYER_INTEGRITY)) {
       int integrity = getIntegrity(element);
       int integritySize = CybersecurityQueries.getIntegritySize(project);
-      int color = (integritySize - integrity - 1) * 210 / (integritySize - 1);
+      int color = computeColorByLiteral(integrity, integritySize, colorMinVal, colorMaxVal);
       colorGreenMin = color < colorGreenMin ? color : colorGreenMin;
     }
 
     if (activatedLayerNames.contains(CybersecurityAnalysisConstants.LAYER_AVAILABILITY)) {
       int availability = getAvailability(element);
       int availabilitySize = CybersecurityQueries.getAvailabilitySize(project);
-      int color = (availabilitySize - availability - 1) * 210 / (availabilitySize - 1);
+      int color = computeColorByLiteral(availability, availabilitySize, colorMinVal, colorMaxVal);
       colorGreenMin = color < colorGreenMin ? color : colorGreenMin;
     }
 
     if (activatedLayerNames.contains(CybersecurityAnalysisConstants.LAYER_TRACEABILITY)) {
       int traceability = getTraceability(element);
       int traceabilitySize = CybersecurityQueries.getTraceabilitySize(project);
-      int color = (traceabilitySize - traceability - 1) * 210 / (traceabilitySize - 1);
+      int color = computeColorByLiteral(traceability, traceabilitySize, colorMinVal, colorMaxVal);
       colorGreenMin = color < colorGreenMin ? color : colorGreenMin;
+
     }
     return colorGreenMin;
   }
