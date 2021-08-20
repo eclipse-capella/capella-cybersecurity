@@ -179,7 +179,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" documentation="Create a new Functional Primary Asset" name="ToolCreateFunctionalPrimaryAssetSystem" label="Functional Primary Asset" nodeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='FunctionalPrimaryAsset']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" documentation="Create a new Functional Primary Asset" name="ToolCreateFunctionalPrimaryAsset" label="Functional Primary Asset" nodeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='FunctionalPrimaryAsset']">
             <filters precondition="aql: self.isToolAtOperationalLevel()"/>
             <variable name="container"/>
             <viewVariable name="containerView"/>
