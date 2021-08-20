@@ -19,7 +19,9 @@ import java.util.stream.StreamSupport;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.sirius.business.api.componentization.ViewpointRegistry;
+import org.eclipse.sirius.diagram.description.AbstractNodeMapping;
 import org.eclipse.sirius.diagram.description.DiagramElementMapping;
+import org.eclipse.sirius.diagram.description.EdgeMapping;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
 import org.polarsys.capella.test.diagram.common.ju.wrapper.utils.ODesignHelper;
 import org.polarsys.capella.test.framework.api.BasicTestCase;
@@ -51,10 +53,19 @@ public class CyberElementsHaveDirectEditLabelTest extends BasicTestCase {
   protected void checkMappingsHasEditLabels(List<DiagramElementMapping> mappingsToCheck) {
     if (mappingsToCheck != null) {
       for (DiagramElementMapping mapping : mappingsToCheck) {
-        if (mapping.getLabelDirectEdit() == null) {
-          this.failedTest.append("No DirectEditLabel for: " + ODesignHelper.computeModelPath(mapping) + "\n");
+        if (mapping instanceof AbstractNodeMapping) {
+          AbstractNodeMapping nodeMapping = (AbstractNodeMapping) mapping;
+          if (nodeMapping.getDomainClass() != null && nodeMapping.getLabelDirectEdit() == null) {
+            this.failedTest.append("No DirectEditLabel for: " + ODesignHelper.computeModelPath(mapping) + "\n");
+          }
+        } else if (mapping instanceof EdgeMapping) {
+          EdgeMapping edgeMapping = (EdgeMapping) mapping;
+          if (edgeMapping.isUseDomainElement() && edgeMapping.getLabelDirectEdit() == null) {
+            this.failedTest.append("No DirectEditLabel for: " + ODesignHelper.computeModelPath(mapping) + "\n");
+          }
         }
       }
     }
+
   }
 }
