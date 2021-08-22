@@ -36,6 +36,10 @@ public class CyberActivityExplorerTestSuite extends BasicTestSuite {
     tests.add(new LogicalTDBActivityExplorerTestCase());
     tests.add(new SystemTDBActivityExplorerTestCase());
     tests.add(new PhysicalTDBActivityExplorerTestCase());
+    tests.add(new CyberTransitionsFromOAActivityExplorerTestCase());
+    tests.add(new CyberTransitionsFromSAActivityExplorerTestCase());
+    tests.add(new CyberTransitionsFromLAActivityExplorerTestCase());
+    
     return tests;
   }
 

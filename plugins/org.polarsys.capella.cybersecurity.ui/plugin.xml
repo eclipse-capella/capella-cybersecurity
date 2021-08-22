@@ -296,7 +296,7 @@
                class="org.polarsys.capella.cybersecurity.ui.activity.predicate.IsViewpointActivatedPredicate">
          </Predicate>
       </Activity>
-   </Section>
+   </Section>  
          <Section
 	         expanded="true"
 	         filtering="true"
@@ -344,6 +344,16 @@
 			               class="org.polarsys.capella.cybersecurity.ui.activity.predicate.IsViewpointActivatedPredicate">
 			         </Predicate>
 			      </Activity>
+			      <Activity
+		                  class="org.polarsys.capella.cybersecurity.ui.activity.SAPerformAutomatedTransitionAdapter"
+		                  id="org.polarsys.capella.cybersecurity.ui.activity.transitions.system"
+		                  image="icons/full/ctool/transition.png"
+		                  index="4"
+		                  name="%performAutomatedTransition_Title">
+		               <Predicate
+					          class="org.polarsys.capella.cybersecurity.ui.activity.predicate.IsViewpointActivatedPredicate">
+					   </Predicate>
+		          </Activity>
 	   </Section>
 	   <Section
          expanded="true"
@@ -363,6 +373,7 @@
          </Predicate>
       </Activity>
    </Section>
+      
    <Section
          expanded="true"
          filtering="true"
@@ -410,6 +421,16 @@
 		               class="org.polarsys.capella.cybersecurity.ui.activity.predicate.IsViewpointActivatedPredicate">
 		         </Predicate>
 		      </Activity>
+		      <Activity
+                  class="org.polarsys.capella.cybersecurity.ui.activity.LAPerformAutomatedTransitionAdapter"
+                  id="org.polarsys.capella.cybersecurity.ui.activity.transitions.logical"
+                  image="icons/full/ctool/transition.png"
+                  index="4"
+                  name="%performAutomatedTransition_Title">
+               <Predicate
+			          class="org.polarsys.capella.cybersecurity.ui.activity.predicate.IsViewpointActivatedPredicate">
+			   </Predicate>
+            </Activity>
    </Section>
    <Section
          expanded="true"
@@ -429,6 +450,7 @@
          </Predicate>
       </Activity>
    </Section>
+     
    <Section
          expanded="true"
          filtering="true"
@@ -476,6 +498,16 @@
                class="org.polarsys.capella.cybersecurity.ui.activity.predicate.IsViewpointActivatedPredicate">
          </Predicate>
       </Activity>
+       <Activity
+                  class="org.polarsys.capella.cybersecurity.ui.activity.PAPerformAutomatedTransitionAdapter"
+                  id="org.polarsys.capella.cybersecurity.ui.activity.transitions.physical"
+                  image="icons/full/ctool/transition.png"
+                  index="4"
+                  name="%performAutomatedTransition_Title">
+               <Predicate
+			          class="org.polarsys.capella.cybersecurity.ui.activity.predicate.IsViewpointActivatedPredicate">
+			   </Predicate>
+        </Activity>
    </Section>
    <Section
          expanded="true"

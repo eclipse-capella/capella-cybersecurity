@@ -8,7 +8,7 @@
 	You may obtain a copy of the License at https://gitlab.thalesdigital.io/Tiss-Organization/tiss-licenses
 	See the License for the specific language governing permissions and limitations under the License.
 -->
-= Transition of Other Cybersecurity Elements =
+= Transition of Other Elements =
 
 == Actor Transition ==
 
