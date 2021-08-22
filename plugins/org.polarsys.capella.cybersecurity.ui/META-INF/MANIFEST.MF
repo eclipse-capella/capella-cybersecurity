@@ -12,8 +12,9 @@ Require-Bundle: org.polarsys.kitalpha.ad.services,
  org.polarsys.capella.core.platform.sirius.ui.project,
  org.polarsys.capella.common.ui.massactions.core,
  org.polarsys.capella.core.libraries,
- org.polarsys.capella.core.data.migration, 
- org.polarsys.capella.core.semantic.queries
+ org.polarsys.capella.core.data.migration,
+ org.polarsys.capella.core.semantic.queries,
+ org.polarsys.capella.core.transition.system.topdown.ui
 Bundle-Activator: org.polarsys.capella.cybersecurity.ui.CybersecurityUIActivator
 Export-Package: org.polarsys.capella.cybersecurity.ui,
  org.polarsys.capella.cybersecurity.ui.activity,

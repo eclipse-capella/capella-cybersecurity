@@ -173,20 +173,7 @@ The following diagram types are provided by the DARC Viewpoint:
 * Scenario Diagram
 * Information Asset Diagram
 
-To create a Diagram, select the corresponding hyperlink from the [[../help/topic/org.polarsys.capella.ui.doc/html/04.%20User%20Interface/4.03.%20Activity%20Browser.html? |Activity Explorer]]<span class="github-link">[[https://github.com/eclipse/capella/blob/master/doc/plugins/org.polarsys.capella.ui.doc/html/04.%20User%20Interface/4.03.%20Activity%20Browser.mediawiki|(online documentation)]]</span>:
-
-* Operational Analysis 
-
-: [[Image:Images/activityExplorerOperational.png]]
-* System Analysis
-
-: [[Image:Images/activityExplorerSystem.png]]
-
-* Logical Architecture
-
-: [[Image:Images/activityExplorerLogical.png]]
-
-* Physical Architecture
+The user can create a diagram using the menus in project explorer or using the corresponding hyperlink from the [[../help/topic/org.polarsys.capella.ui.doc/html/04.%20User%20Interface/4.03.%20Activity%20Browser.html? |Activity Explorer]]<span class="github-link">[[https://github.com/eclipse/capella/blob/master/doc/plugins/org.polarsys.capella.ui.doc/html/04.%20User%20Interface/4.03.%20Activity%20Browser.mediawiki|(online documentation)]]</span>:
 
 : [[Image:Images/activityExplorer.png]]
 
