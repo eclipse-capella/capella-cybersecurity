@@ -21,7 +21,7 @@ cache:
     - downloads/
     - releng/
 
-Download Capella:
+.Download Capella:
   stage: download-capella
   image: curlimages/curl 
   variables:
