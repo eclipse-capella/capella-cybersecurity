@@ -388,13 +388,44 @@
     </ownedArchitectures>
     <ownedArchitectures xsi:type="org.polarsys.capella.core.data.pa:PhysicalArchitecture"
         id="700524b0-9e5b-47a5-a409-6db2680145d1" name="Physical Architecture">
+      <ownedExtensions xsi:type="cybersecurity:CybersecurityPkg" id="e3201310-ef8c-46d5-8589-d9ddb6313095"
+          name="CybersecurityPkg 1">
+        <ownedPrimaryAssets xsi:type="cybersecurity:FunctionalPrimaryAsset" id="99711cee-9093-48fb-910b-f7b16eacb9b7"
+            name="FunctionalPrimaryAsset 1">
+          <ownedMembers xsi:type="cybersecurity:PrimaryAssetMember" id="91fa2258-b606-4263-a2b8-704507165a93"
+              member="#27ef0331-6d4b-4633-b672-a5ebd8f615ca"/>
+        </ownedPrimaryAssets>
+      </ownedExtensions>
       <ownedFunctionPkg xsi:type="org.polarsys.capella.core.data.pa:PhysicalFunctionPkg"
           id="039f295a-c2e7-404a-acbb-860527a72521" name="Physical Functions">
         <ownedPhysicalFunctions xsi:type="org.polarsys.capella.core.data.pa:PhysicalFunction"
             id="1a628dd9-5e10-406a-9f73-d64f270d8369" name="Root Physical Function">
+          <ownedFunctionalChains xsi:type="org.polarsys.capella.core.data.fa:FunctionalChain"
+              id="27ef0331-6d4b-4633-b672-a5ebd8f615ca" name="FunctionalChain 1">
+            <ownedFunctionalChainInvolvements xsi:type="org.polarsys.capella.core.data.fa:FunctionalChainInvolvementLink"
+                id="f6b192d2-f931-4993-91e6-8625e178a377" involved="#b20c896d-bfbe-4ef8-96fd-599046a3fe4c"
+                source="#4d6382a3-e608-4b90-a3ba-6e82e12abc64" target="#72b25a57-e976-4990-8476-139b5f40c1d6"/>
+            <ownedFunctionalChainInvolvements xsi:type="org.polarsys.capella.core.data.fa:FunctionalChainInvolvementFunction"
+                id="72b25a57-e976-4990-8476-139b5f40c1d6" involved="#15d6dd37-3a3f-4efa-9fb8-572028133110"/>
+            <ownedFunctionalChainInvolvements xsi:type="org.polarsys.capella.core.data.fa:FunctionalChainInvolvementFunction"
+                id="4d6382a3-e608-4b90-a3ba-6e82e12abc64" involved="#0c952924-9eb5-49bd-8180-619f9c669354"/>
+          </ownedFunctionalChains>
+          <ownedFunctions xsi:type="org.polarsys.capella.core.data.pa:PhysicalFunction"
+              id="0c952924-9eb5-49bd-8180-619f9c669354" name="PhysicalFunction 1">
+            <outputs xsi:type="org.polarsys.capella.core.data.fa:FunctionOutputPort"
+                id="133dc8ac-486e-4f9a-b3a0-e00394305ba6" name="FOP 1"/>
+          </ownedFunctions>
+          <ownedFunctions xsi:type="org.polarsys.capella.core.data.pa:PhysicalFunction"
+              id="15d6dd37-3a3f-4efa-9fb8-572028133110" name="PhysicalFunction 2">
+            <inputs xsi:type="org.polarsys.capella.core.data.fa:FunctionInputPort"
+                id="a3965974-6147-4c68-b1c6-95b415a55d6c" name="FIP 1"/>
+          </ownedFunctions>
           <ownedFunctionRealizations xsi:type="org.polarsys.capella.core.data.fa:FunctionRealization"
               id="9209a5e8-088e-4c70-bd7d-37f696d11e1d" targetElement="#3c0b1553-06c3-4769-bc1d-7e4da05cf241"
               sourceElement="#1a628dd9-5e10-406a-9f73-d64f270d8369"/>
+          <ownedFunctionalExchanges xsi:type="org.polarsys.capella.core.data.fa:FunctionalExchange"
+              id="b20c896d-bfbe-4ef8-96fd-599046a3fe4c" name="FunctionalExchange 1"
+              target="#a3965974-6147-4c68-b1c6-95b415a55d6c" source="#133dc8ac-486e-4f9a-b3a0-e00394305ba6"/>
         </ownedPhysicalFunctions>
       </ownedFunctionPkg>
       <ownedAbstractCapabilityPkg xsi:type="org.polarsys.capella.core.data.la:CapabilityRealizationPkg"
@@ -407,11 +438,22 @@
           id="63687aef-0607-4234-88b3-7f10dabf4ea4" name="Structure">
         <ownedParts xsi:type="org.polarsys.capella.core.data.cs:Part" id="e1497240-613f-4598-91ea-aac407cb360d"
             name="Physical System" abstractType="#308e887b-bc61-437d-99be-cb05cda88f68"/>
+        <ownedParts xsi:type="org.polarsys.capella.core.data.cs:Part" id="e2a0e76a-1448-446a-b57d-ab3e0d778701"
+            name="PA 2" abstractType="#cce2ce0d-a072-4cde-a1e8-fc02397d0e86"/>
         <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
             id="308e887b-bc61-437d-99be-cb05cda88f68" name="Physical System">
           <ownedComponentRealizations xsi:type="org.polarsys.capella.core.data.cs:ComponentRealization"
               id="0ea4b7e0-e68f-4ef1-ba2e-4eeb82ed3d79" targetElement="#c9b5b42e-e948-4039-be41-c9df91001fac"
               sourceElement="#308e887b-bc61-437d-99be-cb05cda88f68"/>
+        </ownedPhysicalComponents>
+        <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
+            id="cce2ce0d-a072-4cde-a1e8-fc02397d0e86" name="PA 2" actor="true" nature="NODE">
+          <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
+              id="ba8c48f8-5c57-4eb4-a28e-4693ba590688" targetElement="#0c952924-9eb5-49bd-8180-619f9c669354"
+              sourceElement="#cce2ce0d-a072-4cde-a1e8-fc02397d0e86"/>
+          <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
+              id="5e3126be-3f90-4a91-898b-b5cef91cf5b6" targetElement="#15d6dd37-3a3f-4efa-9fb8-572028133110"
+              sourceElement="#cce2ce0d-a072-4cde-a1e8-fc02397d0e86"/>
         </ownedPhysicalComponents>
       </ownedPhysicalComponentPkg>
       <ownedLogicalArchitectureRealizations xsi:type="org.polarsys.capella.core.data.pa:LogicalArchitectureRealization"
