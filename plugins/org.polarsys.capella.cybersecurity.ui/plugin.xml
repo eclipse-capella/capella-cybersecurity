@@ -988,6 +988,70 @@
       </categoryQuery>
    </category>
    <category
+         id="Activity__ComputedOperationalPrimaryAssets"
+         isTopLevel="true"
+         name="Operational Primary Assets (computed)">
+      <availableForType
+            class="org.polarsys.capella.core.data.oa.OperationalActivity">
+      </availableForType>
+      <targetBrowserId
+            id="ReferencingElementBrowser">
+      </targetBrowserId>
+      <categoryQuery>
+         <basicQuery
+               class="org.polarsys.capella.cybersecurity.model.CybersecurityQueries$Activity__ComputedOperationalPrimaryAssets">
+         </basicQuery>
+      </categoryQuery>
+   </category>
+   <category
+         id="AbstractFunction__ComputedFunctionalPrimaryAssets"
+         isTopLevel="true"
+         name="Functional Primary Assets (computed)">
+      <availableForType
+            class="org.polarsys.capella.core.data.fa.AbstractFunction">
+      </availableForType>
+      <targetBrowserId
+            id="ReferencingElementBrowser">
+      </targetBrowserId>
+      <categoryQuery>
+         <basicQuery
+               class="org.polarsys.capella.cybersecurity.model.CybersecurityQueries$AbstractFunction__ComputedFunctionalPrimaryAssets">
+         </basicQuery>
+      </categoryQuery>
+   </category>
+   <category
+         id="Interaction__ComputedOperationalPrimaryAssets"
+         isTopLevel="true"
+         name="Operational Primary Assets (computed)">
+      <availableForType
+            class="org.polarsys.capella.core.data.fa.FunctionalExchange">
+      </availableForType>
+      <targetBrowserId
+            id="ReferencingElementBrowser">
+      </targetBrowserId>
+      <categoryQuery>
+         <basicQuery
+               class="org.polarsys.capella.cybersecurity.model.CybersecurityQueries$Interaction__ComputedOperationalPrimaryAssets">
+         </basicQuery>
+      </categoryQuery>
+   </category>
+   <category
+         id="FunctionalExchange__ComputedFunctionalPrimaryAssets"
+         isTopLevel="true"
+         name="Functional Primary Assets (computed)">
+      <availableForType
+            class="org.polarsys.capella.core.data.fa.FunctionalExchange">
+      </availableForType>
+      <targetBrowserId
+            id="ReferencingElementBrowser">
+      </targetBrowserId>
+      <categoryQuery>
+         <basicQuery
+               class="org.polarsys.capella.cybersecurity.model.CybersecurityQueries$FunctionalExchange__ComputedFunctionalPrimaryAssets">
+         </basicQuery>
+      </categoryQuery>
+   </category>
+   <category
          id="FunctionalChain__FunctionalPrimaryAssets"
          isTopLevel="true"
          name="Functional Primary Assets">
