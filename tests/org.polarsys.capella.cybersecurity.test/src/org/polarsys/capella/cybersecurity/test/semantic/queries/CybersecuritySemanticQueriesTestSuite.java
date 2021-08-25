@@ -36,6 +36,8 @@ public class CybersecuritySemanticQueriesTestSuite extends BasicTestSuite {
     tests.add(new RealizingThreatsTestCase());
     tests.add(new IncomingTracesSecurityNeedsTestCase());
     tests.add(new OutgoingTracesSecurityNeedsTestCase());
+    tests.add(new AbstractFunctionComputedFPAsTestCase());
+    tests.add(new FunctionalChainComputedFPAsTestCase());
     return tests;
   }
 
