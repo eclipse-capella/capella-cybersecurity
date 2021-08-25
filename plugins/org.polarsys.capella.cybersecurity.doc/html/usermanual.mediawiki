@@ -214,10 +214,6 @@ The following tools are available:
 | [[Image:Images/ThreatApplication.gif]] 
 |  Create a new Threat Application between the selected Threat and Primary Asset.
 |-
-| 	Actors 	
-| [[Image:Images/ShowHide.gif]] 
-|  Insert/Remove Actors.  Create or delete graphical objects corresponding to already existing Actors. Removing an Actor graphical object from the diagram does not delete the Actor from the model. This tool does not modify the semantic model.
-|-
 | 	Threats 	
 | [[Image:Images/ShowHide.gif]] 
 |  Insert/Remove Threats. Create or delete graphical objects corresponding to already existing Threats. Removing a Threat graphical object from the diagram does not delete the Threat from the model. This tool does not modify the semantic model.
@@ -229,6 +225,10 @@ The following tools are available:
 | 	Information Primary Assets	
 | [[Image:Images/ShowHide.gif]] 
 |  Insert/Remove Information Assets. Create or delete graphical objects corresponding to already existing Information Assets. Removing a Information Asset graphical object from the diagram does not delete the Information Asset from the model. This tool does not modify the semantic model.
+|-
+| 	Actors 	
+| [[Image:Images/ShowHide.gif]] 
+|  Insert/Remove Actors.  Create or delete graphical objects corresponding to already existing Actors. Removing an Actor graphical object from the diagram does not delete the Actor from the model. This tool does not modify the semantic model.
 |}
 
 At Operational level, the following tools are available, too: 
