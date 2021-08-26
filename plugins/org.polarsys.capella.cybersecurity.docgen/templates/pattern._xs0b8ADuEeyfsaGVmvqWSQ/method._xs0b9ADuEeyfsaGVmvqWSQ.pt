@@ -1,0 +1,3 @@
+return parameter instanceof PrimaryAsset ||
+	parameter instanceof Threat ||
+	parameter instanceof CybersecurityPkg;

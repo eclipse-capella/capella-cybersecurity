@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.polarsys.kitalpha.doc.gen.business.core.contentExtension">
+      <contentExtension
+            description="Add Cybersecurity property tab in capella elements"
+            name="Capella Cybersecurity Extension"
+            priority="0"
+            topic="CAPELLA_ELEMENT_EXTENSION">
+         <fcores
+               patternURI="platform:/plugin/org.polarsys.capella.cybersecurity.docgen/egf/cybersecurity-docgen.fcore#_e0ugQP9cEeuTsa9sF33Caw">
+         </fcores>
+      </contentExtension>
+      <pageExtension
+            category="CyberSecurity Viewpoint"
+            defaultStatus="Active"
+            description="CyberSecurity Viewpoint"
+            diagramHelper="org.polarsys.capella.cybersecurity.docgen.utils.CybersecurityDiagramHelper"
+            domain="capella"
+            fileNameService="org.polarsys.capella.cybersecurity.docgen.utils.CybersecurityFileNameSerivice"
+            name="CyberSecurity Viewpoint">
+         <pagePattern
+               URI="platform:/plugin/org.polarsys.capella.cybersecurity.docgen/egf/cybersecurity-docgen.fcore#_xs0b8ADuEeyfsaGVmvqWSQ">
+         </pagePattern>
+      </pageExtension>
+   </extension>
+   <extension
+         point="org.eclipse.egf.core.fcore">
+      <fcore
+            id="egf/cybersecurity-docgen.fcore">
+      </fcore>
+   </extension>
+
+</plugin>
