@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fcore:FactoryComponent xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:fcore="http://www.eclipse.org/egf/1.0.0/fcore"
+    xmlns:jetpattern="http://www.eclipse.org/egf/1.0.0/jetpattern" xmlns:pattern="http://www.eclipse.org/egf/1.0.0/pattern"
+    xmi:id="_1xsJ8Jv_Eem0XurP-Z9miwx" name="cybersecurity-docgen">
+  <viewpointContainer xmi:id="_mxpI8P9bEeuTsa9sF33Caw">
+    <viewpoints xmi:type="pattern:PatternViewpoint" xmi:id="_qLmHUP9bEeuTsa9sF33Caw">
+      <libraries xmi:id="_bQFU0P9cEeuTsa9sF33Caw" name="org.polarsys.capella.cybersecurity.doc.gen.content">
+        <elements xmi:id="_e0ugQP9cEeuTsa9sF33Caw" name="CyberSecurityPropertyViewPattern"
+            headerMethod="#_e0ugQv9cEeuTsa9sF33Caw" conditionMethod="#_e0ugRP9cEeuTsa9sF33Caw"
+            initMethod="#_e0ugQ_9cEeuTsa9sF33Caw" footerMethod="#_e0ugRv9cEeuTsa9sF33Caw">
+          <nature xmi:type="jetpattern:JetNature" xmi:id="_e0ugQf9cEeuTsa9sF33Caw"
+              name="JET"/>
+          <methods xmi:id="_e0ugQv9cEeuTsa9sF33Caw" name="header" patternFilePath="templates/pattern._e0ugQP9cEeuTsa9sF33Caw/method._e0ugQv9cEeuTsa9sF33Caw.pt"/>
+          <methods xmi:id="_e0ugQ_9cEeuTsa9sF33Caw" name="init" patternFilePath="templates/pattern._e0ugQP9cEeuTsa9sF33Caw/method._e0ugQ_9cEeuTsa9sF33Caw.pt"/>
+          <methods xmi:id="_e0ugRP9cEeuTsa9sF33Caw" name="preCondition" patternFilePath="templates/pattern._e0ugQP9cEeuTsa9sF33Caw/method._e0ugRP9cEeuTsa9sF33Caw.pt"/>
+          <methods xmi:id="_e0ugRf9cEeuTsa9sF33Caw" name="content" patternFilePath="templates/pattern._e0ugQP9cEeuTsa9sF33Caw/method._e0ugRf9cEeuTsa9sF33Caw.pt"/>
+          <methods xmi:id="_e0ugRv9cEeuTsa9sF33Caw" name="footer" patternFilePath="templates/pattern._e0ugQP9cEeuTsa9sF33Caw/method._e0ugRv9cEeuTsa9sF33Caw.pt"/>
+          <parameters xmi:id="_VWi_gP9lEeuTsa9sF33Caw" name="documentTitle" type="java.lang.String"/>
+          <parameters xmi:id="_sByBUP9lEeuTsa9sF33Caw" name="element" type="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+          <orchestration xmi:type="pattern:SuperCall" xmi:id="_e0ugR_9cEeuTsa9sF33Caw"/>
+          <orchestration xmi:type="pattern:MethodCall" xmi:id="_RZBzMAXKEeykCas4bQCbsg"
+              called="#_e0ugRf9cEeuTsa9sF33Caw"/>
+        </elements>
+        <elements xmi:id="_xs0b8ADuEeyfsaGVmvqWSQ" name="CybersecurityGenTemplate"
+            superPattern="platform:/plugin/org.polarsys.capella.docgen/egf/HTMLDocGenCapella.fcore#_LUSfMN0jEd-Vzvs7Wt1vzQ"
+            headerMethod="#_xs0b8gDuEeyfsaGVmvqWSQ" conditionMethod="#_xs0b9ADuEeyfsaGVmvqWSQ"
+            initMethod="#_xs0b8wDuEeyfsaGVmvqWSQ" footerMethod="#_xs0b9gDuEeyfsaGVmvqWSQ">
+          <nature xmi:type="jetpattern:JetNature" xmi:id="_xs0b8QDuEeyfsaGVmvqWSQ"
+              name="JET"/>
+          <methods xmi:id="_xs0b8gDuEeyfsaGVmvqWSQ" name="header" patternFilePath="templates/pattern._xs0b8ADuEeyfsaGVmvqWSQ/method._xs0b8gDuEeyfsaGVmvqWSQ.pt"/>
+          <methods xmi:id="_xs0b8wDuEeyfsaGVmvqWSQ" name="init" patternFilePath="templates/pattern._xs0b8ADuEeyfsaGVmvqWSQ/method._xs0b8wDuEeyfsaGVmvqWSQ.pt"/>
+          <methods xmi:id="_xs0b9ADuEeyfsaGVmvqWSQ" name="preCondition" patternFilePath="templates/pattern._xs0b8ADuEeyfsaGVmvqWSQ/method._xs0b9ADuEeyfsaGVmvqWSQ.pt"/>
+          <methods xmi:id="_xs0b9gDuEeyfsaGVmvqWSQ" name="footer" patternFilePath="templates/pattern._xs0b8ADuEeyfsaGVmvqWSQ/method._xs0b9gDuEeyfsaGVmvqWSQ.pt"/>
+          <methods xmi:id="_1SuNYAPoEeyLMfB-ji7ZWg" name="content" patternFilePath="templates/pattern._xs0b8ADuEeyfsaGVmvqWSQ/method._1SuNYAPoEeyLMfB-ji7ZWg.pt"/>
+          <methods xmi:id="_Zzcx0AQJEeyLMfB-ji7ZWg" name="setCapellaContext" patternFilePath="templates/pattern._xs0b8ADuEeyfsaGVmvqWSQ/method._Zzcx0AQJEeyLMfB-ji7ZWg.pt"/>
+          <methods xmi:id="_AftkQAQrEeyLMfB-ji7ZWg" name="createPNG" patternFilePath="templates/pattern._xs0b8ADuEeyfsaGVmvqWSQ/method._AftkQAQrEeyLMfB-ji7ZWg.pt"/>
+          <methods xmi:id="_J9t-cATpEey237wyeDoSOQ" name="fileNameService" patternFilePath="templates/pattern._xs0b8ADuEeyfsaGVmvqWSQ/method._J9t-cATpEey237wyeDoSOQ.pt"/>
+          <parameters xmi:id="_iu-lYAPoEeyLMfB-ji7ZWg" name="parameter" type="http://www.polarsys.org/capella/core/core/5.0.0#//CapellaElement"/>
+          <orchestration xmi:type="pattern:MethodCall" xmi:id="_CyzBMAQrEeyLMfB-ji7ZWg"
+              called="#_AftkQAQrEeyLMfB-ji7ZWg"/>
+          <orchestration xmi:type="pattern:SuperCall" xmi:id="_DhQpsAQrEeyLMfB-ji7ZWg"/>
+        </elements>
+      </libraries>
+    </viewpoints>
+  </viewpointContainer>
+</fcore:FactoryComponent>
