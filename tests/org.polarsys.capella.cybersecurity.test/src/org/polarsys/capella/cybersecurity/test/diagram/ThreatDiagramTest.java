@@ -18,17 +18,21 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.common.tools.api.resource.ImageFileFormat;
+import org.eclipse.sirius.diagram.DDiagramElementContainer;
 import org.eclipse.sirius.diagram.DNode;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.business.api.dialect.ExportFormat;
 import org.eclipse.sirius.ui.business.api.dialect.ExportFormat.ExportDocumentFormat;
+import org.polarsys.capella.core.data.oa.Entity;
 import org.polarsys.capella.cybersecurity.sirius.analysis.CybersecurityAnalysisConstants;
 import org.polarsys.capella.test.diagram.tools.ju.model.EmptyProject;
 import org.polarsys.capella.test.framework.context.SessionContext;
 import org.polarsys.kitalpha.ad.services.manager.ViewpointManager;
 
 public class ThreatDiagramTest extends EmptyProject {
-
+  Session session;
+  SessionContext context;
+    
   @Override
   protected void undoAllChanges() {
     //don't undo anything
@@ -37,17 +41,28 @@ public class ThreatDiagramTest extends EmptyProject {
 
   @Override
   public void test() throws Exception {
-    Session session = getSession(getRequiredTestModel());
-    SessionContext context = new SessionContext(session);
+    session = getSession(getRequiredTestModel());
+    context = new SessionContext(session);
     ViewpointManager manager = ViewpointManager.getInstance(session.getTransactionalEditingDomain().getResourceSet());
     manager.activate(CybersecurityAnalysisConstants.VIEWPOINT_ID);  
 
-    ThreatDiagram td = ThreatDiagram.createDiagram(context, PA__PHYSICAL_SYSTEM);
+    testOnOA(OA__OPERATIONAL_CONTEXT);
+    testOnContext(SA__SYSTEM_CONTEXT);
+    testOnContext(SA__SYSTEM_CONTEXT);
+    testOnContext(SA__SYSTEM);
+    testOnContext(LA__LOGICAL_SYSTEM);
+    testOnContext(LA__LOGICAL_CONTEXT);
+    testOnContext(PA__PHYSICAL_CONTEXT);
+    testOnContext(PA__PHYSICAL_SYSTEM);
+  }
+  
+  protected void testOnContext(String containerId) throws Exception {
+    ThreatDiagram td = ThreatDiagram.createDiagram(context, containerId);
     DNode threat = td.createThreat();
 
     DNode ipa = td.createFunctionalPrimaryAsset();
     DNode fpa = td.createInformationPrimaryAsset();
-
+    
     DNode actor = td.createActor();
 
     td.createThreatApplication(threat, ipa);
@@ -58,6 +73,26 @@ public class ThreatDiagramTest extends EmptyProject {
     IPath dest = ResourcesPlugin.getWorkspace().getRoot().getLocation().append(new Path("/" + getRequiredTestModel() + "/diagram.png")); //$NON-NLS-1$ //$NON-NLS-2$
     DialectUIManager.INSTANCE.export(td.getDiagram(), session, dest, format, new NullProgressMonitor());
   }
+  
+  protected void testOnOA(String containerId) throws Exception {
+    ThreatDiagram td = ThreatDiagram.createDiagram(context, containerId);
+    DNode threat = td.createThreat();
 
+    DNode ipa = td.createFunctionalPrimaryAsset();
+    DNode fpa = td.createInformationPrimaryAsset();
+    
+    DNode actor = td.createOperationalActor();
+
+    td.createThreatApplication(threat, ipa);
+    td.createThreatApplication(threat, fpa);
+    td.createThreatInvolvement(threat, actor);
+    
+    // create another TDB in an Actor
+    Entity eActor = (Entity) actor.getTarget();
+    ThreatDiagram tdActor = ThreatDiagram.createDiagram(context, eActor.getId());
+    tdActor.createOperationalActor();
+    tdActor.createOperationalEntity();
+    tdActor.createThreat();
+  }
 }
 
