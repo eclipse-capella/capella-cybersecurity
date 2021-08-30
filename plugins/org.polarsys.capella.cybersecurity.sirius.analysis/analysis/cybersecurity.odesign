@@ -198,7 +198,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" documentation="Creates a new Operational Entity" name="operational.entity" label="Operational Entity" precondition="aql:not (container.isActor())" containerMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@containerMappings[name='OperationalEntity']" iconPath="/org.polarsys.capella.core.sirius.analysis/icons/full/obj16/Entity.gif">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" documentation="Creates a new Operational Entity" name="operational.entity" label="Operational Entity" precondition="aql:containerView.getABTarget().isValidCreationABComponent()" containerMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@containerMappings[name='OperationalEntity']" iconPath="/org.polarsys.capella.core.sirius.analysis/icons/full/obj16/Entity.gif">
             <filters precondition="aql: not(self.isToolAtOperationalLevel())"/>
             <variable name="container"/>
             <viewVariable name="containerView"/>
