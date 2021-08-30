@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--Capella_Version_5.0.0-->
+<!--Capella_Version_5.1.0-->
 <org.polarsys.capella.core.data.capellamodeller:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cybersecurity="http://www.polarsys.org/capella/cybersecurity/1.0"
     xmlns:libraries="http://www.polarsys.org/capella/common/libraries/5.0.0" xmlns:org.polarsys.capella.core.data.capellacommon="http://www.polarsys.org/capella/core/common/5.0.0"
@@ -436,7 +436,8 @@
               id="f16e2fa0-039a-41f3-b603-bf0d1da54412" targetElement="#48bcb37f-d6a9-40a5-8db9-bb26aba34e39"
               sourceElement="#7b93b848-19c3-433d-b54a-2305db5d073c"/>
           <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
-              id="eee9197a-6113-499e-a2df-1d402fbc1550" name="Spy" actor="true" nature="NODE">
+              id="eee9197a-6113-499e-a2df-1d402fbc1550" name="Spy" actor="true" human="true"
+              nature="NODE">
             <ownedExtensions xsi:type="cybersecurity:TrustBoundaryStorage" id="5704272a-7ff2-4c12-bec3-880260b48597"
                 threatSource="true" trusted="false"/>
             <ownedExtensions xsi:type="cybersecurity:ThreatInvolvement" id="b6103a11-fb5a-4eb5-8862-ba127b6c0292"
@@ -450,7 +451,7 @@
           </ownedPhysicalComponents>
           <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
               id="c5dfab2d-2e52-468f-a30a-a5ef5d6d0740" name="Opposant Hacker" actor="true"
-              nature="NODE">
+              human="true" nature="NODE">
             <ownedExtensions xsi:type="cybersecurity:TrustBoundaryStorage" id="f1764bde-3e86-4d54-9933-bb425d3c5535"
                 threatSource="true" trusted="false"/>
             <ownedExtensions xsi:type="cybersecurity:ThreatInvolvement" id="6321fb6b-ea00-413a-9366-89e0b456a023"
@@ -515,7 +516,8 @@
               sourceElement="#e7242e28-bd54-4d21-be82-a1beb39587ba"/>
         </ownedPhysicalComponents>
         <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
-            id="2565fa3e-f41a-49e4-8f5a-65cfff671d7c" name="Spy" actor="true" nature="NODE">
+            id="2565fa3e-f41a-49e4-8f5a-65cfff671d7c" name="Spy" actor="true" human="true"
+            nature="NODE">
           <ownedExtensions xsi:type="cybersecurity:TrustBoundaryStorage" id="897ccea7-7f39-4942-9b40-e5e58beda4e5"
               threatSource="true" trusted="false"/>
           <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"

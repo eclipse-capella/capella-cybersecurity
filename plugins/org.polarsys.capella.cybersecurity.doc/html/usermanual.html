@@ -279,7 +279,7 @@
 				<td>Insert/Remove Actors.  Create or delete graphical objects corresponding to already existing Actors. Removing an Actor graphical object from the diagram does not delete the Actor from the model. This tool does not modify the semantic model.</td>
 			</tr>
 		</table>
-		<p>At Operational level, the following tools are available, too: </p>
+		<p>At Operational Analysis level, the following tools are also available:</p>
 		<table border="1">
 			<tr>
 				<td>Operational Entity</td>
@@ -330,42 +330,8 @@
 		<p>
 			<img border="0" src="Images/layers.png"/>
 		</p>
-		<h3 id="Primary_Assets_Layer">Primary Assets Layer</h3>
-		<p>The Primary Assets Layer will display in the diagram the inserted assets. The elements that are threatened by them will be highlighted with the same border color as the asset color. If two or more assets threat the same element and at least two of them are displayed in diagram, the border color of the element will be black.</p>
-		<p>
-			<img border="0" src="Images/pab_diagram_4.png"/> 
-		</p>
-		<p>When the primary asset covers a functional chain, the involved functions and functional exchanges will be highlighted in the same way (if the primary asset is displayed).
-			If FunctionalChains (FC) are displayed in diagram, they will override the colors of Primary Asset Layer!</p>
-		<p>Two tools are available in this layer, under the Cybersecurity section: Primary Assets and Threats.
-			With 
-			<i>Primary Assets Tool</i> the user has the ability to show/hide Primary Assets (Functional and Information) in/from diagram.
-			With 
-			<i>Threats Tool</i> the user can show/hide Threats in/from diagram.
-		</p>
-		<p>
-			<img border="0" src="Images/cybersecurity_tool.png"/> 
-		</p>
-		<h3 id="Supporting_Assets_Layer">Supporting Assets Layer</h3>
-		<p>The Supporting Assets Layer adds decorations to the Components, Component Exchanges and Physical Links of Primary Assets. It highlights the first node component/ actor
-			and the first deploy behavior component that contains at least one function threaten by the primary asset. This components are highlighted with the color of the primary asset (if it's only one) or black (if there are two or many primary assets that cover the same function).</p>
-		<p>
-			<img border="0" src="Images/pab_diagram_5.png"/>
-		</p>
-		<h3 id="Trust_Boundaries_Layer">Trust Boundaries Layer</h3>
-		<p>The Trust Boundaries Layer will change the diagrams appearance: Trusted components and actors will change their background color to white, untrusted components and actors will change their color to red. Communication edges between Trusted and Untrusted elements, so called Trust Boundaries, will be decorated with a small flame icon covered by a red border:</p>
-		<p>
-			<img border="0" src="Images/pab_diagram_2.png"/> 
-		</p>
-		<h3 id="CIAT_Layers">CIAT Layers</h3>
-		<p>Additional layers are provided to focus on Confidentiality, Integrity, Availability and Traceability needs for model elements.
-			When one of these layers is active, elements with a higher respective security needs value are emphasized over elements with
-			a lower security needs value:</p>
-		<p>
-			<img border="0" src="Images/pab_diagram_3.png"/> 
-		</p>
-		<h3 id="Cybersecurity_Decorations_Layer">Cybersecurity Decorations Layer</h3>
-		<p>The Cybersecurity Decorations Layer adds the following decorations to existing diagram elements.</p>
+		<h3 id="Cybersecurity_Decoration_Layer">Cybersecurity Decoration Layer</h3>
+		<p>The Cybersecurity Decoration Layer adds the following decorations to existing diagram elements.</p>
 		<table border="0">
 			<tr>
 				<td>
@@ -398,6 +364,40 @@
 				<td>Someone or something that could affect the product.</td>
 			</tr>
 		</table>
+		<h3 id="Primary_Assets_Layer">Primary Assets Layer</h3>
+		<p>The Primary Assets Layer will display in the diagram the inserted assets. The elements that are threatened by them will be highlighted with the same border color as the asset color. If two or more assets threat the same element and at least two of them are displayed in diagram, the border color of the element will be black.</p>
+		<p>
+			<img border="0" src="Images/pab_diagram_4.png"/> 
+		</p>
+		<p>When the primary asset covers a functional chain, the involved functions and functional exchanges will be highlighted in the same way (if the primary asset is displayed).
+			If FunctionalChains (FC) are displayed in diagram, they will override the colors of Primary Asset Layer!</p>
+		<p>Two tools are available in this layer, under the Cybersecurity section: Primary Assets and Threats.
+			With 
+			<i>Primary Assets Tool</i> the user has the ability to show/hide Primary Assets (Functional and Information) in/from diagram.
+			With 
+			<i>Threats Tool</i> the user can show/hide Threats in/from diagram.
+		</p>
+		<p>
+			<img border="0" src="Images/cybersecurity_tool.png"/> 
+		</p>
+		<h3 id="Supporting_Assets_Layer">Supporting Assets Layer</h3>
+		<p>The Supporting Assets Layer adds decorations to the Components, Component Exchanges and Physical Links of Primary Assets. It highlights the first node component/ actor
+			and the first deploy behavior component that contains at least one function threaten by the primary asset. This components are highlighted with the color of the primary asset (if it's only one) or black (if there are two or many primary assets that cover the same function).</p>
+		<p>
+			<img border="0" src="Images/pab_diagram_5.png"/>
+		</p>
+		<h3 id="CIAT_Layers">CIAT Layers</h3>
+		<p>Additional layers are provided to focus on Confidentiality, Integrity, Availability and Traceability needs for model elements.
+			When one of these layers is active, elements with a higher respective security needs value are emphasized over elements with
+			a lower security needs value:</p>
+		<p>
+			<img border="0" src="Images/pab_diagram_3.png"/> 
+		</p>
+		<h3 id="Trust_Boundaries_Layer">Trust Boundaries Layer</h3>
+		<p>The Trust Boundaries Layer will change the diagrams appearance: Trusted components and actors will change their background color to white, untrusted components and actors will change their color to red. Communication edges between Trusted and Untrusted elements, so called Trust Boundaries, will be decorated with a small flame icon covered by a red border:</p>
+		<p>
+			<img border="0" src="Images/pab_diagram_2.png"/> 
+		</p>
 		<h2 id="Scenario_Diagram">Scenario Diagram</h2>
 		<p>See Capella 
 			<a href="/wiki/../help/topic/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.html?#Exchange_Scenario" title="../help/topic/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.html?#Exchange_Scenario">Exchange  Scenario Documentation</a><span class="github-link">
