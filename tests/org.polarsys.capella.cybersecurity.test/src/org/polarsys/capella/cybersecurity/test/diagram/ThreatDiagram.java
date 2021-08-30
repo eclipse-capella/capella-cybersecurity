@@ -13,11 +13,13 @@
 package org.polarsys.capella.cybersecurity.test.diagram;
 
 import org.eclipse.sirius.diagram.DDiagram;
+import org.eclipse.sirius.diagram.DDiagramElementContainer;
 import org.eclipse.sirius.diagram.DEdge;
 import org.eclipse.sirius.diagram.DNode;
 import org.polarsys.capella.cybersecurity.sirius.analysis.CybersecurityAnalysisConstants;
 import org.polarsys.capella.test.diagram.common.ju.context.DiagramContext;
 import org.polarsys.capella.test.diagram.common.ju.step.crud.CreateDiagramStep;
+import org.polarsys.capella.test.diagram.common.ju.step.tools.CreateContainerTool;
 import org.polarsys.capella.test.diagram.common.ju.step.tools.CreateNodeTool;
 import org.polarsys.capella.test.framework.context.SessionContext;
 
@@ -35,6 +37,14 @@ public class ThreatDiagram extends DiagramContext {
     return new CreateNodeTool(this, CybersecurityAnalysisConstants.TOOL_CREATE_FUNCTIONAL_PRIMARY_ASSET, getDiagramId()).run();
   }
 
+  public DDiagramElementContainer createOperationalEntity() {
+    return new CreateContainerTool(this, CybersecurityAnalysisConstants.TOOL_CREATE_OPERATIONAL_ENTITY, getDiagramId()).run();
+  }
+  
+  public DNode createOperationalActor() {
+    return new CreateNodeTool(this, CybersecurityAnalysisConstants.TOOL_CREATE_OPERATIONAL_ACTOR, getDiagramId()).run();
+  }
+  
   public DNode createActor() {
     return new CreateNodeTool(this, CybersecurityAnalysisConstants.TOOL_CREATE_ACTOR, getDiagramId()).run();
   }
@@ -42,7 +52,7 @@ public class ThreatDiagram extends DiagramContext {
   public DNode createInformationPrimaryAsset() {
     return new CreateNodeTool(this, CybersecurityAnalysisConstants.TOOL_CREATE_INFORMATION_PRIMARY_ASSET, getDiagramId()).run();
   }
-
+  
   public DEdge createThreatInvolvement(DNode threat, DNode actor) {
     return new CreateDEdgeTool(this, CybersecurityAnalysisConstants.TOOL_CREATE_THREATINVOLVEMENT, threat.getUid(), actor.getUid()).run(); 
   }
