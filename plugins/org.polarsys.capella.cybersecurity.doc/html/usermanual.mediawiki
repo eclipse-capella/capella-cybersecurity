@@ -231,7 +231,7 @@ The following tools are available:
 |  Insert/Remove Actors.  Create or delete graphical objects corresponding to already existing Actors. Removing an Actor graphical object from the diagram does not delete the Actor from the model. This tool does not modify the semantic model.
 |}
 
-At Operational level, the following tools are available, too: 
+At Operational Analysis level, the following tools are also available:
 {| border="1"
 |-
 | 	Operational Entity
@@ -275,6 +275,28 @@ Several Layers are provided for Cybersecurity xAB, xDFB, CDB and ES diagrams. A 
 
 [[Image:Images/layers.png]]
 
+=== Cybersecurity Decoration Layer ===
+
+The Cybersecurity Decoration Layer adds the following decorations to existing diagram elements.
+
+{| border="0"
+|-
+|[[File:Images/datastorage-16.png]] Data Storage
+|Indicates that the function represents a data storage functionality.
+|-
+|[[File:Images/trusted-16.png]] Trusted Actor
+| Ability to be relied on as honest or truthful.
+|- 
+|[[Image:Images/notTrusted-16.png]] Untrusted Actor
+| Disability to be relied on as honest or truthful.
+|- 
+|[[Image:Images/remanentData-16.png]] Remanent Data
+| Indicates that the function manipulates data in such a way that data (or parts of it) remains even after attempts have been made to remove or erase it.
+|-
+|[[Image:Images/threatSource.png]] ThreatSource
+| Someone or something that could affect the product.
+|}
+
 === Primary Assets Layer ===
 
 The Primary Assets Layer will display in the diagram the inserted assets. The elements that are threatened by them will be highlighted with the same border color as the asset color. If two or more assets threat the same element and at least two of them are displayed in diagram, the border color of the element will be black.
@@ -299,14 +321,6 @@ and the first deploy behavior component that contains at least one function thre
 [[Image:Images/pab_diagram_5.png]]
 
 
-=== Trust Boundaries Layer ===
-
-The Trust Boundaries Layer will change the diagrams appearance: Trusted components and actors will change their background color to white, untrusted components and actors will change their color to red. Communication edges between Trusted and Untrusted elements, so called Trust Boundaries, will be decorated with a small flame icon covered by a red border:
-
-[[Image:Images/pab_diagram_2.png]] 
-
-
-
 === CIAT Layers ===
 
 Additional layers are provided to focus on Confidentiality, Integrity, Availability and Traceability needs for model elements.
@@ -315,27 +329,13 @@ a lower security needs value:
 
 [[Image:Images/pab_diagram_3.png]] 
 
-=== Cybersecurity Decorations Layer ===
 
-The Cybersecurity Decorations Layer adds the following decorations to existing diagram elements.
+=== Trust Boundaries Layer ===
 
-{| border="0"
-|-
-|[[File:Images/datastorage-16.png]] Data Storage
-|Indicates that the function represents a data storage functionality.
-|-
-|[[File:Images/trusted-16.png]] Trusted Actor
-| Ability to be relied on as honest or truthful.
-|- 
-|[[Image:Images/notTrusted-16.png]] Untrusted Actor
-| Disability to be relied on as honest or truthful.
-|- 
-|[[Image:Images/remanentData-16.png]] Remanent Data
-| Indicates that the function manipulates data in such a way that data (or parts of it) remains even after attempts have been made to remove or erase it.
-|-
-|[[Image:Images/threatSource.png]] ThreatSource
-| Someone or something that could affect the product.
-|}
+The Trust Boundaries Layer will change the diagrams appearance: Trusted components and actors will change their background color to white, untrusted components and actors will change their color to red. Communication edges between Trusted and Untrusted elements, so called Trust Boundaries, will be decorated with a small flame icon covered by a red border:
+
+[[Image:Images/pab_diagram_2.png]] 
+
 
 
 == Scenario Diagram ==
