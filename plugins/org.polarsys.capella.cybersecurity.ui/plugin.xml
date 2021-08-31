@@ -990,7 +990,7 @@
    <category
          id="Activity__ComputedOperationalPrimaryAssets"
          isTopLevel="true"
-         name="Operational Primary Assets (computed)">
+         name="Operational Activity Primary Assets (computed)">
       <availableForType
             class="org.polarsys.capella.core.data.oa.OperationalActivity">
       </availableForType>
@@ -1022,7 +1022,7 @@
    <category
          id="Interaction__ComputedOperationalPrimaryAssets"
          isTopLevel="true"
-         name="Operational Primary Assets (computed)">
+         name="Operational Activity Primary Assets (computed)">
       <availableForType
             class="org.polarsys.capella.core.data.fa.FunctionalExchange">
       </availableForType>
