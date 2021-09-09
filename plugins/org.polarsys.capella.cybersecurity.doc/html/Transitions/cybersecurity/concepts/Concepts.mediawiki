@@ -14,10 +14,19 @@ The DARC Viewpoint allows the top-down transition of cybersecurity elements (Thr
 
 == Performing a transition ==
 
-Transition of cybersecurity elements can be done using the "Cybersecurity Transition" command available in the transitions menu.
+=== From Activity Explorer ===
+
+The user can perform automated transitions of Cybersecurity Threats and Assets for SA, LA and PA levels using the '''Perform an automated transition of Cybersecurity elements''' tool, available in Activity Explorer. The tool will transition the content of Cybersecurity package (which contains Threats and Primary Assets).
 
 
-[[Image:../../../Images/cyber%20transition%20pkg.PNG]]
+[[Image:../../../Images/Activity_Explorer_Transition.PNG|586x316px]]
+
+=== Using the transitions menu ===
+
+Transition of cybersecurity elements can be done using the '''Cybersecurity Transition''' command available in the transitions menu (in Project Explorer or in a diagram):
+
+
+[[Image:../../../Images/cyber%20transition%20pkg.PNG|492x297px]]
 
 The cybersecurity transition command is available on the following elements:
 
