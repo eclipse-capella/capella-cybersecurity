@@ -25,6 +25,7 @@ import org.polarsys.capella.core.data.capellacore.EnumerationPropertyType;
 import org.polarsys.capella.core.data.capellamodeller.Project;
 import org.polarsys.capella.core.libraries.model.ICapellaModel;
 import org.polarsys.capella.cybersecurity.model.CybersecurityConfiguration;
+import org.polarsys.capella.cybersecurity.model.CybersecurityQueries;
 import org.polarsys.capella.cybersecurity.model.impl.CybersecurityFactoryImpl;
 import org.polarsys.kitalpha.ad.services.manager.ViewpointManager;
 import org.polarsys.kitalpha.ad.services.manager.ViewpointManager.OverallListener2;
@@ -58,20 +59,25 @@ public class CybersecurityModelActivator implements BundleActivator {
     listener = new OverallListener2() {
       @Override
       public void handleReferencing(Object ctx, Resource vp) {
-        TransactionalEditingDomain ted = TransactionUtil.getEditingDomain(ctx);
-        Object model = LibraryManager.INSTANCE.getModel(ted);
-        if (model instanceof ICapellaModel) {
-          Project project = ((ICapellaModel) model).getProject(ted);
-          AbstractReadWriteCommand command = new AbstractReadWriteCommand() {
-            public void run() {
-              addProjectCybersecurityConfig(project);
+        if (vp != null && vp.getId().equals(VIEWPOINT_ID)) {
+          TransactionalEditingDomain ted = TransactionUtil.getEditingDomain(ctx);
+          Object model = LibraryManager.INSTANCE.getModel(ted);
+          if (model instanceof ICapellaModel) {
+            Project project = ((ICapellaModel) model).getProject(ted);
+            AbstractReadWriteCommand command = new AbstractReadWriteCommand() {
+              public void run() {
+                CybersecurityConfiguration cyberConfig = CybersecurityQueries.getCybersecurityConfiguration(project);
+                if (cyberConfig == null) {
+                  addProjectCybersecurityConfig(project);
+                }
+              }
+            };
+
+            // if cybersecurity viewpoint is active
+            if (ViewpointManager.getInstance(project).isUsed(VIEWPOINT_ID)
+                && !ViewpointManager.getInstance(project).isFiltered(VIEWPOINT_ID)) {
+              TransactionHelper.getExecutionManager((EObject) project).execute(command);
             }
-          };
-          
-          // if cybersecurity viewpoint is active
-          if (ViewpointManager.getInstance(project).isUsed(VIEWPOINT_ID)
-              && !ViewpointManager.getInstance(project).isFiltered(VIEWPOINT_ID)) {
-            TransactionHelper.getExecutionManager((EObject) project).execute(command);
           }
         }
       }
