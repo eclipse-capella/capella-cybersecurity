@@ -8,11 +8,6 @@ cybersecurity engineering teams when performing the following tasks:
 * Identify threats
 * Characterize security needs
 
-=== Cybersecurity Projects ===
-
-To create a project with the DARC Viewpoint activated automatically, select
-''File->New->Cybersecurity Project'' from the application menu.
-
 == Concepts ==
 
 Cybersecurity Specific Properties of Model Elements can be seen in the ''Cybersecurity'' tab of the Properties View. This section lists the most important concepts and their properties.

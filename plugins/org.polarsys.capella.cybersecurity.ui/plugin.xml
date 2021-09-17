@@ -528,6 +528,8 @@
       </Activity>
    </Section>
 </extension>
+
+<!--
 <extension
       point="org.eclipse.ui.newWizards">
    <wizard
@@ -543,6 +545,8 @@
       </description>
    </wizard>
 </extension>
+-->
+
 <extension
       point="org.eclipse.ui.perspectiveExtensions">
    <perspectiveExtension
