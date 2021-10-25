@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
 import org.polarsys.capella.core.data.capellacore.EnumerationPropertyLiteral;
 import org.polarsys.capella.core.data.capellacore.NamedElement;
 import org.polarsys.capella.core.data.cs.Component;
+import org.polarsys.capella.core.data.interaction.AbstractCapability;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Threat</b></em>'. <!-- end-user-doc -->
@@ -38,7 +39,7 @@ import org.polarsys.capella.core.data.cs.Component;
  * @generated
  */
 
-public interface Threat extends NamedElement {
+public interface Threat extends AbstractCapability {
 
   /**
    * Returns the value of the '<em><b>Addressed By</b></em>' reference list.

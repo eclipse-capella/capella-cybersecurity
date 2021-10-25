@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.polarsys.capella.common.data.modellingcore.ModellingcorePackage;
 import org.polarsys.capella.core.data.capellacore.CapellacorePackage;
+import org.polarsys.capella.core.data.interaction.InteractionPackage;
 
 /**
  * <!-- begin-user-doc --> The <b>Package</b> for the model. It contains accessors for the meta objects to represent
@@ -309,7 +310,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int THREAT__OWNED_EXTENSIONS = CapellacorePackage.NAMED_ELEMENT__OWNED_EXTENSIONS;
+  int THREAT__OWNED_EXTENSIONS = InteractionPackage.ABSTRACT_CAPABILITY__OWNED_EXTENSIONS;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -317,7 +318,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int THREAT__ID = CapellacorePackage.NAMED_ELEMENT__ID;
+  int THREAT__ID = InteractionPackage.ABSTRACT_CAPABILITY__ID;
 
   /**
    * The feature id for the '<em><b>Sid</b></em>' attribute.
@@ -325,7 +326,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int THREAT__SID = CapellacorePackage.NAMED_ELEMENT__SID;
+  int THREAT__SID = InteractionPackage.ABSTRACT_CAPABILITY__SID;
 
   /**
    * The feature id for the '<em><b>Constraints</b></em>' reference list.
@@ -333,7 +334,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int THREAT__CONSTRAINTS = CapellacorePackage.NAMED_ELEMENT__CONSTRAINTS;
+  int THREAT__CONSTRAINTS = InteractionPackage.ABSTRACT_CAPABILITY__CONSTRAINTS;
 
   /**
    * The feature id for the '<em><b>Owned Constraints</b></em>' containment reference list.
@@ -342,7 +343,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int THREAT__OWNED_CONSTRAINTS = CapellacorePackage.NAMED_ELEMENT__OWNED_CONSTRAINTS;
+  int THREAT__OWNED_CONSTRAINTS = InteractionPackage.ABSTRACT_CAPABILITY__OWNED_CONSTRAINTS;
 
   /**
    * The feature id for the '<em><b>Owned Migrated Elements</b></em>' containment reference list.
@@ -351,7 +352,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int THREAT__OWNED_MIGRATED_ELEMENTS = CapellacorePackage.NAMED_ELEMENT__OWNED_MIGRATED_ELEMENTS;
+  int THREAT__OWNED_MIGRATED_ELEMENTS = InteractionPackage.ABSTRACT_CAPABILITY__OWNED_MIGRATED_ELEMENTS;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -359,7 +360,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int THREAT__NAME = CapellacorePackage.NAMED_ELEMENT__NAME;
+  int THREAT__NAME = InteractionPackage.ABSTRACT_CAPABILITY__NAME;
 
   /**
    * The feature id for the '<em><b>Incoming Traces</b></em>' reference list. <!-- begin-user-doc --> <!-- end-user-doc
@@ -368,7 +369,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int THREAT__INCOMING_TRACES = CapellacorePackage.NAMED_ELEMENT__INCOMING_TRACES;
+  int THREAT__INCOMING_TRACES = InteractionPackage.ABSTRACT_CAPABILITY__INCOMING_TRACES;
 
   /**
    * The feature id for the '<em><b>Outgoing Traces</b></em>' reference list. <!-- begin-user-doc --> <!-- end-user-doc
@@ -377,7 +378,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int THREAT__OUTGOING_TRACES = CapellacorePackage.NAMED_ELEMENT__OUTGOING_TRACES;
+  int THREAT__OUTGOING_TRACES = InteractionPackage.ABSTRACT_CAPABILITY__OUTGOING_TRACES;
 
   /**
    * The feature id for the '<em><b>Visible In Doc</b></em>' attribute.
@@ -385,7 +386,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int THREAT__VISIBLE_IN_DOC = CapellacorePackage.NAMED_ELEMENT__VISIBLE_IN_DOC;
+  int THREAT__VISIBLE_IN_DOC = InteractionPackage.ABSTRACT_CAPABILITY__VISIBLE_IN_DOC;
 
   /**
    * The feature id for the '<em><b>Visible In LM</b></em>' attribute.
@@ -393,7 +394,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int THREAT__VISIBLE_IN_LM = CapellacorePackage.NAMED_ELEMENT__VISIBLE_IN_LM;
+  int THREAT__VISIBLE_IN_LM = InteractionPackage.ABSTRACT_CAPABILITY__VISIBLE_IN_LM;
 
   /**
    * The feature id for the '<em><b>Summary</b></em>' attribute.
@@ -401,7 +402,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int THREAT__SUMMARY = CapellacorePackage.NAMED_ELEMENT__SUMMARY;
+  int THREAT__SUMMARY = InteractionPackage.ABSTRACT_CAPABILITY__SUMMARY;
 
   /**
    * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -409,7 +410,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int THREAT__DESCRIPTION = CapellacorePackage.NAMED_ELEMENT__DESCRIPTION;
+  int THREAT__DESCRIPTION = InteractionPackage.ABSTRACT_CAPABILITY__DESCRIPTION;
 
   /**
    * The feature id for the '<em><b>Review</b></em>' attribute.
@@ -417,7 +418,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int THREAT__REVIEW = CapellacorePackage.NAMED_ELEMENT__REVIEW;
+  int THREAT__REVIEW = InteractionPackage.ABSTRACT_CAPABILITY__REVIEW;
 
   /**
    * The feature id for the '<em><b>Owned Property Values</b></em>' containment reference list.
@@ -426,7 +427,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int THREAT__OWNED_PROPERTY_VALUES = CapellacorePackage.NAMED_ELEMENT__OWNED_PROPERTY_VALUES;
+  int THREAT__OWNED_PROPERTY_VALUES = InteractionPackage.ABSTRACT_CAPABILITY__OWNED_PROPERTY_VALUES;
 
   /**
    * The feature id for the '<em><b>Owned Enumeration Property Types</b></em>' containment reference list. <!--
@@ -435,7 +436,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int THREAT__OWNED_ENUMERATION_PROPERTY_TYPES = CapellacorePackage.NAMED_ELEMENT__OWNED_ENUMERATION_PROPERTY_TYPES;
+  int THREAT__OWNED_ENUMERATION_PROPERTY_TYPES = InteractionPackage.ABSTRACT_CAPABILITY__OWNED_ENUMERATION_PROPERTY_TYPES;
 
   /**
    * The feature id for the '<em><b>Applied Property Values</b></em>' reference list.
@@ -444,7 +445,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int THREAT__APPLIED_PROPERTY_VALUES = CapellacorePackage.NAMED_ELEMENT__APPLIED_PROPERTY_VALUES;
+  int THREAT__APPLIED_PROPERTY_VALUES = InteractionPackage.ABSTRACT_CAPABILITY__APPLIED_PROPERTY_VALUES;
 
   /**
    * The feature id for the '<em><b>Owned Property Value Groups</b></em>' containment reference list. <!--
@@ -453,7 +454,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int THREAT__OWNED_PROPERTY_VALUE_GROUPS = CapellacorePackage.NAMED_ELEMENT__OWNED_PROPERTY_VALUE_GROUPS;
+  int THREAT__OWNED_PROPERTY_VALUE_GROUPS = InteractionPackage.ABSTRACT_CAPABILITY__OWNED_PROPERTY_VALUE_GROUPS;
 
   /**
    * The feature id for the '<em><b>Applied Property Value Groups</b></em>' reference list.
@@ -462,7 +463,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int THREAT__APPLIED_PROPERTY_VALUE_GROUPS = CapellacorePackage.NAMED_ELEMENT__APPLIED_PROPERTY_VALUE_GROUPS;
+  int THREAT__APPLIED_PROPERTY_VALUE_GROUPS = InteractionPackage.ABSTRACT_CAPABILITY__APPLIED_PROPERTY_VALUE_GROUPS;
 
   /**
    * The feature id for the '<em><b>Status</b></em>' reference.
@@ -470,7 +471,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int THREAT__STATUS = CapellacorePackage.NAMED_ELEMENT__STATUS;
+  int THREAT__STATUS = InteractionPackage.ABSTRACT_CAPABILITY__STATUS;
 
   /**
    * The feature id for the '<em><b>Features</b></em>' reference list.
@@ -478,7 +479,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int THREAT__FEATURES = CapellacorePackage.NAMED_ELEMENT__FEATURES;
+  int THREAT__FEATURES = InteractionPackage.ABSTRACT_CAPABILITY__FEATURES;
 
   /**
    * The feature id for the '<em><b>Applied Requirements</b></em>' reference list.
@@ -487,7 +488,286 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int THREAT__APPLIED_REQUIREMENTS = CapellacorePackage.NAMED_ELEMENT__APPLIED_REQUIREMENTS;
+  int THREAT__APPLIED_REQUIREMENTS = InteractionPackage.ABSTRACT_CAPABILITY__APPLIED_REQUIREMENTS;
+
+  /**
+   * The feature id for the '<em><b>Owned Traces</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT__OWNED_TRACES = InteractionPackage.ABSTRACT_CAPABILITY__OWNED_TRACES;
+
+  /**
+   * The feature id for the '<em><b>Contained Generic Traces</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT__CONTAINED_GENERIC_TRACES = InteractionPackage.ABSTRACT_CAPABILITY__CONTAINED_GENERIC_TRACES;
+
+  /**
+   * The feature id for the '<em><b>Contained Requirements Traces</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT__CONTAINED_REQUIREMENTS_TRACES = InteractionPackage.ABSTRACT_CAPABILITY__CONTAINED_REQUIREMENTS_TRACES;
+
+  /**
+   * The feature id for the '<em><b>Naming Rules</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT__NAMING_RULES = InteractionPackage.ABSTRACT_CAPABILITY__NAMING_RULES;
+
+  /**
+   * The feature id for the '<em><b>Owned Property Value Pkgs</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT__OWNED_PROPERTY_VALUE_PKGS = InteractionPackage.ABSTRACT_CAPABILITY__OWNED_PROPERTY_VALUE_PKGS;
+
+  /**
+   * The feature id for the '<em><b>Involved Involvements</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT__INVOLVED_INVOLVEMENTS = InteractionPackage.ABSTRACT_CAPABILITY__INVOLVED_INVOLVEMENTS;
+
+  /**
+   * The feature id for the '<em><b>Owned Functional Chains</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT__OWNED_FUNCTIONAL_CHAINS = InteractionPackage.ABSTRACT_CAPABILITY__OWNED_FUNCTIONAL_CHAINS;
+
+  /**
+   * The feature id for the '<em><b>Pre Condition</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT__PRE_CONDITION = InteractionPackage.ABSTRACT_CAPABILITY__PRE_CONDITION;
+
+  /**
+   * The feature id for the '<em><b>Post Condition</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT__POST_CONDITION = InteractionPackage.ABSTRACT_CAPABILITY__POST_CONDITION;
+
+  /**
+   * The feature id for the '<em><b>Owned Scenarios</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT__OWNED_SCENARIOS = InteractionPackage.ABSTRACT_CAPABILITY__OWNED_SCENARIOS;
+
+  /**
+   * The feature id for the '<em><b>Incoming Capability Allocation</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT__INCOMING_CAPABILITY_ALLOCATION = InteractionPackage.ABSTRACT_CAPABILITY__INCOMING_CAPABILITY_ALLOCATION;
+
+  /**
+   * The feature id for the '<em><b>Outgoing Capability Allocation</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT__OUTGOING_CAPABILITY_ALLOCATION = InteractionPackage.ABSTRACT_CAPABILITY__OUTGOING_CAPABILITY_ALLOCATION;
+
+  /**
+   * The feature id for the '<em><b>Extends</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT__EXTENDS = InteractionPackage.ABSTRACT_CAPABILITY__EXTENDS;
+
+  /**
+   * The feature id for the '<em><b>Extending</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT__EXTENDING = InteractionPackage.ABSTRACT_CAPABILITY__EXTENDING;
+
+  /**
+   * The feature id for the '<em><b>Abstract Capability Extension Points</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT__ABSTRACT_CAPABILITY_EXTENSION_POINTS = InteractionPackage.ABSTRACT_CAPABILITY__ABSTRACT_CAPABILITY_EXTENSION_POINTS;
+
+  /**
+   * The feature id for the '<em><b>Super Generalizations</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT__SUPER_GENERALIZATIONS = InteractionPackage.ABSTRACT_CAPABILITY__SUPER_GENERALIZATIONS;
+
+  /**
+   * The feature id for the '<em><b>Sub Generalizations</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT__SUB_GENERALIZATIONS = InteractionPackage.ABSTRACT_CAPABILITY__SUB_GENERALIZATIONS;
+
+  /**
+   * The feature id for the '<em><b>Includes</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT__INCLUDES = InteractionPackage.ABSTRACT_CAPABILITY__INCLUDES;
+
+  /**
+   * The feature id for the '<em><b>Including</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT__INCLUDING = InteractionPackage.ABSTRACT_CAPABILITY__INCLUDING;
+
+  /**
+   * The feature id for the '<em><b>Super</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT__SUPER = InteractionPackage.ABSTRACT_CAPABILITY__SUPER;
+
+  /**
+   * The feature id for the '<em><b>Sub</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT__SUB = InteractionPackage.ABSTRACT_CAPABILITY__SUB;
+
+  /**
+   * The feature id for the '<em><b>Included Abstract Capabilities</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT__INCLUDED_ABSTRACT_CAPABILITIES = InteractionPackage.ABSTRACT_CAPABILITY__INCLUDED_ABSTRACT_CAPABILITIES;
+
+  /**
+   * The feature id for the '<em><b>Including Abstract Capabilities</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT__INCLUDING_ABSTRACT_CAPABILITIES = InteractionPackage.ABSTRACT_CAPABILITY__INCLUDING_ABSTRACT_CAPABILITIES;
+
+  /**
+   * The feature id for the '<em><b>Extended Abstract Capabilities</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT__EXTENDED_ABSTRACT_CAPABILITIES = InteractionPackage.ABSTRACT_CAPABILITY__EXTENDED_ABSTRACT_CAPABILITIES;
+
+  /**
+   * The feature id for the '<em><b>Extending Abstract Capabilities</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT__EXTENDING_ABSTRACT_CAPABILITIES = InteractionPackage.ABSTRACT_CAPABILITY__EXTENDING_ABSTRACT_CAPABILITIES;
+
+  /**
+   * The feature id for the '<em><b>Owned Functional Chain Abstract Capability Involvements</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT__OWNED_FUNCTIONAL_CHAIN_ABSTRACT_CAPABILITY_INVOLVEMENTS = InteractionPackage.ABSTRACT_CAPABILITY__OWNED_FUNCTIONAL_CHAIN_ABSTRACT_CAPABILITY_INVOLVEMENTS;
+
+  /**
+   * The feature id for the '<em><b>Owned Abstract Function Abstract Capability Involvements</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT__OWNED_ABSTRACT_FUNCTION_ABSTRACT_CAPABILITY_INVOLVEMENTS = InteractionPackage.ABSTRACT_CAPABILITY__OWNED_ABSTRACT_FUNCTION_ABSTRACT_CAPABILITY_INVOLVEMENTS;
+
+  /**
+   * The feature id for the '<em><b>Available In States</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT__AVAILABLE_IN_STATES = InteractionPackage.ABSTRACT_CAPABILITY__AVAILABLE_IN_STATES;
+
+  /**
+   * The feature id for the '<em><b>Owned Abstract Capability Realizations</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT__OWNED_ABSTRACT_CAPABILITY_REALIZATIONS = InteractionPackage.ABSTRACT_CAPABILITY__OWNED_ABSTRACT_CAPABILITY_REALIZATIONS;
+
+  /**
+   * The feature id for the '<em><b>Involved Abstract Functions</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT__INVOLVED_ABSTRACT_FUNCTIONS = InteractionPackage.ABSTRACT_CAPABILITY__INVOLVED_ABSTRACT_FUNCTIONS;
+
+  /**
+   * The feature id for the '<em><b>Involved Functional Chains</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT__INVOLVED_FUNCTIONAL_CHAINS = InteractionPackage.ABSTRACT_CAPABILITY__INVOLVED_FUNCTIONAL_CHAINS;
 
   /**
    * The feature id for the '<em><b>Addressed By</b></em>' reference list.
@@ -495,7 +775,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int THREAT__ADDRESSED_BY = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
+  int THREAT__ADDRESSED_BY = InteractionPackage.ABSTRACT_CAPABILITY_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Kind</b></em>' reference.
@@ -504,7 +784,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int THREAT__KIND = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
+  int THREAT__KIND = InteractionPackage.ABSTRACT_CAPABILITY_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Level</b></em>' attribute.
@@ -512,7 +792,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int THREAT__LEVEL = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
+  int THREAT__LEVEL = InteractionPackage.ABSTRACT_CAPABILITY_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Rationale</b></em>' attribute.
@@ -520,7 +800,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int THREAT__RATIONALE = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
+  int THREAT__RATIONALE = InteractionPackage.ABSTRACT_CAPABILITY_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Realized Threats</b></em>' reference list.
@@ -529,7 +809,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int THREAT__REALIZED_THREATS = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
+  int THREAT__REALIZED_THREATS = InteractionPackage.ABSTRACT_CAPABILITY_FEATURE_COUNT + 4;
 
   /**
    * The feature id for the '<em><b>Realizing Threats</b></em>' reference list.
@@ -538,7 +818,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int THREAT__REALIZING_THREATS = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 5;
+  int THREAT__REALIZING_THREATS = InteractionPackage.ABSTRACT_CAPABILITY_FEATURE_COUNT + 5;
 
   /**
    * The number of structural features of the '<em>Threat</em>' class.
@@ -546,7 +826,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int THREAT_FEATURE_COUNT = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 6;
+  int THREAT_FEATURE_COUNT = InteractionPackage.ABSTRACT_CAPABILITY_FEATURE_COUNT + 6;
 
   /**
    * The meta object id for the '{@link org.polarsys.capella.cybersecurity.model.impl.ThreatInvolvementImpl <em>Threat Involvement</em>}' class.

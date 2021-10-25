@@ -23,8 +23,13 @@ import org.polarsys.capella.common.data.modellingcore.ModelElement;
 import org.polarsys.capella.common.data.modellingcore.PublishableElement;
 import org.polarsys.capella.common.data.modellingcore.TraceableElement;
 import org.polarsys.capella.core.data.capellacore.CapellaElement;
+import org.polarsys.capella.core.data.capellacore.InvolverElement;
 import org.polarsys.capella.core.data.capellacore.NamedElement;
+import org.polarsys.capella.core.data.capellacore.Namespace;
 import org.polarsys.capella.core.data.capellacore.Relationship;
+import org.polarsys.capella.core.data.capellacore.Structure;
+import org.polarsys.capella.core.data.fa.AbstractFunctionalChainContainer;
+import org.polarsys.capella.core.data.interaction.AbstractCapability;
 import org.polarsys.capella.cybersecurity.model.*;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPkg;
@@ -201,6 +206,31 @@ public class CybersecurityAdapterFactory extends AdapterFactoryImpl {
     @Override
     public Adapter caseElementExtension(ElementExtension object) {
       return createElementExtensionAdapter();
+    }
+
+    @Override
+    public Adapter caseNamespace(Namespace object) {
+      return createNamespaceAdapter();
+    }
+
+    @Override
+    public Adapter caseStructure(Structure object) {
+      return createStructureAdapter();
+    }
+
+    @Override
+    public Adapter caseInvolverElement(InvolverElement object) {
+      return createInvolverElementAdapter();
+    }
+
+    @Override
+    public Adapter caseAbstractFunctionalChainContainer(AbstractFunctionalChainContainer object) {
+      return createAbstractFunctionalChainContainerAdapter();
+    }
+
+    @Override
+    public Adapter caseAbstractCapability(AbstractCapability object) {
+      return createAbstractCapabilityAdapter();
     }
 
     @Override
@@ -510,6 +540,76 @@ public class CybersecurityAdapterFactory extends AdapterFactoryImpl {
    * @generated
    */
   public Adapter createElementExtensionAdapter() {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.polarsys.capella.core.data.capellacore.Namespace <em>Namespace</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.polarsys.capella.core.data.capellacore.Namespace
+   * @generated
+   */
+  public Adapter createNamespaceAdapter() {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.polarsys.capella.core.data.capellacore.Structure <em>Structure</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.polarsys.capella.core.data.capellacore.Structure
+   * @generated
+   */
+  public Adapter createStructureAdapter() {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.polarsys.capella.core.data.capellacore.InvolverElement <em>Involver Element</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.polarsys.capella.core.data.capellacore.InvolverElement
+   * @generated
+   */
+  public Adapter createInvolverElementAdapter() {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.polarsys.capella.core.data.fa.AbstractFunctionalChainContainer <em>Abstract Functional Chain Container</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.polarsys.capella.core.data.fa.AbstractFunctionalChainContainer
+   * @generated
+   */
+  public Adapter createAbstractFunctionalChainContainerAdapter() {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.polarsys.capella.core.data.interaction.AbstractCapability <em>Abstract Capability</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.polarsys.capella.core.data.interaction.AbstractCapability
+   * @generated
+   */
+  public Adapter createAbstractCapabilityAdapter() {
     return null;
   }
 
