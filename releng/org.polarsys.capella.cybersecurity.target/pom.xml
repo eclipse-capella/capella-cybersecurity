@@ -18,51 +18,16 @@
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<licenses>
-		<license>
-			<name>Eclipse Public License v1.0</name>
-			<comments>
-				All rights reserved.
-
-				This program and the accompanying materials are made
-				available under the terms of the Eclipse Public License v1.0
-				which accompanies this distribution, and is available at
-				http://www.eclipse.org/legal/epl-v10.htm
-			</comments>
-		</license>
-	</licenses>
-
 	<properties>
-		<tycho-version>2.0.0</tycho-version>
-		<tycho-extras-version>2.0.0</tycho-extras-version>
-		<targetPlatform.repository>http://pdulth.github.io/fr.obeo.releng.targetplatform/p2/latest</targetPlatform.repository>
+		<tycho-version>2.5.0</tycho-version>
+		<tycho-extras-version>2.5.0</tycho-extras-version>
 		<targetPlatform.name>capella.target-definition.targetplatform</targetPlatform.name>
-		<converterApplication.name>fr.obeo.releng.targetplatform.targetPlatform.converter</converterApplication.name>
+		<targetPlatform.repository>https://artifactory.thalesdigital.io/artifactory/generic-internal/capella-invaders/libs/org.eclipse.cbi.targetplatform-3.5.8.202110281158.zip!/</targetPlatform.repository>
+		<converterApplication.name>org.eclipse.cbi.targetplatform.tpd.converter</converterApplication.name>
 	</properties>
 
 	<build>
 		<plugins>
-		  <plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-toolchains-plugin</artifactId>
-			<version>3.0.0</version>
-			<executions>
-			<execution>
-				<goals>
-				<goal>toolchain</goal>
-				</goals>
-			</execution>
-			</executions>
-			<configuration>
-			<toolchains>
-				<jdk>
-				<version>1.8</version>
-				<vendor>oracle</vendor>
-				</jdk>
-			</toolchains>
-			</configuration>
-		</plugin>
-		
 			<plugin>
 				<groupId>org.eclipse.tycho.extras</groupId>
 				<artifactId>tycho-eclipserun-plugin</artifactId>
@@ -70,20 +35,19 @@
 				<configuration>
 					<repositories>
 						<repository>
-							<id>targetplatform-tp</id>
+							<id>url1</id>
 							<layout>p2</layout>
-							<url>http://download.eclipse.org/releases/oxygen/201709271000</url>
+							<url>https://download.eclipse.org/releases/2021-06/202106161001/</url>
 						</repository>
 						<repository>
-							<id>targetplatform</id>
+							<id>artifactory-targetPlatform</id>
 							<layout>p2</layout>
 							<url>${targetPlatform.repository}</url>
 						</repository>
 					</repositories>
-					<!-- Set dependencies to launch the application -->
 					<dependencies>
 						<dependency>
-							<artifactId>fr.obeo.releng.targetplatform-feature</artifactId>
+							<artifactId>org.eclipse.cbi.targetplatform-feature</artifactId>
 							<type>eclipse-feature</type>
 						</dependency>
 						<dependency>
@@ -91,7 +55,7 @@
 							<type>eclipse-feature</type>
 						</dependency>
 					</dependencies>
-					<executionEnvironment>JavaSE-1.8</executionEnvironment>
+					<executionEnvironment>JavaSE-11</executionEnvironment>
 				</configuration>
 				<executions>
 					<execution>

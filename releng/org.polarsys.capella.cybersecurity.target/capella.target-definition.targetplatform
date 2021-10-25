@@ -10,12 +10,13 @@
  *******************************************************************************/
 target "CapellaCybersecurity"
 
-include "https://raw.githubusercontent.com/eclipse/capella/master/releng/plugins/org.polarsys.capella.targets/full/capella.target-definition.targetplatform"
-
 with source, requirements
 
-location capella-master "https://download.eclipse.org/capella/core/updates/releases/5.1.0-R20210615-075512/org.polarsys.capella.rcp.site" {
+location capella "file:/opt/capella-5.1.0/capella" {
 	org.polarsys.capella.rcp.feature.group
+}
+
+location capella-master "https://download.eclipse.org/capella/core/updates/releases/5.1.0-R20210615-075512/org.polarsys.capella.rcp.site" {
 	org.polarsys.capella.cdo.mock.feature.feature.group
 }
 
@@ -23,10 +24,10 @@ location capella-tests-master "https://download.eclipse.org/capella/core/updates
 	org.polarsys.capella.test.feature.feature.group
 }
 
-location "https://download.eclipse.org/modeling/emf/cdo/updates/releases" {
-	org.eclipse.emf.cdo.sdk.feature.group
+location cdo "https://download.eclipse.org/modeling/emf/cdo/updates/releases/4.7" {
+	org.eclipse.emf.cdo.feature.group
 }
 
-location xhtml "https://download.eclipse.org/capella/addons/xhtmldocgen/updates/nightly/master" {
+location xhtml "https://download.eclipse.org/capella/addons/xhtmldocgen/updates/release/5.1.1/" {
     org.polarsys.capella.docgen.feature.feature.group
 }
