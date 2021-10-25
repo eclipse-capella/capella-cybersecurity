@@ -33,7 +33,7 @@
 					<configuration>
 						<repositories>
 							<repository>
-								<id>eclipse-releases-${platform-name}</id>
+								<id>artifactory-eclipse-plugins</id>
 								<layout>p2</layout>
 								<url>${eclipse-repo.url}</url>
 							</repository>
@@ -56,7 +56,7 @@
 								<type>eclipse-plugin</type>
 							</dependency>
 						</dependencies>
-					  <executionEnvironment>JavaSE-1.8</executionEnvironment>
+					  <executionEnvironment>JavaSE-11</executionEnvironment>
 					</configuration>
 					<executions>
 						<execution>
@@ -67,7 +67,7 @@
 							</goals>
 							<configuration>
 								<appArgLine>-application org.eclipse.equinox.p2.repository.repo2runnable -source file:${project.build.directory}/repository -destination ${project.build.directory}/${packagedAddonName}/eclipse</appArgLine>
-					      <executionEnvironment>JavaSE-1.8</executionEnvironment>
+					      <executionEnvironment>JavaSE-11</executionEnvironment>
 							</configuration>
 						</execution>
 					</executions>
