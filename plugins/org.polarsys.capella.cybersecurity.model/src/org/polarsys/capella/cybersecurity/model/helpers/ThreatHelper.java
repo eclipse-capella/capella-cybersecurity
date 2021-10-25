@@ -48,8 +48,9 @@ public class ThreatHelper {
     }
 
     // delegate to parent helper
-    return org.polarsys.capella.core.data.helpers.capellacore.delegates.NamedElementHelper.getInstance()
+    return org.polarsys.capella.core.data.helpers.interaction.delegates.AbstractCapabilityHelper.getInstance()
         .doSwitch(object, feature);
+    
 
   }
 

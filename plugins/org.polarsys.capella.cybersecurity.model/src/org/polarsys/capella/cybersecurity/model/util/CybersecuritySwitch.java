@@ -22,8 +22,13 @@ import org.polarsys.capella.common.data.modellingcore.ModelElement;
 import org.polarsys.capella.common.data.modellingcore.PublishableElement;
 import org.polarsys.capella.common.data.modellingcore.TraceableElement;
 import org.polarsys.capella.core.data.capellacore.CapellaElement;
+import org.polarsys.capella.core.data.capellacore.InvolverElement;
 import org.polarsys.capella.core.data.capellacore.NamedElement;
+import org.polarsys.capella.core.data.capellacore.Namespace;
 import org.polarsys.capella.core.data.capellacore.Relationship;
+import org.polarsys.capella.core.data.capellacore.Structure;
+import org.polarsys.capella.core.data.fa.AbstractFunctionalChainContainer;
+import org.polarsys.capella.core.data.interaction.AbstractCapability;
 import org.polarsys.capella.cybersecurity.model.*;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPkg;
@@ -118,6 +123,16 @@ public class CybersecuritySwitch<T> extends Switch<T> {
     case CybersecurityPackage.THREAT: {
       Threat threat = (Threat) theEObject;
       T result = caseThreat(threat);
+      if (result == null)
+        result = caseAbstractCapability(threat);
+      if (result == null)
+        result = caseStructure(threat);
+      if (result == null)
+        result = caseInvolverElement(threat);
+      if (result == null)
+        result = caseAbstractFunctionalChainContainer(threat);
+      if (result == null)
+        result = caseNamespace(threat);
       if (result == null)
         result = caseNamedElement(threat);
       if (result == null)
@@ -711,6 +726,81 @@ public class CybersecuritySwitch<T> extends Switch<T> {
    * @generated
    */
   public T caseElementExtension(ElementExtension object) {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Namespace</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Namespace</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNamespace(Namespace object) {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Structure</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Structure</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStructure(Structure object) {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Involver Element</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Involver Element</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInvolverElement(InvolverElement object) {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Abstract Functional Chain Container</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Abstract Functional Chain Container</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAbstractFunctionalChainContainer(AbstractFunctionalChainContainer object) {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Abstract Capability</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Abstract Capability</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAbstractCapability(AbstractCapability object) {
     return null;
   }
 

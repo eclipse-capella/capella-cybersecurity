@@ -31,6 +31,7 @@ import org.polarsys.capella.common.model.helpers.IHelper;
 import org.polarsys.capella.core.data.capellacore.EnumerationPropertyLiteral;
 import org.polarsys.capella.core.data.capellacore.impl.NamedElementImpl;
 import org.polarsys.capella.core.data.cs.Component;
+import org.polarsys.capella.core.data.interaction.impl.AbstractCapabilityImpl;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.Threat;
 
@@ -50,7 +51,7 @@ import org.polarsys.capella.cybersecurity.model.Threat;
  *
  * @generated
  */
-public class ThreatImpl extends NamedElementImpl implements Threat {
+public class ThreatImpl extends AbstractCapabilityImpl implements Threat {
 
   /**
    * The cached value of the '{@link #getAddressedBy() <em>Addressed By</em>}' reference list.

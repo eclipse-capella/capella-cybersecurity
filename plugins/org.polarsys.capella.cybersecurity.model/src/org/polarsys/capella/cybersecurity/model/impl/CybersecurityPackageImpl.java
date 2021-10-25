@@ -807,6 +807,8 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
     CapellacorePackage theCapellacorePackage = (CapellacorePackage) EPackage.Registry.INSTANCE
         .getEPackage(CapellacorePackage.eNS_URI);
     EmdePackage theEmdePackage = (EmdePackage) EPackage.Registry.INSTANCE.getEPackage(EmdePackage.eNS_URI);
+    InteractionPackage theInteractionPackage = (InteractionPackage) EPackage.Registry.INSTANCE
+        .getEPackage(InteractionPackage.eNS_URI);
     CsPackage theCsPackage = (CsPackage) EPackage.Registry.INSTANCE.getEPackage(CsPackage.eNS_URI);
     InformationPackage theInformationPackage = (InformationPackage) EPackage.Registry.INSTANCE
         .getEPackage(InformationPackage.eNS_URI);
@@ -821,7 +823,7 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
     // Add supertypes to classes
     cybersecurityPkgEClass.getESuperTypes().add(theCapellacorePackage.getNamedElement());
     cybersecurityPkgEClass.getESuperTypes().add(theEmdePackage.getElementExtension());
-    threatEClass.getESuperTypes().add(theCapellacorePackage.getNamedElement());
+    threatEClass.getESuperTypes().add(theInteractionPackage.getAbstractCapability());
     threatInvolvementEClass.getESuperTypes().add(theCapellacorePackage.getRelationship());
     threatInvolvementEClass.getESuperTypes().add(theEmdePackage.getElementExtension());
     functionStorageEClass.getESuperTypes().add(theCapellacorePackage.getNamedElement());

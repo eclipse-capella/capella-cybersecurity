@@ -29,7 +29,7 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.polarsys.capella.core.data.capellacore.provider.NamedElementItemProvider;
+import org.polarsys.capella.core.data.interaction.provider.AbstractCapabilityItemProvider;
 import org.polarsys.capella.cybersecurity.model.CybersecurityFactory;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.Threat;
@@ -44,7 +44,7 @@ import org.polarsys.kitalpha.emde.model.edit.provider.NewChildDescriptorHelper;
  * 
  * @generated
  */
-public class ThreatItemProvider extends NamedElementItemProvider implements IEditingDomainItemProvider,
+public class ThreatItemProvider extends AbstractCapabilityItemProvider implements IEditingDomainItemProvider,
     IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
   /**
    * <!-- begin-user-doc -->

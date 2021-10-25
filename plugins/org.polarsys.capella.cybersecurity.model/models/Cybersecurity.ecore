@@ -16,7 +16,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedPrimaryAssets" upperBound="-1"
         eType="#//PrimaryAsset" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Threat" eSuperTypes="platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#//NamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Threat" eSuperTypes="platform:/plugin/org.polarsys.capella.core.data.gen/model/Interaction.ecore#//AbstractCapability">
     <eStructuralFeatures xsi:type="ecore:EReference" name="addressedBy" upperBound="-1"
         eType="ecore:EClass platform:/plugin/org.polarsys.capella.core.data.gen/model/CompositeStructure.ecore#//Component"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="kind" eType="ecore:EClass platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#//EnumerationPropertyLiteral"/>
