@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--Capella_Version_null-->
+<!--Capella_Version_5.2.0-->
 <org.polarsys.capella.core.data.capellamodeller:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cybersecurity="http://www.polarsys.org/capella/cybersecurity/1.0"
     xmlns:libraries="http://www.polarsys.org/capella/common/libraries/5.0.0" xmlns:org.polarsys.capella.core.data.capellacommon="http://www.polarsys.org/capella/core/common/5.0.0"
@@ -142,7 +142,10 @@
         </ownedOperationalActivities>
       </ownedFunctionPkg>
       <ownedAbstractCapabilityPkg xsi:type="org.polarsys.capella.core.data.oa:OperationalCapabilityPkg"
-          id="6e0775f6-f73d-4b64-9713-a6837910aa5a" name="Operational Capabilities"/>
+          id="6e0775f6-f73d-4b64-9713-a6837910aa5a" name="Operational Capabilities">
+        <ownedOperationalCapabilities xsi:type="org.polarsys.capella.core.data.oa:OperationalCapability"
+            id="4560758f-a627-44da-9112-5ed24d698b21" name="OperationalCapability 1"/>
+      </ownedAbstractCapabilityPkg>
       <ownedInterfacePkg xsi:type="org.polarsys.capella.core.data.cs:InterfacePkg"
           id="614c4439-7f24-488d-abce-a063f2c11564" name="Interfaces"/>
       <ownedDataPkg xsi:type="org.polarsys.capella.core.data.information:DataPkg"
@@ -203,7 +206,13 @@
         </ownedSystemFunctions>
       </ownedFunctionPkg>
       <ownedAbstractCapabilityPkg xsi:type="org.polarsys.capella.core.data.ctx:CapabilityPkg"
-          id="0c856b51-0da6-4e1a-83b3-9441f973980a" name="Capabilities"/>
+          id="0c856b51-0da6-4e1a-83b3-9441f973980a" name="Capabilities">
+        <ownedCapabilities xsi:type="org.polarsys.capella.core.data.ctx:Capability"
+            id="fcf094b4-20cb-45b3-a7f7-529cc31e2196" name="Capability 1">
+          <ownedCapabilityInvolvements xsi:type="org.polarsys.capella.core.data.ctx:CapabilityInvolvement"
+              id="9a9ca845-f66e-4a03-a71d-07b5c1ccf0fd" involved="#4e2010b9-a183-4bd9-b189-35d75456fb96"/>
+        </ownedCapabilities>
+      </ownedAbstractCapabilityPkg>
       <ownedInterfacePkg xsi:type="org.polarsys.capella.core.data.cs:InterfacePkg"
           id="f79da576-3142-4912-ae66-7002f88eac4f" name="Interfaces"/>
       <ownedDataPkg xsi:type="org.polarsys.capella.core.data.information:DataPkg"
@@ -366,7 +375,10 @@
         </ownedLogicalFunctions>
       </ownedFunctionPkg>
       <ownedAbstractCapabilityPkg xsi:type="org.polarsys.capella.core.data.la:CapabilityRealizationPkg"
-          id="fed0e0e1-0349-41c5-8986-3d20949252d1" name="Capabilities"/>
+          id="fed0e0e1-0349-41c5-8986-3d20949252d1" name="Capabilities">
+        <ownedCapabilityRealizations xsi:type="org.polarsys.capella.core.data.la:CapabilityRealization"
+            id="8db1e358-c6b3-466a-8fdc-a3760e894649" name="CapabilityRealization 1"/>
+      </ownedAbstractCapabilityPkg>
       <ownedInterfacePkg xsi:type="org.polarsys.capella.core.data.cs:InterfacePkg"
           id="f9e19ccf-1ef8-43f5-b67a-91ba187dd5d2" name="Interfaces"/>
       <ownedDataPkg xsi:type="org.polarsys.capella.core.data.information:DataPkg"
@@ -390,6 +402,8 @@
         id="700524b0-9e5b-47a5-a409-6db2680145d1" name="Physical Architecture">
       <ownedExtensions xsi:type="cybersecurity:CybersecurityPkg" id="e3201310-ef8c-46d5-8589-d9ddb6313095"
           name="CybersecurityPkg 1">
+        <ownedThreats xsi:type="cybersecurity:Threat" id="cb4843d5-6bab-408e-8025-1ca31fc5b050"
+            name="Threat 1" kind="#a61a8703-0219-4ae1-9d76-88c2825f20df"/>
         <ownedPrimaryAssets xsi:type="cybersecurity:FunctionalPrimaryAsset" id="99711cee-9093-48fb-910b-f7b16eacb9b7"
             name="FunctionalPrimaryAsset 1">
           <ownedMembers xsi:type="cybersecurity:PrimaryAssetMember" id="91fa2258-b606-4263-a2b8-704507165a93"
@@ -429,7 +443,10 @@
         </ownedPhysicalFunctions>
       </ownedFunctionPkg>
       <ownedAbstractCapabilityPkg xsi:type="org.polarsys.capella.core.data.la:CapabilityRealizationPkg"
-          id="cfd491d1-b742-4976-bf44-8f624ea62629" name="Capabilities"/>
+          id="cfd491d1-b742-4976-bf44-8f624ea62629" name="Capabilities">
+        <ownedCapabilityRealizations xsi:type="org.polarsys.capella.core.data.la:CapabilityRealization"
+            id="e78ce9ba-7d31-454b-86c1-b050fc7e7160" name="CapabilityRealization 1"/>
+      </ownedAbstractCapabilityPkg>
       <ownedInterfacePkg xsi:type="org.polarsys.capella.core.data.cs:InterfacePkg"
           id="acf43527-6159-4cc0-9fe3-61facea486dc" name="Interfaces"/>
       <ownedDataPkg xsi:type="org.polarsys.capella.core.data.information:DataPkg"
