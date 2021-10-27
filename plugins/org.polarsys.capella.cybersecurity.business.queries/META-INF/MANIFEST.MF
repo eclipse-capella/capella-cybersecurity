@@ -9,6 +9,7 @@ Require-Bundle: org.polarsys.capella.core.data.business.queries,
  org.polarsys.capella.core.data.business.queries,
  org.polarsys.capella.common.libraries,
  org.polarsys.capella.core.libraries,
- org.polarsys.capella.cybersecurity.model
+ org.polarsys.capella.cybersecurity.model,
+ org.polarsys.capella.common.queries
 Export-Package: org.polarsys.capella.cybersecurity.business.queries
 Bundle-Vendor: %providerName
