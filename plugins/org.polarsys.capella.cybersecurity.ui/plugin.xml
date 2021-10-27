@@ -249,7 +249,7 @@
 				         </Predicate>
 				      </Activity>
 				      <Activity
-				            class="org.polarsys.capella.core.explorer.activity.ui.hyperlinkadapter.oa.NewInteractionScenarioAdapter"
+				            class="org.polarsys.capella.cybersecurity.ui.activity.CyberOANewEntityScenarioAdapter"
 				            id="org.polarsys.capella.cybersecurity.ui.activity.scenario.operational"
 				            image="icons/cyber-exchange-scenario.png"
 				            index="2"
@@ -315,7 +315,7 @@
 			         </Predicate>
 			      </Activity>
 			      <Activity
-			            class="org.polarsys.capella.core.explorer.activity.ui.hyperlinkadapter.sa.NewExchangeScenarioAdapter"
+			            class="org.polarsys.capella.cybersecurity.ui.activity.CyberSANewExchangeScenarioAdapter"
 			            id="org.polarsys.capella.cybersecurity.ui.activity.scenario.system"
 			            image="icons/cyber-exchange-scenario.png"
 			            index="1"
@@ -392,7 +392,7 @@
 		         </Predicate>
 		      </Activity>
 		      <Activity
-		            class="org.polarsys.capella.core.explorer.activity.ui.hyperlinkadapter.la.NewExchangeScenarioAdapter"
+		            class="org.polarsys.capella.cybersecurity.ui.activity.CyberLANewExchangeScenarioAdapter"
 		            id="org.polarsys.capella.cybersecurity.ui.activity.scenario.logical"
 		            image="icons/cyber-exchange-scenario.png"
 		            index="1"
@@ -469,8 +469,8 @@
          </Predicate>
       </Activity>
       <Activity
-            class="org.polarsys.capella.core.explorer.activity.ui.hyperlinkadapter.pa.NewExchangeScenarioAdapter"
-            id="org.polarsys.capella.cybersecurity.ui.activity.scenario1"
+            class="org.polarsys.capella.cybersecurity.ui.activity.CyberPANewExchangeScenarioAdapter"
+            id="org.polarsys.capella.cybersecurity.ui.activity.scenario.physical"
             image="icons/cyber-exchange-scenario.png"
             index="1"
             name="%createScenario">
