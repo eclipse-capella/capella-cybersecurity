@@ -39,5 +39,32 @@
             id="org.polarsys.capella.cybersecurity.business.queries.InformationPrimaryAsset_RealizedPrimaryAssets">
       </MDEBusinessQueries>
    </extension>
+   
+   <extension
+         point="org.polarsys.capella.common.queries.query">
+      <querySpecification
+            extendedQueryIdentifier="GetAvailable_Capability_RealizedCapabilities"
+            queryIdentifier="capabilities.queries.RealizedCapabilities">
+         <queryAlgorithm
+               algorithm="org.polarsys.capella.core.business.queries.queries.ctx.GetAvailable_Capability_RealizedCapabilities">
+         </queryAlgorithm>
+      </querySpecification>
+      <queryFilter
+            filter="org.polarsys.capella.cybersecurity.business.queries.ThreatsFilter"
+            queryIdentifier="capabilities.queries.RealizedCapabilities">
+      </queryFilter>
+      
+      <querySpecification
+            extendedQueryIdentifier="GetAvailable_CapabilityRealization_RealizedCapabilities"
+            queryIdentifier="capabilities.queries.RealizedCapabilitiesRealization">
+         <queryAlgorithm
+               algorithm="org.polarsys.capella.core.business.queries.queries.la.GetAvailable_CapabilityRealization_RealizedCapabilities">
+         </queryAlgorithm>
+      </querySpecification>
+      <queryFilter
+            filter="org.polarsys.capella.cybersecurity.business.queries.ThreatsFilter"
+            queryIdentifier="capabilities.queries.RealizedCapabilitiesRealization">
+      </queryFilter>
+   </extension>
 
 </plugin>
