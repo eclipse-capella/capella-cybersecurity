@@ -19,7 +19,8 @@ Require-Bundle: org.polarsys.capella.test.framework,
  org.polarsys.capella.cybersecurity.transition,
  org.polarsys.capella.core.transition.system.topdown,
  org.polarsys.capella.core.explorer.activity.ui,
- org.polarsys.capella.cybersecurity.business.queries, 
- org.polarsys.capella.test.semantic.queries.ju
+ org.polarsys.capella.cybersecurity.business.queries,
+ org.polarsys.capella.test.semantic.queries.ju,
+ org.polarsys.capella.core.data.business.queries
 Export-Package: org.polarsys.capella.cybersecurity.test,
  org.polarsys.capella.cybersecurity.test.common
