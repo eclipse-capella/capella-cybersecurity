@@ -250,10 +250,20 @@
 				      </Activity>
 				      <Activity
 				            class="org.polarsys.capella.cybersecurity.ui.activity.CyberOANewEntityScenarioAdapter"
-				            id="org.polarsys.capella.cybersecurity.ui.activity.scenario.operational"
-				            image="icons/cyber-exchange-scenario.png"
+				            id="org.polarsys.capella.cybersecurity.ui.activity.scenario.operational.oes"
+				            image="icons/cyber-interaction-scenario.png"
 				            index="2"
 				            name="%createOESScenario">
+				         <Predicate
+				               class="org.polarsys.capella.cybersecurity.ui.activity.predicate.IsViewpointActivatedPredicate">
+				         </Predicate>
+				      </Activity>
+				      <Activity
+				            class="org.polarsys.capella.cybersecurity.ui.activity.CyberOANewActivityScenarioAdapter"
+				            id="org.polarsys.capella.cybersecurity.ui.activity.scenario.operational.oas"
+				            image="icons/cyber-activity-scenario.png"
+				            index="3"
+				            name="%createOASScenario">
 				         <Predicate
 				               class="org.polarsys.capella.cybersecurity.ui.activity.predicate.IsViewpointActivatedPredicate">
 				         </Predicate>
@@ -262,7 +272,7 @@
 				            class="org.polarsys.capella.core.explorer.activity.ui.hyperlinkadapter.oa.NewOperationalInteractionBlankDiagramAdapter"
 				            id="org.polarsys.capella.cybersecurity.ui.activity.dataflow.system"
 				            image="icons/cyber-dataflows-diagram.png"
-				            index="3"
+				            index="4"
 				            name="%createDataflowOperational">
 				         <Predicate
 				               class="org.polarsys.capella.cybersecurity.ui.activity.predicate.IsViewpointActivatedPredicate">
@@ -272,7 +282,7 @@
 				            class="org.polarsys.capella.core.explorer.activity.ui.hyperlinkadapter.oa.NewClassDiagramAdapter"
 				            id="org.polarsys.capella.cybersecurity.ui.activity.informationasset"
 				            image="icons/cyber-class-diagram.png"
-				            index="4"
+				            index="5"
 				            name="%createInformationAsset">
 				         <Predicate
 				               class="org.polarsys.capella.cybersecurity.ui.activity.predicate.IsViewpointActivatedPredicate">
@@ -315,11 +325,31 @@
 			         </Predicate>
 			      </Activity>
 			      <Activity
-			            class="org.polarsys.capella.cybersecurity.ui.activity.CyberSANewExchangeScenarioAdapter"
-			            id="org.polarsys.capella.cybersecurity.ui.activity.scenario.system"
-			            image="icons/cyber-exchange-scenario.png"
+			            class="org.polarsys.capella.cybersecurity.ui.activity.CyberSANewInterfaceScenarioAdapter"
+			            id="org.polarsys.capella.cybersecurity.ui.activity.scenario.system.is"
+			            image="icons/cyber-interface-scenario.png"
 			            index="1"
+			            name="%createInterfaceScenario">
+			         <Predicate
+			               class="org.polarsys.capella.cybersecurity.ui.activity.predicate.IsViewpointActivatedPredicate">
+			         </Predicate>
+			      </Activity>
+			      <Activity
+			            class="org.polarsys.capella.cybersecurity.ui.activity.CyberSANewExchangeScenarioAdapter"
+			            id="org.polarsys.capella.cybersecurity.ui.activity.scenario.system.es"
+			            image="icons/cyber-exchange-scenario.png"
+			            index="2"
 			            name="%createScenario">
+			         <Predicate
+			               class="org.polarsys.capella.cybersecurity.ui.activity.predicate.IsViewpointActivatedPredicate">
+			         </Predicate>
+			      </Activity>
+			      <Activity
+			            class="org.polarsys.capella.cybersecurity.ui.activity.CyberSANewFunctionalScenarioAdapter"
+			            id="org.polarsys.capella.cybersecurity.ui.activity.scenario.system.fs"
+			            image="icons/cyber-function-scenario.png"
+			            index="3"
+			            name="%createFunctionScenario">
 			         <Predicate
 			               class="org.polarsys.capella.cybersecurity.ui.activity.predicate.IsViewpointActivatedPredicate">
 			         </Predicate>
@@ -328,7 +358,7 @@
 			            class="org.polarsys.capella.core.explorer.activity.ui.hyperlinkadapter.sa.NewBlankFunctionalDataflowDiagramAdapter"
 			            id="org.polarsys.capella.cybersecurity.ui.activity.dataflow.system"
 			            image="icons/cyber-dataflows-diagram.png"
-			            index="2"
+			            index="4"
 			            name="%createDataflowSystem">
 			         <Predicate
 			               class="org.polarsys.capella.cybersecurity.ui.activity.predicate.IsViewpointActivatedPredicate">
@@ -338,7 +368,7 @@
 			            class="org.polarsys.capella.core.explorer.activity.ui.hyperlinkadapter.sa.NewClassDiagramAdapter"
 			            id="org.polarsys.capella.cybersecurity.ui.activity.informationasset"
 			            image="icons/cyber-class-diagram.png"
-			            index="3"
+			            index="5"
 			            name="%createInformationAsset">
 			         <Predicate
 			               class="org.polarsys.capella.cybersecurity.ui.activity.predicate.IsViewpointActivatedPredicate">
@@ -348,7 +378,7 @@
 		                  class="org.polarsys.capella.cybersecurity.ui.activity.SAPerformAutomatedTransitionAdapter"
 		                  id="org.polarsys.capella.cybersecurity.ui.activity.transitions.system"
 		                  image="icons/full/ctool/transition.png"
-		                  index="4"
+		                  index="5"
 		                  name="%performAutomatedTransition_Title">
 		               <Predicate
 					          class="org.polarsys.capella.cybersecurity.ui.activity.predicate.IsViewpointActivatedPredicate">
@@ -392,11 +422,31 @@
 		         </Predicate>
 		      </Activity>
 		      <Activity
-		            class="org.polarsys.capella.cybersecurity.ui.activity.CyberLANewExchangeScenarioAdapter"
-		            id="org.polarsys.capella.cybersecurity.ui.activity.scenario.logical"
-		            image="icons/cyber-exchange-scenario.png"
+		            class="org.polarsys.capella.cybersecurity.ui.activity.CyberLANewInterfaceScenarioAdapter"
+		            id="org.polarsys.capella.cybersecurity.ui.activity.scenario.logical.is"
+		            image="icons/cyber-interface-scenario.png"
 		            index="1"
+		            name="%createInterfaceScenario">
+		         <Predicate
+		               class="org.polarsys.capella.cybersecurity.ui.activity.predicate.IsViewpointActivatedPredicate">
+		         </Predicate>
+		      </Activity>
+		      <Activity
+		            class="org.polarsys.capella.cybersecurity.ui.activity.CyberLANewExchangeScenarioAdapter"
+		            id="org.polarsys.capella.cybersecurity.ui.activity.scenario.logical.es"
+		            image="icons/cyber-exchange-scenario.png"
+		            index="2"
 		            name="%createScenario">
+		         <Predicate
+		               class="org.polarsys.capella.cybersecurity.ui.activity.predicate.IsViewpointActivatedPredicate">
+		         </Predicate>
+		      </Activity>
+		      <Activity
+		            class="org.polarsys.capella.cybersecurity.ui.activity.CyberLANewFunctionalScenarioAdapter"
+		            id="org.polarsys.capella.cybersecurity.ui.activity.scenario.logical.fs"
+		            image="icons/cyber-function-scenario.png"
+		            index="3"
+		            name="%createFunctionScenario">
 		         <Predicate
 		               class="org.polarsys.capella.cybersecurity.ui.activity.predicate.IsViewpointActivatedPredicate">
 		         </Predicate>
@@ -405,7 +455,7 @@
 		            class="org.polarsys.capella.core.explorer.activity.ui.hyperlinkadapter.la.NewBlankFunctionalDataflowDiagramAdapter"
 		            id="org.polarsys.capella.cybersecurity.ui.activity.dataflow.logical"
 		            image="icons/cyber-dataflows-diagram.png"
-		            index="2"
+		            index="4"
 		            name="%createDataflowLogical">
 		         <Predicate
 		               class="org.polarsys.capella.cybersecurity.ui.activity.predicate.IsViewpointActivatedPredicate">
@@ -415,7 +465,7 @@
 		            class="org.polarsys.capella.core.explorer.activity.ui.hyperlinkadapter.la.NewClassDiagramAdapter"
 		            id="org.polarsys.capella.cybersecurity.ui.activity.informationasset"
 		            image="icons/cyber-class-diagram.png"
-		            index="3"
+		            index="5"
 		            name="%createInformationAsset">
 		         <Predicate
 		               class="org.polarsys.capella.cybersecurity.ui.activity.predicate.IsViewpointActivatedPredicate">
@@ -425,7 +475,7 @@
                   class="org.polarsys.capella.cybersecurity.ui.activity.LAPerformAutomatedTransitionAdapter"
                   id="org.polarsys.capella.cybersecurity.ui.activity.transitions.logical"
                   image="icons/full/ctool/transition.png"
-                  index="4"
+                  index="6"
                   name="%performAutomatedTransition_Title">
                <Predicate
 			          class="org.polarsys.capella.cybersecurity.ui.activity.predicate.IsViewpointActivatedPredicate">
@@ -469,11 +519,31 @@
          </Predicate>
       </Activity>
       <Activity
-            class="org.polarsys.capella.cybersecurity.ui.activity.CyberPANewExchangeScenarioAdapter"
-            id="org.polarsys.capella.cybersecurity.ui.activity.scenario.physical"
-            image="icons/cyber-exchange-scenario.png"
+            class="org.polarsys.capella.cybersecurity.ui.activity.CyberPANewInterfaceScenarioAdapter"
+            id="org.polarsys.capella.cybersecurity.ui.activity.scenario.physical.is"
+            image="icons/cyber-interface-scenario.png"
             index="1"
+            name="%createInterfaceScenario">
+         <Predicate
+               class="org.polarsys.capella.cybersecurity.ui.activity.predicate.IsViewpointActivatedPredicate">
+         </Predicate>
+      </Activity>
+      <Activity
+            class="org.polarsys.capella.cybersecurity.ui.activity.CyberPANewExchangeScenarioAdapter"
+            id="org.polarsys.capella.cybersecurity.ui.activity.scenario.physical.es"
+            image="icons/cyber-exchange-scenario.png"
+            index="2"
             name="%createScenario">
+         <Predicate
+               class="org.polarsys.capella.cybersecurity.ui.activity.predicate.IsViewpointActivatedPredicate">
+         </Predicate>
+      </Activity>
+      <Activity
+            class="org.polarsys.capella.cybersecurity.ui.activity.CyberPANewFunctionalScenarioAdapter"
+            id="org.polarsys.capella.cybersecurity.ui.activity.scenario.physical.fs"
+            image="icons/cyber-function-scenario.png"
+            index="3"
+            name="%createFunctionScenario">
          <Predicate
                class="org.polarsys.capella.cybersecurity.ui.activity.predicate.IsViewpointActivatedPredicate">
          </Predicate>
@@ -482,7 +552,7 @@
             class="org.polarsys.capella.core.explorer.activity.ui.hyperlinkadapter.pa.NewBlankFunctionalDataflowDiagramAdapter"
             id="org.polarsys.capella.cybersecurity.ui.activity.dataflow"
             image="icons/cyber-dataflows-diagram.png"
-            index="2"
+            index="4"
             name="%createDataflow">
          <Predicate
                class="org.polarsys.capella.cybersecurity.ui.activity.predicate.IsViewpointActivatedPredicate">
@@ -492,7 +562,7 @@
             class="org.polarsys.capella.core.explorer.activity.ui.hyperlinkadapter.pa.NewClassDiagramAdapter"
             id="org.polarsys.capella.cybersecurity.ui.activity.informationasset"
             image="icons/cyber-class-diagram.png"
-            index="3"
+            index="5"
             name="%createInformationAsset">
          <Predicate
                class="org.polarsys.capella.cybersecurity.ui.activity.predicate.IsViewpointActivatedPredicate">
@@ -502,7 +572,7 @@
                   class="org.polarsys.capella.cybersecurity.ui.activity.PAPerformAutomatedTransitionAdapter"
                   id="org.polarsys.capella.cybersecurity.ui.activity.transitions.physical"
                   image="icons/full/ctool/transition.png"
-                  index="4"
+                  index="6"
                   name="%performAutomatedTransition_Title">
                <Predicate
 			          class="org.polarsys.capella.cybersecurity.ui.activity.predicate.IsViewpointActivatedPredicate">
