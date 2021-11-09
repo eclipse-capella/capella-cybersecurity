@@ -13,6 +13,7 @@ package org.polarsys.capella.cybersecurity.transition.handlers.traceability;
 import org.eclipse.emf.ecore.EObject;
 import org.polarsys.capella.core.transition.common.handlers.traceability.ITraceabilityHandler;
 import org.polarsys.capella.core.transition.common.handlers.traceability.config.TraceabilityConfiguration;
+import org.polarsys.capella.cybersecurity.model.Threat;
 import org.polarsys.kitalpha.transposer.rules.handler.rules.api.IContext;
 
 /**
@@ -20,18 +21,21 @@ import org.polarsys.kitalpha.transposer.rules.handler.rules.api.IContext;
  */
 public class TransformationTraceabilityConfiguration extends TraceabilityConfiguration {
 
+  static String identifier = "cyber_TransformationTraceabilityConfiguration";
   /**
    * {@inheritDoc}
    */
   @Override
   protected void initHandlers(IContext fContext) {
     super.initHandlers(fContext);
-    addHandler(fContext, new TransformationTraceabilityHandler());
+    addHandler(fContext, new TransformationTraceabilityHandler(identifier));
   }
 
   @Override
   public boolean useHandlerForAttachment(EObject source, EObject target, ITraceabilityHandler handler,
       IContext context) {
-    return true;
+    if( source instanceof Threat)
+      return handler instanceof TransformationTraceabilityHandler;
+    return super.useHandlerForAttachment(source, target, handler, context);
   }
 }

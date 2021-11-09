@@ -13,18 +13,20 @@ package org.polarsys.capella.cybersecurity.ui.properties.sections;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.polarsys.capella.common.data.modellingcore.ModellingcorePackage;
 import org.polarsys.capella.common.mdsofa.common.constant.ICommonConstants;
 import org.polarsys.capella.core.data.cs.BlockArchitecture;
 import org.polarsys.capella.core.model.helpers.BlockArchitectureExt;
 import org.polarsys.capella.core.model.helpers.BlockArchitectureExt.Type;
+import org.polarsys.capella.core.ui.properties.controllers.AbstractMultipleSemanticFieldController;
 import org.polarsys.capella.core.ui.properties.fields.AbstractSemanticField;
 import org.polarsys.capella.core.ui.properties.sections.AbstractSection;
 
 public abstract class CybersecuritySection extends AbstractSection {
 
-  private CyberMultipleSemanticField realizedWidget;
-  private boolean showRealizations;
+  protected CyberMultipleSemanticField realizedWidget;
+  protected boolean showRealizations;
   
   public CybersecuritySection() {
     this(true);
@@ -37,15 +39,17 @@ public abstract class CybersecuritySection extends AbstractSection {
   protected void addRealizedWidget(String label) {
     if (showRealizations) {
       realizedWidget = new CyberMultipleSemanticField(getReferencesGroup(), ICommonConstants.EMPTY_STRING,
-          getWidgetFactory(), new CybersecurityRealizationsController());
+          getWidgetFactory(), getController());
       realizedWidget.setLabel(label);
       realizedWidget.setDisplayedInWizard(isDisplayedInWizard());
     }
   }
+  
+  protected abstract AbstractMultipleSemanticFieldController getController();
 
-  public void loadRealizedWidget(EObject capellaElement) {
+  public void loadRealizedWidget(EObject capellaElement, EReference feature) {
     if(showRealizations) {
-      realizedWidget.loadData(capellaElement, ModellingcorePackage.Literals.TRACEABLE_ELEMENT__OUTGOING_TRACES);
+      realizedWidget.loadData(capellaElement, feature);
     }
   }
 

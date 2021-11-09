@@ -10,85 +10,41 @@
 *******************************************************************/
 package org.polarsys.capella.cybersecurity.transition.handlers.traceability;
 
-import java.util.Collections;
 import java.util.List;
 
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Status;
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-import org.polarsys.capella.core.transition.common.handlers.session.SessionHandlerHelper;
-import org.polarsys.capella.core.transition.common.handlers.traceability.ITraceabilityHandler;
+import org.polarsys.capella.common.data.modellingcore.AbstractTrace;
+import org.polarsys.capella.core.data.interaction.InteractionFactory;
+import org.polarsys.capella.core.data.interaction.InteractionPackage;
+import org.polarsys.capella.core.transition.common.handlers.traceability.LinkTraceabilityHandler;
+import org.polarsys.capella.cybersecurity.model.Threat;
 import org.polarsys.kitalpha.transposer.rules.handler.rules.api.IContext;
 
 /**
  * 
  * 
  */
-public class TransformationTraceabilityHandler implements ITraceabilityHandler {
+public class TransformationTraceabilityHandler extends LinkTraceabilityHandler {
+  public TransformationTraceabilityHandler(String identifier) {
+    super(identifier);
+  }
 
   /**
    * {@inheritDoc}
    */
+  @Override
   public void attachTraceability(EObject sourceElement, EObject targetElement, IContext context) {
-    // Nothing
-  }
+    if ((sourceElement instanceof Threat) && (targetElement instanceof Threat)) {
+      // 1- Get the source and target as Capella elements
+      Threat source = (Threat) sourceElement;
+      Threat target = (Threat) targetElement;
 
-  /**
-   * {@inheritDoc}
-   */
-  public List<EObject> retrieveTracedElements(EObject source, IContext context) {
-    return Collections.emptyList();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  public List<EObject> retrieveSourceElements(EObject source, IContext context) {
-    return Collections.emptyList();
-  }
-
-  /**
-   * {@inheritDoc}
-   * 
-   * @deprecated
-   */
-  @Deprecated
-  public List<EObject> retrieveTracedElements(EObject source, IContext context, EClass clazz) {
-    return Collections.emptyList();
-  }
-
-  /**
-   * {@inheritDoc}
-   * 
-   * @deprecated
-   */
-  @Deprecated
-  public boolean isTraced(EObject element, IContext context) {
-    return !retrieveTracedElements(element, context).isEmpty();
-  }
-
-  /**
-   * {@inheritDoc}
-   * 
-   * @deprecated
-   */
-  @Deprecated
-  public String getId(EObject element, IContext context) {
-    return SessionHandlerHelper.getInstance(context).getId(element, context);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  public IStatus init(IContext context) {
-    return Status.OK_STATUS;
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  public IStatus dispose(IContext context) {
-    return Status.OK_STATUS;
+      AbstractTrace link = InteractionFactory.eINSTANCE.createAbstractCapabilityRealization();
+      link.setTargetElement(source);
+      link.setSourceElement(target);
+      ((List<EObject>) target
+         .eGet(InteractionPackage.Literals.ABSTRACT_CAPABILITY__OWNED_ABSTRACT_CAPABILITY_REALIZATIONS)).add(link);
+      addMappings(sourceElement, targetElement, context);
+    }
   }
 }
