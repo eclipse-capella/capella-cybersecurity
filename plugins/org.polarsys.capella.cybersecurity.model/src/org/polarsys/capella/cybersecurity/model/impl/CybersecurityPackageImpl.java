@@ -867,12 +867,12 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
         !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getThreat_Rationale(), ecorePackage.getEString(), "rationale", null, 0, 1, Threat.class, //$NON-NLS-1$
         !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getThreat_RealizedThreats(), this.getThreat(), null, "realizedThreats", null, 0, -1, Threat.class, //$NON-NLS-1$
-        IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-        IS_DERIVED, IS_ORDERED);
-    initEReference(getThreat_RealizingThreats(), this.getThreat(), null, "realizingThreats", null, 0, -1, Threat.class, //$NON-NLS-1$
-        IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-        IS_DERIVED, IS_ORDERED);
+    initEReference(getThreat_RealizedThreats(), this.getThreat(), this.getThreat_RealizingThreats(), "realizedThreats", //$NON-NLS-1$
+        null, 0, -1, Threat.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+        !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+    initEReference(getThreat_RealizingThreats(), this.getThreat(), this.getThreat_RealizedThreats(), "realizingThreats", //$NON-NLS-1$
+        null, 0, -1, Threat.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+        !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
     initEClass(threatInvolvementEClass, ThreatInvolvement.class, "ThreatInvolvement", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
         IS_GENERATED_INSTANCE_CLASS);
@@ -1006,6 +1006,8 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
     createDerivedAnnotations();
     // http://www.polarsys.org/capella/semantic
     createSemanticAnnotations();
+    // http://www.polarsys.org/capella/MNoE/CapellaLike/Mapping
+    createMappingAnnotations();
   }
 
   /**
@@ -1078,8 +1080,14 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
    */
   protected void createDerivedAnnotations() {
     String source = "http://www.polarsys.org/capella/derived"; //$NON-NLS-1$
-    addAnnotation(getThreat_RealizedThreats(), source, new String[] {});
-    addAnnotation(getThreat_RealizingThreats(), source, new String[] {});
+    addAnnotation(getThreat_RealizedThreats(), source, new String[] { "viatra.variant", "patternbody", //$NON-NLS-1$ //$NON-NLS-2$
+        "viatra.expression", //$NON-NLS-1$
+        "Threat.outgoingTraces(self, acr);\nAbstractCapabilityRealization.realizedCapability(acr, target);" //$NON-NLS-1$
+    });
+    addAnnotation(getThreat_RealizingThreats(), source, new String[] { "viatra.variant", "patternbody", //$NON-NLS-1$ //$NON-NLS-2$
+        "viatra.expression", //$NON-NLS-1$
+        "Threat.incomingTraces(self, acr);\nAbstractCapabilityRealization.realizingCapability(acr, target);" //$NON-NLS-1$
+    });
     addAnnotation(getPrimaryAsset_RealizedPrimaryAssets(), source, new String[] {});
     addAnnotation(getPrimaryAsset_RealizingPrimaryAssets(), source, new String[] {});
   }
@@ -1093,9 +1101,30 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
   protected void createSemanticAnnotations() {
     String source = "http://www.polarsys.org/capella/semantic"; //$NON-NLS-1$
     addAnnotation(getThreat_RealizedThreats(), source, new String[] {});
-    addAnnotation(getThreat_RealizingThreats(), source, new String[] {});
+    addAnnotation(getThreat_RealizingThreats(), source, new String[] { "excludefrom", "xmlpivot" //$NON-NLS-1$ //$NON-NLS-2$
+    });
     addAnnotation(getPrimaryAsset_RealizedPrimaryAssets(), source, new String[] {});
     addAnnotation(getPrimaryAsset_RealizingPrimaryAssets(), source, new String[] {});
+  }
+
+  /**
+   * Initializes the annotations for <b>http://www.polarsys.org/capella/MNoE/CapellaLike/Mapping</b>.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void createMappingAnnotations() {
+    String source = "http://www.polarsys.org/capella/MNoE/CapellaLike/Mapping"; //$NON-NLS-1$
+    addAnnotation(getThreat_RealizedThreats(), source,
+        new String[] { "UML/SysML semantic equivalences", "keyword::none", //$NON-NLS-1$ //$NON-NLS-2$
+            "explanation", "Derived and transient", //$NON-NLS-1$ //$NON-NLS-2$
+            "constraints", "none" //$NON-NLS-1$ //$NON-NLS-2$
+        });
+    addAnnotation(getThreat_RealizingThreats(), source,
+        new String[] { "UML/SysML semantic equivalences", "keyword::none", //$NON-NLS-1$ //$NON-NLS-2$
+            "explanation", "Derived and transient", //$NON-NLS-1$ //$NON-NLS-2$
+            "constraints", "none" //$NON-NLS-1$ //$NON-NLS-2$
+        });
   }
 
 } // CybersecurityPackageImpl

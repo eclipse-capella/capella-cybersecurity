@@ -10,13 +10,26 @@
 *******************************************************************/
 package org.polarsys.capella.cybersecurity.ui.semantic.browser;
 
-import org.polarsys.capella.cybersecurity.model.PrimaryAsset;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.eclipse.emf.common.util.EList;
+import org.polarsys.capella.common.helpers.query.IQuery;
 import org.polarsys.capella.cybersecurity.model.Threat;
 
-public class CybersecurityRealizing extends TraceableElementIncomingTrace {
+public class ThreatRealized implements IQuery {
 
   @Override
-  protected boolean showCategory(Object object) {
-    return object instanceof Threat || object instanceof PrimaryAsset;
+  public List<Object> compute(Object object) {
+    List<Object> result = new ArrayList<Object>();
+    if (object instanceof Threat) {
+      Threat threat = (Threat) object;
+      EList<Threat> realizedThreats = threat.getRealizedThreats();
+      if (!realizedThreats.isEmpty()) {
+        result.addAll(realizedThreats);
+      }
+    }
+    return result;
   }
+
 }

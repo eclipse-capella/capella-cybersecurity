@@ -15,6 +15,8 @@ import org.polarsys.capella.core.data.cs.BlockArchitecture;
 import org.polarsys.capella.core.transition.common.handlers.traceability.ITraceabilityHandler;
 import org.polarsys.capella.core.transition.common.handlers.traceability.config.TraceabilityConfiguration;
 import org.polarsys.capella.core.transition.system.handlers.traceability.ReconciliationTraceabilityHandler;
+import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
+import org.polarsys.capella.cybersecurity.model.Threat;
 import org.polarsys.capella.cybersecurity.sirius.analysis.CybersecurityServices;
 import org.polarsys.kitalpha.transposer.rules.handler.rules.api.IContext;
 
@@ -37,7 +39,12 @@ public class ExtensionTraceabilityConfiguration extends TraceabilityConfiguratio
   @Override
   public boolean useHandlerForAttachment(EObject source, EObject target, ITraceabilityHandler handler,
       IContext context) {
-    return true;
+    if (source != null && source.eClass().getEPackage() == CybersecurityPackage.eINSTANCE) {
+      if (source instanceof Threat)
+        return handler instanceof TransformationTraceabilityHandler;
+      return super.useHandlerForAttachment(source, target, handler, context);
+    }
+    return false;
   }
   
   protected class TopDownReconciliationTraceabilityHandler extends ReconciliationTraceabilityHandler {

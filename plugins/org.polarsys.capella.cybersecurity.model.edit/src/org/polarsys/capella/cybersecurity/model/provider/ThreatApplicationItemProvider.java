@@ -216,6 +216,7 @@ public class ThreatApplicationItemProvider extends RelationshipItemProvider impl
   @Override
   public void notifyChanged(Notification notification) {
     updateChildren(notification);
+    super.notifyChanged(notification);
   }
 
   /**

@@ -45,7 +45,7 @@ public abstract class CybersecurityRealizedElements extends BlockArchitecturePre
     return availableElements;
   }
 
-  private List<EObject> getTargetElements(List<EObject> list) {
+  protected List<EObject> getTargetElements(List<EObject> list) {
     List<EObject> result = new ArrayList<EObject>();
     for (EObject obj : list) {
       if (obj instanceof TransfoLink) {

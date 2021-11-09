@@ -17,7 +17,7 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.polarsys.capella.common.data.modellingcore.AbstractTrace;
-import org.polarsys.capella.core.data.capellacommon.TransfoLink;
+import org.polarsys.capella.core.data.interaction.AbstractCapabilityRealization;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.Threat;
 
@@ -50,7 +50,6 @@ public class ThreatHelper {
     // delegate to parent helper
     return org.polarsys.capella.core.data.helpers.interaction.delegates.AbstractCapabilityHelper.getInstance()
         .doSwitch(object, feature);
-    
 
   }
 
@@ -59,11 +58,12 @@ public class ThreatHelper {
    */
   protected List<Threat> getRealizedThreats(Threat element) {
     List<Threat> ret = new ArrayList<>();
+    // target
     for (AbstractTrace obj : element.getOutgoingTraces()) {
-      if (obj instanceof TransfoLink) {
-        TransfoLink link = (TransfoLink) obj;
-        if (link.getTarget() instanceof Threat) {
-          ret.add((Threat) link.getTarget());
+      if (obj instanceof AbstractCapabilityRealization) {
+        AbstractCapabilityRealization link = (AbstractCapabilityRealization) obj;
+        if (link.getRealizedCapability() instanceof Threat) {
+          ret.add((Threat) link.getRealizedCapability());
         }
       }
     }
@@ -75,11 +75,12 @@ public class ThreatHelper {
    */
   protected List<Threat> getRealizingThreats(Threat element) {
     List<Threat> ret = new ArrayList<>();
+    // source
     for (AbstractTrace obj : element.getIncomingTraces()) {
-      if (obj instanceof TransfoLink) {
-        TransfoLink link = (TransfoLink) obj;
-        if (link.getSource() instanceof Threat) {
-          ret.add((Threat) link.getSource());
+      if (obj instanceof AbstractCapabilityRealization) {
+        AbstractCapabilityRealization link = (AbstractCapabilityRealization) obj;
+        if (link.getRealizingCapability() instanceof Threat) {
+          ret.add((Threat) link.getRealizingCapability());
         }
       }
     }
