@@ -23,6 +23,8 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
+import org.polarsys.capella.common.data.modellingcore.ModellingcorePackage;
+import org.polarsys.capella.core.ui.properties.controllers.AbstractMultipleSemanticFieldController;
 import org.polarsys.capella.core.ui.properties.fields.AbstractSemanticField;
 import org.polarsys.capella.core.ui.properties.fields.ContainmentTableField;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
@@ -79,7 +81,7 @@ public class FunctionalPrimaryAssetSection extends CybersecuritySection {
     super.loadData(capellaElement);
     _containmentTableField.loadData(capellaElement, CybersecurityPackage.Literals.PRIMARY_ASSET__OWNED_MEMBERS);
     
-    super.loadRealizedWidget(capellaElement);
+    super.loadRealizedWidget(capellaElement, ModellingcorePackage.Literals.TRACEABLE_ELEMENT__OUTGOING_TRACES);
   }
 
   @Override
@@ -89,6 +91,11 @@ public class FunctionalPrimaryAssetSection extends CybersecuritySection {
     
     super.addRealizedFields(fields);
     return fields;
+  }
+
+  @Override
+  protected AbstractMultipleSemanticFieldController getController() {
+    return new PrimaryAssetRealizationsController();
   }
 
 }

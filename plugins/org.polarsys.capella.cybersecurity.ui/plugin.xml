@@ -1382,14 +1382,9 @@
          </targetBrowserId>
          <categoryQuery>
             <basicQuery
-                  class="org.polarsys.capella.cybersecurity.ui.semantic.browser.CybersecurityRealizing">
+                  class="org.polarsys.capella.cybersecurity.ui.semantic.browser.ThreatRealizing">
             </basicQuery>
          </categoryQuery>
-         <itemQueries>
-            <basicQuery
-                  class="org.polarsys.capella.cybersecurity.ui.semantic.browser.TraceableElementTraceType">
-            </basicQuery>
-         </itemQueries>
    </category>
    <category
             id="org.polarsys.capella.cybersecurity.ui.semantic.browser.TraceableElementPrimaryAssetRealizing"
@@ -1403,7 +1398,7 @@
          </targetBrowserId>
          <categoryQuery>
             <basicQuery
-                  class="org.polarsys.capella.cybersecurity.ui.semantic.browser.CybersecurityRealizing">
+                  class="org.polarsys.capella.cybersecurity.ui.semantic.browser.PrimaryAssetRealizing">
             </basicQuery>
          </categoryQuery>
          <itemQueries>
@@ -1445,14 +1440,9 @@
          </targetBrowserId>
          <categoryQuery>
             <basicQuery
-                  class="org.polarsys.capella.cybersecurity.ui.semantic.browser.CybersecurityRealized">
+                  class="org.polarsys.capella.cybersecurity.ui.semantic.browser.ThreatRealized">
             </basicQuery>
          </categoryQuery>
-         <itemQueries>
-            <basicQuery
-                  class="org.polarsys.capella.cybersecurity.ui.semantic.browser.TraceableElementTraceType">
-            </basicQuery>
-         </itemQueries>
       </category>
       <category
             id="org.polarsys.capella.cybersecurity.ui.semantic.browser.TraceableElementPrimaryAssetRealized"
@@ -1466,7 +1456,7 @@
          </targetBrowserId>
          <categoryQuery>
             <basicQuery
-                  class="org.polarsys.capella.cybersecurity.ui.semantic.browser.CybersecurityRealized">
+                  class="org.polarsys.capella.cybersecurity.ui.semantic.browser.PrimaryAssetRealized">
             </basicQuery>
          </categoryQuery>
          <itemQueries>

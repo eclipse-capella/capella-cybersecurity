@@ -11,13 +11,11 @@
 package org.polarsys.capella.cybersecurity.ui.semantic.browser;
 
 import org.polarsys.capella.cybersecurity.model.PrimaryAsset;
-import org.polarsys.capella.cybersecurity.model.Threat;
 
-public class CybersecurityRealized extends TraceableElementOutgoingTrace {
+public class PrimaryAssetRealizing extends TraceableElementIncomingTrace {
 
   @Override
   protected boolean showCategory(Object object) {
-    return object instanceof Threat || object instanceof PrimaryAsset;
+    return object instanceof PrimaryAsset;
   }
-
 }

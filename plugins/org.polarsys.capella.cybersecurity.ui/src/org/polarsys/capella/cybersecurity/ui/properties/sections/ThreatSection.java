@@ -25,7 +25,10 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 import org.polarsys.capella.core.data.capellamodeller.Project;
+import org.polarsys.capella.core.data.interaction.InteractionPackage;
+import org.polarsys.capella.core.data.interaction.properties.controllers.AbstractCapability_RealizedCapabilitiesController;
 import org.polarsys.capella.core.sirius.ui.helper.SessionHelper;
+import org.polarsys.capella.core.ui.properties.controllers.AbstractMultipleSemanticFieldController;
 import org.polarsys.capella.core.ui.properties.fields.AbstractSemanticField;
 import org.polarsys.capella.core.ui.properties.fields.TextAreaValueGroup;
 import org.polarsys.capella.core.ui.properties.fields.TextValueGroup;
@@ -63,7 +66,7 @@ public class ThreatSection extends CybersecuritySection {
     levelGroup = null;
     rationaleGroup = null;
     
-    super.addRealizedWidget("Realized Threats");
+    addRealizedWidget("Realized Threats");
   }
 
   @Override
@@ -84,7 +87,7 @@ public class ThreatSection extends CybersecuritySection {
     levelGroup.loadData(capellaElement, CybersecurityPackage.Literals.THREAT__LEVEL);
     rationaleGroup.loadData(capellaElement, CybersecurityPackage.Literals.THREAT__RATIONALE);
     
-    super.loadRealizedWidget(capellaElement);
+    super.loadRealizedWidget(capellaElement, InteractionPackage.Literals.ABSTRACT_CAPABILITY__OWNED_ABSTRACT_CAPABILITY_REALIZATIONS);
   }
 
   @Override
@@ -118,5 +121,10 @@ public class ThreatSection extends CybersecuritySection {
         }
       }
     };
+  }
+
+  @Override
+  protected AbstractMultipleSemanticFieldController getController() {
+    return new AbstractCapability_RealizedCapabilitiesController();
   }
 }

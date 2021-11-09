@@ -29,7 +29,7 @@ import org.polarsys.capella.core.ui.properties.fields.AbstractSemanticField;
 
 /**
  */
-public class CybersecurityRealizationsController extends AbstractMultipleSemanticFieldController {
+public class PrimaryAssetRealizationsController extends AbstractMultipleSemanticFieldController {
   /**
    * {@inheritDoc}
    */
