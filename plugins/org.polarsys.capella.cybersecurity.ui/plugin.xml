@@ -378,7 +378,7 @@
 		                  class="org.polarsys.capella.cybersecurity.ui.activity.SAPerformAutomatedTransitionAdapter"
 		                  id="org.polarsys.capella.cybersecurity.ui.activity.transitions.system"
 		                  image="icons/full/ctool/transition.png"
-		                  index="5"
+		                  index="6"
 		                  name="%performAutomatedTransition_Title">
 		               <Predicate
 					          class="org.polarsys.capella.cybersecurity.ui.activity.predicate.IsViewpointActivatedPredicate">
