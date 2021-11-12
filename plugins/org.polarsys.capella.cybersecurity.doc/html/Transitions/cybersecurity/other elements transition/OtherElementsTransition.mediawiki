@@ -32,5 +32,14 @@ Entities transitions are similar to actors transitions.
 Just like above, when transitioning Functions (or Operational Activities) the references of cybersecurity extension elements are also transitioned. Functions can have Function Storage and Security Needs references which can be seen are transitioned as in the example below:
 
 
-
 [[Image:../../../Images/function%20transition.png]]
+
+== Scenario/Functional Transition ==
+
+As a ''Threat'' is similar to a Operational Capability/Capability/Capability Realization in Capella and the user can do Scenario/Functional transitions.
+
+[[Image:../../../Images/threat-is-sceanario-transition.png]]
+
+
+
+
