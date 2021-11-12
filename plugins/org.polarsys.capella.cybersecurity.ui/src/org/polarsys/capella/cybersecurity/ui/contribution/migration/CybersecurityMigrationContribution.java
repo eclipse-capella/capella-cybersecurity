@@ -12,7 +12,9 @@
  *******************************************************************************/
 package org.polarsys.capella.cybersecurity.ui.contribution.migration;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -20,12 +22,19 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.xmi.XMLResource;
+import org.polarsys.capella.common.data.modellingcore.AbstractTrace;
 import org.polarsys.capella.common.ef.ExecutionManager;
+import org.polarsys.capella.common.helpers.TransactionHelper;
+import org.polarsys.capella.core.data.capellacommon.TransfoLink;
 import org.polarsys.capella.core.data.capellacore.EnumerationPropertyLiteral;
 import org.polarsys.capella.core.data.capellacore.EnumerationPropertyType;
 import org.polarsys.capella.core.data.capellamodeller.Project;
+import org.polarsys.capella.core.data.interaction.AbstractCapabilityRealization;
+import org.polarsys.capella.core.data.interaction.InteractionFactory;
+import org.polarsys.capella.core.data.interaction.InteractionPackage;
 import org.polarsys.capella.core.data.migration.context.MigrationContext;
 import org.polarsys.capella.core.data.migration.contribution.AbstractMigrationContribution;
+import org.polarsys.capella.core.platform.sirius.ui.commands.CapellaDeleteCommand;
 import org.polarsys.capella.cybersecurity.CyberSecurityViewpointHelper;
 import org.polarsys.capella.cybersecurity.model.CybersecurityConfiguration;
 import org.polarsys.capella.cybersecurity.model.CybersecurityQueries;
@@ -36,6 +45,7 @@ import org.polarsys.capella.cybersecurity.model.activator.CybersecurityModelActi
 public class CybersecurityMigrationContribution extends AbstractMigrationContribution {
   Map<String, String> savedValues = new HashMap<>();
   private CybersecurityConfiguration config;
+  List<AbstractTrace> transfoToDelete = new ArrayList<AbstractTrace>();
 
   @Override
   public void unaryMigrationExecute(EObject currentElement, MigrationContext context) {
@@ -64,6 +74,15 @@ public class CybersecurityMigrationContribution extends AbstractMigrationContrib
       Project project = (Project) resource.getContents().get(0);
       if (CybersecurityQueries.getCybersecurityConfiguration(project) == null) {
         project.getOwnedExtensions().add(config);
+      }
+      if (!transfoToDelete.isEmpty()) {
+        // delete transfo link
+        CapellaDeleteCommand command = new CapellaDeleteCommand(TransactionHelper.getExecutionManager(transfoToDelete),
+            transfoToDelete, false, false, true);
+        if (command.canExecute()) {
+          command.execute();
+        }
+        transfoToDelete.clear();
       }
     }
   }
@@ -98,6 +117,18 @@ public class CybersecurityMigrationContribution extends AbstractMigrationContrib
     EnumerationPropertyLiteral literal = getLiteral(config.getThreatKind(), searchValue);
     if (literal != null) {
       threat.setKind(literal);
+    }
+    
+    // TransfoLinks become AbstractCapabilityRealization links
+    for (AbstractTrace trace : threat.getOutgoingTraces()) {
+      if (trace instanceof TransfoLink) {
+        AbstractCapabilityRealization link = InteractionFactory.eINSTANCE.createAbstractCapabilityRealization();
+        link.setTargetElement(trace.getTargetElement());
+        link.setSourceElement(trace.getSourceElement());
+        ((List<EObject>) threat
+            .eGet(InteractionPackage.Literals.ABSTRACT_CAPABILITY__OWNED_ABSTRACT_CAPABILITY_REALIZATIONS)).add(link);
+        transfoToDelete.add(trace);
+      }
     }
   }
 
