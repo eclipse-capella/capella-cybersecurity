@@ -94,7 +94,10 @@ The threat kinds can be updated as below:
 * To edit an existing kind: double click -> edit it from the open window or click -> edit from properties view
 * To remove a kind: click on the delete button or right click -> delete
 
-''Threats'' are applied to ''Primary Assets''.
+'''Threats''' are applied to ''Primary Assets'' and are similar to the '''Capabilities''' from Capella. Under a ''Threat'', the user can do the same operations as to an Operational Capability/Capability/Capability Realization:
+
+[[Image:Images/threat-abstract-capability.png]]
+
 A Threat has the following additional attributes:
 
 {| border="1"
@@ -170,7 +173,7 @@ The following diagram types are provided by the DARC Viewpoint:
 
 The user can create a diagram using the menus in project explorer or using the corresponding hyperlink from the [[../help/topic/org.polarsys.capella.ui.doc/html/04.%20User%20Interface/4.03.%20Activity%20Browser.html? |Activity Explorer]]<span class="github-link">[[https://github.com/eclipse/capella/blob/master/doc/plugins/org.polarsys.capella.ui.doc/html/04.%20User%20Interface/4.03.%20Activity%20Browser.mediawiki|(online documentation)]]</span>:
 
-: [[Image:Images/activityExplorer.png]]
+: [[Image:Images/activityExplorer.png|464x430px]]
 
 == Threat Diagram ==
 
