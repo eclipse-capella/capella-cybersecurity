@@ -492,8 +492,8 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Owned Traces</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!--
+   * end-user-doc -->
    * @generated
    * @ordered
    */
@@ -501,8 +501,8 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Contained Generic Traces</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!--
+   * end-user-doc -->
    * @generated
    * @ordered
    */
@@ -510,8 +510,8 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Contained Requirements Traces</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!--
+   * end-user-doc -->
    * @generated
    * @ordered
    */
@@ -519,8 +519,8 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Naming Rules</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!--
+   * end-user-doc -->
    * @generated
    * @ordered
    */
@@ -528,8 +528,8 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Owned Property Value Pkgs</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc
+   * --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -537,8 +537,8 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Involved Involvements</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!--
+   * end-user-doc -->
    * @generated
    * @ordered
    */
@@ -546,8 +546,8 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Owned Functional Chains</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc
+   * --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -555,8 +555,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Pre Condition</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -564,8 +563,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Post Condition</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -573,8 +571,8 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Owned Scenarios</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!--
+   * end-user-doc -->
    * @generated
    * @ordered
    */
@@ -600,8 +598,8 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Extends</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!--
+   * end-user-doc -->
    * @generated
    * @ordered
    */
@@ -609,17 +607,16 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Extending</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
   int THREAT__EXTENDING = InteractionPackage.ABSTRACT_CAPABILITY__EXTENDING;
 
   /**
-   * The feature id for the '<em><b>Abstract Capability Extension Points</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * The feature id for the '<em><b>Abstract Capability Extension Points</b></em>' containment reference list. <!--
+   * begin-user-doc --> <!-- end-user-doc -->
+   * 
    * @generated
    * @ordered
    */
@@ -636,8 +633,8 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Sub Generalizations</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!--
+   * end-user-doc -->
    * @generated
    * @ordered
    */
@@ -645,8 +642,8 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Includes</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!--
+   * end-user-doc -->
    * @generated
    * @ordered
    */
@@ -654,8 +651,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Including</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -663,8 +659,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Super</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -672,8 +667,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Sub</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -717,8 +711,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Owned Functional Chain Abstract Capability Involvements</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -726,8 +719,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Owned Abstract Function Abstract Capability Involvements</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -735,17 +727,17 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Available In States</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!--
+   * end-user-doc -->
    * @generated
    * @ordered
    */
   int THREAT__AVAILABLE_IN_STATES = InteractionPackage.ABSTRACT_CAPABILITY__AVAILABLE_IN_STATES;
 
   /**
-   * The feature id for the '<em><b>Owned Abstract Capability Realizations</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * The feature id for the '<em><b>Owned Abstract Capability Realizations</b></em>' containment reference list. <!--
+   * begin-user-doc --> <!-- end-user-doc -->
+   * 
    * @generated
    * @ordered
    */
@@ -753,8 +745,8 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Involved Abstract Functions</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!--
+   * end-user-doc -->
    * @generated
    * @ordered
    */
@@ -762,8 +754,8 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Involved Functional Chains</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!--
+   * end-user-doc -->
    * @generated
    * @ordered
    */
@@ -779,8 +771,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Kind</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -803,9 +794,9 @@ public interface CybersecurityPackage extends EPackage {
   int THREAT__RATIONALE = InteractionPackage.ABSTRACT_CAPABILITY_FEATURE_COUNT + 3;
 
   /**
-   * The feature id for the '<em><b>Realized Threats</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * The feature id for the '<em><b>Realized Threats</b></em>' reference list. <!-- begin-user-doc --> <!-- end-user-doc
+   * -->
+   * 
    * @generated
    * @ordered
    */
@@ -813,8 +804,8 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Realizing Threats</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!--
+   * end-user-doc -->
    * @generated
    * @ordered
    */
@@ -1111,26 +1102,25 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
   int FUNCTION_STORAGE__NAME = CapellacorePackage.NAMED_ELEMENT__NAME;
 
   /**
-   * The feature id for the '<em><b>Incoming Traces</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * The feature id for the '<em><b>Incoming Traces</b></em>' reference list. <!-- begin-user-doc --> <!-- end-user-doc
+   * -->
+   * 
    * @generated
    * @ordered
    */
   int FUNCTION_STORAGE__INCOMING_TRACES = CapellacorePackage.NAMED_ELEMENT__INCOMING_TRACES;
 
   /**
-   * The feature id for the '<em><b>Outgoing Traces</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * The feature id for the '<em><b>Outgoing Traces</b></em>' reference list. <!-- begin-user-doc --> <!-- end-user-doc
+   * -->
+   * 
    * @generated
    * @ordered
    */
@@ -1138,8 +1128,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Visible In Doc</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -1147,8 +1136,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Visible In LM</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -1156,8 +1144,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Summary</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -1165,8 +1152,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Description</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -1174,8 +1160,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Review</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -1191,9 +1176,9 @@ public interface CybersecurityPackage extends EPackage {
   int FUNCTION_STORAGE__OWNED_PROPERTY_VALUES = CapellacorePackage.NAMED_ELEMENT__OWNED_PROPERTY_VALUES;
 
   /**
-   * The feature id for the '<em><b>Owned Enumeration Property Types</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * The feature id for the '<em><b>Owned Enumeration Property Types</b></em>' containment reference list. <!--
+   * begin-user-doc --> <!-- end-user-doc -->
+   * 
    * @generated
    * @ordered
    */
@@ -1201,17 +1186,17 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Applied Property Values</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!--
+   * end-user-doc -->
    * @generated
    * @ordered
    */
   int FUNCTION_STORAGE__APPLIED_PROPERTY_VALUES = CapellacorePackage.NAMED_ELEMENT__APPLIED_PROPERTY_VALUES;
 
   /**
-   * The feature id for the '<em><b>Owned Property Value Groups</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * The feature id for the '<em><b>Owned Property Value Groups</b></em>' containment reference list. <!--
+   * begin-user-doc --> <!-- end-user-doc -->
+   * 
    * @generated
    * @ordered
    */
@@ -1219,8 +1204,8 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Applied Property Value Groups</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!--
+   * end-user-doc -->
    * @generated
    * @ordered
    */
@@ -1228,8 +1213,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Status</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -1237,8 +1221,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Features</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -1246,8 +1229,8 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Applied Requirements</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!--
+   * end-user-doc -->
    * @generated
    * @ordered
    */
@@ -1570,26 +1553,25 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
   int PRIMARY_ASSET_STORAGE__NAME = CapellacorePackage.NAMED_ELEMENT__NAME;
 
   /**
-   * The feature id for the '<em><b>Incoming Traces</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * The feature id for the '<em><b>Incoming Traces</b></em>' reference list. <!-- begin-user-doc --> <!-- end-user-doc
+   * -->
+   * 
    * @generated
    * @ordered
    */
   int PRIMARY_ASSET_STORAGE__INCOMING_TRACES = CapellacorePackage.NAMED_ELEMENT__INCOMING_TRACES;
 
   /**
-   * The feature id for the '<em><b>Outgoing Traces</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * The feature id for the '<em><b>Outgoing Traces</b></em>' reference list. <!-- begin-user-doc --> <!-- end-user-doc
+   * -->
+   * 
    * @generated
    * @ordered
    */
@@ -1597,8 +1579,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Visible In Doc</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -1606,8 +1587,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Visible In LM</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -1615,8 +1595,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Summary</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -1624,8 +1603,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Description</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -1633,8 +1611,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Review</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -1650,9 +1627,9 @@ public interface CybersecurityPackage extends EPackage {
   int PRIMARY_ASSET_STORAGE__OWNED_PROPERTY_VALUES = CapellacorePackage.NAMED_ELEMENT__OWNED_PROPERTY_VALUES;
 
   /**
-   * The feature id for the '<em><b>Owned Enumeration Property Types</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * The feature id for the '<em><b>Owned Enumeration Property Types</b></em>' containment reference list. <!--
+   * begin-user-doc --> <!-- end-user-doc -->
+   * 
    * @generated
    * @ordered
    */
@@ -1660,17 +1637,17 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Applied Property Values</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!--
+   * end-user-doc -->
    * @generated
    * @ordered
    */
   int PRIMARY_ASSET_STORAGE__APPLIED_PROPERTY_VALUES = CapellacorePackage.NAMED_ELEMENT__APPLIED_PROPERTY_VALUES;
 
   /**
-   * The feature id for the '<em><b>Owned Property Value Groups</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * The feature id for the '<em><b>Owned Property Value Groups</b></em>' containment reference list. <!--
+   * begin-user-doc --> <!-- end-user-doc -->
+   * 
    * @generated
    * @ordered
    */
@@ -1678,8 +1655,8 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Applied Property Value Groups</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!--
+   * end-user-doc -->
    * @generated
    * @ordered
    */
@@ -1687,8 +1664,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Status</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -1696,8 +1672,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Features</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -1705,8 +1680,8 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Applied Requirements</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!--
+   * end-user-doc -->
    * @generated
    * @ordered
    */
@@ -1783,26 +1758,25 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
   int SECURITY_NEEDS__NAME = CapellacorePackage.NAMED_ELEMENT__NAME;
 
   /**
-   * The feature id for the '<em><b>Incoming Traces</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * The feature id for the '<em><b>Incoming Traces</b></em>' reference list. <!-- begin-user-doc --> <!-- end-user-doc
+   * -->
+   * 
    * @generated
    * @ordered
    */
   int SECURITY_NEEDS__INCOMING_TRACES = CapellacorePackage.NAMED_ELEMENT__INCOMING_TRACES;
 
   /**
-   * The feature id for the '<em><b>Outgoing Traces</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * The feature id for the '<em><b>Outgoing Traces</b></em>' reference list. <!-- begin-user-doc --> <!-- end-user-doc
+   * -->
+   * 
    * @generated
    * @ordered
    */
@@ -1810,8 +1784,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Visible In Doc</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -1819,8 +1792,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Visible In LM</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -1828,8 +1800,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Summary</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -1837,8 +1808,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Description</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -1846,8 +1816,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Review</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -1863,9 +1832,9 @@ public interface CybersecurityPackage extends EPackage {
   int SECURITY_NEEDS__OWNED_PROPERTY_VALUES = CapellacorePackage.NAMED_ELEMENT__OWNED_PROPERTY_VALUES;
 
   /**
-   * The feature id for the '<em><b>Owned Enumeration Property Types</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * The feature id for the '<em><b>Owned Enumeration Property Types</b></em>' containment reference list. <!--
+   * begin-user-doc --> <!-- end-user-doc -->
+   * 
    * @generated
    * @ordered
    */
@@ -1873,17 +1842,17 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Applied Property Values</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!--
+   * end-user-doc -->
    * @generated
    * @ordered
    */
   int SECURITY_NEEDS__APPLIED_PROPERTY_VALUES = CapellacorePackage.NAMED_ELEMENT__APPLIED_PROPERTY_VALUES;
 
   /**
-   * The feature id for the '<em><b>Owned Property Value Groups</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * The feature id for the '<em><b>Owned Property Value Groups</b></em>' containment reference list. <!--
+   * begin-user-doc --> <!-- end-user-doc -->
+   * 
    * @generated
    * @ordered
    */
@@ -1891,8 +1860,8 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Applied Property Value Groups</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!--
+   * end-user-doc -->
    * @generated
    * @ordered
    */
@@ -1900,8 +1869,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Status</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -1909,8 +1877,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Features</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -1918,17 +1885,17 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Applied Requirements</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!--
+   * end-user-doc -->
    * @generated
    * @ordered
    */
   int SECURITY_NEEDS__APPLIED_REQUIREMENTS = CapellacorePackage.NAMED_ELEMENT__APPLIED_REQUIREMENTS;
 
   /**
-   * The feature id for the '<em><b>Confidentiality Value</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * The feature id for the '<em><b>Confidentiality Value</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
+   * -->
+   * 
    * @generated
    * @ordered
    */
@@ -1936,26 +1903,25 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Integrity Value</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
   int SECURITY_NEEDS__INTEGRITY_VALUE = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Availability Value</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * The feature id for the '<em><b>Availability Value</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
+   * -->
+   * 
    * @generated
    * @ordered
    */
   int SECURITY_NEEDS__AVAILABILITY_VALUE = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
 
   /**
-   * The feature id for the '<em><b>Traceability Value</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * The feature id for the '<em><b>Traceability Value</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
+   * -->
+   * 
    * @generated
    * @ordered
    */
@@ -2032,26 +1998,25 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
   int TRUST_BOUNDARY_STORAGE__NAME = CapellacorePackage.NAMED_ELEMENT__NAME;
 
   /**
-   * The feature id for the '<em><b>Incoming Traces</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * The feature id for the '<em><b>Incoming Traces</b></em>' reference list. <!-- begin-user-doc --> <!-- end-user-doc
+   * -->
+   * 
    * @generated
    * @ordered
    */
   int TRUST_BOUNDARY_STORAGE__INCOMING_TRACES = CapellacorePackage.NAMED_ELEMENT__INCOMING_TRACES;
 
   /**
-   * The feature id for the '<em><b>Outgoing Traces</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * The feature id for the '<em><b>Outgoing Traces</b></em>' reference list. <!-- begin-user-doc --> <!-- end-user-doc
+   * -->
+   * 
    * @generated
    * @ordered
    */
@@ -2059,8 +2024,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Visible In Doc</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -2068,8 +2032,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Visible In LM</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -2077,8 +2040,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Summary</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -2086,8 +2048,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Description</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -2095,8 +2056,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Review</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -2112,9 +2072,9 @@ public interface CybersecurityPackage extends EPackage {
   int TRUST_BOUNDARY_STORAGE__OWNED_PROPERTY_VALUES = CapellacorePackage.NAMED_ELEMENT__OWNED_PROPERTY_VALUES;
 
   /**
-   * The feature id for the '<em><b>Owned Enumeration Property Types</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * The feature id for the '<em><b>Owned Enumeration Property Types</b></em>' containment reference list. <!--
+   * begin-user-doc --> <!-- end-user-doc -->
+   * 
    * @generated
    * @ordered
    */
@@ -2122,17 +2082,17 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Applied Property Values</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!--
+   * end-user-doc -->
    * @generated
    * @ordered
    */
   int TRUST_BOUNDARY_STORAGE__APPLIED_PROPERTY_VALUES = CapellacorePackage.NAMED_ELEMENT__APPLIED_PROPERTY_VALUES;
 
   /**
-   * The feature id for the '<em><b>Owned Property Value Groups</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * The feature id for the '<em><b>Owned Property Value Groups</b></em>' containment reference list. <!--
+   * begin-user-doc --> <!-- end-user-doc -->
+   * 
    * @generated
    * @ordered
    */
@@ -2140,8 +2100,8 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Applied Property Value Groups</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!--
+   * end-user-doc -->
    * @generated
    * @ordered
    */
@@ -2149,8 +2109,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Status</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -2158,8 +2117,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Features</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -2167,8 +2125,8 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Applied Requirements</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!--
+   * end-user-doc -->
    * @generated
    * @ordered
    */
@@ -2432,8 +2390,8 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Realized Primary Assets</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!--
+   * end-user-doc -->
    * @generated
    * @ordered
    */
@@ -2441,8 +2399,8 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Realizing Primary Assets</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!--
+   * end-user-doc -->
    * @generated
    * @ordered
    */
@@ -2673,8 +2631,8 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Realized Primary Assets</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!--
+   * end-user-doc -->
    * @generated
    * @ordered
    */
@@ -2682,8 +2640,8 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Realizing Primary Assets</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!--
+   * end-user-doc -->
    * @generated
    * @ordered
    */
@@ -2699,8 +2657,8 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Functional Chains</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!--
+   * end-user-doc -->
    * @generated
    * @ordered
    */
@@ -2931,8 +2889,8 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Realized Primary Assets</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!--
+   * end-user-doc -->
    * @generated
    * @ordered
    */
@@ -2940,8 +2898,8 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Realizing Primary Assets</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!--
+   * end-user-doc -->
    * @generated
    * @ordered
    */
@@ -3188,8 +3146,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The meta object id for the '{@link org.polarsys.capella.cybersecurity.model.impl.CybersecurityConfigurationImpl <em>Configuration</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @see org.polarsys.capella.cybersecurity.model.impl.CybersecurityConfigurationImpl
    * @see org.polarsys.capella.cybersecurity.model.impl.CybersecurityPackageImpl#getCybersecurityConfiguration()
    * @generated
@@ -3198,8 +3155,8 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Owned Extensions</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!--
+   * end-user-doc -->
    * @generated
    * @ordered
    */
@@ -3207,8 +3164,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -3216,8 +3172,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Sid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -3225,8 +3180,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Constraints</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -3234,8 +3188,8 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Owned Constraints</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!--
+   * end-user-doc -->
    * @generated
    * @ordered
    */
@@ -3243,8 +3197,8 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Owned Migrated Elements</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc
+   * --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -3252,26 +3206,25 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
   int CYBERSECURITY_CONFIGURATION__NAME = CapellacorePackage.NAMED_ELEMENT__NAME;
 
   /**
-   * The feature id for the '<em><b>Incoming Traces</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * The feature id for the '<em><b>Incoming Traces</b></em>' reference list. <!-- begin-user-doc --> <!-- end-user-doc
+   * -->
+   * 
    * @generated
    * @ordered
    */
   int CYBERSECURITY_CONFIGURATION__INCOMING_TRACES = CapellacorePackage.NAMED_ELEMENT__INCOMING_TRACES;
 
   /**
-   * The feature id for the '<em><b>Outgoing Traces</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * The feature id for the '<em><b>Outgoing Traces</b></em>' reference list. <!-- begin-user-doc --> <!-- end-user-doc
+   * -->
+   * 
    * @generated
    * @ordered
    */
@@ -3279,8 +3232,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Visible In Doc</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -3288,8 +3240,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Visible In LM</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -3297,8 +3248,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Summary</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -3306,8 +3256,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Description</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -3315,8 +3264,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * The feature id for the '<em><b>Review</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -3332,13 +3280,267 @@ public interface CybersecurityPackage extends EPackage {
   int CYBERSECURITY_CONFIGURATION__OWNED_PROPERTY_VALUES = CapellacorePackage.NAMED_ELEMENT__OWNED_PROPERTY_VALUES;
 
   /**
+   * The feature id for the '<em><b>Owned Enumeration Property Types</b></em>' containment reference list. <!--
+   * begin-user-doc --> <!-- end-user-doc -->
+   * 
+   * @generated
+   * @ordered
+   */
+  int CYBERSECURITY_CONFIGURATION__OWNED_ENUMERATION_PROPERTY_TYPES = CapellacorePackage.NAMED_ELEMENT__OWNED_ENUMERATION_PROPERTY_TYPES;
+
+  /**
+   * The feature id for the '<em><b>Applied Property Values</b></em>' reference list.
+   * <!-- begin-user-doc --> <!--
+   * end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CYBERSECURITY_CONFIGURATION__APPLIED_PROPERTY_VALUES = CapellacorePackage.NAMED_ELEMENT__APPLIED_PROPERTY_VALUES;
+
+  /**
+   * The feature id for the '<em><b>Owned Property Value Groups</b></em>' containment reference list. <!--
+   * begin-user-doc --> <!-- end-user-doc -->
+   * 
+   * @generated
+   * @ordered
+   */
+  int CYBERSECURITY_CONFIGURATION__OWNED_PROPERTY_VALUE_GROUPS = CapellacorePackage.NAMED_ELEMENT__OWNED_PROPERTY_VALUE_GROUPS;
+
+  /**
+   * The feature id for the '<em><b>Applied Property Value Groups</b></em>' reference list.
+   * <!-- begin-user-doc --> <!--
+   * end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CYBERSECURITY_CONFIGURATION__APPLIED_PROPERTY_VALUE_GROUPS = CapellacorePackage.NAMED_ELEMENT__APPLIED_PROPERTY_VALUE_GROUPS;
+
+  /**
+   * The feature id for the '<em><b>Status</b></em>' reference.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CYBERSECURITY_CONFIGURATION__STATUS = CapellacorePackage.NAMED_ELEMENT__STATUS;
+
+  /**
+   * The feature id for the '<em><b>Features</b></em>' reference list.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CYBERSECURITY_CONFIGURATION__FEATURES = CapellacorePackage.NAMED_ELEMENT__FEATURES;
+
+  /**
+   * The feature id for the '<em><b>Applied Requirements</b></em>' reference list.
+   * <!-- begin-user-doc --> <!--
+   * end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CYBERSECURITY_CONFIGURATION__APPLIED_REQUIREMENTS = CapellacorePackage.NAMED_ELEMENT__APPLIED_REQUIREMENTS;
+
+  /**
+   * The feature id for the '<em><b>Confidentiality</b></em>' reference.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CYBERSECURITY_CONFIGURATION__CONFIDENTIALITY = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Integrity</b></em>' reference.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CYBERSECURITY_CONFIGURATION__INTEGRITY = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Traceability</b></em>' reference.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CYBERSECURITY_CONFIGURATION__TRACEABILITY = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Availability</b></em>' reference.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CYBERSECURITY_CONFIGURATION__AVAILABILITY = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Threat Kind</b></em>' reference.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CYBERSECURITY_CONFIGURATION__THREAT_KIND = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
+
+  /**
+   * The number of structural features of the '<em>Configuration</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
+   * -->
+   * 
+   * @generated
+   * @ordered
+   */
+  int CYBERSECURITY_CONFIGURATION_FEATURE_COUNT = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 5;
+
+  /**
+   * The meta object id for the '{@link org.polarsys.capella.cybersecurity.model.impl.EnterprisePrimaryAssetImpl <em>Enterprise Primary Asset</em>}' class.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * @see org.polarsys.capella.cybersecurity.model.impl.EnterprisePrimaryAssetImpl
+   * @see org.polarsys.capella.cybersecurity.model.impl.CybersecurityPackageImpl#getEnterprisePrimaryAsset()
+   * @generated
+   */
+  int ENTERPRISE_PRIMARY_ASSET = 13;
+
+  /**
+   * The feature id for the '<em><b>Owned Extensions</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTERPRISE_PRIMARY_ASSET__OWNED_EXTENSIONS = PRIMARY_ASSET__OWNED_EXTENSIONS;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTERPRISE_PRIMARY_ASSET__ID = PRIMARY_ASSET__ID;
+
+  /**
+   * The feature id for the '<em><b>Sid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTERPRISE_PRIMARY_ASSET__SID = PRIMARY_ASSET__SID;
+
+  /**
+   * The feature id for the '<em><b>Constraints</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTERPRISE_PRIMARY_ASSET__CONSTRAINTS = PRIMARY_ASSET__CONSTRAINTS;
+
+  /**
+   * The feature id for the '<em><b>Owned Constraints</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTERPRISE_PRIMARY_ASSET__OWNED_CONSTRAINTS = PRIMARY_ASSET__OWNED_CONSTRAINTS;
+
+  /**
+   * The feature id for the '<em><b>Owned Migrated Elements</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTERPRISE_PRIMARY_ASSET__OWNED_MIGRATED_ELEMENTS = PRIMARY_ASSET__OWNED_MIGRATED_ELEMENTS;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTERPRISE_PRIMARY_ASSET__NAME = PRIMARY_ASSET__NAME;
+
+  /**
+   * The feature id for the '<em><b>Incoming Traces</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTERPRISE_PRIMARY_ASSET__INCOMING_TRACES = PRIMARY_ASSET__INCOMING_TRACES;
+
+  /**
+   * The feature id for the '<em><b>Outgoing Traces</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTERPRISE_PRIMARY_ASSET__OUTGOING_TRACES = PRIMARY_ASSET__OUTGOING_TRACES;
+
+  /**
+   * The feature id for the '<em><b>Visible In Doc</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTERPRISE_PRIMARY_ASSET__VISIBLE_IN_DOC = PRIMARY_ASSET__VISIBLE_IN_DOC;
+
+  /**
+   * The feature id for the '<em><b>Visible In LM</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTERPRISE_PRIMARY_ASSET__VISIBLE_IN_LM = PRIMARY_ASSET__VISIBLE_IN_LM;
+
+  /**
+   * The feature id for the '<em><b>Summary</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTERPRISE_PRIMARY_ASSET__SUMMARY = PRIMARY_ASSET__SUMMARY;
+
+  /**
+   * The feature id for the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTERPRISE_PRIMARY_ASSET__DESCRIPTION = PRIMARY_ASSET__DESCRIPTION;
+
+  /**
+   * The feature id for the '<em><b>Review</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTERPRISE_PRIMARY_ASSET__REVIEW = PRIMARY_ASSET__REVIEW;
+
+  /**
+   * The feature id for the '<em><b>Owned Property Values</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTERPRISE_PRIMARY_ASSET__OWNED_PROPERTY_VALUES = PRIMARY_ASSET__OWNED_PROPERTY_VALUES;
+
+  /**
    * The feature id for the '<em><b>Owned Enumeration Property Types</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CYBERSECURITY_CONFIGURATION__OWNED_ENUMERATION_PROPERTY_TYPES = CapellacorePackage.NAMED_ELEMENT__OWNED_ENUMERATION_PROPERTY_TYPES;
+  int ENTERPRISE_PRIMARY_ASSET__OWNED_ENUMERATION_PROPERTY_TYPES = PRIMARY_ASSET__OWNED_ENUMERATION_PROPERTY_TYPES;
 
   /**
    * The feature id for the '<em><b>Applied Property Values</b></em>' reference list.
@@ -3347,7 +3549,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int CYBERSECURITY_CONFIGURATION__APPLIED_PROPERTY_VALUES = CapellacorePackage.NAMED_ELEMENT__APPLIED_PROPERTY_VALUES;
+  int ENTERPRISE_PRIMARY_ASSET__APPLIED_PROPERTY_VALUES = PRIMARY_ASSET__APPLIED_PROPERTY_VALUES;
 
   /**
    * The feature id for the '<em><b>Owned Property Value Groups</b></em>' containment reference list.
@@ -3356,7 +3558,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int CYBERSECURITY_CONFIGURATION__OWNED_PROPERTY_VALUE_GROUPS = CapellacorePackage.NAMED_ELEMENT__OWNED_PROPERTY_VALUE_GROUPS;
+  int ENTERPRISE_PRIMARY_ASSET__OWNED_PROPERTY_VALUE_GROUPS = PRIMARY_ASSET__OWNED_PROPERTY_VALUE_GROUPS;
 
   /**
    * The feature id for the '<em><b>Applied Property Value Groups</b></em>' reference list.
@@ -3365,7 +3567,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int CYBERSECURITY_CONFIGURATION__APPLIED_PROPERTY_VALUE_GROUPS = CapellacorePackage.NAMED_ELEMENT__APPLIED_PROPERTY_VALUE_GROUPS;
+  int ENTERPRISE_PRIMARY_ASSET__APPLIED_PROPERTY_VALUE_GROUPS = PRIMARY_ASSET__APPLIED_PROPERTY_VALUE_GROUPS;
 
   /**
    * The feature id for the '<em><b>Status</b></em>' reference.
@@ -3374,7 +3576,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int CYBERSECURITY_CONFIGURATION__STATUS = CapellacorePackage.NAMED_ELEMENT__STATUS;
+  int ENTERPRISE_PRIMARY_ASSET__STATUS = PRIMARY_ASSET__STATUS;
 
   /**
    * The feature id for the '<em><b>Features</b></em>' reference list.
@@ -3383,7 +3585,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int CYBERSECURITY_CONFIGURATION__FEATURES = CapellacorePackage.NAMED_ELEMENT__FEATURES;
+  int ENTERPRISE_PRIMARY_ASSET__FEATURES = PRIMARY_ASSET__FEATURES;
 
   /**
    * The feature id for the '<em><b>Applied Requirements</b></em>' reference list.
@@ -3392,61 +3594,61 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int CYBERSECURITY_CONFIGURATION__APPLIED_REQUIREMENTS = CapellacorePackage.NAMED_ELEMENT__APPLIED_REQUIREMENTS;
+  int ENTERPRISE_PRIMARY_ASSET__APPLIED_REQUIREMENTS = PRIMARY_ASSET__APPLIED_REQUIREMENTS;
 
   /**
-   * The feature id for the '<em><b>Confidentiality</b></em>' reference.
+   * The feature id for the '<em><b>Owned Threat Applications</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CYBERSECURITY_CONFIGURATION__CONFIDENTIALITY = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
+  int ENTERPRISE_PRIMARY_ASSET__OWNED_THREAT_APPLICATIONS = PRIMARY_ASSET__OWNED_THREAT_APPLICATIONS;
 
   /**
-   * The feature id for the '<em><b>Integrity</b></em>' reference.
+   * The feature id for the '<em><b>Owned Members</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CYBERSECURITY_CONFIGURATION__INTEGRITY = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
+  int ENTERPRISE_PRIMARY_ASSET__OWNED_MEMBERS = PRIMARY_ASSET__OWNED_MEMBERS;
 
   /**
-   * The feature id for the '<em><b>Traceability</b></em>' reference.
+   * The feature id for the '<em><b>Realized Primary Assets</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CYBERSECURITY_CONFIGURATION__TRACEABILITY = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
+  int ENTERPRISE_PRIMARY_ASSET__REALIZED_PRIMARY_ASSETS = PRIMARY_ASSET__REALIZED_PRIMARY_ASSETS;
 
   /**
-   * The feature id for the '<em><b>Availability</b></em>' reference.
+   * The feature id for the '<em><b>Realizing Primary Assets</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CYBERSECURITY_CONFIGURATION__AVAILABILITY = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
+  int ENTERPRISE_PRIMARY_ASSET__REALIZING_PRIMARY_ASSETS = PRIMARY_ASSET__REALIZING_PRIMARY_ASSETS;
 
   /**
-   * The feature id for the '<em><b>Threat Kind</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * The feature id for the '<em><b>Primary Assets</b></em>' reference list. <!-- begin-user-doc --> <!-- end-user-doc
+   * -->
+   * 
    * @generated
    * @ordered
    */
-  int CYBERSECURITY_CONFIGURATION__THREAT_KIND = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
+  int ENTERPRISE_PRIMARY_ASSET__PRIMARY_ASSETS = PRIMARY_ASSET_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>Configuration</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * The number of structural features of the '<em>Enterprise Primary Asset</em>' class.
+   * <!-- begin-user-doc --> <!--
+   * end-user-doc -->
    * @generated
    * @ordered
    */
-  int CYBERSECURITY_CONFIGURATION_FEATURE_COUNT = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 5;
+  int ENTERPRISE_PRIMARY_ASSET_FEATURE_COUNT = PRIMARY_ASSET_FEATURE_COUNT + 1;
 
   /**
    * Returns the meta object for class '{@link org.polarsys.capella.cybersecurity.model.CybersecurityPkg <em>Pkg</em>}'.
@@ -3512,8 +3714,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * Returns the meta object for the reference '{@link org.polarsys.capella.cybersecurity.model.Threat#getKind <em>Kind</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @return the meta object for the reference '<em>Kind</em>'.
    * @see org.polarsys.capella.cybersecurity.model.Threat#getKind()
    * @see #getThreat()
@@ -3542,9 +3743,10 @@ public interface CybersecurityPackage extends EPackage {
   EAttribute getThreat_Rationale();
 
   /**
-   * Returns the meta object for the reference list '{@link org.polarsys.capella.cybersecurity.model.Threat#getRealizedThreats <em>Realized Threats</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * Returns the meta object for the reference list
+   * '{@link org.polarsys.capella.cybersecurity.model.Threat#getRealizedThreats <em>Realized Threats</em>}'. <!--
+   * begin-user-doc --> <!-- end-user-doc -->
+   * 
    * @return the meta object for the reference list '<em>Realized Threats</em>'.
    * @see org.polarsys.capella.cybersecurity.model.Threat#getRealizedThreats()
    * @see #getThreat()
@@ -3553,9 +3755,10 @@ public interface CybersecurityPackage extends EPackage {
   EReference getThreat_RealizedThreats();
 
   /**
-   * Returns the meta object for the reference list '{@link org.polarsys.capella.cybersecurity.model.Threat#getRealizingThreats <em>Realizing Threats</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * Returns the meta object for the reference list
+   * '{@link org.polarsys.capella.cybersecurity.model.Threat#getRealizingThreats <em>Realizing Threats</em>}'. <!--
+   * begin-user-doc --> <!-- end-user-doc -->
+   * 
    * @return the meta object for the reference list '<em>Realizing Threats</em>'.
    * @see org.polarsys.capella.cybersecurity.model.Threat#getRealizingThreats()
    * @see #getThreat()
@@ -3691,8 +3894,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * Returns the meta object for the reference '{@link org.polarsys.capella.cybersecurity.model.SecurityNeeds#getConfidentialityValue <em>Confidentiality Value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @return the meta object for the reference '<em>Confidentiality Value</em>'.
    * @see org.polarsys.capella.cybersecurity.model.SecurityNeeds#getConfidentialityValue()
    * @see #getSecurityNeeds()
@@ -3701,9 +3903,10 @@ public interface CybersecurityPackage extends EPackage {
   EReference getSecurityNeeds_ConfidentialityValue();
 
   /**
-   * Returns the meta object for the reference '{@link org.polarsys.capella.cybersecurity.model.SecurityNeeds#getIntegrityValue <em>Integrity Value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * Returns the meta object for the reference
+   * '{@link org.polarsys.capella.cybersecurity.model.SecurityNeeds#getIntegrityValue <em>Integrity Value</em>}'. <!--
+   * begin-user-doc --> <!-- end-user-doc -->
+   * 
    * @return the meta object for the reference '<em>Integrity Value</em>'.
    * @see org.polarsys.capella.cybersecurity.model.SecurityNeeds#getIntegrityValue()
    * @see #getSecurityNeeds()
@@ -3713,8 +3916,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * Returns the meta object for the reference '{@link org.polarsys.capella.cybersecurity.model.SecurityNeeds#getAvailabilityValue <em>Availability Value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @return the meta object for the reference '<em>Availability Value</em>'.
    * @see org.polarsys.capella.cybersecurity.model.SecurityNeeds#getAvailabilityValue()
    * @see #getSecurityNeeds()
@@ -3724,8 +3926,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * Returns the meta object for the reference '{@link org.polarsys.capella.cybersecurity.model.SecurityNeeds#getTraceabilityValue <em>Traceability Value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @return the meta object for the reference '<em>Traceability Value</em>'.
    * @see org.polarsys.capella.cybersecurity.model.SecurityNeeds#getTraceabilityValue()
    * @see #getSecurityNeeds()
@@ -3821,8 +4022,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * Returns the meta object for the reference list '{@link org.polarsys.capella.cybersecurity.model.PrimaryAsset#getRealizedPrimaryAssets <em>Realized Primary Assets</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @return the meta object for the reference list '<em>Realized Primary Assets</em>'.
    * @see org.polarsys.capella.cybersecurity.model.PrimaryAsset#getRealizedPrimaryAssets()
    * @see #getPrimaryAsset()
@@ -3832,8 +4032,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * Returns the meta object for the reference list '{@link org.polarsys.capella.cybersecurity.model.PrimaryAsset#getRealizingPrimaryAssets <em>Realizing Primary Assets</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @return the meta object for the reference list '<em>Realizing Primary Assets</em>'.
    * @see org.polarsys.capella.cybersecurity.model.PrimaryAsset#getRealizingPrimaryAssets()
    * @see #getPrimaryAsset()
@@ -3864,8 +4063,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * Returns the meta object for the reference list '{@link org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset#getFunctionalChains <em>Functional Chains</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @return the meta object for the reference list '<em>Functional Chains</em>'.
    * @see org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset#getFunctionalChains()
    * @see #getFunctionalPrimaryAsset()
@@ -3926,8 +4124,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * Returns the meta object for class '{@link org.polarsys.capella.cybersecurity.model.CybersecurityConfiguration <em>Configuration</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @return the meta object for class '<em>Configuration</em>'.
    * @see org.polarsys.capella.cybersecurity.model.CybersecurityConfiguration
    * @generated
@@ -3936,8 +4133,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * Returns the meta object for the reference '{@link org.polarsys.capella.cybersecurity.model.CybersecurityConfiguration#getConfidentiality <em>Confidentiality</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @return the meta object for the reference '<em>Confidentiality</em>'.
    * @see org.polarsys.capella.cybersecurity.model.CybersecurityConfiguration#getConfidentiality()
    * @see #getCybersecurityConfiguration()
@@ -3946,9 +4142,10 @@ public interface CybersecurityPackage extends EPackage {
   EReference getCybersecurityConfiguration_Confidentiality();
 
   /**
-   * Returns the meta object for the reference '{@link org.polarsys.capella.cybersecurity.model.CybersecurityConfiguration#getIntegrity <em>Integrity</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * Returns the meta object for the reference
+   * '{@link org.polarsys.capella.cybersecurity.model.CybersecurityConfiguration#getIntegrity <em>Integrity</em>}'. <!--
+   * begin-user-doc --> <!-- end-user-doc -->
+   * 
    * @return the meta object for the reference '<em>Integrity</em>'.
    * @see org.polarsys.capella.cybersecurity.model.CybersecurityConfiguration#getIntegrity()
    * @see #getCybersecurityConfiguration()
@@ -3958,8 +4155,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * Returns the meta object for the reference '{@link org.polarsys.capella.cybersecurity.model.CybersecurityConfiguration#getTraceability <em>Traceability</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @return the meta object for the reference '<em>Traceability</em>'.
    * @see org.polarsys.capella.cybersecurity.model.CybersecurityConfiguration#getTraceability()
    * @see #getCybersecurityConfiguration()
@@ -3969,8 +4165,7 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * Returns the meta object for the reference '{@link org.polarsys.capella.cybersecurity.model.CybersecurityConfiguration#getAvailability <em>Availability</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @return the meta object for the reference '<em>Availability</em>'.
    * @see org.polarsys.capella.cybersecurity.model.CybersecurityConfiguration#getAvailability()
    * @see #getCybersecurityConfiguration()
@@ -3980,14 +4175,32 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * Returns the meta object for the reference '{@link org.polarsys.capella.cybersecurity.model.CybersecurityConfiguration#getThreatKind <em>Threat Kind</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @return the meta object for the reference '<em>Threat Kind</em>'.
    * @see org.polarsys.capella.cybersecurity.model.CybersecurityConfiguration#getThreatKind()
    * @see #getCybersecurityConfiguration()
    * @generated
    */
   EReference getCybersecurityConfiguration_ThreatKind();
+
+  /**
+   * Returns the meta object for class '{@link org.polarsys.capella.cybersecurity.model.EnterprisePrimaryAsset <em>Enterprise Primary Asset</em>}'.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * @return the meta object for class '<em>Enterprise Primary Asset</em>'.
+   * @see org.polarsys.capella.cybersecurity.model.EnterprisePrimaryAsset
+   * @generated
+   */
+  EClass getEnterprisePrimaryAsset();
+
+  /**
+   * Returns the meta object for the reference list '{@link org.polarsys.capella.cybersecurity.model.EnterprisePrimaryAsset#getPrimaryAssets <em>Primary Assets</em>}'.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Primary Assets</em>'.
+   * @see org.polarsys.capella.cybersecurity.model.EnterprisePrimaryAsset#getPrimaryAssets()
+   * @see #getEnterprisePrimaryAsset()
+   * @generated
+   */
+  EReference getEnterprisePrimaryAsset_PrimaryAssets();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -4060,8 +4273,8 @@ public interface CybersecurityPackage extends EPackage {
 
     /**
      * The meta object literal for the '<em><b>Kind</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!--
+     * end-user-doc -->
      * @generated
      */
     EReference THREAT__KIND = eINSTANCE.getThreat_Kind();
@@ -4084,16 +4297,16 @@ public interface CybersecurityPackage extends EPackage {
 
     /**
      * The meta object literal for the '<em><b>Realized Threats</b></em>' reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc
+     * --> <!-- end-user-doc -->
      * @generated
      */
     EReference THREAT__REALIZED_THREATS = eINSTANCE.getThreat_RealizedThreats();
 
     /**
      * The meta object literal for the '<em><b>Realizing Threats</b></em>' reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc
+     * --> <!-- end-user-doc -->
      * @generated
      */
     EReference THREAT__REALIZING_THREATS = eINSTANCE.getThreat_RealizingThreats();
@@ -4201,16 +4414,16 @@ public interface CybersecurityPackage extends EPackage {
 
     /**
      * The meta object literal for the '<em><b>Confidentiality Value</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc
+     * --> <!-- end-user-doc -->
      * @generated
      */
     EReference SECURITY_NEEDS__CONFIDENTIALITY_VALUE = eINSTANCE.getSecurityNeeds_ConfidentialityValue();
 
     /**
      * The meta object literal for the '<em><b>Integrity Value</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!--
+     * end-user-doc -->
      * @generated
      */
     EReference SECURITY_NEEDS__INTEGRITY_VALUE = eINSTANCE.getSecurityNeeds_IntegrityValue();
@@ -4297,17 +4510,17 @@ public interface CybersecurityPackage extends EPackage {
     EReference PRIMARY_ASSET__OWNED_MEMBERS = eINSTANCE.getPrimaryAsset_OwnedMembers();
 
     /**
-     * The meta object literal for the '<em><b>Realized Primary Assets</b></em>' reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * The meta object literal for the '<em><b>Realized Primary Assets</b></em>' reference list feature. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     EReference PRIMARY_ASSET__REALIZED_PRIMARY_ASSETS = eINSTANCE.getPrimaryAsset_RealizedPrimaryAssets();
 
     /**
-     * The meta object literal for the '<em><b>Realizing Primary Assets</b></em>' reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * The meta object literal for the '<em><b>Realizing Primary Assets</b></em>' reference list feature. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     EReference PRIMARY_ASSET__REALIZING_PRIMARY_ASSETS = eINSTANCE.getPrimaryAsset_RealizingPrimaryAssets();
@@ -4331,8 +4544,8 @@ public interface CybersecurityPackage extends EPackage {
 
     /**
      * The meta object literal for the '<em><b>Functional Chains</b></em>' reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc
+     * --> <!-- end-user-doc -->
      * @generated
      */
     EReference FUNCTIONAL_PRIMARY_ASSET__FUNCTIONAL_CHAINS = eINSTANCE.getFunctionalPrimaryAsset_FunctionalChains();
@@ -4381,8 +4594,7 @@ public interface CybersecurityPackage extends EPackage {
 
     /**
      * The meta object literal for the '{@link org.polarsys.capella.cybersecurity.model.impl.CybersecurityConfigurationImpl <em>Configuration</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @see org.polarsys.capella.cybersecurity.model.impl.CybersecurityConfigurationImpl
      * @see org.polarsys.capella.cybersecurity.model.impl.CybersecurityPackageImpl#getCybersecurityConfiguration()
      * @generated
@@ -4391,43 +4603,60 @@ public interface CybersecurityPackage extends EPackage {
 
     /**
      * The meta object literal for the '<em><b>Confidentiality</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!--
+     * end-user-doc -->
      * @generated
      */
     EReference CYBERSECURITY_CONFIGURATION__CONFIDENTIALITY = eINSTANCE.getCybersecurityConfiguration_Confidentiality();
 
     /**
      * The meta object literal for the '<em><b>Integrity</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!--
+     * end-user-doc -->
      * @generated
      */
     EReference CYBERSECURITY_CONFIGURATION__INTEGRITY = eINSTANCE.getCybersecurityConfiguration_Integrity();
 
     /**
      * The meta object literal for the '<em><b>Traceability</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!--
+     * end-user-doc -->
      * @generated
      */
     EReference CYBERSECURITY_CONFIGURATION__TRACEABILITY = eINSTANCE.getCybersecurityConfiguration_Traceability();
 
     /**
      * The meta object literal for the '<em><b>Availability</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!--
+     * end-user-doc -->
      * @generated
      */
     EReference CYBERSECURITY_CONFIGURATION__AVAILABILITY = eINSTANCE.getCybersecurityConfiguration_Availability();
 
     /**
      * The meta object literal for the '<em><b>Threat Kind</b></em>' reference feature.
+     * <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     * @generated
+     */
+    EReference CYBERSECURITY_CONFIGURATION__THREAT_KIND = eINSTANCE.getCybersecurityConfiguration_ThreatKind();
+
+    /**
+     * The meta object literal for the '{@link org.polarsys.capella.cybersecurity.model.impl.EnterprisePrimaryAssetImpl <em>Enterprise Primary Asset</em>}' class.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @see org.polarsys.capella.cybersecurity.model.impl.EnterprisePrimaryAssetImpl
+     * @see org.polarsys.capella.cybersecurity.model.impl.CybersecurityPackageImpl#getEnterprisePrimaryAsset()
+     * @generated
+     */
+    EClass ENTERPRISE_PRIMARY_ASSET = eINSTANCE.getEnterprisePrimaryAsset();
+
+    /**
+     * The meta object literal for the '<em><b>Primary Assets</b></em>' reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CYBERSECURITY_CONFIGURATION__THREAT_KIND = eINSTANCE.getCybersecurityConfiguration_ThreatKind();
+    EReference ENTERPRISE_PRIMARY_ASSET__PRIMARY_ASSETS = eINSTANCE.getEnterprisePrimaryAsset_PrimaryAssets();
 
   }
 
