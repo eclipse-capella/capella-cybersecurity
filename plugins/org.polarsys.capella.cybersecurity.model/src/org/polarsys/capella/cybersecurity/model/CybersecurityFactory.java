@@ -119,12 +119,19 @@ public interface CybersecurityFactory extends EFactory {
 
   /**
    * Returns a new object of class '<em>Configuration</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @return a new object of class '<em>Configuration</em>'.
    * @generated
    */
   CybersecurityConfiguration createCybersecurityConfiguration();
+
+  /**
+   * Returns a new object of class '<em>Enterprise Primary Asset</em>'.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * @return a new object of class '<em>Enterprise Primary Asset</em>'.
+   * @generated
+   */
+  EnterprisePrimaryAsset createEnterprisePrimaryAsset();
 
   /**
    * Returns the package supported by this factory.

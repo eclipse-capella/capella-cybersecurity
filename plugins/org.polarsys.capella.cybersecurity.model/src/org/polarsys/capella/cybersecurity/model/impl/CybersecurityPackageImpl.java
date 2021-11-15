@@ -37,6 +37,7 @@ import org.polarsys.capella.cybersecurity.model.CybersecurityConfiguration;
 import org.polarsys.capella.cybersecurity.model.CybersecurityFactory;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPkg;
+import org.polarsys.capella.cybersecurity.model.EnterprisePrimaryAsset;
 import org.polarsys.capella.cybersecurity.model.FunctionStorage;
 import org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset;
 import org.polarsys.capella.cybersecurity.model.InformationPrimaryAsset;
@@ -128,11 +129,16 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
   private EClass primaryAssetMemberEClass = null;
 
   /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   private EClass cybersecurityConfigurationEClass = null;
+
+  /**
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass enterprisePrimaryAssetEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with {@link org.eclipse.emf.ecore.EPackage.Registry
@@ -269,8 +275,7 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
   }
 
   /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -297,8 +302,7 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
   }
 
   /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -307,8 +311,7 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
   }
 
   /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -425,8 +428,7 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
   }
 
   /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -435,8 +437,7 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
   }
 
   /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -445,8 +446,7 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
   }
 
   /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -455,8 +455,7 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
   }
 
   /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -537,8 +536,7 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
   }
 
   /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -547,8 +545,7 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
   }
 
   /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -575,8 +572,7 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
   }
 
   /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -630,8 +626,7 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
   }
 
   /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -640,8 +635,7 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
   }
 
   /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -650,8 +644,7 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
   }
 
   /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -660,8 +653,7 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
   }
 
   /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -670,8 +662,7 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
   }
 
   /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -680,13 +671,30 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
   }
 
   /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
   public EReference getCybersecurityConfiguration_ThreatKind() {
     return (EReference) cybersecurityConfigurationEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getEnterprisePrimaryAsset() {
+    return enterprisePrimaryAssetEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getEnterprisePrimaryAsset_PrimaryAssets() {
+    return (EReference) enterprisePrimaryAssetEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -779,6 +787,9 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
     createEReference(cybersecurityConfigurationEClass, CYBERSECURITY_CONFIGURATION__TRACEABILITY);
     createEReference(cybersecurityConfigurationEClass, CYBERSECURITY_CONFIGURATION__AVAILABILITY);
     createEReference(cybersecurityConfigurationEClass, CYBERSECURITY_CONFIGURATION__THREAT_KIND);
+
+    enterprisePrimaryAssetEClass = createEClass(ENTERPRISE_PRIMARY_ASSET);
+    createEReference(enterprisePrimaryAssetEClass, ENTERPRISE_PRIMARY_ASSET__PRIMARY_ASSETS);
   }
 
   /**
@@ -842,6 +853,7 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
     primaryAssetMemberEClass.getESuperTypes().add(theCapellacorePackage.getRelationship());
     cybersecurityConfigurationEClass.getESuperTypes().add(theCapellacorePackage.getNamedElement());
     cybersecurityConfigurationEClass.getESuperTypes().add(theEmdePackage.getElementExtension());
+    enterprisePrimaryAssetEClass.getESuperTypes().add(this.getPrimaryAsset());
 
     // Initialize classes and features; add operations and parameters
     initEClass(cybersecurityPkgEClass, CybersecurityPkg.class, "CybersecurityPkg", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
@@ -994,6 +1006,12 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
         "threatKind", null, 0, 1, CybersecurityConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, //$NON-NLS-1$
         !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(enterprisePrimaryAssetEClass, EnterprisePrimaryAsset.class, "EnterprisePrimaryAsset", !IS_ABSTRACT, //$NON-NLS-1$
+        !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getEnterprisePrimaryAsset_PrimaryAssets(), this.getPrimaryAsset(), null, "primaryAssets", null, 0, //$NON-NLS-1$
+        -1, EnterprisePrimaryAsset.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+        !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
     // Create resource
     createResource(eNS_URI);
 
@@ -1074,8 +1092,8 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
 
   /**
    * Initializes the annotations for <b>http://www.polarsys.org/capella/derived</b>.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!--
+   * end-user-doc -->
    * @generated
    */
   protected void createDerivedAnnotations() {
@@ -1090,12 +1108,16 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
     });
     addAnnotation(getPrimaryAsset_RealizedPrimaryAssets(), source, new String[] {});
     addAnnotation(getPrimaryAsset_RealizingPrimaryAssets(), source, new String[] {});
+    addAnnotation(getEnterprisePrimaryAsset_PrimaryAssets(), source, new String[] { "viatra.variant", "patternbody", //$NON-NLS-1$ //$NON-NLS-2$
+        "viatra.expression", //$NON-NLS-1$
+        "Threat.outgoingTraces(self, acr);\nAbstractCapabilityRealization.realizedCapability(acr, target);" //$NON-NLS-1$
+    });
   }
 
   /**
    * Initializes the annotations for <b>http://www.polarsys.org/capella/semantic</b>.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!--
+   * end-user-doc -->
    * @generated
    */
   protected void createSemanticAnnotations() {
@@ -1105,12 +1127,13 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
     });
     addAnnotation(getPrimaryAsset_RealizedPrimaryAssets(), source, new String[] {});
     addAnnotation(getPrimaryAsset_RealizingPrimaryAssets(), source, new String[] {});
+    addAnnotation(getEnterprisePrimaryAsset_PrimaryAssets(), source, new String[] {});
   }
 
   /**
-   * Initializes the annotations for <b>http://www.polarsys.org/capella/MNoE/CapellaLike/Mapping</b>.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * Initializes the annotations for <b>http://www.polarsys.org/capella/MNoE/CapellaLike/Mapping</b>. <!--
+   * begin-user-doc --> <!-- end-user-doc -->
+   * 
    * @generated
    */
   protected void createMappingAnnotations() {
@@ -1121,6 +1144,11 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
             "constraints", "none" //$NON-NLS-1$ //$NON-NLS-2$
         });
     addAnnotation(getThreat_RealizingThreats(), source,
+        new String[] { "UML/SysML semantic equivalences", "keyword::none", //$NON-NLS-1$ //$NON-NLS-2$
+            "explanation", "Derived and transient", //$NON-NLS-1$ //$NON-NLS-2$
+            "constraints", "none" //$NON-NLS-1$ //$NON-NLS-2$
+        });
+    addAnnotation(getEnterprisePrimaryAsset_PrimaryAssets(), source,
         new String[] { "UML/SysML semantic equivalences", "keyword::none", //$NON-NLS-1$ //$NON-NLS-2$
             "explanation", "Derived and transient", //$NON-NLS-1$ //$NON-NLS-2$
             "constraints", "none" //$NON-NLS-1$ //$NON-NLS-2$

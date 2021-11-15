@@ -302,6 +302,17 @@ public class CybersecurityPkgItemProvider extends NamedElementItemProvider imple
     }
     // end-extension-code
 
+    // begin-extension-code
+    {
+      CommandParameter commandParameter = createChildParameter(
+          CybersecurityPackage.Literals.CYBERSECURITY_PKG__OWNED_PRIMARY_ASSETS,
+          CybersecurityFactory.eINSTANCE.createEnterprisePrimaryAsset());
+      if (NewChildDescriptorHelper.isValidCommand(object, commandParameter)) {
+        newChildDescriptors.add(commandParameter);
+      }
+    }
+    // end-extension-code
+
   }
 
   /**
