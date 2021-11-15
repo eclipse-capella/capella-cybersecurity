@@ -351,16 +351,16 @@ public class CybersecurityItemProviderAdapterFactory extends CybersecurityAdapte
 
   /**
    * This keeps track of the one adapter used for all {@link org.polarsys.capella.cybersecurity.model.CybersecurityConfiguration} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!--
+   * end-user-doc -->
    * @generated
    */
   protected CybersecurityConfigurationItemProvider cybersecurityConfigurationItemProvider;
 
   /**
-   * This creates an adapter for a {@link org.polarsys.capella.cybersecurity.model.CybersecurityConfiguration}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * This creates an adapter for a {@link org.polarsys.capella.cybersecurity.model.CybersecurityConfiguration}. <!--
+   * begin-user-doc --> <!-- end-user-doc -->
+   * 
    * @generated
    */
   @Override
@@ -370,6 +370,29 @@ public class CybersecurityItemProviderAdapterFactory extends CybersecurityAdapte
     }
 
     return cybersecurityConfigurationItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.polarsys.capella.cybersecurity.model.EnterprisePrimaryAsset} instances.
+   * <!-- begin-user-doc --> <!--
+   * end-user-doc -->
+   * @generated
+   */
+  protected EnterprisePrimaryAssetItemProvider enterprisePrimaryAssetItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.polarsys.capella.cybersecurity.model.EnterprisePrimaryAsset}. <!--
+   * begin-user-doc --> <!-- end-user-doc -->
+   * 
+   * @generated
+   */
+  @Override
+  public Adapter createEnterprisePrimaryAssetAdapter() {
+    if (enterprisePrimaryAssetItemProvider == null) {
+      enterprisePrimaryAssetItemProvider = new EnterprisePrimaryAssetItemProvider(this);
+    }
+
+    return enterprisePrimaryAssetItemProvider;
   }
 
   /**
@@ -518,6 +541,8 @@ public class CybersecurityItemProviderAdapterFactory extends CybersecurityAdapte
       primaryAssetMemberItemProvider.dispose();
     if (cybersecurityConfigurationItemProvider != null)
       cybersecurityConfigurationItemProvider.dispose();
+    if (enterprisePrimaryAssetItemProvider != null)
+      enterprisePrimaryAssetItemProvider.dispose();
   }
 
   /**

@@ -424,6 +424,31 @@ public class CybersecuritySwitch<T> extends Switch<T> {
         result = defaultCase(theEObject);
       return result;
     }
+    case CybersecurityPackage.ENTERPRISE_PRIMARY_ASSET: {
+      EnterprisePrimaryAsset enterprisePrimaryAsset = (EnterprisePrimaryAsset) theEObject;
+      T result = caseEnterprisePrimaryAsset(enterprisePrimaryAsset);
+      if (result == null)
+        result = casePrimaryAsset(enterprisePrimaryAsset);
+      if (result == null)
+        result = caseNamedElement(enterprisePrimaryAsset);
+      if (result == null)
+        result = caseAbstractNamedElement(enterprisePrimaryAsset);
+      if (result == null)
+        result = caseCapellaElement(enterprisePrimaryAsset);
+      if (result == null)
+        result = caseTraceableElement(enterprisePrimaryAsset);
+      if (result == null)
+        result = casePublishableElement(enterprisePrimaryAsset);
+      if (result == null)
+        result = caseModelElement(enterprisePrimaryAsset);
+      if (result == null)
+        result = caseExtensibleElement(enterprisePrimaryAsset);
+      if (result == null)
+        result = caseElement(enterprisePrimaryAsset);
+      if (result == null)
+        result = defaultCase(theEObject);
+      return result;
+    }
     default:
       return defaultCase(theEObject);
     }
@@ -598,15 +623,28 @@ public class CybersecuritySwitch<T> extends Switch<T> {
   /**
    * Returns the result of interpreting the object as an instance of '<em>Configuration</em>'.
    * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
+   * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
    * @param object the target of the switch.
    * @return the result of interpreting the object as an instance of '<em>Configuration</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
   public T caseCybersecurityConfiguration(CybersecurityConfiguration object) {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Enterprise Primary Asset</em>'. <!--
+   * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
+   * end-user-doc -->
+   * 
+   * @param object
+   *          the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Enterprise Primary Asset</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEnterprisePrimaryAsset(EnterprisePrimaryAsset object) {
     return null;
   }
 
@@ -731,10 +769,8 @@ public class CybersecuritySwitch<T> extends Switch<T> {
 
   /**
    * Returns the result of interpreting the object as an instance of '<em>Namespace</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> This
+   * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
    * @param object the target of the switch.
    * @return the result of interpreting the object as an instance of '<em>Namespace</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
@@ -746,10 +782,8 @@ public class CybersecuritySwitch<T> extends Switch<T> {
 
   /**
    * Returns the result of interpreting the object as an instance of '<em>Structure</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> This
+   * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
    * @param object the target of the switch.
    * @return the result of interpreting the object as an instance of '<em>Structure</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
@@ -761,10 +795,8 @@ public class CybersecuritySwitch<T> extends Switch<T> {
 
   /**
    * Returns the result of interpreting the object as an instance of '<em>Involver Element</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc
+   * --> This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
    * @param object the target of the switch.
    * @return the result of interpreting the object as an instance of '<em>Involver Element</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
@@ -776,9 +808,7 @@ public class CybersecuritySwitch<T> extends Switch<T> {
 
   /**
    * Returns the result of interpreting the object as an instance of '<em>Abstract Functional Chain Container</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
+   * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
    * @return the result of interpreting the object as an instance of '<em>Abstract Functional Chain Container</em>'.
@@ -791,10 +821,8 @@ public class CybersecuritySwitch<T> extends Switch<T> {
 
   /**
    * Returns the result of interpreting the object as an instance of '<em>Abstract Capability</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc
+   * --> This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
    * @param object the target of the switch.
    * @return the result of interpreting the object as an instance of '<em>Abstract Capability</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)

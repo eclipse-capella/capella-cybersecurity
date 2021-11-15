@@ -97,6 +97,8 @@ public class CybersecurityFactoryImpl extends EFactoryImpl implements Cybersecur
       return createPrimaryAssetMember();
     case CybersecurityPackage.CYBERSECURITY_CONFIGURATION:
       return createCybersecurityConfiguration();
+    case CybersecurityPackage.ENTERPRISE_PRIMARY_ASSET:
+      return createEnterprisePrimaryAsset();
     default:
       throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
     }
@@ -246,8 +248,7 @@ public class CybersecurityFactoryImpl extends EFactoryImpl implements Cybersecur
   }
 
   /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -257,6 +258,19 @@ public class CybersecurityFactoryImpl extends EFactoryImpl implements Cybersecur
     cybersecurityConfiguration.setId(IdGenerator.createId());
     //end-capella-code
     return cybersecurityConfiguration;
+  }
+
+  /**
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EnterprisePrimaryAsset createEnterprisePrimaryAsset() {
+    EnterprisePrimaryAssetImpl enterprisePrimaryAsset = new EnterprisePrimaryAssetImpl();
+    //begin-capella-code
+    enterprisePrimaryAsset.setId(IdGenerator.createId());
+    //end-capella-code
+    return enterprisePrimaryAsset;
   }
 
   /**
@@ -305,10 +319,10 @@ public class CybersecurityFactoryImpl extends EFactoryImpl implements Cybersecur
   }
 
   /**
-   * Creates class and sets its name
-   * (This method comes from a customization of the standard EMF generator)
+   * Creates class and sets its name (This method comes from a customization of the standard EMF generator)
    *
-   * @param name_p : default name of created element
+   * @param name_p
+   *          : default name of created element
    * @generated
    */
   public FunctionStorage createFunctionStorage(String name_p) {
@@ -318,10 +332,10 @@ public class CybersecurityFactoryImpl extends EFactoryImpl implements Cybersecur
   }
 
   /**
-   * Creates class and sets its name
-   * (This method comes from a customization of the standard EMF generator)
+   * Creates class and sets its name (This method comes from a customization of the standard EMF generator)
    *
-   * @param name_p : default name of created element
+   * @param name_p
+   *          : default name of created element
    * @generated
    */
   public PrimaryAssetStorage createPrimaryAssetStorage(String name_p) {
@@ -331,10 +345,10 @@ public class CybersecurityFactoryImpl extends EFactoryImpl implements Cybersecur
   }
 
   /**
-   * Creates class and sets its name
-   * (This method comes from a customization of the standard EMF generator)
+   * Creates class and sets its name (This method comes from a customization of the standard EMF generator)
    *
-   * @param name_p : default name of created element
+   * @param name_p
+   *          : default name of created element
    * @generated
    */
   public SecurityNeeds createSecurityNeeds(String name_p) {
@@ -344,10 +358,10 @@ public class CybersecurityFactoryImpl extends EFactoryImpl implements Cybersecur
   }
 
   /**
-   * Creates class and sets its name
-   * (This method comes from a customization of the standard EMF generator)
+   * Creates class and sets its name (This method comes from a customization of the standard EMF generator)
    *
-   * @param name_p : default name of created element
+   * @param name_p
+   *          : default name of created element
    * @generated
    */
   public TrustBoundaryStorage createTrustBoundaryStorage(String name_p) {
@@ -383,16 +397,29 @@ public class CybersecurityFactoryImpl extends EFactoryImpl implements Cybersecur
   }
 
   /**
-   * Creates class and sets its name
-   * (This method comes from a customization of the standard EMF generator)
+   * Creates class and sets its name (This method comes from a customization of the standard EMF generator)
    *
-   * @param name_p : default name of created element
+   * @param name_p
+   *          : default name of created element
    * @generated
    */
   public CybersecurityConfiguration createCybersecurityConfiguration(String name_p) {
     CybersecurityConfiguration cybersecurityConfiguration = createCybersecurityConfiguration();
     cybersecurityConfiguration.setName(name_p);
     return cybersecurityConfiguration;
+  }
+
+  /**
+   * Creates class and sets its name
+   * (This method comes from a customization of the standard EMF generator)
+   *
+   * @param name_p : default name of created element
+   * @generated
+   */
+  public EnterprisePrimaryAsset createEnterprisePrimaryAsset(String name_p) {
+    EnterprisePrimaryAsset enterprisePrimaryAsset = createEnterprisePrimaryAsset();
+    enterprisePrimaryAsset.setName(name_p);
+    return enterprisePrimaryAsset;
   }
 
   // begin-capella-code
