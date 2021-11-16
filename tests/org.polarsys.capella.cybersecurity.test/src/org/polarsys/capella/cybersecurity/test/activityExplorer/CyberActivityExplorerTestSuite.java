@@ -40,6 +40,19 @@ public class CyberActivityExplorerTestSuite extends BasicTestSuite {
     tests.add(new CyberTransitionsFromSAActivityExplorerTestCase());
     tests.add(new CyberTransitionsFromLAActivityExplorerTestCase());
     
+    // scenarios
+    tests.add(new CyberLogicalESActivityExplorerTestCase());
+    tests.add(new CyberLogicalFSActivityExplorerTestCase());
+    tests.add(new CyberLogicalISActivityExplorerTestCase());
+    tests.add(new CyberOASActivityExplorerTestCase());
+    tests.add(new CyberOESActivityExplorerTestCase());
+    tests.add(new CyberPhysicalESActivityExplorerTestCase());
+    tests.add(new CyberPhysicalFSActivityExplorerTestCase());
+    tests.add(new CyberPhysicalISActivityExplorerTestCase());
+    tests.add(new CyberSystemESActivityExplorerTestCase());
+    tests.add(new CyberSystemFSActivityExplorerTestCase());
+    tests.add(new CyberSystemISActivityExplorerTestCase());
+    
     return tests;
   }
 
