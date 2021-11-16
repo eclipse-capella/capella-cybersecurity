@@ -40,24 +40,10 @@ public class ScenarioCreationHelper {
 
   public static AbstractCapability selectCapability(final Project project, BlockArchitecture architecture) {
     AbstractCapability[] result = new AbstractCapability[1];
-    List<EObject> all = new ArrayList<>();
-    
-    // add also Threats
-    CybersecurityPkg cyberPkg = new CybersecurityServices().getDefaultCyberSecurityPackage(architecture, false);
-    if(cyberPkg != null) {
-      all.addAll(cyberPkg.getOwnedThreats());
-    }
-    
+    List<EObject> all = getAllAbstractCapabitilies(project, architecture);
+
     AbstractCapabilityPkg capabilityPkg = BlockArchitectureExt.getAbstractCapabilityPkg(architecture);
     if (capabilityPkg != null) {
-      EClass clazz = CtxPackage.Literals.CAPABILITY;
-      if (capabilityPkg instanceof CapabilityRealizationPkg) {
-        clazz = LaPackage.Literals.CAPABILITY_REALIZATION;
-      } else if (capabilityPkg instanceof OperationalCapabilityPkg) {
-        clazz = OaPackage.Literals.OPERATIONAL_CAPABILITY;
-      }
-      all.addAll(EObjectExt.getAll(capabilityPkg, clazz));
-      
       if (!all.isEmpty()) {
         Shell shell = PlatformUI.getWorkbench().getDisplay().getActiveShell();
         result[0] = (AbstractCapability) SelectionDialogHelper
@@ -76,4 +62,29 @@ public class ScenarioCreationHelper {
     }
     return result[0];
   }
+  
+  public static List<EObject> getAllAbstractCapabitilies(final Project project, BlockArchitecture architecture) {
+    List<EObject> result = new ArrayList<>();
+
+    // add Threats
+    CybersecurityPkg cyberPkg = new CybersecurityServices().getDefaultCyberSecurityPackage(architecture, false);
+    if (cyberPkg != null) {
+      result.addAll(cyberPkg.getOwnedThreats());
+    }
+
+    // add Capabilities
+    AbstractCapabilityPkg capabilityPkg = BlockArchitectureExt.getAbstractCapabilityPkg(architecture);
+    if (capabilityPkg != null) {
+      EClass clazz = CtxPackage.Literals.CAPABILITY;
+      if (capabilityPkg instanceof CapabilityRealizationPkg) {
+        clazz = LaPackage.Literals.CAPABILITY_REALIZATION;
+      } else if (capabilityPkg instanceof OperationalCapabilityPkg) {
+        clazz = OaPackage.Literals.OPERATIONAL_CAPABILITY;
+      }
+      result.addAll(EObjectExt.getAll(capabilityPkg, clazz));
+    }
+
+    return result;
+  }
+ 
 }
