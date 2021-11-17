@@ -1,4 +1,13 @@
-
+/*******************************************************************
+* Copyright © 2021 Thales Global Services SAS
+*
+* Licensed under the Thales Inner Source Software License:
+* Version 1.2, InnerOpen - Distribution Controlled
+*
+* You may not use this file except in compliance with the License.
+* You may obtain a copy of the License at https://gitlab.thalesdigital.io/Tiss-Organization/tiss-licenses
+* See the License for the specific language governing permissions and limitations under the License.
+*******************************************************************/
 package org.polarsys.capella.cybersecurity.model;
 
 import org.eclipse.emf.common.util.EList;
@@ -27,13 +36,11 @@ public interface EnterprisePrimaryAsset extends PrimaryAsset {
    * Returns the value of the '<em><b>Primary Assets</b></em>' reference list.
    * The list contents are of type {@link org.polarsys.capella.cybersecurity.model.PrimaryAsset}.
   
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
    * @return the value of the '<em>Primary Assets</em>' reference list.
    * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getEnterprisePrimaryAsset_PrimaryAssets()
-   * @model transient="true" changeable="false" volatile="true" derived="true"
-   *        annotation="http://www.polarsys.org/capella/derived viatra.variant='patternbody' viatra.expression='Threat.outgoingTraces(self, acr);\nAbstractCapabilityRealization.realizedCapability(acr, target);'"
-   *        annotation="http://www.polarsys.org/capella/semantic"
-   *        annotation="http://www.polarsys.org/capella/MNoE/CapellaLike/Mapping UML/SysML\040semantic\040equivalences='keyword::none' explanation='Derived and transient' constraints='none'"
+   * @model
    * @generated
    */
 

@@ -38,6 +38,17 @@
             class="org.polarsys.capella.cybersecurity.business.queries.InformationPrimaryAsset_RealizedPrimaryAssets"
             id="org.polarsys.capella.cybersecurity.business.queries.InformationPrimaryAsset_RealizedPrimaryAssets">
       </MDEBusinessQueries>
+      <MDEBusinessQueries
+            class="org.polarsys.capella.cybersecurity.business.queries.EnterprisePrimaryAsset_RealizedPrimaryAssets"
+            id="org.polarsys.capella.cybersecurity.business.queries.EnterprisePrimaryAsset_RealizedPrimaryAssets">
+      </MDEBusinessQueries>
+      <MDEBusinessQueries
+            class="org.polarsys.capella.cybersecurity.business.queries.EnterprisePrimaryAsset_PrimaryAssetsAtSameLvl"
+            id="org.polarsys.capella.cybersecurity.business.queries.EnterprisePrimaryAsset_PrimaryAssetsAtSameLvl">
+      </MDEBusinessQueries>
+            <MDEBusinessQueries
+                  class="org.polarsys.capella.cybersecurity.business.queries">
+            </MDEBusinessQueries>
    </extension>
    
    <extension

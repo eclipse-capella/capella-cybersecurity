@@ -18,6 +18,8 @@ public class Messages extends NLS {
   private static final String BUNDLE_NAME = "org.polarsys.capella.cybersecurity.ui.properties.sections.messages"; //$NON-NLS-1$
   public static String ActorCybersecuritySection_0;
   public static String ActorCybersecuritySection_1;
+  public static String EnterprisePrimaryAssetSection_0;
+  public static String EnterprisePrimaryAssetSection_1;
   public static String FunctionalPrimaryAssetSection_0;
   public static String FunctionalPrimaryAssetSection_1;
   public static String FunctionCybersecuritySection_0;

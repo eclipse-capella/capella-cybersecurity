@@ -1,10 +1,21 @@
-
+/*******************************************************************
+* Copyright © 2021 Thales Global Services SAS
+*
+* Licensed under the Thales Inner Source Software License:
+* Version 1.2, InnerOpen - Distribution Controlled
+*
+* You may not use this file except in compliance with the License.
+* You may obtain a copy of the License at https://gitlab.thalesdigital.io/Tiss-Organization/tiss-licenses
+* See the License for the specific language governing permissions and limitations under the License.
+*******************************************************************/
 package org.polarsys.capella.cybersecurity.model.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
@@ -26,6 +37,16 @@ import org.polarsys.capella.cybersecurity.model.PrimaryAsset;
 public class EnterprisePrimaryAssetImpl extends PrimaryAssetImpl implements EnterprisePrimaryAsset {
 
   /**
+   * The cached value of the '{@link #getPrimaryAssets() <em>Primary Assets</em>}' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPrimaryAssets()
+   * @generated
+   * @ordered
+   */
+  protected EList<PrimaryAsset> primaryAssets;
+
+  /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
@@ -45,19 +66,19 @@ public class EnterprisePrimaryAssetImpl extends PrimaryAssetImpl implements Ente
   }
 
   /**
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
 
   @Override
   public EList<PrimaryAsset> getPrimaryAssets() {
 
-    // TODO: implement this method to return the 'Primary Assets' reference list
-    // Ensure that you remove @generated or mark it @generated NOT
-    // The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-    // so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-    throw new UnsupportedOperationException();
-
+    if (primaryAssets == null) {
+      primaryAssets = new EObjectResolvingEList<PrimaryAsset>(PrimaryAsset.class, this,
+          CybersecurityPackage.ENTERPRISE_PRIMARY_ASSET__PRIMARY_ASSETS);
+    }
+    return primaryAssets;
   }
 
   /**
@@ -74,6 +95,38 @@ public class EnterprisePrimaryAssetImpl extends PrimaryAssetImpl implements Ente
   }
 
   /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue) {
+    switch (featureID) {
+    case CybersecurityPackage.ENTERPRISE_PRIMARY_ASSET__PRIMARY_ASSETS:
+      getPrimaryAssets().clear();
+      getPrimaryAssets().addAll((Collection<? extends PrimaryAsset>) newValue);
+      return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID) {
+    switch (featureID) {
+    case CybersecurityPackage.ENTERPRISE_PRIMARY_ASSET__PRIMARY_ASSETS:
+      getPrimaryAssets().clear();
+      return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
@@ -81,7 +134,7 @@ public class EnterprisePrimaryAssetImpl extends PrimaryAssetImpl implements Ente
   public boolean eIsSet(int featureID) {
     switch (featureID) {
     case CybersecurityPackage.ENTERPRISE_PRIMARY_ASSET__PRIMARY_ASSETS:
-      return !getPrimaryAssets().isEmpty();
+      return primaryAssets != null && !primaryAssets.isEmpty();
     }
     return super.eIsSet(featureID);
   }

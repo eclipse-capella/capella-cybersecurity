@@ -31,22 +31,24 @@ public abstract class CybersecurityQueriesTest extends NonDirtyTestCase {
   BlockArchitecture oaArch;
   BlockArchitecture saArch;
   BlockArchitecture laArch;
+  BlockArchitecture paArch;
   ExchangeItem eiOA;
   ExchangeItem eiSA;
   ExchangeItem eiLA;
-  
+
   protected void init() {
     session = getSession(getRequiredTestModels().get(0));
     project = SessionHelper.getCapellaProject(session);
-    
+
     oaArch = BlockArchitectureExt.getBlockArchitecture(Type.OA, project);
     saArch = BlockArchitectureExt.getBlockArchitecture(Type.SA, project);
     laArch = BlockArchitectureExt.getBlockArchitecture(Type.LA, project);
-    
+    paArch = BlockArchitectureExt.getBlockArchitecture(Type.PA, project);
+
     eiOA = InformationFactory.eINSTANCE.createExchangeItem();
     eiSA = InformationFactory.eINSTANCE.createExchangeItem();
     eiLA = InformationFactory.eINSTANCE.createExchangeItem();
-    
+
     AbstractReadWriteCommand cmd = new AbstractReadWriteCommand() {
       @Override
       public void run() {
@@ -57,9 +59,9 @@ public abstract class CybersecurityQueriesTest extends NonDirtyTestCase {
     };
     TransactionHelper.getExecutionManager(project).execute(cmd);
   }
-  
+
   protected abstract void doTest();
-  
+
   @Override
   public void test() throws Exception {
     init();
