@@ -34,91 +34,79 @@
           <deletionDescription href="../../org.polarsys.capella.core.sirius.analysis/description/common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Contextual%20Component%20Detailed%20Interfaces']/@defaultLayer/@toolSections.0/@ownedTools[name='delete%20capella%20elements']"/>
           <labelDirectEdit href="../../org.polarsys.capella.core.sirius.analysis/description/common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.0/@ownedTools[name='name']"/>
           <conditionnalStyles predicateExpression="aql:(self->filter(cs::Component)->select(c | c.isActor() and c.human = true)->size() > 0)">
-            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="aql:view.target.getActorLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.polarsys.capella.core.sirius.analysis/description/images/Actor.png">
+            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="aql:view.target.getActorLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.polarsys.capella.core.sirius.analysis/description/images/Actor.svg">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="aql:(self.eClass().name = 'SystemComponent') and (self.isActor())">
-            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="aql:view.target.getActorLabel()" sizeComputationExpression="7" resizeKind="NSEW" workspacePath="/org.polarsys.capella.core.ui.resources/icons/full/png/SystemActor.png">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </style>
-          </conditionnalStyles>
-          <conditionnalStyles predicateExpression="aql:(self.eClass().name = 'SystemComponent') and (self.human = false)">
-            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="aql:view.target.getActorLabel()" sizeComputationExpression="7" resizeKind="NSEW" workspacePath="/org.polarsys.capella.core.ui.resources/icons/full/png/SystemComponent.png">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </style>
-          </conditionnalStyles>
-          <conditionnalStyles predicateExpression="aql:(self.eClass().name = 'SystemComponent') and (self.human = true)">
-            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="aql:view.target.getActorLabel()" sizeComputationExpression="7" resizeKind="NSEW" workspacePath="/org.polarsys.capella.core.ui.resources/icons/full/png/SystemComponentHuman.png">
+            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="aql:view.target.getActorLabel()" sizeComputationExpression="7" resizeKind="NSEW" workspacePath="/org.polarsys.capella.core.ui.resources/icons/full/svg/SystemActor.svg">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="aql:(self.eClass().name = 'LogicalComponent') and (self.isActor())">
-            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="aql:view.target.getActorLabel()" sizeComputationExpression="7" resizeKind="NSEW" workspacePath="/org.polarsys.capella.core.ui.resources/icons/full/png/LogicalActor.png">
+            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="aql:view.target.getActorLabel()" sizeComputationExpression="7" resizeKind="NSEW" workspacePath="/org.polarsys.capella.core.ui.resources/icons/full/svg/LogicalActor.svg">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="aql:(self.eClass().name = 'LogicalComponent') and (self.human = false)">
-            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="aql:view.target.getActorLabel()" sizeComputationExpression="7" resizeKind="NSEW" workspacePath="/org.polarsys.capella.core.ui.resources/icons/full/png/LogicalComponent.png">
+            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="aql:view.target.getActorLabel()" sizeComputationExpression="7" resizeKind="NSEW" workspacePath="/org.polarsys.capella.core.ui.resources/icons/full/svg/LogicalComponent.svg">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="aql:(self.eClass().name = 'LogicalComponent') and (self.human = true)">
-            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="aql:view.target.getActorLabel()" sizeComputationExpression="7" resizeKind="NSEW" workspacePath="/org.polarsys.capella.core.ui.resources/icons/full/png/LogicalComponentHuman.png">
+            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="aql:view.target.getActorLabel()" sizeComputationExpression="7" resizeKind="NSEW" workspacePath="/org.polarsys.capella.core.ui.resources/icons/full/svg/LogicalComponentHuman.svg">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="aql:(self.eClass().name = 'PhysicalComponent') and (self.isActor())">
-            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="aql:view.target.getActorLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.polarsys.capella.core.ui.resources/icons/full/png/PhysicalActor.png">
+            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="aql:view.target.getActorLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.polarsys.capella.core.ui.resources/icons/full/svg/PhysicalActor.svg">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="aql:(self.eClass().name = 'PhysicalComponent') and (self.nature = pa::PhysicalComponentNature::NODE) and (self.human = false)">
-            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="aql:view.target.getActorLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.polarsys.capella.core.ui.resources/icons/full/png/PhysicalComponentNode.png">
+            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="aql:view.target.getActorLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.polarsys.capella.core.ui.resources/icons/full/svg/PhysicalComponentNode.svg">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="aql:(self.eClass().name = 'PhysicalComponent') and (self.nature = pa::PhysicalComponentNature::NODE) and (self.human = true)">
-            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="aql:view.target.getActorLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.polarsys.capella.core.ui.resources/icons/full/png/PhysicalComponentHumanNode.png">
+            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="aql:view.target.getActorLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.polarsys.capella.core.ui.resources/icons/full/svg/PhysicalComponentHumanNode.svg">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="aql:(self.eClass().name = 'PhysicalComponent') and (self.nature = pa::PhysicalComponentNature::BEHAVIOR) and (self.human = false)">
-            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="aql:view.target.getActorLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.polarsys.capella.core.ui.resources/icons/full/png/PhysicalComponentBehavior.png">
+            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="aql:view.target.getActorLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.polarsys.capella.core.ui.resources/icons/full/svg/PhysicalComponentBehavior.svg">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="aql:(self.eClass().name = 'PhysicalComponent') and (self.nature = pa::PhysicalComponentNature::BEHAVIOR) and (self.human = true)">
-            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="aql:view.target.getActorLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.polarsys.capella.core.ui.resources/icons/full/png/PhysicalComponentHumanBehavior.png">
+            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="aql:view.target.getActorLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.polarsys.capella.core.ui.resources/icons/full/svg/PhysicalComponentHumanBehavior.svg">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="aql:(self.eClass().name = 'PhysicalComponent') and (self.human = false)">
-            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="aql:view.target.getActorLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.polarsys.capella.core.ui.resources/icons/full/png/PhysicalComponent.png">
+            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="aql:view.target.getActorLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.polarsys.capella.core.ui.resources/icons/full/svg/PhysicalComponent.svg">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="aql:(self.eClass().name = 'PhysicalComponent') and (self.human = true)">
-            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="aql:view.target.getActorLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.polarsys.capella.core.ui.resources/icons/full/png/PhysicalComponentHumanUnset.png">
+            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="aql:view.target.getActorLabel()" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.polarsys.capella.core.ui.resources/icons/full/svg/PhysicalComponentHumanUnset.svg">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="aql:(self.target.eContainerOrSelf(epbs::EPBSArchitecture)->size() != 0)">
-            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="aql:view.target.getActorLabel()" sizeComputationExpression="5" workspacePath="/org.polarsys.capella.core.sirius.analysis/description/images/CSCI.png">
+            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="aql:view.target.getActorLabel()" sizeComputationExpression="5" workspacePath="/org.polarsys.capella.core.sirius.analysis/description/images/CSCI.svg">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
