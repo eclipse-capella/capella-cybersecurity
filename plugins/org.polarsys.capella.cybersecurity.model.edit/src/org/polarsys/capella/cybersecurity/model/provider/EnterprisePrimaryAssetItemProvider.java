@@ -1,4 +1,13 @@
-
+/*******************************************************************
+* Copyright © 2021 Thales Global Services SAS
+*
+* Licensed under the Thales Inner Source Software License:
+* Version 1.2, InnerOpen - Distribution Controlled
+*
+* You may not use this file except in compliance with the License.
+* You may obtain a copy of the License at https://gitlab.thalesdigital.io/Tiss-Organization/tiss-licenses
+* See the License for the specific language governing permissions and limitations under the License.
+*******************************************************************/
 package org.polarsys.capella.cybersecurity.model.provider;
 
 import java.util.Collection;
@@ -62,7 +71,8 @@ public class EnterprisePrimaryAssetItemProvider extends PrimaryAssetItemProvider
 
   /**
    * This adds a property descriptor for the Primary Assets feature.
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
   protected void addPrimaryAssetsPropertyDescriptor(Object object) {
@@ -74,7 +84,7 @@ public class EnterprisePrimaryAssetItemProvider extends PrimaryAssetItemProvider
         getString("_UI_EnterprisePrimaryAsset_primaryAssets_feature"), //$NON-NLS-1$
         getString("_UI_PropertyDescriptor_description", "_UI_EnterprisePrimaryAsset_primaryAssets_feature", //$NON-NLS-1$//$NON-NLS-2$
             "_UI_EnterprisePrimaryAsset_type"), //$NON-NLS-1$
-        CybersecurityPackage.Literals.ENTERPRISE_PRIMARY_ASSET__PRIMARY_ASSETS, false, false, false, null, null,
+        CybersecurityPackage.Literals.ENTERPRISE_PRIMARY_ASSET__PRIMARY_ASSETS, true, false, true, null, null,
         // begin-extension-code
         null));
     // end-extension-code
