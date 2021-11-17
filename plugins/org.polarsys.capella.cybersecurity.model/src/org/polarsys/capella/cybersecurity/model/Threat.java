@@ -153,7 +153,7 @@ public interface Threat extends AbstractCapability {
    * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getThreat_RealizedThreats()
    * @see org.polarsys.capella.cybersecurity.model.Threat#getRealizingThreats
    * @model opposite="realizingThreats" transient="true" changeable="false" volatile="true" derived="true"
-   *        annotation="http://www.polarsys.org/capella/derived viatra.variant='patternbody' viatra.expression='Threat.outgoingTraces(self, acr);\nAbstractCapabilityRealization.realizedCapability(acr, target);'"
+   *        annotation="http://www.polarsys.org/capella/derived"
    *        annotation="http://www.polarsys.org/capella/semantic"
    *        annotation="http://www.polarsys.org/capella/MNoE/CapellaLike/Mapping UML/SysML\040semantic\040equivalences='keyword::none' explanation='Derived and transient' constraints='none'"
    * @generated
@@ -172,7 +172,7 @@ public interface Threat extends AbstractCapability {
    * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getThreat_RealizingThreats()
    * @see org.polarsys.capella.cybersecurity.model.Threat#getRealizedThreats
    * @model opposite="realizedThreats" transient="true" changeable="false" volatile="true" derived="true"
-   *        annotation="http://www.polarsys.org/capella/derived viatra.variant='patternbody' viatra.expression='Threat.incomingTraces(self, acr);\nAbstractCapabilityRealization.realizingCapability(acr, target);'"
+   *        annotation="http://www.polarsys.org/capella/derived"
    *        annotation="http://www.polarsys.org/capella/semantic excludefrom='xmlpivot'"
    *        annotation="http://www.polarsys.org/capella/MNoE/CapellaLike/Mapping UML/SysML\040semantic\040equivalences='keyword::none' explanation='Derived and transient' constraints='none'"
    * @generated

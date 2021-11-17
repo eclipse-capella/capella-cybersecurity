@@ -689,7 +689,8 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
   }
 
   /**
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -1009,8 +1010,8 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
     initEClass(enterprisePrimaryAssetEClass, EnterprisePrimaryAsset.class, "EnterprisePrimaryAsset", !IS_ABSTRACT, //$NON-NLS-1$
         !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getEnterprisePrimaryAsset_PrimaryAssets(), this.getPrimaryAsset(), null, "primaryAssets", null, 0, //$NON-NLS-1$
-        -1, EnterprisePrimaryAsset.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-        !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+        -1, EnterprisePrimaryAsset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+        !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);
@@ -1098,20 +1099,10 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
    */
   protected void createDerivedAnnotations() {
     String source = "http://www.polarsys.org/capella/derived"; //$NON-NLS-1$
-    addAnnotation(getThreat_RealizedThreats(), source, new String[] { "viatra.variant", "patternbody", //$NON-NLS-1$ //$NON-NLS-2$
-        "viatra.expression", //$NON-NLS-1$
-        "Threat.outgoingTraces(self, acr);\nAbstractCapabilityRealization.realizedCapability(acr, target);" //$NON-NLS-1$
-    });
-    addAnnotation(getThreat_RealizingThreats(), source, new String[] { "viatra.variant", "patternbody", //$NON-NLS-1$ //$NON-NLS-2$
-        "viatra.expression", //$NON-NLS-1$
-        "Threat.incomingTraces(self, acr);\nAbstractCapabilityRealization.realizingCapability(acr, target);" //$NON-NLS-1$
-    });
+    addAnnotation(getThreat_RealizedThreats(), source, new String[] {});
+    addAnnotation(getThreat_RealizingThreats(), source, new String[] {});
     addAnnotation(getPrimaryAsset_RealizedPrimaryAssets(), source, new String[] {});
     addAnnotation(getPrimaryAsset_RealizingPrimaryAssets(), source, new String[] {});
-    addAnnotation(getEnterprisePrimaryAsset_PrimaryAssets(), source, new String[] { "viatra.variant", "patternbody", //$NON-NLS-1$ //$NON-NLS-2$
-        "viatra.expression", //$NON-NLS-1$
-        "Threat.outgoingTraces(self, acr);\nAbstractCapabilityRealization.realizedCapability(acr, target);" //$NON-NLS-1$
-    });
   }
 
   /**
@@ -1127,7 +1118,6 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
     });
     addAnnotation(getPrimaryAsset_RealizedPrimaryAssets(), source, new String[] {});
     addAnnotation(getPrimaryAsset_RealizingPrimaryAssets(), source, new String[] {});
-    addAnnotation(getEnterprisePrimaryAsset_PrimaryAssets(), source, new String[] {});
   }
 
   /**
@@ -1144,11 +1134,6 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
             "constraints", "none" //$NON-NLS-1$ //$NON-NLS-2$
         });
     addAnnotation(getThreat_RealizingThreats(), source,
-        new String[] { "UML/SysML semantic equivalences", "keyword::none", //$NON-NLS-1$ //$NON-NLS-2$
-            "explanation", "Derived and transient", //$NON-NLS-1$ //$NON-NLS-2$
-            "constraints", "none" //$NON-NLS-1$ //$NON-NLS-2$
-        });
-    addAnnotation(getEnterprisePrimaryAsset_PrimaryAssets(), source,
         new String[] { "UML/SysML semantic equivalences", "keyword::none", //$NON-NLS-1$ //$NON-NLS-2$
             "explanation", "Derived and transient", //$NON-NLS-1$ //$NON-NLS-2$
             "constraints", "none" //$NON-NLS-1$ //$NON-NLS-2$

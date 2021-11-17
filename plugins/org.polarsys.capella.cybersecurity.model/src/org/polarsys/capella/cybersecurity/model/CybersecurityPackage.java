@@ -3633,9 +3633,9 @@ public interface CybersecurityPackage extends EPackage {
   int ENTERPRISE_PRIMARY_ASSET__REALIZING_PRIMARY_ASSETS = PRIMARY_ASSET__REALIZING_PRIMARY_ASSETS;
 
   /**
-   * The feature id for the '<em><b>Primary Assets</b></em>' reference list. <!-- begin-user-doc --> <!-- end-user-doc
-   * -->
-   * 
+   * The feature id for the '<em><b>Primary Assets</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
@@ -4194,7 +4194,8 @@ public interface CybersecurityPackage extends EPackage {
 
   /**
    * Returns the meta object for the reference list '{@link org.polarsys.capella.cybersecurity.model.EnterprisePrimaryAsset#getPrimaryAssets <em>Primary Assets</em>}'.
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
    * @return the meta object for the reference list '<em>Primary Assets</em>'.
    * @see org.polarsys.capella.cybersecurity.model.EnterprisePrimaryAsset#getPrimaryAssets()
    * @see #getEnterprisePrimaryAsset()
