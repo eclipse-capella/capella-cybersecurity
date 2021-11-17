@@ -1050,7 +1050,9 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
         new String[] { "ExtendedElement", " http://www.polarsys.org/capella/common/behavior/5.0.0#//AbstractEvent" //$NON-NLS-1$ //$NON-NLS-2$
         });
     addAnnotation(securityNeedsEClass, source, new String[] { "ExtendedElement", //$NON-NLS-1$
-        "http://www.polarsys.org/capella/common/behavior/5.0.0#//AbstractEvent http://www.polarsys.org/capella/cybersecurity/1.0#//PrimaryAsset" //$NON-NLS-1$
+        "http://www.polarsys.org/capella/common/behavior/5.0.0#//AbstractEvent http://www.polarsys.org/capella/cybersecurity/1.0#//PrimaryAsset", //$NON-NLS-1$
+        "ExtendedElement", //$NON-NLS-1$
+        "http://www.polarsys.org/capella/common/behavior/5.0.0#//AbstractEvent http://www.polarsys.org/capella/cybersecurity/1.0#//Threat" //$NON-NLS-1$
     });
     addAnnotation(trustBoundaryStorageEClass, source,
         new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/cs/5.0.0#//Component" //$NON-NLS-1$ //$NON-NLS-2$
