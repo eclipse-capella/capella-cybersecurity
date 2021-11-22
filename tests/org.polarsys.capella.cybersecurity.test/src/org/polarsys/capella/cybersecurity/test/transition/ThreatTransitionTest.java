@@ -12,6 +12,7 @@ package org.polarsys.capella.cybersecurity.test.transition;
 
 import org.polarsys.capella.core.data.capellacore.EnumerationPropertyType;
 import org.polarsys.capella.cybersecurity.model.CybersecurityFactory;
+import org.polarsys.capella.cybersecurity.model.CybersecurityPkg;
 import org.polarsys.capella.cybersecurity.model.CybersecurityQueries;
 import org.polarsys.capella.cybersecurity.model.Threat;
 
@@ -46,6 +47,12 @@ public class ThreatTransitionTest extends CyberTopDownTransitionTestCase {
     assertFalse(threat.getIncomingTraces().isEmpty());
     // check that threat2 is not transitioned
     assertTrue(threat2.getIncomingTraces().isEmpty());
+    
+    // transition again an already transitioned threat
+    int count = ((CybersecurityPkg)systemThreat.eContainer()).getOwnedThreats().size();
+    performThreatTransition(getObjects(threat.getId()));
+    assertTrue(threat.getRealizingThreats().size() == 1);
+    assertTrue(((CybersecurityPkg)systemThreat.eContainer()).getOwnedThreats().size() == count);
 
     performThreatTransition(getObjects(systemThreat.getId()));
     Threat logicalThreat = (Threat) mustBeTransitioned(systemThreat.getId(), laPkg);

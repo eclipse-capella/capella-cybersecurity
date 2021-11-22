@@ -12,15 +12,15 @@ target "CapellaCybersecurity"
 
 with source, requirements
 
-location capella "file:/opt/capella-5.1.0/capella" {
+location capella "file:/opt/capella-5.2.0/capella" {
 	org.polarsys.capella.rcp.feature.group
 }
 
-location capella-master "https://download.eclipse.org/capella/core/updates/releases/5.1.0-R20210615-075512/org.polarsys.capella.rcp.site" {
+location capella-master "https://download.eclipse.org/capella/core/updates/nightly/master/org.polarsys.capella.rcp.site/" {
 	org.polarsys.capella.cdo.mock.feature.feature.group
 }
 
-location capella-tests-master "https://download.eclipse.org/capella/core/updates/releases/5.1.0-R20210615-075512/org.polarsys.capella.test.site" {
+location capella-tests-master "https://download.eclipse.org/capella/core/updates/nightly/master/org.polarsys.capella.test.site/" {
 	org.polarsys.capella.test.feature.feature.group
 }
 

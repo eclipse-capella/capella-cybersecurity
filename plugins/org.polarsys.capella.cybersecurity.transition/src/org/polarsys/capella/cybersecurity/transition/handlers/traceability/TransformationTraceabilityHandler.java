@@ -39,12 +39,15 @@ public class TransformationTraceabilityHandler extends LinkTraceabilityHandler {
       Threat source = (Threat) sourceElement;
       Threat target = (Threat) targetElement;
 
-      AbstractTrace link = InteractionFactory.eINSTANCE.createAbstractCapabilityRealization();
-      link.setTargetElement(source);
-      link.setSourceElement(target);
-      ((List<EObject>) target
-         .eGet(InteractionPackage.Literals.ABSTRACT_CAPABILITY__OWNED_ABSTRACT_CAPABILITY_REALIZATIONS)).add(link);
-      addMappings(sourceElement, targetElement, context);
+      if (source.getRealizingThreats().isEmpty()) {
+        AbstractTrace link = InteractionFactory.eINSTANCE.createAbstractCapabilityRealization();
+        link.setTargetElement(source);
+        link.setSourceElement(target);
+        ((List<EObject>) target
+            .eGet(InteractionPackage.Literals.ABSTRACT_CAPABILITY__OWNED_ABSTRACT_CAPABILITY_REALIZATIONS)).add(link);
+        addMappings(sourceElement, targetElement, context);
+      }
     }
   }
+  
 }
