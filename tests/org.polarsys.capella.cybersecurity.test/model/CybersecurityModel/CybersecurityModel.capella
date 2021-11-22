@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--Capella_Version_5.2.0-->
+<!--Capella_Version_null-->
 <org.polarsys.capella.core.data.capellamodeller:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cybersecurity="http://www.polarsys.org/capella/cybersecurity/1.0"
     xmlns:libraries="http://www.polarsys.org/capella/common/libraries/5.0.0" xmlns:org.polarsys.capella.core.data.capellacommon="http://www.polarsys.org/capella/core/common/5.0.0"
@@ -13,6 +13,7 @@
     xmlns:org.polarsys.capella.core.data.information="http://www.polarsys.org/capella/core/information/5.0.0"
     xmlns:org.polarsys.capella.core.data.information.datatype="http://www.polarsys.org/capella/core/information/datatype/5.0.0"
     xmlns:org.polarsys.capella.core.data.information.datavalue="http://www.polarsys.org/capella/core/information/datavalue/5.0.0"
+    xmlns:org.polarsys.capella.core.data.interaction="http://www.polarsys.org/capella/core/interaction/5.0.0"
     xmlns:org.polarsys.capella.core.data.la="http://www.polarsys.org/capella/core/la/5.0.0"
     xmlns:org.polarsys.capella.core.data.oa="http://www.polarsys.org/capella/core/oa/5.0.0"
     xmlns:org.polarsys.capella.core.data.pa="http://www.polarsys.org/capella/core/pa/5.0.0"
@@ -172,7 +173,11 @@
       <ownedExtensions xsi:type="cybersecurity:CybersecurityPkg" id="0e41208e-3e2c-4131-ab97-2b1673d6b2b0"
           name="CybersecurityPkg 1">
         <ownedThreats xsi:type="cybersecurity:Threat" id="100b227c-6b62-4875-aded-7eeaddf8cba9"
-            name="Threat 1 SA"/>
+            name="Threat 1 SA">
+          <ownedAbstractCapabilityRealizations xsi:type="org.polarsys.capella.core.data.interaction:AbstractCapabilityRealization"
+              id="d0cb79ee-3af2-4b2d-9ecc-3bd3d1e6479c" targetElement="#58b25370-b7df-4019-b38b-7d64ad157fb3"
+              sourceElement="#100b227c-6b62-4875-aded-7eeaddf8cba9"/>
+        </ownedThreats>
         <ownedPrimaryAssets xsi:type="cybersecurity:FunctionalPrimaryAsset" id="c9e3c8d2-5c36-4832-81bd-b836dea7e63b"
             name="FunctionalPrimaryAsset 1 SA">
           <ownedExtensions xsi:type="cybersecurity:SecurityNeeds" id="306ad44f-c93e-4c2b-9dfa-8a7238db8536"
@@ -185,9 +190,6 @@
         <ownedPrimaryAssets xsi:type="cybersecurity:InformationPrimaryAsset" id="1a04c73c-a81d-4ae6-ade3-80537e032b50"
             name="InformationPrimaryAsset 4 SA"/>
       </ownedExtensions>
-      <ownedTraces xsi:type="org.polarsys.capella.core.data.capellacommon:TransfoLink"
-          id="d28dad80-4bc1-4738-ad4a-2e5e6f5a532c" targetElement="#58b25370-b7df-4019-b38b-7d64ad157fb3"
-          sourceElement="#100b227c-6b62-4875-aded-7eeaddf8cba9"/>
       <ownedTraces xsi:type="org.polarsys.capella.core.data.capellacommon:TransfoLink"
           id="be72323f-503f-490b-8f88-63c01e3a1aa4" targetElement="#55ee6393-fc70-4135-9a5e-6ca8764d5114"
           sourceElement="#c9e3c8d2-5c36-4832-81bd-b836dea7e63b"/>
@@ -334,7 +336,11 @@
       <ownedExtensions xsi:type="cybersecurity:CybersecurityPkg" id="46c4c194-2d0b-4d23-b112-2cff1abc0a77"
           name="CybersecurityPkg 1">
         <ownedThreats xsi:type="cybersecurity:Threat" id="76bda8ac-2831-42a4-90c4-bb52745d8380"
-            name="Threat 1 LA"/>
+            name="Threat 1 LA">
+          <ownedAbstractCapabilityRealizations xsi:type="org.polarsys.capella.core.data.interaction:AbstractCapabilityRealization"
+              id="7cbb1739-1bff-4354-aa53-cf4738de4817" targetElement="#100b227c-6b62-4875-aded-7eeaddf8cba9"
+              sourceElement="#76bda8ac-2831-42a4-90c4-bb52745d8380"/>
+        </ownedThreats>
         <ownedPrimaryAssets xsi:type="cybersecurity:FunctionalPrimaryAsset" id="4e96ffb7-405b-4b4d-96a5-5a8ce4a26d8d"
             name="FunctionalPrimaryAsset 1 LA">
           <ownedExtensions xsi:type="cybersecurity:SecurityNeeds" id="dc6b4ac1-5b53-45a6-ab03-9b35eefd67bb"
@@ -347,9 +353,6 @@
         <ownedPrimaryAssets xsi:type="cybersecurity:InformationPrimaryAsset" id="2dfdca0e-8145-4b17-afc9-0dcd1c17715e"
             name="InformationPrimaryAsset 4 LA"/>
       </ownedExtensions>
-      <ownedTraces xsi:type="org.polarsys.capella.core.data.capellacommon:TransfoLink"
-          id="157dc242-5013-404f-8b94-339ce652a3d0" targetElement="#100b227c-6b62-4875-aded-7eeaddf8cba9"
-          sourceElement="#76bda8ac-2831-42a4-90c4-bb52745d8380"/>
       <ownedTraces xsi:type="org.polarsys.capella.core.data.capellacommon:TransfoLink"
           id="8de971c9-326f-4c73-86f0-8c16a4d2f78d" targetElement="#c9e3c8d2-5c36-4832-81bd-b836dea7e63b"
           sourceElement="#4e96ffb7-405b-4b4d-96a5-5a8ce4a26d8d"/>
