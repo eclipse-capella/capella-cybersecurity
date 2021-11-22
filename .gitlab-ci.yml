@@ -3,7 +3,7 @@ stages:
 
 build:
   stage: build
-  image: ${CI_REGISTRY}/capella-addons/common/capella-invaders-docker/capella-invaders-ui-agent:0.92
+  image: ${CI_REGISTRY}/capella-addons/common/capella-invaders-docker/capella-invaders-ui-agent:0.94
 
   variables:
     CAPELLA_ARTIFACTORY_URL: https://artifactory.thalesdigital.io/artifactory/generic-internal/capella-invaders/
