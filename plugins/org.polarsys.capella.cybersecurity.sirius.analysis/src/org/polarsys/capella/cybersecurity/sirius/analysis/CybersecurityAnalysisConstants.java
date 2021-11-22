@@ -40,6 +40,10 @@ public final class CybersecurityAnalysisConstants {
   public static final String TOOL_INSERTREMOVE__THREAT = "show_hide__.threat"; //$NON-NLS-1$
   public static final String TOOL_INSERTREMOVE__FUNCTIONAL_PRIMARY_ASSET = "show_hide__.functionalasset"; //$NON-NLS-1$
   public static final String TOOL_INSERTREMOVE__INFORMATION_PRIMARY_ASSET = "show_hide__.informationasset"; //$NON-NLS-1$
+  public static final String TOOL_DND_THREAT = "D&D Threat From Project Explorer";
+  public static final String TOOL_DND_FUNCTIONAL_PRIMARY_ASSET = "D&D Functional Primary Asset From Project Explorer";
+  public static final String TOOL_DND_INFORMATION_PRIMARY_ASSET = "D&D Information Primary Asset From Project Explorer";
+  public static final String TOOL_DND_ENTERPRISE_PRIMARY_ASSET = "D&D Enterprise Primary Asset From Project Explorer";
 
   public static final String TOOL_XAB_INSERT_PA = "Primary Assets"; //$NON-NLS-1$
   public static final String TOOL_XAB_INSERT_THREAT = "Threats"; //$NON-NLS-1$

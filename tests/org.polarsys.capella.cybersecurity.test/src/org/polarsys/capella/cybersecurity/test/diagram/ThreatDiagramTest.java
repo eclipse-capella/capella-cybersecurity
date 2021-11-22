@@ -24,6 +24,8 @@ import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.business.api.dialect.ExportFormat;
 import org.eclipse.sirius.ui.business.api.dialect.ExportFormat.ExportDocumentFormat;
 import org.polarsys.capella.core.data.cs.BlockArchitecture;
+import org.polarsys.capella.common.ef.command.AbstractReadWriteCommand;
+import org.polarsys.capella.common.helpers.TransactionHelper;
 import org.polarsys.capella.core.data.oa.Entity;
 import org.polarsys.capella.core.model.helpers.BlockArchitectureExt;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPkg;
@@ -31,6 +33,8 @@ import org.polarsys.capella.cybersecurity.model.EnterprisePrimaryAsset;
 import org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset;
 import org.polarsys.capella.cybersecurity.model.InformationPrimaryAsset;
 import org.polarsys.capella.cybersecurity.model.PrimaryAsset;
+import org.polarsys.capella.cybersecurity.model.CybersecurityFactory;
+import org.polarsys.capella.cybersecurity.model.Threat;
 import org.polarsys.capella.cybersecurity.sirius.analysis.CybersecurityAnalysisConstants;
 import org.polarsys.capella.cybersecurity.sirius.analysis.CybersecurityServices;
 import org.polarsys.capella.test.diagram.tools.ju.model.EmptyProject;
@@ -40,6 +44,11 @@ import org.polarsys.kitalpha.ad.services.manager.ViewpointManager;
 public class ThreatDiagramTest extends EmptyProject {
   Session session;
   SessionContext context;
+  protected Threat threatSub;
+  protected FunctionalPrimaryAsset fpaSub;
+  protected InformationPrimaryAsset ipaSub;
+  CybersecurityServices services;
+  protected EnterprisePrimaryAsset epaSub;
     
   @Override
   protected void undoAllChanges() {
@@ -52,7 +61,9 @@ public class ThreatDiagramTest extends EmptyProject {
     session = getSession(getRequiredTestModel());
     context = new SessionContext(session);
     ViewpointManager manager = ViewpointManager.getInstance(session.getTransactionalEditingDomain().getResourceSet());
-    manager.activate(CybersecurityAnalysisConstants.VIEWPOINT_ID);  
+    manager.activate(CybersecurityAnalysisConstants.VIEWPOINT_ID);
+    
+    services = new CybersecurityServices();
 
     testOnOA(OA__OPERATIONAL_CONTEXT);
     testOnContext(SA__SYSTEM_CONTEXT);
@@ -72,33 +83,64 @@ public class ThreatDiagramTest extends EmptyProject {
     DNode ipa = td.createInformationPrimaryAsset();
     DNode epa = td.createEnterprisePrimaryAsset();
     
+    BlockArchitecture architecture = BlockArchitectureExt.getRootBlockArchitecture(context.getSemanticElement(containerId));
+    CybersecurityPkg cyberPkg = new CybersecurityServices().getDefaultCyberSecurityPackage(architecture, false);
+    assertNotNull(cyberPkg);
+    EList<PrimaryAsset> primaryAssets = cyberPkg.getOwnedPrimaryAssets();
+    assertTrue(primaryAssets.contains(ipa.getTarget()));
+    assertTrue(primaryAssets.contains(fpa.getTarget()));
+    assertTrue(primaryAssets.contains(epa.getTarget()));
+    
     DNode actor = td.createActor();
 
     td.createThreatApplication(threat, ipa);
     td.createThreatApplication(threat, fpa);
     td.createThreatApplication(threat, epa);
     td.createThreatInvolvement(threat, actor);
-
+    
+    // create another sub CybersecurtyPkg that contains a Threat, and add the Threat in diagram
+    CybersecurityPkg rootCyberPkg = new CybersecurityServices().getRootCibersecurityPkg(architecture);
+    assertEquals(rootCyberPkg, cyberPkg);
+    long threatsCount = services.getAllCurrentLevelThreats(threat.getTarget()).stream().count();
+    long fpaCount = services.getAllCurrentLevelInformationPrimaryAssets(fpa.getTarget()).stream().count();
+    long ipaCount = services.getAllCurrentLevelFunctionalPrimaryAssets(ipa.getTarget()).stream().count();
+    long epaCount = services.getAllCurrentLevelFunctionalPrimaryAssets(epa.getTarget()).stream().count();
+    
+    AbstractReadWriteCommand cmd = new AbstractReadWriteCommand() {
+      @Override
+      public void run() {
+        CybersecurityPkg subPkg = CybersecurityFactory.eINSTANCE.createCybersecurityPkg();
+        rootCyberPkg.getOwnedCybersecurityPkgs().add(subPkg);
+        
+        threatSub = services.createThreatInPkg(subPkg);
+        subPkg.getOwnedThreats().add(threatSub);
+        
+        fpaSub = services.createFunctionalPrimaryAssetInPkg(subPkg);
+        subPkg.getOwnedPrimaryAssets().add(fpaSub);
+        
+        ipaSub = services.createInformationPrimaryAssetInPkg(subPkg);
+        subPkg.getOwnedPrimaryAssets().add(ipaSub);
+        
+        epaSub = services.createEnterprisePrimaryAssetInPkg(subPkg);
+        subPkg.getOwnedPrimaryAssets().add(epaSub);
+      }
+    };
+    
+    TransactionHelper.getExecutionManager(session).execute(cmd);
+    
+    td.dndThreat(td, threatSub);
+    td.dndFunctionalPrimaryAsset(td, fpaSub);
+    td.dndInformationPrimaryAsset(td, ipaSub);
+    td.dndEnterprisePrimaryAsset(td, epaSub);
+    
+    assertEquals(services.getAllCurrentLevelThreats(threatSub).stream().count(), threatsCount + 1);
+    assertEquals(services.getAllCurrentLevelFunctionalPrimaryAssets(fpaSub).stream().count(), fpaCount + 1);
+    assertEquals(services.getAllCurrentLevelInformationPrimaryAssets(ipaSub).stream().count(), ipaCount + 1);
+    assertEquals(services.getAllCurrentLevelEnterprisePrimaryAssets(epaSub).stream().count(), epaCount + 1);
+    
     ExportFormat format = new ExportFormat(ExportDocumentFormat.NONE, ImageFileFormat.PNG);
     IPath dest = ResourcesPlugin.getWorkspace().getRoot().getLocation().append(new Path("/" + getRequiredTestModel() + "/diagram.png")); //$NON-NLS-1$ //$NON-NLS-2$
     DialectUIManager.INSTANCE.export(td.getDiagram(), session, dest, format, new NullProgressMonitor());
-    BlockArchitecture architecture = BlockArchitectureExt.getRootBlockArchitecture(context.getSemanticElement(containerId));
-    CybersecurityPkg cyberPkg = new CybersecurityServices().getDefaultCyberSecurityPackage(architecture, false);
-    assertNotNull(cyberPkg);
-    
-    EList<PrimaryAsset> primaryAssets = cyberPkg.getOwnedPrimaryAssets();
-    
-    InformationPrimaryAsset infPA = (InformationPrimaryAsset) ipa.getTarget();
-    FunctionalPrimaryAsset funcPA = (FunctionalPrimaryAsset) fpa.getTarget();
-    EnterprisePrimaryAsset entPA = (EnterprisePrimaryAsset) epa.getTarget();
-    
-    assertTrue(primaryAssets.contains(infPA));
-    assertTrue(primaryAssets.contains(funcPA));
-    assertTrue(primaryAssets.contains(entPA));
-    
-    assertTrue(!infPA.getOwnedThreatApplications().isEmpty());
-    assertTrue(!funcPA.getOwnedThreatApplications().isEmpty());
-    assertTrue(!entPA.getOwnedThreatApplications().isEmpty());
   }  
   
   protected void testOnOA(String containerId) throws Exception {

@@ -1534,6 +1534,10 @@
             class="org.polarsys.capella.cybersecurity.ui.contribution.menu.FunctionalPrimaryAssetContribution"
             id="org.polarsys.capella.cybersecurity.ui.contribution.menu.FunctionalPrimaryAssetContribution">
       </MDEMenuItemContribution>
+      <MDEMenuItemContribution
+            class="org.polarsys.capella.cybersecurity.ui.contribution.menu.CybersecurityPkgContribution"
+            id="org.polarsys.capella.cybersecurity.ui.contribution.menu.CybersecurityPkgContribution">
+      </MDEMenuItemContribution>
 </extension>
 <extension
          point="org.polarsys.capella.core.data.migration.migrationContributions">

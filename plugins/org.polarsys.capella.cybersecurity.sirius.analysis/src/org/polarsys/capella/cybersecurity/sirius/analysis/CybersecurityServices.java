@@ -83,7 +83,6 @@ import org.polarsys.capella.core.data.interaction.SequenceMessage;
 import org.polarsys.capella.core.data.interaction.StateFragment;
 import org.polarsys.capella.core.data.oa.Entity;
 import org.polarsys.capella.core.data.oa.EntityPkg;
-import org.polarsys.capella.core.data.oa.OaFactory;
 import org.polarsys.capella.core.data.oa.OperationalAnalysis;
 import org.polarsys.capella.core.data.pa.PhysicalComponent;
 import org.polarsys.capella.core.data.pa.PhysicalComponentNature;
@@ -130,20 +129,26 @@ public class CybersecurityServices {
   public CybersecurityPkg getDefaultCyberSecurityPackage(EObject any, boolean create) {
     BlockArchitecture ba = any instanceof BlockArchitecture ? (BlockArchitecture)any : 
         (BlockArchitecture) EcoreUtil2.getFirstContainer(any, CsPackage.Literals.BLOCK_ARCHITECTURE);
-    if (ba != null) {
-      for (EObject e : ba.getOwnedExtensions()) {
-        if (e instanceof CybersecurityPkg) {
-          return (CybersecurityPkg) e;
-        }
-      }
-      if (create) {
-        CybersecurityPkg pkg = CybersecurityFactory.eINSTANCE.createCybersecurityPkg();
-        pkg.setName(Messages.CybersecurityServices_0);
-        ba.getOwnedExtensions().add(pkg);
-        return pkg;
-      }
+    if (ba == null) {
+      return null;
+    }
+    
+    CybersecurityPkg pkg = getRootCibersecurityPkg(ba);
+    if(pkg != null) {
+      return pkg;
+    }
+    
+    if (create) {
+      pkg = CybersecurityFactory.eINSTANCE.createCybersecurityPkg();
+      pkg.setName(Messages.CybersecurityServices_0);
+      ba.getOwnedExtensions().add(pkg);
+      return pkg;
     }
     return null;
+  }
+  
+  public CybersecurityPkg getRootCibersecurityPkg(BlockArchitecture ba) {
+    return (CybersecurityPkg) ba.getOwnedExtensions().stream().filter(CybersecurityPkg.class::isInstance).findFirst().orElse(null);
   }
 
   public Threat createThreat(EObject any) {
@@ -158,18 +163,23 @@ public class CybersecurityServices {
   public Threat createThreat(EObject any, Project project) {
     CybersecurityPkg pkg = getDefaultCyberSecurityPackage(any, true);
     if (pkg != null) {
-      Threat threat = CybersecurityFactory.eINSTANCE.createThreat();
-      // set threat kind to be the fisrt one available in the config threat kind type
+      Threat threat = createThreatInPkg(pkg);
+      // set threat kind to be the first one available in the config threat kind type
       CybersecurityQueries.setThreatKindFromIndex(threat, 0, CybersecurityQueries.getThreatKindPropertyType(project));
-      pkg.getOwnedThreats().add(threat);
-
-      String elementPrefix = prefixService.getPrefix(threat);
-      String uniqueName = CapellaServices.getService().getUniqueName(threat, elementPrefix);
-      threat.setName(uniqueName);
-
       return threat;
     }
     return null;
+  }
+  
+  public Threat createThreatInPkg(CybersecurityPkg pkg) {
+    Threat threat = CybersecurityFactory.eINSTANCE.createThreat();
+    pkg.getOwnedThreats().add(threat);
+
+    String elementPrefix = prefixService.getPrefix(threat);
+    String uniqueName = CapellaServices.getService().getUniqueName(threat, elementPrefix);
+    threat.setName(uniqueName);
+
+    return threat;
   }
 
   public String getThreatLabel(Threat threat) {
@@ -378,10 +388,14 @@ public class CybersecurityServices {
     }
     return colorGreenMin;
   }
-
+  
   public FunctionalPrimaryAsset createFunctionalPrimaryAsset(EObject any) {
-    FunctionalPrimaryAsset asset = (FunctionalPrimaryAsset) attachToDefaultCybersecurityPkg(any,
-        CybersecurityFactory.eINSTANCE.createFunctionalPrimaryAsset());
+    return createFunctionalPrimaryAssetInPkg(getDefaultCyberSecurityPackage(any, true));
+  }
+
+  public FunctionalPrimaryAsset createFunctionalPrimaryAssetInPkg(CybersecurityPkg pkg) {
+    FunctionalPrimaryAsset asset = (FunctionalPrimaryAsset) attachToDefaultCybersecurityPkg(
+        CybersecurityFactory.eINSTANCE.createFunctionalPrimaryAsset(), pkg);
 
     if (asset != null) {
       String elementPrefix;
@@ -399,8 +413,12 @@ public class CybersecurityServices {
   }
 
   public InformationPrimaryAsset createInformationPrimaryAsset(EObject any) {
-    InformationPrimaryAsset asset = (InformationPrimaryAsset) attachToDefaultCybersecurityPkg(any,
-        CybersecurityFactory.eINSTANCE.createInformationPrimaryAsset());
+    return createInformationPrimaryAssetInPkg(getDefaultCyberSecurityPackage(any, true));
+  }
+  
+  public InformationPrimaryAsset createInformationPrimaryAssetInPkg(CybersecurityPkg pkg) {
+    InformationPrimaryAsset asset = (InformationPrimaryAsset) attachToDefaultCybersecurityPkg(
+        CybersecurityFactory.eINSTANCE.createInformationPrimaryAsset(), pkg);
 
     if (asset != null) {
       String elementPrefix = prefixService.getPrefix(asset);
@@ -412,8 +430,12 @@ public class CybersecurityServices {
   }
   
   public EnterprisePrimaryAsset createEnterprisePrimaryAsset(EObject any) {
-    EnterprisePrimaryAsset asset = (EnterprisePrimaryAsset) attachToDefaultCybersecurityPkg(any,
-        CybersecurityFactory.eINSTANCE.createEnterprisePrimaryAsset());
+    return createEnterprisePrimaryAssetInPkg(getDefaultCyberSecurityPackage(any, true));
+  }
+  
+  public EnterprisePrimaryAsset createEnterprisePrimaryAssetInPkg(CybersecurityPkg pkg) {
+    EnterprisePrimaryAsset asset = (EnterprisePrimaryAsset) attachToDefaultCybersecurityPkg(
+        CybersecurityFactory.eINSTANCE.createEnterprisePrimaryAsset(), pkg);
 
     if (asset != null) {
       String elementPrefix = prefixService.getPrefix(asset);
@@ -424,8 +446,7 @@ public class CybersecurityServices {
     return asset;
   }
 
-  private EObject attachToDefaultCybersecurityPkg(EObject context, EObject cyberObject) {
-    CybersecurityPkg pkg = getDefaultCyberSecurityPackage(context, true);
+  private EObject attachToDefaultCybersecurityPkg(EObject cyberObject, CybersecurityPkg pkg) {
     Command cmd = AddCommand.create(TransactionUtil.getEditingDomain(pkg), pkg, null,
         Collections.singleton(cyberObject));
     if (cmd.canExecute()) {
@@ -619,35 +640,48 @@ public class CybersecurityServices {
   }
   
   public Collection<Threat> getAllCurrentLevelThreats(EObject element) {
-    CybersecurityPkg pkg = getDefaultCyberSecurityPackage(element, false);
-    if (pkg != null) {
-      return pkg.getOwnedThreats();
+    return getThreats(getDefaultCyberSecurityPackage(element, false));
+  }
+  
+  public Collection<Threat> getThreats(CybersecurityPkg pkg) {
+    List<Threat> threats = new ArrayList<>();
+    if(pkg == null) {
+      return threats;
     }
-    return new ArrayList<>();
+    
+    for(CybersecurityPkg subPkg : pkg.getOwnedCybersecurityPkgs()) {
+      threats.addAll(getThreats(subPkg));
+    }
+    threats.addAll(pkg.getOwnedThreats());
+    return threats;
   }
   
   public Collection<PrimaryAsset> getAllCurrentLevelFunctionalPrimaryAssets(EObject element) {
     CybersecurityPkg pkg = getDefaultCyberSecurityPackage(element, false);
-    if (pkg != null) {
-      return pkg.getOwnedPrimaryAssets().stream().filter(pa -> (pa instanceof FunctionalPrimaryAsset)).collect(Collectors.toList());
-    }
-    return new ArrayList<>();
+    return getPrimaryAssets(pkg).stream().filter(FunctionalPrimaryAsset.class::isInstance).collect(Collectors.toList());
   }
   
   public Collection<PrimaryAsset> getAllCurrentLevelInformationPrimaryAssets(EObject element) {
     CybersecurityPkg pkg = getDefaultCyberSecurityPackage(element, false);
-    if (pkg != null) {
-      return pkg.getOwnedPrimaryAssets().stream().filter(pa -> (pa instanceof InformationPrimaryAsset)).collect(Collectors.toList());
-    }
-    return new ArrayList<>();
+    return getPrimaryAssets(pkg).stream().filter(InformationPrimaryAsset.class::isInstance).collect(Collectors.toList());
   }
   
   public Collection<PrimaryAsset> getAllCurrentLevelEnterprisePrimaryAssets(EObject element) {
     CybersecurityPkg pkg = getDefaultCyberSecurityPackage(element, false);
-    if (pkg != null) {
-      return pkg.getOwnedPrimaryAssets().stream().filter(pa -> (pa instanceof EnterprisePrimaryAsset)).collect(Collectors.toList());
+    return getPrimaryAssets(pkg).stream().filter(EnterprisePrimaryAsset.class::isInstance).collect(Collectors.toList());
+  }
+  
+  public Collection<PrimaryAsset> getPrimaryAssets(CybersecurityPkg pkg) {
+    List<PrimaryAsset> primaryAssets = new ArrayList<>();
+    if(pkg == null) {
+      return primaryAssets;
     }
-    return new ArrayList<>();
+    
+    for(CybersecurityPkg subPkg : pkg.getOwnedCybersecurityPkgs()) {
+      primaryAssets.addAll(getPrimaryAssets(subPkg));
+    }
+    primaryAssets.addAll(pkg.getOwnedPrimaryAssets());
+    return primaryAssets;
   }
 
   public Collection<PrimaryAsset> getRelatedAssets(EObject element) {
