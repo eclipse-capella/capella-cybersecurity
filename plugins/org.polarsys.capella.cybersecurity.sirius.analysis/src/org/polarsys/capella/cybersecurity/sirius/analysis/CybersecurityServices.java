@@ -108,6 +108,7 @@ import org.polarsys.capella.cybersecurity.model.SecurityNeeds;
 import org.polarsys.capella.cybersecurity.model.Threat;
 import org.polarsys.capella.cybersecurity.model.ThreatApplication;
 import org.polarsys.capella.cybersecurity.model.ThreatInvolvement;
+import org.polarsys.capella.cybersecurity.model.ThreatSourceUse;
 import org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage;
 import org.polarsys.capella.cybersecurity.model.impl.TrustBoundaryStorageImpl;
 import org.polarsys.kitalpha.emde.model.ExtensibleElement;
@@ -472,6 +473,13 @@ public class CybersecurityServices {
     ap.setThreat(threat);
     asset.getOwnedThreatApplications().add(ap);
     return ap;
+  }
+  
+  public ThreatSourceUse createThreaSourcetUse(Component threatSource, Component actor) {
+    ThreatSourceUse tu = CybersecurityFactory.eINSTANCE.createThreatSourceUse();
+    tu.setUsedActor(actor);
+    threatSource.getOwnedExtensions().add(tu);
+    return tu;
   }
 
   public String getTrustDecoration(ModelElement element) {

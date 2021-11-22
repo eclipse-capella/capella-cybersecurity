@@ -25,6 +25,7 @@ import org.polarsys.capella.cybersecurity.model.PrimaryAsset;
 import org.polarsys.capella.cybersecurity.model.PrimaryAssetMember;
 import org.polarsys.capella.cybersecurity.model.CybersecurityConfiguration;
 import org.polarsys.capella.cybersecurity.model.EnterprisePrimaryAsset;
+import org.polarsys.capella.cybersecurity.model.ThreatSourceUse;
 import org.polarsys.capella.cybersecurity.model.PrimaryAssetStorage;
 import org.polarsys.capella.cybersecurity.model.SecurityNeeds;
 import org.polarsys.capella.cybersecurity.model.Threat;
@@ -84,6 +85,9 @@ public class CybersecurityPackageHelper implements IHelper {
     }
     if (ret == null && object instanceof EnterprisePrimaryAsset) {
       ret = EnterprisePrimaryAssetHelper.getInstance().doSwitch((EnterprisePrimaryAsset) object, feature);
+    }
+    if (ret == null && object instanceof ThreatSourceUse) {
+      ret = ThreatSourceUseHelper.getInstance().doSwitch((ThreatSourceUse) object, feature);
     }
     return ret;
   }

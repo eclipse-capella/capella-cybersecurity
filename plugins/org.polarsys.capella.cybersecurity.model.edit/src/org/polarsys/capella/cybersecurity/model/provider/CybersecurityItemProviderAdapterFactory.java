@@ -396,6 +396,29 @@ public class CybersecurityItemProviderAdapterFactory extends CybersecurityAdapte
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link org.polarsys.capella.cybersecurity.model.ThreatSourceUse} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected ThreatSourceUseItemProvider threatSourceUseItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.polarsys.capella.cybersecurity.model.ThreatSourceUse}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createThreatSourceUseAdapter() {
+    if (threatSourceUseItemProvider == null) {
+      threatSourceUseItemProvider = new ThreatSourceUseItemProvider(this);
+    }
+
+    return threatSourceUseItemProvider;
+  }
+
+  /**
    * This returns the root adapter factory that contains this factory.
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
@@ -543,6 +566,8 @@ public class CybersecurityItemProviderAdapterFactory extends CybersecurityAdapte
       cybersecurityConfigurationItemProvider.dispose();
     if (enterprisePrimaryAssetItemProvider != null)
       enterprisePrimaryAssetItemProvider.dispose();
+    if (threatSourceUseItemProvider != null)
+      threatSourceUseItemProvider.dispose();
   }
 
   /**
@@ -678,6 +703,17 @@ public class CybersecurityItemProviderAdapterFactory extends CybersecurityAdapte
           CommandParameter commandParameter = createChildParameter(
               EmdePackage.Literals.EXTENSIBLE_ELEMENT__OWNED_EXTENSIONS,
               CybersecurityFactory.eINSTANCE.createCybersecurityConfiguration());
+          if (NewChildDescriptorHelper.isValidCommand(object, commandParameter)) {
+            newChildDescriptors.add(commandParameter);
+          }
+        }
+        // end-extension-code
+
+        // begin-extension-code
+        {
+          CommandParameter commandParameter = createChildParameter(
+              EmdePackage.Literals.EXTENSIBLE_ELEMENT__OWNED_EXTENSIONS,
+              CybersecurityFactory.eINSTANCE.createThreatSourceUse());
           if (NewChildDescriptorHelper.isValidCommand(object, commandParameter)) {
             newChildDescriptors.add(commandParameter);
           }

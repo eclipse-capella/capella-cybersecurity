@@ -214,6 +214,10 @@ The following tools are available:
 | [[Image:Images/ThreatApplication.gif]] 
 |  Create a new Threat Application between the selected Threat and Primary Asset.
 |-
+| Use	
+| [[Image:Images/ThreatUse.gif]] 
+|  Create a new Threat Source Use between the selected Threat Source Actor and Actor.
+|-
 | 	Threats 	
 | [[Image:Images/ShowHide.gif]] 
 |  Insert/Remove Threats. Create or delete graphical objects corresponding to already existing Threats. Removing a Threat graphical object from the diagram does not delete the Threat from the model. This tool does not modify the semantic model.

@@ -284,7 +284,6 @@ public class ThreatItemProvider extends AbstractCapabilityItemProvider implement
     updateChildren(notification);
 
     switch (notification.getFeatureID(Threat.class)) {
-    case CybersecurityPackage.THREAT__KIND:
     case CybersecurityPackage.THREAT__LEVEL:
     case CybersecurityPackage.THREAT__RATIONALE:
       fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
@@ -384,6 +383,17 @@ public class ThreatItemProvider extends AbstractCapabilityItemProvider implement
       CommandParameter commandParameter = createChildParameter(
           EmdePackage.Literals.EXTENSIBLE_ELEMENT__OWNED_EXTENSIONS,
           CybersecurityFactory.eINSTANCE.createCybersecurityConfiguration());
+      if (NewChildDescriptorHelper.isValidCommand(object, commandParameter)) {
+        newChildDescriptors.add(commandParameter);
+      }
+    }
+    // end-extension-code
+
+    // begin-extension-code
+    {
+      CommandParameter commandParameter = createChildParameter(
+          EmdePackage.Literals.EXTENSIBLE_ELEMENT__OWNED_EXTENSIONS,
+          CybersecurityFactory.eINSTANCE.createThreatSourceUse());
       if (NewChildDescriptorHelper.isValidCommand(object, commandParameter)) {
         newChildDescriptors.add(commandParameter);
       }
