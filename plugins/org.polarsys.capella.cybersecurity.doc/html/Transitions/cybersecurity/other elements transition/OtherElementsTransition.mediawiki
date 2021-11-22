@@ -36,7 +36,7 @@ Just like above, when transitioning Functions (or Operational Activities) the re
 
 == Scenario/Functional Transition ==
 
-As a ''Threat'' is similar to a Operational Capability/Capability/Capability Realization in Capella and the user can do Scenario/Functional transitions.
+As a ''Threat'' is similar to a Operational Capability/Capability/Capability Realization in Capella, the user can do Scenario/Functional transitions.
 
 [[Image:../../../Images/threat-is-sceanario-transition.png]]
 

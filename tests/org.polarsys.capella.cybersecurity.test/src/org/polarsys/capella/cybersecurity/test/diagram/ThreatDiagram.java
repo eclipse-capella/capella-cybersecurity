@@ -12,6 +12,7 @@
  *******************************************************************************/
 package org.polarsys.capella.cybersecurity.test.diagram;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElementContainer;
 import org.eclipse.sirius.diagram.DEdge;
@@ -21,6 +22,7 @@ import org.polarsys.capella.test.diagram.common.ju.context.DiagramContext;
 import org.polarsys.capella.test.diagram.common.ju.step.crud.CreateDiagramStep;
 import org.polarsys.capella.test.diagram.common.ju.step.tools.CreateContainerTool;
 import org.polarsys.capella.test.diagram.common.ju.step.tools.CreateNodeTool;
+import org.polarsys.capella.test.diagram.common.ju.step.tools.DragAndDropFromProjectExplorerTool;
 import org.polarsys.capella.test.framework.context.SessionContext;
 
 public class ThreatDiagram extends DiagramContext {
@@ -63,6 +65,30 @@ public class ThreatDiagram extends DiagramContext {
 
   public DEdge createThreatApplication(DNode threat, DNode asset) {
     return new CreateDEdgeTool(this, CybersecurityAnalysisConstants.TOOL_CREATE_THREATAPPLICATION, threat.getUid(), asset.getUid()).run(); 
+  }
+  
+  public void dndThreat(DiagramContext diagram, EObject threat) {
+    new DragAndDropFromProjectExplorerTool(diagram,
+        CybersecurityAnalysisConstants.TOOL_DND_THREAT, threat,
+        diagram.getDiagramId()).run();
+  }
+  
+  public void dndInformationPrimaryAsset(DiagramContext diagram, EObject pa) {
+    new DragAndDropFromProjectExplorerTool(diagram,
+        CybersecurityAnalysisConstants.TOOL_DND_INFORMATION_PRIMARY_ASSET, pa,
+        diagram.getDiagramId()).run();
+  }
+  
+  public void dndFunctionalPrimaryAsset(DiagramContext diagram, EObject pa) {
+    new DragAndDropFromProjectExplorerTool(diagram,
+        CybersecurityAnalysisConstants.TOOL_DND_FUNCTIONAL_PRIMARY_ASSET, pa,
+        diagram.getDiagramId()).run();
+  }
+  
+  public void dndEnterprisePrimaryAsset(DiagramContext diagram, EObject pa) {
+    new DragAndDropFromProjectExplorerTool(diagram,
+        CybersecurityAnalysisConstants.TOOL_DND_ENTERPRISE_PRIMARY_ASSET, pa,
+        diagram.getDiagramId()).run();
   }
 
   public static ThreatDiagram createDiagram(SessionContext executionContext, String targetIdentifier) {
