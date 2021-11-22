@@ -24,6 +24,7 @@ import org.polarsys.capella.cybersecurity.model.PrimaryAssetStorage;
 import org.polarsys.capella.cybersecurity.model.SecurityNeeds;
 import org.polarsys.capella.cybersecurity.model.ThreatApplication;
 import org.polarsys.capella.cybersecurity.model.ThreatInvolvement;
+import org.polarsys.capella.cybersecurity.model.ThreatSourceUse;
 import org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage;
 import org.polarsys.capella.cybersecurity.model.provider.CybersecurityItemProviderAdapterFactory;
 
@@ -47,6 +48,8 @@ public class CybersecurityItemProviderDecoratorAdapterFactory extends CustomDeco
       return new ThreatApplicationItemProviderDecorator(this);
     } else if (target instanceof ThreatInvolvement) {
       return new ThreatInvolvementItemProviderDecorator(this);
+    } else if (target instanceof ThreatSourceUse) {
+      return new ThreatUseItemProviderDecorator(this);
     } else if (target instanceof TrustBoundaryStorage) {
       return new TrustBoundaryStorageItemProviderDecorator(this);
     } else if (target instanceof FunctionalPrimaryAsset) {

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--Capella_Version_null-->
+<!--Capella_Version_5.2.0-->
 <org.polarsys.capella.core.data.capellamodeller:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cybersecurity="http://www.polarsys.org/capella/cybersecurity/1.0"
     xmlns:libraries="http://www.polarsys.org/capella/common/libraries/5.0.0" xmlns:org.polarsys.capella.core.data.capellacommon="http://www.polarsys.org/capella/core/common/5.0.0"
@@ -422,6 +422,10 @@
             name="Police Monitoring Center" abstractType="#e7242e28-bd54-4d21-be82-a1beb39587ba"/>
         <ownedParts xsi:type="org.polarsys.capella.core.data.cs:Part" id="9b893016-1a4d-4de2-8d08-a954c40215f2"
             name="Spy" abstractType="#2565fa3e-f41a-49e4-8f5a-65cfff671d7c"/>
+        <ownedParts xsi:type="org.polarsys.capella.core.data.cs:Part" id="f5a9ac55-eb37-4bb0-82e8-f6f9cba8c5b6"
+            name="Zombies" abstractType="#194518d6-bb94-4e74-bc49-1eb0aa4768a9"/>
+        <ownedParts xsi:type="org.polarsys.capella.core.data.cs:Part" id="8a1b8e3a-db98-44ec-88f1-d4a02720777a"
+            name="Antivirus Vulnerabilities" abstractType="#602e94f1-e0f3-4993-98c0-37cbe6ee2d1f"/>
         <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
             id="7b93b848-19c3-433d-b54a-2305db5d073c" name="Physical System">
           <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="4870846b-93a7-43d0-8e90-f06a9e077d68"
@@ -523,6 +527,22 @@
           <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
               id="8dcbdfc4-3e95-499c-908b-ac526080cd6b" targetElement="#bededbae-1764-46d8-b257-61d9dd84a15d"
               sourceElement="#2565fa3e-f41a-49e4-8f5a-65cfff671d7c"/>
+        </ownedPhysicalComponents>
+        <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
+            id="194518d6-bb94-4e74-bc49-1eb0aa4768a9" name="Zombies" actor="true"
+            nature="NODE">
+          <ownedExtensions xsi:type="cybersecurity:ThreatUse" id="47bc0ef2-6697-48dc-993f-4d03e30b31d9"
+              threatSource="#602e94f1-e0f3-4993-98c0-37cbe6ee2d1f"/>
+        </ownedPhysicalComponents>
+        <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
+            id="602e94f1-e0f3-4993-98c0-37cbe6ee2d1f" name="Antivirus Vulnerabilities"
+            actor="true" nature="NODE">
+          <ownedExtensions xsi:type="cybersecurity:ThreatInvolvement" id="575176ab-6fd5-44c3-bb67-e8113fde761e"
+              threat="#5e46349d-3f44-4f93-aca7-eaf3b5c4665d"/>
+          <ownedExtensions xsi:type="cybersecurity:TrustBoundaryStorage" id="4c4484d5-980e-4338-bba3-d0b7f2f68515"
+              threatSource="true" trusted="false"/>
+          <ownedExtensions xsi:type="cybersecurity:ThreatSourceUse" id="c4cdd9bd-c4a2-4796-a2d7-fd04b75c32db"
+              usedActor="#194518d6-bb94-4e74-bc49-1eb0aa4768a9"/>
         </ownedPhysicalComponents>
       </ownedPhysicalComponentPkg>
       <ownedLogicalArchitectureRealizations xsi:type="org.polarsys.capella.core.data.pa:LogicalArchitectureRealization"

@@ -48,6 +48,7 @@ import org.polarsys.capella.cybersecurity.model.SecurityNeeds;
 import org.polarsys.capella.cybersecurity.model.Threat;
 import org.polarsys.capella.cybersecurity.model.ThreatApplication;
 import org.polarsys.capella.cybersecurity.model.ThreatInvolvement;
+import org.polarsys.capella.cybersecurity.model.ThreatSourceUse;
 import org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage;
 import org.polarsys.kitalpha.emde.model.EmdePackage;
 
@@ -139,6 +140,13 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
    * @generated
    */
   private EClass enterprisePrimaryAssetEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass threatSourceUseEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with {@link org.eclipse.emf.ecore.EPackage.Registry
@@ -699,6 +707,36 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
   }
 
   /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getThreatSourceUse() {
+    return threatSourceUseEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getThreatSourceUse_ThreatSource() {
+    return (EReference) threatSourceUseEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getThreatSourceUse_UsedActor() {
+    return (EReference) threatSourceUseEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
@@ -791,6 +829,10 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
 
     enterprisePrimaryAssetEClass = createEClass(ENTERPRISE_PRIMARY_ASSET);
     createEReference(enterprisePrimaryAssetEClass, ENTERPRISE_PRIMARY_ASSET__PRIMARY_ASSETS);
+
+    threatSourceUseEClass = createEClass(THREAT_SOURCE_USE);
+    createEReference(threatSourceUseEClass, THREAT_SOURCE_USE__THREAT_SOURCE);
+    createEReference(threatSourceUseEClass, THREAT_SOURCE_USE__USED_ACTOR);
   }
 
   /**
@@ -855,6 +897,8 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
     cybersecurityConfigurationEClass.getESuperTypes().add(theCapellacorePackage.getNamedElement());
     cybersecurityConfigurationEClass.getESuperTypes().add(theEmdePackage.getElementExtension());
     enterprisePrimaryAssetEClass.getESuperTypes().add(this.getPrimaryAsset());
+    threatSourceUseEClass.getESuperTypes().add(theCapellacorePackage.getRelationship());
+    threatSourceUseEClass.getESuperTypes().add(theEmdePackage.getElementExtension());
 
     // Initialize classes and features; add operations and parameters
     initEClass(cybersecurityPkgEClass, CybersecurityPkg.class, "CybersecurityPkg", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
@@ -1013,6 +1057,15 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
         -1, EnterprisePrimaryAsset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
         !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(threatSourceUseEClass, ThreatSourceUse.class, "ThreatSourceUse", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
+        IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getThreatSourceUse_ThreatSource(), theCsPackage.getComponent(), null, "threatSource", null, 0, 1, //$NON-NLS-1$
+        ThreatSourceUse.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+        !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+    initEReference(getThreatSourceUse_UsedActor(), theCsPackage.getComponent(), null, "usedActor", null, 0, 1, //$NON-NLS-1$
+        ThreatSourceUse.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+        !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     // Create resource
     createResource(eNS_URI);
 
@@ -1060,6 +1113,9 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
     addAnnotation(cybersecurityConfigurationEClass, source,
         new String[] { "ExtendedElement", "http://www.polarsys.org/capella/core/modeller/5.0.0#//Project" //$NON-NLS-1$ //$NON-NLS-2$
         });
+    addAnnotation(threatSourceUseEClass, source,
+        new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/cs/5.0.0#//Component" //$NON-NLS-1$ //$NON-NLS-2$
+        });
   }
 
   /**
@@ -1090,6 +1146,9 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
     });
     addAnnotation(cybersecurityConfigurationEClass, source, new String[] { "Mapping", //$NON-NLS-1$
         " platform:/plugin/org.polarsys.capella.core.data.gen/model/CompositeStructure.ecore#//BlockArchitecture" //$NON-NLS-1$
+    });
+    addAnnotation(threatSourceUseEClass, source, new String[] { "Mapping", //$NON-NLS-1$
+        " platform:/plugin/org.polarsys.capella.core.data.gen/model/CompositeStructure.ecore#//AbstractActor" //$NON-NLS-1$
     });
   }
 

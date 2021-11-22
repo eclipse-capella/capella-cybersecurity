@@ -97,6 +97,18 @@
                </defaultMappingPossibility>
             </mappingElement>
             <mappingElement
+                  domainMetaClass="org.polarsys.capella.cybersecurity.model.ThreatSourceUse"
+                  reuseExtendedElementDefaultPossibility="true"
+                  reuseExtendedElementPossibilities="true">
+               <defaultMappingPossibility
+                     context="org.polarsys.capella.core.transition.common.context.TransitionContext"
+                     enabled="true"
+                     completeRule="org.polarsys.capella.cybersecurity.transition.rules.ThreatUseRule"
+                     incompleteRule="org.polarsys.capella.cybersecurity.transition.rules.ThreatUseRule"
+                     name="ThreatUse">
+               </defaultMappingPossibility>
+            </mappingElement>
+            <mappingElement
                   domainMetaClass="org.polarsys.capella.cybersecurity.model.ThreatApplication"
                   reuseExtendedElementDefaultPossibility="true"
                   reuseExtendedElementPossibilities="true">

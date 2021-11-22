@@ -449,6 +449,31 @@ public class CybersecuritySwitch<T> extends Switch<T> {
         result = defaultCase(theEObject);
       return result;
     }
+    case CybersecurityPackage.THREAT_SOURCE_USE: {
+      ThreatSourceUse threatSourceUse = (ThreatSourceUse) theEObject;
+      T result = caseThreatSourceUse(threatSourceUse);
+      if (result == null)
+        result = caseRelationship(threatSourceUse);
+      if (result == null)
+        result = caseElementExtension(threatSourceUse);
+      if (result == null)
+        result = caseAbstractRelationship(threatSourceUse);
+      if (result == null)
+        result = caseCapellaElement(threatSourceUse);
+      if (result == null)
+        result = caseTraceableElement(threatSourceUse);
+      if (result == null)
+        result = casePublishableElement(threatSourceUse);
+      if (result == null)
+        result = caseModelElement(threatSourceUse);
+      if (result == null)
+        result = caseExtensibleElement(threatSourceUse);
+      if (result == null)
+        result = caseElement(threatSourceUse);
+      if (result == null)
+        result = defaultCase(theEObject);
+      return result;
+    }
     default:
       return defaultCase(theEObject);
     }
@@ -645,6 +670,21 @@ public class CybersecuritySwitch<T> extends Switch<T> {
    * @generated
    */
   public T caseEnterprisePrimaryAsset(EnterprisePrimaryAsset object) {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Threat Source Use</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Threat Source Use</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseThreatSourceUse(ThreatSourceUse object) {
     return null;
   }
 

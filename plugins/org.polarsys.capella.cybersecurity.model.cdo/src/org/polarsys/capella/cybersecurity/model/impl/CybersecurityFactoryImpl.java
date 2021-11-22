@@ -99,6 +99,8 @@ public class CybersecurityFactoryImpl extends EFactoryImpl implements Cybersecur
       return createCybersecurityConfiguration();
     case CybersecurityPackage.ENTERPRISE_PRIMARY_ASSET:
       return createEnterprisePrimaryAsset();
+    case CybersecurityPackage.THREAT_SOURCE_USE:
+      return createThreatSourceUse();
     default:
       throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
     }
@@ -271,6 +273,20 @@ public class CybersecurityFactoryImpl extends EFactoryImpl implements Cybersecur
     enterprisePrimaryAsset.setId(IdGenerator.createId());
     //end-capella-code
     return enterprisePrimaryAsset;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ThreatSourceUse createThreatSourceUse() {
+    ThreatSourceUseImpl threatSourceUse = new ThreatSourceUseImpl();
+    //begin-capella-code
+    threatSourceUse.setId(IdGenerator.createId());
+    //end-capella-code
+    return threatSourceUse;
   }
 
   /**

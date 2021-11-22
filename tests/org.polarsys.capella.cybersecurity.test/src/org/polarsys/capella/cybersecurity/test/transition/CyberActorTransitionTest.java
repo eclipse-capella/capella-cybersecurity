@@ -13,11 +13,13 @@ package org.polarsys.capella.cybersecurity.test.transition;
 import org.polarsys.capella.core.data.ctx.SystemComponent;
 import org.polarsys.capella.core.data.la.LogicalComponent;
 import org.polarsys.capella.core.data.oa.Entity;
+import org.polarsys.capella.core.data.oa.OaFactory;
 import org.polarsys.capella.core.data.pa.PhysicalComponent;
 import org.polarsys.capella.core.model.helpers.BlockArchitectureExt;
 import org.polarsys.capella.cybersecurity.model.CybersecurityFactory;
 import org.polarsys.capella.cybersecurity.model.Threat;
 import org.polarsys.capella.cybersecurity.model.ThreatInvolvement;
+import org.polarsys.capella.cybersecurity.model.ThreatSourceUse;
 import org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage;
 
 /*
@@ -28,14 +30,18 @@ public class CyberActorTransitionTest extends CyberTopDownTransitionTestCase {
 
   Threat threat;
   ThreatInvolvement threatInvolvement;
+  ThreatSourceUse threatUse;
   TrustBoundaryStorage trustBoundaryStorage;
+  Entity usedActor;
   Entity operationalActor;
 
   @Override
   protected void init() {
     super.init();
     threat = CybersecurityFactory.eINSTANCE.createThreat();
+    usedActor = OaFactory.eINSTANCE.createEntity();
     threatInvolvement = CybersecurityFactory.eINSTANCE.createThreatInvolvement();
+    threatUse = CybersecurityFactory.eINSTANCE.createThreatSourceUse();
     trustBoundaryStorage = CybersecurityFactory.eINSTANCE.createTrustBoundaryStorage();
     operationalActor = ((Entity) getObject(OPERATIONAL_ENTITY)).getSubEntities().get(0);
 
@@ -43,7 +49,9 @@ public class CyberActorTransitionTest extends CyberTopDownTransitionTestCase {
     trustBoundaryStorage.setThreatSourceProfile(3);
     // set the threat to the threat involvement and add it and the trust boundary as extensions to the actor
     threatInvolvement.setThreat(threat);
+    threatUse.setUsedActor(usedActor);
     operationalActor.getOwnedExtensions().add(threatInvolvement);
+    operationalActor.getOwnedExtensions().add(threatUse);
     operationalActor.getOwnedExtensions().add(trustBoundaryStorage);
 
     // add the threat on the operational level
@@ -60,6 +68,7 @@ public class CyberActorTransitionTest extends CyberTopDownTransitionTestCase {
     Threat systemThreat = (Threat) mustBeTransitionedDirecltyContainedBy(threat.getId(), saPkg);
     ThreatInvolvement systemThreatInv = (ThreatInvolvement) mustBeTransitionedDirecltyContainedBy(
         threatInvolvement.getId(), systemActor);
+    ThreatSourceUse systemThreatUse = (ThreatSourceUse) mustBeTransitionedDirecltyContainedBy(threatUse.getId(), systemActor);
     TrustBoundaryStorage transitionedTrustBoundStorage = (TrustBoundaryStorage) mustBeTransitionedDirecltyContainedBy(
         trustBoundaryStorage.getId(), systemActor);
     checkTrustBoundaryStorageProperlyTransitioned(transitionedTrustBoundStorage);
@@ -70,6 +79,7 @@ public class CyberActorTransitionTest extends CyberTopDownTransitionTestCase {
     Threat logicalThreat = (Threat) mustBeTransitionedDirecltyContainedBy(systemThreat.getId(), laPkg);
     ThreatInvolvement logicalThreatInv = (ThreatInvolvement) mustBeTransitionedDirecltyContainedBy(
         systemThreatInv.getId(), logicalActor);
+    ThreatSourceUse logicalThreatUse = (ThreatSourceUse) mustBeTransitionedDirecltyContainedBy(systemThreatUse.getId(), logicalActor);
     transitionedTrustBoundStorage = (TrustBoundaryStorage) mustBeTransitionedDirecltyContainedBy(
         transitionedTrustBoundStorage.getId(),
         logicalActor);
@@ -80,6 +90,7 @@ public class CyberActorTransitionTest extends CyberTopDownTransitionTestCase {
         BlockArchitectureExt.getComponentPkg(paArch, false));
     mustBeTransitionedDirecltyContainedBy(logicalThreat.getId(), paPkg);
     mustBeTransitionedDirecltyContainedBy(logicalThreatInv.getId(), physicalActor);
+    mustBeTransitionedDirecltyContainedBy(logicalThreatUse.getId(), physicalActor);
     mustBeTransitionedDirecltyContainedBy(transitionedTrustBoundStorage.getId(), physicalActor);
     checkTrustBoundaryStorageProperlyTransitioned(transitionedTrustBoundStorage);
   }
