@@ -134,6 +134,15 @@ public interface CybersecurityFactory extends EFactory {
   EnterprisePrimaryAsset createEnterprisePrimaryAsset();
 
   /**
+   * Returns a new object of class '<em>Threat Source Use</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Threat Source Use</em>'.
+   * @generated
+   */
+  ThreatSourceUse createThreatSourceUse();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @return the package supported by this factory.

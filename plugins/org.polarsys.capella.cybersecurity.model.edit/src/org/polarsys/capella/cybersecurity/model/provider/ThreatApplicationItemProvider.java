@@ -316,6 +316,17 @@ public class ThreatApplicationItemProvider extends RelationshipItemProvider impl
     }
     // end-extension-code
 
+    // begin-extension-code
+    {
+      CommandParameter commandParameter = createChildParameter(
+          EmdePackage.Literals.EXTENSIBLE_ELEMENT__OWNED_EXTENSIONS,
+          CybersecurityFactory.eINSTANCE.createThreatSourceUse());
+      if (NewChildDescriptorHelper.isValidCommand(object, commandParameter)) {
+        newChildDescriptors.add(commandParameter);
+      }
+    }
+    // end-extension-code
+
   }
 
 }

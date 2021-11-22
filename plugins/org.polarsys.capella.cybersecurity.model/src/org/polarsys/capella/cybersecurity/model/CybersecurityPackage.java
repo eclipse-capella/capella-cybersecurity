@@ -3651,6 +3651,241 @@ public interface CybersecurityPackage extends EPackage {
   int ENTERPRISE_PRIMARY_ASSET_FEATURE_COUNT = PRIMARY_ASSET_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link org.polarsys.capella.cybersecurity.model.impl.ThreatSourceUseImpl <em>Threat Source Use</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.polarsys.capella.cybersecurity.model.impl.ThreatSourceUseImpl
+   * @see org.polarsys.capella.cybersecurity.model.impl.CybersecurityPackageImpl#getThreatSourceUse()
+   * @generated
+   */
+  int THREAT_SOURCE_USE = 14;
+
+  /**
+   * The feature id for the '<em><b>Owned Extensions</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT_SOURCE_USE__OWNED_EXTENSIONS = CapellacorePackage.RELATIONSHIP__OWNED_EXTENSIONS;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT_SOURCE_USE__ID = CapellacorePackage.RELATIONSHIP__ID;
+
+  /**
+   * The feature id for the '<em><b>Sid</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT_SOURCE_USE__SID = CapellacorePackage.RELATIONSHIP__SID;
+
+  /**
+   * The feature id for the '<em><b>Constraints</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT_SOURCE_USE__CONSTRAINTS = CapellacorePackage.RELATIONSHIP__CONSTRAINTS;
+
+  /**
+   * The feature id for the '<em><b>Owned Constraints</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT_SOURCE_USE__OWNED_CONSTRAINTS = CapellacorePackage.RELATIONSHIP__OWNED_CONSTRAINTS;
+
+  /**
+   * The feature id for the '<em><b>Owned Migrated Elements</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT_SOURCE_USE__OWNED_MIGRATED_ELEMENTS = CapellacorePackage.RELATIONSHIP__OWNED_MIGRATED_ELEMENTS;
+
+  /**
+   * The feature id for the '<em><b>Realized Flow</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT_SOURCE_USE__REALIZED_FLOW = CapellacorePackage.RELATIONSHIP__REALIZED_FLOW;
+
+  /**
+   * The feature id for the '<em><b>Incoming Traces</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT_SOURCE_USE__INCOMING_TRACES = CapellacorePackage.RELATIONSHIP__INCOMING_TRACES;
+
+  /**
+   * The feature id for the '<em><b>Outgoing Traces</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT_SOURCE_USE__OUTGOING_TRACES = CapellacorePackage.RELATIONSHIP__OUTGOING_TRACES;
+
+  /**
+   * The feature id for the '<em><b>Visible In Doc</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT_SOURCE_USE__VISIBLE_IN_DOC = CapellacorePackage.RELATIONSHIP__VISIBLE_IN_DOC;
+
+  /**
+   * The feature id for the '<em><b>Visible In LM</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT_SOURCE_USE__VISIBLE_IN_LM = CapellacorePackage.RELATIONSHIP__VISIBLE_IN_LM;
+
+  /**
+   * The feature id for the '<em><b>Summary</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT_SOURCE_USE__SUMMARY = CapellacorePackage.RELATIONSHIP__SUMMARY;
+
+  /**
+   * The feature id for the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT_SOURCE_USE__DESCRIPTION = CapellacorePackage.RELATIONSHIP__DESCRIPTION;
+
+  /**
+   * The feature id for the '<em><b>Review</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT_SOURCE_USE__REVIEW = CapellacorePackage.RELATIONSHIP__REVIEW;
+
+  /**
+   * The feature id for the '<em><b>Owned Property Values</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT_SOURCE_USE__OWNED_PROPERTY_VALUES = CapellacorePackage.RELATIONSHIP__OWNED_PROPERTY_VALUES;
+
+  /**
+   * The feature id for the '<em><b>Owned Enumeration Property Types</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT_SOURCE_USE__OWNED_ENUMERATION_PROPERTY_TYPES = CapellacorePackage.RELATIONSHIP__OWNED_ENUMERATION_PROPERTY_TYPES;
+
+  /**
+   * The feature id for the '<em><b>Applied Property Values</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT_SOURCE_USE__APPLIED_PROPERTY_VALUES = CapellacorePackage.RELATIONSHIP__APPLIED_PROPERTY_VALUES;
+
+  /**
+   * The feature id for the '<em><b>Owned Property Value Groups</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT_SOURCE_USE__OWNED_PROPERTY_VALUE_GROUPS = CapellacorePackage.RELATIONSHIP__OWNED_PROPERTY_VALUE_GROUPS;
+
+  /**
+   * The feature id for the '<em><b>Applied Property Value Groups</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT_SOURCE_USE__APPLIED_PROPERTY_VALUE_GROUPS = CapellacorePackage.RELATIONSHIP__APPLIED_PROPERTY_VALUE_GROUPS;
+
+  /**
+   * The feature id for the '<em><b>Status</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT_SOURCE_USE__STATUS = CapellacorePackage.RELATIONSHIP__STATUS;
+
+  /**
+   * The feature id for the '<em><b>Features</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT_SOURCE_USE__FEATURES = CapellacorePackage.RELATIONSHIP__FEATURES;
+
+  /**
+   * The feature id for the '<em><b>Applied Requirements</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT_SOURCE_USE__APPLIED_REQUIREMENTS = CapellacorePackage.RELATIONSHIP__APPLIED_REQUIREMENTS;
+
+  /**
+   * The feature id for the '<em><b>Threat Source</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT_SOURCE_USE__THREAT_SOURCE = CapellacorePackage.RELATIONSHIP_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Used Actor</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT_SOURCE_USE__USED_ACTOR = CapellacorePackage.RELATIONSHIP_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Threat Source Use</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT_SOURCE_USE_FEATURE_COUNT = CapellacorePackage.RELATIONSHIP_FEATURE_COUNT + 2;
+
+  /**
    * Returns the meta object for class '{@link org.polarsys.capella.cybersecurity.model.CybersecurityPkg <em>Pkg</em>}'.
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @return the meta object for class '<em>Pkg</em>'.
@@ -4204,6 +4439,38 @@ public interface CybersecurityPackage extends EPackage {
   EReference getEnterprisePrimaryAsset_PrimaryAssets();
 
   /**
+   * Returns the meta object for class '{@link org.polarsys.capella.cybersecurity.model.ThreatSourceUse <em>Threat Source Use</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Threat Source Use</em>'.
+   * @see org.polarsys.capella.cybersecurity.model.ThreatSourceUse
+   * @generated
+   */
+  EClass getThreatSourceUse();
+
+  /**
+   * Returns the meta object for the reference '{@link org.polarsys.capella.cybersecurity.model.ThreatSourceUse#getThreatSource <em>Threat Source</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Threat Source</em>'.
+   * @see org.polarsys.capella.cybersecurity.model.ThreatSourceUse#getThreatSource()
+   * @see #getThreatSourceUse()
+   * @generated
+   */
+  EReference getThreatSourceUse_ThreatSource();
+
+  /**
+   * Returns the meta object for the reference '{@link org.polarsys.capella.cybersecurity.model.ThreatSourceUse#getUsedActor <em>Used Actor</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Used Actor</em>'.
+   * @see org.polarsys.capella.cybersecurity.model.ThreatSourceUse#getUsedActor()
+   * @see #getThreatSourceUse()
+   * @generated
+   */
+  EReference getThreatSourceUse_UsedActor();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @return the factory that creates the instances of the model.
@@ -4658,6 +4925,32 @@ public interface CybersecurityPackage extends EPackage {
      * @generated
      */
     EReference ENTERPRISE_PRIMARY_ASSET__PRIMARY_ASSETS = eINSTANCE.getEnterprisePrimaryAsset_PrimaryAssets();
+
+    /**
+     * The meta object literal for the '{@link org.polarsys.capella.cybersecurity.model.impl.ThreatSourceUseImpl <em>Threat Source Use</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.polarsys.capella.cybersecurity.model.impl.ThreatSourceUseImpl
+     * @see org.polarsys.capella.cybersecurity.model.impl.CybersecurityPackageImpl#getThreatSourceUse()
+     * @generated
+     */
+    EClass THREAT_SOURCE_USE = eINSTANCE.getThreatSourceUse();
+
+    /**
+     * The meta object literal for the '<em><b>Threat Source</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference THREAT_SOURCE_USE__THREAT_SOURCE = eINSTANCE.getThreatSourceUse_ThreatSource();
+
+    /**
+     * The meta object literal for the '<em><b>Used Actor</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference THREAT_SOURCE_USE__USED_ACTOR = eINSTANCE.getThreatSourceUse_UsedActor();
 
   }
 
