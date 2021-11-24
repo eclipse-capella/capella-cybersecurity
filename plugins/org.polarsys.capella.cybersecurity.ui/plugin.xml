@@ -85,17 +85,24 @@
            tab="CybersecuritySiriusDiagram">
      </propertySection>
      <propertySection
-           class="org.polarsys.capella.cybersecurity.ui.properties.sections.EnterprisePrimaryAssetSection"
-           filter="org.polarsys.capella.cybersecurity.ui.properties.sections.EnterprisePrimaryAssetSection"
-           id="org.polarsys.capella.cybersecurity.ui.properties.sections.EnterprisePrimaryAssetSection.diagram"
-           tab="CybersecuritySiriusDiagram">
-     </propertySection>
-     <propertySection
            class="org.polarsys.capella.cybersecurity.ui.properties.sections.FunctionalPrimaryAssetSection"
            filter="org.polarsys.capella.cybersecurity.ui.properties.sections.FunctionalPrimaryAssetSection"
            id="org.polarsys.capella.cybersecurity.ui.properties.sections.FunctionalPrimaryAssetSection.diagram"
            tab="CybersecuritySiriusDiagram">
      </propertySection>
+     <propertySection
+           class="org.polarsys.capella.cybersecurity.ui.properties.sections.OperationalEnterprisePrimaryAssetSection"
+           filter="org.polarsys.capella.cybersecurity.ui.properties.sections.OperationalEnterprisePrimaryAssetSection"
+           id="org.polarsys.capella.cybersecurity.ui.properties.sections.OperationalEnterprisePrimaryAssetSection.diagram"
+           tab="CybersecuritySiriusDiagram">
+     </propertySection>
+     <propertySection
+           class="org.polarsys.capella.cybersecurity.ui.properties.sections.EnterprisePrimaryAssetSection"
+           filter="org.polarsys.capella.cybersecurity.ui.properties.sections.EnterprisePrimaryAssetSection"
+           id="org.polarsys.capella.cybersecurity.ui.properties.sections.EnterprisePrimaryAssetSection.diagram"
+           tab="CybersecuritySiriusDiagram">
+     </propertySection>
+     
      <propertySection
            class="org.polarsys.capella.cybersecurity.ui.properties.sections.OperationalThreatSection"
            filter="org.polarsys.capella.cybersecurity.ui.properties.sections.OperationalThreatSection"
@@ -179,6 +186,12 @@
            class="org.polarsys.capella.cybersecurity.ui.properties.sections.InformationPrimaryAssetSection"
            filter="org.polarsys.capella.cybersecurity.ui.properties.sections.InformationPrimaryAssetSection"
            id="org.polarsys.capella.cybersecurity.ui.properties.sections.InformationPrimaryAssetSection.capella"
+           tab="CybersecurityCapella">
+     </propertySection>
+     <propertySection
+           class="org.polarsys.capella.cybersecurity.ui.properties.sections.OperationalEnterprisePrimaryAssetSection"
+           filter="org.polarsys.capella.cybersecurity.ui.properties.sections.OperationalEnterprisePrimaryAssetSection"
+           id="org.polarsys.capella.cybersecurity.ui.properties.sections.OperationalEnterprisePrimaryAssetSection.capella"
            tab="CybersecurityCapella">
      </propertySection>
      <propertySection
