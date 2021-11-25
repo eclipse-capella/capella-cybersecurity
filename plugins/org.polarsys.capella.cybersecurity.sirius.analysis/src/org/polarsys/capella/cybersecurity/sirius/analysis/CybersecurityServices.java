@@ -99,6 +99,7 @@ import org.polarsys.capella.cybersecurity.model.CybersecurityFactory;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPkg;
 import org.polarsys.capella.cybersecurity.model.CybersecurityQueries;
+import org.polarsys.capella.cybersecurity.model.EnterprisePrimaryAsset;
 import org.polarsys.capella.cybersecurity.model.FunctionStorage;
 import org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset;
 import org.polarsys.capella.cybersecurity.model.InformationPrimaryAsset;
@@ -409,6 +410,19 @@ public class CybersecurityServices {
 
     return asset;
   }
+  
+  public EnterprisePrimaryAsset createEnterprisePrimaryAsset(EObject any) {
+    EnterprisePrimaryAsset asset = (EnterprisePrimaryAsset) attachToDefaultCybersecurityPkg(any,
+        CybersecurityFactory.eINSTANCE.createEnterprisePrimaryAsset());
+
+    if (asset != null) {
+      String elementPrefix = prefixService.getPrefix(asset);
+      String uniqueName = CapellaServices.getService().getUniqueName(asset, elementPrefix);
+      asset.setName(uniqueName);
+    }
+
+    return asset;
+  }
 
   private EObject attachToDefaultCybersecurityPkg(EObject context, EObject cyberObject) {
     CybersecurityPkg pkg = getDefaultCyberSecurityPackage(context, true);
@@ -624,6 +638,14 @@ public class CybersecurityServices {
     CybersecurityPkg pkg = getDefaultCyberSecurityPackage(element, false);
     if (pkg != null) {
       return pkg.getOwnedPrimaryAssets().stream().filter(pa -> (pa instanceof InformationPrimaryAsset)).collect(Collectors.toList());
+    }
+    return new ArrayList<>();
+  }
+  
+  public Collection<PrimaryAsset> getAllCurrentLevelEnterprisePrimaryAssets(EObject element) {
+    CybersecurityPkg pkg = getDefaultCyberSecurityPackage(element, false);
+    if (pkg != null) {
+      return pkg.getOwnedPrimaryAssets().stream().filter(pa -> (pa instanceof EnterprisePrimaryAsset)).collect(Collectors.toList());
     }
     return new ArrayList<>();
   }
