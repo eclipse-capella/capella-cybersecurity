@@ -30,6 +30,7 @@ public final class CybersecurityAnalysisConstants {
   public static final String TOOL_CREATE_THREAT = "ToolCreateThreat"; //$NON-NLS-1$
   public static final String TOOL_CREATE_FUNCTIONAL_PRIMARY_ASSET = "ToolCreateFunctionalPrimaryAsset"; //$NON-NLS-1$
   public static final String TOOL_CREATE_INFORMATION_PRIMARY_ASSET = "ToolCreateInformationPrimaryAsset"; //$NON-NLS-1$
+  public static final String TOOL_CREATE_ENTERPRISE_PRIMARY_ASSET = "ToolCreateEnterprisePrimaryAsset"; //$NON-NLS-1$
   public static final String TOOL_CREATE_OPERATIONAL_ENTITY = "operational.entity"; //$NON-NLS-1$
   public static final String TOOL_CREATE_OPERATIONAL_ACTOR = "ToolCreateOperationalActor"; //$NON-NLS-1$
   public static final String TOOL_CREATE_ACTOR = "ToolCreateActor"; //$NON-NLS-1$
