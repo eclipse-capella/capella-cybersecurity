@@ -19,6 +19,7 @@ import org.polarsys.capella.cybersecurity.test.diagram.CyberOABDiagramTest;
 import org.polarsys.capella.cybersecurity.test.diagram.CyberPABDiagramTest;
 import org.polarsys.capella.cybersecurity.test.diagram.CyberSABDiagramTest;
 import org.polarsys.capella.cybersecurity.test.diagram.ThreatDiagramTest;
+import org.polarsys.capella.cybersecurity.test.move.CybersecurityMoveTestSuite;
 import org.polarsys.capella.cybersecurity.test.odesign.CyberODesignTestSuite;
 import org.polarsys.capella.cybersecurity.test.properties.CybersecurityPropertiesTestSuite;
 import org.polarsys.capella.cybersecurity.test.queries.AbstractCapabilitiesRealizedTest;
@@ -75,6 +76,9 @@ public class CybersecurityTestSuite extends TestSuite {
     addTest(new CyberODesignTestSuite());
     
     addTest(new CybersecurityPropertiesTestSuite());
+    
+    // todo - in Capella 6.0, uncomment
+    // addTest(new CybersecurityMoveTestSuite());
   }
 
   public static Test suite() {
