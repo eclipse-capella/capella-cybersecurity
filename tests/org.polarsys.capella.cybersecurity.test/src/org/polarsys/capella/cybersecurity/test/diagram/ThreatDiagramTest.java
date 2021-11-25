@@ -16,15 +16,23 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.common.tools.api.resource.ImageFileFormat;
-import org.eclipse.sirius.diagram.DDiagramElementContainer;
 import org.eclipse.sirius.diagram.DNode;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.business.api.dialect.ExportFormat;
 import org.eclipse.sirius.ui.business.api.dialect.ExportFormat.ExportDocumentFormat;
+import org.polarsys.capella.core.data.cs.BlockArchitecture;
 import org.polarsys.capella.core.data.oa.Entity;
+import org.polarsys.capella.core.model.helpers.BlockArchitectureExt;
+import org.polarsys.capella.cybersecurity.model.CybersecurityPkg;
+import org.polarsys.capella.cybersecurity.model.EnterprisePrimaryAsset;
+import org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset;
+import org.polarsys.capella.cybersecurity.model.InformationPrimaryAsset;
+import org.polarsys.capella.cybersecurity.model.PrimaryAsset;
 import org.polarsys.capella.cybersecurity.sirius.analysis.CybersecurityAnalysisConstants;
+import org.polarsys.capella.cybersecurity.sirius.analysis.CybersecurityServices;
 import org.polarsys.capella.test.diagram.tools.ju.model.EmptyProject;
 import org.polarsys.capella.test.framework.context.SessionContext;
 import org.polarsys.kitalpha.ad.services.manager.ViewpointManager;
@@ -60,19 +68,38 @@ public class ThreatDiagramTest extends EmptyProject {
     ThreatDiagram td = ThreatDiagram.createDiagram(context, containerId);
     DNode threat = td.createThreat();
 
-    DNode ipa = td.createFunctionalPrimaryAsset();
-    DNode fpa = td.createInformationPrimaryAsset();
+    DNode fpa = td.createFunctionalPrimaryAsset();
+    DNode ipa = td.createInformationPrimaryAsset();
+    DNode epa = td.createEnterprisePrimaryAsset();
     
     DNode actor = td.createActor();
 
     td.createThreatApplication(threat, ipa);
     td.createThreatApplication(threat, fpa);
+    td.createThreatApplication(threat, epa);
     td.createThreatInvolvement(threat, actor);
 
     ExportFormat format = new ExportFormat(ExportDocumentFormat.NONE, ImageFileFormat.PNG);
     IPath dest = ResourcesPlugin.getWorkspace().getRoot().getLocation().append(new Path("/" + getRequiredTestModel() + "/diagram.png")); //$NON-NLS-1$ //$NON-NLS-2$
     DialectUIManager.INSTANCE.export(td.getDiagram(), session, dest, format, new NullProgressMonitor());
-  }
+    BlockArchitecture architecture = BlockArchitectureExt.getRootBlockArchitecture(context.getSemanticElement(containerId));
+    CybersecurityPkg cyberPkg = new CybersecurityServices().getDefaultCyberSecurityPackage(architecture, false);
+    assertNotNull(cyberPkg);
+    
+    EList<PrimaryAsset> primaryAssets = cyberPkg.getOwnedPrimaryAssets();
+    
+    InformationPrimaryAsset infPA = (InformationPrimaryAsset) ipa.getTarget();
+    FunctionalPrimaryAsset funcPA = (FunctionalPrimaryAsset) fpa.getTarget();
+    EnterprisePrimaryAsset entPA = (EnterprisePrimaryAsset) epa.getTarget();
+    
+    assertTrue(primaryAssets.contains(infPA));
+    assertTrue(primaryAssets.contains(funcPA));
+    assertTrue(primaryAssets.contains(entPA));
+    
+    assertTrue(!infPA.getOwnedThreatApplications().isEmpty());
+    assertTrue(!funcPA.getOwnedThreatApplications().isEmpty());
+    assertTrue(!entPA.getOwnedThreatApplications().isEmpty());
+  }  
   
   protected void testOnOA(String containerId) throws Exception {
     ThreatDiagram td = ThreatDiagram.createDiagram(context, containerId);
@@ -80,11 +107,13 @@ public class ThreatDiagramTest extends EmptyProject {
 
     DNode ipa = td.createFunctionalPrimaryAsset();
     DNode fpa = td.createInformationPrimaryAsset();
+    DNode epa = td.createEnterprisePrimaryAsset();
     
     DNode actor = td.createOperationalActor();
 
     td.createThreatApplication(threat, ipa);
     td.createThreatApplication(threat, fpa);
+    td.createThreatApplication(threat, epa);
     td.createThreatInvolvement(threat, actor);
     
     // create another TDB in an Actor

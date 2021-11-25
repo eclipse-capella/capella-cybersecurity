@@ -53,6 +53,10 @@ public class ThreatDiagram extends DiagramContext {
     return new CreateNodeTool(this, CybersecurityAnalysisConstants.TOOL_CREATE_INFORMATION_PRIMARY_ASSET, getDiagramId()).run();
   }
   
+  public DNode createEnterprisePrimaryAsset() {
+    return new CreateNodeTool(this, CybersecurityAnalysisConstants.TOOL_CREATE_ENTERPRISE_PRIMARY_ASSET, getDiagramId()).run();
+  }
+  
   public DEdge createThreatInvolvement(DNode threat, DNode actor) {
     return new CreateDEdgeTool(this, CybersecurityAnalysisConstants.TOOL_CREATE_THREATINVOLVEMENT, threat.getUid(), actor.getUid()).run(); 
   }
