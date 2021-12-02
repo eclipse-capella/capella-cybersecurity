@@ -34,8 +34,9 @@ public class TransformationTraceabilityConfiguration extends TraceabilityConfigu
   @Override
   public boolean useHandlerForAttachment(EObject source, EObject target, ITraceabilityHandler handler,
       IContext context) {
-    if( source instanceof Threat)
+    if (source instanceof Threat)
       return handler instanceof TransformationTraceabilityHandler;
     return super.useHandlerForAttachment(source, target, handler, context);
   }
+  
 }
