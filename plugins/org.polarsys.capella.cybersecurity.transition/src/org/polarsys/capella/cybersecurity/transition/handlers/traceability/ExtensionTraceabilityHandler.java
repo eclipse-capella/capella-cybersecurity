@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.polarsys.capella.core.transition.common.handlers.session.SessionHandlerHelper;
 import org.polarsys.capella.core.transition.common.handlers.traceability.ITraceabilityHandler;
+import org.polarsys.capella.cybersecurity.model.Threat;
 import org.polarsys.kitalpha.transposer.rules.handler.rules.api.IContext;
 
 /**
@@ -38,6 +39,9 @@ public class ExtensionTraceabilityHandler implements ITraceabilityHandler {
    * {@inheritDoc}
    */
   public List<EObject> retrieveTracedElements(EObject source, IContext context) {
+    if (source instanceof Threat) {
+      return (List) ((Threat) source).getRealizingThreats();
+    }
     return Collections.emptyList();
   }
 
@@ -45,6 +49,9 @@ public class ExtensionTraceabilityHandler implements ITraceabilityHandler {
    * {@inheritDoc}
    */
   public List<EObject> retrieveSourceElements(EObject source, IContext context) {
+    if (source instanceof Threat) {
+      return (List) ((Threat) source).getRealizedThreats();
+    }
     return Collections.emptyList();
   }
 
