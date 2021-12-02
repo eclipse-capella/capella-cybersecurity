@@ -14,11 +14,13 @@ import org.polarsys.capella.core.data.capellacore.EnumerationPropertyType;
 import org.polarsys.capella.cybersecurity.model.CybersecurityFactory;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPkg;
 import org.polarsys.capella.cybersecurity.model.CybersecurityQueries;
+import org.polarsys.capella.cybersecurity.model.SecurityNeeds;
 import org.polarsys.capella.cybersecurity.model.Threat;
 
 public class ThreatTransitionTest extends CyberTopDownTransitionTestCase {
   Threat threat;
   Threat threat2;
+  SecurityNeeds securityNeeds;
 
   @Override
   protected void init() {
@@ -31,6 +33,17 @@ public class ThreatTransitionTest extends CyberTopDownTransitionTestCase {
     EnumerationPropertyType threatKindType = CybersecurityQueries.getThreatKindPropertyType(project);
     CybersecurityQueries.setThreatKindFromIndex(threat, 1, threatKindType);
     threat.setLevel(2);
+    // create security needs with some values and add it to the pa
+    securityNeeds = CybersecurityFactory.eINSTANCE.createSecurityNeeds();
+    CybersecurityQueries.setConfidentialityFromIndex(securityNeeds, 1,
+        CybersecurityQueries.getConfidentialityPropertyType(project));
+    CybersecurityQueries.setIntegrityFromIndex(securityNeeds, 1,
+        CybersecurityQueries.getIntegrityPropertyType(project));
+    CybersecurityQueries.setTraceabilityFromIndex(securityNeeds, 1,
+        CybersecurityQueries.getTraceabilityPropertyType(project));
+    CybersecurityQueries.setAvailabilityFromIndex(securityNeeds, 1,
+        CybersecurityQueries.getAvailabilityPropertyType(project));
+    threat.getOwnedExtensions().add(securityNeeds);
 
     // add the threat on the operational level
     oaPkg.getOwnedThreats().add(threat);
@@ -45,6 +58,11 @@ public class ThreatTransitionTest extends CyberTopDownTransitionTestCase {
     assertEquals(threat.getKind(), systemThreat.getKind());
     assertEquals(threat.getLevel(), systemThreat.getLevel());
     assertFalse(threat.getIncomingTraces().isEmpty());
+    // check that security needs has been transitioned and also retained its values
+    SecurityNeeds transitionedSecurityNeeds = (SecurityNeeds) mustBeTransitionedDirecltyContainedBy(
+        securityNeeds.getId(), systemThreat);
+    checkSecurityNeedsProperlyTransitioned(transitionedSecurityNeeds);
+
     // check that threat2 is not transitioned
     assertTrue(threat2.getIncomingTraces().isEmpty());
     
@@ -58,10 +76,24 @@ public class ThreatTransitionTest extends CyberTopDownTransitionTestCase {
     Threat logicalThreat = (Threat) mustBeTransitioned(systemThreat.getId(), laPkg);
     assertEquals(threat.getKind(), logicalThreat.getKind());
     assertEquals(threat.getLevel(), logicalThreat.getLevel());
+    transitionedSecurityNeeds = (SecurityNeeds) mustBeTransitionedDirecltyContainedBy(transitionedSecurityNeeds.getId(),
+        logicalThreat);
+    checkSecurityNeedsProperlyTransitioned(transitionedSecurityNeeds);
 
     performThreatTransition(getObjects(logicalThreat.getId()));
     Threat physicalThreat = (Threat) mustBeTransitioned(logicalThreat.getId(), paPkg);
     assertEquals(threat.getKind(), physicalThreat.getKind());
     assertEquals(threat.getLevel(), physicalThreat.getLevel());
+    transitionedSecurityNeeds = (SecurityNeeds) mustBeTransitionedDirecltyContainedBy(transitionedSecurityNeeds.getId(),
+        physicalThreat);
+    checkSecurityNeedsProperlyTransitioned(transitionedSecurityNeeds);
   }
+
+  private void checkSecurityNeedsProperlyTransitioned(SecurityNeeds transitionedSecurityNeeds) {
+    assertEquals(securityNeeds.getConfidentialityValue(), transitionedSecurityNeeds.getConfidentialityValue());
+    assertEquals(securityNeeds.getIntegrityValue(), transitionedSecurityNeeds.getIntegrityValue());
+    assertEquals(securityNeeds.getTraceabilityValue(), transitionedSecurityNeeds.getTraceabilityValue());
+    assertEquals(securityNeeds.getAvailabilityValue(), transitionedSecurityNeeds.getAvailabilityValue());
+  }
+
 }

@@ -111,6 +111,8 @@ A Threat has the following additional attributes:
 | Text
 |}
 
+Additionally, like Primary Assets, Threats can also define and customize Security Needs (see next section).
+
 == Primary Asset ==
 
 Information, activity, process or functionality that is valuable for the customer and then needs to be protected. The DARC Viewpoint distinguishes between:
@@ -143,7 +145,7 @@ Primary Assets are threatened by Threats.
 == Function ==
 
 Action, operation or service performed by the system, or by an actor interacting with the system (ref: Arcadia).
-Like Primary Assets, Functions can define values for Confidentiality, Integrity, Availability and Traceability.
+Like Primary Assets and Threats, Functions can define values for Confidentiality, Integrity, Availability and Traceability.
 
 {| border="1"
 |-
