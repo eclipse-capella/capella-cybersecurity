@@ -1,5 +1,5 @@
 /*******************************************************************
-* Copyright © 2021 Thales Global Services SAS
+* Copyright Â© 2021 Thales Global Services SAS
 *
 * Licensed under the Thales Inner Source Software License:
 * Version 1.2, InnerOpen - Distribution Controlled
