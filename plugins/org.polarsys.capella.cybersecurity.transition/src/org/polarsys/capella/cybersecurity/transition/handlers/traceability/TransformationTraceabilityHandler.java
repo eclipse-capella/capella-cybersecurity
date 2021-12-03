@@ -10,12 +10,9 @@
 *******************************************************************/
 package org.polarsys.capella.cybersecurity.transition.handlers.traceability;
 
-import java.util.List;
-
 import org.eclipse.emf.ecore.EObject;
-import org.polarsys.capella.common.data.modellingcore.AbstractTrace;
+import org.polarsys.capella.core.data.interaction.AbstractCapabilityRealization;
 import org.polarsys.capella.core.data.interaction.InteractionFactory;
-import org.polarsys.capella.core.data.interaction.InteractionPackage;
 import org.polarsys.capella.core.transition.common.handlers.traceability.LinkTraceabilityHandler;
 import org.polarsys.capella.cybersecurity.model.Threat;
 import org.polarsys.kitalpha.transposer.rules.handler.rules.api.IContext;
@@ -29,9 +26,6 @@ public class TransformationTraceabilityHandler extends LinkTraceabilityHandler {
     super(identifier);
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public void attachTraceability(EObject sourceElement, EObject targetElement, IContext context) {
     if ((sourceElement instanceof Threat) && (targetElement instanceof Threat)) {
@@ -39,15 +33,12 @@ public class TransformationTraceabilityHandler extends LinkTraceabilityHandler {
       Threat source = (Threat) sourceElement;
       Threat target = (Threat) targetElement;
 
-      if (source.getRealizingThreats().isEmpty()) {
-        AbstractTrace link = InteractionFactory.eINSTANCE.createAbstractCapabilityRealization();
-        link.setTargetElement(source);
-        link.setSourceElement(target);
-        ((List<EObject>) target
-            .eGet(InteractionPackage.Literals.ABSTRACT_CAPABILITY__OWNED_ABSTRACT_CAPABILITY_REALIZATIONS)).add(link);
-        addMappings(sourceElement, targetElement, context);
-      }
+      AbstractCapabilityRealization link = InteractionFactory.eINSTANCE.createAbstractCapabilityRealization();
+      link.setTargetElement(source);
+      link.setSourceElement(target);
+      target.getOwnedAbstractCapabilityRealizations().add(link);
+      addMappings(sourceElement, targetElement, context);
     }
   }
-  
+
 }
