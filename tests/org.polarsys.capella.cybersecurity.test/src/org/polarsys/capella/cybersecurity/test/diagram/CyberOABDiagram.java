@@ -60,6 +60,10 @@ public class CyberOABDiagram extends OABDiagram {
     new InsertRemoveTool(this, CybersecurityAnalysisConstants.TOOL_XAB_INSERT_THREAT).insert(threat.getId());
   }
   
+  public void removeThreat(Threat threat) {
+    new InsertRemoveTool(this, CybersecurityAnalysisConstants.TOOL_XAB_INSERT_THREAT).remove(threat.getId());
+  }
+  
   @Override
   public void createFunctionalChain(String path, String... links) {
     new CreatePathTool(this, IToolNameConstants.TOOL_OAIB_CREATE_OPERATIONAL_PROCESS, path, links).run();
