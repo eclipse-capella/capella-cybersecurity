@@ -748,6 +748,8 @@ public class CybersecurityServices {
           CybersecurityPackage.Literals.PRIMARY_ASSET_MEMBER__MEMBER)) {
         PrimaryAsset asset = ((PrimaryAssetMember) member).getAsset();
         assets.add(asset);
+        assets.addAll(EObjectExt.getReferencers(asset, CybersecurityPackage.Literals.PRIMARY_ASSET_MEMBER__MEMBER)
+            .stream().map(x -> ((PrimaryAssetMember) x).getAsset()).collect(Collectors.toList()));
       }
     }
 

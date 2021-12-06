@@ -87,6 +87,12 @@ public class CyberPABDiagramTest extends CyberXABDiagramTest {
   protected void insertThreat(Threat threat) {
     ((CyberPABDiagram) diagram).insertThreat(threat);
   }
+  
+  @Override
+  protected void removeThreat(Threat threat) {
+    ((CyberPABDiagram) diagram).removeThreat(threat);
+  }
+  
 
   @Override
   protected void step6() throws RollbackException, InterruptedException {
