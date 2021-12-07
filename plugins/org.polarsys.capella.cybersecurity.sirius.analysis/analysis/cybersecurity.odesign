@@ -270,7 +270,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" documentation="Create a new Threat Use between the selected Actor Threat Source and Actor" name="ToolCreateThreatuse" label="Use" edgeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@edgeMappings[name='ThreatSourceUse']">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" documentation="Create a new Threat Use between the selected Actor Threat Source and Actor" name="ToolCreateThreatuse" label="Use" precondition="aql:self.hasTargetSameType(preTarget)" edgeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@edgeMappings[name='ThreatSourceUse']" connectionStartPrecondition="aql:self.isThreatSource()">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
