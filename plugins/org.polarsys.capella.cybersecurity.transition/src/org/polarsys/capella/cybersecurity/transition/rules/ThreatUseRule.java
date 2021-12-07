@@ -41,23 +41,22 @@ public class ThreatUseRule extends AbstractCapellaElementRule {
   @Override
   protected void premicesRelated(EObject element, ArrayList<IPremise> needed) {
     super.premicesRelated(element, needed);
-    needed.addAll(createDefaultPrecedencePremices(element, CybersecurityPackage.Literals.THREAT_SOURCE_USE__THREAT_SOURCE));
+    needed.addAll(createDefaultPrecedencePremices(element, CybersecurityPackage.Literals.THREAT_SOURCE_USE__USED_ACTOR));
   }
-
+  
   @Override
   protected void attachRelated(EObject element, EObject result, IContext context) {
     super.attachRelated(element, result, context);
-    AttachmentHelper.getInstance(context).attachTracedElements(element, result, CybersecurityPackage.Literals.THREAT_SOURCE_USE__THREAT_SOURCE, context);
+    AttachmentHelper.getInstance(context).attachTracedElements(element, result, CybersecurityPackage.Literals.THREAT_SOURCE_USE__USED_ACTOR, context);
   }
   
   @Override
   protected void retrieveGoDeep(EObject source, List<EObject> result, IContext context) {
     super.retrieveGoDeep(source, result, context);
-    result.add(((ThreatSourceUse) source).getThreatSource());
-    
-    if (ContextScopeHandlerHelper.getInstance(context).contains(ITransitionConstants.SOURCE_SCOPE, source, context)) {
-      ContextScopeHandlerHelper.getInstance(context).add(ITransitionConstants.SOURCE_SCOPE,
-          ((ThreatSourceUse) source).getThreatSource(), context);
-    }
+    ThreatSourceUse element = (ThreatSourceUse) source;
+    result.add(element.getThreatSource());
+    result.add(element.getUsedActor());
+    ContextScopeHandlerHelper.getInstance(context).add(ITransitionConstants.SOURCE_SCOPE, element.getThreatSource(), context);
+    ContextScopeHandlerHelper.getInstance(context).add(ITransitionConstants.SOURCE_SCOPE, element.getUsedActor(), context);
   }
 }
