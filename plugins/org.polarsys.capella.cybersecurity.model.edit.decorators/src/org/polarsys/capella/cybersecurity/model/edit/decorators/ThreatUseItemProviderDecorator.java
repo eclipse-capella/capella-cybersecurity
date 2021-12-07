@@ -44,7 +44,7 @@ public class ThreatUseItemProviderDecorator extends ItemProviderAdapterDecorator
       }
     }
 
-    return "[" + CybersecurityEditPlugin.INSTANCE.getString("_UI_PrimaryAssetMember_type") + "]"; //$NON-NLS-1$
+    return "[" + CybersecurityEditPlugin.INSTANCE.getString("_UI_ThreatSourceUse_type") + "]"; //$NON-NLS-1$
   }
 
 }

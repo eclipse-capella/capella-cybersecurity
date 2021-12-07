@@ -63,6 +63,7 @@ import org.polarsys.capella.common.helpers.EcoreUtil2;
 import org.polarsys.capella.common.helpers.TransactionHelper;
 import org.polarsys.capella.common.menu.dynamic.util.INamePrefixService;
 import org.polarsys.capella.common.platform.sirius.ted.SemanticEditingDomainFactory.SemanticEditingDomain;
+import org.polarsys.capella.core.data.capellacore.CapellaElement;
 import org.polarsys.capella.core.data.capellacore.EnumerationPropertyLiteral;
 import org.polarsys.capella.core.data.capellacore.EnumerationPropertyType;
 import org.polarsys.capella.core.data.capellamodeller.Project;
@@ -481,7 +482,26 @@ public class CybersecurityServices {
     threatSource.getOwnedExtensions().add(tu);
     return tu;
   }
-
+  
+  public boolean isThreatSource(EObject element) {
+    if (element != null) {
+      boolean isThreatSource = ((CapellaElement) element).getOwnedExtensions().stream()
+          .filter(ext -> ext instanceof TrustBoundaryStorage).findAny()
+          .map(trb -> ((TrustBoundaryStorage) trb).isThreatSource()).orElse(false);
+      return isThreatSource;
+    }
+    return false;
+  }
+  
+  public boolean hasTargetSameType(EObject source, EObject target) {
+    if (source instanceof Entity && target instanceof Entity) {
+      Entity sEntity = (Entity) source;
+      Entity tEntity = (Entity) target;
+      return sEntity.isHuman() == tEntity.isHuman();
+    }
+    return !source.equals(target);
+  }
+  
   public String getTrustDecoration(ModelElement element) {
     return TRUSTED_COMPONENT_DECORATION;
   }
