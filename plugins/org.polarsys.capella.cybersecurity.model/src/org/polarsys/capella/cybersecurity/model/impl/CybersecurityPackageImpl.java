@@ -1103,9 +1103,7 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
         new String[] { "ExtendedElement", " http://www.polarsys.org/capella/common/behavior/5.0.0#//AbstractEvent" //$NON-NLS-1$ //$NON-NLS-2$
         });
     addAnnotation(securityNeedsEClass, source, new String[] { "ExtendedElement", //$NON-NLS-1$
-        "http://www.polarsys.org/capella/common/behavior/5.0.0#//AbstractEvent http://www.polarsys.org/capella/cybersecurity/1.0#//PrimaryAsset", //$NON-NLS-1$
-        "ExtendedElement", //$NON-NLS-1$
-        "http://www.polarsys.org/capella/common/behavior/5.0.0#//AbstractEvent http://www.polarsys.org/capella/cybersecurity/1.0#//Threat" //$NON-NLS-1$
+        "http://www.polarsys.org/capella/common/behavior/5.0.0#//AbstractEvent http://www.polarsys.org/capella/cybersecurity/1.0#//PrimaryAsset http://www.polarsys.org/capella/common/behavior/5.0.0#//AbstractEvent http://www.polarsys.org/capella/cybersecurity/1.0#//Threat" //$NON-NLS-1$
     });
     addAnnotation(trustBoundaryStorageEClass, source,
         new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/cs/5.0.0#//Component" //$NON-NLS-1$ //$NON-NLS-2$
@@ -1139,7 +1137,7 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
         " platform:/plugin/org.polarsys.capella.common.data.behavior.gen/model/Behavior.ecore#//AbstractEvent" //$NON-NLS-1$
     });
     addAnnotation(securityNeedsEClass, source, new String[] { "Mapping", //$NON-NLS-1$
-        " platform:/plugin/org.polarsys.capella.common.data.behavior.gen/model/Behavior.ecore#//AbstractEvent platform:/plugin/org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//PrimaryAsset" //$NON-NLS-1$
+        " platform:/plugin/org.polarsys.capella.common.data.behavior.gen/model/Behavior.ecore#//AbstractEvent platform:/plugin/org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//PrimaryAsset platform:/plugin/org.polarsys.capella.common.data.behavior.gen/model/Behavior.ecore#//AbstractEvent platform:/plugin/org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//Threat" //$NON-NLS-1$
     });
     addAnnotation(trustBoundaryStorageEClass, source, new String[] { "Mapping", //$NON-NLS-1$
         " platform:/plugin/org.polarsys.capella.core.data.gen/model/CompositeStructure.ecore#//Component\r\n" //$NON-NLS-1$
