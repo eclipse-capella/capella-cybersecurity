@@ -63,8 +63,12 @@ public class ConstantsCybersecurityDocGen {
 	public static final String CYBER_SECURITY_REFERENCES = "Cybersecurity references";
 
 	public static final String APPLICABLE_THREAT = "Applicable Threats";
+	
+	public static final String PRIMARY_ASSETS = "Primary Assets";
 
 	public static final String CONTENT = "Content";
+	
+	public static final String USE = "Use";
 
 	public static final String TRUST_BOUNDARY = "Trust Boundary";
 
@@ -73,5 +77,5 @@ public class ConstantsCybersecurityDocGen {
 	public static final String THREAT_SOURCE = "Threat Source";
 	
 	public static final String NOT_TRUSTED = "Not Trusted";
-
+	
 }

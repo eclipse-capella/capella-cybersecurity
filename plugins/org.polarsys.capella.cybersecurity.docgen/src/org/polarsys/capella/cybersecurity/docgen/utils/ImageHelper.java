@@ -24,18 +24,24 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.EObject;
 import org.osgi.framework.Bundle;
+import org.polarsys.capella.core.data.cs.Component;
+import org.polarsys.capella.core.data.ctx.SystemComponent;
 import org.polarsys.capella.core.data.ctx.SystemFunction;
 import org.polarsys.capella.core.data.fa.FunctionalChain;
 import org.polarsys.capella.core.data.information.ExchangeItem;
+import org.polarsys.capella.core.data.interaction.Scenario;
+import org.polarsys.capella.core.data.la.LogicalComponent;
 import org.polarsys.capella.core.data.la.LogicalFunction;
+import org.polarsys.capella.core.data.oa.Entity;
 import org.polarsys.capella.core.data.oa.OperationalActivity;
 import org.polarsys.capella.core.data.oa.OperationalProcess;
+import org.polarsys.capella.core.data.pa.PhysicalComponent;
 import org.polarsys.capella.core.data.pa.PhysicalFunction;
 import org.polarsys.capella.cybersecurity.docgen.Activator;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPkg;
+import org.polarsys.capella.cybersecurity.model.EnterprisePrimaryAsset;
 import org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset;
 import org.polarsys.capella.cybersecurity.model.InformationPrimaryAsset;
-import org.polarsys.capella.cybersecurity.model.PrimaryAsset;
 import org.polarsys.capella.cybersecurity.model.Threat;
 
 public class ImageHelper {
@@ -43,6 +49,7 @@ public class ImageHelper {
 	private static final String CYBERSCURITY_IMG = "CybersecurityPkg.png";
 	private static final String INFORMATION_PRIMARY_ASSET_IMG = "InformationPrimaryAsset.png";
 	private static final String FUNCTION_PRIMARY_ASSET_IMG = "FunctionalPrimaryAsset.png";
+	private static final String ENTERPRISE_PRIMARY_ASSET_IMG = "EnterprisePrimaryAsset.png";
 	private static final String THREAT_IMG = "Threat.png";
 	private static final String PATH_IMG = "../icon/";
 	private static final String GIF_TYPE = ".gif";
@@ -55,7 +62,9 @@ public class ImageHelper {
 			copyFile(projectName, outputFolder, FUNCTION_PRIMARY_ASSET_IMG);
 		} else if (element instanceof InformationPrimaryAsset) {
 			copyFile(projectName, outputFolder, INFORMATION_PRIMARY_ASSET_IMG);
-		} else if (element instanceof Threat) {
+		} else if (element instanceof EnterprisePrimaryAsset) {
+      copyFile(projectName, outputFolder, ENTERPRISE_PRIMARY_ASSET_IMG);
+    } else if (element instanceof Threat) {
 			copyFile(projectName, outputFolder, THREAT_IMG);
 		}
 	}
@@ -82,7 +91,11 @@ public class ImageHelper {
 			return PATH_IMG + FunctionalPrimaryAsset.class.getSimpleName() + GIF_TYPE;
 		} else if (element instanceof InformationPrimaryAsset) {
 			return PATH_IMG + InformationPrimaryAsset.class.getSimpleName() + GIF_TYPE;
-		} else if (element instanceof LogicalFunction) {
+		} else if (element instanceof EnterprisePrimaryAsset) {
+      return PATH_IMG + EnterprisePrimaryAsset.class.getSimpleName() + GIF_TYPE;
+    } else if (element instanceof CybersecurityPkg) {
+      return PATH_IMG + CybersecurityPkg.class.getSimpleName() + GIF_TYPE;
+    } else if (element instanceof LogicalFunction) {
 			return PATH_IMG + LogicalFunction.class.getSimpleName() + GIF_TYPE;
 		} else if (element instanceof SystemFunction) {
 			return PATH_IMG + SystemFunction.class.getSimpleName() + GIF_TYPE;
@@ -96,7 +109,19 @@ public class ImageHelper {
 			return PATH_IMG + ExchangeItem.class.getSimpleName() + GIF_TYPE;
 		} else if (element instanceof OperationalProcess) {
 			return PATH_IMG + ExchangeItem.class.getSimpleName() + GIF_TYPE;
-		}
+    } else if (element instanceof Scenario) {
+      return PATH_IMG + Scenario.class.getSimpleName() + GIF_TYPE;
+    } else if (element instanceof Entity && ((Entity) element).isActor()) {
+      return PATH_IMG + "Actor" + GIF_TYPE;
+    } else if (element instanceof Component && ((Component) element).isActor() && ((Component) element).isHuman()) {
+      return PATH_IMG + "Actor" + GIF_TYPE;
+    } else if (element instanceof SystemComponent && ((SystemComponent) element).isActor()) {
+      return PATH_IMG + "SystemActor" + GIF_TYPE;
+    } else if (element instanceof LogicalComponent && ((LogicalComponent) element).isActor()) {
+      return PATH_IMG + "LogicalActor" + GIF_TYPE;
+    } else if (element instanceof PhysicalComponent && ((PhysicalComponent) element).isActor()) {
+      return PATH_IMG + "PhysicalActorNode" + GIF_TYPE;
+    }
 		return "";
 	}
 }

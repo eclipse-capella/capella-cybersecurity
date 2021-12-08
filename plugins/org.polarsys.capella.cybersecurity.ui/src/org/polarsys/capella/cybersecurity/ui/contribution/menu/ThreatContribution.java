@@ -11,6 +11,7 @@
 package org.polarsys.capella.cybersecurity.ui.contribution.menu;
 
 import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -20,6 +21,8 @@ import org.polarsys.capella.common.menu.dynamic.contributions.IMDEMenuItemContri
 import org.polarsys.capella.core.data.capellacore.EnumerationPropertyLiteral;
 import org.polarsys.capella.core.data.capellacore.EnumerationPropertyType;
 import org.polarsys.capella.core.data.capellamodeller.Project;
+import org.polarsys.capella.core.data.fa.FunctionalChain;
+import org.polarsys.capella.core.data.interaction.AbstractCapability;
 import org.polarsys.capella.core.sirius.ui.helper.SessionHelper;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.CybersecurityQueries;
@@ -36,6 +39,10 @@ public class ThreatContribution implements IMDEMenuItemContribution {
     EnumerationPropertyType propertyType = CybersecurityQueries.getThreatKindPropertyType(project);
     EnumerationPropertyLiteral eavesdroppingLiteral = propertyType.getOwnedLiterals().get(0);
     Threat newElement = (Threat) createdElement;
+    
+    AbstractCapability cc = (AbstractCapability)newElement;
+    EList<FunctionalChain> fcs = cc.getOwnedFunctionalChains();
+    cc.getInvolvedAbstractFunctions();
     newElement.setKind(eavesdroppingLiteral);
     return null;
   }
