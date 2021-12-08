@@ -9,5 +9,7 @@
 <%stringBuffer.append(CybersecurityHelper.getRealizingPrimaryAsset(element, htmlFolderName));%>
 <%stringBuffer.append(CybersecurityHelper.getRealizedThreats(element, htmlFolderName));%>
 <%stringBuffer.append(CybersecurityHelper.getRealizedPrimaryAsset(element, htmlFolderName));%>
-<%stringBuffer.append(CybersecurityHelper.getRealizedCapellaElement(element, htmlFolderName));%>
+<%stringBuffer.append(CybersecurityHelper.getReferencedCapellaElement(element, htmlFolderName));%>
 <%stringBuffer.append(CybersecurityHelper.getThreatApplicationTo(element, htmlFolderName));%>
+<%stringBuffer.append(CybersecurityHelper.getPrimaryAssets(element, htmlFolderName));%>
+<%stringBuffer.append(CybersecurityHelper.getThreatsContent(element, htmlFolderName));%>

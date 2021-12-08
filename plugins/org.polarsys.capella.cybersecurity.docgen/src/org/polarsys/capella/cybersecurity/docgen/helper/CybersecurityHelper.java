@@ -12,9 +12,9 @@ package org.polarsys.capella.cybersecurity.docgen.helper;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.util.EList;
@@ -26,10 +26,10 @@ import org.polarsys.capella.core.data.capellacore.EnumerationPropertyLiteral;
 import org.polarsys.capella.core.data.cs.BlockArchitecture;
 import org.polarsys.capella.core.data.cs.Component;
 import org.polarsys.capella.core.data.ctx.SystemComponent;
-import org.polarsys.capella.core.data.ctx.SystemFunction;
 import org.polarsys.capella.core.data.fa.AbstractFunction;
 import org.polarsys.capella.core.data.fa.FunctionalChain;
 import org.polarsys.capella.core.data.information.ExchangeItem;
+import org.polarsys.capella.core.data.interaction.AbstractCapability;
 import org.polarsys.capella.core.data.oa.Entity;
 import org.polarsys.capella.core.data.oa.OperationalActivity;
 import org.polarsys.capella.core.data.oa.OperationalAnalysis;
@@ -39,6 +39,7 @@ import org.polarsys.capella.cybersecurity.docgen.constants.ConstantsCybersecurit
 import org.polarsys.capella.cybersecurity.docgen.utils.HTMLHelper;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPkg;
+import org.polarsys.capella.cybersecurity.model.EnterprisePrimaryAsset;
 import org.polarsys.capella.cybersecurity.model.FunctionStorage;
 import org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset;
 import org.polarsys.capella.cybersecurity.model.InformationPrimaryAsset;
@@ -47,19 +48,15 @@ import org.polarsys.capella.cybersecurity.model.SecurityNeeds;
 import org.polarsys.capella.cybersecurity.model.Threat;
 import org.polarsys.capella.cybersecurity.model.ThreatApplication;
 import org.polarsys.capella.cybersecurity.model.ThreatInvolvement;
+import org.polarsys.capella.cybersecurity.model.ThreatSourceUse;
 import org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage;
-import org.polarsys.kitalpha.emde.model.ElementExtension;
 import org.polarsys.kitalpha.emde.model.ExtensibleElement;
 
 public class CybersecurityHelper {
-
-	private static final List<Class> allowedContent = Arrays.asList(Threat.class, FunctionalPrimaryAsset.class,
-			InformationPrimaryAsset.class);
-
 	public static boolean hasCybersecurityPropertyView(EObject element) {
-		return element instanceof FunctionalChain || element instanceof ExchangeItem || element instanceof Entity
+		return element instanceof FunctionalChain || element instanceof ExchangeItem
 				|| element instanceof AbstractFunction || element instanceof PrimaryAsset
-				|| element instanceof SystemComponent;
+				|| element instanceof Component || element instanceof Threat;
 	}
 
 	public static String getThreatSourceAndRationale(EObject element) {
@@ -96,7 +93,7 @@ public class CybersecurityHelper {
 
 			if (listTrustBoundaryInfo.size() > 0) {
 				builder.append(HTMLHelper.getSubtitle(ConstantsCybersecurityDocGen.TRUST_BOUNDARY));
-				builder.append(HTMLHelper.getUlList(listTrustBoundaryInfo.toArray(String[]::new)));
+				builder.append(HTMLHelper.getUlList(listTrustBoundaryInfo.toArray(new String[listTrustBoundaryInfo.size()])));
 			}
 
 			if (rationale.isPresent()) {
@@ -160,16 +157,14 @@ public class CybersecurityHelper {
 	}
 
 	public static String getContent(CapellaElement capellaElement, String htmlFolderName) {
-		StringBuilder builder = new StringBuilder();
+		List<Class> allowedContent = Arrays.asList(Threat.class, FunctionalPrimaryAsset.class,
+	      InformationPrimaryAsset.class, EnterprisePrimaryAsset.class, CybersecurityPkg.class);
+		
 		List<CapellaElement> contentList = capellaElement.eContents().stream()
 				.filter(eobj -> allowedContent.stream().anyMatch(clazz -> clazz.isInstance(eobj)))
 				.map(eobj -> (CapellaElement) eobj).collect(Collectors.toList());
-		if (contentList.size() > 0) {
-			builder.append(HTMLHelper.getSubtitle(ConstantsCybersecurityDocGen.CONTENT));
-			builder.append(HTMLHelper.getUlList(contentList.stream()
-					.map(element -> HTMLHelper.getLinkElementList(element, htmlFolderName)).toArray(String[]::new)));
-		}
-		return builder.toString();
+		
+		return getHtmlDataToAppend(contentList, htmlFolderName, ConstantsCybersecurityDocGen.CONTENT);
 	}
 
 	public static String getThreatKind(EObject element) {
@@ -249,9 +244,9 @@ public class CybersecurityHelper {
 		return builder.toString();
 	}
 
-	public static String getRealizedCapellaElement(CapellaElement element, String htmlFolderName) {
+	public static String getReferencedCapellaElement(CapellaElement element, String htmlFolderName) {
 		StringBuilder builder = new StringBuilder();
-		if (hasRealizedCapellaElement(element)) {
+		if (hasReferencesCapellaElement(element)) {
 			builder.append(getRelationsElements(element, getRealizedCapellaElementTitle(element), htmlFolderName, false,
 					FunctionalChain.class, ExchangeItem.class, AbstractFunction.class));
 		}
@@ -293,16 +288,64 @@ public class CybersecurityHelper {
 	}
 
 	public static boolean hasThreatApplicationTo(EObject element) {
-		return element instanceof FunctionalPrimaryAsset || element instanceof InformationPrimaryAsset;
+		return element instanceof PrimaryAsset;
 	}
-
+	
+  public static String getPrimaryAssets(EObject element, String htmlFolderName) {
+    String data = "";
+    if (element instanceof EnterprisePrimaryAsset) {
+      EnterprisePrimaryAsset pa = (EnterprisePrimaryAsset) element;
+      List<CapellaElement> assets = pa.getOwnedMembers().stream().map(x -> (CapellaElement)x.getMember()).collect(Collectors.toList());
+      data = getHtmlDataToAppend(assets, htmlFolderName, ConstantsCybersecurityDocGen.PRIMARY_ASSETS);
+    }
+    return data;
+  }
+  
+  public static String getThreatsContent(EObject element, String htmlFolderName) {
+    String data = "";
+    if (element instanceof Threat) {
+      AbstractCapability threat = (AbstractCapability) element;
+      List<CapellaElement> elements = new ArrayList<>();
+      elements.addAll(threat.getOwnedFunctionalChains());
+      elements.addAll(threat.getOwnedScenarios());
+      data = getHtmlDataToAppend(elements, htmlFolderName, ConstantsCybersecurityDocGen.CONTENT);
+    }
+    return data;
+  }
+  
+  public static String getThreatSourceUse(EObject element, String htmlFolderName) {
+    String data = "";
+    if (hasThreatSourceUse(element)) {
+      List<Component> used = ((CapellaElement) element).getOwnedExtensions().stream()
+          .filter(ext -> ext instanceof ThreatSourceUse)
+          .map(trb -> ((ThreatSourceUse) trb).getUsedActor())
+          .collect(Collectors.toList());
+      data = getHtmlDataToAppend(used, htmlFolderName, ConstantsCybersecurityDocGen.USE);
+    }
+    return data;
+  }
+  
+  public static boolean hasThreatSourceUse(EObject element) {
+    return element instanceof Component;
+  }
+  
+  public static String getHtmlDataToAppend(Collection<? extends CapellaElement> elements, String htmlFolderName, String category) {
+    StringBuilder builder = new StringBuilder();
+    if (!elements.isEmpty()) {
+      builder.append(HTMLHelper.getSubtitle(category));
+      builder.append(HTMLHelper.getUlList(
+          elements.stream().map(elem -> HTMLHelper.getLinkElementList(elem, htmlFolderName)).toArray(String[]::new)));
+    }
+    return builder.toString();
+  }
+  
 	private static boolean hasLevel(EObject element) {
 		return element instanceof Threat;
 	}
 
 	private static boolean hasCiat(EObject element) {
 		return element instanceof AbstractFunction || element instanceof ExchangeItem
-				|| element instanceof PrimaryAsset;
+				|| element instanceof PrimaryAsset || element instanceof Threat;
 	}
 
 	private static boolean hasRationale(EObject element) {
@@ -314,10 +357,10 @@ public class CybersecurityHelper {
 	}
 
 	private static boolean hasRealizedPrimaryAsset(EObject element) {
-		return element instanceof FunctionalPrimaryAsset || element instanceof InformationPrimaryAsset;
+		return element instanceof PrimaryAsset;
 	}
 
-	private static boolean hasRealizedCapellaElement(EObject element) {
+	private static boolean hasReferencesCapellaElement(EObject element) {
 		return element instanceof FunctionalPrimaryAsset || element instanceof InformationPrimaryAsset;
 	}
 

@@ -1,4 +1,4 @@
-//Generated with EGF 1.6.2.202001031546
+//Generated with EGF 1.6.2.201911290829
 package org.polarsys.capella.cybersecurity.doc.gen.content;
 
 import org.eclipse.egf.common.helper.*;
@@ -11,110 +11,112 @@ import org.polarsys.capella.cybersecurity.docgen.helper.CybersecurityHelper;
 import org.eclipse.core.runtime.Path;
 
 public class CyberSecurityPropertyViewPattern {
-	protected static String nl;
+  protected static String nl;
 
-	public static synchronized CyberSecurityPropertyViewPattern create(String lineSeparator) {
-		nl = lineSeparator;
-		CyberSecurityPropertyViewPattern result = new CyberSecurityPropertyViewPattern();
-		nl = null;
-		return result;
-	}
+  public static synchronized CyberSecurityPropertyViewPattern create(String lineSeparator) {
+    nl = lineSeparator;
+    CyberSecurityPropertyViewPattern result = new CyberSecurityPropertyViewPattern();
+    nl = null;
+    return result;
+  }
 
-	public final String NL = nl == null ? (System.getProperties().getProperty("line.separator")) : nl;
-	protected final String TEXT_1 = "";
-	protected final String TEXT_2 = NL;
+  public final String NL = nl == null ? (System.getProperties().getProperty("line.separator")) : nl;
+  protected final String TEXT_1 = "";
+  protected final String TEXT_2 = NL;
 
-	public CyberSecurityPropertyViewPattern() {
-		//Here is the constructor
-		StringBuffer stringBuffer = new StringBuffer();
+  public CyberSecurityPropertyViewPattern() {
+    //Here is the constructor
+    StringBuffer stringBuffer = new StringBuffer();
 
-		// add initialisation of the pattern variables (declaration has been already done).
+    // add initialisation of the pattern variables (declaration has been already done).
 
-	}
+  }
 
-	public String generate(Object argument) throws Exception {
-		final StringBuffer stringBuffer = new StringBuffer();
+  public String generate(Object argument) throws Exception {
+    final StringBuffer stringBuffer = new StringBuffer();
 
-		InternalPatternContext ctx = (InternalPatternContext) argument;
-		Map<String, String> queryCtx = null;
-		IQuery.ParameterDescription paramDesc = null;
-		Node.Container currentNode = ctx.getNode();
+    InternalPatternContext ctx = (InternalPatternContext) argument;
+    Map<String, String> queryCtx = null;
+    IQuery.ParameterDescription paramDesc = null;
+    Node.Container currentNode = ctx.getNode();
 
-		List<Object> documentTitleList = null;
-		//this pattern can only be called by another (i.e. it's not an entry point in execution)
-		List<Object> elementList = null;
-		//this pattern can only be called by another (i.e. it's not an entry point in execution)
+    List<Object> documentTitleList = null;
+    //this pattern can only be called by another (i.e. it's not an entry point in execution)
+    List<Object> elementList = null;
+    //this pattern can only be called by another (i.e. it's not an entry point in execution)
 
-		for (Object documentTitleParameter : documentTitleList) {
-			for (Object elementParameter : elementList) {
+    for (Object documentTitleParameter : documentTitleList) {
+      for (Object elementParameter : elementList) {
 
-				this.documentTitle = (java.lang.String) documentTitleParameter;
-				this.element = (org.eclipse.emf.ecore.EObject) elementParameter;
+        this.documentTitle = (java.lang.String) documentTitleParameter;
+        this.element = (org.eclipse.emf.ecore.EObject) elementParameter;
 
-				if (preCondition(ctx)) {
-					ctx.setNode(new Node.Container(currentNode, getClass()));
-					orchestration(ctx);
-				}
+        if (preCondition(ctx)) {
+          ctx.setNode(new Node.Container(currentNode, getClass()));
+          orchestration(ctx);
+        }
 
-			}
-		}
-		ctx.setNode(currentNode);
-		if (ctx.useReporter()) {
-			ctx.getReporter().executionFinished(OutputManager.computeExecutionOutput(ctx), ctx);
-		}
+      }
+    }
+    ctx.setNode(currentNode);
+    if (ctx.useReporter()) {
+      ctx.getReporter().executionFinished(OutputManager.computeExecutionOutput(ctx), ctx);
+    }
 
-		stringBuffer.append(TEXT_1);
-		stringBuffer.append(TEXT_2);
-		return stringBuffer.toString();
-	}
+    stringBuffer.append(TEXT_2);
+    stringBuffer.append(TEXT_2);
+    return stringBuffer.toString();
+  }
 
-	public String orchestration(PatternContext ctx) throws Exception {
-		InternalPatternContext ictx = (InternalPatternContext) ctx;
+  public String orchestration(PatternContext ctx) throws Exception {
+    InternalPatternContext ictx = (InternalPatternContext) ctx;
 
-		method_content(new StringBuffer(), ictx);
+    method_content(new StringBuffer(), ictx);
 
-		if (ictx.useReporter()) {
-			Map<String, Object> parameterValues = new HashMap<String, Object>();
-			parameterValues.put("documentTitle", this.documentTitle);
-			parameterValues.put("element", this.element);
-			String outputWithCallBack = OutputManager.computeLoopOutput(ictx);
-			String loop = OutputManager.computeLoopOutputWithoutCallback(ictx);
-			ictx.getReporter().loopFinished(loop, outputWithCallBack, ictx, parameterValues);
-		}
-		return null;
-	}
+    if (ictx.useReporter()) {
+      Map<String, Object> parameterValues = new HashMap<String, Object>();
+      parameterValues.put("documentTitle", this.documentTitle);
+      parameterValues.put("element", this.element);
+      String outputWithCallBack = OutputManager.computeLoopOutput(ictx);
+      String loop = OutputManager.computeLoopOutputWithoutCallback(ictx);
+      ictx.getReporter().loopFinished(loop, outputWithCallBack, ictx, parameterValues);
+    }
+    return null;
+  }
 
-	protected java.lang.String documentTitle = null;
+  protected java.lang.String documentTitle = null;
 
-	public void set_documentTitle(java.lang.String object) {
-		this.documentTitle = object;
-	}
+  public void set_documentTitle(java.lang.String object) {
+    this.documentTitle = object;
+  }
 
-	protected org.eclipse.emf.ecore.EObject element = null;
+  protected org.eclipse.emf.ecore.EObject element = null;
 
-	public void set_element(org.eclipse.emf.ecore.EObject object) {
-		this.element = object;
-	}
+  public void set_element(org.eclipse.emf.ecore.EObject object) {
+    this.element = object;
+  }
 
-	public Map<String, Object> getParameters() {
-		final Map<String, Object> parameters = new HashMap<String, Object>();
-		parameters.put("documentTitle", this.documentTitle);
-		parameters.put("element", this.element);
-		return parameters;
-	}
+  public Map<String, Object> getParameters() {
+    final Map<String, Object> parameters = new HashMap<String, Object>();
+    parameters.put("documentTitle", this.documentTitle);
+    parameters.put("element", this.element);
+    return parameters;
+  }
 
-	protected void method_content(final StringBuffer stringBuffer, final PatternContext ctx) throws Exception {
+  protected void method_content(final StringBuffer stringBuffer, final PatternContext ctx) throws Exception {
 
-		Path pathToHtmlFolder = new Path(ctx.getValue("outputFolder").toString());
-		String htmlFolderName = pathToHtmlFolder.lastSegment();
-		stringBuffer.append(CybersecurityHelper.getCiatSection(element));
-		stringBuffer.append(CybersecurityHelper.getReferencesCapellaElements(element, htmlFolderName));
-		stringBuffer.append(CybersecurityHelper.getThreatSourceAndRationale(element));
-		InternalPatternContext ictx = (InternalPatternContext) ctx;
-		new Node.DataLeaf(ictx.getNode(), getClass(), "content", stringBuffer.toString());
-	}
+    Path pathToHtmlFolder = new Path(ctx.getValue("outputFolder").toString());
+    String htmlFolderName = pathToHtmlFolder.lastSegment();
+    stringBuffer.append(CybersecurityHelper.getCiatSection(element));
+    stringBuffer.append(CybersecurityHelper.getReferencesCapellaElements(element, htmlFolderName));
+    stringBuffer.append(CybersecurityHelper.getThreatSourceAndRationale(element));
+    stringBuffer.append(CybersecurityHelper.getThreatSourceUse(element, htmlFolderName));
+    stringBuffer.append(TEXT_1);
+    InternalPatternContext ictx = (InternalPatternContext) ctx;
+    new Node.DataLeaf(ictx.getNode(), getClass(), "content", stringBuffer.toString());
+  }
 
-	public boolean preCondition(PatternContext ctx) throws Exception {
-		return CybersecurityHelper.hasCybersecurityPropertyView(element);
-	}
+  public boolean preCondition(PatternContext ctx) throws Exception {
+    return CybersecurityHelper.hasCybersecurityPropertyView(element);
+  }
 }
