@@ -3,3 +3,4 @@
 <% stringBuffer.append(CybersecurityHelper.getCiatSection(element)); %>
 <% stringBuffer.append(CybersecurityHelper.getReferencesCapellaElements(element, htmlFolderName)); %>
 <% stringBuffer.append(CybersecurityHelper.getThreatSourceAndRationale(element)); %>
+<% stringBuffer.append(CybersecurityHelper.getThreatSourceUse(element, htmlFolderName)); %>
