@@ -22,8 +22,48 @@
    <topic href="html/InstallationUninstallation/Installation and Uninstallation.html" label="Installation and Uninstallation">
    </topic>
    <topic href="html/usermanual.html" label="User manual">
-      <topic href="html/usermanual.html#Concepts" label="Concepts"/>
-      <topic href="html/usermanual.html#Diagrams" label="Diagrams"/>
+      <topic href="html/usermanual.html#Concepts" label="Concepts">
+         <topic href="html/usermanual.html#Actor" label="Actor">
+         </topic>
+         <topic href="html/usermanual.html#Entity" label="Entity">
+         </topic>
+         <topic href="html/usermanual.html#Threat" label="Threat">
+         </topic>
+         <topic href="html/usermanual.html#Primary_Asset" label="Primary Asset">
+         </topic>
+         <topic href="html/usermanual.html#Function" label="Function">
+         </topic>
+         <topic href="html/usermanual.html#Exchange_Item" label="Exchange Item">
+         </topic>
+      </topic>
+      <topic href="html/usermanual.html#Diagrams" label="Diagrams">
+         <topic href="html/usermanual.html#Threat_Diagram" label="Threat Diagram">
+            <topic href="html/usermanual.html#Tools_Threat_Diagram" label="Tools">
+            </topic>
+            <topic href="html/usermanual.html#Threat_Level_Decoration_Layer" label="Threat Level Decoration Layer">
+            </topic>
+         </topic>
+         <topic href="html/usermanual.html#Architecture_Diagram" label="Architecture Diagram">
+            <topic href="html/usermanual.html#Tools" label="Tools">
+            </topic>
+            <topic href="html/usermanual.html#Cybersecurity_Layer_Extensions" label="Cybersecurity Layer Extensions">
+               <topic href="html/usermanual.html#Cybersecurity_Decoration_Layer" label="Cybersecurity Decoration Layer">
+               </topic>
+               <topic href="html/usermanual.html#Primary_Assets_Layer" label="Primary Assets Layer">
+               </topic>
+               <topic href="html/usermanual.html#Supporting_Assets_Layer" label="Supporting Assets Layer">
+               </topic>
+               <topic href="html/usermanual.html#CIAT_Layers" label="CIAT Layers">
+               </topic>
+               <topic href="html/usermanual.html#Trust_Boundaries_Layer" label="Trust Boundaries Layer">
+               </topic>
+            </topic>
+         </topic>
+         <topic href="html/usermanual.html#Scenario_Diagram" label="Scenario Diagram">
+         </topic>
+         <topic href="html/usermanual.html#Information_Asset_Diagram" label="Information Asset Diagram">
+         </topic>
+      </topic>
       
       <topic label="Validation Rules">
 	      <topic href="html/Validation Rules/cybersecurity/design/consistency/ValidationRules.html" label="Consistency"/>
