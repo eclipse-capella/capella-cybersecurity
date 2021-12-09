@@ -43,8 +43,12 @@
             id="org.polarsys.capella.cybersecurity.business.queries.EnterprisePrimaryAsset_RealizedPrimaryAssets">
       </MDEBusinessQueries>
       <MDEBusinessQueries
-            class="org.polarsys.capella.cybersecurity.business.queries.EnterprisePrimaryAsset_PrimaryAssetsAtSameLvl"
-            id="org.polarsys.capella.cybersecurity.business.queries.EnterprisePrimaryAsset_PrimaryAssetsAtSameLvl">
+            class="org.polarsys.capella.cybersecurity.business.queries.ThreatSourceUse_Actors"
+            id="org.polarsys.capella.cybersecurity.business.queries.ThreatSourceUse_Actors">
+      </MDEBusinessQueries>
+      <MDEBusinessQueries
+            class="org.polarsys.capella.cybersecurity.business.queries.EnterprisePrimaryAsset_PrimaryAssets"
+            id="org.polarsys.capella.cybersecurity.business.queries.EnterprisePrimaryAsset_PrimaryAssets">
       </MDEBusinessQueries>
             <MDEBusinessQueries
                   class="org.polarsys.capella.cybersecurity.business.queries">

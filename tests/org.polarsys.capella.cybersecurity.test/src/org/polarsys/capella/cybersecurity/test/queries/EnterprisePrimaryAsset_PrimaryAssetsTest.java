@@ -18,7 +18,7 @@ import org.junit.Assert;
 import org.polarsys.capella.common.ef.command.AbstractReadWriteCommand;
 import org.polarsys.capella.common.helpers.TransactionHelper;
 import org.polarsys.capella.core.data.cs.BlockArchitecture;
-import org.polarsys.capella.cybersecurity.business.queries.EnterprisePrimaryAsset_PrimaryAssetsAtSameLvl;
+import org.polarsys.capella.cybersecurity.business.queries.EnterprisePrimaryAsset_PrimaryAssets;
 import org.polarsys.capella.cybersecurity.model.CybersecurityFactory;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPkg;
 import org.polarsys.capella.cybersecurity.model.EnterprisePrimaryAsset;
@@ -26,7 +26,7 @@ import org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset;
 import org.polarsys.capella.cybersecurity.model.InformationPrimaryAsset;
 import org.polarsys.capella.cybersecurity.sirius.analysis.CybersecurityServices;
 
-public class EnterprisePrimaryAssetAssetsAtSameLvl extends CybersecurityQueriesTest {
+public class EnterprisePrimaryAsset_PrimaryAssetsTest extends CybersecurityQueriesTest {
 
   private void executeTestQueryOnArh(BlockArchitecture arh) {
     EnterprisePrimaryAsset epa = CybersecurityFactory.eINSTANCE.createEnterprisePrimaryAsset();
@@ -44,7 +44,7 @@ public class EnterprisePrimaryAssetAssetsAtSameLvl extends CybersecurityQueriesT
     };
 
     TransactionHelper.getExecutionManager(project).execute(cmd);
-    List<EObject> elements = new EnterprisePrimaryAsset_PrimaryAssetsAtSameLvl().getAvailableElements(epa);
+    List<EObject> elements = new EnterprisePrimaryAsset_PrimaryAssets().getAvailableElements(epa);
     List<EObject> expectedElements = new ArrayList<>();
     expectedElements.add(ipa);
     expectedElements.add(fpa);
