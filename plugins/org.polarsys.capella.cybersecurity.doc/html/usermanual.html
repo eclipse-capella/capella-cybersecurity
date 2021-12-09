@@ -19,7 +19,7 @@
 		<p>Cybersecurity Specific Properties of Model Elements can be seen in the 
 			<i>Cybersecurity</i> tab of the Properties View. This section lists the most important concepts and their properties.
 		</p>
-		<h3 id="Actor">Actor</h3>
+		<h2 id="Actor">Actor</h2>
 		<p>An 
 			<i>Actor</i> is involved in 
 			<i>Threats</i> and allocates one or more 
@@ -47,6 +47,19 @@
 				<td>Text </td>
 			</tr>
 		</table>
+		<p>If an actor is 
+			<b>Threat Source</b> it may pass through other 
+			<b>Actors</b> to attack the system.
+			The user shall be able to identify how a Threat Source can use another Actor of the system to attack the system. This can be done trough the 
+			<b>'use</b>' relation, available in the Threat Diagrams or from the properties view of a Threat Source. This 
+			<i>use</i> relation shall be validated by the existence of functional exchanges, component exchanges or physical exchanges between them.
+		</p>
+		<p>
+			<img height="222" width="620" border="0" src="Images/ThreatSourceUse.png"/>
+		</p>
+		<p>
+			<img height="191" width="647" border="0" src="Images/Properties_ThreatSourceUse.png"/>
+		</p>
 		<h2 id="Entity">Entity</h2>
 		<p>An 
 			<i>Entity</i> is involved in 
@@ -138,7 +151,11 @@
 		</table>
 		<p>Additionally, like Primary Assets, Threats can also define and customize Security Needs (see next section).</p>
 		<h2 id="Primary_Asset">Primary Asset</h2>
-		<p>Information, activity, process or functionality that is valuable for the customer and then needs to be protected. The DARC Viewpoint distinguishes between:</p>
+		<p>Information, activity, process or functionality that is valuable for the customer and then needs to be protected. Primary Assets are threatened by Threats.
+
+			<br/>
+			The DARC Viewpoint distinguishes between:
+		</p>
 		<table border="1">
 			<tr>
 				<td>Functional Primary Asset</td>
@@ -150,20 +167,36 @@
 				<td>Information that is valuable for the customer and then needs to be protected.</td>
 				<td>Exchange Items</td>
 			</tr>
+			<tr>
+				<td>Enterprise Primary Asset</td>
+				<td>Enterprise Primary Assets are realized through sets of Functional and/or Information Primary Assets.</td>
+				<td>Functional/Information Primary Assets</td>
+			</tr>
 		</table>
+		<p>
+			<img height="357" width="968" border="0" src="Images/Properties_EnterprisePrimaryAssets.png"/> 
+		</p>
+		<h3 id="CIAT_Security_Needs_customization">CIAT Security Needs customization</h3>
 		<p>The attributes of a Primary Asset are its corresponding Security Needs, i.e. the characteristics that can be compromised / affected by a threat and their sensitivity levels. The following characteristics are considered here:</p>
 		<ul>
-			<li>Confidentiality: property that information is only available to authorized persons.</li>
-			<li>Integrity: property of accuracy and completeness (WRT authorized entities).</li>
-			<li>Availability: property of being accessible and useable upon demand by an authorized entity.</li>
-			<li>Traceability: property of verifying access and use thanks to documented recorded identification.</li>
+			<li>
+				<b>Confidentiality</b>: property that information is only available to authorized persons.
+			</li>
+			<li>
+				<b>Integrity</b>: property of accuracy and completeness (WRT authorized entities).
+			</li>
+			<li>
+				<b>Availability</b>: property of being accessible and useable upon demand by an authorized entity.
+			</li>
+			<li>
+				<b>Traceability</b>: property of verifying access and use thanks to documented recorded identification.
+			</li>
 		</ul>
 		<p>By default, an asset can define a value between 0 and 3 for each of these attributes. Project/Product teams shall define the equivalences between these sensitivity levels and those specific to their standards framework.
 			If this values are not suitable for the project, the user could customize (remove, add, rename) them from Cybersecurity Configuration located on the root Project element (see Capella Guide &gt; Preferences &gt; Project Explorer to reveal it).</p>
 		<p>
 			<img border="0" src="Images/custom_value.png"/> 
 		</p>
-		<p>Primary Assets are threatened by Threats.</p>
 		<h2 id="Function">Function</h2>
 		<p>Action, operation or service performed by the system, or by an actor interacting with the system (ref: Arcadia).
 			Like Primary Assets and Threats, Functions can define values for Confidentiality, Integrity, Availability and Traceability.</p>
@@ -207,6 +240,7 @@
 		<p>Alternatively, select 
 			<i>New Diagram/Table...-&gt;Threat Diagram</i> on a component's context menu in the Capella Project Explorer.
 		</p>
+		<h3 id="Tools_Threat_Diagram">Tools Threat Diagram</h3>
 		<p>The following tools are available:</p>
 		<table border="1">
 			<tr>
@@ -229,6 +263,13 @@
 					<img border="0" src="Images/InformationPrimaryAsset.gif"/> 
 				</td>
 				<td>Create a new Information Primary Asset.</td>
+			</tr>
+			<tr>
+				<td>Enterprise Primary Asset</td>
+				<td>
+					<img border="0" src="Images/EnterprisePrimaryAsset.gif"/> 
+				</td>
+				<td>Create a new Enterprise Primary Asset.</td>
 			</tr>
 			<tr>
 				<td>Actor 	</td>
@@ -266,18 +307,25 @@
 				<td>Insert/Remove Threats. Create or delete graphical objects corresponding to already existing Threats. Removing a Threat graphical object from the diagram does not delete the Threat from the model. This tool does not modify the semantic model.</td>
 			</tr>
 			<tr>
-				<td>Functional Primary Assets 	</td>
+				<td>Functional Assets 	</td>
 				<td>
 					<img border="0" src="Images/ShowHide.gif"/> 
 				</td>
 				<td>Insert/Remove Functional Assets. Create or delete graphical objects corresponding to already existing Functional Assets. Removing a Functional Asset graphical object from the diagram does not delete the Functional Asset from the model. This tool does not modify the semantic model.</td>
 			</tr>
 			<tr>
-				<td>Information Primary Assets	</td>
+				<td>Information Assets	</td>
 				<td>
 					<img border="0" src="Images/ShowHide.gif"/> 
 				</td>
-				<td>Insert/Remove Information Assets. Create or delete graphical objects corresponding to already existing Information Assets. Removing a Information Asset graphical object from the diagram does not delete the Information Asset from the model. This tool does not modify the semantic model.</td>
+				<td>Insert/Remove Information Assets. Create or delete graphical objects corresponding to already existing Information Assets. Removing an Information Asset graphical object from the diagram does not delete the Information Asset from the model. This tool does not modify the semantic model.</td>
+			</tr>
+			<tr>
+				<td>Enterprise Assets	</td>
+				<td>
+					<img border="0" src="Images/ShowHide.gif"/> 
+				</td>
+				<td>Insert/Remove Enterprise Assets. Create or delete graphical objects corresponding to already existing Enterprise Assets. Removing an Enterprise Asset graphical object from the diagram does not delete the Enterprise Asset from the model. This tool does not modify the semantic model.</td>
 			</tr>
 			<tr>
 				<td>Actors 	</td>
@@ -323,6 +371,7 @@
 			<a href="/wiki/../help/topic/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.html?#Physical_Architecture_Blank" title="../help/topic/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.html?#Physical_Architecture_Blank">PAB</a><span class="github-link">
 			<a href="/wiki/https://github.com/eclipse/capella/blob/master/doc/plugins/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.mediawiki#Physical_Architecture_Blank" title="https://github.com/eclipse/capella/blob/master/doc/plugins/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.mediawiki#Physical_Architecture_Blank">(online documentation)</a></span>).
 		</p>
+		<h3 id="Tools">Tools</h3>
 		<p>One additional tool is provided by the Viewpoint:</p>
 		<table border="1">
 			<tr>

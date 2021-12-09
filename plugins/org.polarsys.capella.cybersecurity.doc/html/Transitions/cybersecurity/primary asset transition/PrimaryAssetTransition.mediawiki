@@ -11,7 +11,7 @@
 = Transition of Primary Assets =
 
 
-As detailed in the concepts chapter, transition of cybersecurity elements (Threats, Primary Assets) is possible using the "Cybersecurity Transition" command available in the transitions menu. The example below shows a transition of FunctionalPrimaryAsset from the operational level to the system level.
+As detailed in the concepts chapter, transition of cybersecurity elements (Threats, Primary Assets) is possible using the '''Cybersecurity Transition''' command available in the transitions menu. The example below shows a transition of '''Functional Primary Assets''' from the operational level to the system level.
 
 
 [[Image:../../../Images/fpa%20transition%20process.png]]
@@ -22,6 +22,11 @@ As can be seen in the image below, the transition on Primary Assets will preserv
 
 [[Image:../../../Images/fpa%20security%20needs.png]]
 
-The behaviour is similar for Information Primary Assets, the only difference being the element type that the Primary Asset Member can reference (Exchange Items vs Functions/Operational Activities).
+The behaviour is similar for '''Information Primary Assets''', the only difference being the element type that the Primary Asset Member can reference (Exchange Items vs Functions/Operational Activities).
+
+When transitioning '''Enterprise Primary Assets''', the referenced Primary Assets are also transitioned:
+
+[[Image:../../../Images/Transitions_EnterprisePrimaryAssets.png]]
+
 
 
