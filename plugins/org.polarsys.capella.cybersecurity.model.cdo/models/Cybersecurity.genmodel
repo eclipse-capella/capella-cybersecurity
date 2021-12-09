@@ -43,8 +43,8 @@
       childCreationExtenders="true" ecorePackage="../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#/">
     <genClasses ecoreClass="../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//CybersecurityPkg">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//CybersecurityPkg/ownedThreats"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//CybersecurityPkg/ownedCybersecurityPkgs"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//CybersecurityPkg/ownedPrimaryAssets"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//CybersecurityPkg/ownedCybersecurityPkgs"/>
     </genClasses>
     <genClasses ecoreClass="../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//Threat">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//Threat/addressedBy"/>

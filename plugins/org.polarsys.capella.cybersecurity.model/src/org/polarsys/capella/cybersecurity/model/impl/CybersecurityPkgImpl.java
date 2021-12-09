@@ -34,8 +34,8 @@ import org.polarsys.capella.cybersecurity.model.Threat;
  * </p>
  * <ul>
  *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.CybersecurityPkgImpl#getOwnedThreats <em>Owned Threats</em>}</li>
- *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.CybersecurityPkgImpl#getOwnedCybersecurityPkgs <em>Owned Cybersecurity Pkgs</em>}</li>
  *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.CybersecurityPkgImpl#getOwnedPrimaryAssets <em>Owned Primary Assets</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.CybersecurityPkgImpl#getOwnedCybersecurityPkgs <em>Owned Cybersecurity Pkgs</em>}</li>
  * </ul>
  *
  * @generated
@@ -53,15 +53,6 @@ public class CybersecurityPkgImpl extends NamedElementImpl implements Cybersecur
   protected EList<Threat> ownedThreats;
 
   /**
-   * The cached value of the '{@link #getOwnedCybersecurityPkgs() <em>Owned Cybersecurity Pkgs</em>}' containment reference list.
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * @see #getOwnedCybersecurityPkgs()
-   * @generated
-   * @ordered
-   */
-  protected EList<CybersecurityPkg> ownedCybersecurityPkgs;
-
-  /**
    * The cached value of the '{@link #getOwnedPrimaryAssets() <em>Owned Primary Assets</em>}' containment reference list.
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @see #getOwnedPrimaryAssets()
@@ -69,6 +60,15 @@ public class CybersecurityPkgImpl extends NamedElementImpl implements Cybersecur
    * @ordered
    */
   protected EList<PrimaryAsset> ownedPrimaryAssets;
+
+  /**
+   * The cached value of the '{@link #getOwnedCybersecurityPkgs() <em>Owned Cybersecurity Pkgs</em>}' containment reference list.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * @see #getOwnedCybersecurityPkgs()
+   * @generated
+   * @ordered
+   */
+  protected EList<CybersecurityPkg> ownedCybersecurityPkgs;
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -143,10 +143,10 @@ public class CybersecurityPkgImpl extends NamedElementImpl implements Cybersecur
     switch (featureID) {
     case CybersecurityPackage.CYBERSECURITY_PKG__OWNED_THREATS:
       return ((InternalEList<?>) getOwnedThreats()).basicRemove(otherEnd, msgs);
-    case CybersecurityPackage.CYBERSECURITY_PKG__OWNED_CYBERSECURITY_PKGS:
-      return ((InternalEList<?>) getOwnedCybersecurityPkgs()).basicRemove(otherEnd, msgs);
     case CybersecurityPackage.CYBERSECURITY_PKG__OWNED_PRIMARY_ASSETS:
       return ((InternalEList<?>) getOwnedPrimaryAssets()).basicRemove(otherEnd, msgs);
+    case CybersecurityPackage.CYBERSECURITY_PKG__OWNED_CYBERSECURITY_PKGS:
+      return ((InternalEList<?>) getOwnedCybersecurityPkgs()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -160,10 +160,10 @@ public class CybersecurityPkgImpl extends NamedElementImpl implements Cybersecur
     switch (featureID) {
     case CybersecurityPackage.CYBERSECURITY_PKG__OWNED_THREATS:
       return getOwnedThreats();
-    case CybersecurityPackage.CYBERSECURITY_PKG__OWNED_CYBERSECURITY_PKGS:
-      return getOwnedCybersecurityPkgs();
     case CybersecurityPackage.CYBERSECURITY_PKG__OWNED_PRIMARY_ASSETS:
       return getOwnedPrimaryAssets();
+    case CybersecurityPackage.CYBERSECURITY_PKG__OWNED_CYBERSECURITY_PKGS:
+      return getOwnedCybersecurityPkgs();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -180,13 +180,13 @@ public class CybersecurityPkgImpl extends NamedElementImpl implements Cybersecur
       getOwnedThreats().clear();
       getOwnedThreats().addAll((Collection<? extends Threat>) newValue);
       return;
-    case CybersecurityPackage.CYBERSECURITY_PKG__OWNED_CYBERSECURITY_PKGS:
-      getOwnedCybersecurityPkgs().clear();
-      getOwnedCybersecurityPkgs().addAll((Collection<? extends CybersecurityPkg>) newValue);
-      return;
     case CybersecurityPackage.CYBERSECURITY_PKG__OWNED_PRIMARY_ASSETS:
       getOwnedPrimaryAssets().clear();
       getOwnedPrimaryAssets().addAll((Collection<? extends PrimaryAsset>) newValue);
+      return;
+    case CybersecurityPackage.CYBERSECURITY_PKG__OWNED_CYBERSECURITY_PKGS:
+      getOwnedCybersecurityPkgs().clear();
+      getOwnedCybersecurityPkgs().addAll((Collection<? extends CybersecurityPkg>) newValue);
       return;
     }
     super.eSet(featureID, newValue);
@@ -202,11 +202,11 @@ public class CybersecurityPkgImpl extends NamedElementImpl implements Cybersecur
     case CybersecurityPackage.CYBERSECURITY_PKG__OWNED_THREATS:
       getOwnedThreats().clear();
       return;
-    case CybersecurityPackage.CYBERSECURITY_PKG__OWNED_CYBERSECURITY_PKGS:
-      getOwnedCybersecurityPkgs().clear();
-      return;
     case CybersecurityPackage.CYBERSECURITY_PKG__OWNED_PRIMARY_ASSETS:
       getOwnedPrimaryAssets().clear();
+      return;
+    case CybersecurityPackage.CYBERSECURITY_PKG__OWNED_CYBERSECURITY_PKGS:
+      getOwnedCybersecurityPkgs().clear();
       return;
     }
     super.eUnset(featureID);
@@ -221,10 +221,10 @@ public class CybersecurityPkgImpl extends NamedElementImpl implements Cybersecur
     switch (featureID) {
     case CybersecurityPackage.CYBERSECURITY_PKG__OWNED_THREATS:
       return ownedThreats != null && !ownedThreats.isEmpty();
-    case CybersecurityPackage.CYBERSECURITY_PKG__OWNED_CYBERSECURITY_PKGS:
-      return ownedCybersecurityPkgs != null && !ownedCybersecurityPkgs.isEmpty();
     case CybersecurityPackage.CYBERSECURITY_PKG__OWNED_PRIMARY_ASSETS:
       return ownedPrimaryAssets != null && !ownedPrimaryAssets.isEmpty();
+    case CybersecurityPackage.CYBERSECURITY_PKG__OWNED_CYBERSECURITY_PKGS:
+      return ownedCybersecurityPkgs != null && !ownedCybersecurityPkgs.isEmpty();
     }
     return super.eIsSet(featureID);
   }
