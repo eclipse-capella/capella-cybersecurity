@@ -252,7 +252,7 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
    */
   @Override
   public EReference getCybersecurityPkg_OwnedCybersecurityPkgs() {
-    return (EReference) cybersecurityPkgEClass.getEStructuralFeatures().get(1);
+    return (EReference) cybersecurityPkgEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -261,7 +261,7 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
    */
   @Override
   public EReference getCybersecurityPkg_OwnedPrimaryAssets() {
-    return (EReference) cybersecurityPkgEClass.getEStructuralFeatures().get(2);
+    return (EReference) cybersecurityPkgEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -765,8 +765,8 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
     // Create classes and their features
     cybersecurityPkgEClass = createEClass(CYBERSECURITY_PKG);
     createEReference(cybersecurityPkgEClass, CYBERSECURITY_PKG__OWNED_THREATS);
-    createEReference(cybersecurityPkgEClass, CYBERSECURITY_PKG__OWNED_CYBERSECURITY_PKGS);
     createEReference(cybersecurityPkgEClass, CYBERSECURITY_PKG__OWNED_PRIMARY_ASSETS);
+    createEReference(cybersecurityPkgEClass, CYBERSECURITY_PKG__OWNED_CYBERSECURITY_PKGS);
 
     threatEClass = createEClass(THREAT);
     createEReference(threatEClass, THREAT__ADDRESSED_BY);
@@ -906,12 +906,12 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
     initEReference(getCybersecurityPkg_OwnedThreats(), this.getThreat(), null, "ownedThreats", null, 0, -1, //$NON-NLS-1$
         CybersecurityPkg.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
         !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCybersecurityPkg_OwnedCybersecurityPkgs(), this.getCybersecurityPkg(), null,
-        "ownedCybersecurityPkgs", null, 0, -1, CybersecurityPkg.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, //$NON-NLS-1$
-        IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCybersecurityPkg_OwnedPrimaryAssets(), this.getPrimaryAsset(), null, "ownedPrimaryAssets", null, //$NON-NLS-1$
         0, -1, CybersecurityPkg.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
         !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCybersecurityPkg_OwnedCybersecurityPkgs(), this.getCybersecurityPkg(), null,
+        "ownedCybersecurityPkgs", null, 0, -1, CybersecurityPkg.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, //$NON-NLS-1$
+        IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(threatEClass, Threat.class, "Threat", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
     initEReference(getThreat_AddressedBy(), theCsPackage.getComponent(), null, "addressedBy", null, 0, -1, Threat.class, //$NON-NLS-1$

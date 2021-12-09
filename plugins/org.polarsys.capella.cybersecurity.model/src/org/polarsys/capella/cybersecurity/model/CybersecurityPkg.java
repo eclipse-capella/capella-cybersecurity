@@ -25,8 +25,8 @@ import org.polarsys.kitalpha.emde.model.ElementExtension;
  * </p>
  * <ul>
  *   <li>{@link org.polarsys.capella.cybersecurity.model.CybersecurityPkg#getOwnedThreats <em>Owned Threats</em>}</li>
- *   <li>{@link org.polarsys.capella.cybersecurity.model.CybersecurityPkg#getOwnedCybersecurityPkgs <em>Owned Cybersecurity Pkgs</em>}</li>
  *   <li>{@link org.polarsys.capella.cybersecurity.model.CybersecurityPkg#getOwnedPrimaryAssets <em>Owned Primary Assets</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.CybersecurityPkg#getOwnedCybersecurityPkgs <em>Owned Cybersecurity Pkgs</em>}</li>
  * </ul>
  *
  * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getCybersecurityPkg()

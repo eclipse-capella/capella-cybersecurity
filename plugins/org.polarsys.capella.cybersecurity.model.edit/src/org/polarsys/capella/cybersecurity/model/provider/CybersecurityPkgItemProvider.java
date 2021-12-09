@@ -80,8 +80,8 @@ public class CybersecurityPkgItemProvider extends NamedElementItemProvider imple
     if (childrenFeatures == null) {
       super.getChildrenFeatures(object);
       childrenFeatures.add(CybersecurityPackage.Literals.CYBERSECURITY_PKG__OWNED_THREATS);
-      childrenFeatures.add(CybersecurityPackage.Literals.CYBERSECURITY_PKG__OWNED_CYBERSECURITY_PKGS);
       childrenFeatures.add(CybersecurityPackage.Literals.CYBERSECURITY_PKG__OWNED_PRIMARY_ASSETS);
+      childrenFeatures.add(CybersecurityPackage.Literals.CYBERSECURITY_PKG__OWNED_CYBERSECURITY_PKGS);
     }
     return childrenFeatures;
   }
@@ -153,8 +153,8 @@ public class CybersecurityPkgItemProvider extends NamedElementItemProvider imple
 
     switch (notification.getFeatureID(CybersecurityPkg.class)) {
     case CybersecurityPackage.CYBERSECURITY_PKG__OWNED_THREATS:
-    case CybersecurityPackage.CYBERSECURITY_PKG__OWNED_CYBERSECURITY_PKGS:
     case CybersecurityPackage.CYBERSECURITY_PKG__OWNED_PRIMARY_ASSETS:
+    case CybersecurityPackage.CYBERSECURITY_PKG__OWNED_CYBERSECURITY_PKGS:
       fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
       return;
     }
@@ -283,17 +283,6 @@ public class CybersecurityPkgItemProvider extends NamedElementItemProvider imple
     // begin-extension-code
     {
       CommandParameter commandParameter = createChildParameter(
-          CybersecurityPackage.Literals.CYBERSECURITY_PKG__OWNED_CYBERSECURITY_PKGS,
-          CybersecurityFactory.eINSTANCE.createCybersecurityPkg());
-      if (NewChildDescriptorHelper.isValidCommand(object, commandParameter)) {
-        newChildDescriptors.add(commandParameter);
-      }
-    }
-    // end-extension-code
-
-    // begin-extension-code
-    {
-      CommandParameter commandParameter = createChildParameter(
           CybersecurityPackage.Literals.CYBERSECURITY_PKG__OWNED_PRIMARY_ASSETS,
           CybersecurityFactory.eINSTANCE.createFunctionalPrimaryAsset());
       if (NewChildDescriptorHelper.isValidCommand(object, commandParameter)) {
@@ -318,6 +307,17 @@ public class CybersecurityPkgItemProvider extends NamedElementItemProvider imple
       CommandParameter commandParameter = createChildParameter(
           CybersecurityPackage.Literals.CYBERSECURITY_PKG__OWNED_PRIMARY_ASSETS,
           CybersecurityFactory.eINSTANCE.createEnterprisePrimaryAsset());
+      if (NewChildDescriptorHelper.isValidCommand(object, commandParameter)) {
+        newChildDescriptors.add(commandParameter);
+      }
+    }
+    // end-extension-code
+
+    // begin-extension-code
+    {
+      CommandParameter commandParameter = createChildParameter(
+          CybersecurityPackage.Literals.CYBERSECURITY_PKG__OWNED_CYBERSECURITY_PKGS,
+          CybersecurityFactory.eINSTANCE.createCybersecurityPkg());
       if (NewChildDescriptorHelper.isValidCommand(object, commandParameter)) {
         newChildDescriptors.add(commandParameter);
       }
