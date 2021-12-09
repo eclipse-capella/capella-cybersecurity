@@ -122,10 +122,11 @@
       		tab="CybersecuritySiriusDiagram">
    	  </propertySection>
 	<propertySection
-         class="org.polarsys.capella.cybersecurity.ui.properties.sections.ActorCybersecuritySection"
-         filter="org.polarsys.capella.cybersecurity.ui.properties.sections.ActorCybersecuritySection"
-         id="org.polarsys.capella.cybersecurity.ui.properties.sections.ActorCybersecuritySection.diagram"
-         tab="CybersecuritySiriusDiagram">
+       afterSection="org.polarsys.capella.cybersecurity.ui.properties.sections.ThreatSourceUseSection"
+       class="org.polarsys.capella.cybersecurity.ui.properties.sections.ActorCybersecuritySection"
+       filter="org.polarsys.capella.cybersecurity.ui.properties.sections.ActorCybersecuritySection"
+       id="org.polarsys.capella.cybersecurity.ui.properties.sections.ActorCybersecuritySection.diagram"
+       tab="CybersecuritySiriusDiagram">
    </propertySection>
    <propertySection
          class="org.polarsys.capella.cybersecurity.ui.properties.sections.SecurityAwareNamedElementSection"
@@ -137,6 +138,13 @@
          class="org.polarsys.capella.cybersecurity.ui.properties.sections.RelationshipSection"
          filter="org.polarsys.capella.cybersecurity.ui.properties.sections.RelationshipSection"
          id="org.polarsys.capella.cybersecurity.ui.properties.sections.RelationshipSection.diagram"
+         tab="CybersecuritySiriusDiagram">
+   </propertySection>
+   <propertySection
+         afterSection="org.polarsys.capella.cybersecurity.ui.properties.sections.SecurityAwareNamedElementSection.capella"
+         class="org.polarsys.capella.cybersecurity.ui.properties.sections.ThreatSourceUseSection"
+         filter="org.polarsys.capella.cybersecurity.ui.properties.sections.ThreatSourceUseSection"
+         id="org.polarsys.capella.cybersecurity.ui.properties.sections.ThreatSourceUseSection"
          tab="CybersecuritySiriusDiagram">
    </propertySection> 
   
@@ -225,6 +233,7 @@
            tab="CybersecurityCapella">
      </propertySection>
      <propertySection
+           afterSection="org.polarsys.capella.cybersecurity.ui.properties.sections.ThreatSourceUseSection"
            class="org.polarsys.capella.cybersecurity.ui.properties.sections.ActorCybersecuritySection"
            filter="org.polarsys.capella.cybersecurity.ui.properties.sections.ActorCybersecuritySection"
            id="org.polarsys.capella.cybersecurity.ui.properties.sections.ActorCybersecuritySection.capella"
@@ -241,6 +250,13 @@
          filter="org.polarsys.capella.cybersecurity.ui.properties.sections.RelationshipSection"
          id="org.polarsys.capella.cybersecurity.ui.properties.sections.RelationshipSection.capella"
          tab="CybersecurityCapella">
+     </propertySection>
+     <propertySection
+           afterSection="org.polarsys.capella.cybersecurity.ui.properties.sections.SecurityAwareNamedElementSection.capella"
+           class="org.polarsys.capella.cybersecurity.ui.properties.sections.ThreatSourceUseSection"
+           filter="org.polarsys.capella.cybersecurity.ui.properties.sections.ThreatSourceUseSection"
+           id="org.polarsys.capella.cybersecurity.ui.properties.sections.ThreatSourceUseSection"
+           tab="CybersecurityCapella">
      </propertySection> 
 		    </propertySections>
 </extension>
@@ -1453,7 +1469,39 @@
             </basicQuery>
          </itemQueries>
       </category>
-   <category
+      <category
+            id="org.polarsys.capella.cybersecurity.ui.semantic.browser.ComponentUsedActors"
+            isTopLevel="true"
+            name="Using in">
+         <availableForType
+               class="org.polarsys.capella.core.data.cs.Component">
+         </availableForType>
+         <targetBrowserId
+               id="ReferencedElementBrowser">
+         </targetBrowserId>
+         <categoryQuery>
+            <basicQuery
+                  class="org.polarsys.capella.cybersecurity.ui.semantic.browser.ActorsUsed">
+            </basicQuery>
+         </categoryQuery>
+      </category>
+      <category
+            id="org.polarsys.capella.cybersecurity.ui.semantic.browser.ComponentUsedBy"
+            isTopLevel="true"
+            name="Used by">
+         <availableForType
+               class="org.polarsys.capella.core.data.cs.Component">
+         </availableForType>
+         <targetBrowserId
+               id="ReferencingElementBrowser">
+         </targetBrowserId>
+         <categoryQuery>
+            <basicQuery
+                  class="org.polarsys.capella.cybersecurity.ui.semantic.browser.ThreatSourceThatUse">
+            </basicQuery>
+         </categoryQuery>
+      </category>
+         <category
             id="org.polarsys.capella.cybersecurity.ui.semantic.browser.TraceableElementThreatRealized"
             isTopLevel="true"
             name="Realized Threats">
