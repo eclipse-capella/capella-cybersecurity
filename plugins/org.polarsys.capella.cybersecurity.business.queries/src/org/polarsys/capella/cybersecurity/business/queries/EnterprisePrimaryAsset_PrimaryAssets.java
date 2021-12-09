@@ -14,9 +14,9 @@ import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.EnterprisePrimaryAsset;
 import org.polarsys.capella.cybersecurity.model.PrimaryAsset;
 
-public class EnterprisePrimaryAsset_PrimaryAssetsAtSameLvl extends BlockArchitecturePredicateQuery {
+public class EnterprisePrimaryAsset_PrimaryAssets extends BlockArchitecturePredicateQuery {
 
-  public EnterprisePrimaryAsset_PrimaryAssetsAtSameLvl() {
+  public EnterprisePrimaryAsset_PrimaryAssets() {
     super(CybersecurityPackage.Literals.PRIMARY_ASSET__OWNED_MEMBERS,
         obj -> PrimaryAsset.class.isInstance(obj) && !(EnterprisePrimaryAsset.class.isInstance(obj)),
         CybersecurityPackage.Literals.ENTERPRISE_PRIMARY_ASSET);
