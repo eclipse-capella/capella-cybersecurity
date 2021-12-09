@@ -11,10 +11,10 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedThreats" upperBound="-1"
         eType="#//Threat" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedCybersecurityPkgs"
-        upperBound="-1" eType="#//CybersecurityPkg" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedPrimaryAssets" upperBound="-1"
         eType="#//PrimaryAsset" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedCybersecurityPkgs"
+        upperBound="-1" eType="#//CybersecurityPkg" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Threat" eSuperTypes="platform:/plugin/org.polarsys.capella.core.data.gen/model/Interaction.ecore#//AbstractCapability">
     <eStructuralFeatures xsi:type="ecore:EReference" name="addressedBy" upperBound="-1"

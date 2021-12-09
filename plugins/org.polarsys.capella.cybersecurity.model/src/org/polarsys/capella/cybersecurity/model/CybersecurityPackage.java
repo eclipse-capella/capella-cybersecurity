@@ -269,22 +269,22 @@ public interface CybersecurityPackage extends EPackage {
   int CYBERSECURITY_PKG__OWNED_THREATS = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Owned Cybersecurity Pkgs</b></em>' containment reference list.
-   * <!-- begin-user-doc
-   * --> <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CYBERSECURITY_PKG__OWNED_CYBERSECURITY_PKGS = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
-
-  /**
    * The feature id for the '<em><b>Owned Primary Assets</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CYBERSECURITY_PKG__OWNED_PRIMARY_ASSETS = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
+  int CYBERSECURITY_PKG__OWNED_PRIMARY_ASSETS = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Owned Cybersecurity Pkgs</b></em>' containment reference list.
+   * <!-- begin-user-doc
+   * --> <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CYBERSECURITY_PKG__OWNED_CYBERSECURITY_PKGS = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Pkg</em>' class.
