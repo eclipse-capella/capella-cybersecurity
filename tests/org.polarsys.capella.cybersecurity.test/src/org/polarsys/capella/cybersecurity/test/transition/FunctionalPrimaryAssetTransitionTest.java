@@ -23,6 +23,7 @@ import org.polarsys.capella.core.model.helpers.BlockArchitectureExt.Type;
 import org.polarsys.capella.cybersecurity.model.CybersecurityFactory;
 import org.polarsys.capella.cybersecurity.model.FunctionStorage;
 import org.polarsys.capella.cybersecurity.model.PrimaryAsset;
+import org.polarsys.capella.cybersecurity.model.PrimaryAssetMember;
 
 public class FunctionalPrimaryAssetTransitionTest extends PrimaryAssetTransitionTest {
   private static final String OPERATIONAL_ACTIVITY_1 = "618e273c-5b56-4855-8a43-18217359fd7b";
@@ -40,7 +41,7 @@ public class FunctionalPrimaryAssetTransitionTest extends PrimaryAssetTransition
   }
 
   @Override
-  protected void checkPAMMemberTransitioned(Type level) {
+  protected void checkPAMMembersTransitioned(Type level) {
     switch(level) {
     case SA:
       SystemFunction rootFunctionSA = ((SystemFunctionPkg) BlockArchitectureExt.getFunctionPkg(saArch, false))
@@ -71,11 +72,13 @@ public class FunctionalPrimaryAssetTransitionTest extends PrimaryAssetTransition
       mustBeTransitionedDirecltyContainedBy(transitionedExchangeItem.getId(),
           BlockArchitectureExt.getInterfacePkg(paArch, false).getOwnedInterfacePkgs().get(0));
       break;
+    default:
+      break;
     }
   }
 
   @Override
-  protected void addPAMMember() {
+  protected void addPAMMembers() {
     // create the function storage, associate the exchange item with it and add the function storage to a newly created
     // function associated with the primary asset
     OperationalActivity operationalActivity = getObject(OPERATIONAL_ACTIVITY_1);
@@ -85,8 +88,11 @@ public class FunctionalPrimaryAssetTransitionTest extends PrimaryAssetTransition
     functionStorage.setRemanentData(true);
     functionStorage.getExchangedItems().add(exchangeItem);
 
+    PrimaryAssetMember primaryAssetMember = CybersecurityFactory.eINSTANCE.createPrimaryAssetMember();
     operationalActivity.getOwnedExtensions().add(functionStorage);
     primaryAssetMember.setMember(operationalActivity);
+    
+    primaryAssetMembers.add(primaryAssetMember);
   }
 
 }

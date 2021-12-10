@@ -476,7 +476,7 @@ public class CybersecurityServices {
     return ap;
   }
   
-  public ThreatSourceUse createThreaSourcetUse(Component threatSource, Component actor) {
+  public ThreatSourceUse createThreatSourceUse(Component threatSource, Component actor) {
     ThreatSourceUse tu = CybersecurityFactory.eINSTANCE.createThreatSourceUse();
     tu.setUsedActor(actor);
     threatSource.getOwnedExtensions().add(tu);

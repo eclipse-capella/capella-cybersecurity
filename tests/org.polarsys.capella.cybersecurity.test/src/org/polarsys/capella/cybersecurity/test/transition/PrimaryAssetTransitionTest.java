@@ -10,6 +10,10 @@
 *******************************************************************/
 package org.polarsys.capella.cybersecurity.test.transition;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.polarsys.capella.core.data.information.ExchangeItem;
 import org.polarsys.capella.core.data.information.InformationFactory;
 import org.polarsys.capella.core.model.helpers.BlockArchitectureExt;
@@ -28,23 +32,22 @@ public abstract class PrimaryAssetTransitionTest extends CyberTopDownTransitionT
   PrimaryAsset primaryAsset;
   PrimaryAsset primaryAsset2;
   SecurityNeeds securityNeeds;
-  PrimaryAssetMember primaryAssetMember;
+  List<PrimaryAssetMember> primaryAssetMembers;
   Threat threat;
   ThreatApplication threatApplication;
   ExchangeItem exchangeItem;
 
   protected abstract PrimaryAsset createPrimaryAsset();
 
-  protected abstract void addPAMMember();
+  protected abstract void addPAMMembers();
 
-  protected abstract void checkPAMMemberTransitioned(Type level);
+  protected abstract void checkPAMMembersTransitioned(Type level);
 
   @Override
   protected void init() {
     super.init();
     primaryAsset = createPrimaryAsset();
     primaryAsset2 = createPrimaryAsset();
-    primaryAssetMember = CybersecurityFactory.eINSTANCE.createPrimaryAssetMember();
     threat = CybersecurityFactory.eINSTANCE.createThreat();
     threatApplication = CybersecurityFactory.eINSTANCE.createThreatApplication();
     exchangeItem = InformationFactory.eINSTANCE.createExchangeItem();
@@ -64,11 +67,12 @@ public abstract class PrimaryAssetTransitionTest extends CyberTopDownTransitionT
     // set the threat to the threat application
     threatApplication.setThreat(threat);
 
+    primaryAssetMembers = new ArrayList<>();
     // add the member depending on the pa type to the primary asset member
-    addPAMMember();
+    addPAMMembers();
     
     // add the pa member to the pa
-    primaryAsset.getOwnedMembers().add(primaryAssetMember);
+    primaryAsset.getOwnedMembers().addAll(primaryAssetMembers);
 
     // add the pa and threat on the operational level
     oaPkg.getOwnedPrimaryAssets().add(primaryAsset);
@@ -93,9 +97,9 @@ public abstract class PrimaryAssetTransitionTest extends CyberTopDownTransitionT
         securityNeeds.getId(), systemPa);
     checkSecurityNeedsProperlyTransitioned(transitionedSecurityNeeds);
     // check that the primary asset member has been transitioned as well as the member it points to
-    PrimaryAssetMember systemPam = (PrimaryAssetMember) mustBeTransitionedDirecltyContainedBy(
-        primaryAssetMember.getId(), systemPa);
-    checkPAMMemberTransitioned(Type.SA);
+    List<PrimaryAssetMember> systemPams = primaryAssetMembers.stream().map(pam -> (PrimaryAssetMember) mustBeTransitionedDirecltyContainedBy(
+        pam.getId(), systemPa)).collect(Collectors.toList());
+    checkPAMMembersTransitioned(Type.SA);
     // check that the threat application and the threat it points to has been transitioned
     ThreatApplication systemThreatApplication = (ThreatApplication) mustBeTransitionedDirecltyContainedBy(
         threatApplication.getId(), systemPa);
@@ -108,9 +112,9 @@ public abstract class PrimaryAssetTransitionTest extends CyberTopDownTransitionT
     transitionedSecurityNeeds = (SecurityNeeds) mustBeTransitionedDirecltyContainedBy(transitionedSecurityNeeds.getId(),
         logicalPa);
     checkSecurityNeedsProperlyTransitioned(transitionedSecurityNeeds);
-    PrimaryAssetMember logicalPam = (PrimaryAssetMember) mustBeTransitionedDirecltyContainedBy(systemPam.getId(),
-        logicalPa);
-    checkPAMMemberTransitioned(Type.LA);
+    List<PrimaryAssetMember> logicalPams = systemPams.stream().map(pam -> (PrimaryAssetMember) mustBeTransitionedDirecltyContainedBy(
+        pam.getId(), logicalPa)).collect(Collectors.toList());
+    checkPAMMembersTransitioned(Type.LA);
     ThreatApplication logicalThreatApplication = (ThreatApplication) mustBeTransitionedDirecltyContainedBy(
         systemThreatApplication.getId(), logicalPa);
     Threat logicalThreat = (Threat) mustBeTransitionedDirecltyContainedBy(systemThreat.getId(), laPkg);
@@ -120,8 +124,9 @@ public abstract class PrimaryAssetTransitionTest extends CyberTopDownTransitionT
     transitionedSecurityNeeds = (SecurityNeeds) mustBeTransitionedDirecltyContainedBy(transitionedSecurityNeeds.getId(),
         physicalPa);
     checkSecurityNeedsProperlyTransitioned(transitionedSecurityNeeds);
-    mustBeTransitionedDirecltyContainedBy(logicalPam.getId(), physicalPa);
-    checkPAMMemberTransitioned(Type.PA);
+    logicalPams.stream().map(pam -> (PrimaryAssetMember) mustBeTransitionedDirecltyContainedBy(
+        pam.getId(), physicalPa)).collect(Collectors.toList());
+    checkPAMMembersTransitioned(Type.PA);
     mustBeTransitionedDirecltyContainedBy(logicalThreatApplication.getId(), physicalPa);
     mustBeTransitionedDirecltyContainedBy(logicalThreat.getId(), paPkg);
   }

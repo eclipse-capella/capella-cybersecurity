@@ -32,8 +32,12 @@ public class CybersecurityPropertiesTestSuite extends BasicTestSuite{
   @Override
   protected List<BasicTestArtefact> getTests() {
     List<BasicTestArtefact> tests = new ArrayList<BasicTestArtefact>();
-    tests.add(new FunctionalChainPropertiesTest());
+    tests.add(new FunctionalChainPrimaryAssetPropertiesTest());
+    tests.add(new FunctionPropertiesPrimaryAssetsTest());
     tests.add(new SecurityNeedsSectionTest());
+    tests.add(new EnterprisePrimaryAssetSectionTest());
+    tests.add(new FunctionalPrimaryAssetSectionTest());
+    tests.add(new InformationPrimaryAssetSectionTest());
     
     return tests;
   }
