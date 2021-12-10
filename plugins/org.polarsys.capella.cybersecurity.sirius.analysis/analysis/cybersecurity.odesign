@@ -276,8 +276,8 @@
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:source.createThreaSourcetUse(target)">
-                <subModelOperations xsi:type="tool:CreateEdgeView" mapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@edgeMappings[name='ThreatSourceUse']" containerViewExpression="var:sourceView" sourceExpression="feature:threat" targetExpression="feature:component"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:source.createThreatSourceUse(target)">
+                <subModelOperations xsi:type="tool:CreateEdgeView" mapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@edgeMappings[name='ThreatSourceUse']" containerViewExpression="var:sourceView" sourceExpression="feature:component" targetExpression="feature:component"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>

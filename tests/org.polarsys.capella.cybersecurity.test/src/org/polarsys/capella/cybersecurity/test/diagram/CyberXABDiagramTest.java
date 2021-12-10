@@ -171,7 +171,6 @@ public abstract class CyberXABDiagramTest extends EmptyProject {
       m3.setMember(fpa);
       
       epa.getOwnedMembers().add(m3);
-      epa.getPrimaryAssets().add(fpa);
     });
 
     // now add the fpa, and check that function nodes have same border color as asset color
@@ -228,7 +227,6 @@ public abstract class CyberXABDiagramTest extends EmptyProject {
       m3.setMember(ipa);
       
       epa.getOwnedMembers().add(m3);
-      epa.getPrimaryAssets().add(ipa);
     });
 
     insertPrimaryAsset(ipa);
@@ -341,7 +339,6 @@ public abstract class CyberXABDiagramTest extends EmptyProject {
       m3.setMember(fpa);
       
       epa.getOwnedMembers().add(m3);
-      epa.getPrimaryAssets().add(fpa);
       
       insertPrimaryAsset(epa);
       assertEquals(((Square) functionStyle).getBorderColor(), BLACK_COLOR);
@@ -403,8 +400,6 @@ public abstract class CyberXABDiagramTest extends EmptyProject {
       
       epa.getOwnedMembers().add(m1);
       epa.getOwnedMembers().add(m2);
-      epa.getPrimaryAssets().add(ipa1);
-      epa.getPrimaryAssets().add(ipa2);
       
       insertPrimaryAsset(epa);
       assertEquals(((EdgeStyle) exchangeStyle).getStrokeColor(), BLACK_COLOR);
@@ -466,9 +461,7 @@ public abstract class CyberXABDiagramTest extends EmptyProject {
       epa = services.createEnterprisePrimaryAsset(context.getSemanticElement(getSystemId()));
       PrimaryAssetMember m2 = CybersecurityFactory.eINSTANCE.createPrimaryAssetMember();
       m2.setMember(fpa);
-      
       epa.getOwnedMembers().add(m2);
-      epa.getPrimaryAssets().add(fpa);
     });
     
     insertPrimaryAsset(epa);
@@ -634,9 +627,7 @@ public abstract class CyberXABDiagramTest extends EmptyProject {
       epa = services.createEnterprisePrimaryAsset(context.getSemanticElement(getSystemId()));
       PrimaryAssetMember m2 = CybersecurityFactory.eINSTANCE.createPrimaryAssetMember();
       m2.setMember(ipa);
-      
       epa.getOwnedMembers().add(m2);
-      epa.getPrimaryAssets().add(ipa);
     });
     
     insertPrimaryAsset(epa);

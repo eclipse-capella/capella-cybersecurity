@@ -16,6 +16,7 @@ import org.polarsys.capella.core.model.helpers.BlockArchitectureExt.Type;
 import org.polarsys.capella.core.transition.system.topdown.preferences.PreferenceHelper;
 import org.polarsys.capella.cybersecurity.model.CybersecurityFactory;
 import org.polarsys.capella.cybersecurity.model.PrimaryAsset;
+import org.polarsys.capella.cybersecurity.model.PrimaryAssetMember;
 
 public class InformationPrimaryAssetTransitionTest extends PrimaryAssetTransitionTest {
 
@@ -25,7 +26,7 @@ public class InformationPrimaryAssetTransitionTest extends PrimaryAssetTransitio
   }
 
   @Override
-  protected void checkPAMMemberTransitioned(Type level) {
+  protected void checkPAMMembersTransitioned(Type level) {
     PreferenceHelper.getInstance().transitionExchangeItemWhileInterfaceTransition();
     switch (level) {
     case SA:
@@ -40,11 +41,15 @@ public class InformationPrimaryAssetTransitionTest extends PrimaryAssetTransitio
       mustBeTransitionedDirecltyContainedBy(exchangeItem.getId(),
           BlockArchitectureExt.getInterfacePkg(paArch, false).getOwnedInterfacePkgs().get(0));
       break;
+    default:
+      break;
     }
   }
 
   @Override
-  protected void addPAMMember() {
-    primaryAssetMember.setMember(exchangeItem);
+  protected void addPAMMembers() {
+    PrimaryAssetMember pam = CybersecurityFactory.eINSTANCE.createPrimaryAssetMember();
+    pam.setMember(exchangeItem);
+    primaryAssetMembers.add(pam);
   }
 }

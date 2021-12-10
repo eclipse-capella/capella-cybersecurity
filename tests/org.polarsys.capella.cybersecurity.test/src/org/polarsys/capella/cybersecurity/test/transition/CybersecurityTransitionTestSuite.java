@@ -30,6 +30,7 @@ public class CybersecurityTransitionTestSuite extends BasicTestSuite {
     List<BasicTestArtefact> tests = new ArrayList<BasicTestArtefact>();
     tests.add(new FunctionalPrimaryAssetTransitionTest());
     tests.add(new InformationPrimaryAssetTransitionTest());
+    tests.add(new EnterprisePrimaryAssetTransitionTest());
     tests.add(new ThreatTransitionTest());
     tests.add(new CyberActorTransitionTest());
     tests.add(new CybersecurityBlockArchitectureTransitionTest());

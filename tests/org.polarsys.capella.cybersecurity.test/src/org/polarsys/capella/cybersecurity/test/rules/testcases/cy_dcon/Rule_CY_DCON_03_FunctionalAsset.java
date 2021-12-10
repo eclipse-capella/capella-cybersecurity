@@ -15,7 +15,7 @@ import org.polarsys.capella.cybersecurity.model.CybersecurityFactory;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPkg;
 import org.polarsys.capella.cybersecurity.model.PrimaryAsset;
 
-public class Rule_CY_DCON_03_Asset extends Abstract_Rule_CY_DCON_03<PrimaryAsset> {
+public class Rule_CY_DCON_03_FunctionalAsset extends Abstract_Rule_CY_DCON_03<PrimaryAsset> {
 
   @Override
   protected void setRule() {

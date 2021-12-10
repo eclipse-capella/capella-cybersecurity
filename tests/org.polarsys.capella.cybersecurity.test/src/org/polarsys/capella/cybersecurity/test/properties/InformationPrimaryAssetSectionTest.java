@@ -10,18 +10,14 @@
 *******************************************************************/
 package org.polarsys.capella.cybersecurity.test.properties;
 
-import org.polarsys.capella.cybersecurity.ui.properties.sections.SecurityNeedsSection;
+import org.polarsys.capella.cybersecurity.ui.properties.sections.InformationPrimaryAssetSection;
 
-public class SecurityNeedsSectionTest extends AbstractCybersecuritySectionTest {
+public class InformationPrimaryAssetSectionTest extends AbstractCybersecuritySectionTest {
   @Override
   public void test() throws Exception {
     super.init();
-    doTest(PA__EPA_2_ID, new SecurityNeedsSection(), 4);
-    doTest(PA__FPA_3_ID, new SecurityNeedsSection(), 4);
-    doTest(PA__IPA_4_ID, new SecurityNeedsSection(), 4);
-    doTest(PA__THREAT_1_ID, new SecurityNeedsSection(), 4);
-    doTest(PA__PHYSICAL_FUNCTION_3_ID, new SecurityNeedsSection(), 4);
-    doTest(PA__EXCHANGE_ITEM_1_ID, new SecurityNeedsSection(), 4);
-    doTestNotSelect(PA__CYBERSECURITY_PKG_ID, new SecurityNeedsSection());
+    doTest(PA__IPA_4_ID, new InformationPrimaryAssetSection(), 2);
+    doTestNotSelect(PA__EPA_2_ID, new InformationPrimaryAssetSection());
+    doTestNotSelect(PA__FPA_3_ID, new InformationPrimaryAssetSection());
   }
 }
