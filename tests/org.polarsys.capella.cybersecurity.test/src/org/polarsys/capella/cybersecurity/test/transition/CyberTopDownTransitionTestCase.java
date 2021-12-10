@@ -37,9 +37,10 @@ public abstract class CyberTopDownTransitionTestCase extends TopDownTransitionTe
   CybersecurityPkg paPkg;
   Project project;
   CybersecurityServices services;
+  Session session;
 
   protected void init() {
-    Session session = getSession(getRequiredTestModels().get(0));
+    session = getSession(getRequiredTestModels().get(0));
     project = SessionHelper.getCapellaProject(session);
     services = new CybersecurityServices();
     oaArch = BlockArchitectureExt.getBlockArchitecture(Type.OA, project);

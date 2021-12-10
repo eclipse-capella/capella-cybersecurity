@@ -36,6 +36,7 @@ public final class CybersecurityAnalysisConstants {
   public static final String TOOL_CREATE_ACTOR = "ToolCreateActor"; //$NON-NLS-1$
   public static final String TOOL_CREATE_THREATINVOLVEMENT = "ToolCreateThreatInvolvement"; //$NON-NLS-1$
   public static final String TOOL_CREATE_THREATAPPLICATION = "ToolCreateThreatApplication"; //$NON-NLS-1$
+  public static final String TOOL_CREATE_THREATSOURCEUSE = "ToolCreateThreatuse"; //$NON-NLS-1$
   public static final String TOOL_INSERTREMOVE__ACTOR = "show_hide__.actor"; //$NON-NLS-1$
   public static final String TOOL_INSERTREMOVE__THREAT = "show_hide__.threat"; //$NON-NLS-1$
   public static final String TOOL_INSERTREMOVE__FUNCTIONAL_PRIMARY_ASSET = "show_hide__.functionalasset"; //$NON-NLS-1$

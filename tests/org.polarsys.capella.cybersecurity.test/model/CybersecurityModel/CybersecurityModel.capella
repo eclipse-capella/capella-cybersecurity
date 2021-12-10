@@ -412,6 +412,22 @@
           <ownedMembers xsi:type="cybersecurity:PrimaryAssetMember" id="91fa2258-b606-4263-a2b8-704507165a93"
               member="#27ef0331-6d4b-4633-b672-a5ebd8f615ca"/>
         </ownedPrimaryAssets>
+        <ownedPrimaryAssets xsi:type="cybersecurity:EnterprisePrimaryAsset" id="96b6740e-1c54-452d-87c1-96e28813c320"
+            name="EnterprisePrimaryAsset 2">
+          <ownedExtensions xsi:type="cybersecurity:SecurityNeeds" id="696a12cd-39b0-461d-b68e-b792ca1855bb"
+              confidentialityValue="#d1ee415c-5f01-4545-a28f-565575820b5e" traceabilityValue="#d67e2456-9295-47be-b54e-f051568a9b82"/>
+          <ownedMembers xsi:type="cybersecurity:PrimaryAssetMember" id="0d30c9d4-2b56-4493-960b-4de55aaf256b"
+              member="#6d555daa-e081-4e69-868a-23fa1562c7fb"/>
+          <ownedMembers xsi:type="cybersecurity:PrimaryAssetMember" id="65b7c42f-91f3-4635-8f2f-739b85a78c63"
+              member="#52e144a0-ae77-4e6b-bbbb-ea85ae0dd72b"/>
+        </ownedPrimaryAssets>
+        <ownedPrimaryAssets xsi:type="cybersecurity:FunctionalPrimaryAsset" id="6d555daa-e081-4e69-868a-23fa1562c7fb"
+            name="FunctionalPrimaryAsset 3">
+          <ownedMembers xsi:type="cybersecurity:PrimaryAssetMember" id="c9f72bb5-8df7-404d-962a-d0997d7bf89e"
+              member="#3018ccfb-9cfd-4d36-bffe-bc67b422e78a"/>
+        </ownedPrimaryAssets>
+        <ownedPrimaryAssets xsi:type="cybersecurity:InformationPrimaryAsset" id="52e144a0-ae77-4e6b-bbbb-ea85ae0dd72b"
+            name="InformationPrimaryAsset 4"/>
       </ownedExtensions>
       <ownedFunctionPkg xsi:type="org.polarsys.capella.core.data.pa:PhysicalFunctionPkg"
           id="039f295a-c2e7-404a-acbb-860527a72521" name="Physical Functions">
@@ -437,6 +453,8 @@
             <inputs xsi:type="org.polarsys.capella.core.data.fa:FunctionInputPort"
                 id="a3965974-6147-4c68-b1c6-95b415a55d6c" name="FIP 1"/>
           </ownedFunctions>
+          <ownedFunctions xsi:type="org.polarsys.capella.core.data.pa:PhysicalFunction"
+              id="3018ccfb-9cfd-4d36-bffe-bc67b422e78a" name="PhysicalFunction 3"/>
           <ownedFunctionRealizations xsi:type="org.polarsys.capella.core.data.fa:FunctionRealization"
               id="9209a5e8-088e-4c70-bd7d-37f696d11e1d" targetElement="#3c0b1553-06c3-4769-bc1d-7e4da05cf241"
               sourceElement="#1a628dd9-5e10-406a-9f73-d64f270d8369"/>
@@ -451,7 +469,10 @@
             id="e78ce9ba-7d31-454b-86c1-b050fc7e7160" name="CapabilityRealization 1"/>
       </ownedAbstractCapabilityPkg>
       <ownedInterfacePkg xsi:type="org.polarsys.capella.core.data.cs:InterfacePkg"
-          id="acf43527-6159-4cc0-9fe3-61facea486dc" name="Interfaces"/>
+          id="acf43527-6159-4cc0-9fe3-61facea486dc" name="Interfaces">
+        <ownedExchangeItems xsi:type="org.polarsys.capella.core.data.information:ExchangeItem"
+            id="096c065c-4f08-4915-ae54-5fbfebeaa1e4" name="ExchangeItem 1"/>
+      </ownedInterfacePkg>
       <ownedDataPkg xsi:type="org.polarsys.capella.core.data.information:DataPkg"
           id="16cb5d1a-a7a0-47a2-b866-1efd3fdb9a75" name="Data"/>
       <ownedPhysicalComponentPkg xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponentPkg"
