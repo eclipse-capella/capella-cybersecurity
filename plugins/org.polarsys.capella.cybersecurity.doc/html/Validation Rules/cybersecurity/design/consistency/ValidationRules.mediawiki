@@ -17,7 +17,21 @@
 <br>
 {| class="VALIDATION-RULE"
 !|[[Image:../../../../Images/warning.gif|WARNING]]
-|CY_DCON_03 - DCON_03 - Threat or Primary Asset Realization check
+|CY_DCON_03 - Threat or Primary Asset Realization check
 |-
 | colspan="2"|This rule checks that Threats or Primary Assets are realized.
+|}
+<br>
+{| class="VALIDATION-RULE"
+!|[[Image:../../../../Images/warning.gif|WARNING]]
+|CY_DCON_04 - Use source is not Threat Source
+|-
+| colspan="2"|This rule checks that the source of a use relation is Threat Source.
+|}
+<br>
+{| class="VALIDATION-RULE"
+!|[[Image:../../../../Images/warning.gif|WARNING]]
+|CY_DCON_05 - Threat Source Use elements are involved in CE/PL/FE
+|-
+| colspan="2"|This rule checks that between the elements involved in a use relation exists at least one Component Exchange/Physical Link/Functional Exchange.
 |}
