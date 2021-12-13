@@ -105,7 +105,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//CybersecurityConfiguration/threatKind"/>
     </genClasses>
     <genClasses ecoreClass="../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//EnterprisePrimaryAsset">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//EnterprisePrimaryAsset/primaryAssets"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//EnterprisePrimaryAsset/primaryAssets"/>
     </genClasses>
     <genClasses ecoreClass="../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//ThreatSourceUse">
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference ../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//ThreatSourceUse/threatSource"/>

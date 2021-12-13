@@ -40,7 +40,7 @@ public interface EnterprisePrimaryAsset extends PrimaryAsset {
    * <!-- end-user-doc -->
    * @return the value of the '<em>Primary Assets</em>' reference list.
    * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getEnterprisePrimaryAsset_PrimaryAssets()
-   * @model
+   * @model transient="true" changeable="false" volatile="true" derived="true"
    * @generated
    */
 

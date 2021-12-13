@@ -1054,8 +1054,8 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
     initEClass(enterprisePrimaryAssetEClass, EnterprisePrimaryAsset.class, "EnterprisePrimaryAsset", !IS_ABSTRACT, //$NON-NLS-1$
         !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getEnterprisePrimaryAsset_PrimaryAssets(), this.getPrimaryAsset(), null, "primaryAssets", null, 0, //$NON-NLS-1$
-        -1, EnterprisePrimaryAsset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-        !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        -1, EnterprisePrimaryAsset.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+        !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
     initEClass(threatSourceUseEClass, ThreatSourceUse.class, "ThreatSourceUse", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
         IS_GENERATED_INSTANCE_CLASS);
