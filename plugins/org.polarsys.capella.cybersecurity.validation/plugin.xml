@@ -188,8 +188,66 @@
                <description>
                    This rule checks that Threats or Primary Assets are realized
                </description>
-            </constraint>            
+            </constraint>  
+            <constraint
+                  class="org.polarsys.capella.cybersecurity.validation.design.consistency.CY_DCON_04_ThreatSourceUse_ThreatSource"
+                  id="CY_DCON_04"
+                  isEnabledByDefault="true"
+                  lang="Java"
+                  mode="Batch"
+                  name="CY_DCON_04 - Use source is not Threat Source"
+                  severity="WARNING"
+                  statusCode="0">
+               <message>
+                  {2} {3} used in {0} {1} is not a Threat Source.
+               </message>
+               <target
+                     class="ThreatSourceUse">
+               </target>
+               <description>
+                  This rule checks that the source of a use relation is Threat Source.
+               </description>
+            </constraint>
+            <constraint
+                  class="org.polarsys.capella.cybersecurity.validation.design.consistency.CY_DCON_05_ThreatSourceUse_Exchange"
+                  id="CY_DCON_05"
+                  isEnabledByDefault="true"
+                  lang="Java"
+                  mode="Batch"
+                  name="CY_DCON_05 - Threat Source Use elements are involved in CE/PL/FE"
+                  severity="WARNING"
+                  statusCode="0">
+               <message>
+                  Between the elements involved in {0} {1} there is no Component Exchange/Physical Link/Functional Exchange.
+               </message>
+               <target
+                     class="ThreatSourceUse">
+               </target>
+               <description>
+                  This rule checks that between the elements involved in a use relation exists at least one Component Exchange/Physical Link/Functional Exchange.
+               </description>
+            </constraint>               
          </constraints>
       </constraintProvider>
    </extension>
+   <extension
+         point="org.polarsys.capella.core.validation.ui.ide.capellaQuickFix">
+      <resolver
+            class="org.polarsys.capella.cybersecurity.validation.quickfix.DCON_04_Resolver"
+            desc="Set Threat Source"
+            icon="platform:/plugin/org.polarsys.capella.core.ui.resources/icons/full/obj16/capella_process.gif"
+            label="Set as Threat Source">
+         <rules
+               ruleId="CY_DCON_04">
+         </rules>
+      </resolver>
+      <resolver
+            class="org.polarsys.capella.cybersecurity.validation.quickfix.ThreatSourceUseDeleteResolver"
+            desc="Delete Threat Source Use"
+            icon="platform:/plugin/org.polarsys.capella.core.ui.resources/icons/full/obj16/capella_process.gif"
+            label="Delete Threat Source Use">
+         <rules ruleId="CY_DCON_04"/>
+         <rules ruleId="CY_DCON_05"/>
+      </resolver>      
+</extension>
 </plugin>
