@@ -37,16 +37,6 @@ import org.polarsys.capella.cybersecurity.model.PrimaryAssetMember;
 public class EnterprisePrimaryAssetImpl extends PrimaryAssetImpl implements EnterprisePrimaryAsset {
 
   /**
-   * The cached value of the '{@link #getPrimaryAssets() <em>Primary Assets</em>}' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPrimaryAssets()
-   * @generated
-   * @ordered
-   */
-  protected EList<PrimaryAsset> primaryAssets;
-
-  /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
@@ -98,38 +88,6 @@ public class EnterprisePrimaryAssetImpl extends PrimaryAssetImpl implements Ente
   }
 
   /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @SuppressWarnings("unchecked")
-  @Override
-  public void eSet(int featureID, Object newValue) {
-    switch (featureID) {
-    case CybersecurityPackage.ENTERPRISE_PRIMARY_ASSET__PRIMARY_ASSETS:
-      getPrimaryAssets().clear();
-      getPrimaryAssets().addAll((Collection<? extends PrimaryAsset>) newValue);
-      return;
-    }
-    super.eSet(featureID, newValue);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void eUnset(int featureID) {
-    switch (featureID) {
-    case CybersecurityPackage.ENTERPRISE_PRIMARY_ASSET__PRIMARY_ASSETS:
-      getPrimaryAssets().clear();
-      return;
-    }
-    super.eUnset(featureID);
-  }
-
-  /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
@@ -137,7 +95,7 @@ public class EnterprisePrimaryAssetImpl extends PrimaryAssetImpl implements Ente
   public boolean eIsSet(int featureID) {
     switch (featureID) {
     case CybersecurityPackage.ENTERPRISE_PRIMARY_ASSET__PRIMARY_ASSETS:
-      return primaryAssets != null && !primaryAssets.isEmpty();
+      return !getPrimaryAssets().isEmpty();
     }
     return super.eIsSet(featureID);
   }
