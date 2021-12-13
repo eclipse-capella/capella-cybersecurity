@@ -10,17 +10,20 @@
 *******************************************************************/
 package org.polarsys.capella.cybersecurity.model.impl;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EcoreEList;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.EnterprisePrimaryAsset;
 import org.polarsys.capella.cybersecurity.model.PrimaryAsset;
+import org.polarsys.capella.cybersecurity.model.PrimaryAssetMember;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Enterprise Primary Asset</b></em>'. <!--
@@ -58,15 +61,21 @@ public class EnterprisePrimaryAssetImpl extends PrimaryAssetImpl implements Ente
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
+   * @generated NOT
    */
 
   @SuppressWarnings("unchecked")
   @Override
   public EList<PrimaryAsset> getPrimaryAssets() {
-
-    return (EList<PrimaryAsset>) eDynamicGet(CybersecurityPackage.ENTERPRISE_PRIMARY_ASSET__PRIMARY_ASSETS,
-        CybersecurityPackage.Literals.ENTERPRISE_PRIMARY_ASSET__PRIMARY_ASSETS, true, true);
+    Collection<PrimaryAsset> result = new ArrayList<PrimaryAsset>();
+    for (PrimaryAssetMember pam : getOwnedMembers()) {
+      if (pam.getMember() instanceof PrimaryAsset) {
+        result.add((PrimaryAsset) pam.getMember());
+      }
+    }
+    Object[] data = result.toArray();
+    return new EcoreEList.UnmodifiableEList<PrimaryAsset>(this,
+        CybersecurityPackage.Literals.ENTERPRISE_PRIMARY_ASSET__PRIMARY_ASSETS, data.length, data);
   }
 
   /**

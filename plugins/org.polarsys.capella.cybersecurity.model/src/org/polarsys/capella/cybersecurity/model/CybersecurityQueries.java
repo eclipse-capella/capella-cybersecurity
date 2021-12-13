@@ -597,6 +597,17 @@ public class CybersecurityQueries {
       return getSupportingComponents((InformationPrimaryAsset) object).collect(Collectors.toList());
     }
   }
+  
+  public static class EnterprisePrimaryAsset__PrimaryAssets implements IQuery {
+    @Override
+    public List<Object> compute(Object object) {
+      List<Object> result = new ArrayList<>();
+      if (object instanceof EnterprisePrimaryAsset) {
+        result.addAll(((EnterprisePrimaryAsset) object).getPrimaryAssets());
+      }
+      return result;
+    }
+  }
 
   public static class AbstractFunction__ExchangeItems implements IQuery {
     @Override
