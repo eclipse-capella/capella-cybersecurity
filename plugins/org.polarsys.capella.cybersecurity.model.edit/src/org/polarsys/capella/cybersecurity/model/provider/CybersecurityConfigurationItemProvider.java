@@ -464,7 +464,8 @@ public class CybersecurityConfigurationItemProvider extends NamedElementItemProv
     // begin-extension-code
     {
       CommandParameter commandParameter = createChildParameter(
-          EmdePackage.Literals.EXTENSIBLE_ELEMENT__OWNED_EXTENSIONS, CybersecurityFactory.eINSTANCE.createThreatSourceUse());
+          EmdePackage.Literals.EXTENSIBLE_ELEMENT__OWNED_EXTENSIONS,
+          CybersecurityFactory.eINSTANCE.createThreatSourceUse());
       if (NewChildDescriptorHelper.isValidCommand(object, commandParameter)) {
         newChildDescriptors.add(commandParameter);
       }

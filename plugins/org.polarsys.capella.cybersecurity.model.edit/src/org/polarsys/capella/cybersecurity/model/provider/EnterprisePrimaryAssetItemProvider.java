@@ -84,7 +84,7 @@ public class EnterprisePrimaryAssetItemProvider extends PrimaryAssetItemProvider
         getString("_UI_EnterprisePrimaryAsset_primaryAssets_feature"), //$NON-NLS-1$
         getString("_UI_PropertyDescriptor_description", "_UI_EnterprisePrimaryAsset_primaryAssets_feature", //$NON-NLS-1$//$NON-NLS-2$
             "_UI_EnterprisePrimaryAsset_type"), //$NON-NLS-1$
-        CybersecurityPackage.Literals.ENTERPRISE_PRIMARY_ASSET__PRIMARY_ASSETS, true, false, true, null, null,
+        CybersecurityPackage.Literals.ENTERPRISE_PRIMARY_ASSET__PRIMARY_ASSETS, false, false, false, null, null,
         // begin-extension-code
         null));
     // end-extension-code

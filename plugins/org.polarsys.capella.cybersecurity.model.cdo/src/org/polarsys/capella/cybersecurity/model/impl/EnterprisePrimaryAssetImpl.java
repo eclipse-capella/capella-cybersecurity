@@ -16,10 +16,7 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreEList;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.EnterprisePrimaryAsset;
 import org.polarsys.capella.cybersecurity.model.PrimaryAsset;
@@ -64,17 +61,16 @@ public class EnterprisePrimaryAssetImpl extends PrimaryAssetImpl implements Ente
    * @generated NOT
    */
 
-  @SuppressWarnings("unchecked")
   @Override
   public EList<PrimaryAsset> getPrimaryAssets() {
-    Collection<PrimaryAsset> result = new ArrayList<PrimaryAsset>();
+    Collection<PrimaryAsset> result = new ArrayList<>();
     for (PrimaryAssetMember pam : getOwnedMembers()) {
       if (pam.getMember() instanceof PrimaryAsset) {
         result.add((PrimaryAsset) pam.getMember());
       }
     }
     Object[] data = result.toArray();
-    return new EcoreEList.UnmodifiableEList<PrimaryAsset>(this,
+    return new EcoreEList.UnmodifiableEList<>(this,
         CybersecurityPackage.Literals.ENTERPRISE_PRIMARY_ASSET__PRIMARY_ASSETS, data.length, data);
   }
 
@@ -89,38 +85,6 @@ public class EnterprisePrimaryAssetImpl extends PrimaryAssetImpl implements Ente
       return getPrimaryAssets();
     }
     return super.eGet(featureID, resolve, coreType);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @SuppressWarnings("unchecked")
-  @Override
-  public void eSet(int featureID, Object newValue) {
-    switch (featureID) {
-    case CybersecurityPackage.ENTERPRISE_PRIMARY_ASSET__PRIMARY_ASSETS:
-      getPrimaryAssets().clear();
-      getPrimaryAssets().addAll((Collection<? extends PrimaryAsset>) newValue);
-      return;
-    }
-    super.eSet(featureID, newValue);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void eUnset(int featureID) {
-    switch (featureID) {
-    case CybersecurityPackage.ENTERPRISE_PRIMARY_ASSET__PRIMARY_ASSETS:
-      getPrimaryAssets().clear();
-      return;
-    }
-    super.eUnset(featureID);
   }
 
   /**
