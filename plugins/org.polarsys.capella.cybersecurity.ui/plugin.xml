@@ -734,7 +734,7 @@
             class="org.polarsys.capella.cybersecurity.model.Threat">
       </availableForType>
       <targetBrowserId
-            id="CurrentElementBrowser">
+            id="ReferencedElementBrowser">
       </targetBrowserId>
       <categoryQuery>
          <basicQuery
@@ -987,6 +987,22 @@
       <categoryQuery>
          <basicQuery
                class="org.polarsys.capella.cybersecurity.model.CybersecurityQueries$InformationPrimaryAsset__SupportingComponents">
+         </basicQuery>
+      </categoryQuery>
+   </category>
+   <category
+         id="EnterprisePrimaryAsset__PrimaryAssets"
+         isTopLevel="true"
+         name="Primary Assets">
+      <availableForType
+            class="org.polarsys.capella.cybersecurity.model.EnterprisePrimaryAsset">
+      </availableForType>
+      <targetBrowserId
+            id="ReferencedElementBrowser">
+      </targetBrowserId>
+      <categoryQuery>
+         <basicQuery
+               class="org.polarsys.capella.cybersecurity.model.CybersecurityQueries$EnterprisePrimaryAsset__PrimaryAssets">
          </basicQuery>
       </categoryQuery>
    </category>
