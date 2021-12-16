@@ -478,7 +478,7 @@ public class CybersecurityServices {
   
   public ThreatSourceUse createThreatSourceUse(Component threatSource, Component actor) {
     ThreatSourceUse tu = CybersecurityFactory.eINSTANCE.createThreatSourceUse();
-    tu.setUsedActor(actor);
+    tu.setUsed(actor);
     threatSource.getOwnedExtensions().add(tu);
     return tu;
   }
@@ -493,12 +493,7 @@ public class CybersecurityServices {
     return false;
   }
   
-  public boolean hasTargetSameType(EObject source, EObject target) {
-    if (source instanceof Entity && target instanceof Entity) {
-      Entity sEntity = (Entity) source;
-      Entity tEntity = (Entity) target;
-      return sEntity.isHuman() == tEntity.isHuman();
-    }
+  public boolean hasDifferentSourceAndTarget(EObject source, EObject target) {
     return !source.equals(target);
   }
   

@@ -171,6 +171,6 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="threatSource" eType="ecore:EClass platform:/plugin/org.polarsys.capella.core.data.gen/model/CompositeStructure.ecore#//Component"
         changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="usedActor" eType="ecore:EClass platform:/plugin/org.polarsys.capella.core.data.gen/model/CompositeStructure.ecore#//Component"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="used" eType="ecore:EClass platform:/plugin/org.polarsys.capella.core.data.gen/model/CompositeStructure.ecore#//Component"/>
   </eClassifiers>
 </ecore:EPackage>

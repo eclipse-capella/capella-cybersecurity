@@ -34,7 +34,7 @@ import org.polarsys.capella.cybersecurity.model.ThreatSourceUse;
  * </p>
  * <ul>
  *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatSourceUseImpl#getThreatSource <em>Threat Source</em>}</li>
- *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatSourceUseImpl#getUsedActor <em>Used Actor</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatSourceUseImpl#getUsed <em>Used</em>}</li>
  * </ul>
  *
  * @generated
@@ -97,10 +97,10 @@ public class ThreatSourceUseImpl extends RelationshipImpl implements ThreatSourc
    */
 
   @Override
-  public Component getUsedActor() {
+  public Component getUsed() {
 
-    return (Component) eDynamicGet(CybersecurityPackage.THREAT_SOURCE_USE__USED_ACTOR,
-        CybersecurityPackage.Literals.THREAT_SOURCE_USE__USED_ACTOR, true, true);
+    return (Component) eDynamicGet(CybersecurityPackage.THREAT_SOURCE_USE__USED,
+        CybersecurityPackage.Literals.THREAT_SOURCE_USE__USED, true, true);
   }
 
   /**
@@ -109,10 +109,10 @@ public class ThreatSourceUseImpl extends RelationshipImpl implements ThreatSourc
    * @generated
    */
 
-  public Component basicGetUsedActor() {
+  public Component basicGetUsed() {
 
-    return (Component) eDynamicGet(CybersecurityPackage.THREAT_SOURCE_USE__USED_ACTOR,
-        CybersecurityPackage.Literals.THREAT_SOURCE_USE__USED_ACTOR, false, true);
+    return (Component) eDynamicGet(CybersecurityPackage.THREAT_SOURCE_USE__USED,
+        CybersecurityPackage.Literals.THREAT_SOURCE_USE__USED, false, true);
   }
 
   /**
@@ -122,10 +122,10 @@ public class ThreatSourceUseImpl extends RelationshipImpl implements ThreatSourc
    */
 
   @Override
-  public void setUsedActor(Component newUsedActor) {
+  public void setUsed(Component newUsed) {
 
-    eDynamicSet(CybersecurityPackage.THREAT_SOURCE_USE__USED_ACTOR,
-        CybersecurityPackage.Literals.THREAT_SOURCE_USE__USED_ACTOR, newUsedActor);
+    eDynamicSet(CybersecurityPackage.THREAT_SOURCE_USE__USED, CybersecurityPackage.Literals.THREAT_SOURCE_USE__USED,
+        newUsed);
 
   }
 
@@ -141,10 +141,10 @@ public class ThreatSourceUseImpl extends RelationshipImpl implements ThreatSourc
       if (resolve)
         return getThreatSource();
       return basicGetThreatSource();
-    case CybersecurityPackage.THREAT_SOURCE_USE__USED_ACTOR:
+    case CybersecurityPackage.THREAT_SOURCE_USE__USED:
       if (resolve)
-        return getUsedActor();
-      return basicGetUsedActor();
+        return getUsed();
+      return basicGetUsed();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -157,8 +157,8 @@ public class ThreatSourceUseImpl extends RelationshipImpl implements ThreatSourc
   @Override
   public void eSet(int featureID, Object newValue) {
     switch (featureID) {
-    case CybersecurityPackage.THREAT_SOURCE_USE__USED_ACTOR:
-      setUsedActor((Component) newValue);
+    case CybersecurityPackage.THREAT_SOURCE_USE__USED:
+      setUsed((Component) newValue);
       return;
     }
     super.eSet(featureID, newValue);
@@ -172,8 +172,8 @@ public class ThreatSourceUseImpl extends RelationshipImpl implements ThreatSourc
   @Override
   public void eUnset(int featureID) {
     switch (featureID) {
-    case CybersecurityPackage.THREAT_SOURCE_USE__USED_ACTOR:
-      setUsedActor((Component) null);
+    case CybersecurityPackage.THREAT_SOURCE_USE__USED:
+      setUsed((Component) null);
       return;
     }
     super.eUnset(featureID);
@@ -189,8 +189,8 @@ public class ThreatSourceUseImpl extends RelationshipImpl implements ThreatSourc
     switch (featureID) {
     case CybersecurityPackage.THREAT_SOURCE_USE__THREAT_SOURCE:
       return basicGetThreatSource() != null;
-    case CybersecurityPackage.THREAT_SOURCE_USE__USED_ACTOR:
-      return basicGetUsedActor() != null;
+    case CybersecurityPackage.THREAT_SOURCE_USE__USED:
+      return basicGetUsed() != null;
     }
     return super.eIsSet(featureID);
   }

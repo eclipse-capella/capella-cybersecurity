@@ -236,7 +236,7 @@ The following tools are available:
 |-
 | Use	
 | [[Image:Images/ThreatUse.gif]] 
-|  Create a new Threat Source Use between the selected Threat Source Actor and Actor.
+|  Create a new Use link between the selected Threat Source and Actor/Entity.
 |-
 | 	Threats 	
 | [[Image:Images/ShowHide.gif]] 

@@ -35,8 +35,8 @@ public class ThreatSourceThatUse implements IQuery {
     if (lst instanceof Collection<?>) {
       for (Object obj : (Collection<?>) lst) {
         if (obj instanceof ThreatSourceUse) {
-          Object usedComponent = ((ThreatSourceUse) obj).getUsedActor();
-          if (usedComponent.equals(target)) {
+          Object usedComponent = ((ThreatSourceUse) obj).getUsed();
+          if (usedComponent != null && usedComponent.equals(target)) {
             return true;
           }
         }
