@@ -1,4 +1,3 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!--
 	Copyright © 2021 Thales Global Services SAS
 	
@@ -9,6 +8,7 @@
 	You may obtain a copy of the License at https://gitlab.thalesdigital.io/Tiss-Organization/tiss-licenses
 	See the License for the specific language governing permissions and limitations under the License.
 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <HEAD>
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -16,7 +16,6 @@
 <STYLE type="text/css">
 
 body {margin-top: 0px;margin-left: 0px;}
-
 
 #page_1 {position:relative; overflow: hidden;margin: 96px 0px 139px 94px;padding: 0px;border: none;width: 700px;}
 
@@ -98,8 +97,7 @@ body {margin-top: 0px;margin-left: 0px;}
 .p29{text-align: justify;padding-right: 95px;margin-top: 30px;margin-bottom: 0px;}
 .p30{text-align: justify;margin-top: 0px;margin-bottom: 0px;}
 .p31{text-align: justify;margin-top: 23px;margin-bottom: 0px;}
-.p32{text-align: left;padding-left: 205px;margin-top: 0px;margin-bottom: 0px;}
-.p33{text-align: left;padding-left: 240px;margin-top: 0px;margin-bottom: 0px;}
+
 
 
 
@@ -107,16 +105,9 @@ body {margin-top: 0px;margin-left: 0px;}
 </HEAD>
 
 <BODY>
-<DIV id="page_0">
-	
-</DIV>
 <DIV id="page_1">
 
-	<P class="p32 ft0">About This Content</P>
-	 
-	<br>
-	<P class="p33 ft1">December 16, 2021</P>
-	<br>
+
 <P class="p0 ft0">Thales Inner Source License v 1.2</P>
 <P class="p1 ft0">InnerOpen / Distribution Controlled</P>
 <P class="p2 ft1">THE ACCOMPANYING PROGRAM IS PROVIDED UNDER THE TERMS OF THIS THALES INNER SOURCE LICENSE ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THE PROGRAM CONSTITUTES RECIPIENT'S ACCEPTANCE OF THIS AGREEMENT.</P>
