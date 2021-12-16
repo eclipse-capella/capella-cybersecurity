@@ -43,6 +43,7 @@ import org.polarsys.capella.core.data.fa.FaPackage;
 import org.polarsys.capella.core.data.fa.FunctionalChain;
 import org.polarsys.capella.core.data.fa.FunctionalExchange;
 import org.polarsys.capella.core.data.information.ExchangeItem;
+import org.polarsys.capella.core.data.oa.Entity;
 import org.polarsys.capella.core.data.oa.OperationalAnalysis;
 import org.polarsys.capella.core.model.helpers.BlockArchitectureExt;
 import org.polarsys.capella.core.model.helpers.ComponentExchangeExt;
@@ -87,7 +88,11 @@ public class CybersecurityQueries {
   }
 
   public static Stream<Component> getInvolvedActors(Threat threat) {
-    return getInvolvedComponents(threat).filter(c -> !isThreatSource(c));
+    return getInvolvedComponents(threat).filter(c -> !isThreatSource(c) && c.isActor());
+  }
+  
+  public static Stream<Component> getInvolvedEntities(Threat threat) {
+    return getInvolvedComponents(threat).filter(c -> !isThreatSource(c) && c instanceof Entity && !c.isActor());
   }
 
   public static Stream<Component> getInvolvedActors(PrimaryAsset asset) {
@@ -461,6 +466,13 @@ public class CybersecurityQueries {
     @Override
     public List<Object> compute(Object object) {
       return getInvolvedActors((Threat) object).collect(Collectors.toList());
+    }
+  }
+  
+  public static class Threat__InvolvedEntities implements IQuery {
+    @Override
+    public List<Object> compute(Object object) {
+      return getInvolvedEntities((Threat) object).collect(Collectors.toList());
     }
   }
 

@@ -49,7 +49,7 @@ public class CyberActorTransitionTest extends CyberTopDownTransitionTestCase {
     trustBoundaryStorage.setThreatSourceProfile(3);
     // set the threat to the threat involvement and add it and the trust boundary as extensions to the actor
     threatInvolvement.setThreat(threat);
-    threatUse.setUsedActor(usedActor);
+    threatUse.setUsed(usedActor);
     operationalActor.getOwnedExtensions().add(threatInvolvement);
     operationalActor.getOwnedExtensions().add(threatUse);
     operationalActor.getOwnedExtensions().add(trustBoundaryStorage);

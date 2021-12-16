@@ -34,7 +34,7 @@ import org.polarsys.capella.cybersecurity.model.ThreatSourceUse;
  * <ul>
  * <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatSourceUseImpl#getThreatSource <em>Threat
  * Source</em>}</li>
- * <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatSourceUseImpl#getUsedActor <em>Used Actor</em>}</li>
+ * <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatSourceUseImpl#getUsed <em>Used</em>}</li>
  * </ul>
  *
  * @generated
@@ -42,14 +42,14 @@ import org.polarsys.capella.cybersecurity.model.ThreatSourceUse;
 public class ThreatSourceUseImpl extends RelationshipImpl implements ThreatSourceUse {
 
   /**
-   * The cached value of the '{@link #getUsedActor() <em>Used Actor</em>}' reference. <!-- begin-user-doc --> <!--
-   * end-user-doc -->
-   * 
-   * @see #getUsedActor()
+   * The cached value of the '{@link #getUsed() <em>Used</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUsed()
    * @generated
    * @ordered
    */
-  protected Component usedActor;
+  protected Component used;
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -107,18 +107,18 @@ public class ThreatSourceUseImpl extends RelationshipImpl implements ThreatSourc
    */
 
   @Override
-  public Component getUsedActor() {
+  public Component getUsed() {
 
-    if (usedActor != null && usedActor.eIsProxy()) {
-      InternalEObject oldUsedActor = (InternalEObject) usedActor;
-      usedActor = (Component) eResolveProxy(oldUsedActor);
-      if (usedActor != oldUsedActor) {
+    if (used != null && used.eIsProxy()) {
+      InternalEObject oldUsed = (InternalEObject) used;
+      used = (Component) eResolveProxy(oldUsed);
+      if (used != oldUsed) {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, CybersecurityPackage.THREAT_SOURCE_USE__USED_ACTOR,
-              oldUsedActor, usedActor));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, CybersecurityPackage.THREAT_SOURCE_USE__USED,
+              oldUsed, used));
       }
     }
-    return usedActor;
+    return used;
   }
 
   /**
@@ -127,9 +127,9 @@ public class ThreatSourceUseImpl extends RelationshipImpl implements ThreatSourc
    * @generated
    */
 
-  public Component basicGetUsedActor() {
+  public Component basicGetUsed() {
 
-    return usedActor;
+    return used;
   }
 
   /**
@@ -139,13 +139,13 @@ public class ThreatSourceUseImpl extends RelationshipImpl implements ThreatSourc
    */
 
   @Override
-  public void setUsedActor(Component newUsedActor) {
+  public void setUsed(Component newUsed) {
 
-    Component oldUsedActor = usedActor;
-    usedActor = newUsedActor;
+    Component oldUsed = used;
+    used = newUsed;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, CybersecurityPackage.THREAT_SOURCE_USE__USED_ACTOR,
-          oldUsedActor, usedActor));
+      eNotify(
+          new ENotificationImpl(this, Notification.SET, CybersecurityPackage.THREAT_SOURCE_USE__USED, oldUsed, used));
 
   }
 
@@ -161,10 +161,10 @@ public class ThreatSourceUseImpl extends RelationshipImpl implements ThreatSourc
       if (resolve)
         return getThreatSource();
       return basicGetThreatSource();
-    case CybersecurityPackage.THREAT_SOURCE_USE__USED_ACTOR:
+    case CybersecurityPackage.THREAT_SOURCE_USE__USED:
       if (resolve)
-        return getUsedActor();
-      return basicGetUsedActor();
+        return getUsed();
+      return basicGetUsed();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -177,8 +177,8 @@ public class ThreatSourceUseImpl extends RelationshipImpl implements ThreatSourc
   @Override
   public void eSet(int featureID, Object newValue) {
     switch (featureID) {
-    case CybersecurityPackage.THREAT_SOURCE_USE__USED_ACTOR:
-      setUsedActor((Component) newValue);
+    case CybersecurityPackage.THREAT_SOURCE_USE__USED:
+      setUsed((Component) newValue);
       return;
     }
     super.eSet(featureID, newValue);
@@ -192,8 +192,8 @@ public class ThreatSourceUseImpl extends RelationshipImpl implements ThreatSourc
   @Override
   public void eUnset(int featureID) {
     switch (featureID) {
-    case CybersecurityPackage.THREAT_SOURCE_USE__USED_ACTOR:
-      setUsedActor((Component) null);
+    case CybersecurityPackage.THREAT_SOURCE_USE__USED:
+      setUsed((Component) null);
       return;
     }
     super.eUnset(featureID);
@@ -209,8 +209,8 @@ public class ThreatSourceUseImpl extends RelationshipImpl implements ThreatSourc
     switch (featureID) {
     case CybersecurityPackage.THREAT_SOURCE_USE__THREAT_SOURCE:
       return basicGetThreatSource() != null;
-    case CybersecurityPackage.THREAT_SOURCE_USE__USED_ACTOR:
-      return usedActor != null;
+    case CybersecurityPackage.THREAT_SOURCE_USE__USED:
+      return used != null;
     }
     return super.eIsSet(featureID);
   }

@@ -760,6 +760,23 @@
       </categoryQuery>
    </category>
    <category
+         id="Threat__InvolvedEntities"
+         isTopLevel="true"
+         name="Involved Entities"
+         usedInShowRelated="true">
+      <availableForType
+            class="org.polarsys.capella.cybersecurity.model.Threat">
+      </availableForType>
+      <targetBrowserId
+            id="ReferencedElementBrowser">
+      </targetBrowserId>
+      <categoryQuery>
+         <basicQuery
+               class="org.polarsys.capella.cybersecurity.model.CybersecurityQueries$Threat__InvolvedEntities">
+         </basicQuery>
+      </categoryQuery>
+   </category>
+   <category
          id="Threat__ThreatenedComponents"
          isTopLevel="true"
          name="Threatened Components">
@@ -1488,7 +1505,7 @@
       <category
             id="org.polarsys.capella.cybersecurity.ui.semantic.browser.ComponentUsedActors"
             isTopLevel="true"
-            name="Using in">
+            name="Uses">
          <availableForType
                class="org.polarsys.capella.core.data.cs.Component">
          </availableForType>
@@ -1504,7 +1521,7 @@
       <category
             id="org.polarsys.capella.cybersecurity.ui.semantic.browser.ComponentUsedBy"
             isTopLevel="true"
-            name="Used by">
+            name="Used By">
          <availableForType
                class="org.polarsys.capella.core.data.cs.Component">
          </availableForType>

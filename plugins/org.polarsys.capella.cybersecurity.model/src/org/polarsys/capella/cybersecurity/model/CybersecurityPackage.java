@@ -3868,13 +3868,13 @@ public interface CybersecurityPackage extends EPackage {
   int THREAT_SOURCE_USE__THREAT_SOURCE = CapellacorePackage.RELATIONSHIP_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Used Actor</b></em>' reference.
+   * The feature id for the '<em><b>Used</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int THREAT_SOURCE_USE__USED_ACTOR = CapellacorePackage.RELATIONSHIP_FEATURE_COUNT + 1;
+  int THREAT_SOURCE_USE__USED = CapellacorePackage.RELATIONSHIP_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Threat Source Use</em>' class.
@@ -4460,15 +4460,15 @@ public interface CybersecurityPackage extends EPackage {
   EReference getThreatSourceUse_ThreatSource();
 
   /**
-   * Returns the meta object for the reference '{@link org.polarsys.capella.cybersecurity.model.ThreatSourceUse#getUsedActor <em>Used Actor</em>}'.
+   * Returns the meta object for the reference '{@link org.polarsys.capella.cybersecurity.model.ThreatSourceUse#getUsed <em>Used</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Used Actor</em>'.
-   * @see org.polarsys.capella.cybersecurity.model.ThreatSourceUse#getUsedActor()
+   * @return the meta object for the reference '<em>Used</em>'.
+   * @see org.polarsys.capella.cybersecurity.model.ThreatSourceUse#getUsed()
    * @see #getThreatSourceUse()
    * @generated
    */
-  EReference getThreatSourceUse_UsedActor();
+  EReference getThreatSourceUse_Used();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -4945,12 +4945,12 @@ public interface CybersecurityPackage extends EPackage {
     EReference THREAT_SOURCE_USE__THREAT_SOURCE = eINSTANCE.getThreatSourceUse_ThreatSource();
 
     /**
-     * The meta object literal for the '<em><b>Used Actor</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Used</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference THREAT_SOURCE_USE__USED_ACTOR = eINSTANCE.getThreatSourceUse_UsedActor();
+    EReference THREAT_SOURCE_USE__USED = eINSTANCE.getThreatSourceUse_Used();
 
   }
 

@@ -34,7 +34,7 @@ public class ThreatUseItemProviderDecorator extends ItemProviderAdapterDecorator
   public String getText(Object object) {
     if (object instanceof ThreatSourceUse) {
       ThreatSourceUse tu = (ThreatSourceUse) object;
-      Component usedActor = tu.getUsedActor();
+      Component usedActor = tu.getUsed();
       if (usedActor != null) {
         String threatLabel = EObjectLabelProviderHelper.getText(usedActor);
         if (!threatLabel.isEmpty()) {

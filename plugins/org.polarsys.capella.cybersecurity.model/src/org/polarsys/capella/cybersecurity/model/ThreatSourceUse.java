@@ -26,7 +26,7 @@ import org.polarsys.kitalpha.emde.model.ElementExtension;
  * </p>
  * <ul>
  *   <li>{@link org.polarsys.capella.cybersecurity.model.ThreatSourceUse#getThreatSource <em>Threat Source</em>}</li>
- *   <li>{@link org.polarsys.capella.cybersecurity.model.ThreatSourceUse#getUsedActor <em>Used Actor</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.ThreatSourceUse#getUsed <em>Used</em>}</li>
  * </ul>
  *
  * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getThreatSourceUse()
@@ -51,29 +51,29 @@ public interface ThreatSourceUse extends Relationship, ElementExtension {
   Component getThreatSource();
 
   /**
-   * Returns the value of the '<em><b>Used Actor</b></em>' reference.
+   * Returns the value of the '<em><b>Used</b></em>' reference.
   
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Used Actor</em>' reference.
-   * @see #setUsedActor(Component)
-   * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getThreatSourceUse_UsedActor()
+   * @return the value of the '<em>Used</em>' reference.
+   * @see #setUsed(Component)
+   * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getThreatSourceUse_Used()
    * @model
    * @generated
    */
 
-  Component getUsedActor();
+  Component getUsed();
 
   /**
-   * Sets the value of the '{@link org.polarsys.capella.cybersecurity.model.ThreatSourceUse#getUsedActor <em>Used Actor</em>}' reference.
+   * Sets the value of the '{@link org.polarsys.capella.cybersecurity.model.ThreatSourceUse#getUsed <em>Used</em>}' reference.
   
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Used Actor</em>' reference.
-   * @see #getUsedActor()
+   * @param value the new value of the '<em>Used</em>' reference.
+   * @see #getUsed()
    * @generated
    */
 
-  void setUsedActor(Component value);
+  void setUsed(Component value);
 
 } // ThreatSourceUse

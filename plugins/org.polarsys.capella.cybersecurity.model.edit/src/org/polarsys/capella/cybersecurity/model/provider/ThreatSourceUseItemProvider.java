@@ -61,7 +61,7 @@ public class ThreatSourceUseItemProvider extends RelationshipItemProvider implem
    * <!-- end-user-doc -->
    * @generated
    */
-  protected IItemPropertyDescriptor usedActorPropertyDescriptor;
+  protected IItemPropertyDescriptor usedPropertyDescriptor;
 
   /**
    * This constructs an instance from a factory and a notifier.
@@ -96,17 +96,17 @@ public class ThreatSourceUseItemProvider extends RelationshipItemProvider implem
           itemPropertyDescriptors.add(threatSourcePropertyDescriptor);
         }
       }
-      // Process CybersecurityPackage.Literals.THREAT_SOURCE_USE__USED_ACTOR
-      if (usedActorPropertyDescriptor != null) {
-        Object usedActorValue = eObject.eGet(CybersecurityPackage.Literals.THREAT_SOURCE_USE__USED_ACTOR, true);
-        if (usedActorValue != null && usedActorValue instanceof EObject
-            && ModelExtensionHelper.getInstance(eObject).isExtensionModelDisabled((EObject) usedActorValue)) {
-          itemPropertyDescriptors.remove(usedActorPropertyDescriptor);
-        } else if (usedActorValue == null && ExtensionModelManager.getAnyType(eObject,
-            CybersecurityPackage.Literals.THREAT_SOURCE_USE__USED_ACTOR) != null) {
-          itemPropertyDescriptors.remove(usedActorPropertyDescriptor);
-        } else if (itemPropertyDescriptors.contains(usedActorPropertyDescriptor) == false) {
-          itemPropertyDescriptors.add(usedActorPropertyDescriptor);
+      // Process CybersecurityPackage.Literals.THREAT_SOURCE_USE__USED
+      if (usedPropertyDescriptor != null) {
+        Object usedValue = eObject.eGet(CybersecurityPackage.Literals.THREAT_SOURCE_USE__USED, true);
+        if (usedValue != null && usedValue instanceof EObject
+            && ModelExtensionHelper.getInstance(eObject).isExtensionModelDisabled((EObject) usedValue)) {
+          itemPropertyDescriptors.remove(usedPropertyDescriptor);
+        } else if (usedValue == null && ExtensionModelManager.getAnyType(eObject,
+            CybersecurityPackage.Literals.THREAT_SOURCE_USE__USED) != null) {
+          itemPropertyDescriptors.remove(usedPropertyDescriptor);
+        } else if (itemPropertyDescriptors.contains(usedPropertyDescriptor) == false) {
+          itemPropertyDescriptors.add(usedPropertyDescriptor);
         }
       }
     }
@@ -124,7 +124,7 @@ public class ThreatSourceUseItemProvider extends RelationshipItemProvider implem
       super.getPropertyDescriptors(object);
 
       addThreatSourcePropertyDescriptor(object);
-      addUsedActorPropertyDescriptor(object);
+      addUsedPropertyDescriptor(object);
     }
     // begin-extension-code
     checkChildCreationExtender(object);
@@ -154,23 +154,22 @@ public class ThreatSourceUseItemProvider extends RelationshipItemProvider implem
   }
 
   /**
-   * This adds a property descriptor for the Used Actor feature.
+   * This adds a property descriptor for the Used feature.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected void addUsedActorPropertyDescriptor(Object object) {
+  protected void addUsedPropertyDescriptor(Object object) {
     // begin-extension-code
-    usedActorPropertyDescriptor = createItemPropertyDescriptor
+    usedPropertyDescriptor = createItemPropertyDescriptor
     // end-extension-code		
     (((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-        getString("_UI_ThreatSourceUse_usedActor_feature"), //$NON-NLS-1$
-        getString("_UI_PropertyDescriptor_description", "_UI_ThreatSourceUse_usedActor_feature", //$NON-NLS-1$//$NON-NLS-2$
-            "_UI_ThreatSourceUse_type"), //$NON-NLS-1$
-        CybersecurityPackage.Literals.THREAT_SOURCE_USE__USED_ACTOR, true, false, true, null, null,
+        getString("_UI_ThreatSourceUse_used_feature"), //$NON-NLS-1$
+        getString("_UI_PropertyDescriptor_description", "_UI_ThreatSourceUse_used_feature", "_UI_ThreatSourceUse_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        CybersecurityPackage.Literals.THREAT_SOURCE_USE__USED, true, false, true, null, null,
         // begin-extension-code
         null);
-    itemPropertyDescriptors.add(usedActorPropertyDescriptor);
+    itemPropertyDescriptors.add(usedPropertyDescriptor);
     // end-extension-code
   }
 

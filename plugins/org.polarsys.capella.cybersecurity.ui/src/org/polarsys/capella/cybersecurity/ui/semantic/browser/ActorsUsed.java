@@ -28,7 +28,7 @@ public class ActorsUsed implements IQuery {
     if (lst instanceof Collection<?>) {
       for (Object obj : (Collection<?>) lst) {
         if (obj instanceof ThreatSourceUse) {
-          usedElements.add(((ThreatSourceUse) obj).getUsedActor());
+          usedElements.add(((ThreatSourceUse) obj).getUsed());
         }
       }
     }

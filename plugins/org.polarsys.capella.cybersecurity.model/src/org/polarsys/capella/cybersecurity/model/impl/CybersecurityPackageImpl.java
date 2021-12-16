@@ -732,7 +732,7 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
    * @generated
    */
   @Override
-  public EReference getThreatSourceUse_UsedActor() {
+  public EReference getThreatSourceUse_Used() {
     return (EReference) threatSourceUseEClass.getEStructuralFeatures().get(1);
   }
 
@@ -832,7 +832,7 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
 
     threatSourceUseEClass = createEClass(THREAT_SOURCE_USE);
     createEReference(threatSourceUseEClass, THREAT_SOURCE_USE__THREAT_SOURCE);
-    createEReference(threatSourceUseEClass, THREAT_SOURCE_USE__USED_ACTOR);
+    createEReference(threatSourceUseEClass, THREAT_SOURCE_USE__USED);
   }
 
   /**
@@ -1062,7 +1062,7 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
     initEReference(getThreatSourceUse_ThreatSource(), theCsPackage.getComponent(), null, "threatSource", null, 0, 1, //$NON-NLS-1$
         ThreatSourceUse.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
         !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-    initEReference(getThreatSourceUse_UsedActor(), theCsPackage.getComponent(), null, "usedActor", null, 0, 1, //$NON-NLS-1$
+    initEReference(getThreatSourceUse_Used(), theCsPackage.getComponent(), null, "used", null, 0, 1, //$NON-NLS-1$
         ThreatSourceUse.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
         !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
