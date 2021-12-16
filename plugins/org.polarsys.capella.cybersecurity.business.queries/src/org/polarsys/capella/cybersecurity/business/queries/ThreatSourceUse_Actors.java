@@ -18,11 +18,7 @@ import java.util.stream.Collectors;
 import org.eclipse.emf.ecore.EObject;
 import org.polarsys.capella.core.data.cs.Component;
 import org.polarsys.capella.core.data.cs.CsPackage;
-import org.polarsys.capella.core.data.ctx.SystemComponent;
-import org.polarsys.capella.core.data.oa.Entity;
 import org.polarsys.capella.core.data.oa.OperationalAnalysis;
-import org.polarsys.capella.core.data.pa.PhysicalArchitecture;
-import org.polarsys.capella.core.data.pa.PhysicalComponent;
 import org.polarsys.capella.core.model.helpers.BlockArchitectureExt;
 import org.polarsys.capella.cybersecurity.model.ThreatSourceUse;
 import org.polarsys.kitalpha.emde.model.EmdePackage;
@@ -42,29 +38,19 @@ public class ThreatSourceUse_Actors extends BlockArchitecturePredicateQuery {
     if (lst instanceof Collection<?>) {
       for (Object obj : (Collection<?>) lst) {
         if (obj instanceof ThreatSourceUse) {
-          EObject usedActor = ((ThreatSourceUse) obj).getUsedActor();
+          EObject usedActor = ((ThreatSourceUse) obj).getUsed();
           usedElements.add(usedActor);
         }
       }
     }
     elements.removeAll(usedElements);
     return elements
-        .stream().filter(usedActor -> satisfyOACondition(threatSource, usedActor)
-            && satisfyGeneralCondition(threatSource, usedActor) && !usedActor.equals(threatSource))
+        .stream().filter(usedActor -> satisfyGeneralCondition(threatSource, usedActor) && !usedActor.equals(threatSource))
         .collect(Collectors.toList());
   }
   
   public List<EObject> getAllComponents(EObject component) {
     return super.getAvailableElements(component);
-  }
-
-  private boolean satisfyOACondition(EObject threatSource, EObject usedActor) {
-    if (BlockArchitectureExt.getRootBlockArchitecture(threatSource) instanceof OperationalAnalysis) {
-      Entity eThreat = (Entity) threatSource;
-      Entity eUsedActor = (Entity) usedActor;
-      return eThreat.isHuman() == eUsedActor.isHuman();
-    }
-    return true;
   }
 
   private boolean satisfyGeneralCondition(EObject threatSource, EObject usedActor) {
@@ -81,8 +67,8 @@ public class ThreatSourceUse_Actors extends BlockArchitecturePredicateQuery {
     Object lst = element.eGet(EmdePackage.Literals.EXTENSIBLE_ELEMENT__OWNED_EXTENSIONS);
     if (lst instanceof Collection<?>) {
       for (Object obj : (Collection<?>) lst) {
-        if (obj instanceof ThreatSourceUse) {
-          usedElements.add(((ThreatSourceUse) obj).getUsedActor());
+        if (obj instanceof ThreatSourceUse && ((ThreatSourceUse) obj).getUsed() != null) {
+          usedElements.add(((ThreatSourceUse) obj).getUsed());
         }
       }
     }

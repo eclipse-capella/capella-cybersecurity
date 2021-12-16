@@ -12,6 +12,7 @@ package org.polarsys.capella.cybersecurity.ui.properties.sections;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.polarsys.capella.core.data.oa.Entity;
 import org.eclipse.emf.ecore.EObject;
@@ -25,6 +26,7 @@ import org.polarsys.capella.core.data.ctx.SystemComponent;
 import org.polarsys.capella.core.ui.properties.controllers.AbstractMultipleSemanticFieldController;
 import org.polarsys.capella.core.ui.properties.fields.AbstractSemanticField;
 import org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage;
+import org.polarsys.capella.cybersecurity.sirius.analysis.CybersecurityServices;
 import org.polarsys.kitalpha.emde.model.EmdePackage;
 
 public class ThreatSourceUseSection extends CybersecuritySection {
@@ -40,19 +42,14 @@ public class ThreatSourceUseSection extends CybersecuritySection {
   @Override
   public boolean select(Object toTest) {
     EObject eObjectToTest = super.selection(toTest);
-    if (eObjectToTest instanceof Entity || eObjectToTest instanceof SystemComponent || eObjectToTest instanceof Component) {
-      boolean isThreatSource = ((CapellaElement) eObjectToTest).getOwnedExtensions().stream()
-      .filter(ext -> ext instanceof TrustBoundaryStorage).findAny()
-      .map(trb -> ((TrustBoundaryStorage) trb).isThreatSource()).orElse(false);
-      return isThreatSource;
-    }
-    return false;
+    return (eObjectToTest instanceof Entity
+        || (eObjectToTest instanceof Component && ((Component) eObjectToTest).isActor()));
   }
   
   @Override
   public void createControls(Composite parent, TabbedPropertySheetPage aTabbedPropertySheetPage) {
     super.createControls(parent, aTabbedPropertySheetPage);
-    super.addUsedWidget("Used Actors");
+    super.addUsedWidget("Uses");
   }
 
   @Override
@@ -66,6 +63,9 @@ public class ThreatSourceUseSection extends CybersecuritySection {
     super.loadData(capellaElement);
     
     super.loadRealizedWidget(capellaElement, EmdePackage.Literals.EXTENSIBLE_ELEMENT__OWNED_EXTENSIONS);
+    
+    CybersecurityServices service = new CybersecurityServices();
+    setEnabled(service.isThreatSource(capellaElement));
   }
 
   @Override

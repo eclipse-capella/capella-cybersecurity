@@ -70,7 +70,7 @@ public class ThreatSourceUsed extends BasicDynamicModelTest {
     expectedElements.add(saComponent2);
     assertTrue(elements.equals(expectedElements));
     ThreatSourceUse tsu = CybersecurityFactory.eINSTANCE.createThreatSourceUse();
-    tsu.setUsedActor(saComponent2);
+    tsu.setUsed(saComponent2);
     AbstractReadWriteCommand cmd = new AbstractReadWriteCommand() {
       @Override
       public void run() {

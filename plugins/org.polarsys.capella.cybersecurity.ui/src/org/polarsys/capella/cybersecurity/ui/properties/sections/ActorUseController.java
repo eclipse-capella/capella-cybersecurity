@@ -46,8 +46,8 @@ public class ActorUseController extends AbstractMultipleSemanticFieldController 
     Object lst = semanticElement.eGet(semanticFeature);
     if (lst instanceof Collection<?>) {
       for (Object obj : (Collection<?>) lst) {
-        if (obj instanceof ThreatSourceUse) {
-          values.add(((ThreatSourceUse) obj).getUsedActor());
+        if (obj instanceof ThreatSourceUse && ((ThreatSourceUse) obj).getUsed() != null) {
+          values.add(((ThreatSourceUse) obj).getUsed());
         }
       }
     }
@@ -62,7 +62,7 @@ public class ActorUseController extends AbstractMultipleSemanticFieldController 
   @Override
   protected void doAddOperationInWriteOpenValues(EObject semanticElement, EStructuralFeature semanticFeature, EObject object) {
     ThreatSourceUse tsu = CybersecurityFactory.eINSTANCE.createThreatSourceUse();
-    tsu.setUsedActor((Component)object);
+    tsu.setUsed((Component)object);
     ((List<EObject>)semanticElement.eGet(semanticFeature)).add(tsu);
   }
 
@@ -77,7 +77,7 @@ public class ActorUseController extends AbstractMultipleSemanticFieldController 
   protected void doRemoveOperationInWriteOpenValues(EObject semanticElement, EStructuralFeature semanticFeature, EObject object) {
     EObject tsuToRemove = null;
     for (EObject obj : (List<EObject>) semanticElement.eGet(semanticFeature)) {
-      if ((obj instanceof ThreatSourceUse) && ((ThreatSourceUse) obj).getUsedActor().equals(object)) {
+      if ((obj instanceof ThreatSourceUse) && ((ThreatSourceUse) obj).getUsed().equals(object)) {
         tsuToRemove = obj;
       }
     }

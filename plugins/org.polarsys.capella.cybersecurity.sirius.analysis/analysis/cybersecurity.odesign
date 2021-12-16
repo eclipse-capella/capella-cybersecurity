@@ -139,7 +139,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="ThreatSourceUse" sourceMapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='Actor'] //@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@containerMappings[name='OperationalEntity']" targetMapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='Actor'] //@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@containerMappings[name='OperationalEntity']" targetFinderExpression="feature:usedActor" sourceFinderExpression="feature:threatSource" domainClass="cybersecurity.ThreatSourceUse" useDomainElement="true">
+        <edgeMappings name="ThreatSourceUse" sourceMapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='Actor'] //@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@containerMappings[name='OperationalEntity']" targetMapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='Actor'] //@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@containerMappings[name='OperationalEntity']" targetFinderExpression="feature:used" sourceFinderExpression="feature:threatSource" domainClass="cybersecurity.ThreatSourceUse" useDomainElement="true">
           <deletionDescription href="../../org.polarsys.capella.core.sirius.analysis/description/common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Contextual%20Component%20Detailed%20Interfaces']/@defaultLayer/@toolSections.0/@ownedTools[name='delete%20capella%20elements']"/>
           <labelDirectEdit href="../../org.polarsys.capella.core.sirius.analysis/description/common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.0/@ownedTools[name='name']"/>
           <style>
@@ -270,7 +270,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" documentation="Create a new Threat Use between the selected Actor Threat Source and Actor" name="ToolCreateThreatuse" label="Use" precondition="aql:self.hasTargetSameType(preTarget)" edgeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@edgeMappings[name='ThreatSourceUse']" connectionStartPrecondition="aql:self.isThreatSource()">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" documentation="Create a new Use link between the selected Threat Source and Actor/Entity" name="ToolCreateThreatuse" label="Use" precondition="aql:self.hasDifferentSourceAndTarget(preTarget)" edgeMappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@edgeMappings[name='ThreatSourceUse']" connectionStartPrecondition="aql:self.isThreatSource()">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>

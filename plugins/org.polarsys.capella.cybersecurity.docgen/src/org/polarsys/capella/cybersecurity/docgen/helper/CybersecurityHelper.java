@@ -318,7 +318,7 @@ public class CybersecurityHelper {
     if (hasThreatSourceUse(element)) {
       List<Component> used = ((CapellaElement) element).getOwnedExtensions().stream()
           .filter(ext -> ext instanceof ThreatSourceUse)
-          .map(trb -> ((ThreatSourceUse) trb).getUsedActor())
+          .map(trb -> ((ThreatSourceUse) trb).getUsed())
           .collect(Collectors.toList());
       data = getHtmlDataToAppend(used, htmlFolderName, ConstantsCybersecurityDocGen.USE);
     }

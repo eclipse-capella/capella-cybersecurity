@@ -144,7 +144,7 @@ public class ThreatDiagram extends DiagramContext {
         .orElse(null);
       
       assertNotNull(use);
-      assertEquals(use.getUsedActor(), getDiagramContext().getView(_targetView).getTarget());
+      assertEquals(use.getUsed(), getDiagramContext().getView(_targetView).getTarget());
     }
   }
 
