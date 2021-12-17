@@ -21,3 +21,4 @@ Require-Bundle: org.polarsys.capella.core.validation,
 Export-Package: org.polarsys.capella.cybersecurity.transition,
  org.polarsys.capella.cybersecurity.transition.util
 Bundle-Activator: org.polarsys.capella.cybersecurity.transition.Activator
+Bundle-Vendor: Eclipse.org
