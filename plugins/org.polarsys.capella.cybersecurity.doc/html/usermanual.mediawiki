@@ -35,8 +35,8 @@ An ''Actor'' is involved in ''Threats'' and allocates one or more ''Functions''.
 | Text 
 |}
 
-If an actor is '''Threat Source''' it may pass through other '''Actors''' to attack the system.
-The user shall be able to identify how a Threat Source can use another Actor of the system to attack the system. This can be done trough the ''''use'''' relation, available in the Threat Diagrams or from the properties view of a Threat Source. This ''use'' relation shall be validated by the existence of functional exchanges, component exchanges or physical exchanges between them.
+If an Actor is '''Threat Source''' it may pass through other '''Actors/Entities''' to attack the system.
+The user shall be able to identify how a Threat Source can use another Actor/Entity of the system to attack the system. This can be done trough the ''''use'''' relation, available in the Threat Diagrams or from the properties view of a Threat Source. This ''use'' relation shall be validated by the existence of functional exchanges, component exchanges or physical exchanges between them.
 
 [[Image:Images/ThreatSourceUse.png|620x222px]]
 
@@ -65,6 +65,7 @@ An ''Entity'' is involved in ''Threats''.
 | Text 
 |}
 
+If an Entity is '''Threat Source''' it may also pass through other '''Actors/Entities''' to attack the system.
 
 == Threat ==
 
