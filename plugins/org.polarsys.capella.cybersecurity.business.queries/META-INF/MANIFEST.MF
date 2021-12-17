@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName
+Bundle-Name: Capella Cybersecurity Business Queries
 Bundle-SymbolicName: org.polarsys.capella.cybersecurity.business.queries;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Automatic-Module-Name: org.polarsys.capella.cybersecurity.business.queries
@@ -12,4 +12,4 @@ Require-Bundle: org.polarsys.capella.core.data.business.queries,
  org.polarsys.capella.cybersecurity.model,
  org.polarsys.capella.common.queries
 Export-Package: org.polarsys.capella.cybersecurity.business.queries
-Bundle-Vendor: %providerName
+Bundle-Vendor: Eclipse.org

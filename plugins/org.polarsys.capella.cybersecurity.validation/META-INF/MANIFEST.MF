@@ -10,3 +10,4 @@ Require-Bundle: org.polarsys.capella.core.validation,
  org.polarsys.capella.core.validation.ui.ide
 Export-Package: org.polarsys.capella.cybersecurity.validation.design.consistency,
  org.polarsys.capella.cybersecurity.validation.design.coverage
+Bundle-Vendor: Eclipse.org
