@@ -9,10 +9,14 @@
    <feature id="org.polarsys.capella.cybersecurity.cdo.feature.source" version="2.0.0.qualifier">
       <category name="org.polarsys.capella.cybersecurity.collaboration"/>
    </feature>
+   <feature id="org.polarsys.capella.cybersecurity.docgen.feature.source" version="2.0.0.qualifier">
+      <category name="org.polarsys.capella.cybersecurity.docgen"/>
+   </feature>
    <feature id="org.polarsys.capella.cybersecurity.tests.feature" version="2.0.0.qualifier">
       <category name="org.polarsys.capella.cybersecurity.tests"/>
    </feature>
    <category-def name="org.polarsys.capella.cybersecurity" label="Cybersecurity"/>
    <category-def name="org.polarsys.capella.cybersecurity.collaboration" label="Cybersecurity Collaboration"/>
+   <category-def name="org.polarsys.capella.cybersecurity.docgen" label="Cybersecurity XHTML Documentation Generation"/>
    <category-def name="org.polarsys.capella.cybersecurity.tests" label="Cybersecurity Tests"/>
 </site>
