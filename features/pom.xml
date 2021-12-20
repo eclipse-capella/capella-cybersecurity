@@ -25,6 +25,7 @@
 	<modules>
 	  <module>org.polarsys.capella.cybersecurity.feature</module>
 	  <module>org.polarsys.capella.cybersecurity.cdo.feature</module>
+	  <module>org.polarsys.capella.cybersecurity.docgen.feature</module>
 	  <module>org.polarsys.capella.cybersecurity.tests.feature</module>
 	</modules>
 </project>
