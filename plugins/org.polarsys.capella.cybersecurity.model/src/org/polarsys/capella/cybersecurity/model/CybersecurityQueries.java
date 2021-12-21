@@ -210,7 +210,8 @@ public class CybersecurityQueries {
   //
   public static Stream<Threat> getInvolvingThreats(Component c) {
     return c.getOwnedExtensions().stream().filter(ThreatInvolvement.class::isInstance)
-        .map(x -> ((ThreatInvolvement) x).getThreat());
+        .map(x -> ((ThreatInvolvement) x).getThreat())
+        .filter(Objects::nonNull);
   }
 
   public static Stream<AbstractFunctionalBlock> getSupportingComponents(FunctionalPrimaryAsset fpa) {
