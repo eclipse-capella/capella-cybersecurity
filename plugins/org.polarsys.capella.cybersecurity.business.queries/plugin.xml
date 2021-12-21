@@ -50,9 +50,6 @@
             class="org.polarsys.capella.cybersecurity.business.queries.EnterprisePrimaryAsset_PrimaryAssets"
             id="org.polarsys.capella.cybersecurity.business.queries.EnterprisePrimaryAsset_PrimaryAssets">
       </MDEBusinessQueries>
-            <MDEBusinessQueries
-                  class="org.polarsys.capella.cybersecurity.business.queries">
-            </MDEBusinessQueries>
    </extension>
    
    <extension
