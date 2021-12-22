@@ -22,6 +22,8 @@ import org.eclipse.sirius.diagram.description.tool.ContainerCreationDescription;
 import org.eclipse.sirius.diagram.description.tool.NodeCreationDescription;
 import org.eclipse.sirius.diagram.tools.api.command.IDiagramCommandFactoryProvider;
 import org.eclipse.sirius.diagram.tools.internal.command.UndoRedoCapableEMFCommandFactory;
+import org.eclipse.sirius.diagram.ui.tools.internal.commands.emf.EMFCommandFactoryUI;
+import org.eclipse.sirius.tools.api.command.ui.UICallBack;
 import org.eclipse.sirius.tools.internal.command.builders.CommandBuilder;
 import org.eclipse.sirius.viewpoint.description.tool.AbstractToolDescription;
 
@@ -84,6 +86,14 @@ public class CybersecurityDiagramCommandFactory extends UndoRedoCapableEMFComman
       return builder.buildCommand();
     }
     return delegate.getCommandFactory(domain).buildCreateContainerCommandFromTool(nodeContainer, tool);
+  }
+  
+  @Override
+  public UICallBack getUserInterfaceCallBack() {
+    if (uiCallBack == null) {
+      return new EMFCommandFactoryUI();
+    }
+    return uiCallBack;
   }
 
 }
