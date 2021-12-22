@@ -10,8 +10,9 @@
 *******************************************************************/
 package org.polarsys.capella.cybersecurity.test.semantic.queries;
 
-public class EnterprisePrimaryAssetsPAsTestCase extends CybersecuritySemanticQueriesTest {
-  public static final String QUERY = "EnterprisePrimaryAsset__PrimaryAssets";
+public class ThreatsOwnedFunctionalChainsTestCase extends CybersecuritySemanticQueriesTest {
+
+  public static final String QUERY = "org.polarsys.capella.cybersecurity.ui.semantic.browser.Threat__OwnedFunctionalChains";
 
   @Override
   protected String getQueryCategoryIdentifier() {
@@ -20,7 +21,7 @@ public class EnterprisePrimaryAssetsPAsTestCase extends CybersecuritySemanticQue
 
   @Override
   public void test() throws Exception {
-    testQuery(PA__EPA2_ID, PA__FPA3_ID, PA__IPA4_ID);
+    testQuery(PA__THREAT1_ID, PA__FC1_THREAT_ID);
   }
 
 }

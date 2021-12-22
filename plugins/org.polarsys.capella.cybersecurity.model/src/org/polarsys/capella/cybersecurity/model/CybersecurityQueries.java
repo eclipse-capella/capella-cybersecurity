@@ -43,6 +43,7 @@ import org.polarsys.capella.core.data.fa.FaPackage;
 import org.polarsys.capella.core.data.fa.FunctionalChain;
 import org.polarsys.capella.core.data.fa.FunctionalExchange;
 import org.polarsys.capella.core.data.information.ExchangeItem;
+import org.polarsys.capella.core.data.interaction.AbstractCapability;
 import org.polarsys.capella.core.data.oa.Entity;
 import org.polarsys.capella.core.data.oa.OperationalAnalysis;
 import org.polarsys.capella.core.model.helpers.BlockArchitectureExt;
@@ -234,6 +235,11 @@ public class CybersecurityQueries {
     return Stream.empty();
   }
 
+  public static Stream<PrimaryAsset> getEnterprisePrimaryAssets(PrimaryAsset asset) {
+    return EObjectExt.getReferencers(asset, CybersecurityPackage.Literals.PRIMARY_ASSET_MEMBER__MEMBER).stream()
+        .map(s -> (PrimaryAsset) ((PrimaryAssetMember) s).getAsset());
+  }
+  
   public static Stream<FunctionalPrimaryAsset> getFunctionalPrimaryAssets(AbstractFunction af) {
     return EObjectExt.getReferencers(af, CybersecurityPackage.Literals.PRIMARY_ASSET_MEMBER__MEMBER).stream()
         .map(s -> (FunctionalPrimaryAsset) ((PrimaryAssetMember) s).getAsset());
@@ -621,6 +627,13 @@ public class CybersecurityQueries {
       return result;
     }
   }
+  
+  public static class PrimaryAsset__ReferencingEnterprisePrimaryAssets implements IQuery {
+    @Override
+    public List<Object> compute(Object object) {
+      return getEnterprisePrimaryAssets((PrimaryAsset) object).collect(Collectors.toList());
+    }
+  }
 
   public static class AbstractFunction__ExchangeItems implements IQuery {
     @Override
@@ -772,7 +785,28 @@ public class CybersecurityQueries {
           .collect(Collectors.toList());
     }
   }
+  
+  public static class Threat__OwnedFunctionalChains implements IQuery {
+    @Override
+    public List<Object> compute(Object object) {
+      List<Object> result = new ArrayList<>();
+      if (showCategory(object)) {
+        result.addAll(((AbstractCapability) object).getOwnedFunctionalChains());
+      }
+      return result;
+    }
 
+    public boolean showCategory(Object object) {
+      return !(BlockArchitectureExt.getRootBlockArchitecture((EObject) object) instanceof OperationalAnalysis);
+    }
+  }
+
+  public static class Threat__OwnedOperationalProcesses extends Threat__OwnedFunctionalChains {
+    public boolean showCategory(Object object) {
+      return BlockArchitectureExt.getRootBlockArchitecture((EObject) object) instanceof OperationalAnalysis;
+    }
+  }
+  
   public static class Component__MaxCIAT implements IQuery {
     @Override
     public List<Object> compute(Object object) {
