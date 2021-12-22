@@ -39,6 +39,8 @@ public class CY_DCON_05_ThreatSourceUse_Exchange extends AbstractModelConstraint
   private final String CE_OA = "Communication Mean";
   private final String FE_OTHER = "Functional Exchange";
   private final String FE_OA = "Interaction";
+  private final String PL_OA = "";
+  private final String PL_OTHER = "/Physical Link";
   
   @Override
   public IStatus validate(IValidationContext ctx) {
@@ -56,9 +58,9 @@ public class CY_DCON_05_ThreatSourceUse_Exchange extends AbstractModelConstraint
       }
     }
     if (bla instanceof OperationalAnalysis) {
-      return ctx.createFailureStatus(threatSourceUse, NamingHelper.getTitleLabel(threatSourceUse), CE_OA, FE_OA);
+      return ctx.createFailureStatus(threatSourceUse, NamingHelper.getTitleLabel(threatSourceUse), CE_OA, FE_OA, PL_OA);
     }
-    return ctx.createFailureStatus(threatSourceUse, NamingHelper.getTitleLabel(threatSourceUse), CE_OTHER, FE_OTHER);
+    return ctx.createFailureStatus(threatSourceUse, NamingHelper.getTitleLabel(threatSourceUse), CE_OTHER, FE_OTHER, PL_OTHER);
   }
 
   private boolean existsRelationBetweenThem(Component comp1, Component comp2) {
