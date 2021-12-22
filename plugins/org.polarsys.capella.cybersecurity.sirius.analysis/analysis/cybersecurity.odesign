@@ -6,7 +6,7 @@
       <metamodel href="../../org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#/"/>
       <metamodel href="../../org.polarsys.capella.core.data.gen/model/FunctionalAnalysis.ecore#/"/>
       <defaultLayer name="Default">
-        <nodeMappings name="Threat" semanticCandidatesExpression="aql:self.getAllCurrentLevelThreats()" createElements="false" domainClass="cybersecurity.Threat">
+        <nodeMappings name="Threat" detailDescriptions="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Component%20Interfaces%20Scenario'] //@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Exchange%20Scenario'] //@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Function%20Scenario'] //@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Activity%20Scenario'] //@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Entity%20Scenario%20']" navigationDescriptions="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Existing%20Component%20Interfaces%20Scenario'] //@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Existing%20Exchange%20Scenario'] //@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Existing%20Function%20Scenario'] //@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Existing%20Activity%20Scenario'] //@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Existing%20Entity%20Scenario']" semanticCandidatesExpression="aql:self.getAllCurrentLevelThreats()" createElements="false" domainClass="cybersecurity.Threat">
           <deletionDescription href="../../org.polarsys.capella.core.sirius.analysis/description/common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Contextual%20Component%20Detailed%20Interfaces']/@defaultLayer/@toolSections.0/@ownedTools[name='delete%20capella%20elements']"/>
           <labelDirectEdit href="../../org.polarsys.capella.core.sirius.analysis/description/common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.0/@ownedTools[name='name']"/>
           <style xsi:type="style:SquareDescription" borderColor="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='_CYB_Threat_Border']" labelExpression="service:self.getThreatLabel()" labelColor="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='_CYB_Threat_Label']" sizeComputationExpression="5" labelPosition="node" resizeKind="NSEW" width="22" height="5" color="//@userColorsPalettes[name='Cybersecurity%20Color%20Palette']/@entries[name='_CYB_Threat_Background']"/>
@@ -373,6 +373,96 @@
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DiagramCreationDescription" name="Component Interfaces Scenario" label="Interface Scenario" precondition="aql:self.isInLib() and not self.isElementAtOperationalLevel()" titleExpression="aql:self.name.addScenarioPrefix('[IS]')" browseExpression="aql:self.ownedScenarios->last()">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="Scenario" referenceName="ownedScenarios">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:diagramName"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+            <containerViewVariable name="containerView"/>
+            <representationNameVariable name="diagramName"/>
+            <diagramDescription href="../../org.polarsys.capella.core.sirius.analysis/description/common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Component%20Interfaces%20Scenario']"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DiagramNavigationDescription" name="Existing Component Interfaces Scenario" label="Existing Interface Scenario">
+            <containerViewVariable name="containerView"/>
+            <containerVariable name="container"/>
+            <representationNameVariable name="diagramName"/>
+            <diagramDescription href="../../org.polarsys.capella.core.sirius.analysis/description/common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Component%20Interfaces%20Scenario']"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DiagramCreationDescription" name="Exchange Scenario" label="Exchange Scenario" precondition="aql:self.isInLib() and not self.isElementAtOperationalLevel()" titleExpression="aql:self.name.addScenarioPrefix('[ES]')" browseExpression="aql:self.ownedScenarios->last()">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="Scenario" referenceName="ownedScenarios">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:diagramName"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+            <containerViewVariable name="containerView"/>
+            <representationNameVariable name="diagramName"/>
+            <diagramDescription href="../../org.polarsys.capella.core.sirius.analysis/description/common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Component%20Exchanges%20Scenario']"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DiagramNavigationDescription" name="Existing Exchange Scenario" label="Existing Exchanges Scenario">
+            <containerViewVariable name="containerView"/>
+            <containerVariable name="container"/>
+            <representationNameVariable name="diagramName"/>
+            <diagramDescription href="../../org.polarsys.capella.core.sirius.analysis/description/common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Component%20Exchanges%20Scenario']"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DiagramCreationDescription" name="Function Scenario" label="Function Scenario" precondition="aql:self.isInLib() and not self.isElementAtOperationalLevel()" titleExpression="aql:self.name.addScenarioPrefix('[FS]')" browseExpression="aql:self.ownedScenarios->last()">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="Scenario" referenceName="ownedScenarios">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:diagramName"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+            <containerViewVariable name="containerView"/>
+            <representationNameVariable name="diagramName"/>
+            <diagramDescription href="../../org.polarsys.capella.core.sirius.analysis/description/common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Functional%20Scenario']"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DiagramNavigationDescription" name="Existing Function Scenario" label="Existing Function Scenario">
+            <containerViewVariable name="containerView"/>
+            <containerVariable name="container"/>
+            <representationNameVariable name="diagramName"/>
+            <diagramDescription href="../../org.polarsys.capella.core.sirius.analysis/description/common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Functional%20Scenario']"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DiagramCreationDescription" name="Entity Scenario " precondition="aql:self.isInLib() and self.isElementAtOperationalLevel()" titleExpression="aql:self.name.addScenarioPrefix('[OES]') + ' - Operational Entity Scenario'" browseExpression="aql:self.ownedScenarios->last()">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="interaction.Scenario" referenceName="ownedScenarios">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:diagramName"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+            <containerViewVariable name="containerView"/>
+            <representationNameVariable name="diagramName"/>
+            <diagramDescription href="../../org.polarsys.capella.core.sirius.analysis/description/oa.odesign#//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Interaction%20Scenario']"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DiagramNavigationDescription" name="Existing Entity Scenario">
+            <containerViewVariable name="containerView"/>
+            <containerVariable name="container"/>
+            <representationNameVariable name="diagramName"/>
+            <diagramDescription href="../../org.polarsys.capella.core.sirius.analysis/description/oa.odesign#//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Interaction%20Scenario']"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DiagramCreationDescription" name="Activity Scenario" precondition="aql:self.isInLib() and self.isElementAtOperationalLevel()" titleExpression="aql:self.name.addScenarioPrefix('[OAS]') + ' - Operational Activity Scenario'" browseExpression="aql:self.ownedScenarios->last()">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="interaction.Scenario" referenceName="ownedScenarios">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:diagramName"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+            <containerViewVariable name="containerView"/>
+            <representationNameVariable name="diagramName"/>
+            <diagramDescription href="../../org.polarsys.capella.core.sirius.analysis/description/oa.odesign#//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Activity%20Interaction%20Scenario']"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DiagramNavigationDescription" name="Existing Activity Scenario">
+            <containerViewVariable name="containerView"/>
+            <containerVariable name="container"/>
+            <representationNameVariable name="diagramName"/>
+            <diagramDescription href="../../org.polarsys.capella.core.sirius.analysis/description/oa.odesign#//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Activity%20Interaction%20Scenario']"/>
           </ownedTools>
         </toolSections>
       </defaultLayer>
