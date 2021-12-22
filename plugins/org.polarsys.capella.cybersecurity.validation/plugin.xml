@@ -218,7 +218,7 @@
                   severity="WARNING"
                   statusCode="0">
                <message>
-                  Between the elements involved in {0} {1} there is no {3}/{2}/Physical Link
+                  Between the elements involved in {0} {1} there is no {3}/{2}{4}
                </message>
                <target
                      class="ThreatSourceUse">
