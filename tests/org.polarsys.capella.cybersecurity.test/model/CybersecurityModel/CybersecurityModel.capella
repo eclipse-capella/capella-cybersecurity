@@ -108,7 +108,12 @@
       <ownedExtensions xsi:type="cybersecurity:CybersecurityPkg" id="03109427-3bc2-4200-a0b0-a41df66aedb4"
           name="CybersecurityPkg 1">
         <ownedThreats xsi:type="cybersecurity:Threat" id="58b25370-b7df-4019-b38b-7d64ad157fb3"
-            name="Threat 1 OA"/>
+            name="Threat 1 OA">
+          <ownedFunctionalChains xsi:type="org.polarsys.capella.core.data.oa:OperationalProcess"
+              id="23ea602e-1db3-4ebb-927b-c13d81f38bab" name="OperationalProcess 1"/>
+          <ownedScenarios xsi:type="org.polarsys.capella.core.data.interaction:Scenario"
+              id="cfdf6031-4680-451d-803f-a67cf64d739b" name="Scenario 1"/>
+        </ownedThreats>
         <ownedPrimaryAssets xsi:type="cybersecurity:InformationPrimaryAsset" id="9aa70aff-0d62-4717-a9ca-41edebc6badd"
             name="InformationPrimaryAsset 1 OA"/>
         <ownedPrimaryAssets xsi:type="cybersecurity:FunctionalPrimaryAsset" id="55ee6393-fc70-4135-9a5e-6ca8764d5114"
@@ -406,7 +411,12 @@
       <ownedExtensions xsi:type="cybersecurity:CybersecurityPkg" id="e3201310-ef8c-46d5-8589-d9ddb6313095"
           name="CybersecurityPkg 1">
         <ownedThreats xsi:type="cybersecurity:Threat" id="cb4843d5-6bab-408e-8025-1ca31fc5b050"
-            name="Threat 1" kind="#a61a8703-0219-4ae1-9d76-88c2825f20df"/>
+            name="Threat 1" kind="#a61a8703-0219-4ae1-9d76-88c2825f20df">
+          <ownedFunctionalChains xsi:type="org.polarsys.capella.core.data.fa:FunctionalChain"
+              id="adab8932-d73c-49c5-b59c-96073942c0b6" name="FunctionalChain 1"/>
+          <ownedScenarios xsi:type="org.polarsys.capella.core.data.interaction:Scenario"
+              id="61dfb0d3-82c7-4132-a878-778d07a52c3a" name="Scenario 1"/>
+        </ownedThreats>
         <ownedPrimaryAssets xsi:type="cybersecurity:FunctionalPrimaryAsset" id="99711cee-9093-48fb-910b-f7b16eacb9b7"
             name="FunctionalPrimaryAsset 1">
           <ownedMembers xsi:type="cybersecurity:PrimaryAssetMember" id="91fa2258-b606-4263-a2b8-704507165a93"
