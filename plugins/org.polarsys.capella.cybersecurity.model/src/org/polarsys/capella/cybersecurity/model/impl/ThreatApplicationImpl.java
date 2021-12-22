@@ -19,8 +19,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.polarsys.capella.core.data.capellacore.impl.RelationshipImpl;
-import org.polarsys.capella.core.data.cs.Component;
-import org.polarsys.capella.common.data.modellingcore.impl.ModelElementImpl;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.PrimaryAsset;
 import org.polarsys.capella.cybersecurity.model.Threat;
@@ -42,14 +40,14 @@ import org.polarsys.capella.cybersecurity.model.ThreatApplication;
 public class ThreatApplicationImpl extends RelationshipImpl implements ThreatApplication {
 
   /**
-   * The cached value of the '{@link #getThreat() <em>Threat</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc
-   * -->
-   * 
-   * @see #getThreat()
+   * The cached value of the '{@link #getAsset() <em>Asset</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAsset()
    * @generated
    * @ordered
    */
-  protected Threat threat;
+  protected PrimaryAsset asset;
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -78,42 +76,22 @@ public class ThreatApplicationImpl extends RelationshipImpl implements ThreatApp
   @Override
   public Threat getThreat() {
 
-    if (threat != null && threat.eIsProxy()) {
-      InternalEObject oldThreat = (InternalEObject) threat;
-      threat = (Threat) eResolveProxy(oldThreat);
-      if (threat != oldThreat) {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, CybersecurityPackage.THREAT_APPLICATION__THREAT,
-              oldThreat, threat));
-      }
-    }
-    return threat;
+    Threat threat = basicGetThreat();
+    return threat != null && threat.eIsProxy() ? (Threat) eResolveProxy((InternalEObject) threat) : threat;
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * @generated
+   * 
+   * @generated NOT
    */
 
   public Threat basicGetThreat() {
-
-    return threat;
-  }
-
-  /**
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * @generated
-   */
-
-  @Override
-  public void setThreat(Threat newThreat) {
-
-    Threat oldThreat = threat;
-    threat = newThreat;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, CybersecurityPackage.THREAT_APPLICATION__THREAT, oldThreat,
-          threat));
-
+    EObject container = eContainer();
+    if (container instanceof Threat) {
+      return (Threat) container;
+    }
+    return null;
   }
 
   /**
@@ -124,8 +102,16 @@ public class ThreatApplicationImpl extends RelationshipImpl implements ThreatApp
   @Override
   public PrimaryAsset getAsset() {
 
-    PrimaryAsset asset = basicGetAsset();
-    return asset != null && asset.eIsProxy() ? (PrimaryAsset) eResolveProxy((InternalEObject) asset) : asset;
+    if (asset != null && asset.eIsProxy()) {
+      InternalEObject oldAsset = (InternalEObject) asset;
+      asset = (PrimaryAsset) eResolveProxy(oldAsset);
+      if (asset != oldAsset) {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, CybersecurityPackage.THREAT_APPLICATION__ASSET,
+              oldAsset, asset));
+      }
+    }
+    return asset;
   }
 
   /**
@@ -145,20 +131,37 @@ public class ThreatApplicationImpl extends RelationshipImpl implements ThreatApp
   }
 
   /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+
+  @Override
+  public void setAsset(PrimaryAsset newAsset) {
+
+    PrimaryAsset oldAsset = asset;
+    asset = newAsset;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CybersecurityPackage.THREAT_APPLICATION__ASSET, oldAsset,
+          asset));
+
+  }
+
+  /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType) {
     switch (featureID) {
-    case CybersecurityPackage.THREAT_APPLICATION__THREAT:
-      if (resolve)
-        return getThreat();
-      return basicGetThreat();
     case CybersecurityPackage.THREAT_APPLICATION__ASSET:
       if (resolve)
         return getAsset();
       return basicGetAsset();
+    case CybersecurityPackage.THREAT_APPLICATION__THREAT:
+      if (resolve)
+        return getThreat();
+      return basicGetThreat();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -170,8 +173,8 @@ public class ThreatApplicationImpl extends RelationshipImpl implements ThreatApp
   @Override
   public void eSet(int featureID, Object newValue) {
     switch (featureID) {
-    case CybersecurityPackage.THREAT_APPLICATION__THREAT:
-      setThreat((Threat) newValue);
+    case CybersecurityPackage.THREAT_APPLICATION__ASSET:
+      setAsset((PrimaryAsset) newValue);
       return;
     }
     super.eSet(featureID, newValue);
@@ -184,8 +187,8 @@ public class ThreatApplicationImpl extends RelationshipImpl implements ThreatApp
   @Override
   public void eUnset(int featureID) {
     switch (featureID) {
-    case CybersecurityPackage.THREAT_APPLICATION__THREAT:
-      setThreat((Threat) null);
+    case CybersecurityPackage.THREAT_APPLICATION__ASSET:
+      setAsset((PrimaryAsset) null);
       return;
     }
     super.eUnset(featureID);
@@ -198,10 +201,10 @@ public class ThreatApplicationImpl extends RelationshipImpl implements ThreatApp
   @Override
   public boolean eIsSet(int featureID) {
     switch (featureID) {
-    case CybersecurityPackage.THREAT_APPLICATION__THREAT:
-      return threat != null;
     case CybersecurityPackage.THREAT_APPLICATION__ASSET:
-      return basicGetAsset() != null;
+      return asset != null;
+    case CybersecurityPackage.THREAT_APPLICATION__THREAT:
+      return basicGetThreat() != null;
     }
     return super.eIsSet(featureID);
   }

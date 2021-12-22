@@ -19,8 +19,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.polarsys.capella.core.data.capellacore.impl.RelationshipImpl;
-import org.polarsys.capella.core.data.cs.Component;
-import org.polarsys.capella.common.data.modellingcore.impl.ModelElementImpl;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.PrimaryAsset;
 import org.polarsys.capella.cybersecurity.model.Threat;
@@ -68,32 +66,22 @@ public class ThreatApplicationImpl extends RelationshipImpl implements ThreatApp
   @Override
   public Threat getThreat() {
 
-    return (Threat) eDynamicGet(CybersecurityPackage.THREAT_APPLICATION__THREAT,
-        CybersecurityPackage.Literals.THREAT_APPLICATION__THREAT, true, true);
+    Threat threat = basicGetThreat();
+    return threat != null && ((EObject) threat).eIsProxy() ? (Threat) eResolveProxy((InternalEObject) threat) : threat;
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * @generated
+   * 
+   * @generated NOT
    */
 
   public Threat basicGetThreat() {
-
-    return (Threat) eDynamicGet(CybersecurityPackage.THREAT_APPLICATION__THREAT,
-        CybersecurityPackage.Literals.THREAT_APPLICATION__THREAT, false, true);
-  }
-
-  /**
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * @generated
-   */
-
-  @Override
-  public void setThreat(Threat newThreat) {
-
-    eDynamicSet(CybersecurityPackage.THREAT_APPLICATION__THREAT,
-        CybersecurityPackage.Literals.THREAT_APPLICATION__THREAT, newThreat);
-
+    EObject container = eContainer();
+    if (container instanceof Threat) {
+      return (Threat) container;
+    }
+    return null;
   }
 
   /**
@@ -104,9 +92,8 @@ public class ThreatApplicationImpl extends RelationshipImpl implements ThreatApp
   @Override
   public PrimaryAsset getAsset() {
 
-    PrimaryAsset asset = basicGetAsset();
-    return asset != null && ((EObject) asset).eIsProxy() ? (PrimaryAsset) eResolveProxy((InternalEObject) asset)
-        : asset;
+    return (PrimaryAsset) eDynamicGet(CybersecurityPackage.THREAT_APPLICATION__ASSET,
+        CybersecurityPackage.Literals.THREAT_APPLICATION__ASSET, true, true);
   }
 
   /**
@@ -126,20 +113,34 @@ public class ThreatApplicationImpl extends RelationshipImpl implements ThreatApp
   }
 
   /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+
+  @Override
+  public void setAsset(PrimaryAsset newAsset) {
+
+    eDynamicSet(CybersecurityPackage.THREAT_APPLICATION__ASSET, CybersecurityPackage.Literals.THREAT_APPLICATION__ASSET,
+        newAsset);
+
+  }
+
+  /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType) {
     switch (featureID) {
-    case CybersecurityPackage.THREAT_APPLICATION__THREAT:
-      if (resolve)
-        return getThreat();
-      return basicGetThreat();
     case CybersecurityPackage.THREAT_APPLICATION__ASSET:
       if (resolve)
         return getAsset();
       return basicGetAsset();
+    case CybersecurityPackage.THREAT_APPLICATION__THREAT:
+      if (resolve)
+        return getThreat();
+      return basicGetThreat();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -151,8 +152,8 @@ public class ThreatApplicationImpl extends RelationshipImpl implements ThreatApp
   @Override
   public void eSet(int featureID, Object newValue) {
     switch (featureID) {
-    case CybersecurityPackage.THREAT_APPLICATION__THREAT:
-      setThreat((Threat) newValue);
+    case CybersecurityPackage.THREAT_APPLICATION__ASSET:
+      setAsset((PrimaryAsset) newValue);
       return;
     }
     super.eSet(featureID, newValue);
@@ -165,8 +166,8 @@ public class ThreatApplicationImpl extends RelationshipImpl implements ThreatApp
   @Override
   public void eUnset(int featureID) {
     switch (featureID) {
-    case CybersecurityPackage.THREAT_APPLICATION__THREAT:
-      setThreat((Threat) null);
+    case CybersecurityPackage.THREAT_APPLICATION__ASSET:
+      setAsset((PrimaryAsset) null);
       return;
     }
     super.eUnset(featureID);
@@ -179,10 +180,10 @@ public class ThreatApplicationImpl extends RelationshipImpl implements ThreatApp
   @Override
   public boolean eIsSet(int featureID) {
     switch (featureID) {
-    case CybersecurityPackage.THREAT_APPLICATION__THREAT:
-      return basicGetThreat() != null;
     case CybersecurityPackage.THREAT_APPLICATION__ASSET:
       return basicGetAsset() != null;
+    case CybersecurityPackage.THREAT_APPLICATION__THREAT:
+      return basicGetThreat() != null;
     }
     return super.eIsSet(featureID);
   }

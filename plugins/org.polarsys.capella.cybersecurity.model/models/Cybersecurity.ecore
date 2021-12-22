@@ -46,6 +46,10 @@
         <details key="constraints" value="none"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedThreatApplications"
+        upperBound="-1" eType="#//ThreatApplication" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedThreatInvolvements"
+        upperBound="-1" eType="#//ThreatInvolvement" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ThreatInvolvement" eSuperTypes="platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#//Relationship platform:/plugin/org.polarsys.kitalpha.emde/model/eMDE.ecore#//ElementExtension">
     <eAnnotations source="http://www.polarsys.org/kitalpha/emde/1.0.0/constraint">
@@ -54,9 +58,9 @@
     <eAnnotations source="http://www.polarsys.org/kitalpha/emde/1.0.0/constraintMapping">
       <details key="Mapping" value=" platform:/plugin/org.polarsys.capella.core.data.gen/model/CompositeStructure.ecore#//AbstractActor"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="component" eType="ecore:EClass platform:/plugin/org.polarsys.capella.core.data.gen/model/CompositeStructure.ecore#//Component"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="threat" eType="#//Threat"
         changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="threat" eType="#//Threat"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="component" eType="ecore:EClass platform:/plugin/org.polarsys.capella.core.data.gen/model/CompositeStructure.ecore#//Component"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FunctionStorage" eSuperTypes="platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#//NamedElement platform:/plugin/org.polarsys.kitalpha.emde/model/eMDE.ecore#//ElementExtension">
     <eAnnotations source="http://www.polarsys.org/kitalpha/emde/1.0.0/constraint">
@@ -71,8 +75,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="remanentData" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ThreatApplication" eSuperTypes="platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#//Relationship platform:/plugin/org.polarsys.kitalpha.emde/model/eMDE.ecore#//ElementExtension">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="threat" eType="#//Threat"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="asset" eType="#//PrimaryAsset"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="asset" eType="#//PrimaryAsset"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="threat" eType="#//Threat"
         changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PrimaryAssetStorage" eSuperTypes="platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#//NamedElement platform:/plugin/org.polarsys.kitalpha.emde/model/eMDE.ecore#//ElementExtension">
@@ -109,8 +113,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rationale" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PrimaryAsset" abstract="true" eSuperTypes="platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedThreatApplications"
-        upperBound="-1" eType="#//ThreatApplication" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedMembers" upperBound="-1"
         eType="#//PrimaryAssetMember" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="realizedPrimaryAssets"

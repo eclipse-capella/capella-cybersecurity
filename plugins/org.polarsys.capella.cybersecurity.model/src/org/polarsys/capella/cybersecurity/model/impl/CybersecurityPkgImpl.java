@@ -43,27 +43,27 @@ import org.polarsys.capella.cybersecurity.model.Threat;
 public class CybersecurityPkgImpl extends NamedElementImpl implements CybersecurityPkg {
 
   /**
-   * The cached value of the '{@link #getOwnedThreats() <em>Owned Threats</em>}' containment reference list. <!--
-   * begin-user-doc --> <!-- end-user-doc -->
-   * 
+   * The cached value of the '{@link #getOwnedThreats() <em>Owned Threats</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
    * @see #getOwnedThreats()
    * @generated
    * @ordered
    */
   protected EList<Threat> ownedThreats;
-
   /**
    * The cached value of the '{@link #getOwnedPrimaryAssets() <em>Owned Primary Assets</em>}' containment reference list.
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
    * @see #getOwnedPrimaryAssets()
    * @generated
    * @ordered
    */
   protected EList<PrimaryAsset> ownedPrimaryAssets;
-
   /**
    * The cached value of the '{@link #getOwnedCybersecurityPkgs() <em>Owned Cybersecurity Pkgs</em>}' containment reference list.
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
    * @see #getOwnedCybersecurityPkgs()
    * @generated
    * @ordered
@@ -94,6 +94,7 @@ public class CybersecurityPkgImpl extends NamedElementImpl implements Cybersecur
    * @generated
    */
 
+  @SuppressWarnings("unchecked")
   @Override
   public EList<Threat> getOwnedThreats() {
 
@@ -109,6 +110,7 @@ public class CybersecurityPkgImpl extends NamedElementImpl implements Cybersecur
    * @generated
    */
 
+  @SuppressWarnings("unchecked")
   @Override
   public EList<CybersecurityPkg> getOwnedCybersecurityPkgs() {
 
@@ -124,6 +126,7 @@ public class CybersecurityPkgImpl extends NamedElementImpl implements Cybersecur
    * @generated
    */
 
+  @SuppressWarnings("unchecked")
   @Override
   public EList<PrimaryAsset> getOwnedPrimaryAssets() {
 

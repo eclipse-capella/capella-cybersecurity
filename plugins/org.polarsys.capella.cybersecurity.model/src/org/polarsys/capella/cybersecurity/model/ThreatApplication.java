@@ -45,24 +45,12 @@ public interface ThreatApplication extends Relationship, ElementExtension {
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Threat</em>' reference.
-   * @see #setThreat(Threat)
    * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getThreatApplication_Threat()
-   * @model
+   * @model transient="true" changeable="false" volatile="true" derived="true"
    * @generated
    */
 
   Threat getThreat();
-
-  /**
-   * Sets the value of the '{@link org.polarsys.capella.cybersecurity.model.ThreatApplication#getThreat <em>Threat</em>}' reference.
-  
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * @param value the new value of the '<em>Threat</em>' reference.
-   * @see #getThreat()
-   * @generated
-   */
-
-  void setThreat(Threat value);
 
   /**
    * Returns the value of the '<em><b>Asset</b></em>' reference.
@@ -73,11 +61,24 @@ public interface ThreatApplication extends Relationship, ElementExtension {
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Asset</em>' reference.
+   * @see #setAsset(PrimaryAsset)
    * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getThreatApplication_Asset()
-   * @model transient="true" changeable="false" volatile="true" derived="true"
+   * @model
    * @generated
    */
 
   PrimaryAsset getAsset();
+
+  /**
+   * Sets the value of the '{@link org.polarsys.capella.cybersecurity.model.ThreatApplication#getAsset <em>Asset</em>}' reference.
+  
+   * <!-- begin-user-doc -->
+  	 * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Asset</em>' reference.
+   * @see #getAsset()
+   * @generated
+   */
+
+  void setAsset(PrimaryAsset value);
 
 } // ThreatApplication

@@ -81,7 +81,6 @@ public class InformationPrimaryAssetImpl extends PrimaryAssetImpl implements Inf
         CybersecurityPackage.Literals.INFORMATION_PRIMARY_ASSET__EXCHANGE_ITEMS, data.length, data);
   }
 
-
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated

@@ -13,6 +13,7 @@
 package org.polarsys.capella.cybersecurity.model.helpers;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.polarsys.capella.common.model.helpers.HelperNotFoundException;
 import org.polarsys.capella.cybersecurity.model.InformationPrimaryAsset;
 
 /**
@@ -38,6 +39,7 @@ public class InformationPrimaryAssetHelper {
     // delegate to parent helper
     return org.polarsys.capella.core.data.helpers.capellacore.delegates.NamedElementHelper.getInstance()
         .doSwitch(object, feature);
+
   }
 
 }

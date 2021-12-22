@@ -19,13 +19,16 @@ import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IAdapterManager;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.ecore.util.EcoreEList;
 import org.polarsys.capella.common.model.helpers.IHelper;
 import org.polarsys.capella.core.data.capellacore.EnumerationPropertyLiteral;
@@ -34,6 +37,8 @@ import org.polarsys.capella.core.data.cs.Component;
 import org.polarsys.capella.core.data.interaction.impl.AbstractCapabilityImpl;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.Threat;
+import org.polarsys.capella.cybersecurity.model.ThreatApplication;
+import org.polarsys.capella.cybersecurity.model.ThreatInvolvement;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Threat</b></em>'. <!-- end-user-doc -->
@@ -47,6 +52,8 @@ import org.polarsys.capella.cybersecurity.model.Threat;
  *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatImpl#getRationale <em>Rationale</em>}</li>
  *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatImpl#getRealizedThreats <em>Realized Threats</em>}</li>
  *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatImpl#getRealizingThreats <em>Realizing Threats</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatImpl#getOwnedThreatApplications <em>Owned Threat Applications</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatImpl#getOwnedThreatInvolvements <em>Owned Threat Involvements</em>}</li>
  * </ul>
  *
  * @generated
@@ -281,6 +288,50 @@ public class ThreatImpl extends AbstractCapabilityImpl implements Threat {
   }
 
   /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public EList<ThreatApplication> getOwnedThreatApplications() {
+
+    return (EList<ThreatApplication>) eDynamicGet(CybersecurityPackage.THREAT__OWNED_THREAT_APPLICATIONS,
+        CybersecurityPackage.Literals.THREAT__OWNED_THREAT_APPLICATIONS, true, true);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+  	 * <!-- end-user-doc -->
+   * @generated
+   */
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public EList<ThreatInvolvement> getOwnedThreatInvolvements() {
+
+    return (EList<ThreatInvolvement>) eDynamicGet(CybersecurityPackage.THREAT__OWNED_THREAT_INVOLVEMENTS,
+        CybersecurityPackage.Literals.THREAT__OWNED_THREAT_INVOLVEMENTS, true, true);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+  	 * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    switch (featureID) {
+    case CybersecurityPackage.THREAT__OWNED_THREAT_APPLICATIONS:
+      return ((InternalEList<?>) getOwnedThreatApplications()).basicRemove(otherEnd, msgs);
+    case CybersecurityPackage.THREAT__OWNED_THREAT_INVOLVEMENTS:
+      return ((InternalEList<?>) getOwnedThreatInvolvements()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
@@ -301,6 +352,10 @@ public class ThreatImpl extends AbstractCapabilityImpl implements Threat {
       return getRealizedThreats();
     case CybersecurityPackage.THREAT__REALIZING_THREATS:
       return getRealizingThreats();
+    case CybersecurityPackage.THREAT__OWNED_THREAT_APPLICATIONS:
+      return getOwnedThreatApplications();
+    case CybersecurityPackage.THREAT__OWNED_THREAT_INVOLVEMENTS:
+      return getOwnedThreatInvolvements();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -326,6 +381,14 @@ public class ThreatImpl extends AbstractCapabilityImpl implements Threat {
     case CybersecurityPackage.THREAT__RATIONALE:
       setRationale((String) newValue);
       return;
+    case CybersecurityPackage.THREAT__OWNED_THREAT_APPLICATIONS:
+      getOwnedThreatApplications().clear();
+      getOwnedThreatApplications().addAll((Collection<? extends ThreatApplication>) newValue);
+      return;
+    case CybersecurityPackage.THREAT__OWNED_THREAT_INVOLVEMENTS:
+      getOwnedThreatInvolvements().clear();
+      getOwnedThreatInvolvements().addAll((Collection<? extends ThreatInvolvement>) newValue);
+      return;
     }
     super.eSet(featureID, newValue);
   }
@@ -348,6 +411,12 @@ public class ThreatImpl extends AbstractCapabilityImpl implements Threat {
       return;
     case CybersecurityPackage.THREAT__RATIONALE:
       setRationale(RATIONALE_EDEFAULT);
+      return;
+    case CybersecurityPackage.THREAT__OWNED_THREAT_APPLICATIONS:
+      getOwnedThreatApplications().clear();
+      return;
+    case CybersecurityPackage.THREAT__OWNED_THREAT_INVOLVEMENTS:
+      getOwnedThreatInvolvements().clear();
       return;
     }
     super.eUnset(featureID);
@@ -372,6 +441,10 @@ public class ThreatImpl extends AbstractCapabilityImpl implements Threat {
       return !getRealizedThreats().isEmpty();
     case CybersecurityPackage.THREAT__REALIZING_THREATS:
       return !getRealizingThreats().isEmpty();
+    case CybersecurityPackage.THREAT__OWNED_THREAT_APPLICATIONS:
+      return !getOwnedThreatApplications().isEmpty();
+    case CybersecurityPackage.THREAT__OWNED_THREAT_INVOLVEMENTS:
+      return !getOwnedThreatInvolvements().isEmpty();
     }
     return super.eIsSet(featureID);
   }

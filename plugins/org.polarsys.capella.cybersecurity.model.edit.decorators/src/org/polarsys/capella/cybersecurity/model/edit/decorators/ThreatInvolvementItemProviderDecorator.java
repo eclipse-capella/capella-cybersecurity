@@ -19,8 +19,8 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.polarsys.capella.common.helpers.EObjectLabelProviderHelper;
+import org.polarsys.capella.core.data.cs.Component;
 import org.polarsys.capella.core.data.gen.edit.decorators.ItemProviderAdapterDecorator;
-import org.polarsys.capella.cybersecurity.model.Threat;
 import org.polarsys.capella.cybersecurity.model.ThreatInvolvement;
 import org.polarsys.capella.cybersecurity.model.provider.CybersecurityEditPlugin;
 
@@ -36,12 +36,12 @@ public class ThreatInvolvementItemProviderDecorator extends ItemProviderAdapterD
   public String getText(Object object) {
     if (object instanceof ThreatInvolvement) {
       ThreatInvolvement ti = (ThreatInvolvement) object;
-      Threat threat = ti.getThreat();
-      if (threat != null) {
-        String threatLabel = EObjectLabelProviderHelper.getText(threat);
-        if (!threatLabel.isEmpty()) {
+      Component component = ti.getComponent();
+      if (component != null) {
+        String componentLabel = EObjectLabelProviderHelper.getText(component);
+        if (!componentLabel.isEmpty()) {
           return "[" + CybersecurityEditPlugin.INSTANCE.getString("_UI_ThreatInvolvement_type") + "] to " //$NON-NLS-1$
-              + threatLabel;
+              + componentLabel;
         }
       }
     }
