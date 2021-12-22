@@ -23,7 +23,6 @@ import org.polarsys.capella.core.data.capellacore.NamedElement;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.polarsys.capella.cybersecurity.model.PrimaryAsset#getOwnedThreatApplications <em>Owned Threat Applications</em>}</li>
  *   <li>{@link org.polarsys.capella.cybersecurity.model.PrimaryAsset#getOwnedMembers <em>Owned Members</em>}</li>
  *   <li>{@link org.polarsys.capella.cybersecurity.model.PrimaryAsset#getRealizedPrimaryAssets <em>Realized Primary Assets</em>}</li>
  *   <li>{@link org.polarsys.capella.cybersecurity.model.PrimaryAsset#getRealizingPrimaryAssets <em>Realizing Primary Assets</em>}</li>
@@ -35,24 +34,6 @@ import org.polarsys.capella.core.data.capellacore.NamedElement;
  */
 
 public interface PrimaryAsset extends NamedElement {
-
-  /**
-   * Returns the value of the '<em><b>Owned Threat Applications</b></em>' containment reference list.
-   * The list contents are of type {@link org.polarsys.capella.cybersecurity.model.ThreatApplication}.
-  
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Owned Threat Applications</em>' containment reference list isn't clear, there really
-   * should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Owned Threat Applications</em>' containment reference list.
-   * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getPrimaryAsset_OwnedThreatApplications()
-   * @model containment="true"
-   * @generated
-   */
-
-  EList<ThreatApplication> getOwnedThreatApplications();
 
   /**
    * Returns the value of the '<em><b>Owned Members</b></em>' containment reference list.

@@ -41,9 +41,9 @@ import org.polarsys.capella.cybersecurity.model.PrimaryAssetMember;
 public class PrimaryAssetMemberImpl extends RelationshipImpl implements PrimaryAssetMember {
 
   /**
-   * The cached value of the '{@link #getMember() <em>Member</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc
-   * -->
-   * 
+   * The cached value of the '{@link #getMember() <em>Member</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
    * @see #getMember()
    * @generated
    * @ordered

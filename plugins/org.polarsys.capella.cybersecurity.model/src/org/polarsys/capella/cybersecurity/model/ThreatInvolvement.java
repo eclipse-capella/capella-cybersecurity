@@ -50,39 +50,40 @@ public interface ThreatInvolvement extends Relationship, ElementExtension {
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Component</em>' reference.
+   * @see #setComponent(Component)
    * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getThreatInvolvement_Component()
-   * @model transient="true" changeable="false" volatile="true" derived="true"
+   * @model
    * @generated
    */
   Component getComponent();
 
   /**
+   * Sets the value of the '{@link org.polarsys.capella.cybersecurity.model.ThreatInvolvement#getComponent <em>Component</em>}' reference.
+  
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Component</em>' reference.
+   * @see #getComponent()
+   * @generated
+   */
+
+  void setComponent(Component value);
+
+  /**
    * Returns the value of the '<em><b>Threat</b></em>' reference.
   
    * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Threat</em>' reference list isn't clear, there really should be more of a description
-   * here...
-   * </p>
-   * <!-- end-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Threat</em>' reference list isn't clear, there really should be more of a description
+     * here...
+     * </p>
+     * <!-- end-user-doc -->
    * @return the value of the '<em>Threat</em>' reference.
-   * @see #setThreat(Threat)
    * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getThreatInvolvement_Threat()
-   * @model
+   * @model transient="true" changeable="false" volatile="true" derived="true"
    * @generated
    */
 
   Threat getThreat();
-
-  /**
-   * Sets the value of the '{@link org.polarsys.capella.cybersecurity.model.ThreatInvolvement#getThreat <em>Threat</em>}' reference.
-  
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * @param value the new value of the '<em>Threat</em>' reference.
-   * @see #getThreat()
-   * @generated
-   */
-
-  void setThreat(Threat value);
 
 } // ThreatInvolvement

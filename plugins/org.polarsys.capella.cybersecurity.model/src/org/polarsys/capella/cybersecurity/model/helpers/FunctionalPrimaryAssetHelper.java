@@ -13,6 +13,7 @@
 package org.polarsys.capella.cybersecurity.model.helpers;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.polarsys.capella.common.model.helpers.HelperNotFoundException;
 import org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset;
 
 /**
@@ -25,7 +26,6 @@ public class FunctionalPrimaryAssetHelper {
   public static FunctionalPrimaryAssetHelper getInstance() {
     return instance;
   }
-  
 
   /**
    * @generated
@@ -38,5 +38,5 @@ public class FunctionalPrimaryAssetHelper {
         .doSwitch(object, feature);
 
   }
- 
+
 }

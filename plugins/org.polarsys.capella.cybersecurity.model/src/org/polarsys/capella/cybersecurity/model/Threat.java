@@ -32,6 +32,8 @@ import org.polarsys.capella.core.data.interaction.AbstractCapability;
  *   <li>{@link org.polarsys.capella.cybersecurity.model.Threat#getRationale <em>Rationale</em>}</li>
  *   <li>{@link org.polarsys.capella.cybersecurity.model.Threat#getRealizedThreats <em>Realized Threats</em>}</li>
  *   <li>{@link org.polarsys.capella.cybersecurity.model.Threat#getRealizingThreats <em>Realizing Threats</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.Threat#getOwnedThreatApplications <em>Owned Threat Applications</em>}</li>
+ *   <li>{@link org.polarsys.capella.cybersecurity.model.Threat#getOwnedThreatInvolvements <em>Owned Threat Involvements</em>}</li>
  * </ul>
  *
  * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getThreat()
@@ -179,5 +181,33 @@ public interface Threat extends AbstractCapability {
    */
 
   EList<Threat> getRealizingThreats();
+
+  /**
+   * Returns the value of the '<em><b>Owned Threat Applications</b></em>' containment reference list.
+   * The list contents are of type {@link org.polarsys.capella.cybersecurity.model.ThreatApplication}.
+  
+   * <!-- begin-user-doc -->
+  	 * <!-- end-user-doc -->
+   * @return the value of the '<em>Owned Threat Applications</em>' containment reference list.
+   * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getThreat_OwnedThreatApplications()
+   * @model containment="true"
+   * @generated
+   */
+
+  EList<ThreatApplication> getOwnedThreatApplications();
+
+  /**
+   * Returns the value of the '<em><b>Owned Threat Involvements</b></em>' containment reference list.
+   * The list contents are of type {@link org.polarsys.capella.cybersecurity.model.ThreatInvolvement}.
+  
+   * <!-- begin-user-doc -->
+  	 * <!-- end-user-doc -->
+   * @return the value of the '<em>Owned Threat Involvements</em>' containment reference list.
+   * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getThreat_OwnedThreatInvolvements()
+   * @model containment="true"
+   * @generated
+   */
+
+  EList<ThreatInvolvement> getOwnedThreatInvolvements();
 
 } // Threat

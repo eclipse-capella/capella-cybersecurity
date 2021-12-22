@@ -328,6 +328,26 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
   }
 
   /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getThreat_OwnedThreatApplications() {
+    return (EReference) threatEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+  	 * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getThreat_OwnedThreatInvolvements() {
+    return (EReference) threatEClass.getEStructuralFeatures().get(7);
+  }
+
+  /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
@@ -342,7 +362,7 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
    */
   @Override
   public EReference getThreatInvolvement_Component() {
-    return (EReference) threatInvolvementEClass.getEStructuralFeatures().get(0);
+    return (EReference) threatInvolvementEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -351,7 +371,7 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
    */
   @Override
   public EReference getThreatInvolvement_Threat() {
-    return (EReference) threatInvolvementEClass.getEStructuralFeatures().get(1);
+    return (EReference) threatInvolvementEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -405,7 +425,7 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
    */
   @Override
   public EReference getThreatApplication_Threat() {
-    return (EReference) threatApplicationEClass.getEStructuralFeatures().get(0);
+    return (EReference) threatApplicationEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -414,7 +434,7 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
    */
   @Override
   public EReference getThreatApplication_Asset() {
-    return (EReference) threatApplicationEClass.getEStructuralFeatures().get(1);
+    return (EReference) threatApplicationEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -530,7 +550,7 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
    * @generated
    */
   @Override
-  public EReference getPrimaryAsset_OwnedThreatApplications() {
+  public EReference getPrimaryAsset_OwnedMembers() {
     return (EReference) primaryAssetEClass.getEStructuralFeatures().get(0);
   }
 
@@ -539,7 +559,7 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
    * @generated
    */
   @Override
-  public EReference getPrimaryAsset_OwnedMembers() {
+  public EReference getPrimaryAsset_RealizedPrimaryAssets() {
     return (EReference) primaryAssetEClass.getEStructuralFeatures().get(1);
   }
 
@@ -548,17 +568,8 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
    * @generated
    */
   @Override
-  public EReference getPrimaryAsset_RealizedPrimaryAssets() {
-    return (EReference) primaryAssetEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EReference getPrimaryAsset_RealizingPrimaryAssets() {
-    return (EReference) primaryAssetEClass.getEStructuralFeatures().get(3);
+    return (EReference) primaryAssetEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -775,10 +786,12 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
     createEAttribute(threatEClass, THREAT__RATIONALE);
     createEReference(threatEClass, THREAT__REALIZED_THREATS);
     createEReference(threatEClass, THREAT__REALIZING_THREATS);
+    createEReference(threatEClass, THREAT__OWNED_THREAT_APPLICATIONS);
+    createEReference(threatEClass, THREAT__OWNED_THREAT_INVOLVEMENTS);
 
     threatInvolvementEClass = createEClass(THREAT_INVOLVEMENT);
-    createEReference(threatInvolvementEClass, THREAT_INVOLVEMENT__COMPONENT);
     createEReference(threatInvolvementEClass, THREAT_INVOLVEMENT__THREAT);
+    createEReference(threatInvolvementEClass, THREAT_INVOLVEMENT__COMPONENT);
 
     functionStorageEClass = createEClass(FUNCTION_STORAGE);
     createEReference(functionStorageEClass, FUNCTION_STORAGE__EXCHANGED_ITEMS);
@@ -786,8 +799,8 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
     createEAttribute(functionStorageEClass, FUNCTION_STORAGE__REMANENT_DATA);
 
     threatApplicationEClass = createEClass(THREAT_APPLICATION);
-    createEReference(threatApplicationEClass, THREAT_APPLICATION__THREAT);
     createEReference(threatApplicationEClass, THREAT_APPLICATION__ASSET);
+    createEReference(threatApplicationEClass, THREAT_APPLICATION__THREAT);
 
     primaryAssetStorageEClass = createEClass(PRIMARY_ASSET_STORAGE);
 
@@ -804,7 +817,6 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
     createEAttribute(trustBoundaryStorageEClass, TRUST_BOUNDARY_STORAGE__RATIONALE);
 
     primaryAssetEClass = createEClass(PRIMARY_ASSET);
-    createEReference(primaryAssetEClass, PRIMARY_ASSET__OWNED_THREAT_APPLICATIONS);
     createEReference(primaryAssetEClass, PRIMARY_ASSET__OWNED_MEMBERS);
     createEReference(primaryAssetEClass, PRIMARY_ASSET__REALIZED_PRIMARY_ASSETS);
     createEReference(primaryAssetEClass, PRIMARY_ASSET__REALIZING_PRIMARY_ASSETS);
@@ -930,15 +942,21 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
     initEReference(getThreat_RealizingThreats(), this.getThreat(), this.getThreat_RealizedThreats(), "realizingThreats", //$NON-NLS-1$
         null, 0, -1, Threat.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
         !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+    initEReference(getThreat_OwnedThreatApplications(), this.getThreatApplication(), null, "ownedThreatApplications", //$NON-NLS-1$
+        null, 0, -1, Threat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+        !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getThreat_OwnedThreatInvolvements(), this.getThreatInvolvement(), null, "ownedThreatInvolvements", //$NON-NLS-1$
+        null, 0, -1, Threat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+        !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(threatInvolvementEClass, ThreatInvolvement.class, "ThreatInvolvement", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
         IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getThreatInvolvement_Component(), theCsPackage.getComponent(), null, "component", null, 0, 1, //$NON-NLS-1$
-        ThreatInvolvement.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-        !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
     initEReference(getThreatInvolvement_Threat(), this.getThreat(), null, "threat", null, 0, 1, ThreatInvolvement.class, //$NON-NLS-1$
-        !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-        !IS_DERIVED, IS_ORDERED);
+        IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+        IS_DERIVED, IS_ORDERED);
+    initEReference(getThreatInvolvement_Component(), theCsPackage.getComponent(), null, "component", null, 0, 1, //$NON-NLS-1$
+        ThreatInvolvement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+        !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(functionStorageEClass, FunctionStorage.class, "FunctionStorage", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
         IS_GENERATED_INSTANCE_CLASS);
@@ -954,12 +972,12 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
 
     initEClass(threatApplicationEClass, ThreatApplication.class, "ThreatApplication", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
         IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getThreatApplication_Threat(), this.getThreat(), null, "threat", null, 0, 1, ThreatApplication.class, //$NON-NLS-1$
-        !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-        !IS_DERIVED, IS_ORDERED);
     initEReference(getThreatApplication_Asset(), this.getPrimaryAsset(), null, "asset", null, 0, 1, //$NON-NLS-1$
-        ThreatApplication.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-        !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+        ThreatApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+        !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getThreatApplication_Threat(), this.getThreat(), null, "threat", null, 0, 1, ThreatApplication.class, //$NON-NLS-1$
+        IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+        IS_DERIVED, IS_ORDERED);
 
     initEClass(primaryAssetStorageEClass, PrimaryAssetStorage.class, "PrimaryAssetStorage", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
         IS_GENERATED_INSTANCE_CLASS);
@@ -996,9 +1014,6 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
 
     initEClass(primaryAssetEClass, PrimaryAsset.class, "PrimaryAsset", IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
         IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getPrimaryAsset_OwnedThreatApplications(), this.getThreatApplication(), null,
-        "ownedThreatApplications", null, 0, -1, PrimaryAsset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, //$NON-NLS-1$
-        IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPrimaryAsset_OwnedMembers(), this.getPrimaryAssetMember(), null, "ownedMembers", null, 0, -1, //$NON-NLS-1$
         PrimaryAsset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
         !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -48,7 +48,6 @@ public class SecurityNeedsImpl extends NamedElementImpl implements SecurityNeeds
    * @ordered
    */
   protected EnumerationPropertyLiteral confidentialityValue;
-
   /**
    * The cached value of the '{@link #getIntegrityValue() <em>Integrity Value</em>}' reference.
    * <!-- begin-user-doc -->
@@ -58,7 +57,6 @@ public class SecurityNeedsImpl extends NamedElementImpl implements SecurityNeeds
    * @ordered
    */
   protected EnumerationPropertyLiteral integrityValue;
-
   /**
    * The cached value of the '{@link #getAvailabilityValue() <em>Availability Value</em>}' reference.
    * <!-- begin-user-doc -->
@@ -68,7 +66,6 @@ public class SecurityNeedsImpl extends NamedElementImpl implements SecurityNeeds
    * @ordered
    */
   protected EnumerationPropertyLiteral availabilityValue;
-
   /**
    * The cached value of the '{@link #getTraceabilityValue() <em>Traceability Value</em>}' reference.
    * <!-- begin-user-doc -->
@@ -385,28 +382,6 @@ public class SecurityNeedsImpl extends NamedElementImpl implements SecurityNeeds
       return traceabilityValue != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString() {
-    if (eIsProxy())
-      return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (confidentiality: "); //$NON-NLS-1$
-    result.append(confidentialityValue);
-    result.append(", integrity: "); //$NON-NLS-1$
-    result.append(integrityValue);
-    result.append(", availability: "); //$NON-NLS-1$
-    result.append(availabilityValue);
-    result.append(", traceability: "); //$NON-NLS-1$
-    result.append(traceabilityValue);
-    result.append(')');
-    return result.toString();
   }
 
 } // SecurityNeedsImpl

@@ -13,6 +13,7 @@
 package org.polarsys.capella.cybersecurity.model.helpers;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.polarsys.capella.common.model.helpers.HelperNotFoundException;
 import org.polarsys.capella.cybersecurity.model.CybersecurityConfiguration;
 
 /**
