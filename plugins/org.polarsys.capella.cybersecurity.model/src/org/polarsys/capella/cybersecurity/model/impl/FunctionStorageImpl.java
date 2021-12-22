@@ -47,8 +47,8 @@ public class FunctionStorageImpl extends NamedElementImpl implements FunctionSto
 
   /**
    * The cached value of the '{@link #getExchangedItems() <em>Exchanged Items</em>}' reference list.
-   * <!-- begin-user-doc
-   * --> <!-- end-user-doc -->
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
    * @see #getExchangedItems()
    * @generated
    * @ordered
@@ -67,8 +67,8 @@ public class FunctionStorageImpl extends NamedElementImpl implements FunctionSto
 
   /**
    * The cached value of the '{@link #isDataStorage() <em>Data Storage</em>}' attribute.
-   * <!-- begin-user-doc --> <!--
-   * end-user-doc -->
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
    * @see #isDataStorage()
    * @generated
    * @ordered
@@ -87,8 +87,8 @@ public class FunctionStorageImpl extends NamedElementImpl implements FunctionSto
 
   /**
    * The cached value of the '{@link #isRemanentData() <em>Remanent Data</em>}' attribute.
-   * <!-- begin-user-doc --> <!--
-   * end-user-doc -->
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
    * @see #isRemanentData()
    * @generated
    * @ordered
@@ -119,6 +119,7 @@ public class FunctionStorageImpl extends NamedElementImpl implements FunctionSto
    * @generated
    */
 
+  @SuppressWarnings("unchecked")
   @Override
   public EList<ExchangeItem> getExchangedItems() {
 
@@ -260,7 +261,8 @@ public class FunctionStorageImpl extends NamedElementImpl implements FunctionSto
   }
 
   /**
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
   @Override

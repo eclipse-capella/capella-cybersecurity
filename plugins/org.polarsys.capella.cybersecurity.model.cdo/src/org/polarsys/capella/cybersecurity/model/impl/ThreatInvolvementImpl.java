@@ -65,10 +65,8 @@ public class ThreatInvolvementImpl extends RelationshipImpl implements ThreatInv
   @Override
   public Component getComponent() {
 
-    Component component = basicGetComponent();
-    return component != null && ((EObject) component).eIsProxy()
-        ? (Component) eResolveProxy((InternalEObject) component)
-        : component;
+    return (Component) eDynamicGet(CybersecurityPackage.THREAT_INVOLVEMENT__COMPONENT,
+        CybersecurityPackage.Literals.THREAT_INVOLVEMENT__COMPONENT, true, true);
   }
 
   /**
@@ -85,6 +83,20 @@ public class ThreatInvolvementImpl extends RelationshipImpl implements ThreatInv
   }
 
   /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+
+  @Override
+  public void setComponent(Component newComponent) {
+
+    eDynamicSet(CybersecurityPackage.THREAT_INVOLVEMENT__COMPONENT,
+        CybersecurityPackage.Literals.THREAT_INVOLVEMENT__COMPONENT, newComponent);
+
+  }
+
+  /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
@@ -92,32 +104,22 @@ public class ThreatInvolvementImpl extends RelationshipImpl implements ThreatInv
   @Override
   public Threat getThreat() {
 
-    return (Threat) eDynamicGet(CybersecurityPackage.THREAT_INVOLVEMENT__THREAT,
-        CybersecurityPackage.Literals.THREAT_INVOLVEMENT__THREAT, true, true);
+    Threat threat = basicGetThreat();
+    return threat != null && ((EObject) threat).eIsProxy() ? (Threat) eResolveProxy((InternalEObject) threat) : threat;
   }
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * @generated
+   * 
+   * @generated NOT
    */
 
   public Threat basicGetThreat() {
-
-    return (Threat) eDynamicGet(CybersecurityPackage.THREAT_INVOLVEMENT__THREAT,
-        CybersecurityPackage.Literals.THREAT_INVOLVEMENT__THREAT, false, true);
-  }
-
-  /**
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * @generated
-   */
-
-  @Override
-  public void setThreat(Threat newThreat) {
-
-    eDynamicSet(CybersecurityPackage.THREAT_INVOLVEMENT__THREAT,
-        CybersecurityPackage.Literals.THREAT_INVOLVEMENT__THREAT, newThreat);
-
+    EObject container = eContainer();
+    if (container instanceof Threat) {
+      return (Threat) container;
+    }
+    return null;
   }
 
   /**
@@ -127,14 +129,14 @@ public class ThreatInvolvementImpl extends RelationshipImpl implements ThreatInv
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType) {
     switch (featureID) {
-    case CybersecurityPackage.THREAT_INVOLVEMENT__COMPONENT:
-      if (resolve)
-        return getComponent();
-      return basicGetComponent();
     case CybersecurityPackage.THREAT_INVOLVEMENT__THREAT:
       if (resolve)
         return getThreat();
       return basicGetThreat();
+    case CybersecurityPackage.THREAT_INVOLVEMENT__COMPONENT:
+      if (resolve)
+        return getComponent();
+      return basicGetComponent();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -146,8 +148,8 @@ public class ThreatInvolvementImpl extends RelationshipImpl implements ThreatInv
   @Override
   public void eSet(int featureID, Object newValue) {
     switch (featureID) {
-    case CybersecurityPackage.THREAT_INVOLVEMENT__THREAT:
-      setThreat((Threat) newValue);
+    case CybersecurityPackage.THREAT_INVOLVEMENT__COMPONENT:
+      setComponent((Component) newValue);
       return;
     }
     super.eSet(featureID, newValue);
@@ -160,8 +162,8 @@ public class ThreatInvolvementImpl extends RelationshipImpl implements ThreatInv
   @Override
   public void eUnset(int featureID) {
     switch (featureID) {
-    case CybersecurityPackage.THREAT_INVOLVEMENT__THREAT:
-      setThreat((Threat) null);
+    case CybersecurityPackage.THREAT_INVOLVEMENT__COMPONENT:
+      setComponent((Component) null);
       return;
     }
     super.eUnset(featureID);
@@ -174,10 +176,10 @@ public class ThreatInvolvementImpl extends RelationshipImpl implements ThreatInv
   @Override
   public boolean eIsSet(int featureID) {
     switch (featureID) {
-    case CybersecurityPackage.THREAT_INVOLVEMENT__COMPONENT:
-      return basicGetComponent() != null;
     case CybersecurityPackage.THREAT_INVOLVEMENT__THREAT:
       return basicGetThreat() != null;
+    case CybersecurityPackage.THREAT_INVOLVEMENT__COMPONENT:
+      return basicGetComponent() != null;
     }
     return super.eIsSet(featureID);
   }

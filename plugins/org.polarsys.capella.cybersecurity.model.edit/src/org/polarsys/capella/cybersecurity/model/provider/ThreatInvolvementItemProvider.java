@@ -75,19 +75,6 @@ public class ThreatInvolvementItemProvider extends RelationshipItemProvider impl
     super.checkChildCreationExtender(object);
     if (object instanceof EObject) {
       EObject eObject = (EObject) object;
-      // Process CybersecurityPackage.Literals.THREAT_INVOLVEMENT__COMPONENT
-      if (componentPropertyDescriptor != null) {
-        Object componentValue = eObject.eGet(CybersecurityPackage.Literals.THREAT_INVOLVEMENT__COMPONENT, true);
-        if (componentValue != null && componentValue instanceof EObject
-            && ModelExtensionHelper.getInstance(eObject).isExtensionModelDisabled((EObject) componentValue)) {
-          itemPropertyDescriptors.remove(componentPropertyDescriptor);
-        } else if (componentValue == null && ExtensionModelManager.getAnyType(eObject,
-            CybersecurityPackage.Literals.THREAT_INVOLVEMENT__COMPONENT) != null) {
-          itemPropertyDescriptors.remove(componentPropertyDescriptor);
-        } else if (itemPropertyDescriptors.contains(componentPropertyDescriptor) == false) {
-          itemPropertyDescriptors.add(componentPropertyDescriptor);
-        }
-      }
       // Process CybersecurityPackage.Literals.THREAT_INVOLVEMENT__THREAT
       if (threatPropertyDescriptor != null) {
         Object threatValue = eObject.eGet(CybersecurityPackage.Literals.THREAT_INVOLVEMENT__THREAT, true);
@@ -99,6 +86,19 @@ public class ThreatInvolvementItemProvider extends RelationshipItemProvider impl
           itemPropertyDescriptors.remove(threatPropertyDescriptor);
         } else if (itemPropertyDescriptors.contains(threatPropertyDescriptor) == false) {
           itemPropertyDescriptors.add(threatPropertyDescriptor);
+        }
+      }
+      // Process CybersecurityPackage.Literals.THREAT_INVOLVEMENT__COMPONENT
+      if (componentPropertyDescriptor != null) {
+        Object componentValue = eObject.eGet(CybersecurityPackage.Literals.THREAT_INVOLVEMENT__COMPONENT, true);
+        if (componentValue != null && componentValue instanceof EObject
+            && ModelExtensionHelper.getInstance(eObject).isExtensionModelDisabled((EObject) componentValue)) {
+          itemPropertyDescriptors.remove(componentPropertyDescriptor);
+        } else if (componentValue == null && ExtensionModelManager.getAnyType(eObject,
+            CybersecurityPackage.Literals.THREAT_INVOLVEMENT__COMPONENT) != null) {
+          itemPropertyDescriptors.remove(componentPropertyDescriptor);
+        } else if (itemPropertyDescriptors.contains(componentPropertyDescriptor) == false) {
+          itemPropertyDescriptors.add(componentPropertyDescriptor);
         }
       }
     }
@@ -114,8 +114,8 @@ public class ThreatInvolvementItemProvider extends RelationshipItemProvider impl
     if (itemPropertyDescriptors == null) {
       super.getPropertyDescriptors(object);
 
-      addComponentPropertyDescriptor(object);
       addThreatPropertyDescriptor(object);
+      addComponentPropertyDescriptor(object);
     }
     // begin-extension-code
     checkChildCreationExtender(object);

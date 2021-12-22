@@ -53,7 +53,6 @@ public class ThreatSourceUseImpl extends RelationshipImpl implements ThreatSourc
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   protected ThreatSourceUseImpl() {
@@ -64,7 +63,6 @@ public class ThreatSourceUseImpl extends RelationshipImpl implements ThreatSourc
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -102,7 +100,6 @@ public class ThreatSourceUseImpl extends RelationshipImpl implements ThreatSourc
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
@@ -123,7 +120,6 @@ public class ThreatSourceUseImpl extends RelationshipImpl implements ThreatSourc
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
@@ -134,7 +130,6 @@ public class ThreatSourceUseImpl extends RelationshipImpl implements ThreatSourc
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
@@ -151,7 +146,6 @@ public class ThreatSourceUseImpl extends RelationshipImpl implements ThreatSourc
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -171,7 +165,6 @@ public class ThreatSourceUseImpl extends RelationshipImpl implements ThreatSourc
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -186,7 +179,6 @@ public class ThreatSourceUseImpl extends RelationshipImpl implements ThreatSourc
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override
@@ -201,7 +193,6 @@ public class ThreatSourceUseImpl extends RelationshipImpl implements ThreatSourc
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   @Override

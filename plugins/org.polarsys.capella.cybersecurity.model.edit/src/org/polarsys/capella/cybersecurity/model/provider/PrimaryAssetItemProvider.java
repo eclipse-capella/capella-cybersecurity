@@ -125,7 +125,6 @@ public class PrimaryAssetItemProvider extends NamedElementItemProvider implement
   public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
     if (childrenFeatures == null) {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(CybersecurityPackage.Literals.PRIMARY_ASSET__OWNED_THREAT_APPLICATIONS);
       childrenFeatures.add(CybersecurityPackage.Literals.PRIMARY_ASSET__OWNED_MEMBERS);
     }
     return childrenFeatures;
@@ -197,7 +196,6 @@ public class PrimaryAssetItemProvider extends NamedElementItemProvider implement
     updateChildren(notification);
 
     switch (notification.getFeatureID(PrimaryAsset.class)) {
-    case CybersecurityPackage.PRIMARY_ASSET__OWNED_THREAT_APPLICATIONS:
     case CybersecurityPackage.PRIMARY_ASSET__OWNED_MEMBERS:
       fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
       return;
@@ -316,17 +314,6 @@ public class PrimaryAssetItemProvider extends NamedElementItemProvider implement
     // begin-extension-code
     {
       CommandParameter commandParameter = createChildParameter(
-          CybersecurityPackage.Literals.PRIMARY_ASSET__OWNED_THREAT_APPLICATIONS,
-          CybersecurityFactory.eINSTANCE.createThreatApplication());
-      if (NewChildDescriptorHelper.isValidCommand(object, commandParameter)) {
-        newChildDescriptors.add(commandParameter);
-      }
-    }
-    // end-extension-code
-
-    // begin-extension-code
-    {
-      CommandParameter commandParameter = createChildParameter(
           CybersecurityPackage.Literals.PRIMARY_ASSET__OWNED_MEMBERS,
           CybersecurityFactory.eINSTANCE.createPrimaryAssetMember());
       if (NewChildDescriptorHelper.isValidCommand(object, commandParameter)) {
@@ -335,27 +322,6 @@ public class PrimaryAssetItemProvider extends NamedElementItemProvider implement
     }
     // end-extension-code
 
-  }
-
-  /**
-   * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
-    Object childFeature = feature;
-    Object childObject = child;
-
-    boolean qualify = childFeature == EmdePackage.Literals.EXTENSIBLE_ELEMENT__OWNED_EXTENSIONS
-        || childFeature == CybersecurityPackage.Literals.PRIMARY_ASSET__OWNED_THREAT_APPLICATIONS;
-
-    if (qualify) {
-      return getString("_UI_CreateChild_text2", //$NON-NLS-1$
-          new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-    }
-    return super.getCreateChildText(owner, feature, child, selection);
   }
 
 }

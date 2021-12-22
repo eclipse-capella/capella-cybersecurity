@@ -812,12 +812,30 @@ public interface CybersecurityPackage extends EPackage {
   int THREAT__REALIZING_THREATS = InteractionPackage.ABSTRACT_CAPABILITY_FEATURE_COUNT + 5;
 
   /**
+   * The feature id for the '<em><b>Owned Threat Applications</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT__OWNED_THREAT_APPLICATIONS = InteractionPackage.ABSTRACT_CAPABILITY_FEATURE_COUNT + 6;
+
+  /**
+   * The feature id for the '<em><b>Owned Threat Involvements</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+  	 * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT__OWNED_THREAT_INVOLVEMENTS = InteractionPackage.ABSTRACT_CAPABILITY_FEATURE_COUNT + 7;
+
+  /**
    * The number of structural features of the '<em>Threat</em>' class.
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int THREAT_FEATURE_COUNT = InteractionPackage.ABSTRACT_CAPABILITY_FEATURE_COUNT + 6;
+  int THREAT_FEATURE_COUNT = InteractionPackage.ABSTRACT_CAPABILITY_FEATURE_COUNT + 8;
 
   /**
    * The meta object id for the '{@link org.polarsys.capella.cybersecurity.model.impl.ThreatInvolvementImpl <em>Threat Involvement</em>}' class.
@@ -1016,20 +1034,20 @@ public interface CybersecurityPackage extends EPackage {
   int THREAT_INVOLVEMENT__APPLIED_REQUIREMENTS = CapellacorePackage.RELATIONSHIP__APPLIED_REQUIREMENTS;
 
   /**
-   * The feature id for the '<em><b>Component</b></em>' reference.
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int THREAT_INVOLVEMENT__COMPONENT = CapellacorePackage.RELATIONSHIP_FEATURE_COUNT + 0;
-
-  /**
    * The feature id for the '<em><b>Threat</b></em>' reference.
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int THREAT_INVOLVEMENT__THREAT = CapellacorePackage.RELATIONSHIP_FEATURE_COUNT + 1;
+  int THREAT_INVOLVEMENT__THREAT = CapellacorePackage.RELATIONSHIP_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Component</b></em>' reference.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT_INVOLVEMENT__COMPONENT = CapellacorePackage.RELATIONSHIP_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Threat Involvement</em>' class.
@@ -1467,20 +1485,20 @@ public interface CybersecurityPackage extends EPackage {
   int THREAT_APPLICATION__APPLIED_REQUIREMENTS = CapellacorePackage.RELATIONSHIP__APPLIED_REQUIREMENTS;
 
   /**
-   * The feature id for the '<em><b>Threat</b></em>' reference.
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int THREAT_APPLICATION__THREAT = CapellacorePackage.RELATIONSHIP_FEATURE_COUNT + 0;
-
-  /**
    * The feature id for the '<em><b>Asset</b></em>' reference.
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int THREAT_APPLICATION__ASSET = CapellacorePackage.RELATIONSHIP_FEATURE_COUNT + 1;
+  int THREAT_APPLICATION__ASSET = CapellacorePackage.RELATIONSHIP_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Threat</b></em>' reference.
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THREAT_APPLICATION__THREAT = CapellacorePackage.RELATIONSHIP_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Threat Application</em>' class.
@@ -2371,22 +2389,13 @@ public interface CybersecurityPackage extends EPackage {
   int PRIMARY_ASSET__APPLIED_REQUIREMENTS = CapellacorePackage.NAMED_ELEMENT__APPLIED_REQUIREMENTS;
 
   /**
-   * The feature id for the '<em><b>Owned Threat Applications</b></em>' containment reference list.
-   * <!-- begin-user-doc
-   * --> <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRIMARY_ASSET__OWNED_THREAT_APPLICATIONS = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
-
-  /**
    * The feature id for the '<em><b>Owned Members</b></em>' containment reference list.
    * <!-- begin-user-doc --> <!--
    * end-user-doc -->
    * @generated
    * @ordered
    */
-  int PRIMARY_ASSET__OWNED_MEMBERS = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
+  int PRIMARY_ASSET__OWNED_MEMBERS = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Realized Primary Assets</b></em>' reference list.
@@ -2395,7 +2404,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int PRIMARY_ASSET__REALIZED_PRIMARY_ASSETS = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
+  int PRIMARY_ASSET__REALIZED_PRIMARY_ASSETS = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Realizing Primary Assets</b></em>' reference list.
@@ -2404,7 +2413,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int PRIMARY_ASSET__REALIZING_PRIMARY_ASSETS = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
+  int PRIMARY_ASSET__REALIZING_PRIMARY_ASSETS = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Primary Asset</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
@@ -2413,7 +2422,7 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int PRIMARY_ASSET_FEATURE_COUNT = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
+  int PRIMARY_ASSET_FEATURE_COUNT = CapellacorePackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link org.polarsys.capella.cybersecurity.model.impl.FunctionalPrimaryAssetImpl <em>Functional Primary Asset</em>}' class.
@@ -2610,15 +2619,6 @@ public interface CybersecurityPackage extends EPackage {
    * @ordered
    */
   int FUNCTIONAL_PRIMARY_ASSET__APPLIED_REQUIREMENTS = PRIMARY_ASSET__APPLIED_REQUIREMENTS;
-
-  /**
-   * The feature id for the '<em><b>Owned Threat Applications</b></em>' containment reference list.
-   * <!-- begin-user-doc
-   * --> <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTIONAL_PRIMARY_ASSET__OWNED_THREAT_APPLICATIONS = PRIMARY_ASSET__OWNED_THREAT_APPLICATIONS;
 
   /**
    * The feature id for the '<em><b>Owned Members</b></em>' containment reference list.
@@ -2868,15 +2868,6 @@ public interface CybersecurityPackage extends EPackage {
    * @ordered
    */
   int INFORMATION_PRIMARY_ASSET__APPLIED_REQUIREMENTS = PRIMARY_ASSET__APPLIED_REQUIREMENTS;
-
-  /**
-   * The feature id for the '<em><b>Owned Threat Applications</b></em>' containment reference list.
-   * <!-- begin-user-doc
-   * --> <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INFORMATION_PRIMARY_ASSET__OWNED_THREAT_APPLICATIONS = PRIMARY_ASSET__OWNED_THREAT_APPLICATIONS;
 
   /**
    * The feature id for the '<em><b>Owned Members</b></em>' containment reference list.
@@ -3597,15 +3588,6 @@ public interface CybersecurityPackage extends EPackage {
   int ENTERPRISE_PRIMARY_ASSET__APPLIED_REQUIREMENTS = PRIMARY_ASSET__APPLIED_REQUIREMENTS;
 
   /**
-   * The feature id for the '<em><b>Owned Threat Applications</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ENTERPRISE_PRIMARY_ASSET__OWNED_THREAT_APPLICATIONS = PRIMARY_ASSET__OWNED_THREAT_APPLICATIONS;
-
-  /**
    * The feature id for the '<em><b>Owned Members</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4002,6 +3984,28 @@ public interface CybersecurityPackage extends EPackage {
   EReference getThreat_RealizingThreats();
 
   /**
+   * Returns the meta object for the containment reference list '{@link org.polarsys.capella.cybersecurity.model.Threat#getOwnedThreatApplications <em>Owned Threat Applications</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Owned Threat Applications</em>'.
+   * @see org.polarsys.capella.cybersecurity.model.Threat#getOwnedThreatApplications()
+   * @see #getThreat()
+   * @generated
+   */
+  EReference getThreat_OwnedThreatApplications();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.polarsys.capella.cybersecurity.model.Threat#getOwnedThreatInvolvements <em>Owned Threat Involvements</em>}'.
+   * <!-- begin-user-doc -->
+  	 * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Owned Threat Involvements</em>'.
+   * @see org.polarsys.capella.cybersecurity.model.Threat#getOwnedThreatInvolvements()
+   * @see #getThreat()
+   * @generated
+   */
+  EReference getThreat_OwnedThreatInvolvements();
+
+  /**
    * Returns the meta object for class '{@link org.polarsys.capella.cybersecurity.model.ThreatInvolvement <em>Threat Involvement</em>}'.
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @return the meta object for class '<em>Threat Involvement</em>'.
@@ -4232,16 +4236,6 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    */
   EClass getPrimaryAsset();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.polarsys.capella.cybersecurity.model.PrimaryAsset#getOwnedThreatApplications <em>Owned Threat Applications</em>}'.
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Owned Threat Applications</em>'.
-   * @see org.polarsys.capella.cybersecurity.model.PrimaryAsset#getOwnedThreatApplications()
-   * @see #getPrimaryAsset()
-   * @generated
-   */
-  EReference getPrimaryAsset_OwnedThreatApplications();
 
   /**
    * Returns the meta object for the containment reference list
@@ -4580,6 +4574,22 @@ public interface CybersecurityPackage extends EPackage {
     EReference THREAT__REALIZING_THREATS = eINSTANCE.getThreat_RealizingThreats();
 
     /**
+     * The meta object literal for the '<em><b>Owned Threat Applications</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+    	 * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference THREAT__OWNED_THREAT_APPLICATIONS = eINSTANCE.getThreat_OwnedThreatApplications();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Threat Involvements</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+    	 * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference THREAT__OWNED_THREAT_INVOLVEMENTS = eINSTANCE.getThreat_OwnedThreatInvolvements();
+
+    /**
      * The meta object literal for the '{@link org.polarsys.capella.cybersecurity.model.impl.ThreatInvolvementImpl <em>Threat Involvement</em>}' class.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @see org.polarsys.capella.cybersecurity.model.impl.ThreatInvolvementImpl
@@ -4761,13 +4771,6 @@ public interface CybersecurityPackage extends EPackage {
      * @generated
      */
     EClass PRIMARY_ASSET = eINSTANCE.getPrimaryAsset();
-
-    /**
-     * The meta object literal for the '<em><b>Owned Threat Applications</b></em>' containment reference list feature.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PRIMARY_ASSET__OWNED_THREAT_APPLICATIONS = eINSTANCE.getPrimaryAsset_OwnedThreatApplications();
 
     /**
      * The meta object literal for the '<em><b>Owned Members</b></em>' containment reference list feature. <!--

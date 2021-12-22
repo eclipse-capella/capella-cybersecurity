@@ -26,15 +26,15 @@ import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.ThreatSourceUse;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Threat Source Use</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Threat Source Use</b></em>'. <!-- end-user-doc
+ * -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatSourceUseImpl#getThreatSource <em>Threat Source</em>}</li>
- *   <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatSourceUseImpl#getUsed <em>Used</em>}</li>
+ * <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatSourceUseImpl#getThreatSource <em>Threat
+ * Source</em>}</li>
+ * <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatSourceUseImpl#getUsed <em>Used</em>}</li>
  * </ul>
  *
  * @generated
@@ -42,8 +42,7 @@ import org.polarsys.capella.cybersecurity.model.ThreatSourceUse;
 public class ThreatSourceUseImpl extends RelationshipImpl implements ThreatSourceUse {
 
   /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   protected ThreatSourceUseImpl() {
@@ -53,8 +52,7 @@ public class ThreatSourceUseImpl extends RelationshipImpl implements ThreatSourc
   }
 
   /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -63,25 +61,25 @@ public class ThreatSourceUseImpl extends RelationshipImpl implements ThreatSourc
   }
 
   /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * 
+   * @generated NOT
    */
 
   @Override
   public Component getThreatSource() {
 
     Component threatSource = basicGetThreatSource();
-    return threatSource != null && ((EObject) threatSource).eIsProxy()
-        ? (Component) eResolveProxy((InternalEObject) threatSource)
+    return threatSource != null && threatSource.eIsProxy() ? (Component) eResolveProxy((InternalEObject) threatSource)
         : threatSource;
   }
 
   /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * 
    * @generated NOT
    */
+
   public Component basicGetThreatSource() {
     EObject container = eContainer();
     if (container instanceof Component) {
@@ -91,8 +89,7 @@ public class ThreatSourceUseImpl extends RelationshipImpl implements ThreatSourc
   }
 
   /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
 
@@ -104,8 +101,7 @@ public class ThreatSourceUseImpl extends RelationshipImpl implements ThreatSourc
   }
 
   /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
 
@@ -116,8 +112,7 @@ public class ThreatSourceUseImpl extends RelationshipImpl implements ThreatSourc
   }
 
   /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
 
@@ -130,8 +125,7 @@ public class ThreatSourceUseImpl extends RelationshipImpl implements ThreatSourc
   }
 
   /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -150,8 +144,7 @@ public class ThreatSourceUseImpl extends RelationshipImpl implements ThreatSourc
   }
 
   /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -165,8 +158,7 @@ public class ThreatSourceUseImpl extends RelationshipImpl implements ThreatSourc
   }
 
   /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -180,8 +172,7 @@ public class ThreatSourceUseImpl extends RelationshipImpl implements ThreatSourc
   }
 
   /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
   @Override
@@ -195,4 +186,4 @@ public class ThreatSourceUseImpl extends RelationshipImpl implements ThreatSourc
     return super.eIsSet(featureID);
   }
 
-} //ThreatSourceUseImpl
+} // ThreatSourceUseImpl
