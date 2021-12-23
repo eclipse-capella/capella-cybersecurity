@@ -195,7 +195,7 @@ public class ActorCybersecuritySection extends AbstractSection {
     elementExtension = (TrustBoundaryStorage) object;
     threatSourceProfileGroup.setEnabled(object.eContainer() instanceof Component
         && (((Component) object.eContainer()).isActor() || object.eContainer() instanceof Entity) && !elementExtension.isTrusted());
-    if (!elementExtension.isThreatSource()) {
+    if (elementExtension.isTrusted()) {
       threatSourceProfileGroup.getSemanticFields()
           .forEach((Consumer<? super Button>) button -> button.setSelection(false));
     }
