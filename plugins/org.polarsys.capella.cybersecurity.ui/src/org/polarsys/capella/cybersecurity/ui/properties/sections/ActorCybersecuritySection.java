@@ -17,12 +17,14 @@ package org.polarsys.capella.cybersecurity.ui.properties.sections;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.ui.IWorkbenchPart;
@@ -174,6 +176,8 @@ public class ActorCybersecuritySection extends AbstractSection {
 
     threatSourceProfileGroup = new IntegerValueRadioGroup(rootParentComposite, Messages.ActorCybersecuritySection_0, getWidgetFactory(), 1, 5);
     rationaleGroup = new TextAreaValueGroup(rootParentComposite, Messages.ActorCybersecuritySection_1, getWidgetFactory());
+
+    CybersecurityPropertyButtonListener.getCybersecurityPropertyListener().registerPropertySection(this);
   }
 
   /**
@@ -191,6 +195,10 @@ public class ActorCybersecuritySection extends AbstractSection {
     elementExtension = (TrustBoundaryStorage) object;
     threatSourceProfileGroup.setEnabled(object.eContainer() instanceof Component
         && (((Component) object.eContainer()).isActor() || object.eContainer() instanceof Entity) && !elementExtension.isTrusted());
+    if (!elementExtension.isThreatSource()) {
+      threatSourceProfileGroup.getSemanticFields()
+          .forEach((Consumer<? super Button>) button -> button.setSelection(false));
+    }
   }
 
   /**
@@ -215,6 +223,12 @@ public class ActorCybersecuritySection extends AbstractSection {
     if (elementExtension != null) {
       loadData(elementExtension);
     }
+  }
+
+  @Override
+  public void dispose() {
+    super.dispose();
+    CybersecurityPropertyButtonListener.getCybersecurityPropertyListener().unregisterPropertySection(this);
   }
 
 }

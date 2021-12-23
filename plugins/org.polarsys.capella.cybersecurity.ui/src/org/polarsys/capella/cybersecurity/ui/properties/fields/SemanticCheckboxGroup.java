@@ -23,6 +23,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetWidgetFactory;
 import org.polarsys.capella.core.ui.properties.fields.AbstractSemanticCheckboxGroup;
 import org.polarsys.capella.cybersecurity.model.provider.CybersecurityEditPlugin;
+import org.polarsys.capella.cybersecurity.ui.properties.sections.CybersecurityPropertyButtonListener;
 
 public class SemanticCheckboxGroup extends AbstractSemanticCheckboxGroup {
   private final static String KEY_ENABLER = "semantic_checkbox_enabler"; //$NON-NLS-1$
@@ -47,6 +48,7 @@ public class SemanticCheckboxGroup extends AbstractSemanticCheckboxGroup {
         .getString("_UI_" + att.getEContainingClass().getName() + "_" + att.getName() + "_feature"), parent);
     button.setData(KEY_ENABLER, enabler);
     semanticFields.add(button);
+    button.addSelectionListener(CybersecurityPropertyButtonListener.getCybersecurityPropertyListener());
   }
 
   public void addCheckbox(EAttribute att) {

@@ -50,6 +50,8 @@ public class ThreatSourceUseSection extends CybersecuritySection {
   public void createControls(Composite parent, TabbedPropertySheetPage aTabbedPropertySheetPage) {
     super.createControls(parent, aTabbedPropertySheetPage);
     super.addUsedWidget("Uses");
+
+    CybersecurityPropertyButtonListener.getCybersecurityPropertyListener().registerPropertySection(this);
   }
 
   @Override
@@ -78,6 +80,12 @@ public class ThreatSourceUseSection extends CybersecuritySection {
   @Override
   protected AbstractMultipleSemanticFieldController getController() {
     return new ActorUseController();
+  }
+
+  @Override
+  public void dispose() {
+    super.dispose();
+    CybersecurityPropertyButtonListener.getCybersecurityPropertyListener().unregisterPropertySection(this);
   }
 
 }
