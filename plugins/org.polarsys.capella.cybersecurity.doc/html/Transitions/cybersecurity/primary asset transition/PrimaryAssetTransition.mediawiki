@@ -30,3 +30,15 @@ When transitioning '''Enterprise Primary Assets''', the referenced Primary Asset
 
 
 
+{| border="1"
+|-
+| 
+[[Image:../../../Images/info%20sign.png|48x48px]]
+
+
+| 
+To be noted that due to the Threat Application extension a Threat that is "Applicable To" another Primary Asset will also transition that Primary Asset.
+
+|}
+
+
