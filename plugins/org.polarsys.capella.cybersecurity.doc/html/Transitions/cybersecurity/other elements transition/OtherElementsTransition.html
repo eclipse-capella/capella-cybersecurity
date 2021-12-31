@@ -7,12 +7,13 @@
 	</head>
 	<body>
 		<h1 id="Transition_of_Other_Elements">Transition of Other Elements</h1>
-		<h2 id="Actor_Transition">Actor Transition</h2>
+		<h2 id="Actor.2FEntity_Transition">Actor/Entity Transition</h2>
 		<p>When transitioning 
-			<b>Actors</b>, the references of cybersecurity extension elements are also transitioned. Actors can have Involvements to Threats, Trust Boundary Storage references as well as attributes such as threat level which can be seen are transitioned as in the example below:
+			<b>Actors</b> or 
+			<b>Entities</b> (and other Capella core elements), the references of cybersecurity extension elements are also transitioned. Actors can have Trust Boundary Storage references as well as attributes such as threat level which can be seen are transitioned as in the example below:
 		</p>
 		<p>
-			<img border="0" src="../../../Images/actor%20transition.PNG"/>
+			<img border="0" src="../../../Images/Transitions_Actor_Entity.png"/>
 		</p>
 		<p>If the Actor is a 
 			<b>Threat Source</b> and is 
@@ -22,13 +23,18 @@
 		<p>
 			<img border="0" src="../../../Images/Transitions_ThreatSourceUse.png"/>
 		</p>
-		<h2 id="Entity_Transition">Entity Transition</h2>
-		<p>
-			<b>Entities</b> transitions are similar to actors transitions.
-		</p>
-		<p>
-			<img border="0" src="../../../Images/entityTransition.png"/>
-		</p>
+		<table border="1">
+			<tr>
+				<td>
+					<p>
+						<img height="48" width="48" border="0" src="../../../Images/info%20sign.png"/>
+					</p>
+				</td>
+				<td>
+					<p>To be noted that due to the Threat Involvement extension a Threat that "Involves" a Component (Entity/Actor) will also transition that Component.</p>
+				</td>
+			</tr>
+		</table>
 		<h2 id="Function_Transition">Function Transition</h2>
 		<p>Just like above, when transitioning 
 			<b>Functions</b> (or Operational Activities) the references of cybersecurity extension elements are also transitioned. Functions can have Function Storage and Security Needs references which can be seen are transitioned as in the example below:

@@ -10,26 +10,26 @@
 -->
 = Transition of Other Elements =
 
-== Actor Transition ==
+== Actor/Entity Transition ==
 
 
-When transitioning '''Actors''', the references of cybersecurity extension elements are also transitioned. Actors can have Involvements to Threats, Trust Boundary Storage references as well as attributes such as threat level which can be seen are transitioned as in the example below:
+When transitioning '''Actors''' or '''Entities''' (and other Capella core elements), the references of cybersecurity extension elements are also transitioned. Actors can have Trust Boundary Storage references as well as attributes such as threat level which can be seen are transitioned as in the example below:
 
-
-
-[[Image:../../../Images/actor%20transition.PNG]]
+[[Image:../../../Images/Transitions_Actor_Entity.png]]
 
 If the Actor is a '''Threat Source''' and is '''using''' another '''Actor''' to threat the system, the use relation and the references are also transitioned:
 
 [[Image:../../../Images/Transitions_ThreatSourceUse.png]]
+{| border="1"
+|-
+| 
+[[Image:../../../Images/info%20sign.png|48x48px]]
 
 
-== Entity Transition ==
+| 
+To be noted that due to the Threat Involvement extension a Threat that "Involves" a Component (Entity/Actor) will also transition that Component.
 
-'''Entities''' transitions are similar to actors transitions.
-
-[[Image:../../../Images/entityTransition.png]]
-
+|}
 
 == Function Transition ==
 

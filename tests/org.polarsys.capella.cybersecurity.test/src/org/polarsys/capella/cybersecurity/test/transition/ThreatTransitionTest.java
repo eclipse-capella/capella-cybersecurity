@@ -11,16 +11,32 @@
 package org.polarsys.capella.cybersecurity.test.transition;
 
 import org.polarsys.capella.core.data.capellacore.EnumerationPropertyType;
+import org.polarsys.capella.core.data.cs.Component;
+import org.polarsys.capella.core.data.oa.Entity;
+import org.polarsys.capella.core.data.oa.OaFactory;
+import org.polarsys.capella.core.data.oa.OperationalAnalysis;
+import org.polarsys.capella.core.model.helpers.BlockArchitectureExt;
 import org.polarsys.capella.cybersecurity.model.CybersecurityFactory;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPkg;
 import org.polarsys.capella.cybersecurity.model.CybersecurityQueries;
+import org.polarsys.capella.cybersecurity.model.PrimaryAsset;
 import org.polarsys.capella.cybersecurity.model.SecurityNeeds;
 import org.polarsys.capella.cybersecurity.model.Threat;
+import org.polarsys.capella.cybersecurity.model.ThreatApplication;
+import org.polarsys.capella.cybersecurity.model.ThreatInvolvement;
 
 public class ThreatTransitionTest extends CyberTopDownTransitionTestCase {
   Threat threat;
   Threat threat2;
   SecurityNeeds securityNeeds;
+  PrimaryAsset enterprisePrimaryAsset;
+  PrimaryAsset functionalPrimaryAsset;
+  PrimaryAsset informationPrimaryAsset;
+  ThreatApplication threatApplicationEPA;
+  ThreatApplication threatApplicationFPA;
+  ThreatApplication threatApplicationIPA;
+  Entity actor;
+  ThreatInvolvement threatInvolvement;
 
   @Override
   protected void init() {
@@ -28,6 +44,16 @@ public class ThreatTransitionTest extends CyberTopDownTransitionTestCase {
     // create threat
     threat = CybersecurityFactory.eINSTANCE.createThreat();
     threat2 = CybersecurityFactory.eINSTANCE.createThreat();
+    actor = OaFactory.eINSTANCE.createEntity();
+    enterprisePrimaryAsset = CybersecurityFactory.eINSTANCE.createEnterprisePrimaryAsset();
+    functionalPrimaryAsset = CybersecurityFactory.eINSTANCE.createFunctionalPrimaryAsset();
+    informationPrimaryAsset = CybersecurityFactory.eINSTANCE.createInformationPrimaryAsset();
+    
+    threatApplicationEPA = CybersecurityFactory.eINSTANCE.createThreatApplication();
+    threatApplicationFPA = CybersecurityFactory.eINSTANCE.createThreatApplication();
+    threatApplicationIPA = CybersecurityFactory.eINSTANCE.createThreatApplication();
+
+    threatInvolvement = CybersecurityFactory.eINSTANCE.createThreatInvolvement();
 
     // set threat kind and level to some values to be able to check they get properly transitioned
     EnumerationPropertyType threatKindType = CybersecurityQueries.getThreatKindPropertyType(project);
@@ -48,6 +74,27 @@ public class ThreatTransitionTest extends CyberTopDownTransitionTestCase {
     // add the threat on the operational level
     oaPkg.getOwnedThreats().add(threat);
     oaPkg.getOwnedThreats().add(threat2);
+    
+    oaPkg.getOwnedPrimaryAssets().add(enterprisePrimaryAsset);
+    oaPkg.getOwnedPrimaryAssets().add(functionalPrimaryAsset);
+    oaPkg.getOwnedPrimaryAssets().add(informationPrimaryAsset);
+    
+    // add the actor to the entity pkg
+    ((OperationalAnalysis) oaArch).getOwnedEntityPkg().getOwnedEntities().add(actor);
+
+    // set the PAs to the threat applications
+    threatApplicationEPA.setAsset(enterprisePrimaryAsset);
+    threatApplicationFPA.setAsset(functionalPrimaryAsset);
+    threatApplicationIPA.setAsset(informationPrimaryAsset);
+    
+    // set the actor to the threat involvement
+    threatInvolvement.setComponent(actor);
+
+    threat.getOwnedThreatApplications().add(threatApplicationEPA);
+    threat.getOwnedThreatApplications().add(threatApplicationFPA);
+    threat.getOwnedThreatApplications().add(threatApplicationIPA);
+    
+    threat.getOwnedThreatInvolvements().add(threatInvolvement);
   }
 
   @Override
@@ -62,6 +109,29 @@ public class ThreatTransitionTest extends CyberTopDownTransitionTestCase {
     SecurityNeeds transitionedSecurityNeeds = (SecurityNeeds) mustBeTransitionedDirecltyContainedBy(
         securityNeeds.getId(), systemThreat);
     checkSecurityNeedsProperlyTransitioned(transitionedSecurityNeeds);
+    
+    // check that the threat applications and the PAs they points to have been transitioned
+    PrimaryAsset systemEPA = (PrimaryAsset) mustBeTransitionedDirecltyContainedBy(enterprisePrimaryAsset.getId(),
+        saPkg);
+    PrimaryAsset systemFPA = (PrimaryAsset) mustBeTransitionedDirecltyContainedBy(functionalPrimaryAsset.getId(),
+        saPkg);
+    PrimaryAsset systemIPA = (PrimaryAsset) mustBeTransitionedDirecltyContainedBy(informationPrimaryAsset.getId(),
+        saPkg);
+
+    ThreatApplication systemThreatApplicationEPA = (ThreatApplication) mustBeTransitionedDirecltyContainedBy(
+        threatApplicationEPA.getId(), systemThreat);
+    ThreatApplication systemThreatApplicationFPA = (ThreatApplication) mustBeTransitionedDirecltyContainedBy(
+        threatApplicationFPA.getId(), systemThreat);
+    ThreatApplication systemThreatApplicationIPA = (ThreatApplication) mustBeTransitionedDirecltyContainedBy(
+        threatApplicationIPA.getId(), systemThreat);
+
+    // check that the threat involvement and the actor have been transitioned
+    ThreatInvolvement transitionedThreatInvolvement = (ThreatInvolvement) mustBeTransitionedDirecltyContainedBy(
+        threatInvolvement.getId(),
+        systemThreat);
+
+    Component transitionedActor = (Component) mustBeTransitionedDirecltyContainedBy(actor.getId(),
+        BlockArchitectureExt.getComponentPkg(saArch, false));
 
     // check that threat2 is not transitioned
     assertTrue(threat2.getIncomingTraces().isEmpty());
@@ -80,6 +150,23 @@ public class ThreatTransitionTest extends CyberTopDownTransitionTestCase {
         logicalThreat);
     checkSecurityNeedsProperlyTransitioned(transitionedSecurityNeeds);
 
+    PrimaryAsset logicalEPA = (PrimaryAsset) mustBeTransitionedDirecltyContainedBy(systemEPA.getId(), laPkg);
+    PrimaryAsset logicalFPA = (PrimaryAsset) mustBeTransitionedDirecltyContainedBy(systemFPA.getId(), laPkg);
+    PrimaryAsset logicalIPA = (PrimaryAsset) mustBeTransitionedDirecltyContainedBy(systemIPA.getId(), laPkg);
+
+    ThreatApplication logicalThreatApplicationEPA = (ThreatApplication) mustBeTransitionedDirecltyContainedBy(
+        systemThreatApplicationEPA.getId(), logicalThreat);
+    ThreatApplication logicalThreatApplicationFPA = (ThreatApplication) mustBeTransitionedDirecltyContainedBy(
+        systemThreatApplicationFPA.getId(), logicalThreat);
+    ThreatApplication logicalThreatApplicationIPA = (ThreatApplication) mustBeTransitionedDirecltyContainedBy(
+        systemThreatApplicationIPA.getId(), logicalThreat);
+
+    transitionedThreatInvolvement = (ThreatInvolvement) mustBeTransitionedDirecltyContainedBy(
+        transitionedThreatInvolvement.getId(), logicalThreat);
+
+    transitionedActor = (Component) mustBeTransitionedDirecltyContainedBy(transitionedActor.getId(),
+        BlockArchitectureExt.getComponentPkg(laArch, false));
+
     performThreatTransition(getObjects(logicalThreat.getId()));
     Threat physicalThreat = (Threat) mustBeTransitioned(logicalThreat.getId(), paPkg);
     assertEquals(threat.getKind(), physicalThreat.getKind());
@@ -87,6 +174,19 @@ public class ThreatTransitionTest extends CyberTopDownTransitionTestCase {
     transitionedSecurityNeeds = (SecurityNeeds) mustBeTransitionedDirecltyContainedBy(transitionedSecurityNeeds.getId(),
         physicalThreat);
     checkSecurityNeedsProperlyTransitioned(transitionedSecurityNeeds);
+
+    mustBeTransitionedDirecltyContainedBy(logicalEPA.getId(), paPkg);
+    mustBeTransitionedDirecltyContainedBy(logicalFPA.getId(), paPkg);
+    mustBeTransitionedDirecltyContainedBy(logicalIPA.getId(), paPkg);
+
+    mustBeTransitionedDirecltyContainedBy(logicalThreatApplicationEPA.getId(), physicalThreat);
+    mustBeTransitionedDirecltyContainedBy(logicalThreatApplicationFPA.getId(), physicalThreat);
+    mustBeTransitionedDirecltyContainedBy(logicalThreatApplicationIPA.getId(), physicalThreat);
+    
+    mustBeTransitionedDirecltyContainedBy(transitionedThreatInvolvement.getId(), physicalThreat);
+
+    mustBeTransitionedDirecltyContainedBy(transitionedActor.getId(),
+        BlockArchitectureExt.getComponentPkg(paArch, false));
   }
 
   private void checkSecurityNeedsProperlyTransitioned(SecurityNeeds transitionedSecurityNeeds) {

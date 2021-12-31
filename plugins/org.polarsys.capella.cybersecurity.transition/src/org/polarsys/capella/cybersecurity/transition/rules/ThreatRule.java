@@ -34,6 +34,8 @@ public class ThreatRule extends AbstractCapellaElementRule {
     registerUpdatedReference(CybersecurityPackage.Literals.THREAT__KIND);
     registerUpdatedAttribute(CybersecurityPackage.Literals.THREAT__LEVEL);
     registerUpdatedAttribute(CybersecurityPackage.Literals.THREAT__RATIONALE);
+    registerUpdatedReference(CybersecurityPackage.Literals.THREAT__OWNED_THREAT_APPLICATIONS);
+    registerUpdatedReference(CybersecurityPackage.Literals.THREAT__OWNED_THREAT_INVOLVEMENTS);
   }
   
   @Override
@@ -46,6 +48,10 @@ public class ThreatRule extends AbstractCapellaElementRule {
     super.premicesRelated(element, needed);
     needed.addAll(createDefaultPrecedencePremices(element, CybersecurityPackage.Literals.THREAT__KIND));
     needed.addAll(createDefaultPrecedencePremices(element, CybersecurityPackage.Literals.THREAT__ADDRESSED_BY));
+    needed.addAll(
+        createDefaultPrecedencePremices(element, CybersecurityPackage.Literals.THREAT__OWNED_THREAT_APPLICATIONS));
+    needed.addAll(
+        createDefaultPrecedencePremices(element, CybersecurityPackage.Literals.THREAT__OWNED_THREAT_INVOLVEMENTS));
   }
 
   /**
@@ -56,6 +62,10 @@ public class ThreatRule extends AbstractCapellaElementRule {
     super.attachRelated(element, result, context);
     AttachmentHelper.getInstance(context).attachTracedElements(element, result, CybersecurityPackage.Literals.THREAT__KIND, context);
     AttachmentHelper.getInstance(context).attachTracedElements(element, result, CybersecurityPackage.Literals.THREAT__ADDRESSED_BY, context);
+    AttachmentHelper.getInstance(context).attachTracedElements(element, result,
+        CybersecurityPackage.Literals.THREAT__OWNED_THREAT_APPLICATIONS, context);
+    AttachmentHelper.getInstance(context).attachTracedElements(element, result,
+        CybersecurityPackage.Literals.THREAT__OWNED_THREAT_INVOLVEMENTS, context);
   }
   
   @Override
@@ -63,12 +73,18 @@ public class ThreatRule extends AbstractCapellaElementRule {
     super.retrieveGoDeep(source, result, context);
     
     Threat element = (Threat) source;
+    result.addAll(element.getOwnedThreatApplications());
+    result.addAll(element.getOwnedThreatInvolvements());
     if (element.getKind() != null) {
       result.add(element.getKind().eContainer().eContainer());
     }
     if (ContextScopeHandlerHelper.getInstance(context).contains(ITransitionConstants.SOURCE_SCOPE, element, context)) {
       result.addAll(element.getAddressedBy());
       ContextScopeHandlerHelper.getInstance(context).addAll(ITransitionConstants.SOURCE_SCOPE, element.getAddressedBy(), context);
+      ContextScopeHandlerHelper.getInstance(context).addAll(ITransitionConstants.SOURCE_SCOPE,
+          element.getOwnedThreatApplications(), context);
+      ContextScopeHandlerHelper.getInstance(context).addAll(ITransitionConstants.SOURCE_SCOPE,
+          element.getOwnedThreatInvolvements(), context);
     }
   }
 }

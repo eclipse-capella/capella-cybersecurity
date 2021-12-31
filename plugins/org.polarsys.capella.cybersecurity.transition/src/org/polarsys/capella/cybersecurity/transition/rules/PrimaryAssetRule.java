@@ -16,7 +16,6 @@ import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EPackage;
 import org.polarsys.capella.core.transition.common.constants.ITransitionConstants;
 import org.polarsys.capella.core.transition.common.handlers.attachment.AttachmentHelper;
 import org.polarsys.capella.core.transition.common.handlers.contextscope.ContextScopeHandlerHelper;
@@ -31,7 +30,6 @@ public class PrimaryAssetRule extends AbstractCapellaElementRule {
 
   public PrimaryAssetRule() {
     registerUpdatedReference(CybersecurityPackage.Literals.PRIMARY_ASSET__OWNED_MEMBERS);
-    registerUpdatedReference(CybersecurityPackage.Literals.PRIMARY_ASSET__OWNED_THREAT_APPLICATIONS);
   }
 
   @Override
@@ -43,7 +41,6 @@ public class PrimaryAssetRule extends AbstractCapellaElementRule {
   protected void premicesRelated(EObject element, ArrayList<IPremise> needed) {
     super.premicesRelated(element, needed);
     needed.addAll(createDefaultPrecedencePremices(element, CybersecurityPackage.Literals.PRIMARY_ASSET__OWNED_MEMBERS));
-    needed.addAll(createDefaultPrecedencePremices(element, CybersecurityPackage.Literals.PRIMARY_ASSET__OWNED_THREAT_APPLICATIONS));
   }
 
   @Override
@@ -51,21 +48,16 @@ public class PrimaryAssetRule extends AbstractCapellaElementRule {
     super.attachRelated(element, result, context);
     AttachmentHelper.getInstance(context).attachTracedElements(element, result,
         CybersecurityPackage.Literals.PRIMARY_ASSET__OWNED_MEMBERS, context);
-    AttachmentHelper.getInstance(context).attachTracedElements(element, result,
-        CybersecurityPackage.Literals.PRIMARY_ASSET__OWNED_THREAT_APPLICATIONS, context);
   }
 
   @Override
   protected void retrieveGoDeep(EObject source, List<EObject> result, IContext context) {
     super.retrieveGoDeep(source, result, context);
     result.addAll(((PrimaryAsset) source).getOwnedMembers());
-    result.addAll(((PrimaryAsset) source).getOwnedThreatApplications());
     
     if (ContextScopeHandlerHelper.getInstance(context).contains(ITransitionConstants.SOURCE_SCOPE, source, context)) {
       ContextScopeHandlerHelper.getInstance(context).addAll(ITransitionConstants.SOURCE_SCOPE,
           ((PrimaryAsset) source).getOwnedMembers(), context);
-      ContextScopeHandlerHelper.getInstance(context).addAll(ITransitionConstants.SOURCE_SCOPE,
-          ((PrimaryAsset) source).getOwnedThreatApplications(), context);
     }
   }
 
