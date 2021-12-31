@@ -17,8 +17,6 @@ import org.polarsys.capella.core.data.oa.OaFactory;
 import org.polarsys.capella.core.data.pa.PhysicalComponent;
 import org.polarsys.capella.core.model.helpers.BlockArchitectureExt;
 import org.polarsys.capella.cybersecurity.model.CybersecurityFactory;
-import org.polarsys.capella.cybersecurity.model.Threat;
-import org.polarsys.capella.cybersecurity.model.ThreatInvolvement;
 import org.polarsys.capella.cybersecurity.model.ThreatSourceUse;
 import org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage;
 
@@ -28,8 +26,6 @@ import org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage;
 public class CyberActorTransitionTest extends CyberTopDownTransitionTestCase {
   private final static String OPERATIONAL_ENTITY = "89336d07-e5d3-4846-9ed1-0ac0189462b9";
 
-  Threat threat;
-  ThreatInvolvement threatInvolvement;
   ThreatSourceUse threatUse;
   TrustBoundaryStorage trustBoundaryStorage;
   Entity usedActor;
@@ -38,24 +34,16 @@ public class CyberActorTransitionTest extends CyberTopDownTransitionTestCase {
   @Override
   protected void init() {
     super.init();
-    threat = CybersecurityFactory.eINSTANCE.createThreat();
     usedActor = OaFactory.eINSTANCE.createEntity();
-    threatInvolvement = CybersecurityFactory.eINSTANCE.createThreatInvolvement();
     threatUse = CybersecurityFactory.eINSTANCE.createThreatSourceUse();
     trustBoundaryStorage = CybersecurityFactory.eINSTANCE.createTrustBoundaryStorage();
     operationalActor = ((Entity) getObject(OPERATIONAL_ENTITY)).getSubEntities().get(0);
 
     trustBoundaryStorage.setThreatSource(true);
     trustBoundaryStorage.setThreatSourceProfile(3);
-    // set the threat to the threat involvement and add it and the trust boundary as extensions to the actor
-    threatInvolvement.setThreat(threat);
     threatUse.setUsed(usedActor);
-    operationalActor.getOwnedExtensions().add(threatInvolvement);
     operationalActor.getOwnedExtensions().add(threatUse);
     operationalActor.getOwnedExtensions().add(trustBoundaryStorage);
-
-    // add the threat on the operational level
-    oaPkg.getOwnedThreats().add(threat);
   }
 
   @Override
@@ -65,9 +53,6 @@ public class CyberActorTransitionTest extends CyberTopDownTransitionTestCase {
     performOE2ActorTransition(getObjects(operationalActor.getId()));
     SystemComponent systemActor = (SystemComponent) mustBeTransitionedDirecltyContainedBy(operationalActor.getId(),
         BlockArchitectureExt.getComponentPkg(saArch, false));
-    Threat systemThreat = (Threat) mustBeTransitionedDirecltyContainedBy(threat.getId(), saPkg);
-    ThreatInvolvement systemThreatInv = (ThreatInvolvement) mustBeTransitionedDirecltyContainedBy(
-        threatInvolvement.getId(), systemActor);
     ThreatSourceUse systemThreatUse = (ThreatSourceUse) mustBeTransitionedDirecltyContainedBy(threatUse.getId(), systemActor);
     TrustBoundaryStorage transitionedTrustBoundStorage = (TrustBoundaryStorage) mustBeTransitionedDirecltyContainedBy(
         trustBoundaryStorage.getId(), systemActor);
@@ -76,9 +61,6 @@ public class CyberActorTransitionTest extends CyberTopDownTransitionTestCase {
     performActorTransition(getObjects(systemActor.getId()));
     LogicalComponent logicalActor = (LogicalComponent) mustBeTransitionedDirecltyContainedBy(systemActor.getId(),
         BlockArchitectureExt.getComponentPkg(laArch, false));
-    Threat logicalThreat = (Threat) mustBeTransitionedDirecltyContainedBy(systemThreat.getId(), laPkg);
-    ThreatInvolvement logicalThreatInv = (ThreatInvolvement) mustBeTransitionedDirecltyContainedBy(
-        systemThreatInv.getId(), logicalActor);
     ThreatSourceUse logicalThreatUse = (ThreatSourceUse) mustBeTransitionedDirecltyContainedBy(systemThreatUse.getId(), logicalActor);
     transitionedTrustBoundStorage = (TrustBoundaryStorage) mustBeTransitionedDirecltyContainedBy(
         transitionedTrustBoundStorage.getId(),
@@ -88,8 +70,6 @@ public class CyberActorTransitionTest extends CyberTopDownTransitionTestCase {
     performActorTransition(getObjects(logicalActor.getId()));
     PhysicalComponent physicalActor = (PhysicalComponent) mustBeTransitionedDirecltyContainedBy(logicalActor.getId(),
         BlockArchitectureExt.getComponentPkg(paArch, false));
-    mustBeTransitionedDirecltyContainedBy(logicalThreat.getId(), paPkg);
-    mustBeTransitionedDirecltyContainedBy(logicalThreatInv.getId(), physicalActor);
     mustBeTransitionedDirecltyContainedBy(logicalThreatUse.getId(), physicalActor);
     mustBeTransitionedDirecltyContainedBy(transitionedTrustBoundStorage.getId(), physicalActor);
     checkTrustBoundaryStorageProperlyTransitioned(transitionedTrustBoundStorage);
