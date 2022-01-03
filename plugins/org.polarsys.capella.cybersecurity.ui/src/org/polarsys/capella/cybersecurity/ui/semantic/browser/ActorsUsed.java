@@ -10,28 +10,17 @@
 *******************************************************************/
 package org.polarsys.capella.cybersecurity.ui.semantic.browser;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
-import org.eclipse.emf.ecore.EObject;
 import org.polarsys.capella.common.helpers.query.IQuery;
-import org.polarsys.capella.cybersecurity.model.ThreatSourceUse;
-import org.polarsys.kitalpha.emde.model.EmdePackage;
+import org.polarsys.capella.core.data.cs.Component;
+import org.polarsys.capella.cybersecurity.model.CybersecurityQueries;
 
 public class ActorsUsed implements IQuery {
 
   @Override
   public List<Object> compute(Object element) {
-    List<Object> usedElements = new ArrayList<>();
-    Object lst = ((EObject)element).eGet(EmdePackage.Literals.EXTENSIBLE_ELEMENT__OWNED_EXTENSIONS);
-    if (lst instanceof Collection<?>) {
-      for (Object obj : (Collection<?>) lst) {
-        if (obj instanceof ThreatSourceUse) {
-          usedElements.add(((ThreatSourceUse) obj).getUsed());
-        }
-      }
-    }
-    return usedElements;
+    return CybersecurityQueries.getUsedActors((Component) element).collect(Collectors.toList());
   }
 }

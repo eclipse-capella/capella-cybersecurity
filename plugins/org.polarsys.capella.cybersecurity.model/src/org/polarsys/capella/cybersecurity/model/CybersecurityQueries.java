@@ -29,10 +29,10 @@ import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.polarsys.capella.common.helpers.EObjectExt;
 import org.polarsys.capella.common.helpers.query.IQuery;
+import org.polarsys.capella.core.data.capellacore.CapellaElement;
 import org.polarsys.capella.core.data.capellacore.EnumerationPropertyLiteral;
 import org.polarsys.capella.core.data.capellacore.EnumerationPropertyType;
 import org.polarsys.capella.core.data.capellamodeller.Project;
-import org.polarsys.capella.core.data.cs.BlockArchitecture;
 import org.polarsys.capella.core.data.cs.Component;
 import org.polarsys.capella.core.data.cs.Part;
 import org.polarsys.capella.core.data.cs.PhysicalLink;
@@ -65,8 +65,7 @@ public class CybersecurityQueries {
   }
 
   public static Stream<PrimaryAsset> getThreatenedPrimaryAssets(Threat threat) {
-    return EObjectExt.getReferencers(threat, CybersecurityPackage.Literals.THREAT_APPLICATION__THREAT).stream()
-        .map(s -> ((ThreatApplication) s).getAsset());
+    return threat.getOwnedThreatApplications().stream().map(ThreatApplication::getAsset).filter(Objects::nonNull);
   }
 
   public static Stream<AbstractFunctionalBlock> getThreatenedComponents(Threat threat) {
@@ -80,8 +79,7 @@ public class CybersecurityQueries {
   }
 
   public static Stream<Component> getInvolvedComponents(Threat threat) {
-    return EObjectExt.getReferencers(threat, CybersecurityPackage.Literals.THREAT_INVOLVEMENT__THREAT).stream()
-        .map(s -> ((ThreatInvolvement) s).getComponent());
+    return threat.getOwnedThreatInvolvements().stream().map(ThreatInvolvement::getComponent);
   }
 
   public static Stream<Component> getInvolvedThreatSources(Threat threat) {
@@ -97,13 +95,11 @@ public class CybersecurityQueries {
   }
 
   public static Stream<Component> getInvolvedActors(PrimaryAsset asset) {
-    return asset.getOwnedThreatApplications().stream().map(ThreatApplication::getThreat).filter(Objects::nonNull)
-        .flatMap(CybersecurityQueries::getInvolvedActors);
+    return getThreatsOf(asset).flatMap(CybersecurityQueries::getInvolvedActors);
   }
 
   public static Stream<Component> getInvolvedThreatSources(PrimaryAsset asset) {
-    return asset.getOwnedThreatApplications().stream().map(ThreatApplication::getThreat).filter(Objects::nonNull)
-        .flatMap(CybersecurityQueries::getInvolvedThreatSources);
+    return getThreatsOf(asset).flatMap(CybersecurityQueries::getInvolvedThreatSources);
   }
 
   public static boolean isThreatSource(Component c) {
@@ -164,8 +160,11 @@ public class CybersecurityQueries {
     return false;
   }
 
-  public static Stream<Threat> getThreatsOf(PrimaryAsset pe) {
-    return pe.getOwnedThreatApplications().stream().map(s -> ((ThreatApplication) s).getThreat()).distinct();
+  public static Stream<Threat> getThreatsOf(PrimaryAsset pa) {
+    return EObjectExt.getReferencers(pa, CybersecurityPackage.Literals.THREAT_APPLICATION__ASSET).stream()
+    .map(s -> ((ThreatApplication) s).getThreat())
+    .filter(Objects::nonNull)
+    .distinct();
   }
 
   /**
@@ -206,12 +205,9 @@ public class CybersecurityQueries {
     return null;
   }
 
-  //
-  // All threats targeted by a threat involvment link of c
-  //
   public static Stream<Threat> getInvolvingThreats(Component c) {
-    return c.getOwnedExtensions().stream().filter(ThreatInvolvement.class::isInstance)
-        .map(x -> ((ThreatInvolvement) x).getThreat())
+    return EObjectExt.getReferencers(c, CybersecurityPackage.Literals.THREAT_INVOLVEMENT__COMPONENT).stream()
+        .map(s -> ((ThreatInvolvement) s).getThreat())
         .filter(Objects::nonNull);
   }
 
@@ -313,7 +309,17 @@ public class CybersecurityQueries {
     return Stream.concat(getFunctionalPrimaryAssets(c).flatMap(fpa -> getThreatsOf(fpa)),
         getInformationPrimaryAssets(c).flatMap(ipa -> getThreatsOf(ipa))).distinct();
   }
+  
+  public static Stream<Component> getUsedActors(Component c) {
+    return c.getOwnedExtensions().stream().filter(ext -> ext instanceof ThreatSourceUse)
+        .map(trb -> ((ThreatSourceUse) trb).getUsed()).filter(Objects::nonNull).distinct();
+  }
 
+  public static Stream<Component> getUsedByThreatSource(Component c) {
+    return EObjectExt.getReferencers(c, CybersecurityPackage.Literals.THREAT_SOURCE_USE__USED).stream()
+        .map(s -> ((ThreatSourceUse) s).getThreatSource()).filter(Objects::nonNull).distinct();
+  }
+  
   public static int getMaxSecurityNeedsValue(SecurityNeeds sn) {
     return sn == null ? 0
         : IntStream.of(getConfidentialityIndex(sn), getIntegrityIndex(sn),
