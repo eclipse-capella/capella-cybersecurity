@@ -108,9 +108,14 @@ public class CyberSecurityPropertyViewPattern {
     Path pathToHtmlFolder = new Path(ctx.getValue("outputFolder").toString());
     String htmlFolderName = pathToHtmlFolder.lastSegment();
     stringBuffer.append(CybersecurityHelper.getCiatSection(element));
-    stringBuffer.append(CybersecurityHelper.getReferencesCapellaElements(element, htmlFolderName));
+    stringBuffer.append(CybersecurityHelper.getExchangeItemPrimaryAssets(element, htmlFolderName));
+    stringBuffer.append(CybersecurityHelper.getFunctionFunctionalPrimaryAssets(element, htmlFolderName));
+    stringBuffer.append(CybersecurityHelper.getFunctionInformationPrimaryAssets(element, htmlFolderName));
+    stringBuffer.append(CybersecurityHelper.getFunctionalChainPrimaryAssets(element, htmlFolderName));
+    stringBuffer.append(CybersecurityHelper.getInvolvingThreats(element, htmlFolderName));
     stringBuffer.append(CybersecurityHelper.getThreatSourceAndRationale(element));
     stringBuffer.append(CybersecurityHelper.getThreatSourceUse(element, htmlFolderName));
+    stringBuffer.append(CybersecurityHelper.getThreatSourceUsedBy(element, htmlFolderName));
     stringBuffer.append(TEXT_1);
     InternalPatternContext ictx = (InternalPatternContext) ctx;
     new Node.DataLeaf(ictx.getNode(), getClass(), "content", stringBuffer.toString());
