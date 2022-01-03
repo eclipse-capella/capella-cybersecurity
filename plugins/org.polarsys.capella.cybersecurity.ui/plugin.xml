@@ -1298,7 +1298,7 @@
    <category
          id="ExchangeItem__PrimaryAssets"
          isTopLevel="true"
-         name="Primary Assets">
+         name="Information Primary Assets">
       <availableForType
             class="org.polarsys.capella.core.data.information.ExchangeItem">
       </availableForType>

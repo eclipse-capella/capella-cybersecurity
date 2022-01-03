@@ -17,10 +17,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.polarsys.capella.common.data.modellingcore.AbstractTrace;
-import org.polarsys.capella.common.helpers.EObjectExt;
 import org.polarsys.capella.core.data.capellacore.CapellaElement;
 import org.polarsys.capella.core.data.capellacore.EnumerationPropertyLiteral;
 import org.polarsys.capella.core.data.cs.BlockArchitecture;
@@ -31,32 +29,26 @@ import org.polarsys.capella.core.data.fa.FunctionalChain;
 import org.polarsys.capella.core.data.information.ExchangeItem;
 import org.polarsys.capella.core.data.interaction.AbstractCapability;
 import org.polarsys.capella.core.data.oa.Entity;
-import org.polarsys.capella.core.data.oa.OperationalActivity;
 import org.polarsys.capella.core.data.oa.OperationalAnalysis;
-import org.polarsys.capella.core.data.oa.OperationalProcess;
 import org.polarsys.capella.core.model.helpers.BlockArchitectureExt;
 import org.polarsys.capella.cybersecurity.docgen.constants.ConstantsCybersecurityDocGen;
 import org.polarsys.capella.cybersecurity.docgen.utils.HTMLHelper;
-import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPkg;
+import org.polarsys.capella.cybersecurity.model.CybersecurityQueries;
 import org.polarsys.capella.cybersecurity.model.EnterprisePrimaryAsset;
-import org.polarsys.capella.cybersecurity.model.FunctionStorage;
 import org.polarsys.capella.cybersecurity.model.FunctionalPrimaryAsset;
 import org.polarsys.capella.cybersecurity.model.InformationPrimaryAsset;
 import org.polarsys.capella.cybersecurity.model.PrimaryAsset;
 import org.polarsys.capella.cybersecurity.model.SecurityNeeds;
 import org.polarsys.capella.cybersecurity.model.Threat;
-import org.polarsys.capella.cybersecurity.model.ThreatApplication;
-import org.polarsys.capella.cybersecurity.model.ThreatInvolvement;
-import org.polarsys.capella.cybersecurity.model.ThreatSourceUse;
 import org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage;
 import org.polarsys.kitalpha.emde.model.ExtensibleElement;
 
 public class CybersecurityHelper {
 	public static boolean hasCybersecurityPropertyView(EObject element) {
 		return element instanceof FunctionalChain || element instanceof ExchangeItem
-				|| element instanceof AbstractFunction || element instanceof PrimaryAsset
-				|| element instanceof Component || element instanceof Threat;
+				|| element instanceof AbstractFunction
+				|| element instanceof Component;
 	}
 
 	public static String getThreatSourceAndRationale(EObject element) {
@@ -103,36 +95,61 @@ public class CybersecurityHelper {
 		}
 		return builder.toString();
 	}
-
-	public static String getReferencesCapellaElements(EObject element, String htmlFolderName) {
-		StringBuilder builder = new StringBuilder();
-		List<CapellaElement> capellaElements = new ArrayList<>();
-		if (element instanceof AbstractFunction || element instanceof FunctionalChain
-				|| element instanceof ExchangeItem) {
-			List<CapellaElement> paList = EObjectExt
-					.getReferencers(element, CybersecurityPackage.Literals.PRIMARY_ASSET_MEMBER__MEMBER).stream()
-					.map(pa -> (CapellaElement) pa.eContainer()).collect(Collectors.toList());
-			capellaElements.addAll(paList);
-		}
-		if (element instanceof AbstractFunction) {
-			List<CapellaElement> exList = ((AbstractFunction) element).getOwnedExtensions().stream()
-					.filter(ext -> (ext instanceof FunctionStorage))
-					.flatMap(fs -> ((FunctionStorage) fs).getExchangedItems().stream()).collect(Collectors.toList());
-			capellaElements.addAll(exList);
-		}
-		if (element instanceof SystemComponent || element instanceof Entity) {
-			List<CapellaElement> threatsInvolve = ((CapellaElement) element).getOwnedExtensions().stream()
-					.filter(ext -> (ext instanceof ThreatInvolvement)).map(trb -> ((ThreatInvolvement) trb).getThreat())
-					.collect(Collectors.toList());
-			capellaElements.addAll(threatsInvolve);
-		}
-		if (capellaElements.size() > 0) {
-			builder.append(HTMLHelper.getSubtitle(getReferencesCyberElementTitle(element)));
-			builder.append(HTMLHelper.getUlList(capellaElements.stream()
-					.map(capEl -> HTMLHelper.getLinkElementList(capEl, htmlFolderName)).toArray(String[]::new)));
-		}
-		return builder.toString();
+	
+	public static String getInvolvingThreats(EObject element, String htmlFolderName) {
+	  String data = "";
+    if (element instanceof Component) {
+      List<Threat> threats = CybersecurityQueries.getInvolvingThreats((Component) element).collect(Collectors.toList());
+      data = getHtmlDataToAppend(threats, htmlFolderName, ConstantsCybersecurityDocGen.INVOLVING_THREATS);
+    }
+    return data;
 	}
+
+	public static String getExchangeItemPrimaryAssets(EObject element, String htmlFolderName) {
+	  String data = "";
+	  if (element instanceof ExchangeItem) {
+      List<InformationPrimaryAsset> assets = CybersecurityQueries.getInformationPrimaryAssets((ExchangeItem) element).collect(Collectors.toList());
+      data = getHtmlDataToAppend(assets, htmlFolderName, ConstantsCybersecurityDocGen.INFORMATION_PRIMARY_ASSETS);
+    }
+    return data;
+	}
+	
+  public static String getFunctionalPrimaryAssetsTitle(EObject element) {
+    if (BlockArchitectureExt.getRootBlockArchitecture(element) instanceof OperationalAnalysis) {
+      return ConstantsCybersecurityDocGen.OPERATIONAL_PRIMARY_ASSETS;
+    }
+    return ConstantsCybersecurityDocGen.FUNCTIONAL_PRIMARY_ASSETS;
+  }
+
+  public static String getFunctionFunctionalPrimaryAssets(EObject element, String htmlFolderName) {
+    String data = "";
+    if (element instanceof AbstractFunction) {
+      List<FunctionalPrimaryAsset> assets = CybersecurityQueries.getFunctionalPrimaryAssets((AbstractFunction) element)
+          .collect(Collectors.toList());
+      data = getHtmlDataToAppend(assets, htmlFolderName, getFunctionalPrimaryAssetsTitle(element));
+    }
+    return data;
+  }
+
+  public static String getFunctionInformationPrimaryAssets(EObject element, String htmlFolderName) {
+    String data = "";
+    if (element instanceof AbstractFunction) {
+      List<InformationPrimaryAsset> assets = CybersecurityQueries
+          .getInformationPrimaryAssets((AbstractFunction) element).collect(Collectors.toList());
+      data = getHtmlDataToAppend(assets, htmlFolderName, ConstantsCybersecurityDocGen.INFORMATION_PRIMARY_ASSETS);
+    }
+    return data;
+  }
+
+  public static String getFunctionalChainPrimaryAssets(EObject element, String htmlFolderName) {
+    String data = "";
+    if (element instanceof FunctionalChain) {
+      List<FunctionalPrimaryAsset> assets = CybersecurityQueries.getFunctionalPrimaryAssets((FunctionalChain) element)
+          .collect(Collectors.toList());
+      data = getHtmlDataToAppend(assets, htmlFolderName, getFunctionalPrimaryAssetsTitle(element));
+    }
+    return data;
+  }
 
 	public static String getCiatSection(EObject element) {
 		StringBuilder builder = new StringBuilder();
@@ -167,64 +184,40 @@ public class CybersecurityHelper {
 		return getHtmlDataToAppend(contentList, htmlFolderName, ConstantsCybersecurityDocGen.CONTENT);
 	}
 
-	public static String getThreatKind(EObject element) {
-		StringBuilder builder = new StringBuilder();
-		if (hasThreatKind(element)) {
-			if (element instanceof Threat) {
-				Threat threat = (Threat) element;
-				String kind = threat.getKind().getLabel();
-				builder.append(HTMLHelper.getSubtitle(ConstantsCybersecurityDocGen.THREAT_KIND));
-				builder.append(HTMLHelper.getParagraph(kind));
-			}
-		}
-		return builder.toString();
-	}
+  public static String getThreatKind(EObject element) {
+    StringBuilder builder = new StringBuilder();
+    if (element instanceof Threat) {
+      Threat threat = (Threat) element;
+      String kind = threat.getKind().getLabel();
+      builder.append(HTMLHelper.getSubtitle(ConstantsCybersecurityDocGen.THREAT_KIND));
+      builder.append(HTMLHelper.getParagraph(kind));
+    }
+    return builder.toString();
+  }
 
 	public static String getLevel(EObject element) {
-		StringBuilder builder = new StringBuilder();
-		if (hasLevel(element)) {
-			if (element instanceof Threat) {
-				Threat threat = (Threat) element;
-				builder.append(HTMLHelper.getSubtitle(ConstantsCybersecurityDocGen.LEVEL));
-				String level = String.valueOf(threat.getLevel());
-				builder.append(HTMLHelper.getParagraph(level != null ? level : " "));
-			}
-		}
-		return builder.toString();
+    StringBuilder builder = new StringBuilder();
+    if (element instanceof Threat) {
+      Threat threat = (Threat) element;
+      builder.append(HTMLHelper.getSubtitle(ConstantsCybersecurityDocGen.LEVEL));
+      String level = String.valueOf(threat.getLevel());
+      builder.append(HTMLHelper.getParagraph(level != null ? level : " "));
+    }
+    return builder.toString();
 	}
 
-	public static String getRationale(EObject element) {
-		StringBuilder builder = new StringBuilder();
-		if (hasRationale(element)) {
-			if (element instanceof Threat) {
-				Threat threat = (Threat) element;
-				String rationale = threat.getRationale();
-				if (rationale != null) {
-					builder.append(HTMLHelper.getSubtitle(ConstantsCybersecurityDocGen.RATIONALE));
-					builder.append(HTMLHelper.getParagraph(rationale));
-				}
-			}
-		}
-		return builder.toString();
-	}
-
-	public static String getRealizingThreats(CapellaElement element, String htmlFolderName) {
-		StringBuilder builder = new StringBuilder();
-		if (hasRealizingThreats(element)) {
-			builder.append(getRelationsElements(element, ConstantsCybersecurityDocGen.THREAT_REALIZING, htmlFolderName,
-					true, Threat.class));
-		}
-		return builder.toString();
-	}
-
-	public static String getRealizedThreats(CapellaElement element, String htmlFolderName) {
-		StringBuilder builder = new StringBuilder();
-		if (hasRealizingThreats(element)) {
-			builder.append(getRelationsElements(element, ConstantsCybersecurityDocGen.THREAT_REALIZED, htmlFolderName,
-					false, Threat.class));
-		}
-		return builder.toString();
-	}
+  public static String getRationale(EObject element) {
+    StringBuilder builder = new StringBuilder();
+    if (element instanceof Threat) {
+      Threat threat = (Threat) element;
+      String rationale = threat.getRationale();
+      if (rationale != null) {
+        builder.append(HTMLHelper.getSubtitle(ConstantsCybersecurityDocGen.RATIONALE));
+        builder.append(HTMLHelper.getParagraph(rationale));
+      }
+    }
+    return builder.toString();
+  }
 
 	public static String getRealizingPrimaryAsset(CapellaElement element, String htmlFolderName) {
 		StringBuilder builder = new StringBuilder();
@@ -247,7 +240,7 @@ public class CybersecurityHelper {
 	public static String getReferencedCapellaElement(CapellaElement element, String htmlFolderName) {
 		StringBuilder builder = new StringBuilder();
 		if (hasReferencesCapellaElement(element)) {
-			builder.append(getRelationsElements(element, getRealizedCapellaElementTitle(element), htmlFolderName, false,
+			builder.append(getRelationsElements(element, getReferencedCapellaElementTitle(element), htmlFolderName, false,
 					FunctionalChain.class, ExchangeItem.class, AbstractFunction.class));
 		}
 		return builder.toString();
@@ -268,35 +261,60 @@ public class CybersecurityHelper {
 	}
 
 	private static boolean hasThreatSourceInfo(EObject element) {
-		return element instanceof Entity || element instanceof SystemComponent;
+		return element instanceof Component;
 	}
 
-	public static String getThreatApplicationTo(EObject element, String htmlFolderName) {
-		StringBuilder builder = new StringBuilder();
-		if (hasThreatApplicationTo(element)) {
-			PrimaryAsset pa = (PrimaryAsset) element;
-			EList<ThreatApplication> threatApplications = pa.getOwnedThreatApplications();
-			if (threatApplications.size() > 0) {
-				builder.append(HTMLHelper.getSubtitle(ConstantsCybersecurityDocGen.APPLICABLE_THREAT));
-				builder.append(HTMLHelper.getUlList(pa
-						.getOwnedThreatApplications().stream().map(threatApplication -> HTMLHelper
-								.getLinkElementList(threatApplication.getThreat(), htmlFolderName))
-						.toArray(String[]::new)));
-			}
-		}
-		return builder.toString();
-	}
+  public static String getThreatenedBy(EObject element, String htmlFolderName) {
+    String data = "";
+    if (element instanceof PrimaryAsset) {
+      List<Threat> threats = CybersecurityQueries.getThreatsOf((PrimaryAsset) element).collect(Collectors.toList());
+      data = getHtmlDataToAppend(threats, htmlFolderName, ConstantsCybersecurityDocGen.THREATENED_BY);
+    }
+    return data;
+  }
+  
+  public static String getThreatenedPrimaryAssets(EObject element, String htmlFolderName) {
+    String data = "";
+    if (element instanceof Threat) {
+      List<PrimaryAsset> assets = CybersecurityQueries.getThreatenedPrimaryAssets((Threat) element).collect(Collectors.toList());
+      data = getHtmlDataToAppend(assets, htmlFolderName, ConstantsCybersecurityDocGen.THREATENED_PRIMARY_ASSETS);
+    }
+    return data;
+  }
+  
+  public static String getInvolvedActors(EObject element, String htmlFolderName) {
+    String data = "";
+    if (element instanceof Threat) {
+      List<Component> actors = CybersecurityQueries.getInvolvedActors((Threat) element).collect(Collectors.toList());
+      data = getHtmlDataToAppend(actors, htmlFolderName, ConstantsCybersecurityDocGen.INVOLVED_ACTORS);
+    }
+    return data;
+  }
+  
+  public static String getInvolvedThreatSources(EObject element, String htmlFolderName) {
+    String data = "";
+    if (element instanceof Threat) {
+      List<Component> actors = CybersecurityQueries.getInvolvedThreatSources((Threat) element).collect(Collectors.toList());
+      data = getHtmlDataToAppend(actors, htmlFolderName, ConstantsCybersecurityDocGen.INVOLVED_THREAT_SOURCES);
+    }
+    return data;
+  }
 
-	public static boolean hasThreatApplicationTo(EObject element) {
-		return element instanceof PrimaryAsset;
-	}
-	
   public static String getPrimaryAssets(EObject element, String htmlFolderName) {
     String data = "";
     if (element instanceof EnterprisePrimaryAsset) {
-      EnterprisePrimaryAsset pa = (EnterprisePrimaryAsset) element;
-      List<CapellaElement> assets = pa.getOwnedMembers().stream().map(x -> (CapellaElement)x.getMember()).collect(Collectors.toList());
+      List<CapellaElement> assets = ((EnterprisePrimaryAsset) element).getPrimaryAssets().stream().collect(Collectors.toList());
       data = getHtmlDataToAppend(assets, htmlFolderName, ConstantsCybersecurityDocGen.PRIMARY_ASSETS);
+    }
+    return data;
+  }
+  
+  public static String getReferencingEnterprisePrimaryAssets(EObject element, String htmlFolderName) {
+    String data = "";
+    if (element instanceof PrimaryAsset) {
+      List<CapellaElement> assets = CybersecurityQueries.getEnterprisePrimaryAssets((PrimaryAsset) element)
+          .collect(Collectors.toList());
+      data = getHtmlDataToAppend(assets, htmlFolderName, ConstantsCybersecurityDocGen.ENTERPRISE_PRIMARY_ASSETS);
     }
     return data;
   }
@@ -315,18 +333,20 @@ public class CybersecurityHelper {
   
   public static String getThreatSourceUse(EObject element, String htmlFolderName) {
     String data = "";
-    if (hasThreatSourceUse(element)) {
-      List<Component> used = ((CapellaElement) element).getOwnedExtensions().stream()
-          .filter(ext -> ext instanceof ThreatSourceUse)
-          .map(trb -> ((ThreatSourceUse) trb).getUsed())
-          .collect(Collectors.toList());
+    if (element instanceof Component) {
+      List<Component> used = CybersecurityQueries.getUsedActors((Component) element).collect(Collectors.toList());
       data = getHtmlDataToAppend(used, htmlFolderName, ConstantsCybersecurityDocGen.USE);
     }
     return data;
   }
   
-  public static boolean hasThreatSourceUse(EObject element) {
-    return element instanceof Component;
+  public static String getThreatSourceUsedBy(EObject element, String htmlFolderName) {
+    String data = "";
+    if (element instanceof Component) {
+      List<Component> used = CybersecurityQueries.getUsedByThreatSource((Component) element).collect(Collectors.toList());
+      data = getHtmlDataToAppend(used, htmlFolderName, ConstantsCybersecurityDocGen.USED_BY);
+    }
+    return data;
   }
   
   public static String getHtmlDataToAppend(Collection<? extends CapellaElement> elements, String htmlFolderName, String category) {
@@ -339,21 +359,9 @@ public class CybersecurityHelper {
     return builder.toString();
   }
   
-	private static boolean hasLevel(EObject element) {
-		return element instanceof Threat;
-	}
-
 	private static boolean hasCiat(EObject element) {
 		return element instanceof AbstractFunction || element instanceof ExchangeItem
 				|| element instanceof PrimaryAsset || element instanceof Threat;
-	}
-
-	private static boolean hasRationale(EObject element) {
-		return element instanceof Threat;
-	}
-
-	private static boolean hasThreatKind(EObject element) {
-		return element instanceof Threat;
 	}
 
 	private static boolean hasRealizedPrimaryAsset(EObject element) {
@@ -362,10 +370,6 @@ public class CybersecurityHelper {
 
 	private static boolean hasReferencesCapellaElement(EObject element) {
 		return element instanceof FunctionalPrimaryAsset || element instanceof InformationPrimaryAsset;
-	}
-
-	private static boolean hasRealizingThreats(EObject element) {
-		return element instanceof Threat;
 	}
 
 	private static boolean hasRealizingPrimaryAsset(EObject element) {
@@ -428,35 +432,16 @@ public class CybersecurityHelper {
 		return functionalChains;
 	}
 
-	private static String getRealizedCapellaElementTitle(EObject element) {
-		if (element instanceof FunctionalPrimaryAsset) {
-			BlockArchitecture ba = BlockArchitectureExt.getRootBlockArchitecture(element);
-			if (ba instanceof OperationalAnalysis) {
-				return ConstantsCybersecurityDocGen.REALIZED_CAPELLA_ELEMENT_PA_OA;
-			} else {
-				return ConstantsCybersecurityDocGen.REALIZED_CAPELLA_ELEMENT_PA_OTHERS;
-			}
-		} else if (element instanceof InformationPrimaryAsset) {
-			return ConstantsCybersecurityDocGen.REALIZED_CAPELLA_ELEMENT_IPA;
-		}
-
-		throw new InternalError("This function cannot be applied on " + element.eClass().getName());
-	}
-
-	private static String getReferencesCyberElementTitle(EObject element) {
-		if (element instanceof OperationalProcess) {
-			return ConstantsCybersecurityDocGen.CYBER_REFERENCES_OP;
-		} else if (element instanceof FunctionalChain) {
-			return ConstantsCybersecurityDocGen.CYBER_REFERENCES_FC;
-		} else if (element instanceof Component || element instanceof Entity) {
-			return ConstantsCybersecurityDocGen.CYBER_REFERENCES_COMP;
-		} else if (element instanceof OperationalActivity) {
-			return ConstantsCybersecurityDocGen.CYBER_REFERENCES_OA;
-		} else if (element instanceof AbstractFunction) {
-			return ConstantsCybersecurityDocGen.CYBER_REFERENCES_FUNC;
-		} else if (element instanceof ExchangeItem) {
-			return ConstantsCybersecurityDocGen.CYBER_REFERENCES_EXC;
-		}
+	private static String getReferencedCapellaElementTitle(EObject element) {
+    if (element instanceof FunctionalPrimaryAsset) {
+      BlockArchitecture ba = BlockArchitectureExt.getRootBlockArchitecture(element);
+      if (ba instanceof OperationalAnalysis) {
+        return ConstantsCybersecurityDocGen.REFERENCED_CAPELLA_ELEMENT_PA_OA;
+      }
+      return ConstantsCybersecurityDocGen.REFERENCED_CAPELLA_ELEMENT_PA_OTHERS;
+    } else if (element instanceof InformationPrimaryAsset) {
+      return ConstantsCybersecurityDocGen.REFERENCED_CAPELLA_ELEMENT_IPA;
+    }
 
 		throw new InternalError("This function cannot be applied on " + element.eClass().getName());
 	}
