@@ -117,17 +117,11 @@ public class ThreatApplicationImpl extends RelationshipImpl implements ThreatApp
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * 
-   * @generated NOT
+   * @generated
    */
 
   public PrimaryAsset basicGetAsset() {
-
-    EObject container = eContainer();
-    if (container instanceof PrimaryAsset) {
-      return (PrimaryAsset) container;
-    }
-    return null;
-
+    return asset;
   }
 
   /**
