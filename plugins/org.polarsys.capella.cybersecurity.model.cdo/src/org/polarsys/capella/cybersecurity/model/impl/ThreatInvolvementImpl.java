@@ -17,7 +17,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.polarsys.capella.core.data.capellacore.impl.RelationshipImpl;
 import org.polarsys.capella.core.data.cs.Component;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
@@ -72,14 +71,11 @@ public class ThreatInvolvementImpl extends RelationshipImpl implements ThreatInv
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * 
-   * @generated NOT
+   * @generated
    */
   public Component basicGetComponent() {
-    EObject container = eContainer();
-    if (container instanceof Component) {
-      return (Component) container;
-    }
-    return null;
+    return (Component) eDynamicGet(CybersecurityPackage.THREAT_INVOLVEMENT__COMPONENT,
+        CybersecurityPackage.Literals.THREAT_INVOLVEMENT__COMPONENT, false, true);
   }
 
   /**

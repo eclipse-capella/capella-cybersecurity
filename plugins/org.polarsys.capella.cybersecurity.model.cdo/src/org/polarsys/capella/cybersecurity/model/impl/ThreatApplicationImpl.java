@@ -99,17 +99,12 @@ public class ThreatApplicationImpl extends RelationshipImpl implements ThreatApp
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * 
-   * @generated NOT
+   * @generated
    */
 
   public PrimaryAsset basicGetAsset() {
-
-    EObject container = eContainer();
-    if (container instanceof PrimaryAsset) {
-      return (PrimaryAsset) container;
-    }
-    return null;
-
+    return (PrimaryAsset) eDynamicGet(CybersecurityPackage.THREAT_APPLICATION__ASSET,
+        CybersecurityPackage.Literals.THREAT_APPLICATION__ASSET, false, true);
   }
 
   /**

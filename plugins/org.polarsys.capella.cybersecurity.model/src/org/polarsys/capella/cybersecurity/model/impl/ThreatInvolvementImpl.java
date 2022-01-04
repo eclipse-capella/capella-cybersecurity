@@ -90,14 +90,10 @@ public class ThreatInvolvementImpl extends RelationshipImpl implements ThreatInv
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * 
-   * @generated NOT
+   * @generated
    */
   public Component basicGetComponent() {
-    EObject container = eContainer();
-    if (container instanceof Component) {
-      return (Component) container;
-    }
-    return null;
+    return component;
   }
 
   /**
