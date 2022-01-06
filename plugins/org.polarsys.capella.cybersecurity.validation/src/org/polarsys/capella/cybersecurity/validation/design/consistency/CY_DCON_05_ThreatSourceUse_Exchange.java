@@ -47,9 +47,7 @@ public class CY_DCON_05_ThreatSourceUse_Exchange extends AbstractModelConstraint
     BlockArchitecture bla = BlockArchitectureExt.getRootBlockArchitecture(source);
     Component usedActor = threatSourceUse.getUsed();
     List<Component> sourceComponents = ComponentExt.getAllSubUsedAndDeployedComponents(source);
-    sourceComponents.add(source);
     List<Component> targetComponents = ComponentExt.getAllSubUsedAndDeployedComponents(usedActor);
-    targetComponents.add(usedActor);
     for (Component componentSource : sourceComponents) {
       for (Component componentTarget : targetComponents) {
         if (existsRelationBetweenThem(componentSource, componentTarget)) {
