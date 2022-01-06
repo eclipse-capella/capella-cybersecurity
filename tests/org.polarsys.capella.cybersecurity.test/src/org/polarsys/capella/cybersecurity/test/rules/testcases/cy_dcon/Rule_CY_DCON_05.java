@@ -32,6 +32,7 @@ import org.polarsys.capella.core.data.fa.FunctionOutputPort;
 import org.polarsys.capella.core.data.fa.FunctionalExchange;
 import org.polarsys.capella.core.model.helpers.ComponentExt;
 import org.polarsys.capella.core.model.skeleton.CapellaModelSkeleton;
+import org.polarsys.capella.core.sirius.analysis.CsServices;
 import org.polarsys.capella.cybersecurity.model.CybersecurityFactory;
 import org.polarsys.capella.cybersecurity.model.ThreatSourceUse;
 import org.polarsys.capella.cybersecurity.sirius.analysis.CybersecurityServices;
@@ -51,8 +52,11 @@ public class Rule_CY_DCON_05 extends DynamicValidationTest {
   protected XABDiagram diagram;
   CybersecurityServices service = new CybersecurityServices();
   ThreatSourceUse threatSourceUse;
+  ThreatSourceUse threatSourceUseSuper;
   ThreatSourceUse threatSourceUse2;
   SystemComponent actor1;
+  SystemComponent actor1Parent;
+  SystemComponent actor2Parent;
   SystemComponent actor2;
   SystemComponentPkg componentPkg;
   SystemAnalysis architecture;
@@ -62,17 +66,33 @@ public class Rule_CY_DCON_05 extends DynamicValidationTest {
 
   @Override
   protected void initModel(CapellaModelSkeleton skeleton) {
-    actor1 = ComponentExt.createSystemActor();
-    actor2 = ComponentExt.createSystemActor();
+    actor1Parent = ComponentExt.createSystemComponent();
+    actor2Parent = ComponentExt.createSystemComponent();
     architecture = skeleton.getSystemAnalysis();
+    ComponentExt.getAllSubUsedAndDeployedComponents(actor1Parent);
     componentPkg = architecture.getOwnedSystemComponentPkg();
     systemComponents = architecture.getOwnedSystemComponentPkg().getOwnedSystemComponents();
-    systemComponents.add(actor1);
-    systemComponents.add(actor2);
+    systemComponents.add(actor1Parent);
+    systemComponents.add(actor2Parent);
 
     threatSourceUse = CybersecurityFactory.eINSTANCE.createThreatSourceUse();
+    threatSourceUseSuper = CybersecurityFactory.eINSTANCE.createThreatSourceUse();
+    threatSourceUseSuper.setUsed(actor2Parent);
+    actor1Parent.getOwnedExtensions().add(threatSourceUseSuper);
+    
+    actor1 = ComponentExt.createSystemActor();
+    actor2 = ComponentExt.createSystemActor();
     threatSourceUse.setUsed(actor2);
     actor1.getOwnedExtensions().add(threatSourceUse);
+    
+    addSubComponent(actor1Parent, actor1);
+    addSubComponent(actor2Parent, actor2);
+
+  }
+  
+  private void addSubComponent(SystemComponent parent, SystemComponent subComponent) {
+    parent.getOwnedSystemComponents().add(subComponent);
+    new CsServices().createRepresentingPartIfNone(subComponent);
   }
 
   @Override
@@ -91,6 +111,7 @@ public class Rule_CY_DCON_05 extends DynamicValidationTest {
     });
 
     ok(threatSourceUse, RULE);
+    ok(threatSourceUseSuper, RULE);
 
     executeCommand(() -> {
       componentPkg.getOwnedComponentExchanges().remove(ce);
@@ -104,6 +125,7 @@ public class Rule_CY_DCON_05 extends DynamicValidationTest {
       componentPkg.getOwnedPhysicalLinks().add(pl);
     });
     ok(threatSourceUse, RULE);
+    ok(threatSourceUseSuper, RULE);
 
     executeCommand(() -> {
 
@@ -111,7 +133,11 @@ public class Rule_CY_DCON_05 extends DynamicValidationTest {
 
       FunctionalExchange fe = FaFactory.eINSTANCE.createFunctionalExchange();
 
-      SystemFunction function1 = new SystemFunctionImpl() {
+      SystemFunction function1 = CtxFactory.eINSTANCE.createSystemFunction();
+
+      function1.setId(IdGenerator.createId());
+
+      SystemFunction function2 = new SystemFunctionImpl() {
         @Override
         public EList<ActivityEdge> getIncoming() {
           EList<ActivityEdge> list = new BasicEList<>();
@@ -119,10 +145,6 @@ public class Rule_CY_DCON_05 extends DynamicValidationTest {
           return list;
         }
       };
-
-      function1.setId(IdGenerator.createId());
-
-      SystemFunction function2 = CtxFactory.eINSTANCE.createSystemFunction();
 
       FunctionInputPort fip = FaFactory.eINSTANCE.createFunctionInputPort();
       FunctionOutputPort fop = FaFactory.eINSTANCE.createFunctionOutputPort();
@@ -146,6 +168,8 @@ public class Rule_CY_DCON_05 extends DynamicValidationTest {
       actor2.getOwnedFunctionalAllocation().add(cfa2);
     });
     ok(threatSourceUse, RULE);
+    ok(threatSourceUseSuper, RULE);
+
   }
 
 }
