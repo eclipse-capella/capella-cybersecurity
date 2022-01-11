@@ -20,15 +20,19 @@ import java.util.Optional;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.polarsys.capella.common.data.modellingcore.AbstractTrace;
+import org.polarsys.capella.common.data.modellingcore.ModellingcorePackage;
 import org.polarsys.capella.common.ef.ExecutionManager;
 import org.polarsys.capella.common.helpers.TransactionHelper;
 import org.polarsys.capella.core.data.capellacommon.TransfoLink;
 import org.polarsys.capella.core.data.capellacore.EnumerationPropertyLiteral;
 import org.polarsys.capella.core.data.capellacore.EnumerationPropertyType;
 import org.polarsys.capella.core.data.capellamodeller.Project;
+import org.polarsys.capella.core.data.cs.Component;
 import org.polarsys.capella.core.data.interaction.AbstractCapabilityRealization;
 import org.polarsys.capella.core.data.interaction.InteractionFactory;
 import org.polarsys.capella.core.data.interaction.InteractionPackage;
@@ -38,23 +42,45 @@ import org.polarsys.capella.core.platform.sirius.ui.commands.CapellaDeleteComman
 import org.polarsys.capella.cybersecurity.CyberSecurityViewpointHelper;
 import org.polarsys.capella.cybersecurity.model.CybersecurityConfiguration;
 import org.polarsys.capella.cybersecurity.model.CybersecurityQueries;
+import org.polarsys.capella.cybersecurity.model.PrimaryAsset;
 import org.polarsys.capella.cybersecurity.model.SecurityNeeds;
 import org.polarsys.capella.cybersecurity.model.Threat;
+import org.polarsys.capella.cybersecurity.model.ThreatApplication;
+import org.polarsys.capella.cybersecurity.model.ThreatInvolvement;
 import org.polarsys.capella.cybersecurity.model.activator.CybersecurityModelActivator;
 
 public class CybersecurityMigrationContribution extends AbstractMigrationContribution {
   Map<String, String> savedValues = new HashMap<>();
+  Map<String, Threat> savedThreats = new HashMap<>();
+  Map<EObject, String> savedThreatIdLinks = new HashMap<>();
   private CybersecurityConfiguration config;
   List<AbstractTrace> transfoToDelete = new ArrayList<AbstractTrace>();
 
   @Override
   public void unaryMigrationExecute(EObject currentElement, MigrationContext context) {
     if (config != null && currentElement instanceof Threat) {
+      savedThreats.put(((Threat) currentElement).getId(), (Threat) currentElement);
       threatMigration((Threat) currentElement);
     }
     if (config != null && currentElement instanceof SecurityNeeds) {
       securityNeedsMigration((SecurityNeeds) currentElement);
     }
+    if (currentElement instanceof ThreatApplication) {
+      threatApplicationMigration((ThreatApplication) currentElement);
+    }
+    if (currentElement instanceof ThreatInvolvement) {
+      threatInvolvementMigration((ThreatInvolvement) currentElement);
+    }
+  }
+
+  public EStructuralFeature getFeature(EObject object, String prefix, String name, boolean isElement) {
+    if (object instanceof PrimaryAsset && name.contains("ownedThreatApplications")) {
+      return ModellingcorePackage.Literals.MODEL_ELEMENT__OWNED_MIGRATED_ELEMENTS;
+    }
+    if (object instanceof Component && name.contains("ownedThreatInvolvements")) {
+     return ModellingcorePackage.Literals.MODEL_ELEMENT__OWNED_MIGRATED_ELEMENTS;
+    }
+    return super.getFeature(object, prefix, name, isElement);
   }
 
   @Override
@@ -91,11 +117,16 @@ public class CybersecurityMigrationContribution extends AbstractMigrationContrib
   public boolean ignoreUnknownFeature(String prefix, String name, boolean isElement, EObject peekObject, String value,
       XMLResource resource, MigrationContext context) {
     if (peekObject instanceof Threat && "threatKind".equals(name)) {
-      savedValues.put(((Threat)peekObject).getId() + ":" + name, value);
+      savedValues.put(((Threat) peekObject).getId() + ":" + name, value);
       return true;
     }
     if (peekObject instanceof SecurityNeeds) {
-      savedValues.put(((SecurityNeeds)peekObject).getId() + ":" + name, value);
+      savedValues.put(((SecurityNeeds) peekObject).getId() + ":" + name, value);
+      return true;
+    }
+    if (name.equals("threat")
+        && (peekObject instanceof ThreatApplication || peekObject instanceof ThreatInvolvement)) {
+      savedThreatIdLinks.put(peekObject, value.substring(1));
       return true;
     }
     return false;
@@ -118,7 +149,7 @@ public class CybersecurityMigrationContribution extends AbstractMigrationContrib
     if (literal != null) {
       threat.setKind(literal);
     }
-    
+
     // TransfoLinks become AbstractCapabilityRealization links
     for (AbstractTrace trace : threat.getOutgoingTraces()) {
       if (trace instanceof TransfoLink) {
@@ -153,6 +184,32 @@ public class CybersecurityMigrationContribution extends AbstractMigrationContrib
     }
     if (literalA != null) {
       sn.setAvailabilityValue(literalA);
+    }
+  }
+
+  private void threatApplicationMigration(ThreatApplication threatApplication) {
+    if (threatApplication.eContainer() instanceof PrimaryAsset) {
+      PrimaryAsset asset = (PrimaryAsset) threatApplication.eContainer();
+      String threatId = savedThreatIdLinks.get(threatApplication);
+      Threat threat = savedThreats.get(threatId);
+      if (threat != null) {
+        threatApplication.setAsset(asset);
+        asset.getOwnedMigratedElements().remove(threatApplication);
+        threat.getOwnedThreatApplications().add(threatApplication);
+      }
+    }
+  }
+
+  private void threatInvolvementMigration(ThreatInvolvement threatInvolvement) {
+    if (threatInvolvement.eContainer() instanceof Component) {
+      Component component = (Component) threatInvolvement.eContainer();
+      String threatId = savedThreatIdLinks.get(threatInvolvement);
+      Threat threat = savedThreats.get(threatId);
+      if (threat != null) {
+        threatInvolvement.setComponent(component);
+        component.getOwnedMigratedElements().remove(threatInvolvement);
+        threat.getOwnedThreatInvolvements().add(threatInvolvement);
+      }
     }
   }
 

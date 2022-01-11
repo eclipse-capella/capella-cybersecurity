@@ -47,15 +47,16 @@ import org.polarsys.kitalpha.emde.model.edit.provider.NewChildDescriptorHelper;
 public class ThreatInvolvementItemProvider extends RelationshipItemProvider implements IEditingDomainItemProvider,
     IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
   /**
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    */
-  protected IItemPropertyDescriptor componentPropertyDescriptor;
+  protected IItemPropertyDescriptor threatObjPropertyDescriptor;
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
-  protected IItemPropertyDescriptor threatPropertyDescriptor;
+  protected IItemPropertyDescriptor componentPropertyDescriptor;
 
   /**
    * This constructs an instance from a factory and a notifier.
@@ -75,17 +76,17 @@ public class ThreatInvolvementItemProvider extends RelationshipItemProvider impl
     super.checkChildCreationExtender(object);
     if (object instanceof EObject) {
       EObject eObject = (EObject) object;
-      // Process CybersecurityPackage.Literals.THREAT_INVOLVEMENT__THREAT
-      if (threatPropertyDescriptor != null) {
-        Object threatValue = eObject.eGet(CybersecurityPackage.Literals.THREAT_INVOLVEMENT__THREAT, true);
-        if (threatValue != null && threatValue instanceof EObject
-            && ModelExtensionHelper.getInstance(eObject).isExtensionModelDisabled((EObject) threatValue)) {
-          itemPropertyDescriptors.remove(threatPropertyDescriptor);
-        } else if (threatValue == null && ExtensionModelManager.getAnyType(eObject,
-            CybersecurityPackage.Literals.THREAT_INVOLVEMENT__THREAT) != null) {
-          itemPropertyDescriptors.remove(threatPropertyDescriptor);
-        } else if (itemPropertyDescriptors.contains(threatPropertyDescriptor) == false) {
-          itemPropertyDescriptors.add(threatPropertyDescriptor);
+      // Process CybersecurityPackage.Literals.THREAT_INVOLVEMENT__THREAT_OBJ
+      if (threatObjPropertyDescriptor != null) {
+        Object threatObjValue = eObject.eGet(CybersecurityPackage.Literals.THREAT_INVOLVEMENT__THREAT_OBJ, true);
+        if (threatObjValue != null && threatObjValue instanceof EObject
+            && ModelExtensionHelper.getInstance(eObject).isExtensionModelDisabled((EObject) threatObjValue)) {
+          itemPropertyDescriptors.remove(threatObjPropertyDescriptor);
+        } else if (threatObjValue == null && ExtensionModelManager.getAnyType(eObject,
+            CybersecurityPackage.Literals.THREAT_INVOLVEMENT__THREAT_OBJ) != null) {
+          itemPropertyDescriptors.remove(threatObjPropertyDescriptor);
+        } else if (itemPropertyDescriptors.contains(threatObjPropertyDescriptor) == false) {
+          itemPropertyDescriptors.add(threatObjPropertyDescriptor);
         }
       }
       // Process CybersecurityPackage.Literals.THREAT_INVOLVEMENT__COMPONENT
@@ -114,13 +115,34 @@ public class ThreatInvolvementItemProvider extends RelationshipItemProvider impl
     if (itemPropertyDescriptors == null) {
       super.getPropertyDescriptors(object);
 
-      addThreatPropertyDescriptor(object);
+      addThreatObjPropertyDescriptor(object);
       addComponentPropertyDescriptor(object);
     }
     // begin-extension-code
     checkChildCreationExtender(object);
     // end-extension-code
     return itemPropertyDescriptors;
+  }
+
+  /**
+   * This adds a property descriptor for the Threat Obj feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addThreatObjPropertyDescriptor(Object object) {
+    // begin-extension-code
+    threatObjPropertyDescriptor = createItemPropertyDescriptor
+    // end-extension-code		
+    (((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+        getString("_UI_ThreatInvolvement_threatObj_feature"), //$NON-NLS-1$
+        getString("_UI_PropertyDescriptor_description", "_UI_ThreatInvolvement_threatObj_feature", //$NON-NLS-1$//$NON-NLS-2$
+            "_UI_ThreatInvolvement_type"), //$NON-NLS-1$
+        CybersecurityPackage.Literals.THREAT_INVOLVEMENT__THREAT_OBJ, false, false, false, null, null,
+        // begin-extension-code
+        null);
+    itemPropertyDescriptors.add(threatObjPropertyDescriptor);
+    // end-extension-code
   }
 
   /**
@@ -140,26 +162,6 @@ public class ThreatInvolvementItemProvider extends RelationshipItemProvider impl
         // begin-extension-code
         null);
     itemPropertyDescriptors.add(componentPropertyDescriptor);
-    // end-extension-code
-  }
-
-  /**
-   * This adds a property descriptor for the Threat feature.
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * @generated
-   */
-  protected void addThreatPropertyDescriptor(Object object) {
-    // begin-extension-code
-    threatPropertyDescriptor = createItemPropertyDescriptor
-    // end-extension-code		
-    (((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-        getString("_UI_ThreatInvolvement_threat_feature"), //$NON-NLS-1$
-        getString("_UI_PropertyDescriptor_description", "_UI_ThreatInvolvement_threat_feature", //$NON-NLS-1$//$NON-NLS-2$
-            "_UI_ThreatInvolvement_type"), //$NON-NLS-1$
-        CybersecurityPackage.Literals.THREAT_INVOLVEMENT__THREAT, true, false, true, null, null,
-        // begin-extension-code
-        null);
-    itemPropertyDescriptors.add(threatPropertyDescriptor);
     // end-extension-code
   }
 

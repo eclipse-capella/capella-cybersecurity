@@ -25,7 +25,7 @@ import org.polarsys.kitalpha.emde.model.ElementExtension;
  * The following features are supported:
  * </p>
  * <ul>
- * <li>{@link org.polarsys.capella.cybersecurity.model.ThreatApplication#getThreat <em>Threat</em>}</li>
+ * <li>{@link org.polarsys.capella.cybersecurity.model.ThreatApplication#getThreatObj <em>Threat</em>}</li>
  * <li>{@link org.polarsys.capella.cybersecurity.model.ThreatApplication#getAsset <em>Asset</em>}</li>
  * </ul>
  *
@@ -35,22 +35,6 @@ import org.polarsys.kitalpha.emde.model.ElementExtension;
  */
 
 public interface ThreatApplication extends Relationship, ElementExtension {
-
-  /**
-   * Returns the value of the '<em><b>Threat</b></em>' reference.
-  
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Threat</em>' reference isn't clear, there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Threat</em>' reference.
-   * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getThreatApplication_Threat()
-   * @model transient="true" changeable="false" volatile="true" derived="true"
-   * @generated
-   */
-
-  Threat getThreat();
 
   /**
    * Returns the value of the '<em><b>Asset</b></em>' reference.
@@ -80,5 +64,18 @@ public interface ThreatApplication extends Relationship, ElementExtension {
    */
 
   void setAsset(PrimaryAsset value);
+
+  /**
+   * Returns the value of the '<em><b>Threat Obj</b></em>' reference.
+  
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Threat Obj</em>' reference.
+   * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getThreatApplication_ThreatObj()
+   * @model transient="true" changeable="false" volatile="true" derived="true"
+   * @generated
+   */
+
+  Threat getThreatObj();
 
 } // ThreatApplication

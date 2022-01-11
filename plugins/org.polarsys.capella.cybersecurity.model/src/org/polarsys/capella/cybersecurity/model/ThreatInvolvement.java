@@ -27,7 +27,7 @@ import org.polarsys.kitalpha.emde.model.ElementExtension;
  * </p>
  * <ul>
  * <li>{@link org.polarsys.capella.cybersecurity.model.ThreatInvolvement#getActor <em>Actor</em>}</li>
- * <li>{@link org.polarsys.capella.cybersecurity.model.ThreatInvolvement#getThreat <em>Threat</em>}</li>
+ * <li>{@link org.polarsys.capella.cybersecurity.model.ThreatInvolvement#getThreatObj <em>Threat</em>}</li>
  * </ul>
  *
  * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getThreatInvolvement()
@@ -39,6 +39,19 @@ import org.polarsys.kitalpha.emde.model.ElementExtension;
  */
 
 public interface ThreatInvolvement extends Relationship, ElementExtension {
+
+  /**
+   * Returns the value of the '<em><b>Threat Obj</b></em>' reference.
+  
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Threat Obj</em>' reference.
+   * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getThreatInvolvement_ThreatObj()
+   * @model transient="true" changeable="false" volatile="true" derived="true"
+   * @generated
+   */
+
+  Threat getThreatObj();
 
   /**
    * Returns the value of the '<em><b>Component</b></em>' reference.
@@ -68,22 +81,5 @@ public interface ThreatInvolvement extends Relationship, ElementExtension {
    */
 
   void setComponent(Component value);
-
-  /**
-   * Returns the value of the '<em><b>Threat</b></em>' reference.
-  
-   * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Threat</em>' reference list isn't clear, there really should be more of a description
-     * here...
-     * </p>
-     * <!-- end-user-doc -->
-   * @return the value of the '<em>Threat</em>' reference.
-   * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getThreatInvolvement_Threat()
-   * @model transient="true" changeable="false" volatile="true" derived="true"
-   * @generated
-   */
-
-  Threat getThreat();
 
 } // ThreatInvolvement
