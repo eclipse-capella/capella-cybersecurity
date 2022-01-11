@@ -40,10 +40,10 @@ public class CyberSecurityDeleteHelper implements IDeleteHelper {
         && feature == CybersecurityPackage.Literals.PRIMARY_ASSET_MEMBER__MEMBER) {
       return true;
     } else if (sourceObject instanceof ThreatApplication
-        && feature == CybersecurityPackage.Literals.THREAT_APPLICATION__THREAT) {
+        && feature == CybersecurityPackage.Literals.THREAT_APPLICATION__THREAT_OBJ) {
       return true;
     } else if (sourceObject instanceof ThreatInvolvement
-        && feature == CybersecurityPackage.Literals.THREAT_INVOLVEMENT__THREAT) {
+        && feature == CybersecurityPackage.Literals.THREAT_INVOLVEMENT__THREAT_OBJ) {
       return true;
     }
     return false;

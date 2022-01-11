@@ -13,9 +13,11 @@
 
 package org.polarsys.capella.cybersecurity.model.impl;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.polarsys.capella.core.data.capellacore.impl.RelationshipImpl;
 import org.polarsys.capella.core.data.cs.Component;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
@@ -30,7 +32,7 @@ import org.polarsys.capella.cybersecurity.model.ThreatInvolvement;
  * </p>
  * <ul>
  * <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatInvolvementImpl#getActor <em>Actor</em>}</li>
- * <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatInvolvementImpl#getThreat <em>Threat</em>}</li>
+ * <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatInvolvementImpl#getThreatObj <em>Threat</em>}</li>
  * </ul>
  *
  * @generated
@@ -57,6 +59,35 @@ public class ThreatInvolvementImpl extends RelationshipImpl implements ThreatInv
   }
 
   /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+
+  @Override
+  public Threat getThreatObj() {
+
+    Threat threatObj = basicGetThreatObj();
+    return threatObj != null && ((EObject) threatObj).eIsProxy() ? (Threat) eResolveProxy((InternalEObject) threatObj)
+        : threatObj;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated NOT
+   */
+
+  public Threat basicGetThreatObj() {
+    EObject container = eContainer();
+    if (container instanceof Threat) {
+      return (Threat) container;
+    }
+    return null;
+
+  }
+
+  /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
@@ -69,10 +100,10 @@ public class ThreatInvolvementImpl extends RelationshipImpl implements ThreatInv
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
   public Component basicGetComponent() {
+
     return (Component) eDynamicGet(CybersecurityPackage.THREAT_INVOLVEMENT__COMPONENT,
         CybersecurityPackage.Literals.THREAT_INVOLVEMENT__COMPONENT, false, true);
   }
@@ -95,39 +126,13 @@ public class ThreatInvolvementImpl extends RelationshipImpl implements ThreatInv
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
-
-  @Override
-  public Threat getThreat() {
-
-    Threat threat = basicGetThreat();
-    return threat != null && ((EObject) threat).eIsProxy() ? (Threat) eResolveProxy((InternalEObject) threat) : threat;
-  }
-
-  /**
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
-   * @generated NOT
-   */
-
-  public Threat basicGetThreat() {
-    EObject container = eContainer();
-    if (container instanceof Threat) {
-      return (Threat) container;
-    }
-    return null;
-  }
-
-  /**
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType) {
     switch (featureID) {
-    case CybersecurityPackage.THREAT_INVOLVEMENT__THREAT:
+    case CybersecurityPackage.THREAT_INVOLVEMENT__THREAT_OBJ:
       if (resolve)
-        return getThreat();
-      return basicGetThreat();
+        return getThreatObj();
+      return basicGetThreatObj();
     case CybersecurityPackage.THREAT_INVOLVEMENT__COMPONENT:
       if (resolve)
         return getComponent();
@@ -171,8 +176,8 @@ public class ThreatInvolvementImpl extends RelationshipImpl implements ThreatInv
   @Override
   public boolean eIsSet(int featureID) {
     switch (featureID) {
-    case CybersecurityPackage.THREAT_INVOLVEMENT__THREAT:
-      return basicGetThreat() != null;
+    case CybersecurityPackage.THREAT_INVOLVEMENT__THREAT_OBJ:
+      return basicGetThreatObj() != null;
     case CybersecurityPackage.THREAT_INVOLVEMENT__COMPONENT:
       return basicGetComponent() != null;
     }

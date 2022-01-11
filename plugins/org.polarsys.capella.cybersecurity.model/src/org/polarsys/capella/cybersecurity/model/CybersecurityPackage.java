@@ -1034,12 +1034,13 @@ public interface CybersecurityPackage extends EPackage {
   int THREAT_INVOLVEMENT__APPLIED_REQUIREMENTS = CapellacorePackage.RELATIONSHIP__APPLIED_REQUIREMENTS;
 
   /**
-   * The feature id for the '<em><b>Threat</b></em>' reference.
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * The feature id for the '<em><b>Threat Obj</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int THREAT_INVOLVEMENT__THREAT = CapellacorePackage.RELATIONSHIP_FEATURE_COUNT + 0;
+  int THREAT_INVOLVEMENT__THREAT_OBJ = CapellacorePackage.RELATIONSHIP_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Component</b></em>' reference.
@@ -1493,12 +1494,13 @@ public interface CybersecurityPackage extends EPackage {
   int THREAT_APPLICATION__ASSET = CapellacorePackage.RELATIONSHIP_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Threat</b></em>' reference.
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * The feature id for the '<em><b>Threat Obj</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int THREAT_APPLICATION__THREAT = CapellacorePackage.RELATIONSHIP_FEATURE_COUNT + 1;
+  int THREAT_APPLICATION__THREAT_OBJ = CapellacorePackage.RELATIONSHIP_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Threat Application</em>' class.
@@ -4015,6 +4017,17 @@ public interface CybersecurityPackage extends EPackage {
   EClass getThreatInvolvement();
 
   /**
+   * Returns the meta object for the reference '{@link org.polarsys.capella.cybersecurity.model.ThreatInvolvement#getThreatObj <em>Threat Obj</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Threat Obj</em>'.
+   * @see org.polarsys.capella.cybersecurity.model.ThreatInvolvement#getThreatObj()
+   * @see #getThreatInvolvement()
+   * @generated
+   */
+  EReference getThreatInvolvement_ThreatObj();
+
+  /**
    * Returns the meta object for the reference
    * '{@link org.polarsys.capella.cybersecurity.model.ThreatInvolvement#getComponent <em>Component</em>}'. <!--
    * begin-user-doc --> <!-- end-user-doc -->
@@ -4025,17 +4038,6 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    */
   EReference getThreatInvolvement_Component();
-
-  /**
-   * Returns the meta object for the reference '{@link org.polarsys.capella.cybersecurity.model.ThreatInvolvement#getThreat <em>Threat</em>}'.
-   * <!-- begin-user-doc
-   * --> <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Threat</em>'.
-   * @see org.polarsys.capella.cybersecurity.model.ThreatInvolvement#getThreat()
-   * @see #getThreatInvolvement()
-   * @generated
-   */
-  EReference getThreatInvolvement_Threat();
 
   /**
    * Returns the meta object for class '{@link org.polarsys.capella.cybersecurity.model.FunctionStorage <em>Function Storage</em>}'.
@@ -4092,17 +4094,6 @@ public interface CybersecurityPackage extends EPackage {
   EClass getThreatApplication();
 
   /**
-   * Returns the meta object for the reference '{@link org.polarsys.capella.cybersecurity.model.ThreatApplication#getThreat <em>Threat</em>}'.
-   * <!-- begin-user-doc
-   * --> <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Threat</em>'.
-   * @see org.polarsys.capella.cybersecurity.model.ThreatApplication#getThreat()
-   * @see #getThreatApplication()
-   * @generated
-   */
-  EReference getThreatApplication_Threat();
-
-  /**
    * Returns the meta object for the reference '{@link org.polarsys.capella.cybersecurity.model.ThreatApplication#getAsset <em>Asset</em>}'.
    * <!-- begin-user-doc
    * --> <!-- end-user-doc -->
@@ -4112,6 +4103,17 @@ public interface CybersecurityPackage extends EPackage {
    * @generated
    */
   EReference getThreatApplication_Asset();
+
+  /**
+   * Returns the meta object for the reference '{@link org.polarsys.capella.cybersecurity.model.ThreatApplication#getThreatObj <em>Threat Obj</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Threat Obj</em>'.
+   * @see org.polarsys.capella.cybersecurity.model.ThreatApplication#getThreatObj()
+   * @see #getThreatApplication()
+   * @generated
+   */
+  EReference getThreatApplication_ThreatObj();
 
   /**
    * Returns the meta object for class '{@link org.polarsys.capella.cybersecurity.model.PrimaryAssetStorage <em>Primary Asset Storage</em>}'.
@@ -4599,20 +4601,20 @@ public interface CybersecurityPackage extends EPackage {
     EClass THREAT_INVOLVEMENT = eINSTANCE.getThreatInvolvement();
 
     /**
+     * The meta object literal for the '<em><b>Threat Obj</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference THREAT_INVOLVEMENT__THREAT_OBJ = eINSTANCE.getThreatInvolvement_ThreatObj();
+
+    /**
      * The meta object literal for the '<em><b>Component</b></em>' reference feature.
      * <!-- begin-user-doc --> <!--
      * end-user-doc -->
      * @generated
      */
     EReference THREAT_INVOLVEMENT__COMPONENT = eINSTANCE.getThreatInvolvement_Component();
-
-    /**
-     * The meta object literal for the '<em><b>Threat</b></em>' reference feature.
-     * <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     * @generated
-     */
-    EReference THREAT_INVOLVEMENT__THREAT = eINSTANCE.getThreatInvolvement_Threat();
 
     /**
      * The meta object literal for the '{@link org.polarsys.capella.cybersecurity.model.impl.FunctionStorageImpl <em>Function Storage</em>}' class.
@@ -4657,20 +4659,20 @@ public interface CybersecurityPackage extends EPackage {
     EClass THREAT_APPLICATION = eINSTANCE.getThreatApplication();
 
     /**
-     * The meta object literal for the '<em><b>Threat</b></em>' reference feature.
-     * <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     * @generated
-     */
-    EReference THREAT_APPLICATION__THREAT = eINSTANCE.getThreatApplication_Threat();
-
-    /**
      * The meta object literal for the '<em><b>Asset</b></em>' reference feature.
      * <!-- begin-user-doc --> <!--
      * end-user-doc -->
      * @generated
      */
     EReference THREAT_APPLICATION__ASSET = eINSTANCE.getThreatApplication_Asset();
+
+    /**
+     * The meta object literal for the '<em><b>Threat Obj</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference THREAT_APPLICATION__THREAT_OBJ = eINSTANCE.getThreatApplication_ThreatObj();
 
     /**
      * The meta object literal for the '{@link org.polarsys.capella.cybersecurity.model.impl.PrimaryAssetStorageImpl <em>Primary Asset Storage</em>}' class.
