@@ -162,7 +162,7 @@ public class CybersecurityQueries {
 
   public static Stream<Threat> getThreatsOf(PrimaryAsset pa) {
     return EObjectExt.getReferencers(pa, CybersecurityPackage.Literals.THREAT_APPLICATION__ASSET).stream()
-    .map(s -> ((ThreatApplication) s).getThreat())
+    .map(s -> ((ThreatApplication) s).getThreatObj())
     .filter(Objects::nonNull)
     .distinct();
   }
@@ -207,7 +207,7 @@ public class CybersecurityQueries {
 
   public static Stream<Threat> getInvolvingThreats(Component c) {
     return EObjectExt.getReferencers(c, CybersecurityPackage.Literals.THREAT_INVOLVEMENT__COMPONENT).stream()
-        .map(s -> ((ThreatInvolvement) s).getThreat())
+        .map(s -> ((ThreatInvolvement) s).getThreatObj())
         .filter(Objects::nonNull);
   }
 

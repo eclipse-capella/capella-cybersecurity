@@ -31,7 +31,7 @@ import org.polarsys.capella.cybersecurity.model.ThreatApplication;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatApplicationImpl#getThreat <em>Threat</em>}</li>
+ * <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatApplicationImpl#getThreatObj <em>Threat</em>}</li>
  * <li>{@link org.polarsys.capella.cybersecurity.model.impl.ThreatApplicationImpl#getAsset <em>Asset</em>}</li>
  * </ul>
  *
@@ -74,32 +74,6 @@ public class ThreatApplicationImpl extends RelationshipImpl implements ThreatApp
    */
 
   @Override
-  public Threat getThreat() {
-
-    Threat threat = basicGetThreat();
-    return threat != null && threat.eIsProxy() ? (Threat) eResolveProxy((InternalEObject) threat) : threat;
-  }
-
-  /**
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
-   * @generated NOT
-   */
-
-  public Threat basicGetThreat() {
-    EObject container = eContainer();
-    if (container instanceof Threat) {
-      return (Threat) container;
-    }
-    return null;
-  }
-
-  /**
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * @generated
-   */
-
-  @Override
   public PrimaryAsset getAsset() {
 
     if (asset != null && asset.eIsProxy()) {
@@ -116,11 +90,11 @@ public class ThreatApplicationImpl extends RelationshipImpl implements ThreatApp
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
    * @generated
    */
 
   public PrimaryAsset basicGetAsset() {
+
     return asset;
   }
 
@@ -142,6 +116,33 @@ public class ThreatApplicationImpl extends RelationshipImpl implements ThreatApp
   }
 
   /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+
+  @Override
+  public Threat getThreatObj() {
+
+    Threat threatObj = basicGetThreatObj();
+    return threatObj != null && threatObj.eIsProxy() ? (Threat) eResolveProxy((InternalEObject) threatObj) : threatObj;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated NOT
+   */
+
+  public Threat basicGetThreatObj() {
+    EObject container = eContainer();
+    if (container instanceof Threat) {
+      return (Threat) container;
+    }
+    return null;
+  }
+
+  /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
    */
@@ -152,10 +153,10 @@ public class ThreatApplicationImpl extends RelationshipImpl implements ThreatApp
       if (resolve)
         return getAsset();
       return basicGetAsset();
-    case CybersecurityPackage.THREAT_APPLICATION__THREAT:
+    case CybersecurityPackage.THREAT_APPLICATION__THREAT_OBJ:
       if (resolve)
-        return getThreat();
-      return basicGetThreat();
+        return getThreatObj();
+      return basicGetThreatObj();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -197,8 +198,8 @@ public class ThreatApplicationImpl extends RelationshipImpl implements ThreatApp
     switch (featureID) {
     case CybersecurityPackage.THREAT_APPLICATION__ASSET:
       return asset != null;
-    case CybersecurityPackage.THREAT_APPLICATION__THREAT:
-      return basicGetThreat() != null;
+    case CybersecurityPackage.THREAT_APPLICATION__THREAT_OBJ:
+      return basicGetThreatObj() != null;
     }
     return super.eIsSet(featureID);
   }

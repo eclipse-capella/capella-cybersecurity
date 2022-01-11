@@ -119,7 +119,7 @@
             </style>
           </conditionnalStyles>
         </nodeMappings>
-        <edgeMappings name="ThreatInvolvement" sourceMapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='Threat']" targetMapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='Actor'] //@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@containerMappings[name='OperationalEntity']" targetFinderExpression="feature:component" sourceFinderExpression="feature:threat" domainClass="cybersecurity.ThreatInvolvement" useDomainElement="true">
+        <edgeMappings name="ThreatInvolvement" sourceMapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='Threat']" targetMapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='Actor'] //@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@containerMappings[name='OperationalEntity']" targetFinderExpression="feature:component" sourceFinderExpression="feature:threatObj" domainClass="cybersecurity.ThreatInvolvement" useDomainElement="true">
           <deletionDescription href="../../org.polarsys.capella.core.sirius.analysis/description/common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Contextual%20Component%20Detailed%20Interfaces']/@defaultLayer/@toolSections.0/@ownedTools[name='delete%20capella%20elements']"/>
           <labelDirectEdit href="../../org.polarsys.capella.core.sirius.analysis/description/common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.0/@ownedTools[name='name']"/>
           <style>
@@ -129,7 +129,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="ThreatApplication" sourceMapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='Threat']" targetMapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='FunctionalPrimaryAsset'] //@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='InformationPrimaryAsset'] //@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='EnterprisePrimaryAsset']" targetFinderExpression="feature:asset" sourceFinderExpression="feature:threat" domainClass="cybersecurity.ThreatApplication" useDomainElement="true">
+        <edgeMappings name="ThreatApplication" sourceMapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='Threat']" targetMapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='FunctionalPrimaryAsset'] //@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='InformationPrimaryAsset'] //@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@nodeMappings[name='EnterprisePrimaryAsset']" targetFinderExpression="feature:asset" sourceFinderExpression="feature:threatObj" domainClass="cybersecurity.ThreatApplication" useDomainElement="true">
           <deletionDescription href="../../org.polarsys.capella.core.sirius.analysis/description/common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Contextual%20Component%20Detailed%20Interfaces']/@defaultLayer/@toolSections.0/@ownedTools[name='delete%20capella%20elements']"/>
           <labelDirectEdit href="../../org.polarsys.capella.core.sirius.analysis/description/common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.0/@ownedTools[name='name']"/>
           <style lineStyle="dot">
@@ -255,7 +255,7 @@
             <targetViewVariable name="targetView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:source.createThreatInvolvement(target)">
-                <subModelOperations xsi:type="tool:CreateEdgeView" mapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@edgeMappings[name='ThreatInvolvement']" containerViewExpression="var:sourceView" sourceExpression="feature:threat" targetExpression="feature:component"/>
+                <subModelOperations xsi:type="tool:CreateEdgeView" mapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@edgeMappings[name='ThreatInvolvement']" containerViewExpression="var:sourceView" sourceExpression="feature:threatObj" targetExpression="feature:component"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -266,7 +266,7 @@
             <targetViewVariable name="targetView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:source.createThreatApplication(target)">
-                <subModelOperations xsi:type="tool:CreateEdgeView" mapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@edgeMappings[name='ThreatApplication']" containerViewExpression="var:sourceView" sourceExpression="feature:threat" targetExpression="feature:asset"/>
+                <subModelOperations xsi:type="tool:CreateEdgeView" mapping="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']/@defaultLayer/@edgeMappings[name='ThreatApplication']" containerViewExpression="var:sourceView" sourceExpression="feature:threatObj" targetExpression="feature:asset"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
