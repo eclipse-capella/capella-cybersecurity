@@ -196,7 +196,7 @@ The user can create a diagram using the menus in project explorer or using the c
 
 Threat diagrams are used to model System Threats, threatened Assets and Involved Actors/Entities:
 
-[[Image:Images/threat_diagram_1.png]] 
+[[Image:Images/threat_diagram_1.PNG]] 
 
 
 Alternatively, select ''New Diagram/Table...->Threat Diagram'' on a component's context menu in the Capella Project Explorer.
