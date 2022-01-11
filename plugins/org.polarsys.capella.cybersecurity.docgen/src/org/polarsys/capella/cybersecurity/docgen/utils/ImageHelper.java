@@ -111,8 +111,11 @@ public class ImageHelper {
 			return PATH_IMG + ExchangeItem.class.getSimpleName() + GIF_TYPE;
     } else if (element instanceof Scenario) {
       return PATH_IMG + Scenario.class.getSimpleName() + GIF_TYPE;
-    } else if (element instanceof Entity && ((Entity) element).isActor()) {
-      return PATH_IMG + "Actor" + GIF_TYPE;
+    } else if (element instanceof Entity) {
+      if(((Entity) element).isActor()) {
+        return PATH_IMG + "Actor" + GIF_TYPE;
+      }
+      return PATH_IMG + "Entity" + GIF_TYPE;
     } else if (element instanceof Component && ((Component) element).isActor() && ((Component) element).isHuman()) {
       return PATH_IMG + "Actor" + GIF_TYPE;
     } else if (element instanceof SystemComponent && ((SystemComponent) element).isActor()) {
