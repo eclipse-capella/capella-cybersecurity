@@ -383,5 +383,27 @@ public class SecurityNeedsImpl extends NamedElementImpl implements SecurityNeeds
     }
     return super.eIsSet(featureID);
   }
+  
+  /**
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * @generated NOT
+   */
+  @Override
+  public String toString() {
+    if (eIsProxy())
+      return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (confidentiality: "); //$NON-NLS-1$
+    result.append(confidentialityValue);
+    result.append(", integrity: "); //$NON-NLS-1$
+    result.append(integrityValue);
+    result.append(", availability: "); //$NON-NLS-1$
+    result.append(availabilityValue);
+    result.append(", traceability: "); //$NON-NLS-1$
+    result.append(traceabilityValue);
+    result.append(')');
+    return result.toString();
+  }
 
 } // SecurityNeedsImpl
