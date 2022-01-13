@@ -54,7 +54,10 @@ public class CybersecurityMigrationContribution extends AbstractMigrationContrib
   Map<String, Threat> savedThreats = new HashMap<>();
   Map<EObject, String> savedThreatIdLinks = new HashMap<>();
   private CybersecurityConfiguration config;
-  List<AbstractTrace> transfoToDelete = new ArrayList<AbstractTrace>();
+  List<AbstractTrace> transfoToDelete = new ArrayList<>();
+  List<ThreatApplication> threatApplications = new ArrayList<>();
+  List<ThreatInvolvement> threatInvolvments = new ArrayList<>();
+  
 
   @Override
   public void unaryMigrationExecute(EObject currentElement, MigrationContext context) {
@@ -66,10 +69,10 @@ public class CybersecurityMigrationContribution extends AbstractMigrationContrib
       securityNeedsMigration((SecurityNeeds) currentElement);
     }
     if (currentElement instanceof ThreatApplication) {
-      threatApplicationMigration((ThreatApplication) currentElement);
+      threatApplications.add((ThreatApplication) currentElement);
     }
     if (currentElement instanceof ThreatInvolvement) {
-      threatInvolvementMigration((ThreatInvolvement) currentElement);
+      threatInvolvments.add((ThreatInvolvement) currentElement);
     }
   }
 
@@ -110,6 +113,9 @@ public class CybersecurityMigrationContribution extends AbstractMigrationContrib
         }
         transfoToDelete.clear();
       }
+      
+      threatApplications.forEach(this::threatApplicationMigration);
+      threatInvolvments.forEach(this::threatInvolvementMigration);
     }
   }
 
