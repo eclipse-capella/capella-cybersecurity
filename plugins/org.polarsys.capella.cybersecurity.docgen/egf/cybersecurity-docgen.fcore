@@ -35,7 +35,7 @@
           <methods xmi:id="_Zzcx0AQJEeyLMfB-ji7ZWg" name="setCapellaContext" patternFilePath="templates/pattern._xs0b8ADuEeyfsaGVmvqWSQ/method._Zzcx0AQJEeyLMfB-ji7ZWg.pt"/>
           <methods xmi:id="_AftkQAQrEeyLMfB-ji7ZWg" name="createPNG" patternFilePath="templates/pattern._xs0b8ADuEeyfsaGVmvqWSQ/method._AftkQAQrEeyLMfB-ji7ZWg.pt"/>
           <methods xmi:id="_J9t-cATpEey237wyeDoSOQ" name="fileNameService" patternFilePath="templates/pattern._xs0b8ADuEeyfsaGVmvqWSQ/method._J9t-cATpEey237wyeDoSOQ.pt"/>
-          <parameters xmi:id="_iu-lYAPoEeyLMfB-ji7ZWg" name="parameter" type="http://www.polarsys.org/capella/core/core/5.0.0#//CapellaElement"/>
+          <parameters xmi:id="_iu-lYAPoEeyLMfB-ji7ZWg" name="parameter" type="http://www.polarsys.org/capella/core/core/6.0.0#//CapellaElement"/>
           <orchestration xmi:type="pattern:MethodCall" xmi:id="_CyzBMAQrEeyLMfB-ji7ZWg"
               called="#_AftkQAQrEeyLMfB-ji7ZWg"/>
           <orchestration xmi:type="pattern:SuperCall" xmi:id="_DhQpsAQrEeyLMfB-ji7ZWg"/>
