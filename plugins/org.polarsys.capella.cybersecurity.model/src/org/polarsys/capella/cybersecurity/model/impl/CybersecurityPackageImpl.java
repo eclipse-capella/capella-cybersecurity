@@ -1108,28 +1108,28 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
   protected void createConstraintAnnotations() {
     String source = "http://www.polarsys.org/kitalpha/emde/1.0.0/constraint"; //$NON-NLS-1$
     addAnnotation(cybersecurityPkgEClass, source,
-        new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/cs/5.0.0#//BlockArchitecture" //$NON-NLS-1$ //$NON-NLS-2$
+        new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/cs/6.0.0#//BlockArchitecture" //$NON-NLS-1$ //$NON-NLS-2$
         });
     addAnnotation(threatInvolvementEClass, source,
-        new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/cs/5.0.0#//Component" //$NON-NLS-1$ //$NON-NLS-2$
+        new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/cs/6.0.0#//Component" //$NON-NLS-1$ //$NON-NLS-2$
         });
     addAnnotation(functionStorageEClass, source,
-        new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/fa/5.0.0#//AbstractFunction" //$NON-NLS-1$ //$NON-NLS-2$
+        new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/fa/6.0.0#//AbstractFunction" //$NON-NLS-1$ //$NON-NLS-2$
         });
     addAnnotation(primaryAssetStorageEClass, source,
-        new String[] { "ExtendedElement", " http://www.polarsys.org/capella/common/behavior/5.0.0#//AbstractEvent" //$NON-NLS-1$ //$NON-NLS-2$
+        new String[] { "ExtendedElement", " http://www.polarsys.org/capella/common/behavior/6.0.0#//AbstractEvent" //$NON-NLS-1$ //$NON-NLS-2$
         });
     addAnnotation(securityNeedsEClass, source, new String[] { "ExtendedElement", //$NON-NLS-1$
-        "http://www.polarsys.org/capella/common/behavior/5.0.0#//AbstractEvent http://www.polarsys.org/capella/cybersecurity/1.0#//PrimaryAsset http://www.polarsys.org/capella/common/behavior/5.0.0#//AbstractEvent http://www.polarsys.org/capella/cybersecurity/1.0#//Threat" //$NON-NLS-1$
+        "http://www.polarsys.org/capella/common/behavior/6.0.0#//AbstractEvent http://www.polarsys.org/capella/cybersecurity/1.0#//PrimaryAsset http://www.polarsys.org/capella/common/behavior/6.0.0#//AbstractEvent http://www.polarsys.org/capella/cybersecurity/1.0#//Threat" //$NON-NLS-1$
     });
     addAnnotation(trustBoundaryStorageEClass, source,
-        new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/cs/5.0.0#//Component" //$NON-NLS-1$ //$NON-NLS-2$
+        new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/cs/6.0.0#//Component" //$NON-NLS-1$ //$NON-NLS-2$
         });
     addAnnotation(cybersecurityConfigurationEClass, source,
-        new String[] { "ExtendedElement", "http://www.polarsys.org/capella/core/modeller/5.0.0#//Project" //$NON-NLS-1$ //$NON-NLS-2$
+        new String[] { "ExtendedElement", "http://www.polarsys.org/capella/core/modeller/6.0.0#//Project" //$NON-NLS-1$ //$NON-NLS-2$
         });
     addAnnotation(threatSourceUseEClass, source,
-        new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/cs/5.0.0#//Component" //$NON-NLS-1$ //$NON-NLS-2$
+        new String[] { "ExtendedElement", " http://www.polarsys.org/capella/core/cs/6.0.0#//Component" //$NON-NLS-1$ //$NON-NLS-2$
         });
   }
 
