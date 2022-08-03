@@ -34,7 +34,7 @@ import org.polarsys.kitalpha.emde.model.ElementExtension;
  * </ul>
  *
  * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getCybersecurityConfiguration()
- * @model annotation="http://www.polarsys.org/kitalpha/emde/1.0.0/constraint ExtendedElement='http://www.polarsys.org/capella/core/modeller/5.0.0#//Project'"
+ * @model annotation="http://www.polarsys.org/kitalpha/emde/1.0.0/constraint ExtendedElement='http://www.polarsys.org/capella/core/modeller/6.0.0#//Project'"
  *        annotation="http://www.polarsys.org/kitalpha/emde/1.0.0/constraintMapping Mapping=' platform:/plugin/org.polarsys.capella.core.data.gen/model/CompositeStructure.ecore#//BlockArchitecture'"
  * @generated
  */

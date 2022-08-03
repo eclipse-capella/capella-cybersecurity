@@ -32,7 +32,7 @@ import org.polarsys.kitalpha.emde.model.ElementExtension;
  * </ul>
  *
  * @see org.polarsys.capella.cybersecurity.model.CybersecurityPackage#getSecurityNeeds()
- * @model annotation="http://www.polarsys.org/kitalpha/emde/1.0.0/constraint ExtendedElement='http://www.polarsys.org/capella/common/behavior/5.0.0#//AbstractEvent http://www.polarsys.org/capella/cybersecurity/1.0#//PrimaryAsset http://www.polarsys.org/capella/common/behavior/5.0.0#//AbstractEvent http://www.polarsys.org/capella/cybersecurity/1.0#//Threat'"
+ * @model annotation="http://www.polarsys.org/kitalpha/emde/1.0.0/constraint ExtendedElement='http://www.polarsys.org/capella/common/behavior/6.0.0#//AbstractEvent http://www.polarsys.org/capella/cybersecurity/1.0#//PrimaryAsset http://www.polarsys.org/capella/common/behavior/6.0.0#//AbstractEvent http://www.polarsys.org/capella/cybersecurity/1.0#//Threat'"
  *        annotation="http://www.polarsys.org/kitalpha/emde/1.0.0/constraintMapping Mapping=' platform:/plugin/org.polarsys.capella.common.data.behavior.gen/model/Behavior.ecore#//AbstractEvent platform:/plugin/org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//PrimaryAsset platform:/plugin/org.polarsys.capella.common.data.behavior.gen/model/Behavior.ecore#//AbstractEvent platform:/plugin/org.polarsys.capella.cybersecurity.model/models/Cybersecurity.ecore#//Threat'"
  * @generated
  */
