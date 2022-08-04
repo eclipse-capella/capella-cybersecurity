@@ -110,21 +110,20 @@ public class FunctionCybersecuritySection extends AbstractSection {
     if (!CommonHelpers.isViewpointActive(parent, CybersecurityUIActivator.VIEWPOINT_ID))
       return null;
 
-    EObject result = null;
     for (EObject iEObject : parent.eContents()) {
       if (iEObject instanceof FunctionStorage) {
-        result = (result == null ? (FunctionStorage) iEObject : null);
-        // This case is true when there is more then one extension of the same type.
-        if (result == null)
-          break;
+        // we return first encountered function storage (in case of many - which is in inconsistent state)
+        return iEObject;
       }
     }
+
+    EObject result = null;
     if (result == null) {
       if (CommonHelpers.canBeExtendedBy(parent, CybersecurityPackage.Literals.FUNCTION_STORAGE)) {
         for (Adapter adapter : parent.eAdapters()) {
           if (adapter instanceof ElementExtensionStorage
               && ((ElementExtensionStorage<?>) adapter).getExtension() instanceof FunctionStorage) {
-            result = ((ElementExtensionStorage<?>) adapter).getExtension();
+            return ((ElementExtensionStorage<?>) adapter).getExtension();
           }
         }
         if (result == null) {

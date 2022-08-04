@@ -119,13 +119,12 @@ public class SecurityNeedsSection extends AbstractSection {
     }
 
     EObject result = null;
-
     EReference storageRef = getStorageRef(parent);
     if (storageRef != null) {
       for (Adapter adapter : parent.eAdapters()) {
         if (adapter instanceof ElementExtensionStorage
             && ((ElementExtensionStorage<?>) adapter).getExtension() instanceof SecurityNeeds) {
-          result = ((ElementExtensionStorage<?>) adapter).getExtension();
+          return ((ElementExtensionStorage<?>) adapter).getExtension();
         }
       }
       if (result == null) {

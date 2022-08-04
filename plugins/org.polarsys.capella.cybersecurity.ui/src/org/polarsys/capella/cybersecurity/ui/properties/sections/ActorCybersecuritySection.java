@@ -123,28 +123,25 @@ public class ActorCybersecuritySection extends AbstractSection {
     if (!CommonHelpers.isViewpointActive(parent, CybersecurityUIActivator.VIEWPOINT_ID))
       return null;
 
-    EObject result = null;
     for (EObject iEObject : parent.eContents()) {
       if (iEObject instanceof TrustBoundaryStorage) {
-        result = (result == null ? (TrustBoundaryStorage) iEObject : null);
-        // This case is true when there is more then one extension of the same type.
-        if (result == null)
-          break;
+        // we return first encountered trust boundary (in case of many - which is in inconsistent state)
+        return iEObject;
       }
     }
-    if (result == null) {
-      if (CommonHelpers.canBeExtendedBy(parent, CybersecurityPackage.Literals.TRUST_BOUNDARY_STORAGE)) {
-        for (Adapter adapter : parent.eAdapters()) {
-          if (adapter instanceof ElementExtensionStorage
-              && ((ElementExtensionStorage<?>) adapter).getExtension() instanceof TrustBoundaryStorage) {
-            result = ((ElementExtensionStorage<?>) adapter).getExtension();
-          }
+    
+    EObject result = null;
+    if (CommonHelpers.canBeExtendedBy(parent, CybersecurityPackage.Literals.TRUST_BOUNDARY_STORAGE)) {
+      for (Adapter adapter : parent.eAdapters()) {
+        if (adapter instanceof ElementExtensionStorage
+            && ((ElementExtensionStorage<?>) adapter).getExtension() instanceof TrustBoundaryStorage) {
+          return ((ElementExtensionStorage<?>) adapter).getExtension();
         }
-        if (result == null) {
-          ElementExtensionStorage<TrustBoundaryStorage> adapter = new ElementExtensionStorageImpl<>(
-              (ExtensibleElement) parent, CybersecurityPackage.Literals.TRUST_BOUNDARY_STORAGE);
-          result = adapter.getExtension();
-        }
+      }
+      if (result == null) {
+        ElementExtensionStorage<TrustBoundaryStorage> adapter = new ElementExtensionStorageImpl<>(
+            (ExtensibleElement) parent, CybersecurityPackage.Literals.TRUST_BOUNDARY_STORAGE);
+        result = adapter.getExtension();
       }
     }
     return result;
