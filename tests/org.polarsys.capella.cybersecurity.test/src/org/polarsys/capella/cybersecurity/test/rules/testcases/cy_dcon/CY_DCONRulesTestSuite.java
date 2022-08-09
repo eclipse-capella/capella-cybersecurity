@@ -38,6 +38,7 @@ public class CY_DCONRulesTestSuite extends TestSuite {
     addTest(new Rule_CY_DCON_03_Threat());
     addTest(new Rule_CY_DCON_04());
     addTest(new Rule_CY_DCON_05());
+    addTest(new Rule_CY_DCON_06());
   }
 
   public static Test suite() {
