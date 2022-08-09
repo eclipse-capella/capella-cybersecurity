@@ -213,15 +213,18 @@
                 exchangedItems="#a10e1277-d8d1-43fa-87ed-745bc763fcd2" dataStorage="true"
                 remanentData="true"/>
             <ownedExtensions xsi:type="cybersecurity:FunctionStorage" id="2a82dedd-1ca8-4f57-95e7-ac495d55511a"/>
-            <ownedExtensions xsi:type="cybersecurity:SecurityNeeds" id="b615503a-cd65-4e52-867b-b7fa289152a8"
-                confidentialityValue="#6b7480d9-6e1f-4a3b-a44b-1f512add3f92" traceabilityValue="#d67e2456-9295-47be-b54e-f051568a9b82"/>
-            <ownedExtensions xsi:type="cybersecurity:SecurityNeeds" id="e5366aba-58b6-409d-b179-11fd63dc6d32"
-                confidentialityValue="#d1ee415c-5f01-4545-a28f-565575820b5e" traceabilityValue="#b8f7fbac-0ddd-4ebe-ab53-05b13fbaf5fb"/>
           </ownedFunctions>
           <ownedFunctions xsi:type="org.polarsys.capella.core.data.ctx:SystemFunction"
               id="1327772f-ec77-46a9-b338-7d30182866f3" name="SystemFunction 2">
             <ownedExtensions xsi:type="cybersecurity:FunctionStorage" id="9667af1c-af14-4c76-9bce-1bf5e4ac8978"
                 remanentData="true"/>
+          </ownedFunctions>
+          <ownedFunctions xsi:type="org.polarsys.capella.core.data.ctx:SystemFunction"
+              id="ecc21e39-fddb-4834-8efe-486bc3bf8694" name="SystemFunction 3">
+            <ownedExtensions xsi:type="cybersecurity:SecurityNeeds" id="3239e6a7-d3f8-4fff-8800-e2dc83229cb3"
+                confidentialityValue="#d1ee415c-5f01-4545-a28f-565575820b5e" traceabilityValue="#b8f7fbac-0ddd-4ebe-ab53-05b13fbaf5fb"/>
+            <ownedExtensions xsi:type="cybersecurity:SecurityNeeds" id="d76948fb-4307-4046-9f1e-133cf25ef6b1"
+                confidentialityValue="#1abacdb3-52dc-47db-ae87-60402316bd73" traceabilityValue="#477be156-493e-4336-b1f4-409352aba3e1"/>
           </ownedFunctions>
           <ownedFunctionRealizations xsi:type="org.polarsys.capella.core.data.fa:FunctionRealization"
               id="af6e21d1-6e02-489b-b227-4a54ef591042" targetElement="#16386b87-27af-4740-90f1-d12ce8914efd"
