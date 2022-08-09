@@ -39,14 +39,11 @@ import org.polarsys.capella.core.ui.properties.sections.AbstractSection;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
 import org.polarsys.capella.cybersecurity.model.CybersecurityQueries;
 import org.polarsys.capella.cybersecurity.model.SecurityNeeds;
-import org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage;
 import org.polarsys.capella.cybersecurity.ui.CommonHelpers;
 import org.polarsys.capella.cybersecurity.ui.CybersecurityUIActivator;
 import org.polarsys.capella.cybersecurity.ui.ElementExtensionStorage;
-import org.polarsys.capella.cybersecurity.ui.ElementExtensionStorageImpl;
 import org.polarsys.capella.cybersecurity.ui.properties.fields.EnumerationLiterealValueRadioGroup;
 import org.polarsys.kitalpha.emde.model.EmdePackage;
-import org.polarsys.kitalpha.emde.model.ExtensibleElement;
 
 public class SecurityNeedsSection extends AbstractSection {
 
@@ -112,28 +109,18 @@ public class SecurityNeedsSection extends AbstractSection {
     if (!CommonHelpers.isViewpointActive(parent, CybersecurityUIActivator.VIEWPOINT_ID))
       return null;
 
+    //return ElementExtensionStorageHelper.getFirstElementExtensionStorageObject(parent, SecurityNeeds.class, CybersecurityPackage.Literals.SECURITY_NEEDS);
+
     for (EObject eObject : parent.eContents()) {
       if (eObject instanceof SecurityNeeds) {
         return eObject;
       }
     }
 
-    EObject result = null;
-    EReference storageRef = getStorageRef(parent);
-    if (storageRef != null) {
-      for (Adapter adapter : parent.eAdapters()) {
-        if (adapter instanceof ElementExtensionStorage
-            && ((ElementExtensionStorage<?>) adapter).getExtension() instanceof SecurityNeeds) {
-          return ((ElementExtensionStorage<?>) adapter).getExtension();
-        }
-      }
-      if (result == null) {
-        ElementExtensionStorage<TrustBoundaryStorage> adapter = new ElementExtensionStorageImpl<>(
-            (ExtensibleElement) parent, CybersecurityPackage.Literals.SECURITY_NEEDS);
-        result = adapter.getExtension();
-      }
+    if (getStorageRef(parent) != null) {
+      return ElementExtensionStorageHelper.getFirstElementExtensionStorageObjectFromAdapter(parent, SecurityNeeds.class, CybersecurityPackage.Literals.SECURITY_NEEDS);
     }
-    return result;
+    return null;
   }
 
   private EReference getStorageRef(EObject parent) {
