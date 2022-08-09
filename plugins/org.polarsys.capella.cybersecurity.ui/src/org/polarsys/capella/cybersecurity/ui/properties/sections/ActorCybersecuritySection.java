@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
-import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.swt.layout.GridData;
@@ -41,10 +40,8 @@ import org.polarsys.capella.cybersecurity.model.TrustBoundaryStorage;
 import org.polarsys.capella.cybersecurity.ui.CommonHelpers;
 import org.polarsys.capella.cybersecurity.ui.CybersecurityUIActivator;
 import org.polarsys.capella.cybersecurity.ui.ElementExtensionStorage;
-import org.polarsys.capella.cybersecurity.ui.ElementExtensionStorageImpl;
 import org.polarsys.capella.cybersecurity.ui.properties.fields.IntegerValueRadioGroup;
 import org.polarsys.capella.cybersecurity.ui.properties.fields.SemanticCheckboxGroup;
-import org.polarsys.kitalpha.emde.model.ExtensibleElement;
 
 /**
  * <!-- begin-user-doc --> This class is an implementation of the section
@@ -122,29 +119,8 @@ public class ActorCybersecuritySection extends AbstractSection {
 
     if (!CommonHelpers.isViewpointActive(parent, CybersecurityUIActivator.VIEWPOINT_ID))
       return null;
-
-    for (EObject iEObject : parent.eContents()) {
-      if (iEObject instanceof TrustBoundaryStorage) {
-        // we return first encountered trust boundary (in case of many - which is in inconsistent state)
-        return iEObject;
-      }
-    }
     
-    EObject result = null;
-    if (CommonHelpers.canBeExtendedBy(parent, CybersecurityPackage.Literals.TRUST_BOUNDARY_STORAGE)) {
-      for (Adapter adapter : parent.eAdapters()) {
-        if (adapter instanceof ElementExtensionStorage
-            && ((ElementExtensionStorage<?>) adapter).getExtension() instanceof TrustBoundaryStorage) {
-          return ((ElementExtensionStorage<?>) adapter).getExtension();
-        }
-      }
-      if (result == null) {
-        ElementExtensionStorage<TrustBoundaryStorage> adapter = new ElementExtensionStorageImpl<>(
-            (ExtensibleElement) parent, CybersecurityPackage.Literals.TRUST_BOUNDARY_STORAGE);
-        result = adapter.getExtension();
-      }
-    }
-    return result;
+    return ElementExtensionStorageHelper.getFirstElementExtensionStorageObject(parent, TrustBoundaryStorage.class, CybersecurityPackage.Literals.TRUST_BOUNDARY_STORAGE);
   }
 
   /**
