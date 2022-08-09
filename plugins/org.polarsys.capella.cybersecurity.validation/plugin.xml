@@ -226,6 +226,25 @@
                <description>
                   This rule checks that between the elements involved in a use relation exists at least one Component Exchange/Physical Link/Functional Exchange.
                </description>
+            </constraint>
+            <constraint
+                  class="org.polarsys.capella.cybersecurity.validation.design.consistency.CY_DCON_06_ElementExtensionStorage_Multiple"
+                  id="CY_DCON_06"
+                  isEnabledByDefault="true"
+                  lang="Java"
+                  mode="Batch"
+                  name="CY_DCON_06 - Multiple Element Extension Storages data for a Capella Element."
+                  severity="ERROR"
+                  statusCode="0">
+               <message>
+                  {0}
+               </message>
+               <target
+                     class="NamedElement">
+               </target>
+               <description>
+                  This rule checks if multiple Element Extension Storages are associated to a Capella Element.
+               </description>
             </constraint>               
          </constraints>
       </constraintProvider>
@@ -248,6 +267,15 @@
             label="Delete Threat Source Use">
          <rules ruleId="CY_DCON_04"/>
          <rules ruleId="CY_DCON_05"/>
-      </resolver>      
+      </resolver>    
+      <resolver
+            class="org.polarsys.capella.cybersecurity.validation.quickfix.DCON_06_Resolver"
+            desc="Delete duplicated ExtensionStorages"
+            icon="platform:/plugin/org.polarsys.capella.core.ui.resources/icons/full/obj16/capella_process.gif"
+            label="Delete duplicated Extension Storages">
+         <rules
+               ruleId="CY_DCON_06">
+         </rules>
+      </resolver>  
 </extension>
 </plugin>

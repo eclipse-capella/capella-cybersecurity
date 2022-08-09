@@ -35,3 +35,10 @@
 |-
 | colspan="2"|This rule checks that between the elements involved in a use relation exists at least one Component Exchange/Physical Link/Functional Exchange.
 |}
+<br>
+{| class="VALIDATION-RULE"
+!|[[Image:../../../../Images/error.gif|ERROR]]
+|CY_DCON_06 - Multiple Element Extension Storages data for a Capella Element
+|-
+| colspan="2"|This rule checks if multiple Element Extension Storages are associated to a Capella Element.
+|}

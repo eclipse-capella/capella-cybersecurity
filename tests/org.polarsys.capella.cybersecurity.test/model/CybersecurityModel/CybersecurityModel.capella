@@ -207,6 +207,22 @@
             id="01b727b0-6ac1-496e-b04d-8dd2ebd25b37" name="Root System Function">
           <ownedFunctionalChains xsi:type="org.polarsys.capella.core.data.fa:FunctionalChain"
               id="4fe91596-f414-481d-a0ce-60c12dd582ed" name="FunctionalChain 1"/>
+          <ownedFunctions xsi:type="org.polarsys.capella.core.data.ctx:SystemFunction"
+              id="5d057c04-bfb0-4c0a-820b-04ad3bf1f077" name="SystemFunction 1">
+            <ownedExtensions xsi:type="cybersecurity:FunctionStorage" id="cfec0da4-22eb-4825-8df6-d89f06afa782"
+                exchangedItems="#a10e1277-d8d1-43fa-87ed-745bc763fcd2" dataStorage="true"
+                remanentData="true"/>
+            <ownedExtensions xsi:type="cybersecurity:FunctionStorage" id="2a82dedd-1ca8-4f57-95e7-ac495d55511a"/>
+            <ownedExtensions xsi:type="cybersecurity:SecurityNeeds" id="b615503a-cd65-4e52-867b-b7fa289152a8"
+                confidentialityValue="#6b7480d9-6e1f-4a3b-a44b-1f512add3f92" traceabilityValue="#d67e2456-9295-47be-b54e-f051568a9b82"/>
+            <ownedExtensions xsi:type="cybersecurity:SecurityNeeds" id="e5366aba-58b6-409d-b179-11fd63dc6d32"
+                confidentialityValue="#d1ee415c-5f01-4545-a28f-565575820b5e" traceabilityValue="#b8f7fbac-0ddd-4ebe-ab53-05b13fbaf5fb"/>
+          </ownedFunctions>
+          <ownedFunctions xsi:type="org.polarsys.capella.core.data.ctx:SystemFunction"
+              id="1327772f-ec77-46a9-b338-7d30182866f3" name="SystemFunction 2">
+            <ownedExtensions xsi:type="cybersecurity:FunctionStorage" id="9667af1c-af14-4c76-9bce-1bf5e4ac8978"
+                remanentData="true"/>
+          </ownedFunctions>
           <ownedFunctionRealizations xsi:type="org.polarsys.capella.core.data.fa:FunctionRealization"
               id="af6e21d1-6e02-489b-b227-4a54ef591042" targetElement="#16386b87-27af-4740-90f1-d12ce8914efd"
               sourceElement="#01b727b0-6ac1-496e-b04d-8dd2ebd25b37"/>
@@ -224,6 +240,8 @@
           id="f79da576-3142-4912-ae66-7002f88eac4f" name="Interfaces"/>
       <ownedDataPkg xsi:type="org.polarsys.capella.core.data.information:DataPkg"
           id="a6a475ab-b66c-4d42-8c95-8f9b9cfa2d9a" name="Data">
+        <ownedExchangeItems xsi:type="org.polarsys.capella.core.data.information:ExchangeItem"
+            id="a10e1277-d8d1-43fa-87ed-745bc763fcd2" name="ExchangeItem 1"/>
         <ownedDataPkgs xsi:type="org.polarsys.capella.core.data.information:DataPkg"
             id="c3b400a7-92a1-418c-925d-66e27e506686" name="Predefined Types">
           <ownedDataTypes xsi:type="org.polarsys.capella.core.data.information.datatype:BooleanType"
@@ -321,6 +339,10 @@
           id="7525e846-86de-4ed5-9860-bf7ba5f98eb0" name="Structure">
         <ownedParts xsi:type="org.polarsys.capella.core.data.cs:Part" id="089523ae-4b11-400f-8934-f437ea91378c"
             name="System" abstractType="#4e2010b9-a183-4bd9-b189-35d75456fb96"/>
+        <ownedParts xsi:type="org.polarsys.capella.core.data.cs:Part" id="0f0a4d37-6617-4f5f-9616-0a2d6de9c903"
+            name="SA 2" abstractType="#c92fceb1-5112-489f-9215-28af60a620e2"/>
+        <ownedParts xsi:type="org.polarsys.capella.core.data.cs:Part" id="827e644d-6949-40bb-9dae-532e51e514a2"
+            name="SA 3" abstractType="#aee97fc1-449b-4aeb-8986-f214f28414c6"/>
         <ownedSystemComponents xsi:type="org.polarsys.capella.core.data.ctx:SystemComponent"
             id="4e2010b9-a183-4bd9-b189-35d75456fb96" name="System">
           <ownedStateMachines xsi:type="org.polarsys.capella.core.data.capellacommon:StateMachine"
@@ -329,6 +351,15 @@
                 id="280e4a11-48c2-4cd1-bf31-e9acac2fdd6f" name="Default Region"/>
           </ownedStateMachines>
         </ownedSystemComponents>
+        <ownedSystemComponents xsi:type="org.polarsys.capella.core.data.ctx:SystemComponent"
+            id="c92fceb1-5112-489f-9215-28af60a620e2" name="SA 2" actor="true">
+          <ownedExtensions xsi:type="cybersecurity:TrustBoundaryStorage" id="ac2a739e-aaa7-4b81-a1a6-1c1fec710ddb"
+              threatSource="true" threatSourceProfile="3" trusted="false"/>
+          <ownedExtensions xsi:type="cybersecurity:TrustBoundaryStorage" id="125ec1bb-91de-4a9c-aa22-30ce85c7c85c"
+              threatSourceProfile="2" trusted="false"/>
+        </ownedSystemComponents>
+        <ownedSystemComponents xsi:type="org.polarsys.capella.core.data.ctx:SystemComponent"
+            id="aee97fc1-449b-4aeb-8986-f214f28414c6" name="SA 3" actor="true"/>
       </ownedSystemComponentPkg>
       <ownedMissionPkg xsi:type="org.polarsys.capella.core.data.ctx:MissionPkg" id="e5c84e3b-fd27-41b9-a4e2-599d4f2d8dcd"
           name="Missions"/>

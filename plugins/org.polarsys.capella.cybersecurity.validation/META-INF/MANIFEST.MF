@@ -7,7 +7,9 @@ Automatic-Module-Name: org.polarsys.capella.cybersecurity.validation
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.polarsys.capella.core.validation,
  org.polarsys.capella.cybersecurity.model,
- org.polarsys.capella.core.validation.ui.ide
+ org.polarsys.capella.core.validation.ui.ide,
+ org.polarsys.capella.cybersecurity.ui,
+ org.polarsys.capella.core.platform.sirius.ui.actions
 Export-Package: org.polarsys.capella.cybersecurity.validation.design.consistency,
  org.polarsys.capella.cybersecurity.validation.design.coverage
 Bundle-Vendor: Eclipse.org
