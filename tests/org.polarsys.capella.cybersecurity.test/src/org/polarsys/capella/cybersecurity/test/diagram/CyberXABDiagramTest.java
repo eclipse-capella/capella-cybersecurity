@@ -54,6 +54,7 @@ import org.polarsys.capella.cybersecurity.sirius.analysis.CybersecurityServices;
 import org.polarsys.capella.cybersecurity.test.common.Allocators;
 import org.polarsys.capella.cybersecurity.test.common.TransactionalEditingDomainHelper;
 import org.polarsys.capella.test.diagram.common.ju.context.XABDiagram;
+import org.polarsys.capella.test.diagram.common.ju.step.tools.InsertRemoveTool;
 import org.polarsys.capella.test.diagram.tools.ju.model.EmptyProject;
 import org.polarsys.capella.test.framework.context.SessionContext;
 import org.polarsys.kitalpha.ad.services.manager.ViewpointManager;
@@ -314,25 +315,22 @@ public abstract class CyberXABDiagramTest extends EmptyProject {
       fpa.getOwnedMembers().add(m1);
       fpa.getOwnedMembers().add(m2);
       insertPrimaryAsset(fpa);
+      
+      DDiagramElement middleFunctionView = diagram.getView(diagram.getSemanticObjectMap().get("function6"));
+      assertEquals(((Square) middleFunctionView.getStyle()).getBorderColor(), BLACK_COLOR);
 
       // remove functional chains
-      diagram.removeFunctionalChain("path");
-      diagram.removeFunctionalChain("path2");
-
+      new InsertRemoveTool(diagram, diagram.getToolNameFunctionalChains(), diagram.getDiagramId()).remove("path", "path2");
+      
       // get view and style for one function and the primaryAsset
       DDiagramElement functionView = diagram.getView(diagram.getSemanticObjectMap().get("function5"));
-      Style functionStyle = functionView.getStyle();
       DDiagramElement primaryAssetView = diagram.getView(diagram.getSemanticObjectMap().get(fpa.getId()));
-      Style primaryAssetStyle = primaryAssetView.getStyle();
 
       // assert that the border color of the function and the primaryAsset are the same
-      assertEquals(((Square) functionStyle).getBorderColor(), ((Ellipse) primaryAssetStyle).getColor());
+      checkBorderColor(functionView, primaryAssetView);
 
       // get view and style for the middle function
-      DDiagramElement middleFunctionView = diagram.getView(diagram.getSemanticObjectMap().get("function6"));
-      Style middleFunctionStyle = middleFunctionView.getStyle();
-
-      assertEquals(((Square) middleFunctionStyle).getBorderColor(), ((Ellipse) primaryAssetStyle).getColor());
+      checkBorderColor(middleFunctionView, primaryAssetView);
     
       epa = services.createEnterprisePrimaryAsset(context.getSemanticElement(getSystemId()));
       PrimaryAssetMember m3 = CybersecurityFactory.eINSTANCE.createPrimaryAssetMember();
@@ -341,14 +339,20 @@ public abstract class CyberXABDiagramTest extends EmptyProject {
       epa.getOwnedMembers().add(m3);
       
       insertPrimaryAsset(epa);
-      assertEquals(((Square) functionStyle).getBorderColor(), BLACK_COLOR);
-      assertEquals(((Square) middleFunctionStyle).getBorderColor(), BLACK_COLOR);
+      assertEquals(((Square) functionView.getStyle()).getBorderColor(), BLACK_COLOR);
+      assertEquals(((Square) middleFunctionView.getStyle()).getBorderColor(), BLACK_COLOR);
       
       removePrimaryAsset(fpa);
-      assertEquals(((Square) functionStyle).getBorderColor(), getEpaColor());
-      assertEquals(((Square) middleFunctionStyle).getBorderColor(), getEpaColor());
+      assertEquals(((Square) functionView.getStyle()).getBorderColor(), getEpaColor());
+      assertEquals(((Square) middleFunctionView.getStyle()).getBorderColor(), getEpaColor());
 
     });
+  }
+  
+  private void checkBorderColor(DDiagramElement elem1, DDiagramElement elemPA) {
+    Style style1 = elem1.getStyle();
+    Style style2 = elemPA.getStyle();
+    assertEquals(((Square) style1).getBorderColor(), ((Ellipse) style2).getColor());
   }
 
   protected void step5() throws RollbackException, InterruptedException {

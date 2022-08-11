@@ -41,6 +41,7 @@ import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.diagram.AbstractDNode;
+import org.eclipse.sirius.diagram.BorderedStyle;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.DEdge;
@@ -48,12 +49,15 @@ import org.eclipse.sirius.diagram.DNode;
 import org.eclipse.sirius.diagram.DNodeContainer;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.diagram.DiagramPackage;
+import org.eclipse.sirius.diagram.EdgeStyle;
 import org.eclipse.sirius.diagram.Ellipse;
 import org.eclipse.sirius.diagram.business.api.query.DDiagramQuery;
 import org.eclipse.sirius.diagram.description.Layer;
 import org.eclipse.sirius.viewpoint.DRepresentationElement;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
+import org.eclipse.sirius.viewpoint.DStylizable;
 import org.eclipse.sirius.viewpoint.RGBValues;
+import org.eclipse.sirius.viewpoint.Style;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.ui.PlatformUI;
 import org.polarsys.capella.common.data.modellingcore.ModelElement;
@@ -799,6 +803,16 @@ public class CybersecurityServices {
     return threats;
   }
 
+  public boolean hasAssetsOrThreatsDisplayed(DSemanticDecorator view) {
+    DDiagram diagram = CapellaServices.getService().getDiagramContainer(view);
+    if (diagram != null) {
+      long nbr = diagram.getOwnedDiagramElements().stream()
+          .filter(elem -> elem.getTarget() instanceof PrimaryAsset || elem.getTarget() instanceof Threat).count();
+      return nbr > 0;
+    }
+    return false;
+  }
+  
   public boolean hasAssetStyleCustomization(EObject element) {
     // customization for Assets Layer - return true if style has to be applied on the given element
     TransactionalEditingDomain domain = TransactionHelper.getEditingDomain(element);
@@ -917,35 +931,60 @@ public class CybersecurityServices {
     return displayedRelatedThreats;
   }
 
+  private boolean hasStyleColorBlack(DSemanticDecorator view) {
+    if (!(view instanceof DStylizable)) {
+      return false;
+    }
+    
+    Style style = ((DStylizable) view).getStyle();
+    
+    RGBValues color = null;
+    if (style instanceof BorderedStyle) {
+      color = ((BorderedStyle) style).getBorderColor();
+    }
+    if (style instanceof EdgeStyle) {
+      color = ((EdgeStyle) style).getStrokeColor();
+    }
+    
+    return color != null && color.equals(RGBValues.create(0, 0, 0));
+  }
+  
   /*
    * Remove customization of a function if it has two or more involving functional chains and they are not present in
    * diagram
    */
-  public boolean removeCustomizationIfNeeded(DSemanticDecorator view) {
+  public boolean removeCustomization(DSemanticDecorator view) {
     EObject target = view.getTarget();
     DDiagram diagram = CapellaServices.getService().getDiagramContainer(view);
-
+    
     if (diagram != null ) {
       EList<FunctionalChain> functionalChains = null;
-      if (target instanceof AbstractFunction) {
+      if (target instanceof AbstractFunction && hasStyleColorBlack(view)) {
        functionalChains = ((AbstractFunction) target).getInvolvingFunctionalChains();
       }
-      if (target instanceof FunctionalExchange) {
+      if (target instanceof FunctionalExchange && hasStyleColorBlack(view)) {
         functionalChains = ((FunctionalExchange) target).getInvolvingFunctionalChains();
       }
       
-      if (functionalChains.size() > 1) {
-        boolean allFunctionalChainsAreRemoved = true;
+      if (functionalChains != null && functionalChains.size() > 1) {
+        // if it has at least two FC in diagram is OK
+        int fcs = 0;
         for (FunctionalChain fc : functionalChains) {
-          if (diagram.getOwnedDiagramElements().contains(fc)) {
-            allFunctionalChainsAreRemoved = false;
+          DDiagramElement elem = DiagramServices.getDiagramServices().getDiagramElement(diagram, fc);
+          if (elem != null) {
+            fcs++;
           }
         }
-        if (allFunctionalChainsAreRemoved) {
-          ShapeUtil.removeCustomisation(ShapeUtil.getCurrentStyle((DDiagramElement) view),
-              new EStructuralFeature[] { DiagramPackage.Literals.BORDERED_STYLE__BORDER_COLOR });
-          ShapeUtil.removeCustomisation(ShapeUtil.getCurrentStyle((DDiagramElement) view),
-              new EStructuralFeature[] { DiagramPackage.Literals.EDGE_STYLE__STROKE_COLOR });
+        if (fcs < 2) {
+          if (target instanceof AbstractFunction) {
+            ShapeUtil.removeCustomisation(ShapeUtil.getCurrentStyle((DDiagramElement) view),
+                new EStructuralFeature[] { DiagramPackage.Literals.BORDERED_STYLE__BORDER_COLOR });
+          }
+
+          if (target instanceof FunctionalExchange) {
+            ShapeUtil.removeCustomisation(ShapeUtil.getCurrentStyle((DDiagramElement) view),
+                new EStructuralFeature[] { DiagramPackage.Literals.EDGE_STYLE__STROKE_COLOR });
+          }
         }
       }
     }
