@@ -28,8 +28,8 @@ public class CybersecurityMoveTestSuite extends BasicTestSuite {
   @Override
   protected List<BasicTestArtefact> getTests() {
     List<BasicTestArtefact> tests = new ArrayList<BasicTestArtefact>();
-    tests.add(new CybersecurityDnDTest());
     tests.add(new CybersecurityCopyPasteTest());
+    tests.add(new CybersecurityDnDTest());
     tests.add(new CybersecurityConfigurationMoveTest());
    
     return tests;
