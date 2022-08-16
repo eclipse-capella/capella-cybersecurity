@@ -1675,13 +1675,11 @@
       </migrationContribution>
 </extension>
 
-<!-- to uncomment in Capella 6.0
 <extension
          point="org.polarsys.capella.core.model.helpers.moveHelper">
       <helper
             class="org.polarsys.capella.cybersecurity.ui.move.CybersecurityMoveHelper">
       </helper>
 </extension> 
--->
 
 </plugin>
