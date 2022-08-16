@@ -80,8 +80,7 @@ public class CybersecurityTestSuite extends TestSuite {
     
     addTest(new CyberDagramStatus());
     
-    // todo - in Capella 6.0, uncomment
-    // addTest(new CybersecurityMoveTestSuite());
+    addTest(new CybersecurityMoveTestSuite());
   }
 
   public static Test suite() {
