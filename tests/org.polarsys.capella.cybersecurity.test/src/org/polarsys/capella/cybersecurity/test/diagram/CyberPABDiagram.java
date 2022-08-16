@@ -20,6 +20,7 @@ import org.polarsys.capella.cybersecurity.sirius.analysis.CybersecurityAnalysisC
 import org.polarsys.capella.test.diagram.common.ju.context.DiagramContext;
 import org.polarsys.capella.test.diagram.common.ju.context.PABDiagram;
 import org.polarsys.capella.test.diagram.common.ju.step.crud.CreateDiagramStep;
+import org.polarsys.capella.test.diagram.common.ju.step.crud.OpenDiagramStep;
 import org.polarsys.capella.test.diagram.common.ju.step.tools.InsertRemoveTool;
 import org.polarsys.capella.test.framework.context.SessionContext;
 
@@ -37,6 +38,18 @@ public class CyberPABDiagram extends PABDiagram {
         return new CyberPABDiagram(getExecutionContext(), diagram);
       }
     }.run().open();
+    CyberDiagramLayers.activateLayer(executionContext.getSession(), diagram.getDiagram(), CybersecurityAnalysisConstants.LAYER_ASSETS);
+    return diagram;
+  }
+  
+  public static CyberPABDiagram openDiagram(SessionContext executionContext, String targetIdentifier) {
+    CyberPABDiagram diagram = (CyberPABDiagram) new OpenDiagramStep(executionContext, targetIdentifier) {
+      @Override
+      public DiagramContext getResult() {
+        return new CyberPABDiagram(getExecutionContext(), diagram);
+      }
+    }.run().open();
+    
     CyberDiagramLayers.activateLayer(executionContext.getSession(), diagram.getDiagram(), CybersecurityAnalysisConstants.LAYER_ASSETS);
     return diagram;
   }

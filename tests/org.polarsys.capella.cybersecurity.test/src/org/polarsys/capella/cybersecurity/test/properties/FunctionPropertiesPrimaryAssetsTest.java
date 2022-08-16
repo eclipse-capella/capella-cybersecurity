@@ -20,12 +20,13 @@ public class FunctionPropertiesPrimaryAssetsTest extends AbstractPrimaryAssetInv
   
   private static final String PA__FPA_1_ID = "99711cee-9093-48fb-910b-f7b16eacb9b7";
   private static final String PA__FPA_3_ID = "6d555daa-e081-4e69-868a-23fa1562c7fb";
+  private static final String PA_ID = "c7bd438d-76f0-4c37-a4f6-de3a82fa6550";
   private static final String PA__FUNCTION_ID = "3018ccfb-9cfd-4d36-bffe-bc67b422e78a";
 
   @Override
   public void test() throws Exception {
     super.init();
     doTest(OA__OA_1_ID, new String[] {OA__FPA_1_ID}, new AbstractFunctionSection());
-    doTest(PA__FUNCTION_ID, new String[] {PA__FPA_1_ID, PA__FPA_3_ID}, new AbstractFunctionSection());
+    doTest(PA__FUNCTION_ID, new String[] {PA__FPA_1_ID, PA__FPA_3_ID, PA_ID}, new AbstractFunctionSection());
   }
 }
