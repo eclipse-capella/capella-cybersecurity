@@ -14,6 +14,7 @@ package org.polarsys.capella.cybersecurity.test;
 
 import org.polarsys.capella.cybersecurity.test.activityExplorer.CyberActivityExplorerTestSuite;
 import org.polarsys.capella.cybersecurity.test.config.CybersecurityConfigurationTestSuite;
+import org.polarsys.capella.cybersecurity.test.diagram.CyberDagramStatus;
 import org.polarsys.capella.cybersecurity.test.diagram.CyberLABDiagramTest;
 import org.polarsys.capella.cybersecurity.test.diagram.CyberOABDiagramTest;
 import org.polarsys.capella.cybersecurity.test.diagram.CyberPABDiagramTest;
@@ -76,6 +77,8 @@ public class CybersecurityTestSuite extends TestSuite {
     addTest(new CyberODesignTestSuite());
     
     addTest(new CybersecurityPropertiesTestSuite());
+    
+    addTest(new CyberDagramStatus());
     
     // todo - in Capella 6.0, uncomment
     // addTest(new CybersecurityMoveTestSuite());
