@@ -1,0 +1,11 @@
+These followings icons are made available under the
+terms of the Eclipse Public License 2.0 which is available at
+http://www.eclipse.org/legal/epl-2.0
+
+<icon file path> - <original eclipse plug-ins> - <original file paths>
+
+/icons/CybersecurityPkg.png - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/obj16/CybersecurityPkg.png
+/icons/EnterprisePrimaryAsset.png - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/obj16/EnterprisePrimaryAsset.png
+/icons/FunctionalPrimaryAsset.png - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/obj16/FunctionalPrimaryAsset.png
+/icons/InformationPrimaryAsset.png - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/obj16/InformationPrimaryAsset.gif
+/icons/Threat.png - org.polarsys.capella.cybersecurity.model.edit - org.polarsys.capella.cybersecurity.model.edit/icons/full/obj16/Threat.png
