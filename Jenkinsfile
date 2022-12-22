@@ -9,7 +9,7 @@ pipeline {
 	}
   
 	environment {
-		BUILD_KEY = (github.isPullRequest() ? CHANGE_TARGET : BRANCH_NAME).replaceFirst(/^v/, '')
+		BUILD_KEY = "5.2.0"
 		CAPELLA_PRODUCT_PATH = "${WORKSPACE}/capella/capella"
   	}
   
