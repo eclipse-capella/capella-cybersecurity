@@ -13,16 +13,16 @@
    <description url="http://www.polarsys.org/capella">
       Capella Cybersecurity
    </description>
-   <feature id="org.polarsys.capella.cybersecurity.feature.source" version="2.0.0.qualifier">
+   <feature id="org.polarsys.capella.cybersecurity.feature.source" version="2.0.1.qualifier">
       <category name="org.polarsys.capella.cybersecurity"/>
    </feature>
-   <feature id="org.polarsys.capella.cybersecurity.cdo.feature.source" version="2.0.0.qualifier">
+   <feature id="org.polarsys.capella.cybersecurity.cdo.feature.source" version="2.0.1.qualifier">
       <category name="org.polarsys.capella.cybersecurity.collaboration"/>
    </feature>
-   <feature id="org.polarsys.capella.cybersecurity.docgen.feature.source" version="2.0.0.qualifier">
+   <feature id="org.polarsys.capella.cybersecurity.docgen.feature.source" version="2.0.1.qualifier">
       <category name="org.polarsys.capella.cybersecurity.docgen"/>
    </feature>
-   <feature id="org.polarsys.capella.cybersecurity.tests.feature" version="2.0.0.qualifier">
+   <feature id="org.polarsys.capella.cybersecurity.tests.feature" version="2.0.1.qualifier">
       <category name="org.polarsys.capella.cybersecurity.tests"/>
    </feature>
    <category-def name="org.polarsys.capella.cybersecurity" label="Cybersecurity"/>
