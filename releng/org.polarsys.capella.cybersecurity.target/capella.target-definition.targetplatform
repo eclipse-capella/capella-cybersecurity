@@ -14,15 +14,107 @@ target "CapellaCybersecurity"
 
 with source, requirements
 
-location capella "file:/opt/capella-5.2.0/capella" {
-	org.polarsys.capella.rcp.feature.group
+location eclipse "http://download.eclipse.org/releases/2020-06" {
+	org.eclipse.sdk.feature.group
+	org.eclipse.platform.feature.group
+	org.eclipse.draw2d.source.feature.group
+	org.eclipse.emf.sdk.feature.group
+	org.eclipse.emf.validation.source.feature.group
+	org.eclipse.emf.transaction.source.feature.group
+	org.eclipse.emf.workspace.source.feature.group
+	org.eclipse.gef.source.feature.group
+	org.eclipse.equinox.executable.feature.group
+	com.ibm.icu
+	org.eclipse.viatra.query.sdk.feature.source.feature.group
+	org.eclipse.jgit.source.feature.group
+	org.eclipse.egit.mylyn.feature.group
+	org.eclipse.egit.source.feature.group
+	org.eclipse.mylyn_feature.feature.group
+	org.eclipse.mylyn.commons.feature.group
+	org.eclipse.mylyn.commons.sdk.feature.group
+	org.eclipse.mylyn.context_feature.feature.group
+	org.eclipse.mylyn.monitor.feature.group
+	org.eclipse.mylyn.team_feature.feature.group
+	org.eclipse.mylyn.ide_feature.feature.group
+	org.eclipse.mylyn.help.ui
+	org.apache.log4j
+	org.apache.commons.lang
+	com.google.guava
 }
 
-location capella-master "https://download.eclipse.org/capella/core/updates/nightly/master/org.polarsys.capella.rcp.site/" {
-	org.polarsys.capella.cdo.mock.feature.feature.group
+location sirius "https://archive.eclipse.org/sirius/updates/releases/6.6.0/2020-06" {
+	org.eclipse.sirius.doc.feature.feature.group
+	org.eclipse.sirius.doc.feature.source.feature.group
+	org.eclipse.sirius.runtime.source.feature.group
+	org.eclipse.sirius.runtime.aql.source.feature.group
+	org.eclipse.sirius.runtime.ide.ui.source.feature.group
+	org.eclipse.sirius.interpreter.feature.source.feature.group
+	org.eclipse.acceleo.ui.interpreter.source.feature.group
+	org.eclipse.sirius.aql.source.feature.group
+	org.eclipse.acceleo.query.source.feature.group
+	org.eclipse.sirius.runtime.ide.ui.acceleo.source.feature.group
 }
 
-location capella-tests-master "https://download.eclipse.org/capella/core/updates/nightly/master/org.polarsys.capella.test.site/" {
+
+location kitalpha-runtime-core-master "https://download.eclipse.org/kitalpha/updates/stable/runtime/5.2.0.S202111291638" {	
+	org.polarsys.kitalpha.ad.runtime.feature.source.feature.group
+	org.polarsys.kitalpha.cadence.feature.source.feature.group
+	org.polarsys.kitalpha.common.feature.source.feature.group
+	org.polarsys.kitalpha.emde.feature.source.feature.group
+	org.polarsys.kitalpha.emde.ui.feature.source.feature.group
+	org.polarsys.kitalpha.massactions.feature.source.feature.group
+	org.polarsys.kitalpha.model.common.share.feature.source.feature.group
+	org.polarsys.kitalpha.model.common.commands.feature.source.feature.group
+	org.polarsys.kitalpha.model.common.scrutiny.feature.source.feature.group
+	org.polarsys.kitalpha.model.detachment.contrib.viewpoints.feature.source.feature.group
+	org.polarsys.kitalpha.model.detachment.feature.source.feature.group
+	org.polarsys.kitalpha.model.detachment.ui.feature.source.feature.group
+	org.polarsys.kitalpha.report.feature.source.feature.group
+	org.polarsys.kitalpha.report.ui.feature.source.feature.group
+	org.polarsys.kitalpha.resourcereuse.emfscheme.feature.source.feature.group
+	org.polarsys.kitalpha.resourcereuse.emfscheme.ui.feature.source.feature.group
+	org.polarsys.kitalpha.resourcereuse.feature.source.feature.group
+	org.polarsys.kitalpha.resourcereuse.ui.feature.source.feature.group
+	org.polarsys.kitalpha.richtext.widget.feature.source.feature.group
+	org.polarsys.kitalpha.richtext.widget.ext.feature.source.feature.group
+	org.polarsys.kitalpha.transposer.feature.source.feature.group
+}
+location kitalpha-sdk-master "https://download.eclipse.org/kitalpha/updates/stable/sdk/5.2.0.S202111291638" {
+	org.polarsys.kitalpha.doc.feature.feature.group
+	org.polarsys.kitalpha.emde.sdk.feature.source.feature.group
+}
+
+location diffmerge-core "https://download.eclipse.org/diffmerge/releases/0.13.1/emf-diffmerge-site" {
+	org.eclipse.emf.diffmerge.feature.source.feature.group
+	org.eclipse.emf.diffmerge.sirius.feature.source.feature.group
+	org.eclipse.emf.diffmerge.gmf.feature.source.feature.group
+	org.eclipse.emf.diffmerge.sdk.feature.source.feature.group
+	org.eclipse.emf.diffmerge.egit.feature.source.feature.group
+}
+
+location amalgam "https://download.eclipse.org/modeling/amalgam/updates/releases/1.12.1/capella" {
+	org.eclipse.amalgam.explorer.activity.source.feature.group
+}
+
+location egf "http://download.eclipse.org/egf/updates/1.6.2/2019-06/" {
+	org.eclipse.egf.sdk.feature.source.feature.group
+}
+
+location nebula "http://download.eclipse.org/nebula/releases/1.4.0/" {
+	org.eclipse.nebula.widgets.richtext.feature.feature.group
+}
+
+location eclipse-shared-license "http://download.eclipse.org/cbi/updates/license" {
+	org.eclipse.license.feature.group lazy
+}
+
+location capella "https://download.eclipse.org/capella/core/updates/releases/5.2.0-R20211130-125709/org.polarsys.capella.rcp.site/" {
+	org.polarsys.capella.rcp.feature.group lazy
+	org.polarsys.capella.core.feature.feature.group lazy
+	org.polarsys.capella.cdo.mock.feature.feature.group lazy
+}
+
+location capella-tests-master "https://download.eclipse.org/capella/core/updates/releases/5.2.0-R20211130-125709/org.polarsys.capella.test.site/" {
 	org.polarsys.capella.test.feature.feature.group
 }
 
@@ -30,6 +122,6 @@ location cdo "https://download.eclipse.org/modeling/emf/cdo/updates/releases/4.7
 	org.eclipse.emf.cdo.feature.group
 }
 
-location xhtml "https://download.eclipse.org/capella/addons/xhtmldocgen/updates/release/5.1.1/" {
+location xhtml "https://download.eclipse.org/capella/addons/xhtmldocgen/updates/releases/5.1.1/" {
     org.polarsys.capella.docgen.feature.feature.group
 }

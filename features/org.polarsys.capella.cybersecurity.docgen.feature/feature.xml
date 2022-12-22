@@ -13,7 +13,7 @@
 <feature
       id="org.polarsys.capella.cybersecurity.docgen.feature"
       label="%pluginName"
-      version="2.0.0.qualifier"
+      version="2.0.1.qualifier"
       provider-name="%providerName">
 
    <description url="http://www.example.com/description">
@@ -29,7 +29,7 @@
    </license>
    
    <requires>
-      <import feature="org.polarsys.capella.cybersecurity.feature" version="2.0.0.qualifier"/>
+      <import feature="org.polarsys.capella.cybersecurity.feature" version="2.0.1.qualifier"/>
    </requires>
 
    <plugin
