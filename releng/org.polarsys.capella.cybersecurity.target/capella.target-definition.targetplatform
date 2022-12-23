@@ -14,15 +14,14 @@ target "CapellaCybersecurity"
 
 with source, requirements
 
-location capella "file:/opt/capella-5.2.0/capella" {
-	org.polarsys.capella.rcp.feature.group
-}
+include "https://download.eclipse.org/capella/core/updates/releases/6.0.0/targets/capella.target-definition.targetplatform"
 
-location capella-master "https://download.eclipse.org/capella/core/updates/nightly/master/org.polarsys.capella.rcp.site/" {
+location capella "https://download.eclipse.org/capella/core/updates/releases/6.0.0/org.polarsys.capella.rcp.site" {
+	org.polarsys.capella.rcp.feature.group
 	org.polarsys.capella.cdo.mock.feature.feature.group
 }
 
-location capella-tests-master "https://download.eclipse.org/capella/core/updates/nightly/master/org.polarsys.capella.test.site/" {
+location capella-tests-master "https://download.eclipse.org/capella/core/updates/releases/6.0.0/org.polarsys.capella.test.site/" {
 	org.polarsys.capella.test.feature.feature.group
 }
 
@@ -30,6 +29,6 @@ location cdo "https://download.eclipse.org/modeling/emf/cdo/updates/releases/4.7
 	org.eclipse.emf.cdo.feature.group
 }
 
-location xhtml "https://download.eclipse.org/capella/addons/xhtmldocgen/updates/release/5.1.1/" {
+location xhtml "https://download.eclipse.org/capella/addons/xhtmldocgen/updates/releases/6.0.0/" {
     org.polarsys.capella.docgen.feature.feature.group
 }

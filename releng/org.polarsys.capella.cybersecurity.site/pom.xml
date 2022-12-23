@@ -14,13 +14,13 @@
 	<parent>
 		<groupId>org.polarsys</groupId>
 		<artifactId>org.polarsys.capella.cybersecurity</artifactId>
-		<version>2.1.0-SNAPSHOT</version>
+		<version>2.1.1-SNAPSHOT</version>
 		<relativePath>../../</relativePath>
 	</parent>
 
 	<artifactId>org.polarsys.capella.cybersecurity.site</artifactId>
 	<packaging>eclipse-repository</packaging>
-	<version>2.1.0-SNAPSHOT</version>
+	<version>2.1.1-SNAPSHOT</version>
 
 	<build>
 		<plugins>
@@ -54,7 +54,6 @@
 								<type>eclipse-plugin</type>
 							</dependency>
 						</dependencies>
-					  <executionEnvironment>JavaSE-11</executionEnvironment>
 					</configuration>
 					<executions>
 						<execution>
@@ -65,7 +64,6 @@
 							</goals>
 							<configuration>
 								<appArgLine>-application org.eclipse.equinox.p2.repository.repo2runnable -source file:${project.build.directory}/repository -destination ${project.build.directory}/${packagedAddonName}/eclipse</appArgLine>
-					      <executionEnvironment>JavaSE-11</executionEnvironment>
 							</configuration>
 						</execution>
 					</executions>
