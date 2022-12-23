@@ -19,12 +19,12 @@
   <name>Cybersecurity</name>
   <groupId>org.polarsys</groupId>
   <artifactId>org.polarsys.capella.cybersecurity</artifactId>
-  <version>2.1.0-SNAPSHOT</version>
+  <version>2.1.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <properties>
-    <tycho-version>2.5.0</tycho-version>
-    <tycho-extras-version>2.5.0</tycho-extras-version>
+    <tycho-version>2.0.0</tycho-version>
+    <tycho-extras-version>2.0.0</tycho-extras-version>
     <tycho.scmUrl>scm:git:http://git.polarsys.org/c/capella/capella-cybersecurity.git</tycho.scmUrl>
 	<antrun-version>3.0.0</antrun-version>
 
@@ -82,7 +82,7 @@
 				<artifact>
 					<groupId>org.polarsys</groupId>
 					<artifactId>org.polarsys.capella.cybersecurity</artifactId>
-					<version>2.1.0-SNAPSHOT</version>
+					<version>2.1.1-SNAPSHOT</version>
 					<classifier>releng/org.polarsys.capella.cybersecurity.target/capella.target-definition</classifier>
 				</artifact>
 			</target>
@@ -178,7 +178,7 @@
 					<plugin>
 						<groupId>org.eclipse.cbi.maven.plugins</groupId>
 						<artifactId>eclipse-jarsigner-plugin</artifactId>
-						<version>1.1.5</version>
+						<version>1.3.2</version>
 						<executions>
 							<execution>
 								<id>sign</id>
