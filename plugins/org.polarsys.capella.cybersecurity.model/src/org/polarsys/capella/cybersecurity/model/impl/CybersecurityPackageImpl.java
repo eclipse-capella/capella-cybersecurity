@@ -32,7 +32,6 @@ import org.polarsys.capella.core.data.interaction.InteractionPackage;
 import org.polarsys.capella.core.data.la.LaPackage;
 import org.polarsys.capella.core.data.oa.OaPackage;
 import org.polarsys.capella.core.data.pa.PaPackage;
-import org.polarsys.capella.core.data.requirement.RequirementPackage;
 import org.polarsys.capella.cybersecurity.model.CybersecurityConfiguration;
 import org.polarsys.capella.cybersecurity.model.CybersecurityFactory;
 import org.polarsys.capella.cybersecurity.model.CybersecurityPackage;
@@ -204,7 +203,6 @@ public class CybersecurityPackageImpl extends EPackageImpl implements Cybersecur
     LaPackage.eINSTANCE.eClass();
     PaPackage.eINSTANCE.eClass();
     EpbsPackage.eINSTANCE.eClass();
-    RequirementPackage.eINSTANCE.eClass();
     CapellacommonPackage.eINSTANCE.eClass();
     InformationPackage.eINSTANCE.eClass();
     CsPackage.eINSTANCE.eClass();
