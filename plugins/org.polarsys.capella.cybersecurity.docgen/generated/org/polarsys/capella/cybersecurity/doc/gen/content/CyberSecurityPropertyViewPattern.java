@@ -10,7 +10,7 @@
  * Contributors:
  *    Thales - initial API and implementation
  *******************************************************************************/
-//Generated with EGF 1.6.2.201911290829
+//Generated with EGF 1.6.3.202110291409
 package org.polarsys.capella.cybersecurity.doc.gen.content;
 
 import org.eclipse.egf.common.helper.*;

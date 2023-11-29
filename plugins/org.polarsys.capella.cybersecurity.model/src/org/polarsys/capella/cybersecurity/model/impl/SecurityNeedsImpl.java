@@ -383,7 +383,7 @@ public class SecurityNeedsImpl extends NamedElementImpl implements SecurityNeeds
     }
     return super.eIsSet(featureID);
   }
-  
+
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated NOT

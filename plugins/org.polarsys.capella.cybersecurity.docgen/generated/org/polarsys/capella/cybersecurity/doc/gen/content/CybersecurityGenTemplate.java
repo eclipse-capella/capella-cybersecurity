@@ -10,7 +10,7 @@
  * Contributors:
  *    Thales - initial API and implementation
  *******************************************************************************/
-//Generated with EGF 1.6.2.202001031546
+//Generated with EGF 1.6.3.202110291409
 package org.polarsys.capella.cybersecurity.doc.gen.content;
 
 import org.eclipse.egf.common.helper.*;
@@ -21,6 +21,8 @@ import org.eclipse.egf.pattern.execution.*;
 import org.eclipse.egf.pattern.query.*;
 import org.polarsys.capella.cybersecurity.model.*;
 import org.polarsys.capella.docgen.foundations.*;
+import org.polarsys.capella.docgen.util.CapellaServices;
+import org.polarsys.kitalpha.doc.gen.business.core.util.EscapeChars;
 import org.polarsys.capella.cybersecurity.docgen.utils.ImageHelper;
 import org.polarsys.capella.cybersecurity.docgen.helper.CybersecurityHelper;
 import org.polarsys.capella.cybersecurity.docgen.utils.CybersecurityFileNameSerivice;
@@ -37,7 +39,7 @@ public class CybersecurityGenTemplate extends org.polarsys.capella.docgen.founda
   }
 
   public final String NL = nl == null ? (System.getProperties().getProperty("line.separator")) : nl;
-  protected final String TEXT_1 = "";
+  protected final String TEXT_1 = "   ";
   protected final String TEXT_2 = NL;
 
   public CybersecurityGenTemplate() {
@@ -113,6 +115,7 @@ public class CybersecurityGenTemplate extends org.polarsys.capella.docgen.founda
     Path pathToHtmlFolder = new Path(ctx.getValue("outputFolder").toString());
     String htmlFolderName = pathToHtmlFolder.lastSegment();
     stringBuffer.append(CybersecurityHelper.getCiatSection(element));
+    stringBuffer.append(TEXT_1);
     stringBuffer.append(CybersecurityHelper.getContent(element, htmlFolderName));
     stringBuffer.append(CybersecurityHelper.getThreatKind(element));
     stringBuffer.append(CybersecurityHelper.getLevel(element));
@@ -127,7 +130,7 @@ public class CybersecurityGenTemplate extends org.polarsys.capella.docgen.founda
     stringBuffer.append(CybersecurityHelper.getPrimaryAssets(element, htmlFolderName));
     stringBuffer.append(CybersecurityHelper.getReferencingEnterprisePrimaryAssets(element, htmlFolderName));
     stringBuffer.append(CybersecurityHelper.getThreatsContent(element, htmlFolderName));
-    stringBuffer.append(TEXT_1);
+    stringBuffer.append(TEXT_2);
     InternalPatternContext ictx = (InternalPatternContext) ctx;
     new Node.DataLeaf(ictx.getNode(), getClass(), "content", stringBuffer.toString());
   }
