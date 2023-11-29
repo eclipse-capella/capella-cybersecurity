@@ -5,12 +5,13 @@ pipeline {
   
 	tools {
 		maven 'apache-maven-latest'
-		jdk 'openjdk-jdk14-latest'
+		jdk 'openjdk-jdk17-latest'
 	}
   
 	environment {
-		BUILD_KEY = "6.0.0"
+		BUILD_KEY = (github.isPullRequest() ? CHANGE_TARGET : BRANCH_NAME).replaceFirst(/^v/, '')
 		CAPELLA_PRODUCT_PATH = "${WORKSPACE}/capella/capella"
+		CAPELLA_BRANCH = 'master'
   	}
   
   	stages {
@@ -41,8 +42,8 @@ pipeline {
 	    stage('Download Capella') {
         	steps {
         		script {
-					def capellaURL = capella.getDownloadURL("${BUILD_KEY}", 'linux', '')
-					def capellaURL_WIN = capella.getDownloadURL("${BUILD_KEY}", 'win', '')
+					def capellaURL = capella.getDownloadURL("${CAPELLA_BRANCH}", 'linux', '')
+					def capellaURL_WIN = capella.getDownloadURL("${CAPELLA_BRANCH}", 'win', '')
 					
 					sh "curl -k -o capella.tar.gz ${capellaURL}"
 					sh "tar xzf capella.tar.gz"
@@ -73,9 +74,8 @@ pipeline {
         		script {
 	        		sh "chmod 755 ${CAPELLA_PRODUCT_PATH}"
 	            	sh "chmod 755 ${WORKSPACE}/capella/jre/bin/java"
-	        		
-	        		eclipse.installFeature("${CAPELLA_PRODUCT_PATH}", 'http://download.eclipse.org/tools/orbit/downloads/drops/R20130827064939/repository', 'org.jsoup')	        		
-	        		eclipse.installFeature("${CAPELLA_PRODUCT_PATH}", capella.getTestUpdateSiteURL("${BUILD_KEY}"), 'org.polarsys.capella.test.feature.feature.group')
+	        		        		
+	        		eclipse.installFeature("${CAPELLA_PRODUCT_PATH}", capella.getTestUpdateSiteURL("${CAPELLA_BRANCH}"), 'org.polarsys.capella.test.feature.feature.group')
 	        		
 	        		eclipse.installFeature("${CAPELLA_PRODUCT_PATH}", "file:/${WORKSPACE}/releng/org.polarsys.capella.cybersecurity.site/target/repository/".replace("\\", "/"), 'org.polarsys.capella.cybersecurity.feature.feature.group')
 	        		eclipse.installFeature("${CAPELLA_PRODUCT_PATH}", "file:/${WORKSPACE}/releng/org.polarsys.capella.cybersecurity.site/target/repository/".replace("\\", "/"), 'org.polarsys.capella.cybersecurity.tests.feature.feature.group')
