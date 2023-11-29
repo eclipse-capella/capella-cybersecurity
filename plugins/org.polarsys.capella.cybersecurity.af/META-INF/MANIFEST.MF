@@ -2,8 +2,8 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Capella Cybersecurity AF
 Bundle-SymbolicName: org.polarsys.capella.cybersecurity.af;singleton:=true
-Bundle-Version: 2.1.1.qualifier
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-Version: 2.2.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Require-Bundle: org.polarsys.kitalpha.ad.viewpoint.ui
 Automatic-Module-Name: org.polarsys.capella.cybersecurity.af
 Bundle-Vendor: Eclipse.org

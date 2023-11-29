@@ -2,10 +2,10 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Cybersecurity Addon Documentation
 Bundle-SymbolicName: org.polarsys.capella.cybersecurity.doc;singleton:=true
-Bundle-Version: 2.1.1.qualifier
+Bundle-Version: 2.2.0.qualifier
 Automatic-Module-Name: org.polarsys.capella.cybersecurity.doc
 Require-Bundle: org.eclipse.help,
  org.eclipse.core.runtime,
  org.eclipse.emf.validation
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-Vendor: Eclipse.org

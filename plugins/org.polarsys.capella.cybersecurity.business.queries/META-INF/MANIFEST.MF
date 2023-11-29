@@ -2,9 +2,9 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Capella Cybersecurity Business Queries
 Bundle-SymbolicName: org.polarsys.capella.cybersecurity.business.queries;singleton:=true
-Bundle-Version: 2.1.1.qualifier
+Bundle-Version: 2.2.0.qualifier
 Automatic-Module-Name: org.polarsys.capella.cybersecurity.business.queries
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Require-Bundle: org.polarsys.capella.core.data.business.queries,
  org.polarsys.capella.core.data.business.queries,
  org.polarsys.capella.common.libraries,
