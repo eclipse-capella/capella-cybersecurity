@@ -102,7 +102,6 @@ public class FunctionalPrimaryAssetImpl extends PrimaryAssetImpl implements Func
         CybersecurityPackage.Literals.FUNCTIONAL_PRIMARY_ASSET__FUNCTIONAL_CHAINS, data.length, data);
   }
 
-
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
