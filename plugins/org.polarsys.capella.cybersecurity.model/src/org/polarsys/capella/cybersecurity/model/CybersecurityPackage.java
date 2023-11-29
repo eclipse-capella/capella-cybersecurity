@@ -251,15 +251,6 @@ public interface CybersecurityPackage extends EPackage {
   int CYBERSECURITY_PKG__FEATURES = CapellacorePackage.NAMED_ELEMENT__FEATURES;
 
   /**
-   * The feature id for the '<em><b>Applied Requirements</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CYBERSECURITY_PKG__APPLIED_REQUIREMENTS = CapellacorePackage.NAMED_ELEMENT__APPLIED_REQUIREMENTS;
-
-  /**
    * The feature id for the '<em><b>Owned Threats</b></em>' containment reference list.
    * <!-- begin-user-doc --> <!--
    * end-user-doc -->
@@ -482,15 +473,6 @@ public interface CybersecurityPackage extends EPackage {
   int THREAT__FEATURES = InteractionPackage.ABSTRACT_CAPABILITY__FEATURES;
 
   /**
-   * The feature id for the '<em><b>Applied Requirements</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int THREAT__APPLIED_REQUIREMENTS = InteractionPackage.ABSTRACT_CAPABILITY__APPLIED_REQUIREMENTS;
-
-  /**
    * The feature id for the '<em><b>Owned Traces</b></em>' containment reference list.
    * <!-- begin-user-doc --> <!--
    * end-user-doc -->
@@ -507,15 +489,6 @@ public interface CybersecurityPackage extends EPackage {
    * @ordered
    */
   int THREAT__CONTAINED_GENERIC_TRACES = InteractionPackage.ABSTRACT_CAPABILITY__CONTAINED_GENERIC_TRACES;
-
-  /**
-   * The feature id for the '<em><b>Contained Requirements Traces</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int THREAT__CONTAINED_REQUIREMENTS_TRACES = InteractionPackage.ABSTRACT_CAPABILITY__CONTAINED_REQUIREMENTS_TRACES;
 
   /**
    * The feature id for the '<em><b>Naming Rules</b></em>' containment reference list.
@@ -1025,15 +998,6 @@ public interface CybersecurityPackage extends EPackage {
   int THREAT_INVOLVEMENT__FEATURES = CapellacorePackage.RELATIONSHIP__FEATURES;
 
   /**
-   * The feature id for the '<em><b>Applied Requirements</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int THREAT_INVOLVEMENT__APPLIED_REQUIREMENTS = CapellacorePackage.RELATIONSHIP__APPLIED_REQUIREMENTS;
-
-  /**
    * The feature id for the '<em><b>Threat Obj</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1245,15 +1209,6 @@ public interface CybersecurityPackage extends EPackage {
    * @ordered
    */
   int FUNCTION_STORAGE__FEATURES = CapellacorePackage.NAMED_ELEMENT__FEATURES;
-
-  /**
-   * The feature id for the '<em><b>Applied Requirements</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION_STORAGE__APPLIED_REQUIREMENTS = CapellacorePackage.NAMED_ELEMENT__APPLIED_REQUIREMENTS;
 
   /**
    * The feature id for the '<em><b>Exchanged Items</b></em>' reference list. <!-- begin-user-doc --> <!-- end-user-doc
@@ -1477,15 +1432,6 @@ public interface CybersecurityPackage extends EPackage {
   int THREAT_APPLICATION__FEATURES = CapellacorePackage.RELATIONSHIP__FEATURES;
 
   /**
-   * The feature id for the '<em><b>Applied Requirements</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int THREAT_APPLICATION__APPLIED_REQUIREMENTS = CapellacorePackage.RELATIONSHIP__APPLIED_REQUIREMENTS;
-
-  /**
    * The feature id for the '<em><b>Asset</b></em>' reference.
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
@@ -1699,15 +1645,6 @@ public interface CybersecurityPackage extends EPackage {
   int PRIMARY_ASSET_STORAGE__FEATURES = CapellacorePackage.NAMED_ELEMENT__FEATURES;
 
   /**
-   * The feature id for the '<em><b>Applied Requirements</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRIMARY_ASSET_STORAGE__APPLIED_REQUIREMENTS = CapellacorePackage.NAMED_ELEMENT__APPLIED_REQUIREMENTS;
-
-  /**
    * The number of structural features of the '<em>Primary Asset Storage</em>' class.
    * <!-- begin-user-doc --> <!--
    * end-user-doc -->
@@ -1902,15 +1839,6 @@ public interface CybersecurityPackage extends EPackage {
    * @ordered
    */
   int SECURITY_NEEDS__FEATURES = CapellacorePackage.NAMED_ELEMENT__FEATURES;
-
-  /**
-   * The feature id for the '<em><b>Applied Requirements</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SECURITY_NEEDS__APPLIED_REQUIREMENTS = CapellacorePackage.NAMED_ELEMENT__APPLIED_REQUIREMENTS;
 
   /**
    * The feature id for the '<em><b>Confidentiality Value</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
@@ -2144,15 +2072,6 @@ public interface CybersecurityPackage extends EPackage {
   int TRUST_BOUNDARY_STORAGE__FEATURES = CapellacorePackage.NAMED_ELEMENT__FEATURES;
 
   /**
-   * The feature id for the '<em><b>Applied Requirements</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TRUST_BOUNDARY_STORAGE__APPLIED_REQUIREMENTS = CapellacorePackage.NAMED_ELEMENT__APPLIED_REQUIREMENTS;
-
-  /**
    * The feature id for the '<em><b>Threat Source</b></em>' attribute.
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
@@ -2382,15 +2301,6 @@ public interface CybersecurityPackage extends EPackage {
   int PRIMARY_ASSET__FEATURES = CapellacorePackage.NAMED_ELEMENT__FEATURES;
 
   /**
-   * The feature id for the '<em><b>Applied Requirements</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRIMARY_ASSET__APPLIED_REQUIREMENTS = CapellacorePackage.NAMED_ELEMENT__APPLIED_REQUIREMENTS;
-
-  /**
    * The feature id for the '<em><b>Owned Members</b></em>' containment reference list.
    * <!-- begin-user-doc --> <!--
    * end-user-doc -->
@@ -2612,15 +2522,6 @@ public interface CybersecurityPackage extends EPackage {
    * @ordered
    */
   int FUNCTIONAL_PRIMARY_ASSET__FEATURES = PRIMARY_ASSET__FEATURES;
-
-  /**
-   * The feature id for the '<em><b>Applied Requirements</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTIONAL_PRIMARY_ASSET__APPLIED_REQUIREMENTS = PRIMARY_ASSET__APPLIED_REQUIREMENTS;
 
   /**
    * The feature id for the '<em><b>Owned Members</b></em>' containment reference list.
@@ -2863,15 +2764,6 @@ public interface CybersecurityPackage extends EPackage {
   int INFORMATION_PRIMARY_ASSET__FEATURES = PRIMARY_ASSET__FEATURES;
 
   /**
-   * The feature id for the '<em><b>Applied Requirements</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INFORMATION_PRIMARY_ASSET__APPLIED_REQUIREMENTS = PRIMARY_ASSET__APPLIED_REQUIREMENTS;
-
-  /**
    * The feature id for the '<em><b>Owned Members</b></em>' containment reference list.
    * <!-- begin-user-doc --> <!--
    * end-user-doc -->
@@ -3104,15 +2996,6 @@ public interface CybersecurityPackage extends EPackage {
   int PRIMARY_ASSET_MEMBER__FEATURES = CapellacorePackage.RELATIONSHIP__FEATURES;
 
   /**
-   * The feature id for the '<em><b>Applied Requirements</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRIMARY_ASSET_MEMBER__APPLIED_REQUIREMENTS = CapellacorePackage.RELATIONSHIP__APPLIED_REQUIREMENTS;
-
-  /**
    * The feature id for the '<em><b>Asset</b></em>' reference.
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * @generated
@@ -3323,15 +3206,6 @@ public interface CybersecurityPackage extends EPackage {
    * @ordered
    */
   int CYBERSECURITY_CONFIGURATION__FEATURES = CapellacorePackage.NAMED_ELEMENT__FEATURES;
-
-  /**
-   * The feature id for the '<em><b>Applied Requirements</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CYBERSECURITY_CONFIGURATION__APPLIED_REQUIREMENTS = CapellacorePackage.NAMED_ELEMENT__APPLIED_REQUIREMENTS;
 
   /**
    * The feature id for the '<em><b>Confidentiality</b></em>' reference.
@@ -3581,15 +3455,6 @@ public interface CybersecurityPackage extends EPackage {
   int ENTERPRISE_PRIMARY_ASSET__FEATURES = PRIMARY_ASSET__FEATURES;
 
   /**
-   * The feature id for the '<em><b>Applied Requirements</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ENTERPRISE_PRIMARY_ASSET__APPLIED_REQUIREMENTS = PRIMARY_ASSET__APPLIED_REQUIREMENTS;
-
-  /**
    * The feature id for the '<em><b>Owned Members</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3832,15 +3697,6 @@ public interface CybersecurityPackage extends EPackage {
    * @ordered
    */
   int THREAT_SOURCE_USE__FEATURES = CapellacorePackage.RELATIONSHIP__FEATURES;
-
-  /**
-   * The feature id for the '<em><b>Applied Requirements</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int THREAT_SOURCE_USE__APPLIED_REQUIREMENTS = CapellacorePackage.RELATIONSHIP__APPLIED_REQUIREMENTS;
 
   /**
    * The feature id for the '<em><b>Threat Source</b></em>' reference.
