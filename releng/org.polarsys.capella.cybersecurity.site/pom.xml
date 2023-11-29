@@ -14,13 +14,13 @@
 	<parent>
 		<groupId>org.polarsys</groupId>
 		<artifactId>org.polarsys.capella.cybersecurity</artifactId>
-		<version>2.1.1-SNAPSHOT</version>
+		<version>2.2.0-SNAPSHOT</version>
 		<relativePath>../../</relativePath>
 	</parent>
 
 	<artifactId>org.polarsys.capella.cybersecurity.site</artifactId>
 	<packaging>eclipse-repository</packaging>
-	<version>2.1.1-SNAPSHOT</version>
+	<version>2.2.0-SNAPSHOT</version>
 
 	<build>
 		<plugins>
@@ -50,7 +50,7 @@
 								<type>eclipse-feature</type>
 							</dependency>
 							<dependency>
-								<artifactId>org.eclipse.equinox.ds</artifactId>
+								<artifactId>org.apache.felix.scr</artifactId>
 								<type>eclipse-plugin</type>
 							</dependency>
 						</dependencies>

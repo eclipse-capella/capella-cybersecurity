@@ -2,9 +2,9 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Docgen
 Bundle-SymbolicName: org.polarsys.capella.cybersecurity.docgen;singleton:=true
-Bundle-Version: 2.1.1.qualifier
+Bundle-Version: 2.2.0.qualifier
 Automatic-Module-Name: org.polarsys.capella.cybersecurity.docgen
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Require-Bundle: org.polarsys.kitalpha.doc.gen.business.core,
  org.eclipse.egf.pattern;visibility:=reexport,
  org.eclipse.egf.pattern.ftask;visibility:=reexport,
