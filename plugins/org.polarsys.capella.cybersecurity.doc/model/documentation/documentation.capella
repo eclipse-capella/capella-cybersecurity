@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--Capella_Version_6.0.0-->
+<!--Capella_Version_7.0.0-->
 <org.polarsys.capella.core.data.capellamodeller:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cybersecurity="http://www.polarsys.org/capella/cybersecurity/1.0"
-    xmlns:libraries="http://www.polarsys.org/capella/common/libraries/6.0.0" xmlns:org.polarsys.capella.core.data.capellacommon="http://www.polarsys.org/capella/core/common/6.0.0"
-    xmlns:org.polarsys.capella.core.data.capellacore="http://www.polarsys.org/capella/core/core/6.0.0"
-    xmlns:org.polarsys.capella.core.data.capellamodeller="http://www.polarsys.org/capella/core/modeller/6.0.0"
-    xmlns:org.polarsys.capella.core.data.cs="http://www.polarsys.org/capella/core/cs/6.0.0"
-    xmlns:org.polarsys.capella.core.data.ctx="http://www.polarsys.org/capella/core/ctx/6.0.0"
-    xmlns:org.polarsys.capella.core.data.epbs="http://www.polarsys.org/capella/core/epbs/6.0.0"
-    xmlns:org.polarsys.capella.core.data.fa="http://www.polarsys.org/capella/core/fa/6.0.0"
-    xmlns:org.polarsys.capella.core.data.information="http://www.polarsys.org/capella/core/information/6.0.0"
-    xmlns:org.polarsys.capella.core.data.information.datatype="http://www.polarsys.org/capella/core/information/datatype/6.0.0"
-    xmlns:org.polarsys.capella.core.data.information.datavalue="http://www.polarsys.org/capella/core/information/datavalue/6.0.0"
-    xmlns:org.polarsys.capella.core.data.la="http://www.polarsys.org/capella/core/la/6.0.0"
-    xmlns:org.polarsys.capella.core.data.oa="http://www.polarsys.org/capella/core/oa/6.0.0"
-    xmlns:org.polarsys.capella.core.data.pa="http://www.polarsys.org/capella/core/pa/6.0.0"
+    xmlns:libraries="http://www.polarsys.org/capella/common/libraries/7.0.0" xmlns:org.polarsys.capella.core.data.capellacommon="http://www.polarsys.org/capella/core/common/7.0.0"
+    xmlns:org.polarsys.capella.core.data.capellacore="http://www.polarsys.org/capella/core/core/7.0.0"
+    xmlns:org.polarsys.capella.core.data.capellamodeller="http://www.polarsys.org/capella/core/modeller/7.0.0"
+    xmlns:org.polarsys.capella.core.data.cs="http://www.polarsys.org/capella/core/cs/7.0.0"
+    xmlns:org.polarsys.capella.core.data.ctx="http://www.polarsys.org/capella/core/ctx/7.0.0"
+    xmlns:org.polarsys.capella.core.data.epbs="http://www.polarsys.org/capella/core/epbs/7.0.0"
+    xmlns:org.polarsys.capella.core.data.fa="http://www.polarsys.org/capella/core/fa/7.0.0"
+    xmlns:org.polarsys.capella.core.data.information="http://www.polarsys.org/capella/core/information/7.0.0"
+    xmlns:org.polarsys.capella.core.data.information.datatype="http://www.polarsys.org/capella/core/information/datatype/7.0.0"
+    xmlns:org.polarsys.capella.core.data.information.datavalue="http://www.polarsys.org/capella/core/information/datavalue/7.0.0"
+    xmlns:org.polarsys.capella.core.data.la="http://www.polarsys.org/capella/core/la/7.0.0"
+    xmlns:org.polarsys.capella.core.data.oa="http://www.polarsys.org/capella/core/oa/7.0.0"
+    xmlns:org.polarsys.capella.core.data.pa="http://www.polarsys.org/capella/core/pa/7.0.0"
     id="bcc34427-20ab-454c-bf02-420e8a06f0bb"
     name="documentation">
   <ownedExtensions xsi:type="libraries:ModelInformation" id="08a66c4a-245a-4908-876d-41c1a9631e56"/>
@@ -287,20 +287,28 @@
           name="Cybersecurity">
         <ownedThreats xsi:type="cybersecurity:Threat" id="8538e1dc-8bc3-4845-a1bb-9319a4579415"
             name="Steal Citizens Data" kind="#e1fed63a-d6af-4463-baed-21b4221dd022"
-            level="1"/>
+            level="1">
+          <ownedThreatApplications xsi:type="cybersecurity:ThreatApplication" id="b462c2e0-1d67-467d-89dd-08630e63ae48"
+              asset="#12a192bb-0a5a-4dd1-a4eb-6d2b718d240c"/>
+          <ownedThreatInvolvements xsi:type="cybersecurity:ThreatInvolvement" id="b6103a11-fb5a-4eb5-8862-ba127b6c0292"
+              component="#eee9197a-6113-499e-a2df-1d402fbc1550"/>
+          <ownedThreatInvolvements xsi:type="cybersecurity:ThreatInvolvement" id="09e3658c-9f49-495e-9564-68d23db96992"
+              component="#ccd854ae-5454-416a-93d5-0eceb17e9201"/>
+        </ownedThreats>
         <ownedThreats xsi:type="cybersecurity:Threat" id="5e46349d-3f44-4f93-aca7-eaf3b5c4665d"
             name="Make the video stream unusable" kind="#fab8ec21-8d3d-4c38-aea9-2836f2b50cd2"
-            level="2"/>
-        <ownedPrimaryAssets xsi:type="cybersecurity:InformationPrimaryAsset" id="12a192bb-0a5a-4dd1-a4eb-6d2b718d240c"
-            name="Citizens Identification Data asset">
-          <ownedThreatApplications xsi:type="cybersecurity:ThreatApplication" id="b462c2e0-1d67-467d-89dd-08630e63ae48"
-              threat="#8538e1dc-8bc3-4845-a1bb-9319a4579415"/>
-        </ownedPrimaryAssets>
-        <ownedPrimaryAssets xsi:type="cybersecurity:FunctionalPrimaryAsset" id="c16a6254-b5b7-412e-8cee-dcfb56d131ed"
-            name="Visualize the video stream service asset">
+            level="2">
           <ownedThreatApplications xsi:type="cybersecurity:ThreatApplication" id="72bd53ba-cdf4-4886-a500-a0fe528fea9d"
-              threat="#5e46349d-3f44-4f93-aca7-eaf3b5c4665d"/>
-        </ownedPrimaryAssets>
+              asset="#c16a6254-b5b7-412e-8cee-dcfb56d131ed"/>
+          <ownedThreatInvolvements xsi:type="cybersecurity:ThreatInvolvement" id="6321fb6b-ea00-413a-9366-89e0b456a023"
+              component="#c5dfab2d-2e52-468f-a30a-a5ef5d6d0740"/>
+          <ownedThreatInvolvements xsi:type="cybersecurity:ThreatInvolvement" id="575176ab-6fd5-44c3-bb67-e8113fde761e"
+              component="#602e94f1-e0f3-4993-98c0-37cbe6ee2d1f"/>
+        </ownedThreats>
+        <ownedPrimaryAssets xsi:type="cybersecurity:InformationPrimaryAsset" id="12a192bb-0a5a-4dd1-a4eb-6d2b718d240c"
+            name="Citizens Identification Data asset"/>
+        <ownedPrimaryAssets xsi:type="cybersecurity:FunctionalPrimaryAsset" id="c16a6254-b5b7-412e-8cee-dcfb56d131ed"
+            name="Visualize the video stream service asset"/>
         <ownedPrimaryAssets xsi:type="cybersecurity:FunctionalPrimaryAsset" id="fbad09e0-6d2c-48a8-97bf-5ba185ad85a0"
             name="Video visualization service">
           <ownedMembers xsi:type="cybersecurity:PrimaryAssetMember" id="83205f0b-abb5-47c8-b4fe-14a4f20ef371"
@@ -444,22 +452,15 @@
               nature="NODE">
             <ownedExtensions xsi:type="cybersecurity:TrustBoundaryStorage" id="5704272a-7ff2-4c12-bec3-880260b48597"
                 threatSource="true" trusted="false"/>
-            <ownedExtensions xsi:type="cybersecurity:ThreatInvolvement" id="b6103a11-fb5a-4eb5-8862-ba127b6c0292"
-                threat="#8538e1dc-8bc3-4845-a1bb-9319a4579415"/>
           </ownedPhysicalComponents>
           <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
               id="ccd854ae-5454-416a-93d5-0eceb17e9201" name="Police Monitoring System"
-              actor="true" nature="NODE">
-            <ownedExtensions xsi:type="cybersecurity:ThreatInvolvement" id="09e3658c-9f49-495e-9564-68d23db96992"
-                threat="#8538e1dc-8bc3-4845-a1bb-9319a4579415"/>
-          </ownedPhysicalComponents>
+              actor="true" nature="NODE"/>
           <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
               id="c5dfab2d-2e52-468f-a30a-a5ef5d6d0740" name="Opposant Hacker" actor="true"
               human="true" nature="NODE">
             <ownedExtensions xsi:type="cybersecurity:TrustBoundaryStorage" id="f1764bde-3e86-4d54-9933-bb425d3c5535"
                 threatSource="true" trusted="false"/>
-            <ownedExtensions xsi:type="cybersecurity:ThreatInvolvement" id="6321fb6b-ea00-413a-9366-89e0b456a023"
-                threat="#5e46349d-3f44-4f93-aca7-eaf3b5c4665d"/>
           </ownedPhysicalComponents>
           <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
               id="5af60508-4398-4617-b327-d8f62899fe79" name="Surveillance Drone System"
@@ -531,14 +532,11 @@
         <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
             id="194518d6-bb94-4e74-bc49-1eb0aa4768a9" name="Zombies" actor="true"
             nature="NODE">
-          <ownedExtensions xsi:type="cybersecurity:ThreatUse" id="47bc0ef2-6697-48dc-993f-4d03e30b31d9"
-              threatSource="#602e94f1-e0f3-4993-98c0-37cbe6ee2d1f"/>
+          <ownedExtensions xsi:type="cybersecurity:ThreatSourceUse" id="47bc0ef2-6697-48dc-993f-4d03e30b31d9"/>
         </ownedPhysicalComponents>
         <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
             id="602e94f1-e0f3-4993-98c0-37cbe6ee2d1f" name="Antivirus Vulnerabilities"
             actor="true" nature="NODE">
-          <ownedExtensions xsi:type="cybersecurity:ThreatInvolvement" id="575176ab-6fd5-44c3-bb67-e8113fde761e"
-              threat="#5e46349d-3f44-4f93-aca7-eaf3b5c4665d"/>
           <ownedExtensions xsi:type="cybersecurity:TrustBoundaryStorage" id="4c4484d5-980e-4338-bba3-d0b7f2f68515"
               threatSource="true" trusted="false"/>
           <ownedExtensions xsi:type="cybersecurity:ThreatSourceUse" id="c4cdd9bd-c4a2-4796-a2d7-fd04b75c32db"

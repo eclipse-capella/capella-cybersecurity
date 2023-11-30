@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cybersecurity="http://www.polarsys.org/capella/cybersecurity/1.0" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:filter="http://www.eclipse.org/sirius/diagram/description/filter/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:org.polarsys.capella.core.data.cs="http://www.polarsys.org/capella/core/cs/6.0.0" xmlns:org.polarsys.capella.core.data.fa="http://www.polarsys.org/capella/core/fa/6.0.0" xmlns:org.polarsys.capella.core.data.pa="http://www.polarsys.org/capella/core/pa/6.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/filter/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/filter http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
-  <viewpoint:DAnalysis uid="_4w8zgA0VEeqlca8SB56_iA" selectedViews="_43jKwA0VEeqlca8SB56_iA _48hxYA0VEeqlca8SB56_iA _4-Rd0A0VEeqlca8SB56_iA _5Cq1oA0VEeqlca8SB56_iA _5Fm04A0VEeqlca8SB56_iA _5GMDsA0VEeqlca8SB56_iA _5Jq1gA0VEeqlca8SB56_iA _5J77QA0VEeqlca8SB56_iA" version="14.6.0.202110251100">
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cybersecurity="http://www.polarsys.org/capella/cybersecurity/1.0" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:filter="http://www.eclipse.org/sirius/diagram/description/filter/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:org.polarsys.capella.core.data.cs="http://www.polarsys.org/capella/core/cs/7.0.0" xmlns:org.polarsys.capella.core.data.fa="http://www.polarsys.org/capella/core/fa/7.0.0" xmlns:org.polarsys.capella.core.data.pa="http://www.polarsys.org/capella/core/pa/7.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/filter/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/filter http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
+  <viewpoint:DAnalysis uid="_4w8zgA0VEeqlca8SB56_iA" selectedViews="_43jKwA0VEeqlca8SB56_iA _48hxYA0VEeqlca8SB56_iA _4-Rd0A0VEeqlca8SB56_iA _5Cq1oA0VEeqlca8SB56_iA _5Fm04A0VEeqlca8SB56_iA _5GMDsA0VEeqlca8SB56_iA _5Jq1gA0VEeqlca8SB56_iA _5J77QA0VEeqlca8SB56_iA" version="15.2.0.202303281325">
     <semanticResources>documentation.afm</semanticResources>
     <semanticResources>documentation.capella</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_43jKwA0VEeqlca8SB56_iA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.polarsys.capella.cybersecurity.sirius.analysis/analysis/cybersecurity.odesign#//@ownedViewpoints[name='Cybersecurity']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_71JkUQ0VEeqlca8SB56_iA" name="Threat_Example" repPath="#_70_zUA0VEeqlca8SB56_iA" changeId="10ec510d-460b-4866-8378-e2a24b09ff48">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_71JkUQ0VEeqlca8SB56_iA" name="Threat_Example" repPath="#_70_zUA0VEeqlca8SB56_iA" changeId="1701337292616">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.polarsys.capella.cybersecurity.sirius.analysis/analysis/cybersecurity.odesign#//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentations[name='Threat%20Diagram']"/>
         <target xmi:type="org.polarsys.capella.core.data.pa:PhysicalComponent" href="documentation.capella#7b93b848-19c3-433d-b54a-2305db5d073c"/>
       </ownedRepresentationDescriptors>
@@ -21,7 +21,7 @@
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" uid="_5Fm04A0VEeqlca8SB56_iA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.polarsys.capella.core.sirius.analysis/description/physical.odesign#//@ownedViewpoints[name='Physical%20Architecture']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_E-d_oQ0eEeqBMNUHl_wRng" name="Cybersecurity PAB Example 1" repPath="#_E44VAA0eEeqBMNUHl_wRng" changeId="a10ff28e-4b24-46a7-b325-1a2b8d459eba">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_E-d_oQ0eEeqBMNUHl_wRng" name="Cybersecurity PAB Example 1" repPath="#_E44VAA0eEeqBMNUHl_wRng" changeId="1701337292616">
         <eAnnotations xmi:type="description:DAnnotation" uid="_FLZBUA0eEeqBMNUHl_wRng" source="https://www.polarsys.org/capella/dannotation/DesactivatedFilters">
           <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FLaPcA0eEeqBMNUHl_wRng" key="hide.computed.component.exchanges.filter" value="true"/>
           <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FLaPcQ0eEeqBMNUHl_wRng" key="hide.computed.physical.links.filter" value="true"/>
@@ -29,7 +29,7 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.polarsys.capella.core.sirius.analysis/description/physical.odesign#//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']"/>
         <target xmi:type="org.polarsys.capella.core.data.pa:PhysicalComponent" href="documentation.capella#7b93b848-19c3-433d-b54a-2305db5d073c"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_kr2akA0iEeqBMNUHl_wRng" name="Cybersecurity PAB Example 2" repPath="#_krt3sA0iEeqBMNUHl_wRng" changeId="915edca1-13ea-41ab-99f1-39bd0e3036cc">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_kr2akA0iEeqBMNUHl_wRng" name="Cybersecurity PAB Example 2" repPath="#_krt3sA0iEeqBMNUHl_wRng" changeId="1701337292616">
         <eAnnotations xmi:type="description:DAnnotation" uid="_krtQoA0iEeqBMNUHl_wRng" source="https://www.polarsys.org/capella/dannotation/DesactivatedFilters">
           <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_kr420A0iEeqBMNUHl_wRng" key="hide.computed.component.exchanges.filter" value="true"/>
           <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_kr420Q0iEeqBMNUHl_wRng" key="hide.computed.physical.links.filter" value="true"/>
@@ -62,7 +62,7 @@
             <styles xmi:type="notation:ShapeStyle" xmi:id="_Wl5GsVmREeuIEMZQVDw3ZQ" fontName="Segoe UI"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Wl5GslmREeuIEMZQVDw3ZQ"/>
           </children>
-          <styles xmi:type="notation:ShapeStyle" xmi:id="_8z5rkQ0VEeqlca8SB56_iA" fontName="Segoe UI" fontHeight="12"/>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_8z5rkQ0VEeqlca8SB56_iA" fontName="Segoe UI" fontHeight="8"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8z5rkg0VEeqlca8SB56_iA" x="370" y="180" width="220" height="50"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_BFdAUA0WEeqlca8SB56_iA" type="2001" element="_BFWSoA0WEeqlca8SB56_iA">
@@ -73,7 +73,7 @@
             <styles xmi:type="notation:ShapeStyle" xmi:id="_Uf-M8QliEeyIXJWoh9madg" fontName="Segoe UI"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Uf-M8gliEeyIXJWoh9madg"/>
           </children>
-          <styles xmi:type="notation:ShapeStyle" xmi:id="_BFdAUQ0WEeqlca8SB56_iA" fontName="Segoe UI" fontHeight="12"/>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_BFdAUQ0WEeqlca8SB56_iA" fontName="Segoe UI" fontHeight="8"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BFdAUg0WEeqlca8SB56_iA" x="140" y="190" width="75" height="66"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_FE8UsA0WEeqlca8SB56_iA" type="2001" element="_FE2OEA0WEeqlca8SB56_iA">
@@ -84,7 +84,7 @@
             <styles xmi:type="notation:ShapeStyle" xmi:id="_WmFT8VmREeuIEMZQVDw3ZQ" fontName="Segoe UI"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WmFT8lmREeuIEMZQVDw3ZQ"/>
           </children>
-          <styles xmi:type="notation:ShapeStyle" xmi:id="_FE8UsQ0WEeqlca8SB56_iA" fontName="Segoe UI" fontHeight="12"/>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_FE8UsQ0WEeqlca8SB56_iA" fontColor="4013436" fontName="Segoe UI" fontHeight="8"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_FE8Usg0WEeqlca8SB56_iA" x="630" y="184" width="220" height="50"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_Kw5K4A0WEeqlca8SB56_iA" type="2001" element="_KwzEQA0WEeqlca8SB56_iA">
@@ -95,7 +95,7 @@
             <styles xmi:type="notation:ShapeStyle" xmi:id="_TMun0VQeEeyOTsobtrbbTw" fontName="Segoe UI"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TMun0lQeEeyOTsobtrbbTw"/>
           </children>
-          <styles xmi:type="notation:ShapeStyle" xmi:id="_Kw5K4Q0WEeqlca8SB56_iA" fontName="Segoe UI" fontHeight="12"/>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_Kw5K4Q0WEeqlca8SB56_iA" fontName="Segoe UI" fontHeight="8"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Kw5K4g0WEeqlca8SB56_iA" x="432" y="90" width="75" height="66"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_VGE2AA0WEeqlca8SB56_iA" type="2001" element="_VF-vYA0WEeqlca8SB56_iA">
@@ -106,7 +106,7 @@
             <styles xmi:type="notation:ShapeStyle" xmi:id="_WmFT91mREeuIEMZQVDw3ZQ" fontName="Segoe UI"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WmFT-FmREeuIEMZQVDw3ZQ"/>
           </children>
-          <styles xmi:type="notation:ShapeStyle" xmi:id="_VGE2AQ0WEeqlca8SB56_iA" fontName="Segoe UI" fontHeight="12"/>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_VGE2AQ0WEeqlca8SB56_iA" fontName="Segoe UI" fontHeight="8"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VGE2Ag0WEeqlca8SB56_iA" x="370" y="309" width="220" height="50"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_YtBHgA0WEeqlca8SB56_iA" type="2001" element="_Ys7A4A0WEeqlca8SB56_iA">
@@ -117,7 +117,7 @@
             <styles xmi:type="notation:ShapeStyle" xmi:id="_Rt9_YQliEeyIXJWoh9madg" fontName="Segoe UI"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Rt9_YgliEeyIXJWoh9madg"/>
           </children>
-          <styles xmi:type="notation:ShapeStyle" xmi:id="_YtBHgQ0WEeqlca8SB56_iA" fontName="Segoe UI" fontHeight="12"/>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_YtBHgQ0WEeqlca8SB56_iA" fontColor="3038217" fontName="Segoe UI" fontHeight="8"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YtBHgg0WEeqlca8SB56_iA" x="630" y="310" width="220" height="50"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_d1Je8A0WEeqlca8SB56_iA" type="2001" element="_d1AVAA0WEeqlca8SB56_iA">
@@ -128,7 +128,7 @@
             <styles xmi:type="notation:ShapeStyle" xmi:id="_kgN2AQopEeyeY6Po5rG6iA" fontName="Segoe UI"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_kgN2AgopEeyeY6Po5rG6iA"/>
           </children>
-          <styles xmi:type="notation:ShapeStyle" xmi:id="_d1Je8Q0WEeqlca8SB56_iA" fontName="Segoe UI" fontHeight="12"/>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_d1Je8Q0WEeqlca8SB56_iA" fontName="Segoe UI" fontHeight="8"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_d1Je8g0WEeqlca8SB56_iA" x="140" y="302" width="75" height="66"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_TMrkgFQeEeyOTsobtrbbTw" type="2001" element="_TLwXcFQeEeyOTsobtrbbTw">
