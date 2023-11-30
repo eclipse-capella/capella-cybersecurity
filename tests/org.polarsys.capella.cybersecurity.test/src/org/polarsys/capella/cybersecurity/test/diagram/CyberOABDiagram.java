@@ -24,7 +24,6 @@ import org.polarsys.capella.test.diagram.common.ju.context.DiagramContext;
 import org.polarsys.capella.test.diagram.common.ju.context.OABDiagram;
 import org.polarsys.capella.test.diagram.common.ju.step.crud.CreateDiagramStep;
 import org.polarsys.capella.test.diagram.common.ju.step.tools.CreateContainerTool;
-import org.polarsys.capella.test.diagram.common.ju.step.tools.CreatePathTool;
 import org.polarsys.capella.test.diagram.common.ju.step.tools.InsertRemoveTool;
 import org.polarsys.capella.test.framework.context.SessionContext;
 
@@ -66,11 +65,6 @@ public class CyberOABDiagram extends OABDiagram {
     new InsertRemoveTool(this, CybersecurityAnalysisConstants.TOOL_XAB_INSERT_THREAT).remove(threat.getId());
   }
   
-  @Override
-  public void createFunctionalChain(String path, String... links) {
-    new CreatePathTool(this, IToolNameConstants.TOOL_OAIB_CREATE_OPERATIONAL_PROCESS, path, links).run();
-  }
-
   public String createEntity(String id, String containerId) {
     DDiagramElementContainer element = new CreateContainerTool(this, IToolNameConstants.TOOL_OAB_CREATE_OE, containerId,
         id).run();

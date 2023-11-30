@@ -21,9 +21,9 @@ import org.eclipse.sirius.diagram.DEdge;
 import org.eclipse.sirius.diagram.DNode;
 import org.eclipse.sirius.diagram.DNodeContainer;
 import org.eclipse.sirius.diagram.EdgeStyle;
+import org.eclipse.sirius.diagram.Ellipse;
 import org.eclipse.sirius.diagram.FlatContainerStyle;
 import org.eclipse.sirius.diagram.Square;
-import org.eclipse.sirius.diagram.Ellipse;
 import org.eclipse.sirius.viewpoint.RGBValues;
 import org.eclipse.sirius.viewpoint.Style;
 import org.polarsys.capella.common.data.modellingcore.AbstractType;
@@ -97,7 +97,7 @@ public abstract class CyberXABDiagramTest extends EmptyProject {
   protected abstract void removePrimaryAsset(PrimaryAsset pa);
 
   protected abstract void insertThreat(Threat threat);
-  
+
   protected abstract void removeThreat(Threat threat);
 
   protected abstract void createDiagramElements();
@@ -109,11 +109,11 @@ public abstract class CyberXABDiagramTest extends EmptyProject {
   protected RGBValues getIpaColor() {
     return ((Ellipse) diagram.getView(ipa).getStyle()).getColor();
   }
-  
+
   protected RGBValues getEpaColor() {
     return ((Ellipse) diagram.getView(epa).getStyle()).getColor();
   }
-  
+
   protected RGBValues getThreatColor() {
     return ((Ellipse) diagram.getView(threat).getStyle()).getColor();
   }
@@ -160,7 +160,7 @@ public abstract class CyberXABDiagramTest extends EmptyProject {
       fpa = services.createFunctionalPrimaryAsset(context.getSemanticElement(getSystemId()));
       ipa = services.createInformationPrimaryAsset(context.getSemanticElement(getSystemId()));
       epa = services.createEnterprisePrimaryAsset(context.getSemanticElement(getSystemId()));
-      
+
       PrimaryAssetMember m1 = CybersecurityFactory.eINSTANCE.createPrimaryAssetMember();
       m1.setMember((ModelElement) diagram.getSemanticObjectMap().get(function1));
 
@@ -169,10 +169,10 @@ public abstract class CyberXABDiagramTest extends EmptyProject {
 
       fpa.getOwnedMembers().add(m1);
       fpa.getOwnedMembers().add(m2);
-      
+
       PrimaryAssetMember m3 = CybersecurityFactory.eINSTANCE.createPrimaryAssetMember();
       m3.setMember(fpa);
-      
+
       epa.getOwnedMembers().add(m3);
     });
 
@@ -184,14 +184,14 @@ public abstract class CyberXABDiagramTest extends EmptyProject {
 
     assertEquals(getFpaColor(), ((Square) f1Node.getStyle()).getBorderColor());
     assertEquals(getFpaColor(), ((Square) f2Node.getStyle()).getBorderColor());
-    
+
     insertPrimaryAsset(epa);
-    
+
     assertEquals(BLACK_COLOR, ((Square) f1Node.getStyle()).getBorderColor());
     assertEquals(BLACK_COLOR, ((Square) f2Node.getStyle()).getBorderColor());
-    
+
     removePrimaryAsset(fpa);
-    
+
     assertEquals(getEpaColor(), ((Square) f1Node.getStyle()).getBorderColor());
     assertEquals(getEpaColor(), ((Square) f2Node.getStyle()).getBorderColor());
   }
@@ -224,11 +224,11 @@ public abstract class CyberXABDiagramTest extends EmptyProject {
       m2.setMember(ei2);
       ipa.getOwnedMembers().add(m1);
       ipa.getOwnedMembers().add(m2);
-      
+
       epa = services.createEnterprisePrimaryAsset(context.getSemanticElement(getSystemId()));
       PrimaryAssetMember m3 = CybersecurityFactory.eINSTANCE.createPrimaryAssetMember();
       m3.setMember(ipa);
-      
+
       epa.getOwnedMembers().add(m3);
     });
 
@@ -240,7 +240,7 @@ public abstract class CyberXABDiagramTest extends EmptyProject {
     assertEquals(getIpaColor(), ((Square) f1Node.getStyle()).getBorderColor());
     assertEquals(getIpaColor(), ((Square) f2Node.getStyle()).getBorderColor());
     assertEquals(getIpaColor(), ((EdgeStyle) feEdge.getStyle()).getStrokeColor());
-    
+
     insertPrimaryAsset(epa);
     assertEquals(BLACK_COLOR, ((Square) f1Node.getStyle()).getBorderColor());
     assertEquals(BLACK_COLOR, ((Square) f2Node.getStyle()).getBorderColor());
@@ -249,65 +249,66 @@ public abstract class CyberXABDiagramTest extends EmptyProject {
 
   protected void step3() throws RollbackException, InterruptedException {
 
+
+    // create 2 actors in diagram
+    String actor1Id = diagram.createActor("actor1", diagram.getDiagramId());
+    String actor2Id = diagram.createActor("actor2", diagram.getDiagramId());
+
+    // create an untrusted actor and a trusted one inside the previous ones
+    String untrustedActorId = diagram.createActor("untrustedActor", actor1Id);
+    String trustedActorId = diagram.createActor("trustedActor", actor2Id);
+
     executeCommand(() -> {
-      // create 2 actors in diagram
-      String actor1Id = diagram.createActor("actor1", diagram.getDiagramId());
-      String actor2Id = diagram.createActor("actor2", diagram.getDiagramId());
-
-      // create an untrusted actor and a trusted one inside the previous ones
-      String untrustedActorId = diagram.createActor("untrustedActor", actor1Id);
-      String trustedActorId = diagram.createActor("trustedActor", actor2Id);
-
       AbstractType untrustedActor = ((Part) diagram.getSemanticObjectMap().get("untrustedActor")).getAbstractType();
       TrustBoundaryStorage storage = CybersecurityFactory.eINSTANCE.createTrustBoundaryStorage();
       storage.setTrusted(false);
       untrustedActor.getOwnedExtensions().add(storage);
+    });
 
-      // create functions inside the actors and a functional exchange between them
-      String function3 = diagram.createFunction("function3", untrustedActorId);
-      String function4 = diagram.createFunction("function4", trustedActorId);
-      diagram.createFunctionalExchange(function3, function4, "functional exchange");
-      FunctionalExchange functionalExchange = (FunctionalExchange) diagram.getSemanticObjectMap()
-          .get("functional exchange");
+    // create functions inside the actors and a functional exchange between them
+    String function3 = diagram.createFunction("function3", untrustedActorId);
+    String function4 = diagram.createFunction("function4", trustedActorId);
+    diagram.createFunctionalExchange(function3, function4, "functional exchange");
+    FunctionalExchange functionalExchange = (FunctionalExchange) diagram.getSemanticObjectMap()
+        .get("functional exchange");
 
-      // create a physical link between the actors
-      diagram.createPhysicalLink(untrustedActorId, trustedActorId, "physical link");
-      PhysicalLink physicalLink = (PhysicalLink) diagram.getSemanticObjectMap().get("physical link");
+    // create a physical link between the actors
+    diagram.createPhysicalLink(untrustedActorId, trustedActorId, "physical link");
+    PhysicalLink physicalLink = (PhysicalLink) diagram.getSemanticObjectMap().get("physical link");
 
-      // create a component exchange between the 'container' actors
-      diagram.createComponentExchange(actor1Id, actor2Id, "component exchange");
-      ComponentExchange componentExchange = (ComponentExchange) diagram.getSemanticObjectMap()
-          .get("component exchange");
-
+    // create a component exchange between the 'container' actors
+    diagram.createComponentExchange(actor1Id, actor2Id, "component exchange");
+    ComponentExchange componentExchange = (ComponentExchange) diagram.getSemanticObjectMap().get("component exchange");
+    executeCommand(() -> {
       // add an allocated functional exchange to the component exchange
       Allocators.allocate(functionalExchange).on(componentExchange);
-
-      assertTrue(CybersecurityQueries.isTrustBoundary(functionalExchange));
-      assertTrue(CybersecurityQueries.isTrustBoundary(physicalLink));
-      assertTrue(CybersecurityQueries.isTrustBoundary(componentExchange));
-
     });
+    assertTrue(CybersecurityQueries.isTrustBoundary(functionalExchange));
+    assertTrue(CybersecurityQueries.isTrustBoundary(physicalLink));
+    assertTrue(CybersecurityQueries.isTrustBoundary(componentExchange));
+
   }
-  
+
   protected void step4() throws RollbackException, InterruptedException {
+
+    // create an actor
+    String actorId = diagram.createActor("actor", diagram.getDiagramId());
+
+    // create three functions inside the actor and functional exchange between them
+    String function5 = diagram.createFunction("function5", actorId);
+    String function6 = diagram.createFunction("function6", actorId);
+    String function7 = diagram.createFunction("function7", actorId);
+    diagram.createFunctionalExchange(function5, function6, "functionalExchange");
+    diagram.createFunctionalExchange(function6, function7, "functionalExchange2");
+
+    // create two functional chains
+    diagram.createFunctionalChain("path", "functionalExchange");
+    FunctionalChain funcChain = (FunctionalChain) diagram.getSemanticObjectMap().get("path");
+
+    diagram.createFunctionalChain("path2", "functionalExchange2");
+    FunctionalChain funcChain2 = (FunctionalChain) diagram.getSemanticObjectMap().get("path2");
+
     executeCommand(() -> {
-      // create an actor
-      String actorId = diagram.createActor("actor", diagram.getDiagramId());
-
-      // create three functions inside the actor and functional exchange between them
-      String function5 = diagram.createFunction("function5", actorId);
-      String function6 = diagram.createFunction("function6", actorId);
-      String function7 = diagram.createFunction("function7", actorId);
-      diagram.createFunctionalExchange(function5, function6, "functionalExchange");
-      diagram.createFunctionalExchange(function6, function7, "functionalExchange2");
-
-      // create two functional chains
-      diagram.createFunctionalChain("path", "functionalExchange");
-      FunctionalChain funcChain = (FunctionalChain) diagram.getSemanticObjectMap().get("path");
-
-      diagram.createFunctionalChain("path2", "functionalExchange2");
-      FunctionalChain funcChain2 = (FunctionalChain) diagram.getSemanticObjectMap().get("path2");
-
       // create a functional primary asset and add the functional chains as members
       fpa = services.createFunctionalPrimaryAsset(context.getSemanticElement(getSystemId()));
       PrimaryAssetMember m1 = CybersecurityFactory.eINSTANCE.createPrimaryAssetMember();
@@ -317,13 +318,13 @@ public abstract class CyberXABDiagramTest extends EmptyProject {
       fpa.getOwnedMembers().add(m1);
       fpa.getOwnedMembers().add(m2);
       insertPrimaryAsset(fpa);
-      
+
       DDiagramElement middleFunctionView = diagram.getView(diagram.getSemanticObjectMap().get("function6"));
       assertEquals(((Square) middleFunctionView.getStyle()).getBorderColor(), BLACK_COLOR);
 
       // remove functional chains
       new InsertRemoveTool(diagram, diagram.getToolNameFunctionalChains(), diagram.getDiagramId()).remove("path", "path2");
-      
+
       // get view and style for one function and the primaryAsset
       DDiagramElement functionView = diagram.getView(diagram.getSemanticObjectMap().get("function5"));
       DDiagramElement primaryAssetView = diagram.getView(diagram.getSemanticObjectMap().get(fpa.getId()));
@@ -333,24 +334,24 @@ public abstract class CyberXABDiagramTest extends EmptyProject {
 
       // get view and style for the middle function
       checkBorderColor(middleFunctionView, primaryAssetView);
-    
+
       epa = services.createEnterprisePrimaryAsset(context.getSemanticElement(getSystemId()));
       PrimaryAssetMember m3 = CybersecurityFactory.eINSTANCE.createPrimaryAssetMember();
       m3.setMember(fpa);
-      
+
       epa.getOwnedMembers().add(m3);
-      
+
       insertPrimaryAsset(epa);
       assertEquals(((Square) functionView.getStyle()).getBorderColor(), BLACK_COLOR);
       assertEquals(((Square) middleFunctionView.getStyle()).getBorderColor(), BLACK_COLOR);
-      
+
       removePrimaryAsset(fpa);
       assertEquals(((Square) functionView.getStyle()).getBorderColor(), getEpaColor());
       assertEquals(((Square) middleFunctionView.getStyle()).getBorderColor(), getEpaColor());
 
     });
   }
-  
+
   private void checkBorderColor(DDiagramElement elem1, DDiagramElement elemPA) {
     Style style1 = elem1.getStyle();
     Style style2 = elemPA.getStyle();
@@ -358,15 +359,16 @@ public abstract class CyberXABDiagramTest extends EmptyProject {
   }
 
   protected void step5() throws RollbackException, InterruptedException {
+
+    // create an actor
+    String actor3Id = diagram.createActor("actor3", diagram.getDiagramId());
+
+    // create two functions inside the actor and a functional exchange between them
+    String function8 = diagram.createFunction("function8", actor3Id);
+    String function9 = diagram.createFunction("function9", actor3Id);
+    diagram.createFunctionalExchange(function8, function9, "exchange");
+
     executeCommand(() -> {
-      // create an actor
-      String actor3Id = diagram.createActor("actor3", diagram.getDiagramId());
-
-      // create two functions inside the actor and a functional exchange between them
-      String function8 = diagram.createFunction("function8", actor3Id);
-      String function9 = diagram.createFunction("function9", actor3Id);
-      diagram.createFunctionalExchange(function8, function9, "exchange");
-
       // create an exchange item and add to interfaces
       ExchangeItem exchangeItem1 = InformationFactory.eINSTANCE.createExchangeItem();
       InterfacePkg pkg = context.getSemanticElement(getInterfacePkgId());
@@ -397,22 +399,22 @@ public abstract class CyberXABDiagramTest extends EmptyProject {
       insertPrimaryAsset(ipa2);
       diagram.refreshDiagram();
       assertEquals(((EdgeStyle) exchangeStyle).getStrokeColor(), BLACK_COLOR);
-      
+
       epa = services.createEnterprisePrimaryAsset(context.getSemanticElement(getSystemId()));
       PrimaryAssetMember m1 = CybersecurityFactory.eINSTANCE.createPrimaryAssetMember();
       m1.setMember(ipa1);
       PrimaryAssetMember m2 = CybersecurityFactory.eINSTANCE.createPrimaryAssetMember();
       m2.setMember(ipa2);
-      
+
       epa.getOwnedMembers().add(m1);
       epa.getOwnedMembers().add(m2);
-      
+
       insertPrimaryAsset(epa);
       assertEquals(((EdgeStyle) exchangeStyle).getStrokeColor(), BLACK_COLOR);
-      
+
       removePrimaryAsset(ipa1);
       assertEquals(((EdgeStyle) exchangeStyle).getStrokeColor(), BLACK_COLOR);
-      
+
       removePrimaryAsset(ipa2);
       assertEquals(((EdgeStyle) exchangeStyle).getStrokeColor(), getEpaColor());
     });
@@ -462,32 +464,32 @@ public abstract class CyberXABDiagramTest extends EmptyProject {
     fNodeContainer = (DNodeContainer) diagram.getViewObjectMap().get("component5");
     assertEquals(BLACK_COLOR, ((FlatContainerStyle) fNodeContainer.getStyle()).getBorderColor());
     assertEquals(NORMAL_BORDER_SIZE, ((FlatContainerStyle) fNodeContainer.getStyle()).getBorderSize());
-  
+
     executeCommand(() -> {
       epa = services.createEnterprisePrimaryAsset(context.getSemanticElement(getSystemId()));
       PrimaryAssetMember m2 = CybersecurityFactory.eINSTANCE.createPrimaryAssetMember();
       m2.setMember(fpa);
       epa.getOwnedMembers().add(m2);
     });
-    
+
     insertPrimaryAsset(epa);
 
     fNodeContainer = (DNodeContainer) diagram.getViewObjectMap().get("component6");
     assertEquals(BLACK_COLOR, ((Square) fNode.getStyle()).getBorderColor());
     assertEquals(BLACK_COLOR, ((FlatContainerStyle) fNodeContainer.getStyle()).getBorderColor());
     assertEquals(HIGHLIGHTED_BORDER_SIZE, ((FlatContainerStyle) fNodeContainer.getStyle()).getBorderSize());
-    
+
     removePrimaryAsset(fpa);
     diagram.refreshDiagram();
     assertEquals(getEpaColor(), ((Square) fNode.getStyle()).getBorderColor());
     assertEquals(getEpaColor(), ((FlatContainerStyle) fNodeContainer.getStyle()).getBorderColor());
     assertEquals(HIGHLIGHTED_BORDER_SIZE, ((FlatContainerStyle) fNodeContainer.getStyle()).getBorderSize());
-  
+
     // check again that second component has black border color and it is not highlighted
     fNodeContainer = (DNodeContainer) diagram.getViewObjectMap().get("component5");
     assertEquals(BLACK_COLOR, ((FlatContainerStyle) fNodeContainer.getStyle()).getBorderColor());
     assertEquals(NORMAL_BORDER_SIZE, ((FlatContainerStyle) fNodeContainer.getStyle()).getBorderSize());
-    
+
     insertPrimaryAsset(fpa);
     removePrimaryAsset(epa);
   }
@@ -511,19 +513,19 @@ public abstract class CyberXABDiagramTest extends EmptyProject {
     DNodeContainer fNodeContainer = (DNodeContainer) diagram.getViewObjectMap().get("component6");
     assertEquals(BLACK_COLOR, ((FlatContainerStyle) fNodeContainer.getStyle()).getBorderColor());
     assertEquals(HIGHLIGHTED_BORDER_SIZE, ((FlatContainerStyle) fNodeContainer.getStyle()).getBorderSize());
-    
+
     step7_epa();
   }
-  
+
   protected void step7_epa() throws RollbackException, InterruptedException {
-    
+
     executeCommand(() -> {
       services.createThreatApplication(threat, epa);
     });
-    
+
     removePrimaryAsset(fpa);
     insertPrimaryAsset(epa);
-    
+
     // check that function node has black color (asset and threat present in the diagram)
     DNode fNode = (DNode) diagram.getViewObjectMap().get("function10");
     assertEquals(BLACK_COLOR, ((Square) fNode.getStyle()).getBorderColor());
@@ -533,7 +535,7 @@ public abstract class CyberXABDiagramTest extends EmptyProject {
     DNodeContainer fNodeContainer = (DNodeContainer) diagram.getViewObjectMap().get("component6");
     assertEquals(BLACK_COLOR, ((FlatContainerStyle) fNodeContainer.getStyle()).getBorderColor());
     assertEquals(HIGHLIGHTED_BORDER_SIZE, ((FlatContainerStyle) fNodeContainer.getStyle()).getBorderSize());
-    
+
   }
 
   protected void step8() {
@@ -635,40 +637,40 @@ public abstract class CyberXABDiagramTest extends EmptyProject {
       m2.setMember(ipa);
       epa.getOwnedMembers().add(m2);
     });
-    
+
     insertPrimaryAsset(epa);
     assertEquals(BLACK_COLOR, ((EdgeStyle) componentExchangeEdge.getStyle()).getStrokeColor());
     assertEquals(HIGHLIGHTED_BORDER_SIZE, ((EdgeStyle) componentExchangeEdge.getStyle()).getSize());
-    
+
     removeThreat(threat);
     assertEquals(getEpaColor(), ((EdgeStyle) componentExchangeEdge.getStyle()).getStrokeColor());
     assertEquals(HIGHLIGHTED_BORDER_SIZE, ((EdgeStyle) componentExchangeEdge.getStyle()).getSize());
-    
+
     step10CreateAndCheckPhysicalLink(componentExchange);
   }
 
   protected void step10CreateAndCheckPhysicalLink(ComponentExchange componentExchange)
       throws RollbackException, InterruptedException {
-    
+
     removePrimaryAsset(epa);
     insertThreat(threat);
-    
+
     executeCommand(() -> {
-    // create a physical link between components and allocate component exchange
-    diagram.createPhysicalLink(diagramElements.get("component4"), diagramElements.get("component3"), "PL1");
-    PhysicalLink physicalLink = (PhysicalLink) diagram.getSemanticObjectMap().get("PL1");
-    ComponentExchangeAllocation a1 = FaFactory.eINSTANCE.createComponentExchangeAllocation();
-    a1.setSourceElement(physicalLink);
-    a1.setTargetElement(componentExchange);
-    physicalLink.getOwnedComponentExchangeAllocations().add(a1);
+      // create a physical link between components and allocate component exchange
+      diagram.createPhysicalLink(diagramElements.get("component4"), diagramElements.get("component3"), "PL1");
+      PhysicalLink physicalLink = (PhysicalLink) diagram.getSemanticObjectMap().get("PL1");
+      ComponentExchangeAllocation a1 = FaFactory.eINSTANCE.createComponentExchangeAllocation();
+      a1.setSourceElement(physicalLink);
+      a1.setTargetElement(componentExchange);
+      physicalLink.getOwnedComponentExchangeAllocations().add(a1);
     });
     DEdge physicalLinkEdge = diagram.getDiagram().getEdges().stream()
         .filter(e -> e.getTarget() == diagram.getSemanticObjectMap().get("PL1")).findFirst().get();
     assertEquals(getThreatColor(), ((EdgeStyle) physicalLinkEdge.getStyle()).getStrokeColor());
     assertEquals(HIGHLIGHTED_BORDER_SIZE, ((EdgeStyle) physicalLinkEdge.getStyle()).getSize());
-    
+
     insertPrimaryAsset(epa);
-    
+
     assertEquals(BLACK_COLOR, ((EdgeStyle) physicalLinkEdge.getStyle()).getStrokeColor());
     assertEquals(HIGHLIGHTED_BORDER_SIZE, ((EdgeStyle) physicalLinkEdge.getStyle()).getSize());  
   }
