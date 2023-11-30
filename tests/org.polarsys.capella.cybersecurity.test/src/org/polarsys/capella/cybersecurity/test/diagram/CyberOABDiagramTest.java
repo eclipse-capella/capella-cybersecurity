@@ -88,7 +88,7 @@ public class CyberOABDiagramTest extends CyberXABDiagramTest {
   protected void insertThreat(Threat threat) {
     ((CyberOABDiagram) diagram).insertThreat(threat);
   }
-  
+
   @Override
   protected void removeThreat(Threat threat) {
     ((CyberOABDiagram) diagram).removeThreat(threat);
@@ -98,39 +98,38 @@ public class CyberOABDiagramTest extends CyberXABDiagramTest {
   protected void step3() throws RollbackException, InterruptedException {
     CyberOABDiagram diagram = (CyberOABDiagram) this.diagram;
 
+    // create 2 entities in diagram
+    String entity1Id = diagram.createEntity("e1", diagram.getDiagramId());
+    String entity2Id = diagram.createEntity("e2", diagram.getDiagramId());
+
+    // create an untrusted actor and a trusted one inside the previous ones
+    String untrustedActorId = diagram.createActor("untrustedActor", entity1Id);
+    String trustedActorId = diagram.createActor("trustedActor", entity2Id);
+
     executeCommand(() -> {
-      // create 2 entities in diagram
-      String entity1Id = diagram.createEntity("e1", diagram.getDiagramId());
-      String entity2Id = diagram.createEntity("e2", diagram.getDiagramId());
-
-      // create an untrusted actor and a trusted one inside the previous ones
-      String untrustedActorId = diagram.createActor("untrustedActor", entity1Id);
-      String trustedActorId = diagram.createActor("trustedActor", entity2Id);
-
       AbstractType untrustedActor = ((Entity) diagram.getSemanticObjectMap().get("untrustedActor"));
       TrustBoundaryStorage storage = CybersecurityFactory.eINSTANCE.createTrustBoundaryStorage();
       storage.setTrusted(false);
       untrustedActor.getOwnedExtensions().add(storage);
+    });
+    // create activities inside the actors and an interaction between them
+    String func1 = diagram.createFunction("func1", untrustedActorId);
+    String func2 = diagram.createFunction("func2", trustedActorId);
+    diagram.createFunctionalExchange(func1, func2, "functional exchange");
+    FunctionalExchange functionalExchange = (FunctionalExchange) diagram.getSemanticObjectMap()
+        .get("functional exchange");
 
-      // create activities inside the actors and an interaction between them
-      String func1 = diagram.createFunction("func1", untrustedActorId);
-      String func2 = diagram.createFunction("func2", trustedActorId);
-      diagram.createFunctionalExchange(func1, func2, "functional exchange");
-      FunctionalExchange functionalExchange = (FunctionalExchange) diagram.getSemanticObjectMap()
-          .get("functional exchange");
+    // create a communication mean between the 'container' entities
+    diagram.createComponentExchange(entity1Id, entity2Id, "component exchange");
+    ComponentExchange componentExchange = (ComponentExchange) diagram.getSemanticObjectMap().get("component exchange");
 
-      // create a communication mean between the 'container' entities
-      diagram.createComponentExchange(entity1Id, entity2Id, "component exchange");
-      ComponentExchange componentExchange = (ComponentExchange) diagram.getSemanticObjectMap()
-          .get("component exchange");
-
+    executeCommand(() -> {
       // add an allocated functional exchange to the component exchange
       Allocators.allocate(functionalExchange).on(componentExchange);
-
-      assertTrue(CybersecurityQueries.isTrustBoundary(functionalExchange));
-      assertTrue(CybersecurityQueries.isTrustBoundary(componentExchange));
-
     });
+
+    assertTrue(CybersecurityQueries.isTrustBoundary(functionalExchange));
+    assertTrue(CybersecurityQueries.isTrustBoundary(componentExchange));
   }
 
   @Override
