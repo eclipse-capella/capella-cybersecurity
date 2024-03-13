@@ -12,4 +12,4 @@
 
 Retrieve all known issues by following this link:
 
-* [https://github.com/eclipse/capella-cybersecurity/issues Cybersecurity issues]
+* [https://github.com/eclipse-capella/capella-cybersecurity/issues Cybersecurity issues]
