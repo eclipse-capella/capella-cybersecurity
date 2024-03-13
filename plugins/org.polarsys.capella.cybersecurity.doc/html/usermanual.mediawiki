@@ -198,7 +198,7 @@ The following diagram types are provided by the DARC Viewpoint:
 * Scenario Diagram
 * Information Asset Diagram
 
-The user can create a diagram using the menus in project explorer or using the corresponding hyperlink from the [[../help/topic/org.polarsys.capella.ui.doc/html/04.%20User%20Interface/4.03.%20Activity%20Browser.html? |Activity Explorer]]<span class="github-link">[[https://github.com/eclipse/capella/blob/master/doc/plugins/org.polarsys.capella.ui.doc/html/04.%20User%20Interface/4.03.%20Activity%20Browser.mediawiki|(online documentation)]]</span>:
+The user can create a diagram using the menus in project explorer or using the corresponding hyperlink from the [[../help/topic/org.polarsys.capella.ui.doc/html/04.%20User%20Interface/4.03.%20Activity%20Browser.html? |Activity Explorer]]<span class="github-link">[[https://github.com/eclipse-capella/capella/blob/master/doc/plugins/org.polarsys.capella.ui.doc/html/04.%20User%20Interface/4.03.%20Activity%20Browser.mediawiki|(online documentation)]]</span>:
 
 : [[Image:Images/activityExplorer.png|464x430px]]
 
@@ -296,7 +296,7 @@ each Threat's level value is displayed in parenthesis on the up right corner of 
 [[Image:Images/pab_diagram_1.png]] 
 
 Architecture Diagrams are extended Capella Architecture Diagrams.
-Thus, most of the tools available in Cybersecurity xAB diagrams are documented here (OAB, [[../help/topic/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.html?#System_Architecture_Blank |SAB]]<span class="github-link">[[https://github.com/eclipse/capella/blob/master/doc/plugins/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.mediawiki#System_Architecture_Blank|(online documentation)]]</span>,[[../help/topic/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.html?#Logical_Architecture_Blank |LAB]]<span class="github-link">[[https://github.com/eclipse/capella/blob/master/doc/plugins/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.mediawiki#Logical_Architecture_Blank|(online documentation)]]</span>, [[../help/topic/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.html?#Physical_Architecture_Blank |PAB]]<span class="github-link">[[https://github.com/eclipse/capella/blob/master/doc/plugins/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.mediawiki#Physical_Architecture_Blank|(online documentation)]]</span>).
+Thus, most of the tools available in Cybersecurity xAB diagrams are documented here (OAB, [[../help/topic/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.html?#System_Architecture_Blank |SAB]]<span class="github-link">[[https://github.com/eclipse-capella/capella/blob/master/doc/plugins/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.mediawiki#System_Architecture_Blank|(online documentation)]]</span>,[[../help/topic/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.html?#Logical_Architecture_Blank |LAB]]<span class="github-link">[[https://github.com/eclipse-capella/capella/blob/master/doc/plugins/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.mediawiki#Logical_Architecture_Blank|(online documentation)]]</span>, [[../help/topic/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.html?#Physical_Architecture_Blank |PAB]]<span class="github-link">[[https://github.com/eclipse-capella/capella/blob/master/doc/plugins/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.mediawiki#Physical_Architecture_Blank|(online documentation)]]</span>).
 
 === Tools ===
 
@@ -381,11 +381,11 @@ The Trust Boundaries Layer will change the diagrams appearance: Trusted componen
 
 == Scenario Diagram ==
 
-See Capella [[../help/topic/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.html?#Exchange_Scenario | Exchange  Scenario Documentation]]<span class="github-link">[[https://github.com/eclipse/capella/blob/master/doc/plugins/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.mediawiki#Exchange_Scenario|(online documentation)]]</span>.
+See Capella [[../help/topic/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.html?#Exchange_Scenario | Exchange  Scenario Documentation]]<span class="github-link">[[https://github.com/eclipse-capella/capella/blob/master/doc/plugins/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.mediawiki#Exchange_Scenario|(online documentation)]]</span>.
 
 == Information Asset Diagram ==
 
-See Capella [[../help/topic/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.html?#Class_Diagram_Blank | Class Diagram Documentation]]<span class="github-link">[[https://github.com/eclipse/capella/blob/master/doc/plugins/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.mediawiki#Class_Diagram_Blank|(online documentation)]]</span>.
+See Capella [[../help/topic/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.html?#Class_Diagram_Blank | Class Diagram Documentation]]<span class="github-link">[[https://github.com/eclipse-capella/capella/blob/master/doc/plugins/org.polarsys.capella.diagrams.doc/html/Diagrams/diagrams.mediawiki#Class_Diagram_Blank|(online documentation)]]</span>.
 
 == Model Validation ==
 
