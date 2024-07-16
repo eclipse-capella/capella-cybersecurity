@@ -593,6 +593,13 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DndAsset" mappings="//@ownedViewpoints[name='Cybersecurity']/@ownedRepresentationExtensions[name='Cybersecurity%20Architecture%20Diagram%20Extensions']/@layers[name='Cybersecurity%20Assets%20Layer']/@nodeMappings[name='PrimaryAsset'] //@ownedViewpoints[name='Cybersecurity']/@ownedRepresentationExtensions[name='Cybersecurity%20Architecture%20Diagram%20Extensions']/@layers[name='Cybersecurity%20Assets%20Layer']/@nodeMappings[name='Threat']" dragSource="PROJECT_EXPLORER">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation/>
+          </ownedTools>
         </toolSections>
         <customization>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:view.hasAssetsOrThreatsDisplayed() and self.hasAssetStyleCustomization() and view.removeCustomization()">
