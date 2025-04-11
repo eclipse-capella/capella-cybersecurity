@@ -25,9 +25,9 @@
 	<build>
 		<plugins>
 				<plugin>
-					<groupId>org.eclipse.tycho.extras</groupId>
-					<artifactId>tycho-eclipserun-plugin</artifactId>
-					<version>${tycho-extras-version}</version>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-eclipse-plugin</artifactId>
+					<version>${tycho-version}</version>
 					<configuration>
 						<repositories>
 							<repository>
@@ -63,7 +63,14 @@
 								<goal>eclipse-run</goal>
 							</goals>
 							<configuration>
-								<appArgLine>-application org.eclipse.equinox.p2.repository.repo2runnable -source file:${project.build.directory}/repository -destination ${project.build.directory}/${packagedAddonName}/eclipse</appArgLine>
+								<applicationArgs>
+									<arg>-application</arg>
+									<arg>org.eclipse.equinox.p2.repository.repo2runnable</arg>
+									<arg>-source</arg>
+									<arg>file:${project.build.directory}/repository</arg>
+									<arg>-destination</arg>
+									<arg>${project.build.directory}/${packagedAddonName}/eclipse</arg>
+								</applicationArgs>
 							</configuration>
 						</execution>
 					</executions>
@@ -118,6 +125,15 @@
 							<configuration>
 								<finalName>${packagedAddonName}-updateSite-${unqualifiedVersion}.${buildQualifier}</finalName>
 							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.cyclonedx</groupId>
+					<artifactId>cyclonedx-maven-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>create-bom</id>
 						</execution>
 					</executions>
 				</plugin>

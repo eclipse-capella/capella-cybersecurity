@@ -29,6 +29,6 @@ location "https://download.eclipse.org/modeling/emf/cdo/drops/R20230307-0126/" {
     org.eclipse.emf.cdo.sdk.feature.group
 }
 
-location xhtml "https://download.eclipse.org/capella/addons/xhtmldocgen/updates/nightly/master/" {
+location xhtml "https://download.eclipse.org/capella/addons/xhtmldocgen/updates/releases/7.0.0/" {
     org.polarsys.capella.docgen.feature.feature.group
 }
