@@ -101,7 +101,7 @@ pipeline {
 		stage('Sonar') {
 			steps {
 				script {
-					sonar.runSonar("eclipse-capella_capella-cybersecurity", "eclipse/capella-cybersecurity", 'sonarcloud-token-cybersecurity')
+					sonar.runSonar("eclipse-capella_capella-cybersecurity", "eclipse/capella-cybersecurity", 'sonarcloud-token-capella-cybersecurity')
 				}
 			}
 		}
