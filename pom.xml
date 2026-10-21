@@ -34,6 +34,9 @@
     <!-- for packaging -->
     <eclipse-repo.url>https://download.eclipse.org/releases/2023-03</eclipse-repo.url>
     <packagedAddonName>Darc</packagedAddonName>
+    
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
 
   <modules>
