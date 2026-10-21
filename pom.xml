@@ -181,6 +181,14 @@
                         </execution>
                     </executions>
                 </plugin>
+
+				<!-- This is used by org.eclipse.tycho:tycho-build for the
+				pomless builds -->
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>build-helper-maven-plugin</artifactId>
+					<version>3.6.2</version>
+				</plugin>
       </plugins>
     </pluginManagement>
   </build>
