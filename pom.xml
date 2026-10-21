@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright (c) 2019 THALES GLOBAL SERVICES.
+<!-- Copyright (c) 2019, 2026 THALES GLOBAL SERVICES.
     This program and the accompanying materials are made available under the
     terms of the Eclipse Public License 2.0 which is available at
     http://www.eclipse.org/legal/epl-2.0
@@ -23,8 +23,7 @@
   <packaging>pom</packaging>
 
   <properties>
-    <tycho-version>4.0.9</tycho-version>
-    <tycho-extras-version>4.0.9</tycho-extras-version>
+    <tycho-extras-version>${tycho-version}</tycho-extras-version>
     <tycho.scmUrl>scm:git:http://git.polarsys.org/c/capella/capella-cybersecurity.git</tycho.scmUrl>
     <antrun-version>3.0.0</antrun-version>
 
