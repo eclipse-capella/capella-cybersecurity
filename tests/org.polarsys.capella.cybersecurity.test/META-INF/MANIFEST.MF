@@ -2,6 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Test
 Bundle-SymbolicName: org.polarsys.capella.cybersecurity.test
+Bundle-Vendor: Eclipse.org
 Bundle-Version: 7.2.0.qualifier
 Automatic-Module-Name: org.polarsys.capella.cybersecurity.test
 Bundle-RequiredExecutionEnvironment: JavaSE-17
