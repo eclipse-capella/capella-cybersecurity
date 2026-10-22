@@ -12,10 +12,6 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <prerequisites>
-    <maven>3.0</maven>
-  </prerequisites>
-
   <name>Cybersecurity</name>
   <groupId>org.polarsys</groupId>
   <artifactId>org.polarsys.capella.cybersecurity</artifactId>
@@ -50,6 +46,26 @@
     <sourceDirectory>src</sourceDirectory>
     <testSourceDirectory>src</testSourceDirectory>
     <plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-enforcer-plugin</artifactId>
+				<version>3.6.3</version>
+				<executions>
+					<execution>
+						<id>enforce-maven</id>
+						<goals>
+							<goal>enforce</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<requireMavenVersion>
+									<version>[3.0,4.0.0)</version>
+								</requireMavenVersion>
+							</rules>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
       <plugin>
     <groupId>org.eclipse.tycho</groupId>
     <artifactId>tycho-packaging-plugin</artifactId>
@@ -131,16 +147,16 @@
         <artifactId>tycho-p2-plugin</artifactId>
         <version>${tycho-version}</version>
         <executions>
-          <!-- These two should allow us not to get "duplicate artifact" warnings during the build. -->
+					<!-- These two should allow us not to get "duplicate artifact" warnings during the build. -->
           <execution>
-            <!-- Don't attach (default) metadata before the source-feature execution.-->
+						<!-- Don't attach (default) metadata before the source-feature execution.-->
             <id>default-p2-metadata-default</id>
             <configuration>
               <attachP2Metadata>false</attachP2Metadata>
             </configuration>
           </execution>
           <execution>
-            <!-- Do attach metadata after the source-feature execution.-->
+						<!-- Do attach metadata after the source-feature execution.-->
             <id>attach-p2-metadata</id>
             <goals>
               <goal>p2-metadata</goal>
