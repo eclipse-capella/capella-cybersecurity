@@ -2,12 +2,12 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.polarsys.capella.cybersecurity.model.edit;singleton:=true
-Bundle-Version: 2.2.0.qualifier
+Bundle-Version: 7.2.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.polarsys.capella.cybersecurity.model.provider.CybersecurityEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: org.polarsys.capella.cybersecurity.model.provider
 Require-Bundle: org.eclipse.core.runtime,
  org.polarsys.capella.cybersecurity.model;visibility:=reexport,
