@@ -34,10 +34,12 @@
 					<useUIHarness>true</useUIHarness>
 					<useUIThread>true</useUIThread>
 					<trimStackTrace>false</trimStackTrace>
-					<testClass>org.polarsys.capella.cybersecurity.test.CybersecurityTestSuite</testClass>
+					<testClass>
+						org.polarsys.capella.cybersecurity.test.CybersecurityTestSuite</testClass>
 					<showEclipseLog>true</showEclipseLog>
 					<dependencies>
-						<!-- see https://bugs.eclipse.org/bugs/show_bug.cgi?id=462862 -->
+						<!-- see
+						https://bugs.eclipse.org/bugs/show_bug.cgi?id=462862 -->
 						<dependency>
 							<type>eclipse-plugin</type>
 							<artifactId>org.eclipse.equinox.event</artifactId>
