@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cybersecurity="http://www.polarsys.org/capella/cybersecurity/1.0" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:filter="http://www.eclipse.org/sirius/diagram/description/filter/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:org.polarsys.capella.core.data.cs="http://www.polarsys.org/capella/core/cs/7.0.0" xmlns:org.polarsys.capella.core.data.fa="http://www.polarsys.org/capella/core/fa/7.0.0" xmlns:org.polarsys.capella.core.data.pa="http://www.polarsys.org/capella/core/pa/7.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/filter/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/filter http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
-  <viewpoint:DAnalysis uid="_4w8zgA0VEeqlca8SB56_iA" selectedViews="_43jKwA0VEeqlca8SB56_iA _48hxYA0VEeqlca8SB56_iA _4-Rd0A0VEeqlca8SB56_iA _5Cq1oA0VEeqlca8SB56_iA _5Fm04A0VEeqlca8SB56_iA _5GMDsA0VEeqlca8SB56_iA _5Jq1gA0VEeqlca8SB56_iA _5J77QA0VEeqlca8SB56_iA" version="15.2.0.202303281325">
+  <viewpoint:DAnalysis uid="_4w8zgA0VEeqlca8SB56_iA" selectedViews="_43jKwA0VEeqlca8SB56_iA _48hxYA0VEeqlca8SB56_iA _4-Rd0A0VEeqlca8SB56_iA _5Cq1oA0VEeqlca8SB56_iA _5Fm04A0VEeqlca8SB56_iA _5GMDsA0VEeqlca8SB56_iA _5Jq1gA0VEeqlca8SB56_iA _5J77QA0VEeqlca8SB56_iA" version="15.4.16.202610070916">
     <semanticResources>documentation.afm</semanticResources>
     <semanticResources>documentation.capella</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_43jKwA0VEeqlca8SB56_iA">
@@ -21,7 +21,7 @@
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" uid="_5Fm04A0VEeqlca8SB56_iA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.polarsys.capella.core.sirius.analysis/description/physical.odesign#//@ownedViewpoints[name='Physical%20Architecture']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_E-d_oQ0eEeqBMNUHl_wRng" name="Cybersecurity PAB Example 1" repPath="#_E44VAA0eEeqBMNUHl_wRng" changeId="1701337292616">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_E-d_oQ0eEeqBMNUHl_wRng" name="Cybersecurity PAB Example 1" repPath="#_E44VAA0eEeqBMNUHl_wRng" changeId="1793089918709">
         <eAnnotations xmi:type="description:DAnnotation" uid="_FLZBUA0eEeqBMNUHl_wRng" source="https://www.polarsys.org/capella/dannotation/DesactivatedFilters">
           <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FLaPcA0eEeqBMNUHl_wRng" key="hide.computed.component.exchanges.filter" value="true"/>
           <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FLaPcQ0eEeqBMNUHl_wRng" key="hide.computed.physical.links.filter" value="true"/>
@@ -29,7 +29,7 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.polarsys.capella.core.sirius.analysis/description/physical.odesign#//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']"/>
         <target xmi:type="org.polarsys.capella.core.data.pa:PhysicalComponent" href="documentation.capella#7b93b848-19c3-433d-b54a-2305db5d073c"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_kr2akA0iEeqBMNUHl_wRng" name="Cybersecurity PAB Example 2" repPath="#_krt3sA0iEeqBMNUHl_wRng" changeId="1701337292616">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_kr2akA0iEeqBMNUHl_wRng" name="Cybersecurity PAB Example 2" repPath="#_krt3sA0iEeqBMNUHl_wRng" changeId="1793089918709">
         <eAnnotations xmi:type="description:DAnnotation" uid="_krtQoA0iEeqBMNUHl_wRng" source="https://www.polarsys.org/capella/dannotation/DesactivatedFilters">
           <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_kr420A0iEeqBMNUHl_wRng" key="hide.computed.component.exchanges.filter" value="true"/>
           <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_kr420Q0iEeqBMNUHl_wRng" key="hide.computed.physical.links.filter" value="true"/>
@@ -986,7 +986,7 @@
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:Square" uid="_LneT8A0eEeqBMNUHl_wRng" showIcon="false" labelColor="9,92,46" borderSize="1" borderSizeComputationExpression="1" borderColor="9,92,46" labelPosition="node" color="197,255,166">
+        <ownedStyle xmi:type="diagram:Square" uid="_LneT8A0eEeqBMNUHl_wRng" showIcon="false" labelColor="9,92,46" borderSize="1" borderSizeComputationExpression="1" borderColor="9,92,46" labelPosition="node" width="-1" height="-1" color="197,255,166">
           <customFeatures>showIcon</customFeatures>
           <description xmi:type="style:SquareDescription" href="platform:/plugin/org.polarsys.capella.core.sirius.analysis/description/physical.odesign#//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@nodeMappings[name='PAB_PhysicalFunction']/@style"/>
         </ownedStyle>
@@ -1074,7 +1074,7 @@
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
           <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
           <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-          <ownedStyle xmi:type="diagram:Square" uid="_DplwAg0hEeqBMNUHl_wRng" showIcon="false" labelColor="9,92,46" description="_DplwAA0hEeqBMNUHl_wRng" borderSize="5" borderSizeComputationExpression="5" labelPosition="node" color="197,255,166">
+          <ownedStyle xmi:type="diagram:Square" uid="_DplwAg0hEeqBMNUHl_wRng" showIcon="false" labelColor="9,92,46" description="_DplwAA0hEeqBMNUHl_wRng" borderSize="5" borderSizeComputationExpression="5" labelPosition="node" width="-1" height="-1" color="197,255,166">
             <customFeatures>showIcon</customFeatures>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.polarsys.capella.core.sirius.analysis/description/physical.odesign#//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@nodeMappings[name='PAB_PhysicalFunction']"/>
@@ -1111,7 +1111,7 @@
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
           <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
           <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-          <ownedStyle xmi:type="diagram:Square" uid="_o7xUcQ0eEeqBMNUHl_wRng" showIcon="false" labelColor="9,92,46" borderSize="1" borderSizeComputationExpression="1" borderColor="9,92,46" labelPosition="node" color="197,255,166">
+          <ownedStyle xmi:type="diagram:Square" uid="_o7xUcQ0eEeqBMNUHl_wRng" showIcon="false" labelColor="9,92,46" borderSize="1" borderSizeComputationExpression="1" borderColor="9,92,46" labelPosition="node" width="-1" height="-1" color="197,255,166">
             <customFeatures>showIcon</customFeatures>
             <description xmi:type="style:SquareDescription" href="platform:/plugin/org.polarsys.capella.core.sirius.analysis/description/physical.odesign#//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@nodeMappings[name='PAB_PhysicalFunction']/@style"/>
           </ownedStyle>
@@ -1184,7 +1184,7 @@
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
           <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
           <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-          <ownedStyle xmi:type="diagram:Square" uid="_XFB1AQ0hEeqBMNUHl_wRng" showIcon="false" labelColor="9,92,46" description="_DplwAA0hEeqBMNUHl_wRng" borderSize="5" borderSizeComputationExpression="5" labelPosition="node" color="197,255,166">
+          <ownedStyle xmi:type="diagram:Square" uid="_XFB1AQ0hEeqBMNUHl_wRng" showIcon="false" labelColor="9,92,46" description="_DplwAA0hEeqBMNUHl_wRng" borderSize="5" borderSizeComputationExpression="5" labelPosition="node" width="-1" height="-1" color="197,255,166">
             <customFeatures>showIcon</customFeatures>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.polarsys.capella.core.sirius.analysis/description/physical.odesign#//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@nodeMappings[name='PAB_PhysicalFunction']"/>
@@ -1218,7 +1218,7 @@
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:Square" uid="_GYM9QQ0fEeqBMNUHl_wRng" showIcon="false" labelColor="9,92,46" borderSize="1" borderSizeComputationExpression="1" borderColor="9,92,46" labelPosition="node" color="197,255,166">
+        <ownedStyle xmi:type="diagram:Square" uid="_GYM9QQ0fEeqBMNUHl_wRng" showIcon="false" labelColor="9,92,46" borderSize="1" borderSizeComputationExpression="1" borderColor="9,92,46" labelPosition="node" width="-1" height="-1" color="197,255,166">
           <customFeatures>showIcon</customFeatures>
           <description xmi:type="style:SquareDescription" href="platform:/plugin/org.polarsys.capella.core.sirius.analysis/description/physical.odesign#//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@nodeMappings[name='PAB_PhysicalFunction']/@style"/>
         </ownedStyle>
@@ -1313,7 +1313,7 @@
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:Square" uid="_XFERQQ0hEeqBMNUHl_wRng" showIcon="false" labelColor="9,92,46" description="_DplwAA0hEeqBMNUHl_wRng" borderSize="5" borderSizeComputationExpression="5" labelPosition="node" color="197,255,166">
+        <ownedStyle xmi:type="diagram:Square" uid="_XFERQQ0hEeqBMNUHl_wRng" showIcon="false" labelColor="9,92,46" description="_DplwAA0hEeqBMNUHl_wRng" borderSize="5" borderSizeComputationExpression="5" labelPosition="node" width="-1" height="-1" color="197,255,166">
           <customFeatures>showIcon</customFeatures>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.polarsys.capella.core.sirius.analysis/description/physical.odesign#//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@nodeMappings[name='PAB_PhysicalFunction']"/>
@@ -1359,7 +1359,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.polarsys.capella.core.sirius.analysis/description/physical.odesign#//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@nodeMappings[name='PAB_PhysicalFunction']/@borderedNodeMappings[name='PAB_Pin']"/>
         </ownedBorderedNodes>
-        <ownedStyle xmi:type="diagram:Square" uid="_LwjskA0gEeqBMNUHl_wRng" showIcon="false" labelColor="9,92,46" borderSize="1" borderSizeComputationExpression="1" borderColor="9,92,46" labelPosition="node" color="197,255,166">
+        <ownedStyle xmi:type="diagram:Square" uid="_LwjskA0gEeqBMNUHl_wRng" showIcon="false" labelColor="9,92,46" borderSize="1" borderSizeComputationExpression="1" borderColor="9,92,46" labelPosition="node" width="-1" height="-1" color="197,255,166">
           <customFeatures>showIcon</customFeatures>
           <description xmi:type="style:SquareDescription" href="platform:/plugin/org.polarsys.capella.core.sirius.analysis/description/physical.odesign#//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@nodeMappings[name='PAB_PhysicalFunction']/@style"/>
         </ownedStyle>
@@ -1966,7 +1966,7 @@
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:Square" uid="_krw7AA0iEeqBMNUHl_wRng" showIcon="false" labelColor="9,92,46" borderSize="1" borderSizeComputationExpression="1" borderColor="9,92,46" labelPosition="node" color="197,255,166">
+        <ownedStyle xmi:type="diagram:Square" uid="_krw7AA0iEeqBMNUHl_wRng" showIcon="false" labelColor="9,92,46" borderSize="1" borderSizeComputationExpression="1" borderColor="9,92,46" labelPosition="node" width="-1" height="-1" color="197,255,166">
           <customFeatures>showIcon</customFeatures>
           <description xmi:type="style:SquareDescription" href="platform:/plugin/org.polarsys.capella.core.sirius.analysis/description/physical.odesign#//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@nodeMappings[name='PAB_PhysicalFunction']/@style"/>
         </ownedStyle>
@@ -2054,7 +2054,7 @@
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
           <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
           <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-          <ownedStyle xmi:type="diagram:Square" uid="_nGXVMg0iEeqBMNUHl_wRng" showIcon="false" labelColor="9,92,46" description="_nGXVMA0iEeqBMNUHl_wRng" borderSize="1" borderSizeComputationExpression="1" labelPosition="node" color="197,255,166">
+          <ownedStyle xmi:type="diagram:Square" uid="_nGXVMg0iEeqBMNUHl_wRng" showIcon="false" labelColor="9,92,46" description="_nGXVMA0iEeqBMNUHl_wRng" borderSize="1" borderSizeComputationExpression="1" labelPosition="node" width="-1" height="-1" color="197,255,166">
             <customFeatures>showIcon</customFeatures>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.polarsys.capella.core.sirius.analysis/description/physical.odesign#//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@nodeMappings[name='PAB_PhysicalFunction']"/>
@@ -2091,7 +2091,7 @@
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
           <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
           <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-          <ownedStyle xmi:type="diagram:Square" uid="_MEaqcg0lEeqBMNUHl_wRng" showIcon="false" labelColor="9,92,46" borderSize="1" borderSizeComputationExpression="1" borderColor="9,92,46" labelPosition="node" color="197,255,166">
+          <ownedStyle xmi:type="diagram:Square" uid="_MEaqcg0lEeqBMNUHl_wRng" showIcon="false" labelColor="9,92,46" borderSize="1" borderSizeComputationExpression="1" borderColor="9,92,46" labelPosition="node" width="-1" height="-1" color="197,255,166">
             <customFeatures>showIcon</customFeatures>
             <description xmi:type="style:SquareDescription" href="platform:/plugin/org.polarsys.capella.core.sirius.analysis/description/physical.odesign#//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@nodeMappings[name='PAB_PhysicalFunction']/@style"/>
           </ownedStyle>
@@ -2164,7 +2164,7 @@
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
           <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
           <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-          <ownedStyle xmi:type="diagram:Square" uid="_nGZKYw0iEeqBMNUHl_wRng" showIcon="false" labelColor="9,92,46" description="_nGXVMA0iEeqBMNUHl_wRng" borderSize="1" borderSizeComputationExpression="1" labelPosition="node" color="197,255,166">
+          <ownedStyle xmi:type="diagram:Square" uid="_nGZKYw0iEeqBMNUHl_wRng" showIcon="false" labelColor="9,92,46" description="_nGXVMA0iEeqBMNUHl_wRng" borderSize="1" borderSizeComputationExpression="1" labelPosition="node" width="-1" height="-1" color="197,255,166">
             <customFeatures>showIcon</customFeatures>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.polarsys.capella.core.sirius.analysis/description/physical.odesign#//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@nodeMappings[name='PAB_PhysicalFunction']"/>
@@ -2198,7 +2198,7 @@
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:Square" uid="_krw7RA0iEeqBMNUHl_wRng" showIcon="false" labelColor="9,92,46" borderSize="1" borderSizeComputationExpression="1" borderColor="9,92,46" labelPosition="node" color="197,255,166">
+        <ownedStyle xmi:type="diagram:Square" uid="_krw7RA0iEeqBMNUHl_wRng" showIcon="false" labelColor="9,92,46" borderSize="1" borderSizeComputationExpression="1" borderColor="9,92,46" labelPosition="node" width="-1" height="-1" color="197,255,166">
           <customFeatures>showIcon</customFeatures>
           <description xmi:type="style:SquareDescription" href="platform:/plugin/org.polarsys.capella.core.sirius.analysis/description/physical.odesign#//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@nodeMappings[name='PAB_PhysicalFunction']/@style"/>
         </ownedStyle>
@@ -2293,7 +2293,7 @@
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:Square" uid="_MEeU0Q0lEeqBMNUHl_wRng" showIcon="false" labelColor="9,92,46" description="_nGXVMA0iEeqBMNUHl_wRng" borderSize="1" borderSizeComputationExpression="1" labelPosition="node" color="197,255,166">
+        <ownedStyle xmi:type="diagram:Square" uid="_MEeU0Q0lEeqBMNUHl_wRng" showIcon="false" labelColor="9,92,46" description="_nGXVMA0iEeqBMNUHl_wRng" borderSize="1" borderSizeComputationExpression="1" labelPosition="node" width="-1" height="-1" color="197,255,166">
           <customFeatures>showIcon</customFeatures>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.polarsys.capella.core.sirius.analysis/description/physical.odesign#//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@nodeMappings[name='PAB_PhysicalFunction']"/>
@@ -2339,7 +2339,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.polarsys.capella.core.sirius.analysis/description/physical.odesign#//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@nodeMappings[name='PAB_PhysicalFunction']/@borderedNodeMappings[name='PAB_Pin']"/>
         </ownedBorderedNodes>
-        <ownedStyle xmi:type="diagram:Square" uid="_krxiOQ0iEeqBMNUHl_wRng" showIcon="false" labelColor="9,92,46" borderSize="1" borderSizeComputationExpression="1" borderColor="9,92,46" labelPosition="node" color="197,255,166">
+        <ownedStyle xmi:type="diagram:Square" uid="_krxiOQ0iEeqBMNUHl_wRng" showIcon="false" labelColor="9,92,46" borderSize="1" borderSizeComputationExpression="1" borderColor="9,92,46" labelPosition="node" width="-1" height="-1" color="197,255,166">
           <customFeatures>showIcon</customFeatures>
           <description xmi:type="style:SquareDescription" href="platform:/plugin/org.polarsys.capella.core.sirius.analysis/description/physical.odesign#//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@nodeMappings[name='PAB_PhysicalFunction']/@style"/>
         </ownedStyle>
