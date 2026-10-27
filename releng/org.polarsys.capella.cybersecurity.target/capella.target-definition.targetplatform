@@ -32,7 +32,3 @@ location "https://download.eclipse.org/modeling/emf/cdo/drops/R20230307-0126/" {
 location xhtml "https://download.eclipse.org/capella/addons/xhtmldocgen/updates/nightly/master-PR-287-2/" {
     org.polarsys.capella.docgen.feature.feature.group
 }
-
-location Eclipse-2025-09 "https://download.eclipse.org/releases/2025-09/" {
-	org.apache.xerces
-}
