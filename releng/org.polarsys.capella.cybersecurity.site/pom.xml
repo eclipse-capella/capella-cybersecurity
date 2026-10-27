@@ -55,6 +55,7 @@
 							<type>eclipse-plugin</type>
 						</dependency>
 					</dependencies>
+					<executionEnvironment>JavaSE-21</executionEnvironment>
 				</configuration>
 				<executions>
 					<execution>
@@ -100,6 +101,14 @@
 									<fileset
 										dir="${project.build.directory}/${packagedAddonName}/eclipse/features"
 										includes="**/META-INF/**" />
+								</delete>
+								<delete includeemptydirs="true">
+									<fileset dir="${project.build.directory}/${packagedAddonName}/eclipse/features"
+										includes="org.polarsys.capella.cybersecurity.tests*/**" />
+								</delete>
+								<delete>
+									<fileset dir="${project.build.directory}/${packagedAddonName}/eclipse/plugins"
+										includes="org.polarsys.capella.cybersecurity.test*" />
 								</delete>
 								<copy
 									todir="${project.build.directory}/${packagedAddonName}/eclipse"
